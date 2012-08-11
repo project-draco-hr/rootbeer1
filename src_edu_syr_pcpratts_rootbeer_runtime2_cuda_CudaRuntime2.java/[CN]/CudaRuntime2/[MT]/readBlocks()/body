@@ -1,0 +1,59 @@
+{
+  Stopwatch watch=new Stopwatch();
+  watch.start();
+  for (int i=0; i < m_NumCores; ++i)   m_ToSpace.get(i).setAddress(0);
+  m_ExceptionHandles.activate();
+  if (Configuration.getRunAllTests() == false) {
+    BufferPrinter printer=new BufferPrinter();
+    printer.print(m_ToSpace.get(0),0,720);
+  }
+  for (int i=0; i < m_NumBlocksRun; ++i) {
+    long ref=m_ExceptionHandles.readLong();
+    if (ref != 0) {
+      long ref_num=ref >> 4;
+      if (ref_num == Constants.NullPointerNumber) {
+        throw new NullPointerException();
+      }
+ else       if (ref_num == Constants.OutOfMemoryNumber) {
+        throw new OutOfMemoryError();
+      }
+      Memory mem=m_ToSpace.get(0);
+      Memory texture_mem=m_Texture.get(0);
+      Serializer visitor=m_FirstJob.getSerializer(mem,texture_mem);
+      mem.setAddress(ref);
+      Object except=visitor.readFromHeap(null,true,ref);
+      if (except instanceof Error) {
+        Error except_th=(Error)except;
+        throw except_th;
+      }
+ else {
+        throw new RuntimeException((Throwable)except);
+      }
+    }
+  }
+  List<Serializer> visitors=new ArrayList<Serializer>();
+  for (int i=0; i < m_NumCores; ++i) {
+    Memory mem=m_ToSpace.get(i);
+    Memory texture_mem=m_Texture.get(i);
+    Serializer visitor=m_FirstJob.getSerializer(mem,texture_mem);
+    visitors.add(visitor);
+  }
+  visitors.get(0).readStaticsFromHeap();
+  int items_per=m_NumBlocksRun / m_NumCores;
+  for (int i=0; i < m_NumCores; ++i) {
+    Serializer visitor=visitors.get(i);
+    int end_index;
+    if (i == m_NumCores - 1) {
+      end_index=m_NumBlocksRun;
+    }
+ else {
+      end_index=(i + 1) * items_per;
+    }
+    List<Long> handles=m_HandlesCache.subList(i * items_per,end_index);
+    List<Kernel> jobs=m_JobsWritten.subList(i * items_per,end_index);
+    m_Readers.get(i).read(jobs,handles,visitor);
+  }
+  for (int i=0; i < m_NumCores; ++i) {
+    m_Readers.get(i).join();
+  }
+}

@@ -1,0 +1,15 @@
+{
+  Rootbeer rootbeer=new Rootbeer();
+  List<Kernel> testing_items=creator.create();
+  try {
+    rootbeer.runAll(testing_items);
+    m_passed=false;
+    m_message="No exception thrown when expecting one.";
+  }
+ catch (  Throwable ex) {
+    m_passed=creator.catchException(ex);
+    if (m_passed == false) {
+      m_message="Exception is: " + ex.toString();
+    }
+  }
+}

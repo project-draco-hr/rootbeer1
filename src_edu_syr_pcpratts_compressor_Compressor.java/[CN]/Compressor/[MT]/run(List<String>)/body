@@ -1,0 +1,45 @@
+{
+  boolean string_state=false;
+  StringBuilder ret=new StringBuilder();
+  for (  String line : lines) {
+    if (line.startsWith("#pragma")) {
+      ret.append(line + "\n");
+      continue;
+    }
+    string_state=false;
+    ANTLRStringStream stream=new ANTLRStringStream(line);
+    OpenCLLexer lexer=new OpenCLLexer(stream);
+    CommonTokenStream tokens=new CommonTokenStream(lexer);
+    OpenCLParser parser=new OpenCLParser(tokens);
+    OpenCLParser.program_return prog=parser.program();
+    List<Boolean> modify=prog.modify;
+    List<String> prog_tokens=prog.ret;
+    List<Boolean> is_string=prog.string;
+    for (int i=0; i < prog_tokens.size(); ++i) {
+      String text=prog_tokens.get(i);
+      boolean mod=modify.get(i);
+      if (is_string.get(i)) {
+        string_state=!string_state;
+        ret.append(text);
+      }
+ else       if (mod == false || string_state) {
+        ret.append(text);
+      }
+ else {
+        String new_token=compressToken(text);
+        ret.append(new_token);
+      }
+      if (string_state && i + 1 < prog_tokens.size() && is_string.get(i + 1)) {
+      }
+ else       if (string_state && is_string.get(i)) {
+      }
+ else       if (text.equals("\\")) {
+      }
+ else {
+        ret.append(" ");
+      }
+    }
+    ret.append("\n");
+  }
+  return ret.toString();
+}

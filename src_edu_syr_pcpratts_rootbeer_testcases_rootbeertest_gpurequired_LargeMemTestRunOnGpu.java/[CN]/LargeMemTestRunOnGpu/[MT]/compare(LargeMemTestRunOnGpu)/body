@@ -1,0 +1,8 @@
+{
+  if (m_Sum != brhs.m_Sum) {
+    System.out.println("m_Sum");
+    System.out.println("lhs: " + m_Sum + " rhs: "+ brhs.m_Sum);
+    return false;
+  }
+  return true;
+}

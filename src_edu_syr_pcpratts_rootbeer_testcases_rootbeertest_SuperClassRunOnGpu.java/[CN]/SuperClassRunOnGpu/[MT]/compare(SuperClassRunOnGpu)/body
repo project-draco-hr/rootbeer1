@@ -1,0 +1,15 @@
+{
+  if (str.equals(brhs.str) == false) {
+    System.out.println("Failed at str");
+    System.out.println("lhs: " + str);
+    System.out.println("rhs: " + brhs.str);
+    return false;
+  }
+  if (ret != brhs.ret) {
+    System.out.println("Failed at ret");
+    System.out.println("lhs: " + ret);
+    System.out.println("rhs: " + brhs.ret);
+    return false;
+  }
+  return true;
+}

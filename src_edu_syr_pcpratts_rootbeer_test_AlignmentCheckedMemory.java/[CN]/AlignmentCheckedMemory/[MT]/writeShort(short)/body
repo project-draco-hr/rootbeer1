@@ -1,0 +1,4 @@
+{
+  checkAlignment(2);
+  super.writeShort(value);
+}

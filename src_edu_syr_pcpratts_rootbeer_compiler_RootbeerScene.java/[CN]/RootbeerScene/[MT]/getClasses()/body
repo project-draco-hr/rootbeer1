@@ -1,0 +1,9 @@
+{
+  Iterator<String> iter=m_Classes.keySet().iterator();
+  List<SootClass> ret=new ArrayList<SootClass>();
+  while (iter.hasNext()) {
+    String key=iter.next();
+    ret.add(m_Classes.get(key));
+  }
+  return ret.iterator();
+}

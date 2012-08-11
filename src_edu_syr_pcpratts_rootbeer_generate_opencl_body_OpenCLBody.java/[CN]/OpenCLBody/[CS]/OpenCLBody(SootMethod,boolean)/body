@@ -1,0 +1,11 @@
+{
+  m_Labels=new ArrayList<Unit>();
+  m_TrapMap=new HashMap<Unit,List<TrapItem>>();
+  m_AllTraps=new ArrayList<TrapItem>();
+  m_IsConstructor=is_constructor;
+  m_IsConstructorBodyWithoutHeader=false;
+  m_SootMethod=method;
+  m_SootClass=method.getDeclaringClass();
+  Body body=RootbeerScene.v().getBody(method);
+  setup(body);
+}

@@ -1,0 +1,5 @@
+{
+  Value rhs=jimple.newMulExpr(lhs,mult_value);
+  Unit u=jimple.newAssignStmt(lhs,rhs);
+  mAssembler.add(u);
+}

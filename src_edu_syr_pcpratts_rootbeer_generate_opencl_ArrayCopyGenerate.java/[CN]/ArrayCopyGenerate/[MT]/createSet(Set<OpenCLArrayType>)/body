@@ -1,0 +1,7 @@
+{
+  m_ArrayTypes=new ArrayList<OpenCLArrayType>();
+  Iterator<OpenCLArrayType> iter=array_types_set.iterator();
+  while (iter.hasNext()) {
+    m_ArrayTypes.add(iter.next());
+  }
+}

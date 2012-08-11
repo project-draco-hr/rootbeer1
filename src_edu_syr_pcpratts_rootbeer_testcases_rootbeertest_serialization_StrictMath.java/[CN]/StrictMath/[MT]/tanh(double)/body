@@ -1,0 +1,23 @@
+{
+  double t, z;
+  long bits;
+  long h_bits;
+  if (x != x)   return x;
+  if (x == Double.POSITIVE_INFINITY)   return 1.0;
+  if (x == Double.NEGATIVE_INFINITY)   return -1.0;
+  bits=Double.doubleToLongBits(x);
+  h_bits=getHighDWord(bits) & 0x7fffffffL;
+  if (h_bits < 0x40360000L) {
+    if (h_bits < 0x3c800000L)     return x * (1.0 + x);
+    if (h_bits >= 0x3ff00000L) {
+      t=expm1(2.0 * abs(x));
+      z=1.0 - 2.0 / (t + 2.0);
+    }
+ else {
+      t=expm1(-2.0 * abs(x));
+      z=-t / (t + 2.0);
+    }
+  }
+ else   z=1.0;
+  return (x >= 0) ? z : -z;
+}

@@ -1,0 +1,5 @@
+{
+  List<TestSerialization> ret=new ArrayList<TestSerialization>();
+  ret.add(new OfCoarse());
+  return ret;
+}

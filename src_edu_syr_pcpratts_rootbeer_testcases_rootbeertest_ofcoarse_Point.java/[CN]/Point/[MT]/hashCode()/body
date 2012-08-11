@@ -1,0 +1,6 @@
+{
+  long hash=5;
+  hash=37 * hash + (long)this.X ^ (long)this.X >>> 32;
+  hash=37 * hash + (long)this.Y ^ (long)this.Y >>> 32;
+  return (int)hash;
+}

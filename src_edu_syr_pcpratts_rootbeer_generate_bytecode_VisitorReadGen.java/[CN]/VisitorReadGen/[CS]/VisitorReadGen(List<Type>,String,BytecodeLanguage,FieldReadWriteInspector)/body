@@ -1,0 +1,13 @@
+{
+  super(inspector);
+  m_ReadFromHeapMethodsMade=new HashMap<Type,Local>();
+  m_OrderedHistory=ordered_history;
+  m_VisitedReader=new HashSet<String>();
+  m_Bcl=new Stack<BytecodeLanguage>();
+  m_Bcl.push(bcl);
+  m_GcObjVisitor=new Stack<Local>();
+  m_FieldInspector=inspector;
+  m_ObjSerializing=new Stack<Local>();
+  m_CurrMem=new Stack<Local>();
+  m_CurrObj=new Stack<Local>();
+}

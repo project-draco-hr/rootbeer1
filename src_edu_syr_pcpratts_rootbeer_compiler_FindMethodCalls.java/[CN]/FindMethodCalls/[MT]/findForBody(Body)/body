@@ -1,0 +1,17 @@
+{
+  Set<SootMethod> methods=new LinkedHashSet<SootMethod>();
+  PatchingChain<Unit> chain=body.getUnits();
+  Iterator<Unit> iter=chain.iterator();
+  while (iter.hasNext()) {
+    Unit unit=iter.next();
+    List<ValueBox> vboxes=unit.getUseAndDefBoxes();
+    for (    ValueBox vbox : vboxes) {
+      Value value=vbox.getValue();
+      if (value instanceof InvokeExpr == false)       continue;
+      InvokeExpr expr=(InvokeExpr)value;
+      SootMethod method=expr.getMethod();
+      if (methods.contains(method) == false)       methods.add(method);
+    }
+  }
+  return methods;
+}

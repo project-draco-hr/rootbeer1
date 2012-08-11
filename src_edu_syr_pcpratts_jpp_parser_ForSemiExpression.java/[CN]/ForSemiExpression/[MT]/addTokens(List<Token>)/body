@@ -1,0 +1,4 @@
+{
+  if (m_LowerLevel.hasNext() == false)   return;
+  existing.addAll(m_LowerLevel.next().getTokens());
+}

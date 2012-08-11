@@ -1,0 +1,37 @@
+{
+  BytecodeLanguage bcl=m_Bcl.top();
+  SootClass soot_class=type.getSootClass();
+  soot_class=RootbeerScene.v().getClass(soot_class.getName());
+  Local object_to_write_to=bcl.cast(type,m_Param0);
+  String label=getNextLabel();
+  BclMemory bcl_mem=new BclMemory(bcl,m_CurrMem.top());
+  bcl_mem.incrementAddress(3);
+  Local ctor_used=bcl_mem.readByte();
+  bcl.ifStmt(ctor_used,"==",IntConstant.v(0),label);
+  String name=soot_class.getName();
+  if (soot_class.isLibraryClass()) {
+    if (soot_class.declaresMethod("void <init>()")) {
+      Local new_object=bcl.newInstance(name);
+      bcl.assign(object_to_write_to,new_object);
+    }
+  }
+ else {
+    Local sentinal=bcl.newInstance("edu.syr.pcpratts.rootbeer.runtime.Sentinal");
+    Local new_object=bcl.newInstance(name,sentinal);
+    bcl.assign(object_to_write_to,new_object);
+  }
+  bcl.label(label);
+  SootClass obj_class=RootbeerScene.v().getClass("java.lang.Object");
+  bcl.pushMethod(m_ThisRef,"checkCache",obj_class.getType(),LongType.v(),obj_class.getType());
+  object_to_write_to=bcl.invokeMethodRet(m_ThisRef,m_RefParam,object_to_write_to);
+  object_to_write_to=bcl.cast(type,object_to_write_to);
+  bcl_mem.incrementAddress(12);
+  m_CurrObj.push(object_to_write_to);
+  m_ObjSerializing.push(object_to_write_to);
+  readFields(soot_class,true);
+  readFields(soot_class,false);
+  m_CurrObj.pop();
+  m_ObjSerializing.pop();
+  bcl_mem.finishReading();
+  return object_to_write_to;
+}

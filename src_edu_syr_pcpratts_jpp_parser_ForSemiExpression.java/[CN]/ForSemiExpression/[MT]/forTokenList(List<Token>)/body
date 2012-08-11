@@ -1,0 +1,6 @@
+{
+  if (curr.isEmpty())   return false;
+  Token first=curr.get(0);
+  if (first.getString().equals("for"))   return true;
+  return false;
+}

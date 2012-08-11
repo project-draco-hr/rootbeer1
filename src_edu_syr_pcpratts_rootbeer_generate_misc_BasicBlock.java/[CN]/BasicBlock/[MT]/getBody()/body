@@ -1,0 +1,13 @@
+{
+  List<Unit> units=new ArrayList<Unit>();
+  Local base=Jimple.v().newLocal("base",mRuntimeBasicBlockClass.getType());
+  SootMethod runOnCpu=mRuntimeBasicBlockClass.getMethod("run",new ArrayList(),VoidType.v());
+  InvokeExpr expr=Jimple.v().newVirtualInvokeExpr(base,runOnCpu.makeRef());
+  Unit u=Jimple.v().newInvokeStmt(expr);
+  units.add(u);
+  UnitAssembler assembler=new UnitAssembler();
+  assembler.addAll(units);
+  JimpleBody body=Jimple.v().newBody();
+  assembler.assemble(body);
+  return body;
+}

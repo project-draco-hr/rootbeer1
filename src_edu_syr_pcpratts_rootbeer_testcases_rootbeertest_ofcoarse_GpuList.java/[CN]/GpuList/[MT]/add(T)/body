@@ -1,0 +1,7 @@
+{
+  if (m_Count == m_Items.length) {
+    realloc();
+  }
+  m_Items[m_Count]=item;
+  m_Count++;
+}

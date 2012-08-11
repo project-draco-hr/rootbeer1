@@ -1,0 +1,50 @@
+{
+  try {
+    String code=m_Blocks.get(0).getCode();
+    PrintWriter writer=new PrintWriter("generated.c");
+    writer.println(code);
+    writer.flush();
+    writer.close();
+    String name=UUID.randomUUID().toString();
+    String cmd="rm *.so.1";
+    Process p=Runtime.getRuntime().exec(cmd,null,new File("native"));
+    int status=p.waitFor();
+    cmd="gcc -ggdb -Wall -fPIC -g -c -I/usr/lib/jvm/java-6-openjdk/include/ -I/usr/lib/jvm/java-6-openjdk/include/linux NativeCpuDevice.c -o NativeCpuDevice.o";
+    p=Runtime.getRuntime().exec(cmd,null,new File("native"));
+    status=p.waitFor();
+    if (status != 0) {
+      System.out.println("Compilation failure!");
+      System.exit(-1);
+    }
+    cmd="gcc -ggdb -fPIC -Wall -g -c -lpthread ../generated.c -o generated.o";
+    p=Runtime.getRuntime().exec(cmd,null,new File("native"));
+    status=p.waitFor();
+    if (status != 0) {
+      System.out.println("Compilation failure!");
+      System.exit(-1);
+    }
+    cmd="gcc -shared -Wl,-soname," + name + " -o "+ name+ ".so.1 generated.o -lc";
+    p=Runtime.getRuntime().exec(cmd,null,new File("native"));
+    status=p.waitFor();
+    if (status != 0) {
+      System.out.println("Compilation failure!");
+      System.exit(-1);
+    }
+    cmd="gcc -shared -Wl,-soname,nativecpudev -o nativecpudev.so.1 NativeCpuDevice.o generated.o -lc";
+    p=Runtime.getRuntime().exec(cmd,null,new File("native"));
+    status=p.waitFor();
+    if (status != 0) {
+      System.out.println("Compilation failure!");
+      System.exit(-1);
+    }
+    File f1=new File("native/nativecpudev.so.1");
+    System.load(f1.getAbsolutePath());
+    File f2=new File("native/" + name + ".so.1");
+    return f2.getAbsolutePath();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    System.exit(0);
+    return null;
+  }
+}

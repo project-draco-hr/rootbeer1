@@ -1,0 +1,8 @@
+{
+  String ret="";
+  ret+="int addr = thisref_deref + " + field_offset + ";\n";
+  ret+="if(addr % " + getSize() + " != 0){\n";
+  ret+="  printf(\"misaligned field: " + m_SootField.toString() + "\\n\");\n";
+  ret+="}\n";
+  return ret;
+}

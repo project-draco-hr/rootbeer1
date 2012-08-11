@@ -1,0 +1,4 @@
+{
+  this.a=a;
+  this.index=index;
+}

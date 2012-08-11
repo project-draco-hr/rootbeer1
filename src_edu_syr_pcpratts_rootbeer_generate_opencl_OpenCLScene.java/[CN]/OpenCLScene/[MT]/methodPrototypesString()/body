@@ -1,0 +1,22 @@
+{
+  Set<String> protos=new HashSet<String>();
+  StringBuilder ret=new StringBuilder();
+  List<OpenCLMethod> methods=mMethodHierarchies.getMethods();
+  for (  OpenCLMethod method : methods) {
+    protos.add(method.getMethodPrototype());
+  }
+  List<OpenCLPolymorphicMethod> poly_methods=mMethodHierarchies.getPolyMorphicMethods();
+  for (  OpenCLPolymorphicMethod poly_method : poly_methods) {
+    protos.add(poly_method.getMethodPrototype());
+  }
+  FieldCodeGeneration gen=new FieldCodeGeneration();
+  protos.add(gen.prototypes(m_Classes,codeSegment.getReadWriteFieldInspector()));
+  for (  OpenCLArrayType array_type : m_ArrayTypes) {
+    protos.add(array_type.getPrototypes());
+  }
+  Iterator<String> iter=protos.iterator();
+  while (iter.hasNext()) {
+    ret.append(iter.next());
+  }
+  return ret.toString();
+}

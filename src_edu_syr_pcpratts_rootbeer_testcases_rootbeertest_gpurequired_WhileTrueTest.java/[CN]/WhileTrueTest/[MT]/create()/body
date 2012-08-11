@@ -1,0 +1,9 @@
+{
+  List<Kernel> ret=new ArrayList<Kernel>();
+  AtomicLong along=new AtomicLong();
+  for (int i=0; i < 5; ++i) {
+    Kernel kernel=new WhileTrueRunOnGpu(along,i);
+    ret.add(kernel);
+  }
+  return ret;
+}

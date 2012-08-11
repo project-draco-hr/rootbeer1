@@ -1,0 +1,5 @@
+{
+  m_Curr=root;
+  m_CurrOcl=ocl_class;
+  m_Children=new ArrayList<TreeNode>();
+}

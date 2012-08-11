@@ -1,0 +1,16 @@
+{
+  mXSum/=mSumCount;
+  mYSum/=mSumCount;
+  mVolumeSum/=mSumCount;
+  mVolume=mVolumeSum;
+  mCenter.X=(int)mXSum;
+  mCenter.Y=(int)mYSum;
+  if (mSumCount == 0) {
+    mVolume=0;
+    mCenter.X=0;
+    mCenter.Y=0;
+    mXSum=0;
+    mYSum=0;
+    mVolumeSum=0;
+  }
+}

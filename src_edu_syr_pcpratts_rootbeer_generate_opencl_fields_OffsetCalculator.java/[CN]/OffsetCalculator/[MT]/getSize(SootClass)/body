@@ -1,0 +1,23 @@
+{
+  int ret=Constants.SizeGcInfo;
+  Map<OpenCLField,Integer> offset_map=m_OffsetMap.get(soot_class);
+  OpenCLField max_field=null;
+  int max_offset=Integer.MIN_VALUE;
+  Iterator<OpenCLField> iter=offset_map.keySet().iterator();
+  while (iter.hasNext()) {
+    OpenCLField field=iter.next();
+    int offset=offset_map.get(field);
+    if (offset > max_offset) {
+      max_offset=offset;
+      max_field=field;
+    }
+  }
+  if (max_field == null)   return ret;
+  ret=max_offset;
+  ret+=max_field.getSize();
+  int mod=ret % 16;
+  if (mod != 0) {
+    ret+=(16 - mod);
+  }
+  return ret;
+}

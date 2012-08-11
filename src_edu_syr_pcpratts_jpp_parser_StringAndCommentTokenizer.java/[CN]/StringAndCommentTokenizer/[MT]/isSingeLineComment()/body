@@ -1,0 +1,7 @@
+{
+  if (m_CurrChar.getString().equals("/") && m_NextChar.getString().equals("/")) {
+    m_InComment=true;
+    return true;
+  }
+  return false;
+}

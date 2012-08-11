@@ -1,0 +1,12 @@
+{
+  String sep=File.separator;
+  String jar_file=".." + sep + test_name+ sep+ "dist"+ sep+ test_name+ ".jar";
+  ExecutionTest tester=new ExecutionTest();
+  boolean ret=tester.run(jar_file);
+  if (ret) {
+    System.out.println("All tests pass");
+  }
+ else {
+    System.out.println("Tests FAIL");
+  }
+}

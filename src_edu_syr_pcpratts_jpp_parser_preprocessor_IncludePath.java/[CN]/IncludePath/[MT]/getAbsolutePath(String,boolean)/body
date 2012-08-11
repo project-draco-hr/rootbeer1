@@ -1,0 +1,20 @@
+{
+  String[] tokens=tokenizePath(path);
+  if (library_file) {
+    for (    String folder : m_Folders) {
+      File possible_match=matches(folder,tokens,0);
+      if (possible_match != null) {
+        return possible_match.getAbsolutePath();
+      }
+    }
+  }
+ else {
+    File f=new File(m_Filename);
+    String folder=f.getParent();
+    File possible_match=matches(folder,tokens,0);
+    if (possible_match != null) {
+      return possible_match.getAbsolutePath();
+    }
+  }
+  throw new RuntimeException("Cannot find path: " + path);
+}

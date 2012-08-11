@@ -1,0 +1,45 @@
+{
+  boolean negative=(x < 0);
+  double r;
+  double s;
+  double t;
+  double w;
+  long bits;
+  long l;
+  long h;
+  if (x != x)   return x;
+  if (x == Double.POSITIVE_INFINITY)   return Double.POSITIVE_INFINITY;
+  if (x == Double.NEGATIVE_INFINITY)   return Double.NEGATIVE_INFINITY;
+  if (x == 0)   return x;
+  x=abs(x);
+  bits=Double.doubleToLongBits(x);
+  if (bits < 0x0010000000000000L) {
+    t=TWO_54;
+    t*=x;
+    bits=Double.doubleToLongBits(t);
+    h=getHighDWord(bits);
+    l=getLowDWord(bits);
+    h=h / 3 + CBRT_B2;
+    t=buildDouble(l,h);
+  }
+ else {
+    h=getHighDWord(bits);
+    l=0;
+    h=h / 3 + CBRT_B1;
+    t=buildDouble(l,h);
+  }
+  r=t * t / x;
+  s=CBRT_C + r * t;
+  t*=CBRT_G + CBRT_F / (s + CBRT_E + CBRT_D / s);
+  bits=Double.doubleToLongBits(t);
+  h=getHighDWord(bits);
+  l=0;
+  h+=1;
+  t=buildDouble(l,h);
+  s=t * t;
+  r=x / s;
+  w=t + t;
+  r=(r - t) / (w + r);
+  t=t + t * r;
+  return negative ? -t : t;
+}

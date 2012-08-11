@@ -1,0 +1,3 @@
+{
+  return StrictMath.log(value) / StrictMath.log(10.0);
+}

@@ -1,0 +1,2 @@
+long cpu_base_address
+long gpu_base_address

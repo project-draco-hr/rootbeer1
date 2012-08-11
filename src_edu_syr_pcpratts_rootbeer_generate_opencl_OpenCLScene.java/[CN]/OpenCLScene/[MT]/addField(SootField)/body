@@ -1,0 +1,11 @@
+{
+  SootClass soot_class=soot_field.getDeclaringClass();
+  List<SootClass> hierarchy=mClassHierarchy.getClassHierarchy(soot_class);
+  for (  SootClass curr : hierarchy) {
+    OpenCLClass ocl_class=getOpenCLClass(curr);
+    ocl_class.findAllUsedMethodsAndFields();
+    addType(curr.getType());
+  }
+  OpenCLClass ocl_class=getOpenCLClass(soot_class);
+  ocl_class.addField(new OpenCLField(soot_field,soot_class));
+}

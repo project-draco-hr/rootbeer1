@@ -1,0 +1,31 @@
+{
+  Stopwatch watch=new Stopwatch();
+  watch.start();
+  CudaLoader loader=new CudaLoader();
+  loader.load();
+  m_BlockShaper=new BlockShaper();
+  setup(m_BlockShaper.getMaxBlocksPerProc(),m_BlockShaper.getMaxThreadsPerBlock());
+  m_JobsToWrite=new ArrayList<Kernel>();
+  m_JobsWritten=new ArrayList<Kernel>();
+  m_NotWritten=new ArrayList<Kernel>();
+  m_HandlesCache=new ArrayList<Long>();
+  m_ToSpace=new ArrayList<Memory>();
+  m_Texture=new ArrayList<Memory>();
+  m_Readers=new ArrayList<ToSpaceReader>();
+  m_Writers=new ArrayList<ToSpaceWriter>();
+  m_NumCores=Runtime.getRuntime().availableProcessors();
+  AtomicLong to_space_inst_ptr=new AtomicLong(0);
+  AtomicLong to_space_static_ptr=new AtomicLong(0);
+  AtomicLong texture_inst_ptr=new AtomicLong(0);
+  AtomicLong texture_static_ptr=new AtomicLong(0);
+  for (int i=0; i < m_NumCores; ++i) {
+    m_ToSpace.add(new FastMemory(m_ToSpaceAddr,to_space_inst_ptr,to_space_static_ptr,m_ToSpaceSize));
+    m_Texture.add(new FastMemory(m_TextureAddr,texture_inst_ptr,texture_static_ptr,m_ToSpaceSize));
+    m_Readers.add(new ToSpaceReader());
+    m_Writers.add(new ToSpaceWriter());
+  }
+  m_Handles=new Handles(m_HandlesAddr,m_GpuHandlesAddr);
+  m_ExceptionHandles=new Handles(m_ExceptionsHandlesAddr,m_GpuExceptionsHandlesAddr);
+  m_CpuRunner=new CpuRunner();
+  watch.stopAndPrint("CudaRuntime2 ctor: ");
+}

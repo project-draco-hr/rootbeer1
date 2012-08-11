@@ -1,0 +1,5 @@
+{
+  m_Shared=100;
+  m_Modified=50;
+  m_HelloStrings="hello world";
+}

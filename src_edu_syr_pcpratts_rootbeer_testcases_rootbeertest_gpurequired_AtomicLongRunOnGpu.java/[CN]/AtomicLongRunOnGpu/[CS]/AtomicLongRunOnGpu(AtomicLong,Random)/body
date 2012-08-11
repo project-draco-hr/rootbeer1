@@ -1,0 +1,6 @@
+{
+  m_ALong=along;
+  m_Random=-100;
+  m_Random2=-100;
+  this.random=random;
+}

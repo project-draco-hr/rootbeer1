@@ -1,0 +1,20 @@
+{
+  BytecodeLanguage bcl=m_Bcl.top();
+  bcl.startMethod("doReadStaticsFromHeap",VoidType.v());
+  m_ThisRef=bcl.refThis();
+  m_Mem=bcl.refInstanceField(m_ThisRef,"mMem");
+  m_CurrMem.push(m_Mem);
+  m_GcObjVisitor.push(m_ThisRef);
+  PermissionGraph graph=new PermissionGraph();
+  List<PermissionGraphNode> roots=graph.getRoots();
+  for (  PermissionGraphNode node : roots) {
+    SootClass soot_class=node.getSootClass();
+    if (soot_class.isApplicationClass()) {
+      attachAndCallReader(soot_class,node.getChildren());
+    }
+  }
+  bcl.returnVoid();
+  bcl.endMethod();
+  m_CurrMem.pop();
+  m_GcObjVisitor.pop();
+}

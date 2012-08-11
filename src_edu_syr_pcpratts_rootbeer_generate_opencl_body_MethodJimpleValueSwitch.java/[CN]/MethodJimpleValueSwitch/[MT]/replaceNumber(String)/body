@@ -1,0 +1,6 @@
+{
+  if (number.equals("#Infinity"))   return "INFINITY";
+  if (number.equals("#-Infinity"))   return "-INFINITY";
+  if (number.equals("#NaN"))   return "NAN";
+  return number;
+}

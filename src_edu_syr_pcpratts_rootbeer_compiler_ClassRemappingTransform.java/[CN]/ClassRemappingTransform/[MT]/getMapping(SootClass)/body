@@ -1,0 +1,4 @@
+{
+  String new_class=m_ClassRemapping.get(soot_class.getName());
+  return RootbeerScene.v().getClass(new_class);
+}

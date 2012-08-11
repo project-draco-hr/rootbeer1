@@ -1,0 +1,8 @@
+{
+  if (m_floor != rhs.m_floor)   return false;
+  if (m_abs != rhs.m_abs)   return false;
+  if (m_sqrt != rhs.m_sqrt)   return false;
+  if (m_round != rhs.m_round)   return false;
+  if (m_pow != rhs.m_pow)   return false;
+  return true;
+}

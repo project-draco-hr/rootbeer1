@@ -1,0 +1,4 @@
+{
+  m_Object=obj;
+  m_Object2=new SynchronizedObjectShared();
+}

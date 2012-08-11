@@ -1,0 +1,29 @@
+{
+  determineConstructorInfo();
+  StringBuilder ret=new StringBuilder();
+  String pointer_namespace_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
+  ret.append("int thisref = -1;\n");
+  int alloc_size=m_AllocSize;
+  int mod=m_AllocSize % 8;
+  if (mod != 0)   alloc_size+=(8 - mod);
+  ret.append("edu_syr_pcpratts_gc_assign(gc_info, &thisref, edu_syr_pcpratts_gc_malloc(gc_info, " + Integer.toString(alloc_size) + "));\n");
+  ret.append("if(thisref == -1){\n");
+  ret.append("  *exception = -1;\n");
+  ret.append("  return -1;\n");
+  ret.append("}\n");
+  ret.append(pointer_namespace_qual + " char * thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n");
+  ret.append("\n//class info\n");
+  ret.append("edu_syr_pcpratts_gc_set_count(thisref_deref, " + Integer.toString(m_RefFieldsSize) + ");\n");
+  ret.append("edu_syr_pcpratts_gc_set_color(thisref_deref, COLOR_GREY);\n");
+  ret.append("edu_syr_pcpratts_gc_set_type(thisref_deref, " + Integer.toString(m_DerivedType) + ");\n");
+  ret.append("edu_syr_pcpratts_gc_set_ctor_used(thisref_deref, 1);\n");
+  ret.append("edu_syr_pcpratts_gc_set_size(thisref_deref, " + Integer.toString(alloc_size) + ");\n");
+  ret.append("edu_syr_pcpratts_gc_init_monitor(thisref_deref);\n");
+  if (m_SootClass != null) {
+    ret.append(initFields());
+  }
+  m_StmtSwitch=new ConstructorStmtSwitch(this,m_Body.getMethod(),false);
+  ret.append(writeMethodBody());
+  ret.append("return " + m_StmtSwitch.getThisRef() + ";\n");
+  return ret.toString();
+}

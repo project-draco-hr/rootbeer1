@@ -1,0 +1,6 @@
+{
+  Value op=arg0.getOp();
+  mOutput.append("edu_syr_pcpratts_array_length(gc_info, ");
+  op.apply(this);
+  mOutput.append(")");
+}

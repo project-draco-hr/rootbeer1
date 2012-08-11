@@ -1,0 +1,13 @@
+{
+  m_Classes=new WeakHashMap<String,SootClass>();
+  m_Bodies=new WeakHashMap<String,Body>();
+  m_SootLoadedClasses=new LinkedHashMap<String,Integer>();
+  m_CopiedClasses=new ArrayList<String>();
+  m_GetClassClasses=new ArrayList<String>();
+  m_Dependencies=new LinkedList<String>();
+  m_AddedClasses=new ArrayList<String>();
+  m_Fixups=new LinkedList<String>();
+  IgnorePackages list=new IgnorePackages();
+  m_ignorePackages=list.get();
+  loadClasses();
+}

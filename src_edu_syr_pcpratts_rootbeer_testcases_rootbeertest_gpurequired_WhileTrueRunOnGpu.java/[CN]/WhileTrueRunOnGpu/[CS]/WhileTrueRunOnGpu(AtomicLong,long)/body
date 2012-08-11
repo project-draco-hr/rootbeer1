@@ -1,0 +1,4 @@
+{
+  m_along=along;
+  m_threadId=id;
+}

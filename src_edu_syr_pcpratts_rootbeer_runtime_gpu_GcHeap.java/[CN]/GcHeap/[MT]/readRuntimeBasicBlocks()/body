@@ -1,0 +1,36 @@
+{
+  if (Configuration.getRunAllTests() == false) {
+    BufferPrinter printer1=new BufferPrinter();
+    printer1.print(mToSpaceMemory,0,512);
+  }
+  Stopwatch watch=new Stopwatch();
+  watch.start();
+  mHandlesMemory.setAddress(0);
+  mToSpaceMemory.setAddress(0);
+  CompiledKernel first_block=mBlocks.get(0);
+  mGcObjectVisitor.readStaticsFromHeap();
+  mExceptionsMemory.setAddress(0);
+  for (int i=0; i < m_CountWritten; ++i) {
+    int reference=mExceptionsMemory.readInt();
+    if (reference == Constants.NullPointerNumber) {
+      throw new NullPointerException();
+    }
+    if (reference != 0) {
+      mToSpaceMemory.setAddress(reference);
+      Object o=mGcObjectVisitor.readFromHeap(null,true,reference);
+      throw new RuntimeException((Throwable)o);
+    }
+  }
+  for (int i=0; i < m_CountWritten; ++i) {
+    CompiledKernel block=mBlocks.get(i);
+    long reference=m_HandlesList.get(i);
+    mToSpaceMemory.setAddress(reference);
+    mGcObjectVisitor.readFromHeap(block,true,reference);
+  }
+  mHandlesMemory.finishRead();
+  mToSpaceMemory.finishRead();
+  if (mUsingGarbageCollector) {
+    mToHandleMapMemory.finishRead();
+  }
+  return mWriteRet;
+}

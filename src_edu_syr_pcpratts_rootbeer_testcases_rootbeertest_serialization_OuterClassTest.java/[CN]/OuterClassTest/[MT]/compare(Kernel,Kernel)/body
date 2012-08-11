@@ -1,0 +1,5 @@
+{
+  OuterClassRunOnGpu blhs=(OuterClassRunOnGpu)lhs;
+  OuterClassRunOnGpu brhs=(OuterClassRunOnGpu)rhs;
+  return blhs.compare(brhs);
+}

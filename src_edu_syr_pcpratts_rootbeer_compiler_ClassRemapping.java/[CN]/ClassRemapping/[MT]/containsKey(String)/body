@@ -1,0 +1,3 @@
+{
+  return m_Map.containsKey(cls_name);
+}

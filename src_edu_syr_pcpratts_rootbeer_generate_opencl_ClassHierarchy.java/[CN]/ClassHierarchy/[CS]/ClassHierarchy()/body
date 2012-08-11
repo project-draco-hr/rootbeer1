@@ -1,0 +1,9 @@
+{
+  mMap=new LinkedHashMap<String,List<SootClass>>();
+  mClassTypes=new HashMap<String,Integer>();
+  mArrayTypes=new HashMap<ArrayType,Integer>();
+  mMaxType=0;
+  addBuiltIn("java.lang.String");
+  addBuiltIn("java.lang.StringBuilder");
+  addBuiltIn("java.lang.AbstractStringBuilder");
+}

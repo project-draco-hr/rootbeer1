@@ -1,0 +1,4 @@
+{
+  m_Class=soot_class;
+  m_Children=new ArrayList<SootClass>();
+}

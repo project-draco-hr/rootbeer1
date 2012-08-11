@@ -1,0 +1,17 @@
+{
+  mBlocks.add(block);
+  long ref=mGcObjectVisitor.writeToHeap(block,true);
+  mHandlesMemory.writeLong(ref);
+  m_HandlesList.add(ref);
+  if (mUsingGarbageCollector) {
+    long to_handle_map_memory_address=ref * 4;
+    mToHandleMapMemory.setAddress(to_handle_map_memory_address);
+    if (to_handle_map_memory_address > mMaxToHandleMapAddress)     mMaxToHandleMapAddress=to_handle_map_memory_address;
+    mToHandleMapMemory.writeLong(ref);
+  }
+  long prev_size=ref - m_PreviousRef;
+  if (prev_size > m_PreviousSize) {
+    m_PreviousSize=prev_size;
+  }
+  m_PreviousRef=ref;
+}

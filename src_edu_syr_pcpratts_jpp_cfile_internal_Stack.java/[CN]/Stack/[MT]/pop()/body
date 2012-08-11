@@ -1,0 +1,5 @@
+{
+  T ret=top();
+  m_Elements.remove(m_Elements.size() - 1);
+  return ret;
+}

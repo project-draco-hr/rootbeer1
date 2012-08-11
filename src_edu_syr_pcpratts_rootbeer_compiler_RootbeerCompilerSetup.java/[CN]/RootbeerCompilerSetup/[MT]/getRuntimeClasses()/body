@@ -1,0 +1,20 @@
+{
+  List<String> ret=new ArrayList<String>();
+  ret.add("/edu/syr/pcpratts/rootbeer/generate/bytecode/Constants.class");
+  ret.add("/edu/syr/pcpratts/rootbeer/runtime/RootbeerFactory.class");
+  ret.add("/edu/syr/pcpratts/rootbeer/runtime/Rootbeer.class");
+  ret.add("/edu/syr/pcpratts/rootbeer/runtime/RootbeerGpu.class");
+  ret.add("/edu/syr/pcpratts/rootbeer/runtime/Kernel.class");
+  ret.add("/edu/syr/pcpratts/rootbeer/runtime/CompiledKernel.class");
+  ret.add("/edu/syr/pcpratts/rootbeer/runtime/Serializer.class");
+  ret.add("/edu/syr/pcpratts/rootbeer/runtime/memory/Memory.class");
+  ret.add("/edu/syr/pcpratts/rootbeer/runtime/Sentinal.class");
+  ret.add("/edu/syr/pcpratts/rootbeer/test/TestSerialization.class");
+  ret.add("/edu/syr/pcpratts/rootbeer/test/TestSerializationFactory.class");
+  ret.add("/edu/syr/pcpratts/rootbeer/test/TestException.class");
+  ret.add("/edu/syr/pcpratts/rootbeer/test/TestExceptionFactory.class");
+  ret.add("/edu/syr/pcpratts/rootbeer/runtime/util/Stopwatch.class");
+  ret.add("/edu/syr/pcpratts/rootbeer/runtime/PrivateFields.class");
+  m_AllClasses.addAll(ret);
+  return ret;
+}

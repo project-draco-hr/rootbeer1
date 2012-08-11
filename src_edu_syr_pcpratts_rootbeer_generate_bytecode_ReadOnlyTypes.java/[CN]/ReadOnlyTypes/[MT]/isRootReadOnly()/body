@@ -1,0 +1,3 @@
+{
+  return isReadOnly(m_RootClass);
+}

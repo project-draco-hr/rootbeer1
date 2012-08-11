@@ -1,0 +1,5 @@
+{
+  SynchronizedMethod3RunOnGpu lhs=(SynchronizedMethod3RunOnGpu)rog;
+  SynchronizedMethod3RunOnGpu rhs=(SynchronizedMethod3RunOnGpu)rog1;
+  return lhs.compare(rhs);
+}

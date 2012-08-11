@@ -1,0 +1,12 @@
+{
+  List<String> ret=new ArrayList<String>();
+  Process p=Runtime.getRuntime().exec("cpp -P " + input);
+  BufferedReader reader=new BufferedReader(new InputStreamReader(p.getInputStream()));
+  while (true) {
+    String line=reader.readLine();
+    if (line == null)     break;
+    ret.add(line);
+  }
+  reader.close();
+  return ret;
+}

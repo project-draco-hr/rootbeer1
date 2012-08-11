@@ -1,0 +1,22 @@
+{
+  OpenCLClass ocl_class=node.getOpenCLClass();
+  List<OpenCLField> ref_fields=ocl_class.getInstanceRefFields();
+  for (  OpenCLField field : ref_fields) {
+    processNodeField(node,field,true,composite);
+  }
+  List<OpenCLField> static_ref_fields=ocl_class.getStaticRefFields();
+  for (  OpenCLField field : static_ref_fields) {
+    processNodeField(node,field,true,composite);
+  }
+  List<OpenCLField> non_ref_fields=ocl_class.getInstanceNonRefFields();
+  for (  OpenCLField field : non_ref_fields) {
+    processNodeField(node,field,false,composite);
+  }
+  List<OpenCLField> static_non_ref_fields=ocl_class.getStaticNonRefFields();
+  for (  OpenCLField field : static_non_ref_fields) {
+    processNodeField(node,field,false,composite);
+  }
+  for (  TreeNode child : node.getChildren()) {
+    processNode(child,composite);
+  }
+}

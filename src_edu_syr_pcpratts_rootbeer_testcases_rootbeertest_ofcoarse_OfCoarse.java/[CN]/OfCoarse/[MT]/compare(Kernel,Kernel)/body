@@ -1,0 +1,5 @@
+{
+  GpuWorkItem glhs=(GpuWorkItem)lhs;
+  GpuWorkItem grhs=(GpuWorkItem)rhs;
+  return glhs.compare(grhs);
+}

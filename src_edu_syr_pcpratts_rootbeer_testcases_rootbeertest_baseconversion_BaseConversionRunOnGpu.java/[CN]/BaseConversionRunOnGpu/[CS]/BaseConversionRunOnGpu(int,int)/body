@@ -1,0 +1,5 @@
+{
+  m_Index=index;
+  m_Count=count;
+  m_Ret=new GpuList();
+}

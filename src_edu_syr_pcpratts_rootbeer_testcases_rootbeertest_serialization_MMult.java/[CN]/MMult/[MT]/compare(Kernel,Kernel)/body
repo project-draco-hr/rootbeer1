@@ -1,0 +1,5 @@
+{
+  MMultRunOnGpu blhs=(MMultRunOnGpu)lhs;
+  MMultRunOnGpu brhs=(MMultRunOnGpu)rhs;
+  return blhs.compare(brhs);
+}

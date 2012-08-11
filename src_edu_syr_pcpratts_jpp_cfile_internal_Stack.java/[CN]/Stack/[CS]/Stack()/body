@@ -1,0 +1,3 @@
+{
+  m_Elements=new LinkedList<T>();
+}

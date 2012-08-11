@@ -1,0 +1,7 @@
+{
+  m_OffsetToFieldMap=new HashMap<Integer,SortableField>();
+  m_FieldToOffsetMap=new HashMap<OpenCLField,Integer>();
+  m_ClassToOffsetMap=new HashMap<SootClass,Integer>();
+  m_StaticFields=new HashMap<SootClass,List<OpenCLField>>();
+  buildMaps();
+}

@@ -1,0 +1,11 @@
+{
+  Integer this_size=m_Field.getSize();
+  Integer other_size=o.m_Field.getSize();
+  int ret=other_size.compareTo(this_size);
+  if (ret == 0) {
+    return m_Field.getName().compareTo(o.m_Field.getName());
+  }
+ else {
+    return ret;
+  }
+}

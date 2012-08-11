@@ -1,0 +1,5 @@
+{
+  SynchronizedMethod2RunOnGpu glhs=(SynchronizedMethod2RunOnGpu)lhs;
+  SynchronizedMethod2RunOnGpu grhs=(SynchronizedMethod2RunOnGpu)rhs;
+  return glhs.compare(grhs);
+}

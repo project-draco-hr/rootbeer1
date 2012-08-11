@@ -1,0 +1,5 @@
+{
+  Kernel job=jobs.next();
+  mWriteRet.enqueueJob(job);
+  return (CompiledKernel)job;
+}

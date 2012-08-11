@@ -1,0 +1,5 @@
+double cnum
+double volumescale
+double timestep
+double age_step
+int border

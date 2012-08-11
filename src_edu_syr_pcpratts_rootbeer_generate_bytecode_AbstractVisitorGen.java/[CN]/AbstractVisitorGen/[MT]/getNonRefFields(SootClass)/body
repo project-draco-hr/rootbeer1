@@ -1,0 +1,4 @@
+{
+  OpenCLClass ocl_class=OpenCLScene.v().getOpenCLClass(soot_class);
+  return ocl_class.getInstanceNonRefFields();
+}

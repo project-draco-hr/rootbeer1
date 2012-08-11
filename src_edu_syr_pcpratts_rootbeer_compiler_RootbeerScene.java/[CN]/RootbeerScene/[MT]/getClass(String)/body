@@ -1,0 +1,28 @@
+{
+  if (m_Classes.containsKey(name))   return m_Classes.get(name);
+  SootClass cls=loadClass(name);
+  if (cls == null) {
+    SootClass ret=new SootClass(name);
+    ret.setPhantom(true);
+    return ret;
+  }
+  cls.setResolvingLevel(SootClass.BODIES);
+  m_Classes.put(name,cls);
+  Scene.v().addClass(cls);
+  while (!m_Dependencies.isEmpty()) {
+    String dep_cls=m_Dependencies.get(0);
+    m_Dependencies.remove(0);
+    if (!m_Classes.containsKey(dep_cls)) {
+      SootClass cls2=loadClass(dep_cls);
+      cls2.setResolvingLevel(SootClass.BODIES);
+      m_Classes.put(dep_cls,cls2);
+      Scene.v().addClass(cls2);
+    }
+  }
+  while (!m_Fixups.isEmpty()) {
+    String fixup=m_Fixups.get(0);
+    m_Fixups.remove(0);
+    fixupClass(fixup);
+  }
+  return cls;
+}

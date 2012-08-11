@@ -1,0 +1,7 @@
+{
+  List<OpenCLField> ret=m_StaticFields.get(soot_class);
+  if (ret == null) {
+    ret=new ArrayList<OpenCLField>();
+  }
+  return ret;
+}

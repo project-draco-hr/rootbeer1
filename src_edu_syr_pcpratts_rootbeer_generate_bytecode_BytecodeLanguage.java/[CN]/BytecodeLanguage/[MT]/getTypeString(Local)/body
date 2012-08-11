@@ -1,0 +1,4 @@
+{
+  Type type=local.getType();
+  return type.toString();
+}

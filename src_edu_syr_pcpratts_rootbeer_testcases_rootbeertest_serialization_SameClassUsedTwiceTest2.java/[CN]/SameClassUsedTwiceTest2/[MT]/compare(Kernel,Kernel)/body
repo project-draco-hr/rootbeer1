@@ -1,0 +1,5 @@
+{
+  SameClassUsedTwiceRunOnGpu2 blhs=(SameClassUsedTwiceRunOnGpu2)lhs;
+  SameClassUsedTwiceRunOnGpu2 brhs=(SameClassUsedTwiceRunOnGpu2)rhs;
+  return blhs.compare(brhs);
+}

@@ -1,0 +1,8 @@
+{
+  OutputStream streamOut=new FileOutputStream(filename);
+  PrintWriter writerOut=null;
+  writerOut=new PrintWriter(new EscapedWriter(new OutputStreamWriter(streamOut)));
+  Printer.v().printTo(cls,writerOut);
+  writerOut.flush();
+  streamOut.close();
+}

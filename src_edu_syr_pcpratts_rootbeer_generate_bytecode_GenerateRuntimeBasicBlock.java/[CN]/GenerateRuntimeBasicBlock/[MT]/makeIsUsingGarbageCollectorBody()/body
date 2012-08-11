@@ -1,0 +1,9 @@
+{
+  BytecodeLanguage bcl=new BytecodeLanguage();
+  bcl.openClass(mSootClass);
+  bcl.startMethod("isUsingGarbageCollector",BooleanType.v());
+  bcl.refThis();
+  if (OpenCLScene.v().getUsingGarbageCollector())   bcl.returnValue(IntConstant.v(1));
+ else   bcl.returnValue(IntConstant.v(0));
+  bcl.endMethod();
+}

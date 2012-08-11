@@ -1,0 +1,24 @@
+{
+  if (type instanceof ByteType) {
+    return readByte();
+  }
+ else   if (type instanceof ShortType) {
+    return readShort();
+  }
+ else   if (type instanceof CharType) {
+    return readChar();
+  }
+ else   if (type instanceof IntType) {
+    return readInt();
+  }
+ else   if (type instanceof FloatType) {
+    return readFloat();
+  }
+ else   if (type instanceof DoubleType) {
+    return readDouble();
+  }
+ else   if (type instanceof LongType) {
+    return readLong();
+  }
+  throw new RuntimeException("How do we handle this case?");
+}

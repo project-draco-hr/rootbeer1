@@ -1,0 +1,3 @@
+List<OpenCLField> org_fields
+SootClass curr_field_class
+boolean ref_fields

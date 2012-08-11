@@ -1,0 +1,4 @@
+{
+  long value=get();
+  return "" + value;
+}

@@ -1,0 +1,7 @@
+{
+  String s=File.separator;
+  if (s.equals("/")) {
+    return true;
+  }
+  return false;
+}

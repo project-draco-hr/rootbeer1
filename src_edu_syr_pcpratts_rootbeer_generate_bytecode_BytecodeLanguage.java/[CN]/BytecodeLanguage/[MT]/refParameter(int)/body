@@ -1,0 +1,8 @@
+{
+  Type type=mParameterTypes.get(index);
+  String name="parameter" + Integer.toString(index);
+  Local parameterI=jimple.newLocal(name,type);
+  Unit u=jimple.newIdentityStmt(parameterI,jimple.newParameterRef(type,index));
+  mAssembler.add(u);
+  return parameterI;
+}

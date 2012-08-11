@@ -1,0 +1,9 @@
+{
+  for (  String path : paths) {
+    File file=new File(path);
+    if (file.exists()) {
+      System.load(file.getAbsolutePath());
+      return;
+    }
+  }
+}

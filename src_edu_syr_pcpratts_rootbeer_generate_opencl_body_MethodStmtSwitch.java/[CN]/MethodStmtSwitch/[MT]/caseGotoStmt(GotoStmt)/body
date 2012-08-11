@@ -1,0 +1,5 @@
+{
+  Unit target=arg0.getTarget();
+  int label_num=m_Parent.labelNum(target);
+  m_Output.append("goto label" + Integer.toString(label_num) + ";\n");
+}

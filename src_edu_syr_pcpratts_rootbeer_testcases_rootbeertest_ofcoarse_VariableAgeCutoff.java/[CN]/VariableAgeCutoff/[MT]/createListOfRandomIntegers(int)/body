@@ -1,0 +1,13 @@
+{
+  GpuList<Integer> all=createListOfSize(size);
+  GpuList<Integer> ret=new GpuList<Integer>();
+  Random rand=new Random();
+  int ret_size=rand.nextInt(size);
+  for (int i=0; i < ret_size; ++i) {
+    int index=rand.nextInt(all.size() - 1);
+    int curr=all.get(index);
+    all.remove(index);
+    ret.add(curr);
+  }
+  return ret;
+}

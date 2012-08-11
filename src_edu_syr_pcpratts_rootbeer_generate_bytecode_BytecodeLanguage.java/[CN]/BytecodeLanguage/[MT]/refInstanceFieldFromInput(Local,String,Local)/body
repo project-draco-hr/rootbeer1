@@ -1,0 +1,8 @@
+{
+  Type base_type=base.getType();
+  SootClass base_class=RootbeerScene.v().getClass(base_type.toString());
+  SootField field=getFieldByName(base_class,field_name);
+  Value rhs=jimple.newInstanceFieldRef(base,field.makeRef());
+  Unit u=jimple.newAssignStmt(rhs,input);
+  mAssembler.add(u);
+}

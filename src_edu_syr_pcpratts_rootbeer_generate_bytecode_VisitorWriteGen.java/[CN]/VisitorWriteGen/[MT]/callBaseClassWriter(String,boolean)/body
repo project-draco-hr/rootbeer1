@@ -1,0 +1,14 @@
+{
+  SootClass mem=RootbeerScene.v().getClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  String specialization;
+  if (ref_fields) {
+    specialization="RefFields";
+  }
+ else {
+    specialization="NonRefFields";
+  }
+  specialization+=JavaNameToOpenCL.convert(class_name) + OpenCLScene.v().getIdent();
+  BytecodeLanguage bcl=m_Bcl.top();
+  bcl.pushMethod(class_name,"edu_syr_pcpratts_writeToHeap" + specialization,VoidType.v(),mem.getType(),m_GcObjVisitor.top().getType());
+  bcl.invokeMethodNoRet(m_CurrObj.top(),m_CurrentMem.top(),m_GcObjVisitor.top());
+}

@@ -1,0 +1,6 @@
+{
+  if (m_SootMethod.isSynchronized()) {
+    m_Output.append("edu_syr_pcpratts_exitMonitorMem(gc_info, mem, old);\n");
+  }
+  m_Output.append("return;\n");
+}

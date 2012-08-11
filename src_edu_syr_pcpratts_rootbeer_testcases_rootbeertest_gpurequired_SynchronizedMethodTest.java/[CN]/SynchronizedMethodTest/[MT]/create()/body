@@ -1,0 +1,9 @@
+{
+  List<Kernel> jobs=new ArrayList<Kernel>();
+  SynchronizedMethodObject obj=new SynchronizedMethodObject();
+  for (int i=0; i < 32; ++i) {
+    SynchronizedMethodRunOnGpu curr=new SynchronizedMethodRunOnGpu(obj);
+    jobs.add(curr);
+  }
+  return jobs;
+}

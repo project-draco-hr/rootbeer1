@@ -1,0 +1,5 @@
+{
+  String ret=UUID.randomUUID().toString();
+  ret=ret.replaceAll("-","");
+  return ret;
+}

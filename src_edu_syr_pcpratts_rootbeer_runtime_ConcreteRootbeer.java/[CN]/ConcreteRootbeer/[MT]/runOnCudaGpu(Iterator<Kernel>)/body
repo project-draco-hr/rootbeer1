@@ -1,0 +1,5 @@
+{
+  Tweaks.setInstance(new CudaTweaks());
+  PartiallyCompletedParallelJob partial=CudaRuntime2.v().run(jobs);
+  return new ResultIterator(partial,CudaRuntime2.v());
+}

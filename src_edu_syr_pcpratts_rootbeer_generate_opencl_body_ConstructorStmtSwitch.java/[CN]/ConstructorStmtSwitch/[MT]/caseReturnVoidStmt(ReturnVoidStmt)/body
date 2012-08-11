@@ -1,0 +1,3 @@
+{
+  if (m_EmitRetVoid)   m_Output.append("return;\n");
+}

@@ -1,0 +1,5 @@
+{
+  mCenter=new Point(center.X,center.Y);
+  mVolume=volume;
+  resetNextData();
+}

@@ -1,0 +1,5 @@
+{
+  m_Char2=(char)(m_Char + 1);
+  m_Short2=(short)(m_Short + 1);
+  m_Int2=m_Int + 1;
+}

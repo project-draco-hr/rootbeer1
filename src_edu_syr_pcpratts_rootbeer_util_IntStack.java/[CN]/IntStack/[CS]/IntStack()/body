@@ -1,0 +1,5 @@
+{
+  mTopPtr=-1;
+  mAlloc=20;
+  mData=new long[20];
+}

@@ -1,0 +1,8 @@
+{
+  List<CFileItem> sub_items=new ArrayList<CFileItem>();
+  for (int i=1; i < m_Items.size() - 1; ++i) {
+    sub_items.add(m_Items.get(i));
+  }
+  Iterator<CFileItem> iter=sub_items.iterator();
+  return new PutbackIterator<CFileItem>(iter);
+}

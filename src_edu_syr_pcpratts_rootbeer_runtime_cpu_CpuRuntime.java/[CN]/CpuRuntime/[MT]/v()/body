@@ -1,0 +1,4 @@
+{
+  if (mInstance == null)   mInstance=new CpuRuntime();
+  return mInstance;
+}

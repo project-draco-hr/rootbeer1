@@ -1,0 +1,7 @@
+{
+  if (o instanceof OpenCLPolymorphicMethod == false)   return false;
+  OpenCLPolymorphicMethod other=(OpenCLPolymorphicMethod)o;
+  if (mSootMethod.getName().equals(other.mSootMethod.getName()) == false)   return false;
+  if (getHierarchy().equals(other.getHierarchy()))   return true;
+  return false;
+}

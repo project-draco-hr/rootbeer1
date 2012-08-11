@@ -1,0 +1,35 @@
+{
+  boolean negative=x < 0;
+  if (negative) {
+    x=-x;
+    y=-y;
+  }
+  if (x < 1 / TWO_28)   return (negative ? -1 : 1) * (invert ? -1 / x : x);
+  double z;
+  double w;
+  boolean large=x >= 0.6744;
+  if (large) {
+    z=PI / 4 - x;
+    w=PI_L / 4 - y;
+    x=z + w;
+    y=0;
+  }
+  z=x * x;
+  w=z * z;
+  double r=T1 + w * (T3 + w * (T5 + w * (T7 + w * (T9 + w * T11))));
+  double v=z * (T2 + w * (T4 + w * (T6 + w * (T8 + w * (T10 + w * T12)))));
+  double s=z * x;
+  r=y + z * (s * (r + v) + y);
+  r+=T0 * s;
+  w=x + r;
+  if (large) {
+    v=invert ? -1 : 1;
+    return (negative ? -1 : 1) * (v - 2 * (x - (w * w / (w + v) - r)));
+  }
+  if (!invert)   return w;
+  z=(float)w;
+  v=r - (z - x);
+  double a=-1 / w;
+  double t=(float)a;
+  return t + a * (1 + t * z + t * v);
+}

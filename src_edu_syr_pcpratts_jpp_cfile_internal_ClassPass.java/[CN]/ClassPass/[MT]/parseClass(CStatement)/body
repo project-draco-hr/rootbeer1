@@ -1,0 +1,29 @@
+{
+  List<CFileItem> stmts=new ArrayList<CFileItem>();
+  stmts.add(opening_statement);
+  List<Token> tokens=opening_statement.getTokens();
+  if (endsWithSemi(tokens)) {
+  }
+ else {
+    int scope_count=1;
+    while (scope_count != 0 && m_Iterator.hasNext()) {
+      CFileItem stmt=m_Iterator.next();
+      List<Token> new_tokens=stmt.getTokens();
+      if (new_tokens.isEmpty())       continue;
+      Token last=new_tokens.get(new_tokens.size() - 1);
+      if (last.getString().equals("{")) {
+        scope_count++;
+      }
+ else       if (last.getString().equals("}")) {
+        scope_count--;
+      }
+      stmts.add(stmt);
+    }
+    if (m_Iterator.hasNext()) {
+      CFileItem stmt=m_Iterator.next();
+      stmts.add(stmt);
+    }
+  }
+  CClass ret=new CClass(stmts);
+  return ret;
+}

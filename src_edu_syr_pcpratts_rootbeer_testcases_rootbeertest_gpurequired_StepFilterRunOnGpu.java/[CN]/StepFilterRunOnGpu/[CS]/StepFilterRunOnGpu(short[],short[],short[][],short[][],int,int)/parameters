@@ -1,0 +1,6 @@
+short[] a
+short[] b
+short[][] kx
+short[][] ky
+int index
+int num

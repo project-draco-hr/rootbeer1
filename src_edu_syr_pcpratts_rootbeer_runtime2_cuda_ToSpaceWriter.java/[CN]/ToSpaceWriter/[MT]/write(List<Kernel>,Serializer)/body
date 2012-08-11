@@ -1,0 +1,6 @@
+{
+  InputItem item=new InputItem();
+  item.m_Items=items;
+  item.m_Visitor=visitor;
+  m_InputQueue.put(item);
+}

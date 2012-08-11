@@ -1,0 +1,8 @@
+{
+  List<String> list=new ArrayList<String>();
+  String[] tokens=input.split("\\n");
+  for (  String token : tokens) {
+    list.add(token);
+  }
+  return run(list);
+}

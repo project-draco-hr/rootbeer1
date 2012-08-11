@@ -1,0 +1,6 @@
+{
+  if (thrwbl instanceof NullPointerException) {
+    return true;
+  }
+  return false;
+}

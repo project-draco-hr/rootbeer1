@@ -1,0 +1,21 @@
+{
+  CompiledKernel first=(CompiledKernel)objects.get(0);
+  Serializer visitor=first.getSerializer(m_ToSpace,null);
+  List<Kernel> new_objects=m_Tester.create();
+  int i=0;
+  m_ToSpace.setAddress(0);
+  m_HandlesMap.setAddress(0);
+  for (  Kernel object : new_objects) {
+    int handle=m_HandlesMap.readInt();
+    m_ToSpace.setAddress(handle);
+    CompiledKernel job=(CompiledKernel)object;
+    Kernel curr=(Kernel)visitor.readFromHeap(job,true,handle);
+    if (m_Tester.compare(objects.get(i),curr) == false) {
+      System.out.println("Comparison failed at: " + i);
+      fail();
+      return false;
+    }
+    ++i;
+  }
+  return true;
+}

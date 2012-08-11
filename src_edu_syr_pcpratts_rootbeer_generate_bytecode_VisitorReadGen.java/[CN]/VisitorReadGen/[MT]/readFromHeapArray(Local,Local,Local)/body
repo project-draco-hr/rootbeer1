@@ -1,0 +1,23 @@
+{
+  BytecodeLanguage bcl=m_Bcl.top();
+  BclMemory bcl_mem=new BclMemory(bcl,m_CurrMem.top());
+  Local curr;
+  String after_read=getNextLabel();
+  String before_read_int=getNextLabel();
+  bcl.ifStmt(i,">=",size,after_read);
+  curr=bcl.indexArray(object_to_read_from,i);
+  bcl.gotoLabel(before_read_int);
+  bcl.label(after_read);
+  if (object_to_read_from.getType() instanceof RefLikeType)   bcl.assign(curr,NullConstant.v());
+ else   bcl.assign(curr,IntConstant.v(0));
+  bcl.label(before_read_int);
+  Local curr_phi=bcl.local(object_to_read_from.getType());
+  bcl.assign(curr_phi,curr);
+  Local object_addr=bcl_mem.readRef();
+  bcl_mem.pushAddress();
+  SootClass obj_cls=RootbeerScene.v().getClass("java.lang.Object");
+  bcl.pushMethod(m_ThisRef,"readFromHeap",obj_cls.getType(),obj_cls.getType(),BooleanType.v(),LongType.v());
+  Local ret=bcl.invokeMethodRet(m_ThisRef,curr_phi,m_Param1,object_addr);
+  bcl_mem.popAddress();
+  return ret;
+}

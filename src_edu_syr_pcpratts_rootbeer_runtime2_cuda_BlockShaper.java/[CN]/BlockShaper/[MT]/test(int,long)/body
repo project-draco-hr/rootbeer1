@@ -1,0 +1,4 @@
+{
+  run(num_items,num_processors);
+  System.out.println("Items: " + num_items + " Procs: "+ num_processors+ " Grid: "+ m_GridShape+ " Block: "+ m_BlockShape);
+}

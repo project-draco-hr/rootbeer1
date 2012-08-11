@@ -1,0 +1,4 @@
+{
+  mBcl.pushMethod(mBcl.getTypeString(mMem),"useInstancePointer",VoidType.v());
+  mBcl.invokeMethodNoRet(mMem);
+}

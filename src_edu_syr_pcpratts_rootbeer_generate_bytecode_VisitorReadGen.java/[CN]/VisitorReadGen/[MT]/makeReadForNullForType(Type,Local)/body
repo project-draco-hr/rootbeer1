@@ -1,0 +1,56 @@
+{
+  if (type_to_create instanceof ArrayType == false && type_to_create instanceof RefType == false)   return;
+  if (type_to_create instanceof RefType) {
+    RefType ref_type=(RefType)type_to_create;
+    SootClass soot_class=getClassForType(ref_type);
+    if (soot_class.isLibraryClass()) {
+      if (soot_class.declaresMethod("void <init>()") == false) {
+        return;
+      }
+    }
+  }
+  int id=OpenCLScene.v().getClassType(type_to_create);
+  String label_after=getNextLabel();
+  BytecodeLanguage bcl=m_Bcl.top();
+  bcl.ifStmt(type_id,"!=",IntConstant.v(id),label_after);
+  Local ret_obj=null;
+  Local new_object=null;
+  if (type_to_create instanceof RefType) {
+    RefType ref_type=(RefType)type_to_create;
+    SootClass soot_class=getClassForType(ref_type);
+    String name=ref_type.getClassName();
+    if (soot_class.isLibraryClass()) {
+      if (soot_class.declaresMethod("void <init>()")) {
+        new_object=bcl.newInstance(name);
+      }
+    }
+ else {
+      Local sentinal=bcl.newInstance("edu.syr.pcpratts.rootbeer.runtime.Sentinal");
+      new_object=bcl.newInstance(name,sentinal);
+    }
+  }
+ else   if (type_to_create instanceof ArrayType) {
+    BclMemory bcl_mem=new BclMemory(bcl,m_CurrMem.top());
+    Local start=bcl_mem.getPointer();
+    bcl_mem.incrementAddress(8);
+    Local size=bcl_mem.readInt();
+    bcl_mem.setAddress(start);
+    ArrayType array_type=(ArrayType)type_to_create;
+    Value value=bcl.newArray(array_type,size);
+    new_object=bcl.local(array_type);
+    bcl.assign(new_object,value);
+  }
+ else {
+    throw new UnsupportedOperationException();
+  }
+  if (new_object != null) {
+    SootClass obj_cls=RootbeerScene.v().getClass("java.lang.Object");
+    bcl.pushMethod(m_ThisRef,"readFromHeap",obj_cls.getType(),obj_cls.getType(),BooleanType.v(),LongType.v());
+    ret_obj=bcl.invokeMethodRet(m_ThisRef,new_object,IntConstant.v(1),m_RefParam);
+    bcl.returnValue(ret_obj);
+  }
+ else {
+    bcl.returnValue(NullConstant.v());
+  }
+  bcl.label(label_after);
+}

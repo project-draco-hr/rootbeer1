@@ -1,0 +1,17 @@
+{
+  SootClass soot_class=RootbeerScene.v().getClass(key);
+  String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
+  int type=OpenCLScene.v().getClassType(soot_class.getType());
+  ret.append("  else if(type == " + type + "){\n");
+  ret.append("    int size = " + ocl_class.getSize() + ";\n");
+  ret.append("    long long new_ref = edu_syr_pcpratts_gc_malloc(gc_info, size);\n");
+  ret.append("    if(new_ref == -1){\n");
+  ret.append("      *exception = -1;\n");
+  ret.append("      return -1;\n");
+  ret.append("    }\n");
+  ret.append("    " + address_qual + " char * dest_deref = edu_syr_pcpratts_gc_deref(gc_info, new_ref);\n");
+  ret.append("    edu_syr_pcpratts_gc_memcpy(dest_deref, src_deref, size);\n");
+  ret.append("    edu_syr_pcpratts_gc_set_ctor_used(dest_deref, 1);\n");
+  ret.append("    return new_ref;\n");
+  ret.append("  }\n");
+}

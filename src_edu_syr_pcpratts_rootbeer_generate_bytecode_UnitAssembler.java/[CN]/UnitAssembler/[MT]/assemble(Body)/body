@@ -1,0 +1,8 @@
+{
+  assignLabels();
+  cloneUnits();
+  copyTargets();
+  checkTargetBoxes();
+  copyLocals();
+  writeToBody(body);
+}

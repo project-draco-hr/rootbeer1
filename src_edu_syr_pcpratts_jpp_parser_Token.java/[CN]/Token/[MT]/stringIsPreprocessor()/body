@@ -1,0 +1,4 @@
+{
+  if (m_String.startsWith("#"))   return true;
+  return false;
+}

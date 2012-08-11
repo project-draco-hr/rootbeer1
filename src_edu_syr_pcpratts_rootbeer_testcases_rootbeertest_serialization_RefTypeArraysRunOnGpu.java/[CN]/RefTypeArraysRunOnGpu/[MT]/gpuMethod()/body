@@ -1,0 +1,8 @@
+{
+  RefType1 el=element1[0];
+  el.modify();
+  element1[0]=el;
+  element3[0][0][0].modify();
+  element2[0][0].modify();
+  element.modify();
+}

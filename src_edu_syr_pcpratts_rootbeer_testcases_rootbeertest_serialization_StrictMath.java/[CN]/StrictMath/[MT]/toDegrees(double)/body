@@ -1,0 +1,3 @@
+{
+  return (rads * 180) / PI;
+}

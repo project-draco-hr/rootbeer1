@@ -1,0 +1,4 @@
+{
+  m_NotWritten=not_written.iterator();
+  m_Remaining=remaining;
+}

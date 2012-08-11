@@ -1,0 +1,4 @@
+{
+  Unit u=jimple.newAssignStmt(lhs,rhs);
+  mAssembler.add(u);
+}

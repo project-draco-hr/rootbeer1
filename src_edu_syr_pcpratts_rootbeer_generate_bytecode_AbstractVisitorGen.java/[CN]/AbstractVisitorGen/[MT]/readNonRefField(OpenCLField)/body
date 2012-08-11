@@ -1,0 +1,37 @@
+{
+  SootField soot_field=field.getSootField();
+  String function_name="read" + getTypeString(soot_field);
+  BytecodeLanguage bcl=m_Bcl.top();
+  bcl.pushMethod(m_CurrMem.top(),function_name,soot_field.getType());
+  Local data=bcl.invokeMethodRet(m_CurrMem.top());
+  SootClass soot_class=RootbeerScene.v().getClass(soot_field.getDeclaringClass().getName());
+  if (soot_class.isApplicationClass()) {
+    if (field.isInstance()) {
+      bcl.setInstanceField(soot_field,m_ObjSerializing.top(),data);
+    }
+ else {
+      bcl.setStaticField(soot_field,data);
+    }
+  }
+ else {
+    SootClass obj=RootbeerScene.v().getClass("java.lang.Object");
+    SootClass string=RootbeerScene.v().getClass("java.lang.String");
+    String static_str;
+    SootClass first_param_type;
+    Value first_param;
+    if (field.isInstance()) {
+      static_str="";
+      first_param_type=obj;
+      first_param=m_ObjSerializing.top();
+    }
+ else {
+      static_str="Static";
+      first_param_type=RootbeerScene.v().getClass("java.lang.Class");
+      first_param=ClassConstant.v(soot_class.getName());
+    }
+    String private_field_fun_name="write" + static_str + getTypeString(soot_field);
+    Local private_fields=bcl.newInstance("edu.syr.pcpratts.rootbeer.runtime.PrivateFields");
+    bcl.pushMethod(private_fields,private_field_fun_name,VoidType.v(),first_param_type.getType(),string.getType(),soot_field.getType());
+    bcl.invokeMethodNoRet(private_fields,first_param,StringConstant.v(soot_field.getName()),data);
+  }
+}

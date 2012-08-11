@@ -1,0 +1,9 @@
+{
+  v1_k*=mVolumeScale;
+  double g_1=2.0 / StrictMath.pow(StrictMath.PI,2.0 / 3.0) * mCnum * StrictMath.pow(v1_k,2.0 / 3.0);
+  double L_12=PointDistance.distance(x1_k,x2_k);
+  double c_12=-1 / (3 * StrictMath.pow(StrictMath.PI,1.0 / 3.0)) * StrictMath.pow(L_12,-1) * StrictMath.pow(v1_k,1.0 / 3.0) * log10(v1_k);
+  double x1_k_plus_1_x=x1_k.X - ((c_12 / g_1) * (v1_k_plus_1 - v1_k));
+  double x1_k_plus_1_y=x1_k.Y - ((c_12 / g_1) * (v1_k_plus_1 - v1_k));
+  return new Point(x1_k_plus_1_x,x1_k_plus_1_y);
+}

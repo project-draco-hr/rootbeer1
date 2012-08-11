@@ -1,0 +1,4 @@
+{
+  m_Roots=new ArrayList<PermissionGraphNode>();
+  build(OpenCLScene.v().getRefTypeOrderedHistory());
+}

@@ -1,0 +1,10 @@
+{
+  m_VAgeStepItems=new GpuList<VAgeStepItem>();
+  m_MovieSize=movie_size;
+  int item_size=150;
+  for (int x=0; x < width; x+=item_size) {
+    for (int y=0; y < height; y+=item_size) {
+      m_VAgeStepItems.add(new VAgeStepItem(x,y,item_size));
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  for (  String kernel_class : m_kernelClasses) {
+    Transform2 transform=new Transform2();
+    transform.run(kernel_class);
+  }
+}

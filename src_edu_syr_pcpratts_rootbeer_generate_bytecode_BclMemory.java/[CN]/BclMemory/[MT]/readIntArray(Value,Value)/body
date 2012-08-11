@@ -1,0 +1,4 @@
+{
+  mBcl.pushMethod(mMem,"readIntArray",VoidType.v(),ret.getType(),size.getType());
+  mBcl.invokeMethodNoRet(mMem,ret,size);
+}

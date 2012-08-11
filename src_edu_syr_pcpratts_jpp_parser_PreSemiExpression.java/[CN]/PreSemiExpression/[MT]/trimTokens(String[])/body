@@ -1,0 +1,10 @@
+{
+  List<String> ret=new ArrayList<String>();
+  for (int i=0; i < tokens.length; ++i) {
+    String token=tokens[i];
+    token=token.trim();
+    if (token.equals(""))     continue;
+    ret.add(token);
+  }
+  return ret;
+}

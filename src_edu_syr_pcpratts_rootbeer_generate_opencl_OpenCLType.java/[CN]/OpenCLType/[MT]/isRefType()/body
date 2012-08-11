@@ -1,0 +1,4 @@
+{
+  if (mSootType instanceof RefLikeType)   return true;
+  return false;
+}

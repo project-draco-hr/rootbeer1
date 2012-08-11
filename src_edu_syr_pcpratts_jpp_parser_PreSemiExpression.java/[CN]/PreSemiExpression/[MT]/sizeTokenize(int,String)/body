@@ -1,0 +1,13 @@
+{
+  List<String> ret=new ArrayList<String>();
+  String curr="";
+  for (int i=0; i < str.length(); i+=size) {
+    String sub=str.substring(i);
+    for (int j=0; j < size && j < sub.length(); ++j) {
+      curr+=sub.charAt(j);
+    }
+    ret.add(curr);
+    curr="";
+  }
+  return ret;
+}

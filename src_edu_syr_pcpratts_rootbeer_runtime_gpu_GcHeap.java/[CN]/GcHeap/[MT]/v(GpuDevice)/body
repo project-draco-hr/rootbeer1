@@ -1,0 +1,9 @@
+{
+  if (mInstances.containsKey(device)) {
+    GcHeap ret=mInstances.get(device);
+    ret.reset();
+    return ret;
+  }
+  GcHeap ret=device.CreateHeap();
+  return ret;
+}

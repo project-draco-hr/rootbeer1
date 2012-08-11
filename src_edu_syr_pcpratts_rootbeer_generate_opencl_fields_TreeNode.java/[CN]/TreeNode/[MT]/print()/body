@@ -1,0 +1,9 @@
+{
+  System.out.println("curr: " + m_Curr.getName());
+  for (  TreeNode child : m_Children) {
+    System.out.println("child: " + child.m_Curr.getName());
+  }
+  for (  TreeNode child : m_Children) {
+    child.print();
+  }
+}

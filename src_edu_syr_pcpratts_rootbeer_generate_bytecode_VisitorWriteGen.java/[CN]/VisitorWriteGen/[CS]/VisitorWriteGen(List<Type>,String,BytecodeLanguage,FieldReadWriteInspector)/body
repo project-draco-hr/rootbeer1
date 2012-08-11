@@ -1,0 +1,14 @@
+{
+  super(inspector);
+  m_Bcl=new Stack<BytecodeLanguage>();
+  m_CurrObj=new Stack<Local>();
+  m_OrderedHistory=ordered_history;
+  mWriteToHeapMethodsMade=new HashSet<Type>();
+  m_VisitedWriter=new HashSet<String>();
+  m_ClassName=class_name;
+  m_ValuesWritten=new ArrayList<Value>();
+  m_Bcl.push(bcl);
+  m_FieldInspector=inspector;
+  m_CurrentMem=new Stack<Local>();
+  m_GcObjVisitor=new Stack<Local>();
+}

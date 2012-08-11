@@ -1,0 +1,14 @@
+{
+  m_LibCudas=new ArrayList<String>();
+  m_LibCudas.add("/usr/lib64/libcuda.so");
+  m_LibCudas.add("C:\\Windows\\System32\\nvcuda.dll");
+  m_Rootbeers=new ArrayList<String>();
+  if (File.separator.equals("/")) {
+    m_Rootbeers.add("cudaruntime.so.1");
+    extract("cudaruntime.so.1");
+  }
+ else {
+    m_Rootbeers.add("cudaruntime.dll");
+    extract("cudaruntime.dll");
+  }
+}

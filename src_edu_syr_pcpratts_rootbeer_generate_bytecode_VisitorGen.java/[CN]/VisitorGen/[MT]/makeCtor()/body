@@ -1,0 +1,11 @@
+{
+  SootClass mem_cls=RootbeerScene.v().getClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  m_Bcl.top().startMethod("<init>",VoidType.v(),mem_cls.getType(),mem_cls.getType());
+  Local this_ref=m_Bcl.top().refThis();
+  Local param0=m_Bcl.top().refParameter(0);
+  Local param1=m_Bcl.top().refParameter(1);
+  m_Bcl.top().pushMethod("edu.syr.pcpratts.rootbeer.runtime.Serializer","<init>",VoidType.v(),mem_cls.getType(),mem_cls.getType());
+  m_Bcl.top().invokeMethodNoRet(this_ref,param0,param1);
+  m_Bcl.top().returnVoid();
+  m_Bcl.top().endMethod();
+}

@@ -1,0 +1,5 @@
+{
+  Type type=value.getType();
+  if (type instanceof ArrayType == false)   return;
+  OpenCLScene.v().addArrayType(new OpenCLArrayType((ArrayType)type));
+}

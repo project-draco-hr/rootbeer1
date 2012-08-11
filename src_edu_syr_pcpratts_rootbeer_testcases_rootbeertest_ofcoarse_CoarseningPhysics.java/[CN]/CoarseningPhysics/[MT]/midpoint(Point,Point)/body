@@ -1,0 +1,5 @@
+{
+  double x=(p1.X + p2.X) / 2.0;
+  double y=(p1.Y + p2.Y) / 2.0;
+  return new Point(x,y);
+}

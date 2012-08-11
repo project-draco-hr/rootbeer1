@@ -1,0 +1,4 @@
+{
+  addParentFields(mWrittenOnGpuFields);
+  addParentFields(mReadOnGpuFields);
+}

@@ -1,0 +1,8 @@
+{
+  List<String> classes=getRuntimeClasses();
+  ClassRemapping remapping=new ClassRemapping();
+  classes.addAll(remapping.getRuntimeClassesJar());
+  for (  String cls : classes) {
+    writeRuntimeClass(cls);
+  }
+}

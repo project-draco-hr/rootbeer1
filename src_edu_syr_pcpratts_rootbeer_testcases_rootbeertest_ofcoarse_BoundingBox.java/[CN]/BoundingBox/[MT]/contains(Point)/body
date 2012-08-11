@@ -1,0 +1,7 @@
+{
+  if (p.X < m_UpperLeft.X)   return false;
+  if (p.X > m_LowerRight.X)   return false;
+  if (p.Y < m_LowerRight.Y)   return false;
+  if (p.Y > m_UpperLeft.Y)   return false;
+  return true;
+}

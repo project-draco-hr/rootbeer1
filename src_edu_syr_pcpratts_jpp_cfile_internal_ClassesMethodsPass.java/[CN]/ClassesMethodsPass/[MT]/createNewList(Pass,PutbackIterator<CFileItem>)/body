@@ -1,0 +1,5 @@
+{
+  CFile file=pass.execute(iter);
+  PutbackIterator<CFileItem> iter2=file.iterator();
+  return handleIterator(iter2);
+}

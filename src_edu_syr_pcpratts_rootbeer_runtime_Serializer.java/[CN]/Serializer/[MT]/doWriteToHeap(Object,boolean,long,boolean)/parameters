@@ -1,0 +1,4 @@
+Object o
+boolean write_data
+long ref
+boolean read_only

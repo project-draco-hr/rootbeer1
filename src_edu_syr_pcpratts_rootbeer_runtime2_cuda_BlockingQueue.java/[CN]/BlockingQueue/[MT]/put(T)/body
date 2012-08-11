@@ -1,0 +1,10 @@
+{
+  while (true) {
+    try {
+      m_Queue.put(item);
+      return;
+    }
+ catch (    Exception ex) {
+    }
+  }
+}

@@ -1,0 +1,15 @@
+{
+  InputStream is=new FileInputStream(file);
+  List<byte[]> ret=new ArrayList<byte[]>();
+  while (true) {
+    byte[] buffer=new byte[4096];
+    int len=is.read(buffer);
+    if (len == -1)     break;
+    byte[] short_buffer=new byte[len];
+    for (int i=0; i < len; ++i) {
+      short_buffer[i]=buffer[i];
+    }
+    ret.add(short_buffer);
+  }
+  return ret;
+}

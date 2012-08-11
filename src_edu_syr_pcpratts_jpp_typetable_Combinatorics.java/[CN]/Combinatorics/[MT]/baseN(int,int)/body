@@ -1,0 +1,13 @@
+{
+  List<Integer> ret=new ArrayList<Integer>();
+  if (number == 0) {
+    ret.add(0);
+    return ret;
+  }
+  while (number > 0) {
+    int mod=number % n;
+    ret.add(mod);
+    number/=n;
+  }
+  return ret;
+}

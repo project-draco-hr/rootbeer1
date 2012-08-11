@@ -1,0 +1,15 @@
+{
+  element=10;
+  element1=new char[10];
+  element2=new char[10][10];
+  element3=new char[10][10][10];
+  for (int m=0; m < 10; m++) {
+    for (int n=0; n < 10; n++) {
+      for (int p=0; p < 10; ++p) {
+        element3[m][n][p]=(char)p;
+        element2[n][p]=(char)p;
+        element1[p]=(char)p;
+      }
+    }
+  }
+}

@@ -1,0 +1,3 @@
+{
+  mAssembler.add(jimple.newReturnVoidStmt());
+}

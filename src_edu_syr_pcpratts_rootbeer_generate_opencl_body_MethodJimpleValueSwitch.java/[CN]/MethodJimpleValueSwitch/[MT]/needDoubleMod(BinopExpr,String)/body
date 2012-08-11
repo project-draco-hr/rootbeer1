@@ -1,0 +1,6 @@
+{
+  if (symbol.equals("%") == false)   return false;
+  if (!arg0.getOp1().getType().equals(DoubleType.v()) && !arg0.getOp1().getType().equals(FloatType.v()))   return false;
+  if (!arg0.getOp2().getType().equals(DoubleType.v()) && !arg0.getOp2().getType().equals(FloatType.v()))   return false;
+  return true;
+}

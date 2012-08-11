@@ -1,0 +1,4 @@
+{
+  mangleMap=new HashMap<String,Integer>();
+  lastInt=0;
+}

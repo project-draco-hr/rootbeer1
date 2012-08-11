@@ -1,0 +1,4 @@
+{
+  m_Class=new CompositeClass6();
+  str="hello";
+}

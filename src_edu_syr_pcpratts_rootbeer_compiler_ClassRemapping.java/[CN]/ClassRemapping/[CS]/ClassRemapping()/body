@@ -1,0 +1,8 @@
+{
+  m_Map=new HashMap<String,String>();
+  m_ClonedMap=new HashMap<String,String>();
+  m_RuntimeClasses=new ArrayList<String>();
+  m_RuntimeClassesJar=new ArrayList<String>();
+  put("java.util.concurrent.atomic.AtomicLong","edu.syr.pcpratts.rootbeer.runtime.remap.GpuAtomicLong");
+  put("java.util.Random","edu.syr.pcpratts.rootbeer.runtime.remap.Random");
+}

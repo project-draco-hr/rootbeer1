@@ -1,0 +1,8 @@
+{
+  List<Kernel> jobs=new ArrayList<Kernel>();
+  for (int i=0; i < 5; ++i) {
+    NativeStrictMathRunOnGpu curr=new NativeStrictMathRunOnGpu(i);
+    jobs.add(curr);
+  }
+  return jobs;
+}

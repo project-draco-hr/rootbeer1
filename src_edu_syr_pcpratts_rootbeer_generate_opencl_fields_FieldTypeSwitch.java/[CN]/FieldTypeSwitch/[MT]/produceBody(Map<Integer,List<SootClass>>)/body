@@ -1,0 +1,21 @@
+{
+  int[] sorted_keys=sortKeys(offsets);
+  StringBuilder ret=new StringBuilder();
+  ret.append("int offset;\n");
+  ret.append("switch(type){\n");
+  for (  int key : sorted_keys) {
+    List<SootClass> classes=offsets.get(key);
+    classes=sortClasses(classes);
+    for (    SootClass sclass : classes) {
+      ret.append(" case " + OpenCLScene.v().getClassType(sclass) + ":\n");
+    }
+    ret.append("  offset = " + key + ";\n");
+    ret.append("  break;\n");
+  }
+  ret.append("default:\n");
+  ret.append("  offset = -1;\n");
+  ret.append("  break;\n");
+  ret.append("}\n");
+  ret.append("return offset;\n");
+  return ret.toString();
+}

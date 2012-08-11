@@ -1,0 +1,11 @@
+{
+  String ret="";
+  for (int i=0; i < mOutputUnits.size(); ++i) {
+    if (i < mLabels.size()) {
+      List<String> labels=mLabels.get(i);
+      for (      String label : labels)       ret+=label + ":\n";
+    }
+    ret+=mOutputUnits.get(i).toString() + "\n";
+  }
+  return ret;
+}

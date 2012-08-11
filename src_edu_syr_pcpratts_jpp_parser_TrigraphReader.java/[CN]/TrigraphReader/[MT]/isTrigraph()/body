@@ -1,0 +1,40 @@
+{
+  m_ThreeCharacters=m_Curr.getString() + m_Next.getString() + m_NextNext.getString();
+  if (m_ThreeCharacters.equals("??=")) {
+    m_TriGraph="#";
+    return true;
+  }
+  if (m_ThreeCharacters.equals("??/")) {
+    m_TriGraph="\\";
+    return true;
+  }
+  if (m_ThreeCharacters.equals("??'")) {
+    m_TriGraph="^";
+    return true;
+  }
+  if (m_ThreeCharacters.equals("??(")) {
+    m_TriGraph="[";
+    return true;
+  }
+  if (m_ThreeCharacters.equals("??)")) {
+    m_TriGraph="]";
+    return true;
+  }
+  if (m_ThreeCharacters.equals("??!")) {
+    m_TriGraph="|";
+    return true;
+  }
+  if (m_ThreeCharacters.equals("??-")) {
+    m_TriGraph="~";
+    return true;
+  }
+  if (m_ThreeCharacters.equals("??>")) {
+    m_TriGraph="}";
+    return true;
+  }
+  if (m_ThreeCharacters.equals("??!")) {
+    m_TriGraph="|";
+    return true;
+  }
+  return false;
+}

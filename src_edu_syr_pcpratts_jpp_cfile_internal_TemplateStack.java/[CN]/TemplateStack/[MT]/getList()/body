@@ -1,0 +1,11 @@
+{
+  List<CTemplate> ret=new ArrayList<CTemplate>();
+  List<String> type=m_Type.getList();
+  List<CTemplate> templates=m_Template.getList();
+  for (int i=0; i < type.size(); ++i) {
+    if (type.get(i).equals("template")) {
+      ret.add(templates.get(i));
+    }
+  }
+  return ret;
+}

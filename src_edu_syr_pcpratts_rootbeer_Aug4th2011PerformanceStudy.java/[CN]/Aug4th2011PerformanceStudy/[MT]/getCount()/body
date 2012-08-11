@@ -1,0 +1,3 @@
+{
+  return m_Count.get(m_CurrentIndex);
+}

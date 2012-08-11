@@ -1,0 +1,5 @@
+{
+  StaticsTest3RunOnGpu blhs=(StaticsTest3RunOnGpu)lhs;
+  StaticsTest3RunOnGpu brhs=(StaticsTest3RunOnGpu)rhs;
+  return blhs.compare(brhs);
+}

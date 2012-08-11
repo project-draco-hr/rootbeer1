@@ -1,0 +1,11 @@
+{
+  GpuListRunOnGpu glhs=(GpuListRunOnGpu)lhs;
+  GpuListRunOnGpu grhs=(GpuListRunOnGpu)rhs;
+  if (glhs.getList().size() != glhs.getList().size())   return false;
+  for (int i=0; i < glhs.getList().size(); ++i) {
+    Item first=glhs.getList().get(i);
+    Item second=grhs.getList().get(i);
+    if (first.getValue() != second.getValue())     return false;
+  }
+  return true;
+}

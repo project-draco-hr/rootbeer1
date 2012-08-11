@@ -1,0 +1,16 @@
+{
+  while (iter.hasNext()) {
+    CFileItem next=iter.next();
+    visitItem(next);
+    if (next instanceof CClass) {
+      CClass cclass=(CClass)next;
+      if (m_UseSubIterators)       doVisit(cclass.subiterator());
+ else       doVisit(cclass.iterator());
+    }
+ else     if (next instanceof CMethod) {
+      CMethod cmethod=(CMethod)next;
+      if (m_UseSubIterators)       doVisit(cmethod.subiterator());
+ else       doVisit(cmethod.iterator());
+    }
+  }
+}

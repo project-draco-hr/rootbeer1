@@ -1,0 +1,20 @@
+{
+  exp=java.lang.StrictMath.exp(i);
+  log=java.lang.StrictMath.log(i);
+  log10=java.lang.StrictMath.log10(i);
+  sqrt=java.lang.StrictMath.sqrt(i);
+  cbrt=java.lang.StrictMath.cbrt(i);
+  IEEEremainder=java.lang.StrictMath.IEEEremainder(i,i + 1);
+  ceil=java.lang.StrictMath.ceil(i);
+  floor=java.lang.StrictMath.floor(i);
+  sin=java.lang.StrictMath.sin(i);
+  tan=java.lang.StrictMath.tan(i);
+  asin=java.lang.StrictMath.asin(i);
+  acos=java.lang.StrictMath.acos(i);
+  atan=java.lang.StrictMath.atan(i);
+  atan2=java.lang.StrictMath.atan2(i,i + 1);
+  pow=java.lang.StrictMath.pow(i,i + 1);
+  sinh=java.lang.StrictMath.sinh(i);
+  cosh=java.lang.StrictMath.cosh(i);
+  tanh=java.lang.StrictMath.tanh(i);
+}

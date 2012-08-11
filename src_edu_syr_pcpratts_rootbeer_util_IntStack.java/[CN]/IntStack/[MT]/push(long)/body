@@ -1,0 +1,10 @@
+{
+  ++mTopPtr;
+  if (mTopPtr >= mAlloc) {
+    mAlloc*=2;
+    long[] temp=new long[mAlloc];
+    for (int i=0; i < mTopPtr - 1; ++i)     temp[i]=mData[i];
+    mData=temp;
+  }
+  mData[mTopPtr]=value;
+}

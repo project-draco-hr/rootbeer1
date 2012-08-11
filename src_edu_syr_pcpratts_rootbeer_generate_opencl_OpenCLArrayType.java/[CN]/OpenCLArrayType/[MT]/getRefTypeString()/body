@@ -1,0 +1,4 @@
+{
+  OpenCLType type=new OpenCLType(m_ArrayType);
+  return type.getRefString();
+}

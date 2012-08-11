@@ -1,0 +1,11 @@
+{
+  if (next.getString().equals("#define")) {
+    eatLine();
+  }
+ else   if (next.getString().equals("#undef")) {
+    eatLine();
+  }
+ else {
+    handleOthers(next);
+  }
+}

@@ -1,0 +1,17 @@
+{
+  CppRunner runner=new CppRunner();
+  Reader cpp_reader=runner.run(file);
+  BufferedReader reader=new BufferedReader(cpp_reader);
+  Iterator<Token> iter0=new CharacterReader(reader);
+  Iterator<Token> iter1=new NewlineSplicer(iter0);
+  Iterator<Token> iter1b=new StringAndCommentTokenizer(iter1);
+  Iterator<Token> iter2=new Tokenizer(iter1b);
+  Iterator<Token> iter3=new PreSemiExpression(iter2);
+  Iterator<Token> iter2a=new DigraphReplacer(iter3);
+  Iterator<Token> iter3b=new NewlineRemover(iter2a);
+  Iterator<Token> iter4=new BasicBlockNormalize(iter3b);
+  Iterator<Token> iter5=new DoNormalization(iter4);
+  Iterator<CStatement> iter6=new SemiExpression(iter5);
+  Iterator<CFileItem> iter7=new ForSemiExpression(iter6);
+  return iter7;
+}

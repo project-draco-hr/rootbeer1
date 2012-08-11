@@ -1,0 +1,9 @@
+{
+  List<String> lines=getLines(input);
+  StringBuilder builder=new StringBuilder();
+  for (  String str : lines) {
+    builder.append(str);
+    builder.append("\n");
+  }
+  return new StringReader(builder.toString());
+}

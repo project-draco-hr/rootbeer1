@@ -1,0 +1,11 @@
+{
+  if (m_TrapMap.containsKey(unit)) {
+    List<TrapItem> traps=m_TrapMap.get(unit);
+    traps.add(item);
+  }
+ else {
+    List<TrapItem> traps=new ArrayList<TrapItem>();
+    traps.add(item);
+    m_TrapMap.put(unit,traps);
+  }
+}

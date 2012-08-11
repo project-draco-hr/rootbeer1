@@ -1,0 +1,6 @@
+{
+  for (int i=index; i < m_Count - 1; ++i) {
+    m_Items[i]=m_Items[i + 1];
+  }
+  m_Count--;
+}

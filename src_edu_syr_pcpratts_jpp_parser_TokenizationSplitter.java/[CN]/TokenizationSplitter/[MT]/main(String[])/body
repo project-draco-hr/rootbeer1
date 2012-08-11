@@ -1,0 +1,8 @@
+{
+  Token tok=new Token("if(( var = new Hello()) == 0){");
+  TokenizationSplitter split_engine=new TokenizationSplitter();
+  List<Token> tokens=split_engine.split(tok,"(");
+  for (  Token token : tokens) {
+    System.out.println(token.getString());
+  }
+}

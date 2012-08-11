@@ -1,0 +1,4 @@
+{
+  mInstance=null;
+  mCurrentIdent++;
+}

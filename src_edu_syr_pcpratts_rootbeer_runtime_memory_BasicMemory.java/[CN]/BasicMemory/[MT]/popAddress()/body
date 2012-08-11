@@ -1,0 +1,3 @@
+{
+  setPointer(mAddressStack.pop());
+}

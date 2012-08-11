@@ -1,0 +1,5 @@
+{
+  String top=m_Type.get(m_Type.size() - 1);
+  if (top.equals("namespace"))   return true;
+  return false;
+}

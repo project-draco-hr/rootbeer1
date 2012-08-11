@@ -1,0 +1,6 @@
+{
+  if (value == false) {
+    System.out.println("TEST FAILED");
+    System.exit(0);
+  }
+}

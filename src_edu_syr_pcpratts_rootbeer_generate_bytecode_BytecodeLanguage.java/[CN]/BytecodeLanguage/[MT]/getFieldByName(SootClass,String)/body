@@ -1,0 +1,27 @@
+{
+  SootClass original_class=base_class;
+  SootField ret;
+  while (true) {
+    try {
+      ret=base_class.getFieldByName(field_name);
+      return ret;
+    }
+ catch (    Exception ex) {
+      if (base_class.getName().equals("java.lang.Object")) {
+        break;
+      }
+      base_class=base_class.getSuperclass();
+    }
+  }
+  List<SootClass> classes=OpenCLScene.v().getClassHierarchy(original_class);
+  for (  SootClass soot_class : classes) {
+    try {
+      ret=soot_class.getFieldByName(field_name);
+      return ret;
+    }
+ catch (    Exception ex) {
+      continue;
+    }
+  }
+  throw new RuntimeException("Cannot find field: " + field_name + " in "+ original_class.getName());
+}

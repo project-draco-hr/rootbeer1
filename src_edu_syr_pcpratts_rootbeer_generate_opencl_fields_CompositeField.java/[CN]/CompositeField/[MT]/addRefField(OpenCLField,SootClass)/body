@@ -1,0 +1,4 @@
+{
+  addField(m_RefFieldsByClass,soot_class,field);
+  m_RefFields.add(field);
+}

@@ -1,0 +1,7 @@
+{
+  Type type=soot_field.getType();
+  String name=type.toString();
+  char[] name_array=name.toCharArray();
+  name_array[0]=Character.toUpperCase(name_array[0]);
+  return new String(name_array);
+}

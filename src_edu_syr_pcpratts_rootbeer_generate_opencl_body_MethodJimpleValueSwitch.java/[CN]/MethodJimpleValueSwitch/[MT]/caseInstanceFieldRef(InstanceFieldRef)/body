@@ -1,0 +1,16 @@
+{
+  Value base=arg0.getBase();
+  if (base instanceof Local == false)   throw new UnsupportedOperationException("How do I handle base is not a local?");
+  Local local=(Local)base;
+  Type type=local.getType();
+  if (type instanceof RefType == false)   throw new UnsupportedOperationException("How do I handle type is not a ref type?");
+  RefType ref=(RefType)type;
+  OpenCLField ocl_field=new OpenCLField(arg0.getField(),ref.getSootClass());
+  if (isLhs()) {
+    mOutput.append(ocl_field.getInstanceSetterInvoke(arg0.getBase()));
+  }
+ else {
+    mOutput.append(ocl_field.getInstanceGetterInvoke(arg0.getBase()));
+  }
+  setCheckException();
+}

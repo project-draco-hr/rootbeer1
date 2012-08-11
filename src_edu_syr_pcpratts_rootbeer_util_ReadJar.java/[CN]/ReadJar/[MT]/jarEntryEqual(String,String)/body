@@ -1,0 +1,5 @@
+{
+  name="/" + name;
+  if (name.equals(cls))   return true;
+  return false;
+}

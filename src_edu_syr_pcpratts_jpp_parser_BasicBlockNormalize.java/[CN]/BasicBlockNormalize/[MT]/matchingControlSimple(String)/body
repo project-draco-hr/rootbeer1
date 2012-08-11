@@ -1,0 +1,6 @@
+{
+  if (str.equals("if"))   return true;
+  if (str.equals("while"))   return true;
+  if (str.equals("for"))   return true;
+  return false;
+}

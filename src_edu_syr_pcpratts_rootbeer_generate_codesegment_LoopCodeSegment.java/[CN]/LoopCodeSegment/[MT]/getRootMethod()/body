@@ -1,0 +1,3 @@
+{
+  return block.getSootClass().getMethodByName("run");
+}

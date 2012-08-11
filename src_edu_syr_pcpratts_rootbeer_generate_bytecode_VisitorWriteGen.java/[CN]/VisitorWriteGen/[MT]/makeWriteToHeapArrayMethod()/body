@@ -1,0 +1,16 @@
+{
+  SootClass object_soot_class=RootbeerScene.v().getClass("java.lang.Object");
+  m_Bcl.top().startMethod("doWriteArrayToHeap",VoidType.v(),object_soot_class.getType(),LongType.v(),IntType.v(),IntType.v(),IntType.v());
+  m_ThisRef=m_Bcl.top().refThis();
+  m_Param0=m_Bcl.top().refParameter(0);
+  m_RefParam=m_Bcl.top().refParameter(1);
+  m_StartIndex=m_Bcl.top().refParameter(2);
+  m_EndIndex=m_Bcl.top().refParameter(3);
+  m_Core=m_Bcl.top().refParameter(4);
+  List<Type> all_possible_types=OpenCLScene.v().getOrderedHistory();
+  for (  Type type : all_possible_types) {
+    if (type instanceof ArrayType)     makeWriteToHeapBodyForArrayType((ArrayType)type);
+  }
+  m_Bcl.top().returnValue(IntConstant.v(0));
+  m_Bcl.top().endMethod();
+}

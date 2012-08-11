@@ -1,0 +1,5 @@
+{
+  String sep=File.separator;
+  if (folder.endsWith(sep) == false)   folder+=sep;
+  return folder;
+}

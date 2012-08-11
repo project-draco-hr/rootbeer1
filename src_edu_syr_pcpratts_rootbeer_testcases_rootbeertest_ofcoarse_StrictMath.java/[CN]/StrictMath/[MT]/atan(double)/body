@@ -1,0 +1,40 @@
+{
+  double lo;
+  double hi;
+  boolean negative=x < 0;
+  if (negative)   x=-x;
+  if (x >= TWO_66)   return negative ? -PI / 2 : PI / 2;
+  if (!(x >= 0.4375)) {
+    if (!(x >= 1 / TWO_29))     return negative ? -x : x;
+    lo=hi=0;
+  }
+ else   if (x < 1.1875) {
+    if (x < 0.6875) {
+      x=(2 * x - 1) / (2 + x);
+      hi=ATAN_0_5H;
+      lo=ATAN_0_5L;
+    }
+ else {
+      x=(x - 1) / (x + 1);
+      hi=PI / 4;
+      lo=PI_L / 4;
+    }
+  }
+ else   if (x < 2.4375) {
+    x=(x - 1.5) / (1 + 1.5 * x);
+    hi=ATAN_1_5H;
+    lo=ATAN_1_5L;
+  }
+ else {
+    x=-1 / x;
+    hi=PI / 2;
+    lo=PI_L / 2;
+  }
+  double z=x * x;
+  double w=z * z;
+  double s1=z * (AT0 + w * (AT2 + w * (AT4 + w * (AT6 + w * (AT8 + w * AT10)))));
+  double s2=w * (AT1 + w * (AT3 + w * (AT5 + w * (AT7 + w * AT9))));
+  if (hi == 0)   return negative ? x * (s1 + s2) - x : x - x * (s1 + s2);
+  z=hi - ((x * (s1 + s2) - lo) - x);
+  return negative ? -z : z;
+}

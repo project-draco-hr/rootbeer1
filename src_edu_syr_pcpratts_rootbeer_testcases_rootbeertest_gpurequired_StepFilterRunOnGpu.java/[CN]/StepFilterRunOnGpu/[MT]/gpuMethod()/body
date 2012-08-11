@@ -1,0 +1,15 @@
+{
+  index/=4;
+  int end=index + num;
+  if (end > a.length)   end=a.length;
+  for (int i=index; i < end; ++i) {
+    int sx=convolve(i,kx);
+    int sy=convolve(i,ky);
+    if (sx * sx + sy * sy > 100 * 100) {
+      b[i]=0;
+    }
+ else {
+      b[i]=255;
+    }
+  }
+}

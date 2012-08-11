@@ -1,0 +1,33 @@
+{
+  SootClass soot_class=ref_type.getSootClass();
+  if (mSentinalCtorsCreated.contains(soot_class.getName()))   return;
+  mSentinalCtorsCreated.add(soot_class.getName());
+  soot_class=RootbeerScene.v().getClass(soot_class.getName());
+  if (soot_class.isLibraryClass())   return;
+  if (soot_class.declaresMethod("void <init>(edu.syr.pcpratts.rootbeer.runtime.Sentinal)")) {
+    return;
+  }
+  SootClass parent_class=soot_class.getSuperclass();
+  parent_class=RootbeerScene.v().getClass(parent_class.getName());
+  BytecodeLanguage bcl=new BytecodeLanguage();
+  bcl.openClass(soot_class);
+  bcl.startMethod("<init>",VoidType.v(),RefType.v("edu.syr.pcpratts.rootbeer.runtime.Sentinal"));
+  Local thisref=bcl.refThis();
+  String parent_name=parent_class.getName();
+  if (parent_class.isLibraryClass()) {
+    if (parent_class.declaresMethod("void <init>()")) {
+      bcl.pushMethod(parent_name,"<init>",VoidType.v());
+      bcl.invokeMethodNoRet(thisref);
+    }
+ else {
+      System.out.println("Library class " + parent_name + " on the GPU does not have a void constructor");
+      System.exit(-1);
+    }
+  }
+ else {
+    bcl.pushMethod(parent_name,"<init>",VoidType.v(),RefType.v("edu.syr.pcpratts.rootbeer.runtime.Sentinal"));
+    bcl.invokeMethodNoRet(thisref,NullConstant.v());
+  }
+  bcl.returnVoid();
+  bcl.endMethod();
+}

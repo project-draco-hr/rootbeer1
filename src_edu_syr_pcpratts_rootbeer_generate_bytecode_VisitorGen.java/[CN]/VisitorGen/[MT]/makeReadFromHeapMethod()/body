@@ -1,0 +1,4 @@
+{
+  VisitorReadGen read_gen=new VisitorReadGen(OpenCLScene.v().getOrderedHistory(),mClassName,m_Bcl.top(),m_FieldInspector);
+  read_gen.makeReadFromHeapMethod();
+}

@@ -1,0 +1,5 @@
+{
+  long ret=mData[mTopPtr];
+  --mTopPtr;
+  return ret;
+}

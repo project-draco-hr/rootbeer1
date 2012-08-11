@@ -1,0 +1,6 @@
+{
+  m_Sum=0;
+  for (int i=0; i < m_Mem.length; ++i) {
+    m_Sum+=m_Mem[i];
+  }
+}

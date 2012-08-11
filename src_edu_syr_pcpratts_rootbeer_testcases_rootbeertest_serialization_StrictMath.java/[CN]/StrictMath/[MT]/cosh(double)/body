@@ -1,0 +1,29 @@
+{
+  double t, w;
+  long bits;
+  long hx;
+  long lx;
+  if (x != x)   return x;
+  if (x == Double.POSITIVE_INFINITY)   return Double.POSITIVE_INFINITY;
+  if (x == Double.NEGATIVE_INFINITY)   return Double.POSITIVE_INFINITY;
+  bits=Double.doubleToLongBits(x);
+  hx=getHighDWord(bits) & 0x7fffffffL;
+  lx=getLowDWord(bits);
+  if (hx < 0x3fd62e43L) {
+    t=expm1(abs(x));
+    w=1.0 + t;
+    if (hx < 0x3c800000L)     return w;
+    return 1.0 + (t * t) / (w + w);
+  }
+  if (hx < 0x40360000L) {
+    t=exp(abs(x));
+    return 0.5 * t + 0.5 / t;
+  }
+  if (hx < 0x40862e42L)   return 0.5 * exp(abs(x));
+  if ((hx < 0x408633ceL) || ((hx == 0x408633ceL) && (lx <= 0x8fb9f87dL))) {
+    w=exp(0.5 * abs(x));
+    t=0.5 * w;
+    return t * w;
+  }
+  return Double.POSITIVE_INFINITY;
+}

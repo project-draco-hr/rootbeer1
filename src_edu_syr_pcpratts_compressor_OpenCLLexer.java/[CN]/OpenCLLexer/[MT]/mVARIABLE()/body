@@ -1,0 +1,44 @@
+{
+  try {
+    int _type=VARIABLE;
+    int _channel=DEFAULT_TOKEN_CHANNEL;
+{
+      if ((input.LA(1) >= '#' && input.LA(1) <= '$') || (input.LA(1) >= 'A' && input.LA(1) <= 'Z') || input.LA(1) == '_' || (input.LA(1) >= 'a' && input.LA(1) <= 'z')) {
+        input.consume();
+      }
+ else {
+        MismatchedSetException mse=new MismatchedSetException(null,input);
+        recover(mse);
+        throw mse;
+      }
+      loop2:       do {
+        int alt2=2;
+        int LA2_0=input.LA(1);
+        if (((LA2_0 >= '#' && LA2_0 <= '$') || (LA2_0 >= '0' && LA2_0 <= '9') || (LA2_0 >= 'A' && LA2_0 <= 'Z')|| LA2_0 == '_' || (LA2_0 >= 'a' && LA2_0 <= 'z'))) {
+          alt2=1;
+        }
+switch (alt2) {
+case 1:
+{
+            if ((input.LA(1) >= '#' && input.LA(1) <= '$') || (input.LA(1) >= '0' && input.LA(1) <= '9') || (input.LA(1) >= 'A' && input.LA(1) <= 'Z')|| input.LA(1) == '_' || (input.LA(1) >= 'a' && input.LA(1) <= 'z')) {
+              input.consume();
+            }
+ else {
+              MismatchedSetException mse=new MismatchedSetException(null,input);
+              recover(mse);
+              throw mse;
+            }
+          }
+        break;
+default :
+      break loop2;
+  }
+}
+ while (true);
+}
+state.type=_type;
+state.channel=_channel;
+}
+  finally {
+}
+}

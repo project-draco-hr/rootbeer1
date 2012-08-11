@@ -1,0 +1,72 @@
+{
+  Stopwatch watch=new Stopwatch();
+  watch.start();
+  for (  Memory mem : m_ToSpace) {
+    mem.setAddress(0);
+  }
+  m_Handles.activate();
+  m_Handles.resetPointer();
+  m_JobsToWrite.clear();
+  m_JobsWritten.clear();
+  m_HandlesCache.clear();
+  m_NotWritten.clear();
+  ReadOnlyAnalyzer analyzer=null;
+  boolean first_block=true;
+  int count=0;
+  while (iter.hasNext()) {
+    Kernel job=iter.next();
+    if (first_block) {
+      m_FirstJob=(CompiledKernel)job;
+      first_block=false;
+    }
+    m_JobsToWrite.add(job);
+    if (count + 1 == m_BlockShaper.getMaxThreads(m_NumMultiProcessors))     break;
+    count++;
+  }
+  if (count == 0) {
+    return false;
+  }
+  List<Serializer> visitors=new ArrayList<Serializer>();
+  for (int i=0; i < m_NumCores; ++i) {
+    Memory mem=m_ToSpace.get(i);
+    Memory texture_mem=m_Texture.get(i);
+    mem.clearHeapEndPtr();
+    texture_mem.clearHeapEndPtr();
+    Serializer visitor=m_FirstJob.getSerializer(mem,texture_mem);
+    visitor.setAnalyzer(analyzer);
+    visitors.add(visitor);
+  }
+  visitors.get(0).writeStaticsToHeap();
+  int items_per=m_JobsToWrite.size() / m_NumCores;
+  for (int i=0; i < m_NumCores; ++i) {
+    Serializer visitor=visitors.get(i);
+    int end_index;
+    if (i == m_NumCores - 1) {
+      end_index=m_JobsToWrite.size();
+    }
+ else {
+      end_index=(i + 1) * items_per;
+    }
+    List<Kernel> items=m_JobsToWrite.subList(i * items_per,end_index);
+    m_Writers.get(i).write(items,visitor);
+  }
+  for (int i=0; i < m_NumCores; ++i) {
+    ToSpaceWriterResult result=m_Writers.get(i).join();
+    List<Long> handles=result.getHandles();
+    List<Kernel> items=result.getItems();
+    m_JobsWritten.addAll(items);
+    m_Partial.enqueueJobs(items);
+    m_HandlesCache.addAll(handles);
+    m_NotWritten.addAll(result.getNotWrittenItems());
+    for (    Long handle : handles) {
+      m_Handles.writeLong(handle);
+    }
+  }
+  m_Partial.addNotWritten(m_NotWritten);
+  watch.stopAndPrint("write time: ");
+  if (Configuration.getRunAllTests() == false) {
+    BufferPrinter printer=new BufferPrinter();
+    printer.print(m_ToSpace.get(0),0,720);
+  }
+  return true;
+}

@@ -1,0 +1,4 @@
+{
+  if (m_SootField.isStatic())   return false;
+  return true;
+}

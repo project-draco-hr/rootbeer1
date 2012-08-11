@@ -1,0 +1,37 @@
+{
+  String ret="";
+  ret+="int id = getThreadId();\n";
+  StaticOffsets static_offsets=new StaticOffsets();
+  int junk_index=static_offsets.getEndIndex() - 4;
+  int mystery_index=junk_index - 4;
+  if (m_SootMethod.isStatic()) {
+    int offset=static_offsets.getIndex(m_SootClass);
+    ret+="char * mem = edu_syr_pcpratts_gc_deref(gc_info, 0);\n";
+    ret+="char * trash = mem + " + junk_index + ";\n";
+    ret+="char * mystery = mem + " + mystery_index + ";\n";
+    ret+="mem += " + offset + ";\n";
+  }
+ else {
+    ret+="char * mem = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n";
+    ret+="char * trash = edu_syr_pcpratts_gc_deref(gc_info, 0) + " + junk_index + ";\n";
+    ret+="char * mystery = trash - 4;\n";
+    ret+="mem += 12;\n";
+  }
+  ret+="int count = 0;\n";
+  ret+="int old;\n";
+  ret+="while(count < 100){\n";
+  ret+="  old = atomicCAS((int *) mem, -1 , id);\n";
+  ret+="  *((int *) trash) = old;\n";
+  if (isLinux()) {
+    ret+="  if(old == -1 || old == id){\n";
+  }
+ else {
+    ret+="  if(old != -1 && old != id){\n";
+    ret+="    count++;\n";
+    ret+="    if(count > 99 && *((int *) mystery) == 0){\n";
+    ret+="      count = 0;\n";
+    ret+="    }\n";
+    ret+="  } else {\n";
+  }
+  return ret;
+}

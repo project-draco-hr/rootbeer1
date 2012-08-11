@@ -1,0 +1,25 @@
+{
+  mUsesGarbageCollector=false;
+  findAllUsedClassesMethodsFieldsAndArrayTypes();
+  StringBuilder ret=new StringBuilder();
+  ret.append(headerString());
+  ret.append(garbageCollectorString());
+  ret.append(methodPrototypesString());
+  ret.append(methodBodiesString());
+  String cuda_code;
+  if (true) {
+    cuda_code=ret.toString();
+  }
+ else {
+    cuda_code=readCudaCodeFromFile();
+  }
+  String mangle=NameMangling.v().mangle(VoidType.v());
+  String replacement=getRuntimeBasicBlockClassName() + "_gpuMethod" + mangle;
+  replacement=replacement.replace("$","\\$");
+  cuda_code=cuda_code.replaceAll("%%invoke_run%%",replacement);
+  PrintWriter writer=new PrintWriter(new FileWriter("generated.cu"));
+  writer.println(cuda_code.toString());
+  writer.flush();
+  writer.close();
+  return cuda_code;
+}

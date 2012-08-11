@@ -1,0 +1,10 @@
+{
+  mReadOnGpuFields=new HashSet<SootField>();
+  mWrittenOnGpuFields=new HashSet<SootField>();
+  mWrittenOnGpuArrayLocals=new HashSet<Local>();
+  mAllFields=new HashSet<SootField>();
+  mMethodsInspected=new HashSet<SootMethod>();
+  mWritenOnGpuFieldsClassesChecked=new HashSet<String>();
+  inspectMethod(root_method);
+  addParentFields();
+}

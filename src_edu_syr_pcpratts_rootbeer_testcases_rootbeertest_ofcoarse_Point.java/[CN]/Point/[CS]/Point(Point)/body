@@ -1,0 +1,4 @@
+{
+  this.X=other.X;
+  this.Y=other.Y;
+}

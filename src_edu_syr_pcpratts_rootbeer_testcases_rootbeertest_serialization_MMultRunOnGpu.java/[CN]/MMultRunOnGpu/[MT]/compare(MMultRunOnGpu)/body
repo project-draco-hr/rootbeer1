@@ -1,0 +1,19 @@
+{
+  if (c.length != brhs.c.length) {
+    System.out.println("len failed");
+    System.out.println("c.length: " + c.length);
+    System.out.println("brhs.c.length: " + brhs.c.length);
+    return false;
+  }
+  for (int i=index * size; i < (index + 1) * size; ++i) {
+    int lhs=c[i];
+    int rhs=brhs.c[i];
+    if (lhs != rhs) {
+      System.out.println("c value failed");
+      System.out.println("i: " + i);
+      System.out.println("lhs: " + lhs + " rhs: "+ rhs);
+      return false;
+    }
+  }
+  return true;
+}

@@ -1,0 +1,15 @@
+{
+  String sig=method.getSignature();
+  if (m_Inspected.contains(sig))   return;
+  m_Inspected.add(sig);
+  Body body=RootbeerScene.v().getBody(method);
+  if (body == null)   return;
+  inspectBody(body);
+  FindMethodCalls finder=new FindMethodCalls();
+  Set<SootMethod> calls=finder.findForMethod(method);
+  Iterator<SootMethod> iter=calls.iterator();
+  while (iter.hasNext()) {
+    SootMethod curr=iter.next();
+    inspectMethod(curr);
+  }
+}

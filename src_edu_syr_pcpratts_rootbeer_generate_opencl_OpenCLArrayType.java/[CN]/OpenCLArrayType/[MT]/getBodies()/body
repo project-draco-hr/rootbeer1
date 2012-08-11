@@ -1,0 +1,83 @@
+{
+  StringBuilder ret=new StringBuilder();
+  List<String> decls=getDecls();
+  int element_size=getElementSize();
+  int offset_size=Constants.ArrayOffsetSize;
+  String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
+  ret.append(decls.get(0) + "{\n");
+  ret.append("int offset = " + offset_size + "+(parameter0*"+ element_size+ ");\n");
+  ret.append("if(thisref == -1){\n");
+  ret.append("  *exception = " + edu.syr.pcpratts.rootbeer.Constants.NullPointerNumber + ";\n");
+  ret.append("  return 0;\n");
+  ret.append("}\n");
+  ret.append(address_qual + " char * thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n");
+  ret.append("return *((" + address_qual + " "+ getAssignType()+ " *) &thisref_deref[offset]);\n");
+  ret.append("}\n");
+  ret.append(decls.get(1) + "{\n");
+  ret.append("  if(thisref == -1){\n");
+  ret.append("    *exception = " + edu.syr.pcpratts.rootbeer.Constants.NullPointerNumber + ";\n");
+  ret.append("    return;\n");
+  ret.append("  }\n");
+  ret.append(address_qual + " char * thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n");
+  if (isCharArray()) {
+    ret.append("*((" + address_qual + " int *) &thisref_deref["+ offset_size+ "+(parameter0*"+ element_size+ ")]) = 0;\n");
+  }
+  ret.append("*((" + address_qual + " "+ getAssignType()+ " *) &thisref_deref["+ offset_size+ "+(parameter0*"+ element_size+ ")]) = parameter1;\n");
+  ret.append("}\n");
+  int derived_type=OpenCLScene.v().getClassType(m_ArrayType);
+  ret.append(decls.get(2) + "{\n");
+  ret.append("int i;\n");
+  ret.append("int total_size = (size * " + element_size + ")+ "+ offset_size+ ";\n");
+  ret.append("int mod = total_size % 8;\n");
+  ret.append("if(mod != 0)\n");
+  ret.append("  total_size += (8 - mod);\n");
+  ret.append("int thisref = edu_syr_pcpratts_gc_malloc(gc_info, total_size);\n");
+  ret.append("if(thisref == -1){\n");
+  ret.append("  *exception = -1;\n");
+  ret.append("  return -1;\n");
+  ret.append("}\n");
+  ret.append(address_qual + " char * thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n");
+  ret.append("\n//class info\n");
+  ret.append("edu_syr_pcpratts_gc_set_count(thisref_deref, 0);\n");
+  ret.append("edu_syr_pcpratts_gc_set_color(thisref_deref, COLOR_GREY);\n");
+  ret.append("edu_syr_pcpratts_gc_set_type(thisref_deref, " + Integer.toString(derived_type) + ");\n");
+  ret.append("edu_syr_pcpratts_gc_set_ctor_used(thisref_deref, 1);\n");
+  ret.append("edu_syr_pcpratts_gc_set_size(thisref_deref, total_size);\n");
+  ret.append("edu_syr_pcpratts_setint(thisref_deref, 8, size);\n");
+  ret.append("for(i = 0; i < size; ++i){\n");
+  ret.append("  " + getDerefTypeString() + "_set(gc_info, thisref, i, "+ initValue()+ ", exception);\n");
+  ret.append("}\n");
+  ret.append("return thisref;\n");
+  ret.append("}\n");
+  List<String> multi_decls=getMultiArrayDecls();
+  List<Integer> dims=OpenCLScene.v().getMultiArrayDimensions(m_ArrayType);
+  int index=0;
+  for (  String multi_decl : multi_decls) {
+    int dim=dims.get(index);
+    ret.append(multi_decl + "{\n");
+    ret.append("int total_size = (dim0 * 8) + " + offset_size + ";\n");
+    for (int i=0; i < dim; ++i) {
+      ret.append("int index" + i + ";\n");
+    }
+    ret.append("int mod = total_size % 8;\n");
+    ret.append("if(mod != 0)\n");
+    ret.append("  total_size += (8 - mod);\n");
+    ret.append("int thisref = edu_syr_pcpratts_gc_malloc(gc_info, total_size);\n");
+    ret.append("if(thisref == -1){\n");
+    ret.append("  return -1;\n");
+    ret.append("}\n");
+    ret.append(address_qual + " char * thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n");
+    ret.append("\n//class info\n");
+    ret.append("edu_syr_pcpratts_gc_set_count(thisref_deref, 0);\n");
+    ret.append("edu_syr_pcpratts_gc_set_color(thisref_deref, COLOR_GREY);\n");
+    ret.append("edu_syr_pcpratts_gc_set_type(thisref_deref, " + Integer.toString(derived_type) + ");\n");
+    ret.append("edu_syr_pcpratts_gc_set_ctor_used(thisref_deref, 1);\n");
+    ret.append("edu_syr_pcpratts_gc_set_size(thisref_deref, total_size);\n");
+    ret.append("edu_syr_pcpratts_setint(thisref_deref, 8, dim0);\n");
+    ret.append(multiInitString(dim));
+    ret.append("return thisref;\n");
+    ret.append("}\n");
+    index++;
+  }
+  return ret.toString();
+}

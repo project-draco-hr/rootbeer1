@@ -1,0 +1,8 @@
+{
+  if (m_Count == m_Items.length) {
+    realloc();
+  }
+  int count=m_Count;
+  m_Items[count]=item;
+  m_Count=(count + 1);
+}

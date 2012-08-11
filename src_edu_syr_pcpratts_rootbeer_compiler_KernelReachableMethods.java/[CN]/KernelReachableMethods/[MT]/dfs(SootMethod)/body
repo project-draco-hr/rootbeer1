@@ -1,0 +1,23 @@
+{
+  String signature=method.getSignature();
+  if (m_visited.contains(signature)) {
+    return;
+  }
+  m_visited.add(signature);
+  if (method.isConcrete() == false) {
+    return;
+  }
+  if (m_ret.contains(signature) == false) {
+    m_ret.add(signature);
+  }
+  Body body=method.getActiveBody();
+  List<ValueBox> boxes=body.getUseAndDefBoxes();
+  for (  ValueBox box : boxes) {
+    Value value=box.getValue();
+    if (value instanceof InvokeExpr) {
+      InvokeExpr expr=(InvokeExpr)value;
+      SootMethod method2=expr.getMethod();
+      dfs(method2);
+    }
+  }
+}

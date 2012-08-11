@@ -1,0 +1,8 @@
+{
+  Type type=field_instance.getType();
+  if (type instanceof RefType == false)   throw new RuntimeException("How do we handle this case?");
+  RefType ref_type=(RefType)type;
+  SootClass soot_class=ref_type.getSootClass();
+  SootField soot_field=soot_class.getFieldByName(field_name);
+  setInstanceField(soot_field,field_instance,value);
+}

@@ -1,0 +1,62 @@
+{
+  BytecodeLanguage bcl=m_Bcl.top();
+  Local object_to_write_from=bcl.cast(type,m_Param0);
+  Local length=bcl.lengthof(object_to_write_from);
+  int class_id=OpenCLScene.v().getClassType(type);
+  BclMemory bcl_mem=new BclMemory(bcl,m_CurrentMem.top());
+  bcl_mem.writeByte((byte)0);
+  bcl_mem.writeByte((byte)0);
+  bcl_mem.writeByte((byte)class_id);
+  bcl_mem.writeByte((byte)0);
+  SootClass constants_soot_class=RootbeerScene.v().getClass("edu.syr.pcpratts.rootbeer.generate.bytecode.Constants");
+  Local size=bcl.refStaticField(constants_soot_class.getType(),"SizeGcInfo");
+  Local element_size=bcl.local(IntType.v());
+  if (type.numDimensions == 1) {
+    OpenCLType ocl_type=new OpenCLType(type.baseType);
+    bcl.assign(element_size,IntConstant.v(ocl_type.getSize()));
+  }
+ else {
+    bcl.assign(element_size,IntConstant.v(4));
+  }
+  bcl.mult(element_size,length);
+  bcl.plus(size,element_size);
+  bcl_mem.writeInt(size);
+  bcl_mem.writeInt(length);
+  bcl_mem.writeInt(-1);
+  Local space_for_elements=bcl.local(IntType.v());
+  bcl.assign(space_for_elements,length);
+  bcl.mult(space_for_elements,IntConstant.v(4));
+  if (type.numDimensions != 1 || type.baseType instanceof RefType) {
+    bcl_mem.startIntegerList();
+    bcl_mem.incrementAddress(space_for_elements);
+  }
+  Local i=bcl.local(IntType.v());
+  bcl.assign(i,IntConstant.v(0));
+  String end_for_label=getNextLabel();
+  String before_if_label=getNextLabel();
+  bcl.label(before_if_label);
+  bcl.ifStmt(i,"==",length,end_for_label);
+  Local curr=bcl.indexArray(object_to_write_from,i);
+  if (type.numDimensions != 1) {
+    SootClass object_soot_class=RootbeerScene.v().getClass("java.lang.Object");
+    bcl.pushMethod(m_ThisRef,"writeToHeap",LongType.v(),object_soot_class.getType(),BooleanType.v());
+    Local array_element=bcl.invokeMethodRet(m_ThisRef,curr,m_Param1);
+    bcl_mem.addIntegerToList(array_element);
+  }
+ else   if (type.baseType instanceof RefType) {
+    SootClass object_soot_class=RootbeerScene.v().getClass("java.lang.Object");
+    bcl.pushMethod(m_ThisRef,"writeToHeap",LongType.v(),object_soot_class.getType(),BooleanType.v());
+    Local array_element=bcl.invokeMethodRet(m_ThisRef,curr,m_Param1);
+    bcl_mem.addIntegerToList(array_element);
+  }
+ else {
+    bcl_mem.writeVar(curr);
+  }
+  bcl.plus(i,1);
+  bcl.gotoLabel(before_if_label);
+  bcl.label(end_for_label);
+  if (type.numDimensions != 1 || type.baseType instanceof RefType) {
+    bcl_mem.endIntegerList();
+  }
+  bcl.returnVoid();
+}

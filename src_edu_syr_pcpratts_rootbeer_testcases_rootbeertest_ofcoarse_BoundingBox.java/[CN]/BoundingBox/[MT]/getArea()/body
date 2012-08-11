@@ -1,0 +1,5 @@
+{
+  double xdiff=Math.abs(m_LowerRight.X - m_UpperLeft.X);
+  double ydiff=Math.abs(m_UpperLeft.Y - m_LowerRight.Y);
+  return xdiff * ydiff;
+}

@@ -1,0 +1,9 @@
+{
+  while (true) {
+    try {
+      return m_OutQueue.take();
+    }
+ catch (    Exception ex) {
+    }
+  }
+}

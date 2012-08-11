@@ -1,0 +1,6 @@
+{
+  if (isConstructor())   return true;
+  Type t=m_SootMethod.getReturnType();
+  if (t instanceof VoidType)   return false;
+  return true;
+}

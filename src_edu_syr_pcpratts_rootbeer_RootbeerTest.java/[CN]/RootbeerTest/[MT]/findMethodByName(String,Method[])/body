@@ -1,0 +1,8 @@
+{
+  for (  Method method : methods) {
+    if (method.getName().equals(name)) {
+      return method;
+    }
+  }
+  return null;
+}

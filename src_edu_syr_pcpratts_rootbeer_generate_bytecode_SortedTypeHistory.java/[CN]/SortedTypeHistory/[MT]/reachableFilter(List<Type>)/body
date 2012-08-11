@@ -1,0 +1,20 @@
+{
+  ClassRemapping remapping=new ClassRemapping();
+  List<String> remap_used=remapping.getUsed();
+  List<Type> ret=new ArrayList<Type>();
+  List<String> reachable_methods=RootbeerScene.v().getReachableMethods();
+  for (  Type type : hierarchy) {
+    if (type instanceof RefType == false) {
+      ret.add(type);
+      continue;
+    }
+    RefType ref_type=(RefType)type;
+    if (containsSignature(ref_type,reachable_methods)) {
+      ret.add(ref_type);
+    }
+ else     if (containsClass(ref_type,remap_used)) {
+      ret.add(ref_type);
+    }
+  }
+  return ret;
+}

@@ -1,0 +1,6 @@
+{
+  jimple=Jimple.v();
+  mFirstIterationLocals=new ArrayList<Local>();
+  mSootClass=method.getDeclaringClass();
+  codeSegment=new MethodCodeSegment(method);
+}

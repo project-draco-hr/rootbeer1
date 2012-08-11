@@ -1,0 +1,5 @@
+{
+  Object instance=doLoad(loader,class_name);
+  TestExceptionFactory factory=(TestExceptionFactory)instance;
+  return factory.getProviders();
+}

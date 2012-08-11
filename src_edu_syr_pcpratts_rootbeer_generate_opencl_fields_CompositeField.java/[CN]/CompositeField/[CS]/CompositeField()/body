@@ -1,0 +1,7 @@
+{
+  m_RefFields=new ArrayList<OpenCLField>();
+  m_NonRefFields=new ArrayList<OpenCLField>();
+  m_RefFieldsByClass=new HashMap<SootClass,List<OpenCLField>>();
+  m_NonRefFieldsByClass=new HashMap<SootClass,List<OpenCLField>>();
+  m_Classes=new ArrayList<SootClass>();
+}

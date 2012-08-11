@@ -1,0 +1,9 @@
+{
+  CFileItem first=m_Items.get(0);
+  List<Token> tokens=first.getTokens();
+  String type_name=tokens.get(1).getString();
+  CType ret=new CType(type_name);
+  ret.addTemplates(getTemplates());
+  ret.setNamespace(getNamespace());
+  return ret;
+}

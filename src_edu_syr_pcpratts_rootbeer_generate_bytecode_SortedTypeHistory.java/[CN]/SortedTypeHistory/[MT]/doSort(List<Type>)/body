@@ -1,0 +1,29 @@
+{
+  Set<String> visited=new HashSet<String>();
+  for (  Type type : types) {
+    SootClass soot_class=getClass(type);
+    if (soot_class.hasSuperclass() == false)     continue;
+    SootClass parent=soot_class.getSuperclass();
+    if (parent.getName().equals("java.lang.Object")) {
+      TreeNode tree=new TreeNode(soot_class,null);
+      m_Hierarchy.add(tree);
+      visited.add(soot_class.getName());
+    }
+  }
+  boolean modified;
+  do {
+    modified=false;
+    for (    Type type : types) {
+      SootClass soot_class=getClass(type);
+      if (visited.contains(soot_class.getName()))       continue;
+      if (soot_class.hasSuperclass() == false)       continue;
+      SootClass parent=soot_class.getSuperclass();
+      TreeNode node=getNode(parent);
+      if (node == null)       continue;
+      node.addChild(soot_class,null);
+      modified=true;
+      visited.add(soot_class.getName());
+    }
+  }
+ while (modified);
+}

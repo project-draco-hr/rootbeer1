@@ -1,0 +1,3 @@
+{
+  mAssembler.assemble(mCurrBody);
+}

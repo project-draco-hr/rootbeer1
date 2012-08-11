@@ -1,0 +1,17 @@
+{
+  String[] tokens=message.split(":");
+  if (tokens.length != 2)   return false;
+  String str=tokens[1];
+  String[] tokens2=str.split("addBasicClass\\(");
+  if (tokens2.length != 2)   return false;
+  String[] tokens3=tokens2[1].split(",");
+  String ret=tokens3[0].trim();
+  m_MissingClass=ret;
+  String[] tokens4=tokens3[1].split("\\)");
+  String level=tokens4[0];
+  if (level.equals("BODIES"))   m_MissingLevel=SootClass.BODIES;
+  if (level.equals("DANGLING"))   m_MissingLevel=SootClass.DANGLING;
+  if (level.equals("HIERARCY"))   m_MissingLevel=SootClass.HIERARCHY;
+  if (level.equals("SIGNATURES"))   m_MissingLevel=SootClass.SIGNATURES;
+  return true;
+}

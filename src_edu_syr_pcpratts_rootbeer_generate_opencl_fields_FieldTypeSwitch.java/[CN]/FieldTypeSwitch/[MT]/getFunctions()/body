@@ -1,0 +1,13 @@
+{
+  StringBuilder ret=new StringBuilder();
+  Iterator<String> iter=m_BodyToNameMap.keySet().iterator();
+  while (iter.hasNext()) {
+    String body=iter.next();
+    String function_name=m_BodyToNameMap.get(body);
+    String qual=Tweaks.v().getDeviceFunctionQualifier();
+    ret.append(qual + " int " + function_name+ "(int type){\n");
+    ret.append(body);
+    ret.append("}\n");
+  }
+  return ret.toString();
+}

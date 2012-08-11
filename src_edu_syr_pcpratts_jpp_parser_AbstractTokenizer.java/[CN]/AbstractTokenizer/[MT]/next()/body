@@ -1,0 +1,5 @@
+{
+  Token ret=m_Tokens.get(0);
+  m_Tokens.remove(0);
+  return ret;
+}

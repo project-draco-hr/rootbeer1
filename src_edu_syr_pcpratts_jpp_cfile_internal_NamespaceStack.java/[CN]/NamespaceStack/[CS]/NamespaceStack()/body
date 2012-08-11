@@ -1,0 +1,4 @@
+{
+  m_Type=new LinkedList<String>();
+  m_Identifiers=new LinkedList<String>();
+}

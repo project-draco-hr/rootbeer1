@@ -1,0 +1,5 @@
+{
+  NewOnGpuRunOnGpu blhs=(NewOnGpuRunOnGpu)lhs;
+  NewOnGpuRunOnGpu brhs=(NewOnGpuRunOnGpu)rhs;
+  return blhs.compare(brhs);
+}

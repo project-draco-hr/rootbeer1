@@ -1,0 +1,8 @@
+{
+  BlockShaper shaper=new BlockShaper();
+  for (int procs=2; procs <= 14; procs+=2) {
+    for (int items=1; items <= procs * 32 * 4; ++items) {
+      shaper.test(items,procs);
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  if (str.equals(brhs.str) == false) {
+    System.out.println(str);
+    System.out.println(brhs.str);
+    return false;
+  }
+  return true;
+}

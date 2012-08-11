@@ -1,0 +1,8 @@
+{
+  List<Kernel> jobs=new ArrayList<Kernel>();
+  for (int i=0; i < 500; ++i) {
+    OuterClassRunOnGpu curr=new OuterClassRunOnGpu();
+    jobs.add(curr);
+  }
+  return jobs;
+}

@@ -1,0 +1,13 @@
+{
+  m_Index++;
+  if (m_Index < m_DefaultDepth) {
+    m_Stack.set(m_Index,value);
+    return;
+  }
+ else {
+    while (m_Stack.size() <= m_Index) {
+      m_Stack.add(0L);
+    }
+    m_Stack.set(m_Index,value);
+  }
+}

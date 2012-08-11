@@ -1,0 +1,10 @@
+{
+  WhileTrueRunOnGpu lhs=(WhileTrueRunOnGpu)original;
+  WhileTrueRunOnGpu rhs=(WhileTrueRunOnGpu)from_gpu;
+  if (lhs.get().get() != rhs.get().get()) {
+    System.out.println("lhs: " + lhs.get().get());
+    System.out.println("rhs: " + rhs.get().get());
+    return false;
+  }
+  return true;
+}

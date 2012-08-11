@@ -1,0 +1,6 @@
+{
+  super(true);
+  addBuiltIns();
+  m_VisitedTypes=new HashSet<String>();
+  visit(cfile);
+}

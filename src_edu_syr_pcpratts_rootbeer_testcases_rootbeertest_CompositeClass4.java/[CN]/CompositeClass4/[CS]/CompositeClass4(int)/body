@@ -1,0 +1,4 @@
+{
+  super(value);
+  m_Shared=value;
+}

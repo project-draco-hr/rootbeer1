@@ -1,0 +1,15 @@
+{
+  String name="edu/syr/pcpratts/rootbeer/runtime/config.txt";
+  ZipEntry entry=new ZipEntry(name);
+  entry.setSize(1);
+  byte[] contents=new byte[1];
+  contents[0]=(byte)Configuration.compilerInstance().getMode();
+  entry.setCrc(calcCrc32(contents));
+  zos.putNextEntry(entry);
+  zos.write(contents);
+  zos.flush();
+  FileOutputStream fout=new FileOutputStream(Constants.OUTPUT_CLASS_FOLDER + File.separator + name);
+  fout.write(contents);
+  fout.flush();
+  fout.close();
+}

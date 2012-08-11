@@ -1,0 +1,5 @@
+{
+  if (m_CurrChar.getString().equals("#"))   return true;
+  if (isSingeLineComment())   return true;
+  return false;
+}

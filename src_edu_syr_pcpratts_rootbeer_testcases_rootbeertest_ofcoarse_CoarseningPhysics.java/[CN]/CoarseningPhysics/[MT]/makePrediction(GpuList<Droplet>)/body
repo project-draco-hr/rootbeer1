@@ -1,0 +1,12 @@
+{
+  mPrevDroplets=new GpuList<Droplet>();
+  for (int i=0; i < droplets.size(); ++i) {
+    Droplet drop=droplets.get(i);
+    mPrevDroplets.add(new Droplet(drop));
+  }
+  resetDropletAverages();
+  doPairDropletPrediction();
+  averageValues();
+  removeSmallDroplets();
+  return mergeDroplets();
+}

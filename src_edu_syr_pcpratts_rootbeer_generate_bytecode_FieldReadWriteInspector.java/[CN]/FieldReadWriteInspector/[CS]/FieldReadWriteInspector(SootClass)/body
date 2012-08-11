@@ -1,0 +1,12 @@
+{
+  mRuntimeBasicBlock=runtime_basic_block;
+  mReadOnGpuFields=new HashSet<SootField>();
+  mWrittenOnGpuFields=new HashSet<SootField>();
+  mWrittenOnGpuArrayLocals=new HashSet<Local>();
+  mAllFields=new HashSet<SootField>();
+  mMethodsInspected=new HashSet<SootMethod>();
+  mWritenOnGpuFieldsClassesChecked=new HashSet<String>();
+  SootMethod root_method=mRuntimeBasicBlock.getMethodByName("run");
+  inspectMethod(root_method);
+  addParentFields();
+}

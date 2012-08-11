@@ -1,0 +1,4 @@
+{
+  Combinatorics brute=new Combinatorics();
+  brute.display(brute.generateNoRepeat(3));
+}

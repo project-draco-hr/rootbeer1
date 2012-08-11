@@ -1,0 +1,4 @@
+{
+  mBcl.pushMethod(mBcl.getTypeString(mMem),"setAddress",VoidType.v(),LongType.v());
+  mBcl.invokeMethodNoRet(mMem,address);
+}

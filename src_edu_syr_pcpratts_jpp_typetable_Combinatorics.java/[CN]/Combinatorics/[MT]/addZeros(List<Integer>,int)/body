@@ -1,0 +1,9 @@
+{
+  List<Integer> ret=new ArrayList<Integer>();
+  for (  Integer num : curr)   ret.add(num);
+  for (int i=curr.size(); i < size; ++i) {
+    ret.add(0);
+  }
+  curr.clear();
+  curr.addAll(ret);
+}

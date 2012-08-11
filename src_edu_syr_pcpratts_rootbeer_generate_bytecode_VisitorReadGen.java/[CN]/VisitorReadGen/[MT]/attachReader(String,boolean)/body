@@ -1,0 +1,44 @@
+{
+  String specialization;
+  if (ref_fields) {
+    specialization="RefFields";
+  }
+ else {
+    specialization="NonRefFields";
+  }
+  specialization+=JavaNameToOpenCL.convert(class_name);
+  specialization+=OpenCLScene.v().getIdent();
+  String visited_name=class_name + specialization;
+  if (m_VisitedReader.contains(visited_name))   return;
+  m_VisitedReader.add(visited_name);
+  SootClass curr_class=RootbeerScene.v().getClass(class_name);
+  SootClass parent=curr_class.getSuperclass();
+  parent=RootbeerScene.v().getClass(parent.getName());
+  if (parent.isApplicationClass()) {
+    attachReader(parent.getName(),ref_fields);
+  }
+  BytecodeLanguage bcl=new BytecodeLanguage();
+  Local gc_obj_visit=m_GcObjVisitor.top();
+  m_Bcl.push(bcl);
+  bcl.openClass(class_name);
+  SootClass mem=RootbeerScene.v().getClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  bcl.startMethod("edu_syr_pcpratts_readFromHeap" + specialization,VoidType.v(),mem.getType(),gc_obj_visit.getType());
+  m_ObjSerializing.push(bcl.refThis());
+  m_CurrMem.push(bcl.refParameter(0));
+  m_GcObjVisitor.push(bcl.refParameter(1));
+  doReader(class_name,ref_fields);
+  if (parent.getName().equals("java.lang.Object") == false) {
+    if (parent.isApplicationClass()) {
+      callBaseClassReader(parent.getName(),ref_fields);
+    }
+ else {
+      insertReader(parent.getName(),ref_fields);
+    }
+  }
+  bcl.returnVoid();
+  bcl.endMethod();
+  m_ObjSerializing.pop();
+  m_CurrMem.pop();
+  m_GcObjVisitor.pop();
+  m_Bcl.pop();
+}

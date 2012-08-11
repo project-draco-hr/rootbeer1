@@ -1,0 +1,6 @@
+{
+  Iterator<Kernel> iter=run(list.iterator());
+  while (iter.hasNext()) {
+    iter.next();
+  }
+}

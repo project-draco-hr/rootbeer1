@@ -1,0 +1,6 @@
+{
+  if (curr instanceof Local) {
+    Local local=(Local)curr;
+    list_to_add_to.add(local);
+  }
+}

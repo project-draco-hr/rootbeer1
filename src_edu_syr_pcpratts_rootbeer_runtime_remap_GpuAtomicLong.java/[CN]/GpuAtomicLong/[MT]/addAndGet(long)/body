@@ -1,0 +1,4 @@
+{
+  m_Value+=value;
+  return m_Value;
+}

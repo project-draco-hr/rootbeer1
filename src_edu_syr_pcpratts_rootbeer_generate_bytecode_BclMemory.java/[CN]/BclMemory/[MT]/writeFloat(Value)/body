@@ -1,0 +1,4 @@
+{
+  mBcl.pushMethod(mBcl.getTypeString(mMem),"writeFloat",VoidType.v(),FloatType.v());
+  mBcl.invokeMethodNoRet(mMem,value);
+}

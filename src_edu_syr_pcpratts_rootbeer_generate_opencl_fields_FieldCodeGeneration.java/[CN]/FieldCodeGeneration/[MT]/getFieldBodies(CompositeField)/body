@@ -1,0 +1,15 @@
+{
+  Set<String> ret=new HashSet<String>();
+  FieldPackingSorter sorter=new FieldPackingSorter();
+  List<OpenCLField> ref_sorted=sorter.sort(composite.getRefFields());
+  List<OpenCLField> nonref_sorted=sorter.sort(composite.getNonRefFields());
+  for (  OpenCLField field : ref_sorted) {
+    boolean writable=m_Inspector.fieldIsWrittenOnGpu(field);
+    ret.add(field.getGetterSetterBodies(composite,writable,m_TypeSwitch));
+  }
+  for (  OpenCLField field : nonref_sorted) {
+    boolean writable=m_Inspector.fieldIsWrittenOnGpu(field);
+    ret.add(field.getGetterSetterBodies(composite,writable,m_TypeSwitch));
+  }
+  return ret;
+}

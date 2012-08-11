@@ -1,0 +1,16 @@
+{
+  for (int i=0; i < mInputUnits.size(); ++i) {
+    Unit input=mInputUnits.get(i);
+    Unit output=mOutputUnits.get(i);
+    List<UnitBox> input_boxes=input.getUnitBoxes();
+    List<UnitBox> output_boxes=output.getUnitBoxes();
+    for (int j=0; j < input_boxes.size(); ++j) {
+      UnitBox input_box=input_boxes.get(j);
+      UnitBox output_box=output_boxes.get(j);
+      Unit input_target=input_box.getUnit();
+      if (input_target == null)       continue;
+      int target_i=findTarget(input_target);
+      output_box.setUnit(mOutputUnits.get(target_i));
+    }
+  }
+}

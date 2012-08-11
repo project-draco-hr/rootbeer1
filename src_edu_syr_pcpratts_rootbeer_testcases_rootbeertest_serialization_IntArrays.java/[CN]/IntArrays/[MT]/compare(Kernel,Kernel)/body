@@ -1,0 +1,5 @@
+{
+  IntArraysRunOnGpu lhs=(IntArraysRunOnGpu)original;
+  IntArraysRunOnGpu rhs=(IntArraysRunOnGpu)read;
+  return lhs.compare(rhs);
+}

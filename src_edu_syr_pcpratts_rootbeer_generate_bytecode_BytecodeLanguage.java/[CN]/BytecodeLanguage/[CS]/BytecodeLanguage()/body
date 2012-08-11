@@ -1,0 +1,4 @@
+{
+  jimple=Jimple.v();
+  mMethodStack=new Stack<SootMethod>();
+}

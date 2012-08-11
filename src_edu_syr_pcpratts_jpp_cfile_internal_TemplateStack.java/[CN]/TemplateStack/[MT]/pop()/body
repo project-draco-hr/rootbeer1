@@ -1,0 +1,4 @@
+{
+  m_Type.pop();
+  m_Template.pop();
+}

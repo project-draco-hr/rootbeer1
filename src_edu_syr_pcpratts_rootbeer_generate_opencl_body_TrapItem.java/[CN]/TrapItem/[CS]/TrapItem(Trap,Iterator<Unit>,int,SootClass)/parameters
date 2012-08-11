@@ -1,0 +1,4 @@
+Trap t
+Iterator<Unit> iter
+int trap_num
+SootClass exception

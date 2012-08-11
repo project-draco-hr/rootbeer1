@@ -1,0 +1,4 @@
+{
+  m_Stack=new PointerStack();
+  m_EndPointer=end_ptr;
+}

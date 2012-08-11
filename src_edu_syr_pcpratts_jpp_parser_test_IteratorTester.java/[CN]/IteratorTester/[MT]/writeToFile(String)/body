@@ -1,0 +1,10 @@
+{
+  PrintWriter writer=new PrintWriter(file + ".passed");
+  Iterator<CFileItem> iter=createIter(file);
+  while (iter.hasNext()) {
+    CFileItem next=iter.next();
+    writer.println(next.toString());
+    writer.flush();
+  }
+  writer.close();
+}

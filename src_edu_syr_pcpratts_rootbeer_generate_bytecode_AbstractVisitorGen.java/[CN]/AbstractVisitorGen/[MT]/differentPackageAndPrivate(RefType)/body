@@ -1,0 +1,8 @@
+{
+  RefType ref_type=(RefType)m_ThisRef.getType();
+  SootClass this_class=getClassForType(ref_type);
+  SootClass class_inspecting=getClassForType(ref_inspecting);
+  if (this_class.getPackageName().equals(class_inspecting.getPackageName()))   return false;
+  if (class_inspecting.isPublic() == false)   return true;
+  return false;
+}

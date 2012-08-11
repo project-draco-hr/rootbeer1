@@ -1,0 +1,18 @@
+{
+  try {
+    InputStream is=new FileInputStream(src);
+    OutputStream os=new FileOutputStream(dest);
+    while (true) {
+      byte[] buffer=new byte[1024];
+      int len=is.read(buffer);
+      if (len == -1)       break;
+      os.write(buffer,0,len);
+    }
+    os.flush();
+    os.close();
+    is.close();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

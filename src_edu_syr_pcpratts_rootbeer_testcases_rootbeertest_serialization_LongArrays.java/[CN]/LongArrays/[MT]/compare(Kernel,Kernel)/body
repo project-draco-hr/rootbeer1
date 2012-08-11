@@ -1,0 +1,5 @@
+{
+  LongArraysRunOnGpu blhs=(LongArraysRunOnGpu)lhs;
+  LongArraysRunOnGpu brhs=(LongArraysRunOnGpu)rhs;
+  return blhs.compare(brhs);
+}

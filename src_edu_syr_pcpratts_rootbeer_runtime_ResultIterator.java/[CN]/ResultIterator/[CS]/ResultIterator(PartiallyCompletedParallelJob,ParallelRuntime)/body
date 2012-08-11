@@ -1,0 +1,4 @@
+{
+  readPartial(partial);
+  m_Runtime=runtime;
+}

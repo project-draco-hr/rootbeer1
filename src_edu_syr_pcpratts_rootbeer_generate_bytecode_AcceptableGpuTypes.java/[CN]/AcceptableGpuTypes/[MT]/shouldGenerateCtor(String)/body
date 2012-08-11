@@ -1,0 +1,5 @@
+{
+  if (type.equals("java.lang.StringBuilder"))   return false;
+  if (type.equals("java.lang.AbstractStringBuilder"))   return false;
+  return true;
+}

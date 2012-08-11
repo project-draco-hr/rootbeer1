@@ -1,0 +1,3 @@
+{
+  return "instance_setter_" + getFullName() + "(gc_info, ";
+}

@@ -1,0 +1,5 @@
+{
+  if (m_SootClass.getName().equals("edu.syr.pcpratts.javaautogpu.runtime.RuntimeBasicBlock") == false)   return false;
+  if (m_SootMethod.getName().equals("run") == false)   return false;
+  return true;
+}

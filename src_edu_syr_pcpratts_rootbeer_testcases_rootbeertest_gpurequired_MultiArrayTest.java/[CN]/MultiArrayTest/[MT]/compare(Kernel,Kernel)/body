@@ -1,0 +1,5 @@
+{
+  MultiArrayRunOnGpu blhs=(MultiArrayRunOnGpu)lhs;
+  MultiArrayRunOnGpu brhs=(MultiArrayRunOnGpu)rhs;
+  return blhs.compare(brhs);
+}

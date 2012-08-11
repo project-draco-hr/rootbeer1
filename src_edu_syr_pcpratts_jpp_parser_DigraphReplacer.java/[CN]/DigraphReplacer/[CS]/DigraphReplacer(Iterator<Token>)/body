@@ -1,0 +1,3 @@
+{
+  m_LowerLevel=new ConcreteIteratorEx<Token>(iter);
+}

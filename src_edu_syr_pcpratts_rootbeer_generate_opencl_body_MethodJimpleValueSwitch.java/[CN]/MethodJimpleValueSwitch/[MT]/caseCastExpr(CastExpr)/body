@@ -1,0 +1,7 @@
+{
+  Type cast_type=arg0.getCastType();
+  OpenCLType ocl_type=new OpenCLType(cast_type);
+  mOutput.append("(" + ocl_type.getRefString() + ") ");
+  Value rhs=arg0.getOp();
+  rhs.apply(this);
+}

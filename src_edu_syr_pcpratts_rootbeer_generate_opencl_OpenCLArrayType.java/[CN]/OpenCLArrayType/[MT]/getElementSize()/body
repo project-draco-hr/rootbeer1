@@ -1,0 +1,6 @@
+{
+  if (m_ArrayType.numDimensions != 1)   return 4;
+  Type base_type=m_ArrayType.baseType;
+  OpenCLType ocl_type=new OpenCLType(base_type);
+  return ocl_type.getSize();
+}

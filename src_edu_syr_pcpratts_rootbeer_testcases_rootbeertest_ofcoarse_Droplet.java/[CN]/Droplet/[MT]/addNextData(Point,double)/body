@@ -1,0 +1,6 @@
+{
+  mXSum+=center.X;
+  mYSum+=center.Y;
+  mVolumeSum+=volume;
+  mSumCount++;
+}

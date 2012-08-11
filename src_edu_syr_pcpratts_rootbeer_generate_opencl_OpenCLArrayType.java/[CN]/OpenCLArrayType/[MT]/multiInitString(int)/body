@@ -1,0 +1,24 @@
+{
+  String ret="";
+  String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
+  for (int i=0; i < dim; ++i) {
+    ret+="for(index" + i + " = 0; index"+ i+ " < dim"+ i+ "; ++index"+ i+ "){\n";
+    String thisref="thisref";
+    if (i > 0) {
+      thisref="aref" + (i - 1);
+    }
+    String set_str=getMultiDeref(dim - i) + "_set(" + address_qual+ "gc_info, "+ thisref;
+    if (i < dim - 1) {
+      String new_str=getMultiDeref(dim - 1 - i) + "_new(" + address_qual+ "gc_info, dim"+ (i + 1)+ ", exception)";
+      ret+="  int aref" + i + " = "+ new_str+ ";\n";
+      ret+="  " + set_str + ", index"+ i+ ", aref"+ i+ ", exception);\n";
+    }
+ else {
+      ret+="  " + set_str + ", index"+ i+ ", "+ initValue()+ ", exception);\n";
+    }
+  }
+  for (int i=0; i < dim; ++i) {
+    ret+="}\n";
+  }
+  return ret;
+}

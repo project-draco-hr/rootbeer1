@@ -1,0 +1,5 @@
+{
+  FloatArraysRunOnGpu blhs=(FloatArraysRunOnGpu)lhs;
+  FloatArraysRunOnGpu brhs=(FloatArraysRunOnGpu)rhs;
+  return blhs.compare(brhs);
+}

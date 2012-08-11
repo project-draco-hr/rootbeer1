@@ -1,0 +1,14 @@
+{
+  try {
+    m_Result=m_Obj.m_Value;
+  }
+ catch (  NullPointerException ex) {
+    m_Result=10;
+  }
+  try {
+    m_Obj.increment();
+  }
+ catch (  NullPointerException ex) {
+    m_Result2=20;
+  }
+}

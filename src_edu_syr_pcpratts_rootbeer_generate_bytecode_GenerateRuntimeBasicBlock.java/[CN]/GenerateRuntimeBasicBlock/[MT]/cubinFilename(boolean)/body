@@ -1,0 +1,5 @@
+{
+  String class_name=File.separator + gcObjectVisitorClassName.replace(".",File.separator) + ".cubin";
+  if (use_class_folder)   return edu.syr.pcpratts.rootbeer.Constants.OUTPUT_CLASS_FOLDER + class_name;
+ else   return class_name;
+}

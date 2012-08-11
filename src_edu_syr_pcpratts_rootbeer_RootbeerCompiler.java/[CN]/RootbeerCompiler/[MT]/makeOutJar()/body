@@ -1,0 +1,10 @@
+{
+  JarEntryHelp.mkdir(Constants.OUTPUT_JAR_FOLDER + File.separator);
+  String outfile=Constants.OUTPUT_JAR_FOLDER + File.separator + "partial-ret.jar";
+  ZipOutputStream zos=new ZipOutputStream(new FileOutputStream(outfile));
+  addJarInputManifestFiles(zos);
+  addOutputClassFiles(zos);
+  addConfigurationFile(zos);
+  zos.flush();
+  zos.close();
+}

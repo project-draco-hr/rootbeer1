@@ -1,0 +1,15 @@
+{
+  if (element != brhs.element) {
+    return false;
+  }
+  for (int m=0; m < 10; m++) {
+    for (int n=0; n < 10; n++) {
+      for (int p=0; p < 10; ++p) {
+        if (element1[p] != brhs.element1[p])         return false;
+        if (element2[n][p] != brhs.element2[n][p])         return false;
+        if (element3[m][n][p] != brhs.element3[m][n][p])         return false;
+      }
+    }
+  }
+  return true;
+}

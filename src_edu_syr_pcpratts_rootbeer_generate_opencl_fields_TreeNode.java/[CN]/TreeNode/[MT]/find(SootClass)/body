@@ -1,0 +1,8 @@
+{
+  if (m_Curr.getName().equals(node.getName()))   return this;
+  for (  TreeNode child : m_Children) {
+    TreeNode ret=child.find(node);
+    if (ret != null)     return ret;
+  }
+  return null;
+}

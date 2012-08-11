@@ -1,0 +1,5 @@
+{
+  m_Output.append("edu_syr_pcpratts_exitMonitorRef(gc_info, ");
+  arg0.getOp().apply(m_ValueSwitch);
+  m_Output.append(", " + m_OldValueFromMonitorStack.top() + ");\n");
+}

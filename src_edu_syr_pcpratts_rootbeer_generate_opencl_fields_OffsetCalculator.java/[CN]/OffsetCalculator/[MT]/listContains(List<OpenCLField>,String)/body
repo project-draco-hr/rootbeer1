@@ -1,0 +1,6 @@
+{
+  for (  OpenCLField field : lst) {
+    if (field.getName().equals(name))     return true;
+  }
+  return false;
+}

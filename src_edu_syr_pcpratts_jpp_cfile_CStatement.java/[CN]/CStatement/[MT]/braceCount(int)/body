@@ -1,0 +1,11 @@
+{
+  m_BraceCount=count;
+  if (m_Tokens.size() < 1)   return count;
+  Token last=m_Tokens.get(m_Tokens.size() - 1);
+  if (last.getString().equals("{"))   return count + 1;
+  if (last.getString().equals("}")) {
+    m_BraceCount--;
+    return count - 1;
+  }
+  return count;
+}

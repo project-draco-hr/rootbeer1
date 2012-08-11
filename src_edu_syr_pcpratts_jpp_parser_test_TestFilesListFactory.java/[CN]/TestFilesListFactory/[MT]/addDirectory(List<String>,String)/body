@@ -1,0 +1,18 @@
+{
+  File f=new File(directory);
+  File[] files=f.listFiles();
+  for (  File file : files) {
+    if (file.isDirectory()) {
+      addDirectory(ret,file.getAbsolutePath());
+    }
+ else     if (file.isFile()) {
+      if (file.getAbsolutePath().endsWith(".passed"))       continue;
+      if (file.getAbsolutePath().endsWith(".exp") || file.getAbsolutePath().endsWith(".s") || file.getAbsolutePath().endsWith(".hs")|| file.getAbsolutePath().endsWith(".x")) {
+        file.delete();
+      }
+ else       if (m_Passed.contains(file.getAbsolutePath()) == false) {
+        ret.add(file.getAbsolutePath());
+      }
+    }
+  }
+}

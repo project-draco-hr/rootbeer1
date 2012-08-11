@@ -1,0 +1,103 @@
+{
+  OpenCLParser.program_return retval=new OpenCLParser.program_return();
+  retval.start=input.LT(1);
+  Object root_0=null;
+  Token e1=null;
+  Token e3=null;
+  Token e2=null;
+  Token EOF1=null;
+  Object e1_tree=null;
+  Object e3_tree=null;
+  Object e2_tree=null;
+  Object EOF1_tree=null;
+  retval.ret=new ArrayList<String>();
+  retval.modify=new ArrayList<Boolean>();
+  retval.string=new ArrayList<Boolean>();
+  try {
+{
+      root_0=(Object)adaptor.nil();
+      loop1:       do {
+        int alt1=4;
+switch (input.LA(1)) {
+case SPECIAL:
+case SEP:
+case END_OF_STATEMENT:
+case AMP:
+case POINT:
+case INT_LITERAL:
+case WHITESPACE:
+{
+            alt1=1;
+          }
+        break;
+case STRING_DELIM:
+{
+        alt1=2;
+      }
+    break;
+case VARIABLE:
+{
+    alt1=3;
+  }
+break;
+}
+switch (alt1) {
+case 1:
+{
+{
+  e1=(Token)input.LT(1);
+  if ((input.LA(1) >= SPECIAL && input.LA(1) <= WHITESPACE)) {
+    input.consume();
+    adaptor.addChild(root_0,(Object)adaptor.create(e1));
+    state.errorRecovery=false;
+  }
+ else {
+    MismatchedSetException mse=new MismatchedSetException(null,input);
+    throw mse;
+  }
+  retval.ret.add((e1 != null ? e1.getText() : null));
+  retval.modify.add(false);
+  retval.string.add(false);
+}
+}
+break;
+case 2:
+{
+e3=(Token)match(input,STRING_DELIM,FOLLOW_STRING_DELIM_in_program114);
+e3_tree=(Object)adaptor.create(e3);
+adaptor.addChild(root_0,e3_tree);
+retval.ret.add((e3 != null ? e3.getText() : null));
+retval.modify.add(false);
+retval.string.add(true);
+}
+break;
+case 3:
+{
+e2=(Token)match(input,VARIABLE,FOLLOW_VARIABLE_in_program126);
+e2_tree=(Object)adaptor.create(e2);
+adaptor.addChild(root_0,e2_tree);
+retval.ret.add((e2 != null ? e2.getText() : null));
+retval.modify.add(true);
+retval.string.add(false);
+}
+break;
+default :
+break loop1;
+}
+}
+ while (true);
+EOF1=(Token)match(input,EOF,FOLLOW_EOF_in_program133);
+EOF1_tree=(Object)adaptor.create(EOF1);
+adaptor.addChild(root_0,EOF1_tree);
+}
+retval.stop=input.LT(-1);
+retval.tree=(Object)adaptor.rulePostProcessing(root_0);
+adaptor.setTokenBoundaries(retval.tree,retval.start,retval.stop);
+}
+ catch (RecognitionException e) {
+throw e;
+}
+ finally {
+}
+return retval;
+}

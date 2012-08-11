@@ -1,0 +1,12 @@
+{
+  int[] array=new int[offsets.size()];
+  int index=0;
+  Iterator<Integer> iter=offsets.keySet().iterator();
+  while (iter.hasNext()) {
+    int key=iter.next();
+    array[index]=key;
+    index++;
+  }
+  Arrays.sort(array);
+  return array;
+}

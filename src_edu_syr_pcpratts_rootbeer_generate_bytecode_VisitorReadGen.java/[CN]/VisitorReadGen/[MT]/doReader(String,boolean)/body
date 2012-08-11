@@ -1,0 +1,39 @@
+{
+  BytecodeLanguage bcl=m_Bcl.top();
+  BclMemory bcl_mem=new BclMemory(bcl,m_CurrMem.top());
+  SootClass soot_class=RootbeerScene.v().getClass(class_name);
+  int inc_size=0;
+  if (do_ref_fields) {
+    List<OpenCLField> ref_fields=getRefFields(soot_class);
+    for (    OpenCLField ref_field : ref_fields) {
+      if (m_FieldInspector.fieldIsWrittenOnGpu(ref_field)) {
+        bcl_mem.incrementAddress(inc_size);
+        inc_size=0;
+        readRefField(ref_field);
+      }
+ else {
+        inc_size+=ref_field.getSize();
+      }
+    }
+    if (inc_size > 0) {
+      bcl_mem.incrementAddress(inc_size);
+    }
+  }
+ else {
+    List<OpenCLField> non_ref_fields=getNonRefFields(soot_class);
+    for (    OpenCLField non_ref_field : non_ref_fields) {
+      if (m_FieldInspector.fieldIsWrittenOnGpu(non_ref_field)) {
+        if (inc_size > 0) {
+          bcl_mem.incrementAddress(inc_size);
+          inc_size=0;
+        }
+        readNonRefField(non_ref_field);
+      }
+ else {
+        inc_size+=non_ref_field.getSize();
+      }
+    }
+    if (inc_size > 0)     bcl_mem.incrementAddress(inc_size);
+  }
+  bcl_mem.align();
+}

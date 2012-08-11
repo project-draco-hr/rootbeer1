@@ -1,0 +1,7 @@
+{
+  Main m=new Main();
+  List<TestSerialization> providers=m.getProviders();
+  for (  TestSerialization provider : providers) {
+    m.test(provider);
+  }
+}

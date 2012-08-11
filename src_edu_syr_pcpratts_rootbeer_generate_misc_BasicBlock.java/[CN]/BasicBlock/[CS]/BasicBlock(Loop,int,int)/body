@@ -1,0 +1,9 @@
+{
+  mLoop=loop;
+  mStart=start;
+  mStop=stop;
+  mUsingSharedState=false;
+  determineOutputArgs();
+  mInputOutputParameters=new DetermineInputOutputParameters();
+  mInputOutputParameters.run(this);
+}

@@ -1,0 +1,13 @@
+{
+  if (compressMap.containsKey(text)) {
+    return compressMap.get(text);
+  }
+  String ret;
+  do {
+    ret=toBase52(compressNumber);
+    compressNumber++;
+  }
+ while (compressMap.containsKey(ret));
+  compressMap.put(text,ret);
+  return ret;
+}

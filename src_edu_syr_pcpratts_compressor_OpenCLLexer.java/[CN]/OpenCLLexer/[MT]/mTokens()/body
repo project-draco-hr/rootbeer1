@@ -1,0 +1,51 @@
+{
+  int alt10=9;
+  alt10=dfa10.predict(input);
+switch (alt10) {
+case 1:
+{
+      mSPECIAL();
+    }
+  break;
+case 2:
+{
+  mSEP();
+}
+break;
+case 3:
+{
+mEND_OF_STATEMENT();
+}
+break;
+case 4:
+{
+mAMP();
+}
+break;
+case 5:
+{
+mPOINT();
+}
+break;
+case 6:
+{
+mSTRING_DELIM();
+}
+break;
+case 7:
+{
+mVARIABLE();
+}
+break;
+case 8:
+{
+mINT_LITERAL();
+}
+break;
+case 9:
+{
+mWHITESPACE();
+}
+break;
+}
+}

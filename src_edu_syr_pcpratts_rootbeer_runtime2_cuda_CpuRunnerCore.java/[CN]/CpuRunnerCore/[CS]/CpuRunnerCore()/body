@@ -1,0 +1,7 @@
+{
+  m_InputQueue=new BlockingQueue<List<Kernel>>();
+  m_OutputQueue=new BlockingQueue<List<Kernel>>();
+  m_Thread=new Thread(this);
+  m_Thread.setDaemon(true);
+  m_Thread.start();
+}

@@ -1,0 +1,15 @@
+{
+  m_ret=new ArrayList<String>();
+  m_kernelClasses=kernel_classes;
+  for (  String kernel_class : kernel_classes) {
+    find(kernel_class);
+  }
+  String[] array_ret=new String[m_ret.size()];
+  array_ret=m_ret.toArray(array_ret);
+  Arrays.sort(array_ret);
+  m_ret.clear();
+  for (  String str : array_ret) {
+    m_ret.add(str);
+  }
+  return m_ret;
+}

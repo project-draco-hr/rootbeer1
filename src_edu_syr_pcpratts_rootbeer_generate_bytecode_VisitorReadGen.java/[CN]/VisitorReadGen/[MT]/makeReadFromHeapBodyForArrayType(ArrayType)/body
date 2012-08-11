@@ -1,0 +1,52 @@
+{
+  BytecodeLanguage bcl=m_Bcl.top();
+  Local object_to_read_from=bcl.cast(type,m_Param0);
+  BclMemory bcl_mem=new BclMemory(bcl,m_CurrMem.top());
+  bcl_mem.incrementAddress(3);
+  Local ctor_used=bcl_mem.readByte();
+  bcl_mem.incrementAddress(4);
+  Local size=bcl_mem.readInt();
+  Local ret=bcl.local(type);
+  bcl_mem.incrementAddress(4);
+  Local previous_size=bcl.lengthof(object_to_read_from);
+  String label_new_float=getNextLabel();
+  String label_after_new_float=getNextLabel();
+  bcl.ifStmt(ctor_used,"==",IntConstant.v(1),label_new_float);
+  bcl.assign(ret,object_to_read_from);
+  bcl.gotoLabel(label_after_new_float);
+  bcl.label(label_new_float);
+  bcl.assign(ret,bcl.newArray(type,size));
+  bcl.label(label_after_new_float);
+  SootClass obj_class=RootbeerScene.v().getClass("java.lang.Object");
+  bcl.pushMethod(m_ThisRef,"checkCache",obj_class.getType(),LongType.v(),obj_class.getType());
+  ret=bcl.invokeMethodRet(m_ThisRef,m_RefParam,ret);
+  ret=bcl.cast(type,ret);
+  if (type.baseType == IntType.v() && type.numDimensions == 1) {
+    bcl_mem.readIntArray(ret,size);
+  }
+ else {
+    Local i=bcl.local(IntType.v());
+    bcl.assign(i,IntConstant.v(0));
+    String end_for_label=getNextLabel();
+    String before_if_label=getNextLabel();
+    bcl.label(before_if_label);
+    bcl.ifStmt(i,"==",size,end_for_label);
+    Local new_curr;
+    if (type.numDimensions != 1) {
+      new_curr=readFromHeapArray(object_to_read_from,i,previous_size);
+    }
+ else     if (type.baseType instanceof RefType) {
+      Local temp=readFromHeapArray(object_to_read_from,i,previous_size);
+      new_curr=bcl.cast(type.baseType,temp);
+    }
+ else {
+      new_curr=bcl_mem.readVar(type.baseType);
+    }
+    bcl.assignElementToArray(ret,new_curr,i);
+    bcl.plus(i,1);
+    bcl.gotoLabel(before_if_label);
+    bcl.label(end_for_label);
+  }
+  bcl_mem.finishReading();
+  return ret;
+}

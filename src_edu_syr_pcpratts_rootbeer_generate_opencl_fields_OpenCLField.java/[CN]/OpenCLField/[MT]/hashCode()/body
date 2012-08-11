@@ -1,0 +1,6 @@
+{
+  int hash=7;
+  hash=37 * hash + (this.m_SootField != null ? this.m_SootField.hashCode() : 0);
+  hash=37 * hash + (this.m_SootClass != null ? this.m_SootClass.hashCode() : 0);
+  return hash;
+}

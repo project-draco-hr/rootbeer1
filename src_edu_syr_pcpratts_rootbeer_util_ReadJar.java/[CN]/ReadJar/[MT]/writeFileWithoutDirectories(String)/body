@@ -1,0 +1,9 @@
+{
+  m_UseDirectories=false;
+  URL url=RootbeerCompiler.class.getResource(path);
+  String scheme=url.getProtocol();
+  if (scheme == null)   throw new RuntimeException("Cannot read class " + path + " from Rootbeer jar");
+  if (scheme.equals("jar"))   writeClassFromJar(url,path);
+ else   if (scheme.equals("file"))   writeClassFromFile(url,path);
+ else   throw new RuntimeException("Cannot read class " + path + " from Rootbeer jar");
+}

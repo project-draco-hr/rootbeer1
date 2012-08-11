@@ -1,0 +1,18 @@
+{
+  Unit output=(Unit)input.clone();
+  List<UnitBox> input_boxes=input.getUnitBoxes();
+  List<UnitBox> output_boxes=output.getUnitBoxes();
+  for (int i=0; i < input_boxes.size(); ++i) {
+    UnitBox input_box=input_boxes.get(i);
+    UnitBox output_box=output_boxes.get(i);
+    try {
+      int j=findTarget(input_box.getUnit());
+      output_box.setUnit(mInputUnits.get(j));
+    }
+ catch (    Exception ex) {
+      ex.printStackTrace();
+      continue;
+    }
+  }
+  return output;
+}

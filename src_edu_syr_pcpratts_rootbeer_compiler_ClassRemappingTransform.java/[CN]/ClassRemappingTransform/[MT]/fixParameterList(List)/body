@@ -1,0 +1,8 @@
+{
+  List ret=new ArrayList();
+  for (int i=0; i < param_types.size(); ++i) {
+    Type type=(Type)param_types.get(i);
+    ret.add(fixType(type));
+  }
+  return ret;
+}

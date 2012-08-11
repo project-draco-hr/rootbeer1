@@ -1,0 +1,11 @@
+{
+  String passed_cache="passed_cache.txt";
+  loadPassed(passed_cache);
+  try {
+    m_Writer=new PrintWriter(passed_cache);
+    writePassed();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

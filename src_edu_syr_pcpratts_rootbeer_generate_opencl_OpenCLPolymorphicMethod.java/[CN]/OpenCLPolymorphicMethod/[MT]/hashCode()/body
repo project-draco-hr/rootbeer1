@@ -1,0 +1,7 @@
+{
+  mHierarchy=getHierarchy();
+  int hash=5;
+  hash=53 * hash + (this.mSootMethod != null ? this.mSootMethod.hashCode() : 0);
+  hash=53 * hash + (this.mHierarchy != null ? this.mHierarchy.hashCode() : 0);
+  return hash;
+}

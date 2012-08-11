@@ -1,0 +1,45 @@
+{
+  List<MonitorGroupItem> ret=new ArrayList<MonitorGroupItem>();
+  Stack<MonitorGroupItem> stack=new Stack<MonitorGroupItem>();
+  MonitorGroupItem curr_monitor=new MonitorGroupItem();
+  ret.add(curr_monitor);
+  stack.push(curr_monitor);
+  List<Unit> units=getUnits(body);
+  for (int i=0; i < units.size(); ++i) {
+    Unit curr=units.get(i);
+    if (curr instanceof EnterMonitorStmt) {
+      MonitorGroupItem item=new MonitorGroupItem();
+      item.addEnterMonitor(curr);
+      stack.top().addGroup(item);
+      stack.push(item);
+      MonitorGroupItem item2=new MonitorGroupItem();
+      stack.top().addGroup(item2);
+      stack.push(item2);
+    }
+ else     if (curr instanceof ExitMonitorStmt) {
+      if (isLastExit((ExitMonitorStmt)curr,i,units)) {
+        stack.top().addUnit(curr);
+        stack.pop();
+        stack.pop();
+        stack.pop();
+        if (stack.size() == 0) {
+          curr_monitor=new MonitorGroupItem();
+          ret.add(curr_monitor);
+          stack.push(curr_monitor);
+        }
+ else {
+          curr_monitor=new MonitorGroupItem();
+          stack.top().addGroup(curr_monitor);
+          stack.push(curr_monitor);
+        }
+      }
+ else {
+        stack.top().addUnit(curr);
+      }
+    }
+ else {
+      stack.top().addUnit(curr);
+    }
+  }
+  return ret;
+}

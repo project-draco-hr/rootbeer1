@@ -1,0 +1,10 @@
+{
+  List<OpenCLField> ref_fields=getFields(soot_class,true);
+  for (  OpenCLField field : ref_fields) {
+    ret.append(field.getInstanceSetterInvokeWithoutThisref() + "thisref, -1, exception);\n");
+  }
+  List<OpenCLField> non_ref_fields=getFields(soot_class,false);
+  for (  OpenCLField field : non_ref_fields) {
+    ret.append(field.getInstanceSetterInvokeWithoutThisref() + "thisref, 0, exception);\n");
+  }
+}

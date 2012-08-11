@@ -1,0 +1,4 @@
+{
+  String class_name=soot_class.getName();
+  pushMethod(class_name,method_name,return_type,arg_types);
+}

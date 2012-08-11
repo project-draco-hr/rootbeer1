@@ -1,0 +1,13 @@
+{
+  if (m_LowerLevel.hasNext() == false) {
+    if (m_CharsLeft == -1) {
+      m_CharsLeft=4;
+    }
+    m_CharsLeft--;
+    if (m_CharsLeft > 0)     return true;
+    return false;
+  }
+ else {
+    return true;
+  }
+}

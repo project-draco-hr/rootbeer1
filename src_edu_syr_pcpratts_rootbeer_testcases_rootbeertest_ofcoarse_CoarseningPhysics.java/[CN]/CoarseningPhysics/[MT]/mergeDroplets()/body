@@ -1,0 +1,23 @@
+{
+  GpuList<Droplet> output=new GpuList<Droplet>();
+  for (int i=0; i < mPrevDroplets.size(); ++i) {
+    Droplet drop1=mPrevDroplets.get(i);
+    for (int j=i + 1; j < mPrevDroplets.size(); ++j) {
+      Droplet drop2=mPrevDroplets.get(j);
+      double distance=PointDistance.distance(drop1.getCenter(),drop2.getCenter());
+      double radius1=drop1.getRadius();
+      double radius2=drop2.getRadius();
+      if (distance - (radius1 + radius2) <= 0) {
+        Point center=midpoint(drop1.getCenter(),drop2.getCenter());
+        double volume=drop1.getVolume() + drop2.getVolume();
+        drop1.resetNextData();
+        drop1.addNextData(center,volume);
+        drop1.finalizePrediction();
+        mPrevDroplets.remove(j);
+        break;
+      }
+    }
+    output.add(new Droplet(drop1));
+  }
+  return output;
+}

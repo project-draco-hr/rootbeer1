@@ -1,0 +1,9 @@
+{
+  BuiltInTypes builtins=new BuiltInTypes();
+  List<CType> types=builtins.get();
+  int index=0;
+  for (  CType type : types) {
+    System.out.println(type.toString() + " x" + index+ " = 0;");
+    index++;
+  }
+}

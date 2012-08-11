@@ -1,0 +1,11 @@
+{
+  m_NeedToCallHasNext=true;
+  if (m_TokenList.isEmpty() == false) {
+    T ret=m_TokenList.get(0);
+    m_TokenList.remove(0);
+    return ret;
+  }
+ else {
+    return m_Iterator.next();
+  }
+}

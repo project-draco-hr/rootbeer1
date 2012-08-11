@@ -1,0 +1,10 @@
+{
+  if (o == null)   return -1;
+  int size=doGetSize(o);
+  boolean read_only=false;
+  WriteCacheResult result;
+  result=checkWriteCache(o,size,read_only);
+  if (result.m_NeedToWrite == false)   return result.m_Ref;
+  doWriteToHeap(o,write_data,result.m_Ref,read_only);
+  return result.m_Ref;
+}

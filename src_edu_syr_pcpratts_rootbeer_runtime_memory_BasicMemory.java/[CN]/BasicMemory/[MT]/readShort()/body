@@ -1,0 +1,7 @@
+{
+  long ptr=getPointer();
+  short value=(short)(((short)mData.get(ptr + soffset1) << 8) & 0x0000ff00);
+  value|=(short)(((short)mData.get(ptr + soffset0)) & 0x000000ff);
+  incPointer(2);
+  return value;
+}

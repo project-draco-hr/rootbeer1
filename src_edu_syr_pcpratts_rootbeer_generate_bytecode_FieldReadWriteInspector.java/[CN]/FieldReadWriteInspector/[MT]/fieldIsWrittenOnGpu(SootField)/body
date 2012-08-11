@@ -1,0 +1,25 @@
+{
+  if (mWrittenOnGpuFields.contains(soot_field))   return true;
+  if (soot_field.getDeclaringClass().getName().equals("java.lang.String"))   return true;
+  OpenCLType type=new OpenCLType(soot_field.getType());
+  if (type.isRefType() == false)   return false;
+  Type soot_type=soot_field.getType();
+  if (soot_type instanceof ArrayType) {
+    ArrayType atype=(ArrayType)soot_type;
+    Type base_type=atype.baseType;
+    type=new OpenCLType(base_type);
+    if (type.isRefType() == false)     return false;
+    soot_type=base_type;
+  }
+  SootClass soot_class=RootbeerScene.v().getClass(soot_type.toString());
+  if (mWritenOnGpuFieldsClassesChecked.contains(soot_type.toString()))   return false;
+  mWritenOnGpuFieldsClassesChecked.add(soot_type.toString());
+  List<SootClass> soot_classes=OpenCLScene.v().getClassHierarchy(soot_class);
+  for (  SootClass curr : soot_classes) {
+    Chain<SootField> fields=curr.getFields();
+    for (    SootField field : fields) {
+      if (fieldIsWrittenOnGpu(field))       return true;
+    }
+  }
+  return false;
+}

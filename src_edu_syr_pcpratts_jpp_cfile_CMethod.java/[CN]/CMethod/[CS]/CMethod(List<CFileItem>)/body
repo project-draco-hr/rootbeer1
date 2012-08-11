@@ -1,0 +1,9 @@
+{
+  CFileItem first=items.get(0);
+  addNamespace(first.getNamespace());
+  List<CTemplate> templates=first.getTemplates();
+  for (  CTemplate template : templates) {
+    addTemplate(template);
+  }
+  m_Items=items;
+}

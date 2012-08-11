@@ -1,0 +1,5 @@
+{
+  if (m_String.startsWith("//"))   return true;
+  if (m_String.startsWith("/*"))   return true;
+  return false;
+}

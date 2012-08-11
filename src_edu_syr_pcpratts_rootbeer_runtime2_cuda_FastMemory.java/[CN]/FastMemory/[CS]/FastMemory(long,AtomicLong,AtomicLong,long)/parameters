@@ -1,0 +1,4 @@
+long cpu_base_address
+AtomicLong instance_pointer
+AtomicLong static_pointer
+long space_size

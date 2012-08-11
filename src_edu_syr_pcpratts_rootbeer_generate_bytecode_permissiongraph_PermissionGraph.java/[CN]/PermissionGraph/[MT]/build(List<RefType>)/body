@@ -1,0 +1,15 @@
+{
+  for (  RefType type : history) {
+    SootClass soot_class=type.getSootClass();
+    if (soot_class.isPublic()) {
+      m_Roots.add(new PermissionGraphNode(soot_class));
+    }
+  }
+  for (  RefType type : history) {
+    SootClass soot_class=type.getSootClass();
+    if (soot_class.isPublic() == false) {
+      PermissionGraphNode root=findRoot(soot_class);
+      root.addChild(soot_class);
+    }
+  }
+}

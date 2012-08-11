@@ -1,0 +1,6 @@
+{
+  m_RootClass=gpuMethod.getDeclaringClass();
+  m_WrittenClasses=new HashSet<String>();
+  m_Inspected=new HashSet<String>();
+  inspectMethod(gpuMethod);
+}

@@ -1,0 +1,12 @@
+{
+  m_Methods=new LinkedHashSet<OpenCLMethod>();
+  mFields=new LinkedHashSet<OpenCLField>();
+  m_SootClass=soot_class;
+  mInstanceRefFields=null;
+  mInstanceNonRefFields=null;
+  mAllUsedInstanceFields=null;
+  mStaticRefFields=null;
+  mStaticNonRefFields=null;
+  mAllUsedStaticFields=null;
+  mFoundAllUsedMethodsAndFields=false;
+}

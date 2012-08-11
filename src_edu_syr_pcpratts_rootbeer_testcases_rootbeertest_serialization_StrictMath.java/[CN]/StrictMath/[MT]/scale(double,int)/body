@@ -1,0 +1,16 @@
+{
+  if (x == 0 || x == Double.NEGATIVE_INFINITY || !(x < Double.POSITIVE_INFINITY) || n == 0)   return x;
+  long bits=Double.doubleToLongBits(x);
+  int exp=(int)(bits >> 52) & 0x7ff;
+  if (exp == 0) {
+    x*=TWO_54;
+    exp=((int)(Double.doubleToLongBits(x) >> 52) & 0x7ff) - 54;
+  }
+  exp+=n;
+  if (exp > 0x7fe)   return Double.POSITIVE_INFINITY * x;
+  if (exp > 0)   return Double.longBitsToDouble((bits & 0x800fffffffffffffL) | ((long)exp << 52));
+  if (exp <= -54)   return 0 * x;
+  exp+=54;
+  x=Double.longBitsToDouble((bits & 0x800fffffffffffffL) | ((long)exp << 52));
+  return x * (1 / TWO_54);
+}

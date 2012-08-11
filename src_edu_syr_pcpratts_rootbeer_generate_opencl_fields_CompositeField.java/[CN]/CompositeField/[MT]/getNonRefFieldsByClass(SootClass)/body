@@ -1,0 +1,5 @@
+{
+  List<OpenCLField> ret=m_NonRefFieldsByClass.get(soot_class);
+  if (ret == null)   ret=new ArrayList<OpenCLField>();
+  return ret;
+}

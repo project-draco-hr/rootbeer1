@@ -1,0 +1,7 @@
+{
+  m_Tokens=new ArrayList<Token>();
+  for (  String token : tokens) {
+    m_Tokens.add(new Token(token));
+  }
+  m_Templates=new ArrayList<CTemplate>();
+}

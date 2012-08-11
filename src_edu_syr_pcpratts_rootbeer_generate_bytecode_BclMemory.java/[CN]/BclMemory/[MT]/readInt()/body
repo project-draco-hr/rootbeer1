@@ -1,0 +1,4 @@
+{
+  mBcl.pushMethod(mMem,"readInt",IntType.v());
+  return mBcl.invokeMethodRet(mMem);
+}

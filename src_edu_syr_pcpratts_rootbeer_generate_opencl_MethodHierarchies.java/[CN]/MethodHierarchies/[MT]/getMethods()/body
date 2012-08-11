@@ -1,0 +1,10 @@
+{
+  List<OpenCLMethod> ret=new ArrayList<OpenCLMethod>();
+  for (  MethodHierarchy method_hierarchy : mHierarchies) {
+    List<OpenCLMethod> methods=method_hierarchy.getMethods();
+    for (    OpenCLMethod method : methods) {
+      ret.add(method);
+    }
+  }
+  return ret;
+}

@@ -1,0 +1,19 @@
+{
+  System.out.print("Testing provider: " + provider.toString() + "...");
+  List<Kernel> objects=provider.create();
+  List<Kernel> known_goods=provider.create();
+  Rootbeer rootbeer=new Rootbeer();
+  int i=0;
+  Iterator<Kernel> iter=rootbeer.run(objects.iterator());
+  while (iter.hasNext()) {
+    Kernel result=iter.next();
+    Kernel known_good=known_goods.get(i);
+    known_good.gpuMethod();
+    if (!provider.compare(result,known_good)) {
+      System.out.println("Failed at: " + i);
+      System.exit(-1);
+    }
+    ++i;
+  }
+  System.out.println("PASSED");
+}

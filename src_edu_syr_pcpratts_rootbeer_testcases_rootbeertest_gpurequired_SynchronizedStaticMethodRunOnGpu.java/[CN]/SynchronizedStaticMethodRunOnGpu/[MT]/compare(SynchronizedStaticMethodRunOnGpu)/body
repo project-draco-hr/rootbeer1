@@ -1,0 +1,17 @@
+{
+  if (grhs == null) {
+    System.out.println("grhs == null");
+    return false;
+  }
+  if (m_Shared.m_Value != grhs.m_Shared.m_Value) {
+    System.out.println("m_Value");
+    System.out.println("lhs: " + m_Shared.m_Value);
+    System.out.println("rhs: " + grhs.m_Shared.m_Value);
+    return false;
+  }
+  if (value1 != grhs.value1) {
+    System.out.println("value1");
+    return false;
+  }
+  return true;
+}

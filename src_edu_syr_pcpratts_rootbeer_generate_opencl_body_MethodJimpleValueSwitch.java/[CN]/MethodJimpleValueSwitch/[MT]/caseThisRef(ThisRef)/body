@@ -1,0 +1,4 @@
+{
+  mOutput.append(" thisref ");
+  m_ThisRef=m_PreviousLocal;
+}

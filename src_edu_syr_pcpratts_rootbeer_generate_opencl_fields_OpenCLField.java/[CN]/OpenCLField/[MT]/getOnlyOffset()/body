@@ -1,0 +1,8 @@
+{
+  Iterator<Integer> iter=m_Offsets.keySet().iterator();
+  while (iter.hasNext()) {
+    int ret=iter.next();
+    return ret;
+  }
+  return -1;
+}

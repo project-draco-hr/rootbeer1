@@ -1,0 +1,12 @@
+{
+  mValuesNotSet=new ArrayList<Value>();
+  for (int i=0; i < mInnerBody.size(); ++i) {
+    Unit curr=mInnerBody.get(i);
+    List<ValueBox> use_boxes=curr.getUseBoxes();
+    for (    ValueBox box : use_boxes) {
+      Value value=box.getValue();
+      if (value instanceof Local == false)       continue;
+      if (isValueNotSet(value) && mValuesNotSet.contains(value) == false)       mValuesNotSet.add(value);
+    }
+  }
+}

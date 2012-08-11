@@ -1,0 +1,4 @@
+{
+  OpenCLType ocl_type=new OpenCLType(m_SootClass.getType());
+  return ocl_type.getDerefString();
+}

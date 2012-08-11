@@ -1,0 +1,4 @@
+{
+  OpenCLClass ocl_class=OpenCLScene.v().getOpenCLClass(m_SootClass);
+  return ocl_class.getName() + "_" + getName();
+}

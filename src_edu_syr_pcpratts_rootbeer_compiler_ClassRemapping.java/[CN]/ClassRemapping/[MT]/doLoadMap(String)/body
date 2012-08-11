@@ -1,0 +1,17 @@
+{
+  try {
+    BufferedReader reader=new BufferedReader(new StringReader(contents));
+    while (true) {
+      String line=reader.readLine();
+      if (line == null) {
+        break;
+      }
+      String[] tokens=line.split("=>");
+      m_ClonedMap.put(tokens[0].trim(),tokens[1].trim());
+      put(tokens[0].trim(),tokens[1].trim());
+    }
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

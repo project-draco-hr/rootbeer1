@@ -1,0 +1,8 @@
+{
+  String pkg=soot_class.getJavaPackageName();
+  for (  PermissionGraphNode node : m_Roots) {
+    String root_pkg=node.getSootClass().getJavaPackageName();
+    if (pkg.equals(root_pkg))     return node;
+  }
+  throw new RuntimeException("can't find root");
+}

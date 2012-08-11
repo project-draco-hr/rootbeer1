@@ -1,0 +1,3 @@
+{
+  m_CurrMemPointer.setAddress(address);
+}

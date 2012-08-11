@@ -1,0 +1,3 @@
+{
+  setup(m_CpuAddr,m_GpuAddr);
+}

@@ -1,0 +1,7 @@
+{
+  int to_space_size=1024 * 1024 * 102;
+  m_ToSpace=new AlignmentCheckedMemory(to_space_size);
+  m_TextureMem=new AlignmentCheckedMemory(to_space_size);
+  m_HandlesMap=new AlignmentCheckedMemory(to_space_size * 8);
+  m_Tester=tester;
+}

@@ -1,0 +1,8 @@
+{
+  if (m_SootField.isStatic()) {
+    return getGetterSetterBodiesStatic();
+  }
+ else {
+    return getGetterSetterBodiesInstance(composite,writable,type_switch);
+  }
+}

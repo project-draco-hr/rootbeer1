@@ -1,0 +1,11 @@
+{
+synchronized (mReadFromGpuCache) {
+    if (mReadFromGpuCache.containsKey(address)) {
+      return mReadFromGpuCache.get(address);
+    }
+ else {
+      mReadFromGpuCache.put(address,item);
+      return item;
+    }
+  }
+}

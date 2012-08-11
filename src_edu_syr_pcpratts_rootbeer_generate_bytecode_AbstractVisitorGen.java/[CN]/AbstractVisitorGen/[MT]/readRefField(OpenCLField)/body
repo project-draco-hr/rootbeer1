@@ -1,0 +1,41 @@
+{
+  SootField soot_field=ref_field.getSootField();
+  SootClass soot_class=RootbeerScene.v().getClass(soot_field.getDeclaringClass().getName());
+  BytecodeLanguage bcl=m_Bcl.top();
+  Local gc_obj_visit=m_GcObjVisitor.top();
+  BclMemory bcl_mem=new BclMemory(bcl,m_CurrMem.top());
+  Local ref=bcl_mem.readRef();
+  bcl_mem.useInstancePointer();
+  bcl_mem.pushAddress();
+  bcl_mem.setAddress(ref);
+  SootClass obj_class=RootbeerScene.v().getClass("java.lang.Object");
+  SootClass string=RootbeerScene.v().getClass("java.lang.String");
+  Local original_field_value;
+  if (soot_class.isLibraryClass()) {
+    bcl.pushMethod(gc_obj_visit,"readField",obj_class.getType(),obj_class.getType(),string.getType());
+    original_field_value=bcl.invokeMethodRet(gc_obj_visit,m_ObjSerializing.top(),StringConstant.v(soot_field.getName()));
+  }
+ else {
+    if (ref_field.isInstance())     original_field_value=bcl.refInstanceField(m_ObjSerializing.top(),ref_field.getName());
+ else     original_field_value=bcl.refStaticField(soot_class.getType(),ref_field.getName());
+  }
+  bcl.pushMethod(gc_obj_visit,"readFromHeap",obj_class.getType(),obj_class.getType(),BooleanType.v(),LongType.v());
+  int should_read=0;
+  if (m_FieldInspector.fieldIsWrittenOnGpu(ref_field))   should_read=1;
+  Local ret_obj=bcl.invokeMethodRet(gc_obj_visit,original_field_value,IntConstant.v(should_read),ref);
+  Type type=soot_field.getType();
+  Local ret=bcl.cast(type,ret_obj);
+  if (soot_class.isLibraryClass()) {
+    bcl.pushMethod(gc_obj_visit,"writeField",VoidType.v(),obj_class.getType(),string.getType(),obj_class.getType());
+    bcl.invokeMethodNoRet(gc_obj_visit,m_ObjSerializing.top(),StringConstant.v(soot_field.getName()),ret);
+  }
+ else {
+    if (ref_field.isInstance()) {
+      bcl.setInstanceField(soot_field,m_ObjSerializing.top(),ret);
+    }
+ else {
+      bcl.setStaticField(soot_field,ret);
+    }
+  }
+  bcl_mem.popAddress();
+}

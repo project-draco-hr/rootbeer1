@@ -1,0 +1,6 @@
+{
+  for (  Unit u : mOutputUnits) {
+    System.out.println(u.toString());
+  }
+  System.out.println("End of debugPrintOutput");
+}

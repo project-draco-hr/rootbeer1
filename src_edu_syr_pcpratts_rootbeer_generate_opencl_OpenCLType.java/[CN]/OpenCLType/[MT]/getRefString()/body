@@ -1,0 +1,6 @@
+{
+  if (mSootType instanceof RefLikeType)   return "int";
+  String ret=getDerefString();
+  if (ret.equals("long"))   return "long long";
+  return ret;
+}

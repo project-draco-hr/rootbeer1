@@ -1,0 +1,22 @@
+{
+  String id=getVarName();
+  String mem=getVarName();
+  String count=getVarName();
+  String old=getVarName();
+  m_OldValueFromMonitorStack.push(old);
+  m_Output.append("int " + id + " = getThreadId();\n");
+  m_Output.append("char * " + mem + " = edu_syr_pcpratts_gc_deref(gc_info, ");
+  arg0.getOp().apply(m_ValueSwitch);
+  m_Output.append(");\n");
+  m_Output.append(mem + " += 12;\n");
+  m_Output.append("int " + count + " = 0;\n");
+  m_Output.append("int " + old + ";\n");
+  m_Output.append("while(" + count + " < 100){\n");
+  m_Output.append("  " + old + " = atomicCAS((int *) "+ mem+ ", -1, "+ id+ ");\n");
+  m_Output.append("  if(" + old + " != -1 && "+ old+ " != "+ id+ "){\n");
+  m_Output.append("    " + count + "++;\n");
+  m_Output.append("    if(" + count + " >= 99){\n");
+  m_Output.append("      " + count + " = 0;\n");
+  m_Output.append("    }\n");
+  m_Output.append("  } else {\n");
+}

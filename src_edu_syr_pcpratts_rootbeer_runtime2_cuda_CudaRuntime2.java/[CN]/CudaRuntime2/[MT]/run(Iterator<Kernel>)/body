@@ -1,0 +1,22 @@
+{
+  Stopwatch watch2=new Stopwatch();
+  watch2.start();
+  RootbeerGpu.setIsOnGpu(true);
+  m_Partial=new PartiallyCompletedParallelJob(jobs);
+  boolean any_jobs=writeBlocks(jobs);
+  if (any_jobs == false) {
+    return m_Partial;
+  }
+  calculateShape();
+  compileCode();
+  Stopwatch watch=new Stopwatch();
+  watch.start();
+  runOnGpu();
+  watch.stopAndPrint("GPU time: ");
+  readBlocks();
+  unload();
+  runExtraBlocks();
+  RootbeerGpu.setIsOnGpu(false);
+  watch2.stopAndPrint("CudaRuntime2.run: ");
+  return m_Partial;
+}

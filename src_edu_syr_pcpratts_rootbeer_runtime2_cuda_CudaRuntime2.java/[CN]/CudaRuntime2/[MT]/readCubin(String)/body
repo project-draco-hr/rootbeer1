@@ -1,0 +1,10 @@
+{
+  try {
+    return ResourceReader.getResourceArray(filename);
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    System.exit(-1);
+    return null;
+  }
+}

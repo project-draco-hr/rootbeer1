@@ -1,0 +1,16 @@
+{
+  for (  Unit u : mOutputUnits) {
+    List<ValueBox> boxes=u.getUseAndDefBoxes();
+    for (    ValueBox box : boxes) {
+      Value v=box.getValue();
+      if (v instanceof Local == false)       continue;
+      Local local=(Local)v.clone();
+      if (mLocalMap.containsKey(local.toString()) == false) {
+        mLocalMap.put(local.toString(),local);
+        mOutputLocals.add(local);
+      }
+      local=mLocalMap.get(local.toString());
+      box.setValue(local);
+    }
+  }
+}

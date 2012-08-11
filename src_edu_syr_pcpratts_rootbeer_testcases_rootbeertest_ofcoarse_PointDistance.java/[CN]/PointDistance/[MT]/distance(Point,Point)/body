@@ -1,0 +1,6 @@
+{
+  double xdiff=lhs.X - rhs.X;
+  double ydiff=lhs.Y - rhs.Y;
+  double sum=(xdiff * xdiff) + (ydiff * ydiff);
+  return StrictMath.sqrt(sum);
+}

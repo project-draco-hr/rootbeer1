@@ -1,0 +1,16 @@
+{
+  int size=11;
+  element=10;
+  element1=new long[size];
+  element2=new long[size][size];
+  element3=new long[size][size][size];
+  for (int m=0; m < size; m++) {
+    for (int n=0; n < size; n++) {
+      for (int p=0; p < size; ++p) {
+        element3[m][n][p]=(long)p;
+        element2[n][p]=(long)p;
+        element1[p]=(long)p;
+      }
+    }
+  }
+}

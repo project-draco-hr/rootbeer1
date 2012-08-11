@@ -1,0 +1,10 @@
+{
+  Set<String> ret=new HashSet<String>();
+  for (  OpenCLField field : composite.getRefFields()) {
+    ret.add(field.getGetterSetterPrototypes());
+  }
+  for (  OpenCLField field : composite.getNonRefFields()) {
+    ret.add(field.getGetterSetterPrototypes());
+  }
+  return ret;
+}

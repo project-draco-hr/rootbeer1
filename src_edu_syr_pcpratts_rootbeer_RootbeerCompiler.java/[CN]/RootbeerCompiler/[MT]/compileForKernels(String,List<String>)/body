@@ -1,0 +1,31 @@
+{
+  System.out.println("Finding kernel reachable methods...");
+  KernelReachableMethods reachable_finder=new KernelReachableMethods();
+  List<String> reachables=reachable_finder.get(run_on_gpu_classes);
+  RootbeerScene.v().setReachableMethods(reachables);
+  System.out.println("Remapping some classes to GPU versions...");
+  ClassRemappingTransform transform=new ClassRemappingTransform(false);
+  transform.run(reachables);
+  transform.finishClone();
+  Transform2 transform2=new Transform2();
+  for (  String cls : run_on_gpu_classes) {
+    transform2.run(cls);
+  }
+  List<String> copy=m_loader.getClassesToCopy();
+  for (  String cls : copy) {
+    copyClass(cls);
+  }
+  List<String> app_classes=m_loader.getVisitedClasses();
+  app_classes.addAll(transform.getModifiedClasses());
+  for (  String cls : app_classes) {
+    writeClassFile(cls);
+    writeJimpleFile(cls);
+  }
+  List<String> added_classes=RootbeerScene.v().getAddedClasses();
+  for (  String cls : added_classes) {
+    writeClassFile(cls);
+    writeJimpleFile(cls);
+  }
+  makeOutJar();
+  pack(outname);
+}

@@ -1,0 +1,18 @@
+{
+  try {
+    int array=(int)(index / m_MaxSize);
+    int offset=(int)(index % m_MaxSize);
+    byte[] data=m_Data.get(array);
+    return data[offset];
+  }
+ catch (  Throwable ex) {
+    System.out.println("Error in get: " + index);
+    int array=(int)(index / m_MaxSize);
+    int offset=(int)(index % m_MaxSize);
+    System.out.println("array: " + array);
+    System.out.println("offset: " + offset);
+    System.out.println("max size: " + m_MaxSize);
+    ex.printStackTrace();
+    throw new RuntimeException(ex);
+  }
+}

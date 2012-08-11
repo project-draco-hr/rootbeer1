@@ -1,0 +1,9 @@
+{
+  List<Kernel> jobs=new ArrayList<Kernel>();
+  int[] a=new int[4096];
+  for (int i=0; i < 4096; ++i) {
+    NullPointer1RunOnGpu curr=new NullPointer1RunOnGpu(a,i);
+    jobs.add(curr);
+  }
+  return jobs;
+}

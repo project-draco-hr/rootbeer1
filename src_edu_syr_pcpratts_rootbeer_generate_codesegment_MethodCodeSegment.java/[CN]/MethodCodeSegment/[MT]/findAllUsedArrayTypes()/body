@@ -1,0 +1,4 @@
+{
+  OpenCLMethod ocl_method=new OpenCLMethod(existingMethod,existingMethod.getDeclaringClass());
+  ocl_method.findAllUsedArrayTypes();
+}

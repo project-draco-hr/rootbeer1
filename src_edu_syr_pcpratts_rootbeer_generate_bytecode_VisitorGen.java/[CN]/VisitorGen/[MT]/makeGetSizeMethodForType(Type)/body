@@ -1,0 +1,36 @@
+{
+  if (mGetSizeMethodsMade.contains(type))   return;
+  mGetSizeMethodsMade.add(type);
+  if (type instanceof RefType) {
+    RefType ref_type=(RefType)type;
+    SootClass soot_class=ref_type.getSootClass();
+    if (soot_class.getName().equals("java.lang.Object"))     return;
+    if (differentPackageAndPrivate(ref_type)) {
+      return;
+    }
+  }
+  if (typeIsPublic(type) == false)   return;
+  String label=getNextLabel();
+  m_Bcl.top().ifInstanceOfStmt(mParam0,type,label);
+  if (type instanceof ArrayType) {
+    ArrayType atype=(ArrayType)type;
+    SootClass constants_soot_class=RootbeerScene.v().getClass("edu.syr.pcpratts.rootbeer.generate.bytecode.Constants");
+    Local size=m_Bcl.top().refStaticField(constants_soot_class.getType(),"ArrayOffsetSize");
+    Local element_size=m_Bcl.top().local(IntType.v());
+    OpenCLType ocl_type=new OpenCLType(atype.baseType);
+    if (atype.numDimensions == 1)     m_Bcl.top().assign(element_size,IntConstant.v(ocl_type.getSize()));
+ else     m_Bcl.top().assign(element_size,IntConstant.v(4));
+    Local object_to_write_from=m_Bcl.top().cast(type,mParam0);
+    Local length=m_Bcl.top().lengthof(object_to_write_from);
+    m_Bcl.top().mult(element_size,length);
+    m_Bcl.top().plus(size,element_size);
+    m_Bcl.top().returnValue(size);
+  }
+ else   if (type instanceof RefType) {
+    RefType rtype=(RefType)type;
+    OpenCLClass ocl_class=OpenCLScene.v().getOpenCLClass(rtype.getSootClass());
+    int size=ocl_class.getSize();
+    m_Bcl.top().returnValue(IntConstant.v(size));
+  }
+  m_Bcl.top().label(label);
+}

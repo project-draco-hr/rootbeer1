@@ -1,0 +1,14 @@
+{
+  try {
+    BufferedReader reader=new BufferedReader(new FileReader("generated.cu"));
+    String ret="";
+    while (true) {
+      String temp=reader.readLine();
+      if (temp == null)       return ret;
+      ret+=temp + "\n";
+    }
+  }
+ catch (  Exception ex) {
+    throw new RuntimeException();
+  }
+}

@@ -1,0 +1,3 @@
+{
+  return m_IntValue + StaticsTest2PrivateClass.getPrivateNumber();
+}

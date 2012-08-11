@@ -1,0 +1,93 @@
+{
+  if (grhs == null) {
+    System.out.println("grhs == null");
+    return false;
+  }
+  if (!eq(exp,grhs.exp)) {
+    System.out.println("exp");
+    return false;
+  }
+  if (!eq(log,grhs.log)) {
+    System.out.println("log");
+    System.out.println("lhs: " + log);
+    System.out.println("rhs: " + grhs.log);
+    return false;
+  }
+  if (!eq(log10,grhs.log10)) {
+    System.out.println("log10");
+    return false;
+  }
+  if (!eq(sqrt,grhs.sqrt)) {
+    System.out.println("sqrt");
+    return false;
+  }
+  if (!eq(cbrt,grhs.cbrt)) {
+    System.out.println("cbrt");
+    System.out.println("lhs: " + cbrt);
+    System.out.println("rhs: " + grhs.cbrt);
+    return false;
+  }
+  if (!eq(IEEEremainder,grhs.IEEEremainder)) {
+    System.out.println("IEEEremainder");
+    return false;
+  }
+  if (!eq(ceil,grhs.ceil)) {
+    System.out.println("ceil");
+    return false;
+  }
+  if (!eq(floor,grhs.floor)) {
+    System.out.println("floor");
+    return false;
+  }
+  if (!eq(sin,grhs.sin)) {
+    System.out.println("sin");
+    return false;
+  }
+  if (!eq(cos,grhs.cos)) {
+    System.out.println("cos");
+    return false;
+  }
+  if (!eq(tan,grhs.tan)) {
+    System.out.println("tan");
+    return false;
+  }
+  if (!eq(asin,grhs.asin)) {
+    System.out.println("asin");
+    System.out.println("lhs: " + asin);
+    System.out.println("rhs: " + grhs.asin);
+    return false;
+  }
+  if (!eq(atan2,grhs.atan2)) {
+    System.out.println("atan2");
+    return false;
+  }
+  if (!eq(pow,grhs.pow)) {
+    System.out.println("pow");
+    System.out.println("lhs: " + pow);
+    System.out.println("rhs: " + grhs.pow);
+    return false;
+  }
+  if (!eq(sinh,grhs.sinh)) {
+    System.out.println("sinh");
+    return false;
+  }
+  if (!eq(cosh,grhs.cosh)) {
+    System.out.println("cosh");
+    return false;
+  }
+  if (!eq(tanh,grhs.tanh)) {
+    System.out.println("tanh");
+    return false;
+  }
+  if (!eq(acos,grhs.acos)) {
+    System.out.println("acos");
+    System.out.println("lhs: " + acos);
+    System.out.println("rhs: " + grhs.acos);
+    return false;
+  }
+  if (!eq(atan,grhs.atan)) {
+    System.out.println("atan");
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,5 @@
+{
+  v1_k*=mVolumeScale;
+  v2_k*=mVolumeScale;
+  return v2_k - (v1_k_plus_1 - v1_k);
+}

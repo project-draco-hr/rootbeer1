@@ -1,0 +1,6 @@
+{
+  SootMethod soot_method=sinvoke_expr.getMethod();
+  SootClass soot_class=soot_method.getDeclaringClass();
+  if (soot_class.getName().equals("java.lang.Math") == false)   return false;
+  return true;
+}

@@ -1,0 +1,18 @@
+{
+  m_ApplicationClass=false;
+  boolean application_class=generatingCodeInApplicationClass();
+  doWriter(class_name,ref_fields,application_class);
+  SootClass curr_class=RootbeerScene.v().getClass(class_name);
+  if (curr_class.hasSuperclass() == false)   return;
+  SootClass parent=curr_class.getSuperclass();
+  parent=RootbeerScene.v().getClass(parent.getName());
+  if (parent.getName().equals("java.lang.Object") == false) {
+    if (parent.isApplicationClass()) {
+      attachWriter(parent.getName(),ref_fields);
+      callBaseClassWriter(parent.getName(),ref_fields);
+    }
+ else {
+      insertWriter(parent.getName(),ref_fields);
+    }
+  }
+}

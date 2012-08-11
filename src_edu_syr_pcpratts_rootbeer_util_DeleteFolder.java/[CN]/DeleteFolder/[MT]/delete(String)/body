@@ -1,0 +1,15 @@
+{
+  File f=new File(folder);
+  if (f.exists() == false)   return;
+  File[] files=f.listFiles();
+  for (  File file : files) {
+    if (file.isDirectory()) {
+      delete(file.getAbsolutePath());
+      file.delete();
+    }
+ else     if (file.isFile()) {
+      file.delete();
+    }
+  }
+  f.delete();
+}

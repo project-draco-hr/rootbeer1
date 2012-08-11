@@ -1,0 +1,18 @@
+{
+  String name_without_arrays=type.toString();
+  name_without_arrays=name_without_arrays.replace("\\[","a");
+  int number;
+  if (mangleMap.containsKey(name_without_arrays)) {
+    number=mangleMap.get(name_without_arrays);
+  }
+ else {
+    number=lastInt;
+    lastInt++;
+    mangleMap.put(name_without_arrays,number);
+  }
+  int dims=arrayDimensions(type);
+  String ret="";
+  for (int i=0; i < dims; ++i)   ret+="a";
+  ret+=Integer.toString(number);
+  return ret + "_";
+}

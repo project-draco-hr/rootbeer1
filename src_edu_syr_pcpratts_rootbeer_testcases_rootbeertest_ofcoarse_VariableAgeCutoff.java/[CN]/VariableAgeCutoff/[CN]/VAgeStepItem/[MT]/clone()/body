@@ -1,0 +1,6 @@
+{
+  VAgeStepItem ret=new VAgeStepItem();
+  ret.m_AgeStep=m_AgeStep;
+  ret.m_Box=new BoundingBox(m_Box);
+  return ret;
+}

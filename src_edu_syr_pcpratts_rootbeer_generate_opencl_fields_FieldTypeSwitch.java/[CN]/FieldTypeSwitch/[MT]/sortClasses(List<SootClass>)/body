@@ -1,0 +1,15 @@
+{
+  WrappedClass[] wrapped_classes=new WrappedClass[classes.size()];
+  int index=0;
+  for (  SootClass sclass : classes) {
+    WrappedClass wclass=new WrappedClass(sclass);
+    wrapped_classes[index]=wclass;
+    index++;
+  }
+  Arrays.sort(wrapped_classes);
+  List<SootClass> ret=new ArrayList<SootClass>();
+  for (  WrappedClass wrapped : wrapped_classes) {
+    ret.add(wrapped.getSootClass());
+  }
+  return ret;
+}

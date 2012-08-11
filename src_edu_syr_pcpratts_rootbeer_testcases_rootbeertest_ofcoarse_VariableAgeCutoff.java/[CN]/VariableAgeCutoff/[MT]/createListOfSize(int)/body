@@ -1,0 +1,7 @@
+{
+  GpuList<Integer> ret=new GpuList<Integer>();
+  for (int i=0; i < size; ++i) {
+    ret.add(i);
+  }
+  return ret;
+}

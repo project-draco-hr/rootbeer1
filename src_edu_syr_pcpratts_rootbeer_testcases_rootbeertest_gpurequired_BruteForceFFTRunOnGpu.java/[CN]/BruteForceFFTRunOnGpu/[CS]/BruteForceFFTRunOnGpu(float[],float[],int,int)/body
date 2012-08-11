@@ -1,0 +1,6 @@
+{
+  this.a=a;
+  this.b=b;
+  this.index=index;
+  this.count=count;
+}

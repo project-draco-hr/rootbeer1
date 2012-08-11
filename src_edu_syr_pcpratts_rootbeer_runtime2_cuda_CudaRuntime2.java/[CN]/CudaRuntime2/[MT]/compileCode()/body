@@ -1,0 +1,12 @@
+{
+  Stopwatch watch=new Stopwatch();
+  watch.start();
+  String filename=m_FirstJob.getCubin();
+  List<byte[]> cubin=readCubin(filename);
+  int total_size=0;
+  for (  byte[] buffer : cubin) {
+    total_size+=buffer.length;
+  }
+  loadFunction(getHeapEndPtr(),cubin,cubin.size(),total_size,m_NumBlocksRun);
+  watch.stopAndPrint("compile code: ");
+}

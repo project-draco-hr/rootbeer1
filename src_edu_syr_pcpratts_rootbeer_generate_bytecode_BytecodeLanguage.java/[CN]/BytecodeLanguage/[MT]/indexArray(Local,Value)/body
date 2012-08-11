@@ -1,0 +1,17 @@
+{
+  Value rhs=jimple.newArrayRef(base,i);
+  Type type=base.getType();
+  if (type instanceof ArrayType == false)   throw new RuntimeException("How do we handle this case?");
+  ArrayType atype=(ArrayType)type;
+  Local lhs;
+  if (atype.numDimensions == 1) {
+    lhs=jimple.newLocal(getLocalName(),atype.baseType);
+  }
+ else {
+    Type lhs_type=ArrayType.v(atype.baseType,atype.numDimensions - 1);
+    lhs=jimple.newLocal(getLocalName(),lhs_type);
+  }
+  Unit u=jimple.newAssignStmt(lhs,rhs);
+  mAssembler.add(u);
+  return lhs;
+}

@@ -1,0 +1,3 @@
+{
+  compressMap.put(str,str);
+}

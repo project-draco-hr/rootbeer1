@@ -1,0 +1,30 @@
+{
+  boolean negative=x < 0;
+  if (negative)   x=-x;
+  if (!(x <= 1))   return Double.NaN;
+  if (x == 1)   return negative ? PI : 0;
+  if (x < 0.5) {
+    if (x < 1 / TWO_57)     return PI / 2;
+    double z=x * x;
+    double p=z * (PS0 + z * (PS1 + z * (PS2 + z * (PS3 + z * (PS4 + z * PS5)))));
+    double q=1 + z * (QS1 + z * (QS2 + z * (QS3 + z * QS4)));
+    double r=x - (PI_L / 2 - x * (p / q));
+    return negative ? PI / 2 + r : PI / 2 - r;
+  }
+  if (negative) {
+    double z=(1 + x) * 0.5;
+    double p=z * (PS0 + z * (PS1 + z * (PS2 + z * (PS3 + z * (PS4 + z * PS5)))));
+    double q=1 + z * (QS1 + z * (QS2 + z * (QS3 + z * QS4)));
+    double s=sqrt(z);
+    double w=p / q * s - PI_L / 2;
+    return PI - 2 * (s + w);
+  }
+  double z=(1 - x) * 0.5;
+  double s=sqrt(z);
+  double df=(float)s;
+  double c=(z - df * df) / (s + df);
+  double p=z * (PS0 + z * (PS1 + z * (PS2 + z * (PS3 + z * (PS4 + z * PS5)))));
+  double q=1 + z * (QS1 + z * (QS2 + z * (QS3 + z * QS4)));
+  double w=p / q * s + c;
+  return 2 * (df + w);
+}

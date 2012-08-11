@@ -1,0 +1,5 @@
+{
+  String name=soot_class.getName();
+  if (m_WrittenClasses.contains(name))   return false;
+  return true;
+}

@@ -1,0 +1,6 @@
+{
+  m_SootField=soot_field;
+  m_SootClass=soot_class;
+  m_CheckAlignment=false;
+  m_Cloned=false;
+}

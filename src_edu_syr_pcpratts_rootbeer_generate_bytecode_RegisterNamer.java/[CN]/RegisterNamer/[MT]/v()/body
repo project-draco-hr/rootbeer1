@@ -1,0 +1,4 @@
+{
+  if (mInstance == null)   mInstance=new RegisterNamer();
+  return mInstance;
+}

@@ -1,0 +1,6 @@
+{
+  StringBuilder ret=new StringBuilder();
+  List<String> decls=getDecls();
+  for (  String decl : decls)   ret.append(decl + ";\n");
+  return ret.toString();
+}

@@ -1,0 +1,3 @@
+{
+  return (int)(num_procs * m_MaxThreadsPerBlock * m_MaxBlocksPerProc);
+}

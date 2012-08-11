@@ -1,0 +1,21 @@
+{
+  try {
+    System.out.println("Compiling CUDA code.");
+    Process p=Runtime.getRuntime().exec(command);
+    StreamReader reader1=new StreamReader(p.getInputStream());
+    StreamReader reader2=new StreamReader(p.getErrorStream());
+    reader1.join();
+    reader2.join();
+    int ret=p.waitFor();
+    if (ret != 0) {
+      System.out.println("CUDA Compile failed: " + ret);
+      reader1.print();
+      reader2.print();
+      System.exit(0);
+    }
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    throw new RuntimeException(ex);
+  }
+}

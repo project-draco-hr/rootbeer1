@@ -1,0 +1,19 @@
+{
+  int xx;
+  int yy;
+  int ret=0;
+  for (xx=-1; xx <= 1; xx++) {
+    for (yy=-1; yy <= 1; yy++) {
+      int i=index + xx + yy;
+      if (i >= a.length) {
+        return 0;
+      }
+      if (i < 0) {
+        return 0;
+      }
+      int value=a[i];
+      ret+=value * kern[xx + 1][yy + 1];
+    }
+  }
+  return ret;
+}

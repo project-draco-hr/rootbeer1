@@ -1,0 +1,5 @@
+{
+  NullPointer4RunOnGpu lhs=(NullPointer4RunOnGpu)rog;
+  NullPointer4RunOnGpu rhs=(NullPointer4RunOnGpu)rog1;
+  return lhs.compare(rhs);
+}

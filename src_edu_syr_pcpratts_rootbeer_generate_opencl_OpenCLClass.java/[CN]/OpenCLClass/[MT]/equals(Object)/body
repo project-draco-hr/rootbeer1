@@ -1,0 +1,6 @@
+{
+  if (o instanceof OpenCLClass == false)   return false;
+  OpenCLClass other=(OpenCLClass)o;
+  if (m_SootClass.equals(other.m_SootClass))   return true;
+  return false;
+}

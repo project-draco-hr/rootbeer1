@@ -1,0 +1,18 @@
+{
+  StringBuilder ret=new StringBuilder();
+  for (int i=0; i < m_ArrayTypes.size(); ++i) {
+    for (int j=0; j < m_ArrayTypes.size(); ++j) {
+      OpenCLArrayType src=m_ArrayTypes.get(i);
+      OpenCLArrayType dest=m_ArrayTypes.get(j);
+      ret.append("      else if(src_type == " + src.getTypeInteger() + " && dest_type == "+ dest.getTypeInteger()+ "){\n");
+      ret.append("        for(i = length - 1; i >= 0; --i){\n");
+      ret.append("          src_index = srcPos + i;\n");
+      ret.append("          dest_index = destPos + i;\n");
+      ret.append("        " + dest.getDerefTypeString() + "_set(gc_info, dest_handle, dest_index, ");
+      ret.append(src.getDerefTypeString() + "_get(gc_info, src_handle, src_index, exception), exception);\n");
+      ret.append("        }\n");
+      ret.append("      }\n");
+    }
+  }
+  return ret.toString();
+}

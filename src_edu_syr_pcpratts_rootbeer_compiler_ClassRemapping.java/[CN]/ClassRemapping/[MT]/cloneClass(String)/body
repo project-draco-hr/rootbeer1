@@ -1,0 +1,13 @@
+{
+  if (m_Map.containsKey(class_name)) {
+    return;
+  }
+  String new_name="edu.syr.pcpratts.rootbeer.runtime.remap." + class_name;
+  put(class_name,new_name);
+  m_ClonedMap.put(class_name,new_name);
+  SootClass soot_class=RootbeerScene.v().getClass(class_name);
+  CloneClass cloner=new CloneClass();
+  SootClass new_class=cloner.execute(soot_class,new_name);
+  new_class.setApplicationClass();
+  RootbeerScene.v().addClass(new_class);
+}

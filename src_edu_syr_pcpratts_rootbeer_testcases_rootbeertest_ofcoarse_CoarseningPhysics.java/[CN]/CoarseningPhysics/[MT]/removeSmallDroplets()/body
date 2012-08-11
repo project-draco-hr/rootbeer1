@@ -1,0 +1,9 @@
+{
+  for (int i=0; i < mPrevDroplets.size(); ++i) {
+    Droplet curr=mPrevDroplets.get(i);
+    if (curr.getVolume() < mMinAggregateSize) {
+      mPrevDroplets.remove(i);
+      --i;
+    }
+  }
+}

@@ -1,0 +1,7 @@
+{
+  String prev=m_Ret.get(m_Ret.size() - 1).getString();
+  if (prev.equals("private"))   return true;
+  if (prev.equals("protected"))   return true;
+  if (prev.equals("public"))   return true;
+  return false;
+}

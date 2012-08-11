@@ -1,0 +1,6 @@
+{
+  super(field_inspector);
+  mRuntimeBasicBlock=runtime_basic_block;
+  mGetSizeMethodsMade=new HashSet<Type>();
+  mSentinalCtorsCreated=new HashSet<String>();
+}

@@ -1,0 +1,26 @@
+{
+  folder=normalizeFolder(folder);
+  ZipInputStream zin=new ZipInputStream(new FileInputStream(jar));
+  while (true) {
+    ZipEntry entry=zin.getNextEntry();
+    if (entry == null)     break;
+    if (shouldWrite(entry) == false)     continue;
+    String name=entry.getName();
+    if (entry.isDirectory() == false && m_StringDelegate != null && name.endsWith(".class")) {
+      m_StringDelegate.call(name);
+    }
+    String s=File.separator;
+    if (s.equals("\\")) {
+      name=name.replace("/","\\");
+    }
+    String outname=folder + name;
+    JarEntryHelp.mkdir(outname);
+    if (entry.isDirectory() == false) {
+      OutputStream fout=new FileOutputStream(outname);
+      write(zin,fout);
+      fout.flush();
+      fout.close();
+    }
+  }
+  zin.close();
+}

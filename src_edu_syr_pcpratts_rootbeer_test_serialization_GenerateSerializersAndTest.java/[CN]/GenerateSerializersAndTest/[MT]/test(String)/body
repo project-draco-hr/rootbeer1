@@ -1,0 +1,20 @@
+{
+  JarClassLoader loader_factory=new JarClassLoader(dest_jar);
+  ClassLoader cls_loader=loader_factory.getLoader();
+  Thread.currentThread().setContextClassLoader(cls_loader);
+  LoadTestSerialization loader=new LoadTestSerialization();
+  List<TestSerialization> creators=loader.load(cls_loader,"rootbeertest.serialization.Main");
+  for (  TestSerialization creator : creators) {
+    System.out.println("Testing: " + creator.toString() + "...");
+    SerializationTester tester=new SerializationTester(creator);
+    boolean ret=tester.test();
+    if (ret) {
+      System.out.println(" PASSED");
+    }
+ else {
+      System.out.println();
+      return false;
+    }
+  }
+  return true;
+}

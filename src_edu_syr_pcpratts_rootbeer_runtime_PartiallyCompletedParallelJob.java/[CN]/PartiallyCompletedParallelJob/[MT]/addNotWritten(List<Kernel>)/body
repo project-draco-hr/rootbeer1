@@ -1,0 +1,4 @@
+{
+  m_NotWritten=new ArrayList<Kernel>();
+  m_NotWritten.addAll(not_written);
+}

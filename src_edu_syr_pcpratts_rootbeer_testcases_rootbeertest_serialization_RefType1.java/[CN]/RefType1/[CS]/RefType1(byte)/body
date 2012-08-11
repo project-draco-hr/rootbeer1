@@ -1,0 +1,9 @@
+{
+  m_Byte=value;
+  m_Char=Character.MAX_VALUE;
+  m_Short=Short.MAX_VALUE;
+  m_Int=Integer.MAX_VALUE;
+  m_Long=Integer.MAX_VALUE;
+  m_Float=Float.MAX_VALUE;
+  m_Double=Double.MAX_VALUE;
+}

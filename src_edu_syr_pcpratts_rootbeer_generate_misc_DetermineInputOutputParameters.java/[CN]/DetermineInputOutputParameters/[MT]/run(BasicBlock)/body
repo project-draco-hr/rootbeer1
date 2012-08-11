@@ -1,0 +1,7 @@
+{
+  mBlock=block;
+  mInnerBody=block.getUnits();
+  determineValuesSet();
+  determineValuesNotSet();
+  createArguments();
+}

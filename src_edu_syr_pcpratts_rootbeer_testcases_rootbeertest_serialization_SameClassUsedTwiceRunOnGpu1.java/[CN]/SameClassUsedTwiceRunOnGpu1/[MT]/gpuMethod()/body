@@ -1,0 +1,4 @@
+{
+  SameClassUsedClass obj=new SameClassUsedClass();
+  m_Int+=obj.getValue1();
+}

@@ -1,0 +1,9 @@
+{
+  m_Iterator=iter1;
+  m_Builder=new StringBuilder();
+  while (m_Iterator.hasNext()) {
+    Token next=m_Iterator.next();
+    processItem(next);
+  }
+  return new StringReader(m_Builder.toString());
+}

@@ -1,0 +1,4 @@
+{
+  mBcl.pushMethod(mMem,"finishReading",VoidType.v());
+  mBcl.invokeMethodNoRet(mMem);
+}

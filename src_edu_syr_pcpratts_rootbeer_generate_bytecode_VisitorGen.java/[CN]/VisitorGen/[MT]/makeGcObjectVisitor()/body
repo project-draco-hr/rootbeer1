@@ -1,0 +1,10 @@
+{
+  makeGcObjectClass();
+  makeCtor();
+  makeWriteStaticsToHeapMethod();
+  makeReadStaticsFromHeapMethod();
+  makeGetSizeMethod();
+  makeGetLengthMethod();
+  makeWriteToHeapMethod();
+  makeReadFromHeapMethod();
+}

@@ -1,0 +1,17 @@
+{
+  String filename="src" + mapFilename();
+  try {
+    PrintWriter writer=new PrintWriter(filename);
+    Iterator<String> iter=m_ClonedMap.keySet().iterator();
+    while (iter.hasNext()) {
+      String key=iter.next();
+      String value=m_ClonedMap.get(key);
+      writer.println(key + " => " + value);
+    }
+    writer.flush();
+    writer.close();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

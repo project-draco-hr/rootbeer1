@@ -1,0 +1,18 @@
+{
+  StringBuilder ret=new StringBuilder();
+  List<String> decls=getDecls();
+  String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
+  String var_type_string=getType().getRefString();
+  StaticOffsets static_offsets=new StaticOffsets();
+  int offset=static_offsets.getIndex(this);
+  String cast_string=getCastString();
+  ret.append(decls.get(0) + "{\n");
+  ret.append(address_qual + " char * thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, 0);\n");
+  ret.append("return *((" + address_qual + " "+ cast_string+ " *) &thisref_deref["+ offset+ "]);\n");
+  ret.append("}\n");
+  ret.append(decls.get(1) + "{\n");
+  ret.append(address_qual + " char * thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, 0);\n");
+  ret.append("*((" + address_qual + " "+ cast_string+ " *) &thisref_deref["+ offset+ "]) = parameter0;\n");
+  ret.append("}\n");
+  return ret.toString();
+}

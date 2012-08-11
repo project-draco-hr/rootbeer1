@@ -1,0 +1,17 @@
+{
+  try {
+    BufferedReader reader=new BufferedReader(new FileReader(passed_cache));
+    m_Passed=new HashSet<String>();
+    while (true) {
+      String line=reader.readLine();
+      if (line == null) {
+        reader.close();
+        return;
+      }
+      m_Passed.add(line);
+    }
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

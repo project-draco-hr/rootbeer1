@@ -1,0 +1,4 @@
+{
+  Type base_type=base.getType();
+  return refStaticField(base_type,field_name);
+}

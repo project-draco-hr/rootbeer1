@@ -1,0 +1,6 @@
+{
+  Value lhs;
+  lhs=jimple.newStaticFieldRef(field.makeRef());
+  Unit u=jimple.newAssignStmt(lhs,value);
+  mAssembler.add(u);
+}

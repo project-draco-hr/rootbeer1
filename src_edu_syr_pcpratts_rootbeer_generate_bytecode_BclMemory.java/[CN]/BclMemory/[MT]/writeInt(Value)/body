@@ -1,0 +1,4 @@
+{
+  mBcl.pushMethod(mBcl.getTypeString(mMem),"writeInt",VoidType.v(),IntType.v());
+  mBcl.invokeMethodNoRet(mMem,value);
+}

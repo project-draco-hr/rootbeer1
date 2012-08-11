@@ -1,0 +1,9 @@
+{
+  if (lhs.equals(rhs))   return true;
+  if (lhs instanceof GotoStmt && rhs instanceof GotoStmt) {
+    GotoStmt lhs_goto=(GotoStmt)lhs;
+    GotoStmt rhs_goto=(GotoStmt)rhs;
+    if (lhs_goto.getTarget().equals(rhs_goto.getTarget()))     return true;
+  }
+  return false;
+}

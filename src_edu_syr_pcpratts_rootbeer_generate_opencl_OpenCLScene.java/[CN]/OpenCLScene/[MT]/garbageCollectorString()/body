@@ -1,0 +1,7 @@
+{
+  String path=Tweaks.v().getGarbageCollectorPath();
+  String ret=ResourceReader.getResource(path);
+  ret=ret.replace("$$__device__$$",Tweaks.v().getDeviceFunctionQualifier());
+  ret=ret.replace("$$__global$$",Tweaks.v().getGlobalAddressSpaceQualifier());
+  return ret;
+}

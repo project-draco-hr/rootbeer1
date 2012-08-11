@@ -1,0 +1,3 @@
+{
+  return OpenCLScene.v().getClassType(m_ArrayType);
+}

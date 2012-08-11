@@ -1,0 +1,3 @@
+{
+  return (long)floor(d + 0.5);
+}

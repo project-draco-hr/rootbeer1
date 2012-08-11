@@ -1,0 +1,11 @@
+{
+  int hash=7;
+  hash=89 * hash + this.m_Char;
+  hash=89 * hash + this.m_Byte;
+  hash=89 * hash + this.m_Short;
+  hash=89 * hash + this.m_Int;
+  hash=89 * hash + (int)(this.m_Long ^ (this.m_Long >>> 32));
+  hash=89 * hash + Float.floatToIntBits(this.m_Float);
+  hash=89 * hash + (int)(Double.doubleToLongBits(this.m_Double) ^ (Double.doubleToLongBits(this.m_Double) >>> 32));
+  return hash;
+}

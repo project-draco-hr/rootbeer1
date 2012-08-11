@@ -1,0 +1,4 @@
+{
+  name=name.replace(".",File.separator);
+  return prefix + name + ".class";
+}

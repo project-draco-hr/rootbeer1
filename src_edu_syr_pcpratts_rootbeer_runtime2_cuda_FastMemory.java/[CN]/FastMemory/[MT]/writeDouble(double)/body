@@ -1,0 +1,4 @@
+{
+  doWriteDouble(currPointer(),value,m_CpuBase);
+  incrementAddress(8);
+}

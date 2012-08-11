@@ -1,0 +1,13 @@
+{
+  List<Token> new_tokens=new ArrayList<Token>();
+  for (  Token curr : m_TempTokens) {
+    if (curr.isImmutable()) {
+      new_tokens.add(curr);
+      continue;
+    }
+    TokenizationSplitter splitter_engine=new TokenizationSplitter();
+    List<Token> tokens=splitter_engine.split(curr,splitter);
+    new_tokens.addAll(tokens);
+  }
+  m_TempTokens=new_tokens;
+}

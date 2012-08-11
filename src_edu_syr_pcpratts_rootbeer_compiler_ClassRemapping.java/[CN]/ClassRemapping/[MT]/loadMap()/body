@@ -1,0 +1,11 @@
+{
+  String contents="";
+  String filename=mapFilename();
+  try {
+    contents=ResourceReader.getResource(filename);
+  }
+ catch (  Exception ex) {
+    contents=readFile("src" + filename);
+  }
+  doLoadMap(contents);
+}

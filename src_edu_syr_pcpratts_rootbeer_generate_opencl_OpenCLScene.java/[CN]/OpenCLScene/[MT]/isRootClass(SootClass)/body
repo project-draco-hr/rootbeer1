@@ -1,0 +1,3 @@
+{
+  return soot_class.getName().equals(rootSootClass.getName());
+}

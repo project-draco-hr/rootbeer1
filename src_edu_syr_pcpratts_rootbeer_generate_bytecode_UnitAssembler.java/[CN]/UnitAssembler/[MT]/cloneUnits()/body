@@ -1,0 +1,5 @@
+{
+  for (  Unit u : mInputUnits) {
+    mOutputUnits.add((Unit)u.clone());
+  }
+}

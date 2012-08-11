@@ -1,0 +1,7 @@
+{
+  String ret=getMethodDecl(false) + ";\n";
+  if (isConstructor()) {
+    ret+=getMethodDecl(true) + ";\n";
+  }
+  return ret;
+}

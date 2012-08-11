@@ -1,0 +1,8 @@
+{
+  SootField soot_field=ref_field.getSootField();
+  BytecodeLanguage bcl=m_Bcl.top();
+  Local field_value=bcl.refStaticField(m_CurrObj.top(),soot_field.getName());
+  SootClass object_soot_class=RootbeerScene.v().getClass("java.lang.Object");
+  bcl.pushMethod(m_GcObjVisitor.top(),"writeToHeap",LongType.v(),object_soot_class.getType(),BooleanType.v());
+  return bcl.invokeMethodRet(m_GcObjVisitor.top(),field_value,copy_values);
+}

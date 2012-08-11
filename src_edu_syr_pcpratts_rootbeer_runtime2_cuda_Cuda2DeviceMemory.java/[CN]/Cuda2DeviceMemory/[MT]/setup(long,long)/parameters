@@ -1,0 +1,2 @@
+long cpu_addr
+long gpu_addr

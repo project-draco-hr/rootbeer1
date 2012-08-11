@@ -1,0 +1,12 @@
+{
+  m_Char2=(char)(m_Char + 1);
+  m_Short2=(short)(m_Short + 1);
+  m_Int2=m_Int + 1;
+  m_Long2=m_Long + m_BaseInt;
+  m_Float2=m_Float + 1;
+  m_Double2=m_Double + 1;
+  if (RootbeerGpu.isOnGpu()) {
+    m_Bool=true;
+    m_Bool2=true;
+  }
+}

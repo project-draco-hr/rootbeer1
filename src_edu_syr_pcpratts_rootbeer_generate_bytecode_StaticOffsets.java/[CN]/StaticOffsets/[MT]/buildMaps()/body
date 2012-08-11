@@ -1,0 +1,49 @@
+{
+  FieldCloner cloner=new FieldCloner();
+  cloner.setup(OpenCLScene.v().getClassMap());
+  List<CompositeField> composites=cloner.getCompositeFields();
+  List<SortableField> sortable_fields=new ArrayList<SortableField>();
+  for (  CompositeField composite : composites) {
+    List<SootClass> classes=composite.getClasses();
+    for (    SootClass soot_class : classes) {
+      sortable_fields.addAll(convert(composite.getRefFieldsByClass(soot_class),soot_class));
+      sortable_fields.addAll(convert(composite.getNonRefFieldsByClass(soot_class),soot_class));
+      List<OpenCLField> static_fields=new ArrayList<OpenCLField>();
+      static_fields.addAll(staticFilter(composite.getRefFieldsByClass(soot_class)));
+      static_fields.addAll(staticFilter(composite.getNonRefFieldsByClass(soot_class)));
+      m_StaticFields.put(soot_class,static_fields);
+    }
+  }
+  SortableField[] array=new SortableField[sortable_fields.size()];
+  array=sortable_fields.toArray(array);
+  Arrays.sort(array);
+  int index=0;
+  for (  SortableField field : array) {
+    m_OffsetToFieldMap.put(index,field);
+    m_FieldToOffsetMap.put(field.m_Field,index);
+    int size=field.m_Field.getSize();
+    index+=size;
+  }
+  int leftover=index % 4;
+  if (leftover != 0) {
+    index+=leftover;
+  }
+  m_LockStart=index;
+  Map<String,OpenCLClass> map=OpenCLScene.v().getClassMap();
+  Iterator<String> cls_iter=map.keySet().iterator();
+  while (cls_iter.hasNext()) {
+    String curr=cls_iter.next();
+    SootClass soot_class=map.get(curr).getSootClass();
+    m_ClassToOffsetMap.put(soot_class,index);
+    index+=4;
+  }
+  m_EndIndex=index;
+  int mod=m_EndIndex % 16;
+  m_ZerosSize=0;
+  if (mod != 0) {
+    m_EndIndex+=(16 - mod);
+    m_ZerosSize+=(16 - mod);
+  }
+  m_EndIndex+=16;
+  m_ZerosSize+=16;
+}

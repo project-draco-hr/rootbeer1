@@ -1,0 +1,9 @@
+{
+  String[] tokens=variable_list.split(",");
+  for (int i=0; i < m_VAgeStepItems.size(); ++i) {
+    VAgeStepItem item=m_VAgeStepItems.get(i);
+    String token=tokens[i];
+    int value=Integer.parseInt(token);
+    item.m_AgeStep=value;
+  }
+}

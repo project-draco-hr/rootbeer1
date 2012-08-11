@@ -1,0 +1,4 @@
+{
+  m_Type=new Stack<String>();
+  m_Template=new Stack<CTemplate>();
+}

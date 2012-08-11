@@ -1,0 +1,8 @@
+{
+  StringBuilder ret=new StringBuilder();
+  ret.append(getDerefTypeString() + "_new(gc_info, ");
+  MethodJimpleValueSwitch quick_value_switch=new MethodJimpleValueSwitch(ret);
+  arg0.getSize().apply(quick_value_switch);
+  ret.append(", exception)");
+  return ret.toString();
+}

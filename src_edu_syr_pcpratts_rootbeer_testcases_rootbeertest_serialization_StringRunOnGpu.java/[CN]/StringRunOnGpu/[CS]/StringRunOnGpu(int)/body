@@ -1,0 +1,4 @@
+{
+  this.index=index;
+  str="hello";
+}

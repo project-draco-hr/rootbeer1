@@ -1,0 +1,39 @@
+{
+  if (x == 0)   return Double.NEGATIVE_INFINITY;
+  if (x < 0)   return Double.NaN;
+  if (!(x < Double.POSITIVE_INFINITY))   return x;
+  long bits=Double.doubleToLongBits(x);
+  int exp=(int)(bits >> 52);
+  if (exp == 0) {
+    x*=TWO_54;
+    bits=Double.doubleToLongBits(x);
+    exp=(int)(bits >> 52) - 54;
+  }
+  exp-=1023;
+  bits=(bits & 0x000fffffffffffffL) | 0x3ff0000000000000L;
+  x=Double.longBitsToDouble(bits);
+  if (x >= SQRT_2) {
+    x*=0.5;
+    exp++;
+  }
+  x--;
+  if (abs(x) < 1 / TWO_20) {
+    if (x == 0)     return exp * LN2_H + exp * LN2_L;
+    double r=x * x * (0.5 - 1 / 3.0 * x);
+    if (exp == 0)     return x - r;
+    return exp * LN2_H - ((r - exp * LN2_L) - x);
+  }
+  double s=x / (2 + x);
+  double z=s * s;
+  double w=z * z;
+  double t1=w * (LG2 + w * (LG4 + w * LG6));
+  double t2=z * (LG1 + w * (LG3 + w * (LG5 + w * LG7)));
+  double r=t2 + t1;
+  if (bits >= 0x3ff6174a00000000L && bits < 0x3ff6b85200000000L) {
+    double h=0.5 * x * x;
+    if (exp == 0)     return x - (h - s * (h + r));
+    return exp * LN2_H - ((h - (s * (h + r) + exp * LN2_L)) - x);
+  }
+  if (exp == 0)   return x - s * (x - r);
+  return exp * LN2_H - ((s * (x - r) - exp * LN2_L) - x);
+}

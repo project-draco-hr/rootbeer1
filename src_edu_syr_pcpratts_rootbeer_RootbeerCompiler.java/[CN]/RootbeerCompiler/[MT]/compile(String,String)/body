@@ -1,0 +1,6 @@
+{
+  Options.v().set_allow_phantom_refs(true);
+  m_loader=new RootbeerClassLoader();
+  List<String> run_on_gpu_classes=m_loader.load(jar_filename);
+  compileForKernels(outname,run_on_gpu_classes);
+}

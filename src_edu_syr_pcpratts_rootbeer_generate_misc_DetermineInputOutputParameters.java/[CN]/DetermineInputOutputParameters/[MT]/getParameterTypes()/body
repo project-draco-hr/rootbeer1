@@ -1,0 +1,8 @@
+{
+  List<Type> ret=new ArrayList<Type>();
+  List<Local> args=getInputArguments();
+  for (  Local arg : args) {
+    ret.add(arg.getType());
+  }
+  return ret;
+}

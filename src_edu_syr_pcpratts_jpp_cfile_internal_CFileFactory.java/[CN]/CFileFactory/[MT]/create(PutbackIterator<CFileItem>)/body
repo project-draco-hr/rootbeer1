@@ -1,0 +1,15 @@
+{
+  CFile prev=new CFile(iter);
+  CFile next=null;
+  Pass pass0=new TemplateDetectionPass();
+  next=pass0.execute(prev.iterator());
+  FixupTokens fixer=new FixupTokens();
+  prev=fixer.fixup(next);
+  List<Pass> passes=new ArrayList<Pass>();
+  passes.add(new MethodPass());
+  for (  Pass pass : passes) {
+    next=pass.execute(prev.iterator());
+    prev=next;
+  }
+  return prev;
+}

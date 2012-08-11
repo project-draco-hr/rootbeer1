@@ -1,0 +1,3 @@
+{
+  return m_Var1 + m_Shared + super.go();
+}

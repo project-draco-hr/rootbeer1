@@ -1,0 +1,6 @@
+{
+  int array=(int)(index / m_MaxSize);
+  int offset=(int)(index % m_MaxSize);
+  byte[] data=m_Data.get(array);
+  data[offset]=value;
+}

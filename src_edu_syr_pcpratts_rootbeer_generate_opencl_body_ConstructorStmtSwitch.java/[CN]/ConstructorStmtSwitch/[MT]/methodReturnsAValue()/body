@@ -1,0 +1,8 @@
+{
+  if (m_EmitRetVoid) {
+    return false;
+  }
+ else {
+    return super.methodReturnsAValue();
+  }
+}

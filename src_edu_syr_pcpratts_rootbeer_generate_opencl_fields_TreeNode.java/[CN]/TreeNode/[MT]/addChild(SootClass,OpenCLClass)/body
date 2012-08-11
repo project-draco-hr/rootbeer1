@@ -1,0 +1,4 @@
+{
+  TreeNode new_node=new TreeNode(child,ocl_class);
+  m_Children.add(new_node);
+}

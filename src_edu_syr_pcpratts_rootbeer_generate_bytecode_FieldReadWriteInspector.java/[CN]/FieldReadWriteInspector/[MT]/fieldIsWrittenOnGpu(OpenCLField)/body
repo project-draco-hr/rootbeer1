@@ -1,0 +1,5 @@
+{
+  mWritenOnGpuFieldsClassesChecked.clear();
+  SootField soot_field=ocl_field.getSootField();
+  return fieldIsWrittenOnGpu(soot_field);
+}

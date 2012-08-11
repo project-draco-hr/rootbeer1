@@ -1,0 +1,4 @@
+{
+  List<CTemplate> templates=m_TemplateStack.getList();
+  for (  CTemplate template : templates)   next.addTemplate(template);
+}

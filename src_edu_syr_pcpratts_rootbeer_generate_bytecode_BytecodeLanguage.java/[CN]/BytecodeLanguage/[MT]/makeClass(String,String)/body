@@ -1,0 +1,9 @@
+{
+  SootClass ret=new SootClass(name,Modifier.PUBLIC);
+  SootClass parent_class=RootbeerScene.v().getClass(parent);
+  ret.setSuperclass(parent_class);
+  RootbeerScene.v().addClass(ret);
+  ret.setApplicationClass();
+  mCurrClass=ret;
+  return ret;
+}

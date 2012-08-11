@@ -1,0 +1,46 @@
+{
+  if (m_NextNext != null)   return new CStatement(m_NextNext);
+  m_Ret=new ArrayList<Token>();
+  while (true) {
+    Token curr=m_LowerLevel.next();
+    if (curr.isNewLine() && m_SeekingNewLine == false) {
+      if (m_LowerLevel.hasNext() == false) {
+        return new CStatement(m_Ret);
+      }
+      continue;
+    }
+    if (m_SeekingNewLine) {
+      if (curr.isNewLine()) {
+        m_SeekingNewLine=false;
+        curr.setImmutable();
+        m_Ret.add(curr);
+        return new CStatement(m_Ret);
+      }
+ else {
+        m_Ret.add(curr);
+      }
+    }
+ else     if (curr.isPreprocessor()) {
+      if (m_Ret.isEmpty() == false) {
+        m_NextNext=new ArrayList<Token>();
+        m_NextNext.add(curr);
+        return new CStatement(m_Ret);
+      }
+ else {
+        m_NextNext=null;
+        m_Ret.add(curr);
+        return new CStatement(m_Ret);
+      }
+    }
+ else     if (isEndString(curr)) {
+      m_Ret.add(curr);
+      return new CStatement(m_Ret);
+    }
+ else {
+      m_Ret.add(curr);
+    }
+    if (m_LowerLevel.hasNext() == false) {
+      return new CStatement(m_Ret);
+    }
+  }
+}

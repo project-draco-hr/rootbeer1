@@ -1,0 +1,11 @@
+{
+  this.recognizer=recognizer;
+  this.decisionNumber=1;
+  this.eot=DFA1_eot;
+  this.eof=DFA1_eof;
+  this.min=DFA1_min;
+  this.max=DFA1_max;
+  this.accept=DFA1_accept;
+  this.special=DFA1_special;
+  this.transition=DFA1_transition;
+}

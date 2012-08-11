@@ -1,0 +1,21 @@
+{
+  SootClass soot_class=RootbeerScene.v().getClass(kernel_class);
+  SootMethod gpuMethod=soot_class.getMethodByName("gpuMethod");
+  m_visited=new HashSet<String>();
+  dfs(gpuMethod);
+  List<String> scene_classes=RootbeerScene.v().getApplicationClasses();
+  m_intoGpuMethod=new ArrayList<String>();
+  addClass(soot_class);
+  int prev_size=-1;
+  while (prev_size != m_intoGpuMethod.size()) {
+    prev_size=m_intoGpuMethod.size();
+    for (    String cls : scene_classes) {
+      search(cls);
+    }
+  }
+  for (  String method : m_intoGpuMethod) {
+    if (m_ret.contains(method) == false) {
+      m_ret.add(method);
+    }
+  }
+}

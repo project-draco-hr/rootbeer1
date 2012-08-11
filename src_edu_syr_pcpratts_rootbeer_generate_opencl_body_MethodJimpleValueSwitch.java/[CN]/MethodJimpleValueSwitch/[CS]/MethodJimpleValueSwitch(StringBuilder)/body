@@ -1,0 +1,5 @@
+{
+  mOutput=output;
+  mNewCalled=false;
+  clearLhsRhs();
+}

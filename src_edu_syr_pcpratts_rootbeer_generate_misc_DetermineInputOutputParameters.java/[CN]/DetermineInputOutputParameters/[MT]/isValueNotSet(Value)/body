@@ -1,0 +1,10 @@
+{
+  for (int i=0; i < mInnerBody.size(); ++i) {
+    Unit curr=mInnerBody.get(i);
+    List<ValueBox> def_boxes=curr.getDefBoxes();
+    for (    ValueBox box : def_boxes) {
+      if (v.equals(box.getValue()))       return false;
+    }
+  }
+  return true;
+}

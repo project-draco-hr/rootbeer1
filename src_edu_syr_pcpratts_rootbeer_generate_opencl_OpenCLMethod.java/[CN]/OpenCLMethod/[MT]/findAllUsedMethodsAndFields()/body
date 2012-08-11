@@ -1,0 +1,21 @@
+{
+  Body body;
+  try {
+    body=RootbeerScene.v().getBody(m_SootMethod);
+    if (body == null)     return;
+  }
+ catch (  RuntimeException ex) {
+    return;
+  }
+  PatchingChain<Unit> units=body.getUnits();
+  Iterator<Unit> iter=units.iterator();
+  while (iter.hasNext()) {
+    Unit next=iter.next();
+    List<ValueBox> boxes=next.getUseAndDefBoxes();
+    for (    ValueBox box : boxes) {
+      Value value=box.getValue();
+      FindMethodsFieldsAndArrayTypes.methods(value);
+      FindMethodsFieldsAndArrayTypes.fields(value);
+    }
+  }
+}

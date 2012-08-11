@@ -1,0 +1,4 @@
+{
+  MemoryTest test=new MemoryTest();
+  test.run(m_ToSpace.get(0));
+}

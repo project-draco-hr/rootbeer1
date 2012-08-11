@@ -1,0 +1,24 @@
+{
+  String path="/edu/syr/pcpratts/rootbeer/runtime2/native/" + filename;
+  try {
+    InputStream is=CudaLoader.class.getResourceAsStream(path);
+    if (is == null) {
+      path="src" + path;
+      is=new FileInputStream(path);
+    }
+    OutputStream os=new FileOutputStream(filename);
+    while (true) {
+      byte[] buffer=new byte[32 * 1024];
+      int len=is.read(buffer);
+      if (len == -1)       break;
+      os.write(buffer,0,len);
+    }
+    os.flush();
+    os.close();
+    is.close();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    throw new RuntimeException(ex);
+  }
+}

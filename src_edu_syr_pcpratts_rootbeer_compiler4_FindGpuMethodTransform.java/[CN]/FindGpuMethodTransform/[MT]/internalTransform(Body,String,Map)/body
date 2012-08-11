@@ -1,0 +1,9 @@
+{
+  SootMethod method=body.getMethod();
+  SootClass soot_class=method.getDeclaringClass();
+  SootClass kernel_class=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.Kernel");
+  Chain<SootClass> ifaces=soot_class.getInterfaces();
+  if (ifaces.contains(kernel_class)) {
+    m_classes.add(soot_class.getName());
+  }
+}

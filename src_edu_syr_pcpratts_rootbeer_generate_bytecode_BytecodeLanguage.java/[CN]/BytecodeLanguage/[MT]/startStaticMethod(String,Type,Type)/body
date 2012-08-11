@@ -1,0 +1,3 @@
+{
+  doStartMethod(method_name,return_type,Modifier.PUBLIC | Modifier.STATIC,arg_types);
+}

@@ -1,0 +1,13 @@
+{
+  BufferedReader reader=new BufferedReader(new InputStreamReader(m_InputStream));
+  while (true) {
+    try {
+      String line=reader.readLine();
+      if (line == null)       break;
+      m_Lines.add(line);
+    }
+ catch (    Exception ex) {
+      break;
+    }
+  }
+}

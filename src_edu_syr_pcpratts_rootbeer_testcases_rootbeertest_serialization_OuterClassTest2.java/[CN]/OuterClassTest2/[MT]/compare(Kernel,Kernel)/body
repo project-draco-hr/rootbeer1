@@ -1,0 +1,5 @@
+{
+  OuterClassRunOnGpu.OuterClassRunOnGpu2 blhs=(OuterClassRunOnGpu.OuterClassRunOnGpu2)lhs;
+  OuterClassRunOnGpu.OuterClassRunOnGpu2 brhs=(OuterClassRunOnGpu.OuterClassRunOnGpu2)rhs;
+  return blhs.compare(brhs);
+}

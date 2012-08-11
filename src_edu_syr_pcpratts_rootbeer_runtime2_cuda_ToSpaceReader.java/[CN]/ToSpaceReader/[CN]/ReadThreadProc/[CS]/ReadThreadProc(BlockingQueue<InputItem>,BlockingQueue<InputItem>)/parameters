@@ -1,0 +1,2 @@
+BlockingQueue<InputItem> input_queue
+BlockingQueue<InputItem> output_queue

@@ -1,0 +1,18 @@
+{
+  String ret="";
+  try {
+    BufferedReader reader=new BufferedReader(new FileReader(filename));
+    while (true) {
+      String line=reader.readLine();
+      if (line == null) {
+        break;
+      }
+      ret+=line + "\n";
+    }
+    return ret;
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    return ret;
+  }
+}

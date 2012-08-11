@@ -1,0 +1,16 @@
+{
+  Compressor m=new Compressor();
+  try {
+    String ret=m.run(m.getLines("../Product/generated.cu"));
+    PrintWriter writer=new PrintWriter("../Product/gencompress.cu");
+    writer.append(ret);
+    writer.flush();
+  }
+ catch (  NoViableAltException ex) {
+    Token token=ex.token;
+    ex.printStackTrace();
+  }
+catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

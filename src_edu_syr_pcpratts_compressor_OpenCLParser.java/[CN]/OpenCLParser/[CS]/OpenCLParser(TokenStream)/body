@@ -1,0 +1,3 @@
+{
+  this(input,new RecognizerSharedState());
+}

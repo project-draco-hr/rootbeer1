@@ -1,0 +1,11 @@
+{
+  m_Bcl.top().openClass(mRuntimeBasicBlock);
+  SootClass gc_object_visitor_soot_class=RootbeerScene.v().getClass("edu.syr.pcpratts.rootbeer.runtime.Serializer");
+  SootClass mem_cls=RootbeerScene.v().getClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  m_Bcl.top().startMethod("getSerializer",gc_object_visitor_soot_class.getType(),mem_cls.getType(),mem_cls.getType());
+  Local param0=m_Bcl.top().refParameter(0);
+  Local param1=m_Bcl.top().refParameter(1);
+  Local ret=m_Bcl.top().newInstance(mClassName,param0,param1);
+  m_Bcl.top().returnValue(ret);
+  m_Bcl.top().endMethod();
+}

@@ -1,0 +1,3 @@
+{
+  m_Stack.push(m_Pointer);
+}

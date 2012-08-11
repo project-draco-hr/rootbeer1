@@ -1,0 +1,5 @@
+{
+  m_TemplateStack=new Stack<CTemplate>();
+  m_TemplateScope=new Stack<Integer>();
+  m_TemplateScope.push(-1);
+}

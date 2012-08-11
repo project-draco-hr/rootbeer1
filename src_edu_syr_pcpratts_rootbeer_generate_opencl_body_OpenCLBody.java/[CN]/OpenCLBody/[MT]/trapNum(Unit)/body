@@ -1,0 +1,8 @@
+{
+  for (  TrapItem trap : m_AllTraps) {
+    if (trap.unitIsHandler(next)) {
+      return trap.getTrapNum();
+    }
+  }
+  return -1;
+}

@@ -1,0 +1,3 @@
+Map<String,OpenCLClass> classes
+FieldReadWriteInspector inspector
+FieldTypeSwitch type_switch

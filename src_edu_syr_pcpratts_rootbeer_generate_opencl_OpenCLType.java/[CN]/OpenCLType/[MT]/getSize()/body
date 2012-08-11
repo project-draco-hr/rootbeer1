@@ -1,0 +1,13 @@
+{
+  if (mSootType instanceof RefLikeType)   return 4;
+  String type=mSootType.toString();
+  if (type.equals("byte"))   return 1;
+  if (type.equals("boolean"))   return 1;
+  if (type.equals("char"))   return 4;
+  if (type.equals("short"))   return 2;
+  if (type.equals("int"))   return 4;
+  if (type.equals("long"))   return 8;
+  if (type.equals("float"))   return 4;
+  if (type.equals("double"))   return 8;
+  throw new RuntimeException("Unknown type");
+}

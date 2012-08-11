@@ -1,0 +1,24 @@
+{
+  Type type=curr.getType();
+  if (type instanceof ByteType) {
+    writeByte(curr);
+  }
+ else   if (type instanceof ShortType) {
+    writeShort(curr);
+  }
+ else   if (type instanceof CharType) {
+    writeChar(curr);
+  }
+ else   if (type instanceof IntType) {
+    writeInt(curr);
+  }
+ else   if (type instanceof FloatType) {
+    writeFloat(curr);
+  }
+ else   if (type instanceof DoubleType) {
+    writeDouble(curr);
+  }
+ else   if (type instanceof LongType) {
+    writeLong(curr);
+  }
+}

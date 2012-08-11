@@ -1,0 +1,7 @@
+{
+  Iterator<Token> iter4=new BasicBlockNormalize(iter0);
+  Iterator<Token> iter5=new DoNormalization(iter4);
+  Iterator<CStatement> iter6=new SemiExpression(iter5);
+  Iterator<CFileItem> iter7=new ForSemiExpression(iter6);
+  return new PutbackIterator<CFileItem>(iter7);
+}

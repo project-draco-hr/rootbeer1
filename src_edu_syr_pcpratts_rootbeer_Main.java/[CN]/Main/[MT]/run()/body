@@ -1,0 +1,25 @@
+{
+  if (m_runTests) {
+    RootbeerTest test=new RootbeerTest();
+    test.runTests(m_testCase);
+    return;
+  }
+  if (m_simpleCompile) {
+    RootbeerCompiler compiler=new RootbeerCompiler();
+    try {
+      compiler.compile(m_mainJar,m_destJar);
+    }
+ catch (    Exception ex) {
+      ex.printStackTrace();
+    }
+  }
+ else {
+    RootbeerCompiler compiler=new RootbeerCompiler();
+    try {
+      compiler.compile(m_mainJar,m_libJars,m_directories,m_destJar);
+    }
+ catch (    Exception ex) {
+      ex.printStackTrace();
+    }
+  }
+}

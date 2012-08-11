@@ -1,0 +1,20 @@
+{
+  m_TrapNum=trap_num;
+  m_TryUnits=new ArrayList<Unit>();
+  boolean found_start=false;
+  boolean found_end=false;
+  while (iter.hasNext()) {
+    Unit next=iter.next();
+    if (t.getBeginUnit().equals(next)) {
+      found_start=true;
+    }
+    if (t.getEndUnit().equals(next)) {
+      found_end=true;
+    }
+    if (found_start && !found_end) {
+      m_TryUnits.add(next);
+    }
+  }
+  m_Handler=t.getHandlerUnit();
+  m_Exception=exception;
+}

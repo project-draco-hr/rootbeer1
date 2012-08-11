@@ -1,0 +1,4 @@
+{
+  int mod=m_CurrOffset % 8;
+  if (mod != 0)   m_CurrOffset+=(8 - mod);
+}

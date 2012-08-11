@@ -1,0 +1,5 @@
+{
+  SynchronizedObjectRunOnGpu glhs=(SynchronizedObjectRunOnGpu)lhs;
+  SynchronizedObjectRunOnGpu grhs=(SynchronizedObjectRunOnGpu)rhs;
+  return glhs.compare(grhs);
+}

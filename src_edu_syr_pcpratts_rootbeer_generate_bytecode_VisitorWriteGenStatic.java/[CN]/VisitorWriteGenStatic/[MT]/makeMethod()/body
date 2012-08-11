@@ -1,0 +1,36 @@
+{
+  BytecodeLanguage bcl=m_Bcl.top();
+  bcl.startMethod("doWriteStaticsToHeap",VoidType.v());
+  m_ThisRef=bcl.refThis();
+  m_GcObjVisitor.push(m_ThisRef);
+  m_Mem=bcl.refInstanceField(m_ThisRef,"mMem");
+  m_CurrMem.push(m_Mem);
+  BclMemory bcl_mem=new BclMemory(bcl,m_Mem);
+  bcl_mem.useInstancePointer();
+  bcl_mem.mallocWithSize(IntConstant.v(m_StaticOffsets.getEndIndex()));
+  PermissionGraph graph=new PermissionGraph();
+  List<PermissionGraphNode> roots=graph.getRoots();
+  for (  PermissionGraphNode node : roots) {
+    SootClass soot_class=node.getSootClass();
+    if (soot_class.isApplicationClass()) {
+      attachAndCallWriter(soot_class,node.getChildren());
+    }
+ else {
+      doWriter(soot_class);
+    }
+  }
+  bcl_mem.useStaticPointer();
+  bcl_mem.setAddress(LongConstant.v(m_StaticOffsets.getLockStart()));
+  int count=m_StaticOffsets.getClassSize();
+  for (int i=0; i < count; ++i) {
+    bcl_mem.writeInt(-1);
+  }
+  int zeros=m_StaticOffsets.getZerosSize();
+  for (int i=0; i < zeros; ++i) {
+    bcl_mem.writeByte((byte)0);
+  }
+  bcl_mem.useInstancePointer();
+  bcl.returnVoid();
+  bcl.endMethod();
+  m_GcObjVisitor.pop();
+}

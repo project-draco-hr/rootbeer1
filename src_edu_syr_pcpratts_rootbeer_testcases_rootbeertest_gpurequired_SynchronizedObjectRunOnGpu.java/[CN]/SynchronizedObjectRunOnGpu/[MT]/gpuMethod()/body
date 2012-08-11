@@ -1,0 +1,49 @@
+{
+  int1++;
+synchronized (m_Object) {
+    int2++;
+synchronized (m_Object2) {
+      int3++;
+      m_Object.increment(true);
+      int4++;
+synchronized (m_Object2) {
+        int3++;
+        m_Object.increment(true);
+        int4++;
+      }
+synchronized (m_Object2) {
+        int3++;
+        m_Object.increment(true);
+        int4++;
+      }
+    }
+synchronized (m_Object2) {
+      int3++;
+      m_Object.increment(true);
+      int4++;
+    }
+    int5++;
+synchronized (m_Object2) {
+      int6++;
+      m_Object.increment(true);
+      int7++;
+    }
+    int8++;
+  }
+  int9++;
+synchronized (m_Object) {
+    int2++;
+synchronized (m_Object2) {
+      int3++;
+      m_Object.increment(true);
+      int4++;
+    }
+    int5++;
+synchronized (m_Object2) {
+      int6++;
+      m_Object.increment(true);
+      int7++;
+    }
+    int8++;
+  }
+}

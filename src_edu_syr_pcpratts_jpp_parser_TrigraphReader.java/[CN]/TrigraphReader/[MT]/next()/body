@@ -1,0 +1,14 @@
+{
+  Token ret;
+  if (isTrigraph()) {
+    ret=new Token(m_TriGraph);
+    read();
+    if (m_LowerLevel.hasNext())     read();
+    if (m_LowerLevel.hasNext())     read();
+  }
+ else {
+    ret=m_Curr;
+    read();
+  }
+  return ret;
+}

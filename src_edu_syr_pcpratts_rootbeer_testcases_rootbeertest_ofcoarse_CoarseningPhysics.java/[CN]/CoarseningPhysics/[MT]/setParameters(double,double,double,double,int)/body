@@ -1,0 +1,8 @@
+{
+  mCnum=cnum;
+  mVolumeScale=volumescale;
+  mTimeStep=timestep;
+  mAgeStep=age_step;
+  mBorder=border;
+  m_UsingVariableAgeStep=false;
+}

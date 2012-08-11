@@ -1,0 +1,17 @@
+{
+  m_PrevCount=-1;
+  m_Count=0;
+  CFile prev_file=new CFile(iter);
+  while (m_Count != m_PrevCount) {
+    m_PrevCount=m_Count;
+    m_Count=0;
+    iter=prev_file.iterator();
+    m_NextFile=new CFile();
+    List<CFileItem> ret=handleIterator(iter);
+    for (    CFileItem item : ret) {
+      m_NextFile.addItem(item);
+    }
+    prev_file=m_NextFile;
+  }
+  return prev_file;
+}

@@ -1,0 +1,6 @@
+{
+  super(inspector);
+  m_Bcl.push(bcl);
+  m_StaticOffsets=new StaticOffsets();
+  m_AttachedWriters=new HashSet<String>();
+}

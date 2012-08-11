@@ -1,0 +1,6 @@
+{
+  String class_name=soot_class.getName();
+  if (m_ClassesToIgnore.contains(class_name))   return;
+  attachWriter(soot_class,children);
+  callWriter(soot_class);
+}

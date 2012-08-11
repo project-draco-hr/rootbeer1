@@ -1,0 +1,7 @@
+{
+  String ret=Integer.toHexString(data);
+  while (ret.length() < 2) {
+    ret="0" + ret;
+  }
+  return ret.substring(ret.length() - 2);
+}

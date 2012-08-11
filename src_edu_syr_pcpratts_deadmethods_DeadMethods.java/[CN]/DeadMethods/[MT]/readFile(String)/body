@@ -1,0 +1,17 @@
+{
+  try {
+    BufferedReader reader=new BufferedReader(new FileReader(filename));
+    StringBuilder ret=new StringBuilder();
+    while (true) {
+      String line=reader.readLine();
+      if (line == null)       break;
+      ret.append(line);
+      ret.append("\n");
+    }
+    return ret.toString();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    return null;
+  }
+}

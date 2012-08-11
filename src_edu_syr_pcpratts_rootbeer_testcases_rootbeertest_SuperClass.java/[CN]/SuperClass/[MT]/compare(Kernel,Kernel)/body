@@ -1,0 +1,5 @@
+{
+  SuperClassRunOnGpu blhs=(SuperClassRunOnGpu)lhs;
+  SuperClassRunOnGpu brhs=(SuperClassRunOnGpu)rhs;
+  return blhs.compare(brhs);
+}

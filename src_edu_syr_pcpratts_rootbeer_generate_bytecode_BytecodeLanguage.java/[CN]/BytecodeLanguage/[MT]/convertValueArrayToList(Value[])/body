@@ -1,0 +1,8 @@
+{
+  List<Value> ret=new ArrayList<Value>();
+  new ArrayList<Type>();
+  for (int i=0; i < local_array.length; ++i) {
+    ret.add(local_array[i]);
+  }
+  return ret;
+}

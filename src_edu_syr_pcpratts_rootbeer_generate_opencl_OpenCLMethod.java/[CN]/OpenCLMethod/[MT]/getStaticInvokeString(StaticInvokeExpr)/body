@@ -1,0 +1,24 @@
+{
+  StringBuilder ret=new StringBuilder();
+  ret.append(getPolymorphicName() + "(");
+  List args=expr.getArgs();
+  List<String> args_list=new ArrayList<String>();
+  args_list.add("gc_info");
+  for (int i=0; i < args_list.size() - 1; ++i) {
+    ret.append(args_list.get(i));
+    ret.append(", ");
+  }
+  if (args_list.size() > 0) {
+    ret.append(args_list.get(args_list.size() - 1));
+    if (args.size() > 0)     ret.append(", ");
+  }
+  MethodJimpleValueSwitch quick_value_switch=new MethodJimpleValueSwitch(ret);
+  for (int i=0; i < args.size(); ++i) {
+    Value arg=(Value)args.get(i);
+    arg.apply(quick_value_switch);
+    if (i < args.size() - 1)     ret.append(", ");
+  }
+  ret.append(", exception");
+  ret.append(")");
+  return ret.toString();
+}

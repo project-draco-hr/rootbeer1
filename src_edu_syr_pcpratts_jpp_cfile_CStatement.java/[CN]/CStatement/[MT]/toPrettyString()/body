@@ -1,0 +1,13 @@
+{
+  int spaces=2 * m_BraceCount;
+  String ret="";
+  for (int i=0; i < spaces; ++i) {
+    ret+=" ";
+  }
+  for (  Token curr : m_Tokens) {
+    ret+=curr.getString() + " ";
+    if (curr.getString().equals(";"))     ret+="\n";
+  }
+  if (ret.startsWith("#"))   ret+="\n";
+  return ret;
+}

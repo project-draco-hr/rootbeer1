@@ -1,0 +1,9 @@
+{
+  mOutputUnits=new ArrayList<Unit>();
+  mOutputLocals=new ArrayList<Local>();
+  mInputUnits=new ArrayList<Unit>();
+  mLabels=new ArrayList<List<String>>();
+  mLocalMap=new HashMap<String,Local>();
+  mLabelToUnitBoxMap=new HashMap<String,List<UnitBox>>();
+  mJimple=Jimple.v();
+}

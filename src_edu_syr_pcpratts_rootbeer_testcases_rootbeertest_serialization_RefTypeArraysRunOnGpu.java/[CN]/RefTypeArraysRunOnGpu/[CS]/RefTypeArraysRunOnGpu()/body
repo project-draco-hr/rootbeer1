@@ -1,0 +1,15 @@
+{
+  element=new RefType1((byte)10);
+  element1=new RefType1[10];
+  element2=new RefType1[10][10];
+  element3=new RefType1[10][10][10];
+  for (int m=0; m < 10; m++) {
+    for (int n=0; n < 10; n++) {
+      for (byte p=0; p < 10; ++p) {
+        element3[m][n][p]=new RefType1(p);
+        element2[n][p]=new RefType1(p);
+        element1[p]=new RefType1(p);
+      }
+    }
+  }
+}

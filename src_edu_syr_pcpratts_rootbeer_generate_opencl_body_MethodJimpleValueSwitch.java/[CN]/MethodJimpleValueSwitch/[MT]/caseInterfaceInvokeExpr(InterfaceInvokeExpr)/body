@@ -1,0 +1,4 @@
+{
+  caseInstanceInvokeExpr(arg0);
+  setCheckException();
+}

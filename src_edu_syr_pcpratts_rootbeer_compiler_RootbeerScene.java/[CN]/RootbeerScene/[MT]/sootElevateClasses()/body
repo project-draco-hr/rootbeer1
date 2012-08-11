@@ -1,0 +1,10 @@
+{
+  Map<String,Integer> new_classes=new LinkedHashMap<String,Integer>();
+  Iterator<String> iter=m_SootLoadedClasses.keySet().iterator();
+  while (iter.hasNext()) {
+    String name=iter.next();
+    new_classes.put(name,SootClass.BODIES);
+  }
+  m_SootLoadedClasses=new_classes;
+  reinit();
+}

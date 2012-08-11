@@ -1,0 +1,5 @@
+{
+  AtomicLongRunOnGpu glhs=(AtomicLongRunOnGpu)lhs;
+  AtomicLongRunOnGpu grhs=(AtomicLongRunOnGpu)rhs;
+  return glhs.compare(grhs);
+}

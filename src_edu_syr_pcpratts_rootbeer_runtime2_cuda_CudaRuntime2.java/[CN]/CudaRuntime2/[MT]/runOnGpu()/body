@@ -1,0 +1,9 @@
+{
+  System.out.println("Running " + m_NumBlocksRun + " blocks.");
+  System.out.println("BlockShape: " + m_BlockShape + " GridShape: "+ m_GridShape);
+  int status=runBlocks(m_NumBlocksRun,m_BlockShape,m_GridShape);
+  if (status != 0) {
+    System.out.println("Error running blocks: " + status);
+    System.exit(-1);
+  }
+}

@@ -1,0 +1,11 @@
+{
+  for (  ArrayType type : m_ArrayTypes) {
+    addDimension(type.baseType,type.numDimensions);
+  }
+  Iterator<Type> iter=m_Dimensions.keySet().iterator();
+  while (iter.hasNext()) {
+    Type key=iter.next();
+    Set<Integer> dimensions=m_Dimensions.get(key);
+    doClone(key,dimensions);
+  }
+}

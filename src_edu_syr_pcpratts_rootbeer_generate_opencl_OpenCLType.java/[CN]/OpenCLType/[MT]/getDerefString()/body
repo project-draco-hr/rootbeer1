@@ -1,0 +1,6 @@
+{
+  String ret=mSootType.toString();
+  ret=ret.replaceAll("\\.","_");
+  ret=ret.replaceAll("\\[\\]","__array");
+  return ret;
+}

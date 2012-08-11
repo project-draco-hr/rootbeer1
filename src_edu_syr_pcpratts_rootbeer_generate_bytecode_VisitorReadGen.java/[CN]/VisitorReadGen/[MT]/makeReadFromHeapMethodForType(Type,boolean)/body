@@ -1,0 +1,27 @@
+{
+  if (m_ReadFromHeapMethodsMade.containsKey(type))   return;
+  if (type instanceof RefType) {
+    RefType ref_type=(RefType)type;
+    if (ref_type.getClassName().equals("java.lang.Object")) {
+      if (!doing_object) {
+        return;
+      }
+    }
+    if (differentPackageAndPrivate(ref_type)) {
+      return;
+    }
+  }
+  String label=getNextLabel();
+  BytecodeLanguage bcl=m_Bcl.top();
+  bcl.ifInstanceOfStmt(m_Param0,type,label);
+  Local ret;
+  if (type instanceof ArrayType) {
+    ret=makeReadFromHeapBodyForArrayType((ArrayType)type);
+  }
+ else {
+    ret=makeReadFromHeapBodyForSootClass((RefType)type);
+  }
+  m_ReadFromHeapMethodsMade.put(type,ret);
+  bcl.returnValue(ret);
+  bcl.label(label);
+}

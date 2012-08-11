@@ -1,0 +1,7 @@
+{
+  Value rhs=jimple.newLengthExpr(object_to_write_from);
+  Local lhs=jimple.newLocal(getLocalName(),IntType.v());
+  Unit u=jimple.newAssignStmt(lhs,rhs);
+  mAssembler.add(u);
+  return lhs;
+}

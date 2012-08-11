@@ -1,0 +1,7 @@
+{
+  if (index >= args.length) {
+    System.out.println(argname + " needs another argument after it.");
+    System.exit(-1);
+  }
+  return args[index];
+}

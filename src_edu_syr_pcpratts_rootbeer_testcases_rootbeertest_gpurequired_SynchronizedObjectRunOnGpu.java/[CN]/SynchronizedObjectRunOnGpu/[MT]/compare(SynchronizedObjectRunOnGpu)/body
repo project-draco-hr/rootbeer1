@@ -1,0 +1,49 @@
+{
+  if (grhs == null) {
+    System.out.println("grhs == null");
+    return false;
+  }
+  if (m_Object.value != grhs.m_Object.value) {
+    System.out.println("value");
+    System.out.println("lhs: " + m_Object.value);
+    System.out.println("rhs: " + grhs.m_Object.value);
+    return false;
+  }
+  if (int1 != grhs.int1) {
+    System.out.println("int1");
+    return false;
+  }
+  if (int2 != grhs.int2) {
+    System.out.println("int2");
+    return false;
+  }
+  if (int3 != grhs.int3) {
+    System.out.println("int3");
+    return false;
+  }
+  if (int4 != grhs.int4) {
+    System.out.println("int4");
+    return false;
+  }
+  if (int5 != grhs.int5) {
+    System.out.println("int5");
+    return false;
+  }
+  if (int6 != grhs.int6) {
+    System.out.println("int6");
+    return false;
+  }
+  if (int7 != grhs.int7) {
+    System.out.println("int7");
+    return false;
+  }
+  if (int8 != grhs.int8) {
+    System.out.println("int8");
+    return false;
+  }
+  if (int9 != grhs.int9) {
+    System.out.println("int9");
+    return false;
+  }
+  return true;
+}

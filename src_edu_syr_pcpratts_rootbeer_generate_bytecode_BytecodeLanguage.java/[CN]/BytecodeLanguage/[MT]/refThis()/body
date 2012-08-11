@@ -1,0 +1,8 @@
+{
+  String name="this0";
+  RefType type=mCurrClass.getType();
+  Local thislocal=jimple.newLocal(name,type);
+  Unit u=jimple.newIdentityStmt(thislocal,jimple.newThisRef(type));
+  mAssembler.add(u);
+  return thislocal;
+}

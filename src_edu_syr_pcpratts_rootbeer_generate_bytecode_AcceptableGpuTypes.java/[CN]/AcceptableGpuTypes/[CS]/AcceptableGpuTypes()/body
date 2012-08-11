@@ -1,0 +1,12 @@
+{
+  m_ExcludedPackages=new ArrayList<String>();
+  m_ExcludedPackages.add("java.");
+  m_ExcludedPackages.add("sun.");
+  m_ExcludedPackages.add("javax.");
+  m_ExcludedPackages.add("com.sun.");
+  m_ExcludedPackages.add("com.ibm.");
+  m_ExcludedPackages.add("org.xml.");
+  m_ExcludedPackages.add("org.w3c.");
+  m_ExcludedPackages.add("apple.awt.");
+  m_ExcludedPackages.add("com.apple.");
+}

@@ -1,0 +1,12 @@
+{
+  Rootbeer rootbeer=new Rootbeer();
+  List<Kernel> testing_items=creator.create();
+  try {
+    rootbeer.runAll(testing_items);
+    System.out.println("No exception thrown.");
+    return false;
+  }
+ catch (  Throwable ex) {
+    return creator.catchException(ex);
+  }
+}

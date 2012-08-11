@@ -1,0 +1,4 @@
+{
+  if (PointDistance.distance(center1,center2) < 0.00000001)   return true;
+  return false;
+}

@@ -1,0 +1,11 @@
+{
+  while (true) {
+    InputItem input_item=m_InputQueue.take();
+    for (int i=0; i < input_item.m_Items.size(); ++i) {
+      Kernel item=input_item.m_Items.get(i);
+      long handle=input_item.m_HandlesCache.get(i);
+      input_item.m_Visitor.readFromHeap(item,true,handle);
+    }
+    m_OutputQueue.put(input_item);
+  }
+}

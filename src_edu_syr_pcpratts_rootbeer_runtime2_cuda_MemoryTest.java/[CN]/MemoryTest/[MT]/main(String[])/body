@@ -1,0 +1,3 @@
+{
+  CudaRuntime2.v().memoryTest();
+}

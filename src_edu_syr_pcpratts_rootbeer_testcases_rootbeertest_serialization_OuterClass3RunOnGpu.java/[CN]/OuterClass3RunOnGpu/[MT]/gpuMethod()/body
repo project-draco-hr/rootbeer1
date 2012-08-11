@@ -1,0 +1,4 @@
+{
+  InnerClass inner=new InnerClass();
+  m_Int+=inner.getValue();
+}

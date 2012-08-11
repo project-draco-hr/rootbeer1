@@ -1,0 +1,16 @@
+{
+  try {
+    File file=new File(filename);
+    File parent=file.getParentFile();
+    parent.mkdirs();
+    OutputStream os=new FileOutputStream(filename);
+    for (    byte[] buffer : bytes) {
+      os.write(buffer);
+    }
+    os.flush();
+    os.close();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

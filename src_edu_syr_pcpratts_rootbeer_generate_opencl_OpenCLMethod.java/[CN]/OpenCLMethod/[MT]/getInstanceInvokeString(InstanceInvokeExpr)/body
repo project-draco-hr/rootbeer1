@@ -1,0 +1,27 @@
+{
+  Value base=arg0.getBase();
+  Type base_type=base.getType();
+  List<SootClass> hierarchy;
+  if (base_type instanceof ArrayType) {
+    hierarchy=new ArrayList<SootClass>();
+    SootClass obj=RootbeerScene.v().getClass("java.lang.Object");
+    hierarchy.add(obj);
+  }
+ else   if (base_type instanceof RefType) {
+    RefType ref_type=(RefType)base_type;
+    hierarchy=OpenCLScene.v().getClassHierarchy(ref_type.getSootClass());
+  }
+ else {
+    throw new UnsupportedOperationException("how do we handle this case?");
+  }
+  if (hierarchy.size() == 1 || isConstructor() || arg0 instanceof SpecialInvokeExpr) {
+    return writeInstanceInvoke(arg0,"",m_SootClass);
+  }
+ else   if (hierarchy.size() == 0) {
+    System.out.println("size = 0");
+    return null;
+  }
+ else {
+    return writeInstanceInvoke(arg0,"invoke_",hierarchy.get(0));
+  }
+}

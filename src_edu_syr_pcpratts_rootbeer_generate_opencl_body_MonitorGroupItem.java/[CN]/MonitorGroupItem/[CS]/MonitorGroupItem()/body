@@ -1,0 +1,4 @@
+{
+  m_PrefixUnits=new ArrayList<Unit>();
+  m_MonitorGroups=new ArrayList<MonitorGroupItem>();
+}

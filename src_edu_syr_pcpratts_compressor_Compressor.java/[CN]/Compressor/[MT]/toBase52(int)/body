@@ -1,0 +1,11 @@
+{
+  String compressString="abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  int radix=compressString.length();
+  String ret="";
+  while (value > 0) {
+    int mod=value % radix;
+    value/=radix;
+    ret+=compressString.charAt(mod);
+  }
+  return ret;
+}

@@ -1,0 +1,4 @@
+{
+  mBcl.pushMethod(mBcl.getTypeString(mMem),"useStaticPointer",VoidType.v());
+  mBcl.invokeMethodNoRet(mMem);
+}

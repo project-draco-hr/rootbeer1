@@ -1,0 +1,4 @@
+{
+  PutbackIterator<CFileItem> iter=cfile.iterator();
+  doVisit(iter);
+}

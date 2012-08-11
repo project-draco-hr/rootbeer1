@@ -1,0 +1,7 @@
+{
+  resetInstance();
+  this.codeSegment=codeSegment;
+  rootSootClass=codeSegment.getRootSootClass();
+  m_ReadOnlyTypes=new ReadOnlyTypes(codeSegment.getRootMethod());
+  getOpenCLClass(rootSootClass);
+}

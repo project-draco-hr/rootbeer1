@@ -1,0 +1,11 @@
+{
+  StringBuilder ret=new StringBuilder();
+  ret.append(getDerefTypeString() + "_new_multi_array_" + arg0.getSizeCount()+ "(gc_info, ");
+  MethodJimpleValueSwitch quick_value_switch=new MethodJimpleValueSwitch(ret);
+  for (int i=0; i < arg0.getSizeCount(); ++i) {
+    arg0.getSize(i).apply(quick_value_switch);
+    ret.append(", ");
+  }
+  ret.append("exception)");
+  return ret.toString();
+}

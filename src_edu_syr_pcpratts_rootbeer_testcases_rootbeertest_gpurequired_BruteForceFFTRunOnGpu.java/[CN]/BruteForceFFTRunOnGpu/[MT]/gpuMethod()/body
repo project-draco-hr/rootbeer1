@@ -1,0 +1,11 @@
+{
+  int N=a.length;
+  for (int k=index; k < index + count; ++k) {
+    float sum=0;
+    for (int i=0; i < N; ++i) {
+      float term=a[i] * (float)Math.pow(Math.E,(-2 * Math.PI / N) * i * k);
+      sum+=term;
+    }
+    a[k]=sum;
+  }
+}

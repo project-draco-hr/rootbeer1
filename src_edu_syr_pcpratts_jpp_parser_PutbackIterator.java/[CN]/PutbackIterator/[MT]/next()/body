@@ -1,0 +1,10 @@
+{
+  if (m_Putbacks.isEmpty() == false) {
+    T ret=m_Putbacks.get(0);
+    m_Putbacks.remove(0);
+    return ret;
+  }
+ else {
+    return m_Iterator.next();
+  }
+}

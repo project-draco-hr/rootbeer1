@@ -1,0 +1,23 @@
+{
+  System.out.println("mXSum: " + mXSum + " rhs.XSum:"+ rhs.mXSum);
+  System.out.println("mYSum: " + mYSum + " rhs.YSum:"+ rhs.mYSum);
+  System.out.println("mSumCount: " + mSumCount + " rhs.SumCount: "+ rhs.mSumCount);
+  System.out.println("mVolumeSum: " + mVolumeSum + " rhs.mVolumeSum: "+ rhs.mVolumeSum);
+  if (mXSum != rhs.mXSum) {
+    System.out.println("mXSum: ");
+    return false;
+  }
+  if (mYSum != rhs.mYSum) {
+    System.out.println("mYSum: ");
+    return false;
+  }
+  if (mVolumeSum != rhs.mVolumeSum) {
+    System.out.println("mVolumeSum: ");
+    return false;
+  }
+  if (mSumCount != rhs.mSumCount) {
+    System.out.println("mSumCount: ");
+    return false;
+  }
+  return true;
+}

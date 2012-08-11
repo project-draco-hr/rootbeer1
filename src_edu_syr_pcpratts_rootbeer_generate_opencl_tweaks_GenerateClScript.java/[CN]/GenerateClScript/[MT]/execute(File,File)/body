@@ -1,0 +1,19 @@
+{
+  String vs_path=findPath(m_VisualStudioPaths,"Visual Studio");
+  String nvidia_path=findPath(m_NvidiaPaths,"nvcc.exe");
+  String file_text="";
+  String endl=System.getProperty("line.separator");
+  file_text+="@call \"" + vs_path + "\" amd64"+ endl;
+  file_text+="\"" + nvidia_path + "\" -arch sm_20 -cubin \""+ generated.getAbsolutePath()+ "\" -o \""+ code_file.getAbsolutePath()+ "\""+ endl;
+  File ret=new File("cl_script.bat");
+  try {
+    PrintWriter writer=new PrintWriter(ret);
+    writer.println(file_text);
+    writer.flush();
+    writer.close();
+    return ret;
+  }
+ catch (  Exception ex) {
+    throw new RuntimeException(ex);
+  }
+}

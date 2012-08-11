@@ -1,0 +1,8 @@
+{
+  GpuList<Point> points=new GpuList<Point>();
+  points.add(new Point(x + item_size,y + item_size));
+  points.add(new Point(x + item_size,y - item_size));
+  points.add(new Point(x - item_size,y + item_size));
+  points.add(new Point(x - item_size,y - item_size));
+  m_Box=new BoundingBox(points,1);
+}

@@ -1,0 +1,10 @@
+{
+  codeSegment=null;
+  mClassHierarchy=new ClassHierarchy();
+  m_Classes=new LinkedHashMap<String,OpenCLClass>();
+  m_OclToSoot=new HashMap<String,String>();
+  m_ArrayTypes=new LinkedHashSet<OpenCLArrayType>();
+  mMethodHierarchies=new MethodHierarchies();
+  mTypes=new ArrayList<Type>();
+  m_MultiArrayDimensions=new HashMap<ArrayType,List<Integer>>();
+}

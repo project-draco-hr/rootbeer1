@@ -1,0 +1,4 @@
+{
+  mMethodSubsignature=method.getSubSignature();
+  mClassHierarchy=OpenCLScene.v().getClassHierarchy(method.getDeclaringClass());
+}

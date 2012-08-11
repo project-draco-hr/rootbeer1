@@ -1,0 +1,5 @@
+{
+  NativeStrictMathRunOnGpu glhs=(NativeStrictMathRunOnGpu)lhs;
+  NativeStrictMathRunOnGpu grhs=(NativeStrictMathRunOnGpu)rhs;
+  return glhs.compare(grhs);
+}

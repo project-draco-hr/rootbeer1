@@ -1,0 +1,3 @@
+int i
+CoarseningPhysics physics
+GpuList<Droplet> prev

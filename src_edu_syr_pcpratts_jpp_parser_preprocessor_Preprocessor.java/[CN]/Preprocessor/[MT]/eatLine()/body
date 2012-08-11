@@ -1,0 +1,6 @@
+{
+  while (m_Iterator.hasNext()) {
+    Token next=m_Iterator.next();
+    if (next.isNewLine())     return;
+  }
+}

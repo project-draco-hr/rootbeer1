@@ -1,0 +1,19 @@
+{
+  if (m_Char2 != brhs.m_Char2) {
+    System.out.println("char");
+    System.out.println("lhs: " + (int)m_Char2);
+    System.out.println("rhs: " + (int)brhs.m_Char2);
+    return false;
+  }
+  if (m_Short2 != brhs.m_Short2) {
+    System.out.println("short");
+    System.out.println("lhs: " + (int)m_Short2);
+    System.out.println("rhs: " + (int)brhs.m_Short2);
+    return false;
+  }
+  if (m_Int2 != brhs.m_Int2) {
+    System.out.println("int");
+    return false;
+  }
+  return true;
+}

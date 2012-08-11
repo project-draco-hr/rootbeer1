@@ -1,0 +1,17 @@
+{
+  SootClass soot_class=RootbeerScene.v().getClass(mClassName);
+  Local u1_lhs=jimple.newLocal(getLocalName(),soot_class.getType());
+  Value u1_rhs=jimple.newNewExpr(soot_class.getType());
+  Unit u1=jimple.newAssignStmt(u1_lhs,u1_rhs);
+  mAssembler.add(u1);
+  Type[] arg_types=new Type[params.length];
+  for (int i=0; i < params.length; ++i) {
+    arg_types[i]=params[i].getType();
+  }
+  pushMethod(u1_lhs,"<init>",VoidType.v(),arg_types);
+  invokeMethodNoRet(u1_lhs,params);
+  Local u2_lhs=jimple.newLocal(getLocalName(),soot_class.getType());
+  Unit u2=jimple.newAssignStmt(u2_lhs,u1_lhs);
+  mAssembler.add(u2);
+  return u2_lhs;
+}

@@ -1,0 +1,19 @@
+{
+  SootField soot_field=non_ref_field.getSootField();
+  String function_name="write" + getTypeString(soot_field);
+  BytecodeLanguage bcl=m_Bcl.top();
+  Local field_value;
+  if (m_ApplicationClass) {
+    field_value=bcl.refInstanceField(m_CurrObj.top(),soot_field.getName());
+  }
+ else {
+    SootClass obj=RootbeerScene.v().getClass("java.lang.Object");
+    SootClass string=RootbeerScene.v().getClass("java.lang.String");
+    String private_field_fun_name="read" + getTypeString(soot_field);
+    Local private_fields=bcl.newInstance("edu.syr.pcpratts.rootbeer.runtime.PrivateFields");
+    bcl.pushMethod(private_fields,private_field_fun_name,soot_field.getType(),obj.getType(),string.getType());
+    field_value=bcl.invokeMethodRet(private_fields,m_CurrObj.top(),StringConstant.v(soot_field.getName()));
+  }
+  bcl.pushMethod(m_CurrentMem.top(),function_name,VoidType.v(),soot_field.getType());
+  bcl.invokeMethodNoRet(m_CurrentMem.top(),field_value);
+}

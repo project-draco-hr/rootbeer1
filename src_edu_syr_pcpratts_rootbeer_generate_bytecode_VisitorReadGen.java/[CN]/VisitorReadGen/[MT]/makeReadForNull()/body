@@ -1,0 +1,11 @@
+{
+  BytecodeLanguage bcl=m_Bcl.top();
+  BclMemory bcl_mem=new BclMemory(bcl,m_CurrMem.top());
+  Local start=bcl_mem.getPointer();
+  bcl_mem.incrementAddress(2);
+  Local type_id=bcl_mem.readByte();
+  bcl_mem.setAddress(start);
+  for (  Type type : m_OrderedHistory) {
+    makeReadForNullForType(type,type_id);
+  }
+}

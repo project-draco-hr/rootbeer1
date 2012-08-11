@@ -1,0 +1,7 @@
+{
+  if (o instanceof MethodHierarchy == false)   return false;
+  MethodHierarchy other=(MethodHierarchy)o;
+  if (mMethodSubsignature.equals(other.mMethodSubsignature) == false)   return false;
+  if (mClassHierarchy == other.mClassHierarchy == false)   return false;
+  return true;
+}

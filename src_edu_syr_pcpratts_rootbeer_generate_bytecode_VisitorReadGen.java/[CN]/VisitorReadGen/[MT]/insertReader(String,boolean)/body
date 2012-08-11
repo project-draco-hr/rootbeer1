@@ -1,0 +1,16 @@
+{
+  doReader(class_name,ref_fields);
+  SootClass curr_class=RootbeerScene.v().getClass(class_name);
+  if (curr_class.hasSuperclass() == false)   return;
+  SootClass parent=curr_class.getSuperclass();
+  parent=RootbeerScene.v().getClass(parent.getName());
+  if (parent.getName().equals("java.lang.Object") == false) {
+    if (parent.isApplicationClass()) {
+      attachReader(parent.getName(),ref_fields);
+      callBaseClassReader(parent.getName(),ref_fields);
+    }
+ else {
+      insertReader(parent.getName(),ref_fields);
+    }
+  }
+}

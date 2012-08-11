@@ -1,0 +1,6 @@
+{
+  m_StaticPointer=new Pointer();
+  m_InstancePointer=new Pointer();
+  m_CurrPointer=m_InstancePointer;
+  m_IntegerList=new ArrayList<List<Long>>();
+}

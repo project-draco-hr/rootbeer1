@@ -1,0 +1,5 @@
+{
+  if (curr.hasSuperclass() == false)   return false;
+  if (curr.getName().equals("java.lang.Object"))   return false;
+  return true;
+}

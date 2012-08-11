@@ -1,0 +1,7 @@
+{
+  m_InQueue=new LinkedBlockingQueue<Kernel>();
+  m_OutQueue=new LinkedBlockingQueue<Kernel>();
+  Thread t=new Thread(this);
+  t.setDaemon(true);
+  t.start();
+}

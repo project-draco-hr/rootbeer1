@@ -1,0 +1,8 @@
+{
+  while (true) {
+    byte[] buffer=new byte[4096];
+    int len=zin.read(buffer);
+    if (len == -1)     break;
+    fout.write(buffer,0,len);
+  }
+}

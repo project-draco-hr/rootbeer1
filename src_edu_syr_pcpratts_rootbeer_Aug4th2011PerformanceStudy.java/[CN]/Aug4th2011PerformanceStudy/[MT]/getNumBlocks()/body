@@ -1,0 +1,3 @@
+{
+  return m_NumBlocks.get(m_CurrentIndex);
+}

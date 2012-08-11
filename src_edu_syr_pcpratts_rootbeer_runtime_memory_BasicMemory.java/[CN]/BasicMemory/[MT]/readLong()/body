@@ -1,0 +1,13 @@
+{
+  long ptr=getPointer();
+  long value=(((long)mData.get(ptr + loffset7) << 56) & 0xff00000000000000L);
+  value|=(((long)mData.get(ptr + loffset6) << 48) & 0x00ff000000000000L);
+  value|=(((long)mData.get(ptr + loffset5) << 40) & 0x0000ff0000000000L);
+  value|=(((long)mData.get(ptr + loffset4) << 32) & 0x000000ff00000000L);
+  value|=(((long)mData.get(ptr + loffset3) << 24) & 0x00000000ff000000L);
+  value|=(((long)mData.get(ptr + loffset2) << 16) & 0x0000000000ff0000L);
+  value|=(((long)mData.get(ptr + loffset1) << 8) & 0x000000000000ff00L);
+  value|=((long)mData.get(ptr + loffset0) & 0x00000000000000ffL);
+  incPointer(8);
+  return value;
+}

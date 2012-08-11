@@ -1,0 +1,4 @@
+{
+  OpenCLMethod ocl_method=new OpenCLMethod(m_SootMethod,m_SootMethod.getDeclaringClass());
+  return ocl_method.returnsAValue();
+}

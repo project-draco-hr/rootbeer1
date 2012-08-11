@@ -1,0 +1,9 @@
+{
+  if (m_UsingVariableAgeStep == false) {
+    if (mCurrAge > mAgeStep)     return true;
+    return false;
+  }
+  if (m_VariableAgeStep.pastAgeStep(x1_k,mCurrAge))   return true;
+  if (m_VariableAgeStep.pastAgeStep(x2_k,mCurrAge))   return true;
+  return false;
+}

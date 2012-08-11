@@ -1,0 +1,13 @@
+{
+  if (m_Tokens.isEmpty() == false) {
+    return true;
+  }
+  if (m_LowerLevel.hasNext() == false)   return false;
+  parseNextToken();
+  if (m_Tokens.isEmpty() == false) {
+    return true;
+  }
+ else {
+    return false;
+  }
+}

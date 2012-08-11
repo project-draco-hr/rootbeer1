@@ -1,0 +1,7 @@
+{
+  determineLabels();
+  StringBuilder ret=new StringBuilder();
+  ret.append(writeLocals());
+  ret.append(writeBody());
+  return ret.toString();
+}

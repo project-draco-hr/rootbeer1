@@ -1,0 +1,9 @@
+{
+  gcObjectVisitorClassName=codeSegment.getSootClass().getName() + "GcObjectVisitor";
+  makeCpuBody();
+  makeGpuBody();
+  makeIsUsingGarbageCollectorBody();
+  makeIsReadOnly();
+  GcHeapReadWriteAdder adder=new GcHeapReadWriteAdder();
+  adder.add(codeSegment);
+}

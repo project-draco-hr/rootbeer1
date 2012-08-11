@@ -1,0 +1,8 @@
+{
+  this.a=a;
+  this.b=b;
+  this.index=index;
+  this.kx=kx;
+  this.ky=ky;
+  this.num=num;
+}

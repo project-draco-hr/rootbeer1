@@ -1,0 +1,14 @@
+{
+  SootMethod ret=new SootMethod(new_name,method.getParameterTypes(),method.getReturnType());
+  JimpleBody body=Jimple.v().newBody(ret);
+  UnitAssembler assembler=new UnitAssembler();
+  PatchingChain<Unit> unit_chain=method.getActiveBody().getUnits();
+  Iterator<Unit> iter=unit_chain.iterator();
+  while (iter.hasNext()) {
+    Unit next=iter.next();
+    assembler.add(next);
+  }
+  assembler.assemble(body);
+  ret.setActiveBody(body);
+  return ret;
+}

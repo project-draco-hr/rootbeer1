@@ -1,0 +1,11 @@
+{
+  if (input instanceof IfStmt) {
+    IfStmt if_stmt=(IfStmt)input;
+    return if_stmt.getTargetBox();
+  }
+ else   if (input instanceof GotoStmt) {
+    GotoStmt goto_stmt=(GotoStmt)input;
+    return goto_stmt.getTargetBox();
+  }
+  return null;
+}

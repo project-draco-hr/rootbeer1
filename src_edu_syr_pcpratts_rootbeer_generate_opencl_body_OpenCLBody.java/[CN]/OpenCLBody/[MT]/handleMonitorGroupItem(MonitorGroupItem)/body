@@ -1,0 +1,19 @@
+{
+  List<Unit> units=item.getPrefixUnits();
+  for (  Unit next : units) {
+    handleUnit(next);
+  }
+  Unit enter=item.getEnterMonitor();
+  if (enter != null) {
+    handleUnit(enter);
+  }
+  List<MonitorGroupItem> items=item.getGroups();
+  for (  MonitorGroupItem sub_item : items) {
+    handleMonitorGroupItem(sub_item);
+  }
+  if (enter != null) {
+    m_StmtSwitch.append("  }\n");
+    m_StmtSwitch.append("}\n");
+    m_StmtSwitch.popMonitor();
+  }
+}

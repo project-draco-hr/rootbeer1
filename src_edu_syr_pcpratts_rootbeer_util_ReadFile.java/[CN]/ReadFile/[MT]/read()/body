@@ -1,0 +1,11 @@
+{
+  String ret="";
+  BufferedReader reader=new BufferedReader(new FileReader(m_Filename));
+  while (true) {
+    String line=reader.readLine();
+    if (line == null)     break;
+    ret+=line;
+    ret+="\n";
+  }
+  return ret;
+}

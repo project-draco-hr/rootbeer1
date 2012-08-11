@@ -1,0 +1,16 @@
+{
+  try {
+    String abs_path=f.getAbsolutePath();
+    String s=File.separator;
+    if (s.equals("\\"))     s="\\\\";
+    String[] tokens=abs_path.split(folder + s);
+    String ret=tokens[1];
+    if (File.separator.equals("\\")) {
+      ret=ret.replace("\\","/");
+    }
+    return ret;
+  }
+ catch (  Exception ex) {
+    throw new RuntimeException(ex);
+  }
+}

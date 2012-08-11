@@ -1,0 +1,14 @@
+{
+synchronized (mReadFromGpuCache) {
+    if (mReadFromGpuCache.containsKey(address)) {
+      Object ret=mReadFromGpuCache.get(address);
+      return ret;
+    }
+  }
+  long null_ptr_check=address >> 4;
+  if (null_ptr_check == -1) {
+    return null;
+  }
+  Object ret=doReadFromHeap(o,read_data,address);
+  return checkCache(address,ret);
+}

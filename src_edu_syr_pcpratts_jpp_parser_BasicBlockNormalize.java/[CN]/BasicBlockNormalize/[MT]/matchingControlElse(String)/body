@@ -1,0 +1,9 @@
+{
+  if (str.equals("else")) {
+    Token next=m_LowerLevel.peek(0);
+    if (next == null)     return false;
+    if (next.getString().equals("if"))     return false;
+    return true;
+  }
+  return false;
+}

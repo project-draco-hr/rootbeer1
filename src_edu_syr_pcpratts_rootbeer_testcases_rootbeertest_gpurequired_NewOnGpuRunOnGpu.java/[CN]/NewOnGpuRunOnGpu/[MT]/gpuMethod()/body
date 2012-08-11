@@ -1,0 +1,17 @@
+{
+  element1=new long[11];
+  test=new NewOnGpuRefObject[44];
+  for (int i=0; i < 44; ++i) {
+    test[i]=new NewOnGpuRefObject();
+  }
+  obj=new NewOnGpuRefObject();
+  int x=20;
+switch (x) {
+case 10:
+    x=40;
+  break;
+case 20:
+x=30;
+break;
+}
+}

@@ -1,0 +1,9 @@
+{
+  VariableAgeCutoff ret=new VariableAgeCutoff();
+  ret.m_MovieSize=m_MovieSize;
+  for (int i=0; i < m_VAgeStepItems.size(); ++i) {
+    VAgeStepItem item=m_VAgeStepItems.get(i);
+    ret.m_VAgeStepItems.add(item.clone());
+  }
+  return ret;
+}

@@ -1,0 +1,135 @@
+{
+  try {
+    int _type=INT_LITERAL;
+    int _channel=DEFAULT_TOKEN_CHANNEL;
+    int alt8=2;
+    int LA8_0=input.LA(1);
+    if (((LA8_0 >= '-' && LA8_0 <= '.') || (LA8_0 >= '1' && LA8_0 <= '9'))) {
+      alt8=1;
+    }
+ else     if ((LA8_0 == '0')) {
+      int LA8_2=input.LA(2);
+      if ((LA8_2 == 'x')) {
+        alt8=2;
+      }
+ else {
+        alt8=1;
+      }
+    }
+ else {
+      NoViableAltException nvae=new NoViableAltException("",8,0,input);
+      throw nvae;
+    }
+switch (alt8) {
+case 1:
+{
+{
+          int alt3=2;
+          int LA3_0=input.LA(1);
+          if ((LA3_0 == '-')) {
+            alt3=1;
+          }
+switch (alt3) {
+case 1:
+{
+              match('-');
+            }
+          break;
+      }
+      int cnt4=0;
+      loop4:       do {
+        int alt4=2;
+        int LA4_0=input.LA(1);
+        if ((LA4_0 == '.' || (LA4_0 >= '0' && LA4_0 <= '9'))) {
+          alt4=1;
+        }
+switch (alt4) {
+case 1:
+{
+            if (input.LA(1) == '.' || (input.LA(1) >= '0' && input.LA(1) <= '9')) {
+              input.consume();
+            }
+ else {
+              MismatchedSetException mse=new MismatchedSetException(null,input);
+              recover(mse);
+              throw mse;
+            }
+          }
+        break;
+default :
+      if (cnt4 >= 1)       break loop4;
+    EarlyExitException eee=new EarlyExitException(4,input);
+  throw eee;
+}
+cnt4++;
+}
+ while (true);
+int alt5=2;
+int LA5_0=input.LA(1);
+if ((LA5_0 == 'L')) {
+alt5=1;
+}
+switch (alt5) {
+case 1:
+{
+match('L');
+}
+break;
+}
+}
+}
+break;
+case 2:
+{
+{
+match("0x");
+int cnt6=0;
+loop6: do {
+int alt6=2;
+int LA6_0=input.LA(1);
+if (((LA6_0 >= '0' && LA6_0 <= '9') || (LA6_0 >= 'A' && LA6_0 <= 'F') || (LA6_0 >= 'a' && LA6_0 <= 'f'))) {
+alt6=1;
+}
+switch (alt6) {
+case 1:
+{
+if ((input.LA(1) >= '0' && input.LA(1) <= '9') || (input.LA(1) >= 'A' && input.LA(1) <= 'F') || (input.LA(1) >= 'a' && input.LA(1) <= 'f')) {
+input.consume();
+}
+ else {
+MismatchedSetException mse=new MismatchedSetException(null,input);
+recover(mse);
+throw mse;
+}
+}
+break;
+default :
+if (cnt6 >= 1) break loop6;
+EarlyExitException eee=new EarlyExitException(6,input);
+throw eee;
+}
+cnt6++;
+}
+ while (true);
+int alt7=2;
+int LA7_0=input.LA(1);
+if ((LA7_0 == 'L')) {
+alt7=1;
+}
+switch (alt7) {
+case 1:
+{
+match('L');
+}
+break;
+}
+}
+}
+break;
+}
+state.type=_type;
+state.channel=_channel;
+}
+  finally {
+}
+}

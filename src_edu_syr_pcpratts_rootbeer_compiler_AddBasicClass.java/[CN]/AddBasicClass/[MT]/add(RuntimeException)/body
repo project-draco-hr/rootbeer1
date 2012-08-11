@@ -1,0 +1,23 @@
+{
+  if (ex instanceof RaiseResolvingLevelException) {
+    RaiseResolvingLevelException raise=(RaiseResolvingLevelException)ex;
+    RootbeerScene.v().sootLoadClass(raise.getClassName(),SootClass.BODIES);
+    RootbeerScene.v().reinit();
+    return;
+  }
+  String message=ex.getMessage();
+  if (message == null) {
+    throw ex;
+  }
+  if (extractMissingClassAddBasicClass(message)) {
+    RootbeerScene.v().sootLoadClass(m_MissingClass,m_MissingLevel);
+    RootbeerScene.v().reinit();
+    return;
+  }
+  if (extractMissingClassAborting(message)) {
+    RootbeerScene.v().addGetClass(m_MissingClass);
+    RootbeerScene.v().reinit();
+    return;
+  }
+  throw ex;
+}

@@ -1,0 +1,10 @@
+{
+  Jpp jpp=new Jpp(true);
+  try {
+    String filename="testFiles" + File.separator + "test3.cpp";
+    jpp.translateFile(filename);
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

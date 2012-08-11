@@ -1,0 +1,7 @@
+{
+  mMaxType++;
+  List<SootClass> lst=new ArrayList<SootClass>();
+  SootClass soot_class=RootbeerScene.v().getClass(cls);
+  lst.add(soot_class);
+  mMap.put(cls,lst);
+}

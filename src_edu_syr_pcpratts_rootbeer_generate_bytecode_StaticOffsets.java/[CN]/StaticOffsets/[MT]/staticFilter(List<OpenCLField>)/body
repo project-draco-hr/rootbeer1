@@ -1,0 +1,7 @@
+{
+  List<OpenCLField> ret=new ArrayList<OpenCLField>();
+  for (  OpenCLField field : fields) {
+    if (field.isInstance() == false)     ret.add(field);
+  }
+  return ret;
+}

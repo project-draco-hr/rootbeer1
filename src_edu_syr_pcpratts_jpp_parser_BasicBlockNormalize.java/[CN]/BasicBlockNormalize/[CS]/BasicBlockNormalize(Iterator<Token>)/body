@@ -1,0 +1,4 @@
+{
+  m_LowerLevel=new ConcreteIteratorEx<Token>(iter);
+  m_ScopeStack=new LinkedList<String>();
+}

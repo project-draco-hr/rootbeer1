@@ -1,0 +1,5 @@
+{
+  RefTypeArraysRunOnGpu blhs=(RefTypeArraysRunOnGpu)lhs;
+  RefTypeArraysRunOnGpu brhs=(RefTypeArraysRunOnGpu)rhs;
+  return blhs.compare(brhs);
+}

@@ -1,0 +1,22 @@
+{
+  String ret=null;
+  try {
+    ret=m_CurrChar.getString();
+    read();
+    while (isSpecialEndToken() == false) {
+      ret+=m_CurrChar.getString();
+      read();
+    }
+    read();
+    if (m_SpecialEndToken.length() == 2)     read();
+    ret+=m_SpecialEndToken;
+    Token token=new Token(ret);
+    token.setImmutable();
+    return token;
+  }
+ catch (  Exception ex) {
+    Token token=new Token(ret);
+    token.setImmutable();
+    return token;
+  }
+}

@@ -1,0 +1,4 @@
+{
+  mBcl.pushMethod(mBcl.getTypeString(mMem),"getPointer",LongType.v());
+  return mBcl.invokeMethodRet(mMem);
+}

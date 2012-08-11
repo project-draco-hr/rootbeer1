@@ -1,0 +1,4 @@
+{
+  VisitorReadGenStatic static_read_gen=new VisitorReadGenStatic(m_Bcl.top(),m_FieldInspector);
+  static_read_gen.makeMethod();
+}

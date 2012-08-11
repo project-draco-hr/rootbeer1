@@ -1,0 +1,22 @@
+{
+  if (x == Double.NEGATIVE_INFINITY || !(x < Double.POSITIVE_INFINITY) || y == 0 || y != y)   return Double.NaN;
+  boolean negative=x < 0;
+  x=abs(x);
+  y=abs(y);
+  if (x == y || x == 0)   return 0 * x;
+  if (y < TWO_1023)   x%=y + y;
+  if (y < 4 / TWO_1023) {
+    if (x + x > y) {
+      x-=y;
+      if (x + x >= y)       x-=y;
+    }
+  }
+ else {
+    y*=0.5;
+    if (x > y) {
+      x-=y;
+      if (x >= y)       x-=y;
+    }
+  }
+  return negative ? -x : x;
+}

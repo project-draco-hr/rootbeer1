@@ -1,0 +1,3 @@
+Map<SootClass,List<OpenCLField>> fields_by_class
+SootClass soot_class
+OpenCLField field

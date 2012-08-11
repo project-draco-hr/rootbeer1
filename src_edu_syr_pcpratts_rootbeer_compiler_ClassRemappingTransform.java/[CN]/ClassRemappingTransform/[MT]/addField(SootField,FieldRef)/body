@@ -1,0 +1,11 @@
+{
+  List<FieldRef> refs;
+  if (m_FieldsToFix.containsKey(field)) {
+    refs=m_FieldsToFix.get(field);
+  }
+ else {
+    refs=new ArrayList<FieldRef>();
+    m_FieldsToFix.put(field,refs);
+  }
+  refs.add(ref);
+}

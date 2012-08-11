@@ -1,0 +1,8 @@
+{
+  if (abs(x) < 1 / TWO_27)   return x;
+  double z=x * x;
+  double v=z * x;
+  double r=S2 + z * (S3 + z * (S4 + z * (S5 + z * S6)));
+  if (y == 0)   return x + v * (S1 + z * r);
+  return x - ((z * (0.5 * y - v * r) - y) - v * S1);
+}

@@ -1,0 +1,15 @@
+{
+  OpenCLClass ocl_class=OpenCLScene.v().getOpenCLClass(curr_field_class);
+  List<OpenCLField> used_fields;
+  if (ref_fields) {
+    used_fields=ocl_class.getInstanceRefFields();
+  }
+ else {
+    used_fields=ocl_class.getInstanceNonRefFields();
+  }
+  List<OpenCLField> ret=new ArrayList<OpenCLField>();
+  for (  OpenCLField field : org_fields) {
+    if (listContains(used_fields,field.getName()))     ret.add(field);
+  }
+  return ret;
+}

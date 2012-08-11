@@ -1,0 +1,13 @@
+{
+  int count=0;
+  while (count < 100) {
+    count++;
+    if (count > 95 && m_threadId != -1) {
+      count=0;
+    }
+    long last=m_along.get();
+    if (m_along.compareAndSet(last,last + 1)) {
+      count=200;
+    }
+  }
+}

@@ -1,0 +1,5 @@
+{
+  m_CurrPointer.m_EndPointer=0;
+  m_CurrPointer.m_Pointer=0;
+  m_CurrPointer.m_MallocPointer=0;
+}

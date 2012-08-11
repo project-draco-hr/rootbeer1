@@ -1,0 +1,10 @@
+{
+  for (int i=0; i < mPrevDroplets.size(); ++i) {
+    Droplet drop=mPrevDroplets.get(i);
+    drop.finalizePrediction();
+    if (drop.getVolume() < 0.000000001) {
+      mPrevDroplets.remove(i);
+      --i;
+    }
+  }
+}

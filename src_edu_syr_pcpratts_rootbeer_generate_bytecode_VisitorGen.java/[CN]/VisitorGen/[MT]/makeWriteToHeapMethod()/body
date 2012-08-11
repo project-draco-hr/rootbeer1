@@ -1,0 +1,4 @@
+{
+  VisitorWriteGen write_gen=new VisitorWriteGen(OpenCLScene.v().getOrderedHistory(),mClassName,m_Bcl.top(),m_FieldInspector);
+  write_gen.makeWriteToHeapMethod();
+}

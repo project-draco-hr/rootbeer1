@@ -1,0 +1,11 @@
+{
+  try {
+    InputStream fin=url.openStream();
+    String outfilename=Constants.JAR_CONTENTS_FOLDER + cls;
+    if (m_UseDirectories)     JarEntryHelp.mkdir(outfilename);
+    writeToFile(fin,outfilename);
+  }
+ catch (  Exception ex) {
+    throw new RuntimeException(ex);
+  }
+}

@@ -1,0 +1,5 @@
+{
+  StringRunOnGpu blhs=(StringRunOnGpu)lhs;
+  StringRunOnGpu brhs=(StringRunOnGpu)rhs;
+  return blhs.compare(brhs);
+}

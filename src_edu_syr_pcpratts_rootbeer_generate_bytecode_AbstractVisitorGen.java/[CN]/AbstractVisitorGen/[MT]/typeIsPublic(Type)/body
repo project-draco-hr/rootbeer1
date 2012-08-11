@@ -1,0 +1,18 @@
+{
+  Type poss_ref_type;
+  if (type instanceof ArrayType) {
+    ArrayType array_type=(ArrayType)type;
+    poss_ref_type=array_type.baseType;
+  }
+ else {
+    poss_ref_type=type;
+  }
+  if (poss_ref_type instanceof RefType) {
+    RefType ref_type=(RefType)poss_ref_type;
+    SootClass soot_class=ref_type.getSootClass();
+    return soot_class.isPublic();
+  }
+ else {
+    return true;
+  }
+}

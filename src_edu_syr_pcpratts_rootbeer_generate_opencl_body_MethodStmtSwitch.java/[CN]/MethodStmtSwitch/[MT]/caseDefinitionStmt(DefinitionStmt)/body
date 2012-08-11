@@ -1,0 +1,56 @@
+{
+  Value left_op=arg0.getLeftOp();
+  Value right_op=arg0.getRightOp();
+  Type left_op_type=left_op.getType();
+  OpenCLType ocl_left_op_type=new OpenCLType(left_op_type);
+  if (left_op instanceof FieldRef || left_op instanceof ArrayRef) {
+    m_ValueSwitch.setLhs();
+    left_op.apply(m_ValueSwitch);
+    m_Output.append(", ");
+    m_ValueSwitch.setRhs();
+    right_op.apply(m_ValueSwitch);
+    m_Output.append(", exception);\n");
+    if (m_ValueSwitch.getCheckException()) {
+      checkException();
+    }
+    m_ValueSwitch.clearLhsRhs();
+  }
+ else   if (right_op instanceof FieldRef || right_op instanceof FieldRef) {
+    m_ValueSwitch.setLhs();
+    left_op.apply(m_ValueSwitch);
+    m_Output.append(" = ");
+    m_ValueSwitch.setRhs();
+    right_op.apply(m_ValueSwitch);
+    m_Output.append(";\n");
+    if (m_ValueSwitch.getCheckException()) {
+      checkException();
+    }
+    m_ValueSwitch.clearLhsRhs();
+  }
+ else   if (ocl_left_op_type.isRefType()) {
+    m_ValueSwitch.setLhs();
+    m_ValueSwitch.resetNewCalled();
+    m_Output.append("edu_syr_pcpratts_gc_assign(gc_info, &");
+    arg0.getLeftOp().apply(m_ValueSwitch);
+    m_Output.append(", ");
+    m_ValueSwitch.setRhs();
+    arg0.getRightOp().apply(m_ValueSwitch);
+    m_Output.append(");\n");
+    if (m_ValueSwitch.getCheckException()) {
+      checkException();
+    }
+    m_ValueSwitch.clearLhsRhs();
+  }
+ else {
+    m_ValueSwitch.setLhs();
+    arg0.getLeftOp().apply(m_ValueSwitch);
+    m_Output.append(" = ");
+    m_ValueSwitch.setRhs();
+    arg0.getRightOp().apply(m_ValueSwitch);
+    m_Output.append(";\n");
+    if (m_ValueSwitch.getCheckException()) {
+      checkException();
+    }
+    m_ValueSwitch.clearLhsRhs();
+  }
+}

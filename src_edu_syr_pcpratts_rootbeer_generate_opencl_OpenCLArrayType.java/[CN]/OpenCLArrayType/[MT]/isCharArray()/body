@@ -1,0 +1,6 @@
+{
+  Type base_type=getBaseType();
+  String str=base_type.toString();
+  if (str.equals("char"))   return true;
+  return false;
+}

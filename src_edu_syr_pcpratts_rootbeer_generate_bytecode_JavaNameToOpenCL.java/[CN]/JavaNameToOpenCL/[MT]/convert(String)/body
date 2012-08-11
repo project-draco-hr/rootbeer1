@@ -1,0 +1,5 @@
+{
+  String ret="_";
+  ret+=classname.replace(".","_");
+  return ret;
+}

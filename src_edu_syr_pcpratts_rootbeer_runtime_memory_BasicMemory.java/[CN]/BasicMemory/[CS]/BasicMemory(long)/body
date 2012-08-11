@@ -1,0 +1,6 @@
+{
+  mData=new ExtendedByteArray(size);
+  mSize=size;
+  mAddressStack=new IntStack();
+  mDebug=false;
+}

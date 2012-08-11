@@ -1,0 +1,3 @@
+{
+  return m_Map.get(cls_name);
+}

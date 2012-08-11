@@ -1,0 +1,4 @@
+{
+  Iterator<CFileItem> iter=m_Items.iterator();
+  return new PutbackIterator<CFileItem>(iter);
+}

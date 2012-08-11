@@ -1,0 +1,5 @@
+{
+  m_Modified=40;
+  m_ThisWillBreakStuff=20;
+  return super.go() + (int)m_ThisWillBreakStuff;
+}

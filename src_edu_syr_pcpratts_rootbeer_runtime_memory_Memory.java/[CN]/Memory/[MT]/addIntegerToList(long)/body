@@ -1,0 +1,4 @@
+{
+  List<Long> top=m_IntegerList.get(m_IntegerList.size() - 1);
+  top.add(value);
+}

@@ -1,0 +1,8 @@
+{
+  ParserFactory pfactory=new ParserFactory();
+  PutbackIterator<CFileItem> iter=pfactory.createCppFromFilename(filename);
+  CFileFactory cfactory=new CFileFactory();
+  CFile cfile=cfactory.create(iter);
+  TypeTable type_table=new TypeTable(cfile);
+  System.out.println(cfile.toString());
+}

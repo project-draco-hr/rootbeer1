@@ -1,0 +1,11 @@
+{
+  List<Type> orderedHistory=OpenCLScene.v().getOrderedHistory();
+  for (int i=orderedHistory.size() - 1; i >= 0; --i) {
+    Type type=orderedHistory.get(i);
+    if (type instanceof RefType) {
+      RefType ref_type=(RefType)type;
+      AcceptableGpuTypes accept=new AcceptableGpuTypes();
+      if (accept.shouldGenerateCtor(ref_type.getClassName()))       generateSentinalCtor(ref_type);
+    }
+  }
+}

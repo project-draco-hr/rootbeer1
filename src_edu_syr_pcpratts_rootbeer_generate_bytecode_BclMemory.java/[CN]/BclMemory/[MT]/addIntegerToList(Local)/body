@@ -1,0 +1,4 @@
+{
+  mBcl.pushMethod(mMem,"addIntegerToList",VoidType.v(),LongType.v());
+  mBcl.invokeMethodNoRet(mMem,array_elements);
+}

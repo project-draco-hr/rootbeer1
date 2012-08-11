@@ -1,0 +1,15 @@
+{
+  List<String> unpadded=new ArrayList<String>();
+  for (int i=0; i < num_lines; ++i) {
+    long line_num=start_ptr + (i * elements_per_line);
+    unpadded.add(line_num + ": ");
+  }
+  int max_len=unpadded.get(unpadded.size() - 1).length();
+  List<String> ret=new ArrayList<String>();
+  for (int i=0; i < unpadded.size(); ++i) {
+    String curr=unpadded.get(i);
+    while (curr.length() < max_len)     curr=" " + curr;
+    ret.add(curr);
+  }
+  return ret;
+}

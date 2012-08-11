@@ -1,0 +1,14 @@
+{
+  mOutputArgs=new ArrayList<Value>();
+  List<Unit> whole_body=mLoop.getWholeBodyOfMethod();
+  for (int i=mStop + 1; i < whole_body.size(); ++i) {
+    Unit curr=whole_body.get(i);
+    List<ValueBox> boxes=curr.getUseBoxes();
+    for (    ValueBox box : boxes) {
+      Value value=box.getValue();
+      if (value instanceof Local == false)       continue;
+      Local local=(Local)value;
+      if (isLocalAssignedTo(local))       mOutputArgs.add(value);
+    }
+  }
+}

@@ -1,0 +1,8 @@
+{
+  String ret=getBaseMethodName();
+  if (ctor_body) {
+    ret+="_body";
+  }
+  if (m_DontMangleMethods.contains(ret) == false)   ret+=NameMangling.v().mangleArgs(m_SootMethod);
+  return ret;
+}

@@ -1,0 +1,5 @@
+{
+  Type base_type=getBaseType();
+  if (base_type instanceof RefType)   return true;
+ else   return false;
+}

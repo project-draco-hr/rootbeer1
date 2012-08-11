@@ -1,0 +1,8 @@
+{
+  File f=new File(filename);
+  String path=f.getAbsolutePath();
+  URL url=new URL("file:///" + path);
+  URL[] urls=new URL[1];
+  urls[0]=url;
+  return urls;
+}

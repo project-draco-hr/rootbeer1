@@ -1,0 +1,9 @@
+{
+  if (m_Instance == null) {
+    m_Instance=new Configuration(true);
+  }
+ else   if (m_Instance.m_compilerInstance) {
+    m_Instance=new Configuration(true);
+  }
+  return m_Instance;
+}

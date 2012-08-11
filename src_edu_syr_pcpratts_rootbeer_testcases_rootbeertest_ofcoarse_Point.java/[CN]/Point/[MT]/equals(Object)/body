@@ -1,0 +1,16 @@
+{
+  if (obj == null) {
+    return false;
+  }
+  if (getClass() != obj.getClass()) {
+    return false;
+  }
+  final Point other=(Point)obj;
+  if (this.X != other.X) {
+    return false;
+  }
+  if (this.Y != other.Y) {
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,7 @@
+{
+  m_Cores=new ArrayList<CpuCore>();
+  int num_cores=Runtime.getRuntime().availableProcessors();
+  for (int i=0; i < num_cores; ++i) {
+    m_Cores.add(new CpuCore());
+  }
+}

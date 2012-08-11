@@ -1,0 +1,7 @@
+{
+  for (  TreeNode root : m_Hierarchy) {
+    TreeNode ret=root.find(soot_class);
+    if (ret != null)     return ret;
+  }
+  return null;
+}

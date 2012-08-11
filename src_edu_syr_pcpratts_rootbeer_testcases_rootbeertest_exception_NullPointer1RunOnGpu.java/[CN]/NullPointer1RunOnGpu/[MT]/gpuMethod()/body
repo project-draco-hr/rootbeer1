@@ -1,0 +1,10 @@
+{
+  int sx=convolve(index,kx);
+  int sy=convolve(index,ky);
+  if (sx * sx + sy * sy > 100 * 100) {
+    b[index]=0;
+  }
+ else {
+    b[index]=255;
+  }
+}

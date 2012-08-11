@@ -1,0 +1,33 @@
+{
+  Iterator<SootField> iter=m_FieldsToFix.keySet().iterator();
+  while (iter.hasNext()) {
+    SootField curr=iter.next();
+    SootField orig=curr;
+    SootClass field_cls=curr.getDeclaringClass();
+    if (shouldMap(field_cls)) {
+      SootClass new_field_cls=getMapping(field_cls);
+      curr=new_field_cls.getFieldByName(curr.getName());
+    }
+    Type type=curr.getType();
+    if (type instanceof RefType) {
+      RefType ref_type=(RefType)type;
+      if (shouldMap(ref_type.getSootClass())) {
+        SootClass new_class=getMapping(ref_type.getSootClass());
+        curr.setType(new_class.getType());
+      }
+    }
+ else     if (type instanceof ArrayType) {
+      ArrayType array_type=(ArrayType)type;
+      RefType ref_type=(RefType)array_type.baseType;
+      if (shouldMap(ref_type.getSootClass())) {
+        SootClass new_class=getMapping(ref_type.getSootClass());
+        ArrayType new_type=ArrayType.v(new_class.getType(),array_type.numDimensions);
+        curr.setType(new_type);
+      }
+    }
+    List<FieldRef> refs=m_FieldsToFix.get(orig);
+    for (    FieldRef ref : refs) {
+      ref.setFieldRef(curr.makeRef());
+    }
+  }
+}

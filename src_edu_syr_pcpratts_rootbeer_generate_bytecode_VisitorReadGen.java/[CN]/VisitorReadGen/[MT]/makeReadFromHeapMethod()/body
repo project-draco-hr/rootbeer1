@@ -1,0 +1,33 @@
+{
+  BytecodeLanguage bcl=m_Bcl.top();
+  SootClass obj_cls=RootbeerScene.v().getClass("java.lang.Object");
+  bcl.startMethod("doReadFromHeap",obj_cls.getType(),obj_cls.getType(),BooleanType.v(),LongType.v());
+  m_ThisRef=bcl.refThis();
+  m_GcObjVisitor.push(m_ThisRef);
+  m_Param0=bcl.refParameter(0);
+  m_ObjSerializing.push(m_Param0);
+  m_Param1=bcl.refParameter(1);
+  m_RefParam=bcl.refParameter(2);
+  m_Mem=bcl.refInstanceField(m_ThisRef,"mMem");
+  m_TextureMem=bcl.refInstanceField(m_ThisRef,"mTextureMem");
+  String dont_return_null_label=getNextLabel();
+  bcl.ifStmt(m_RefParam,"!=",LongConstant.v(-1),dont_return_null_label);
+  bcl.returnValue(NullConstant.v());
+  bcl.label(dont_return_null_label);
+  Local mem=bcl.local(m_Mem.getType());
+  bcl.assign(mem,m_Mem);
+  m_CurrMem.push(mem);
+  BclMemory bcl_mem=new BclMemory(m_Bcl.top(),mem);
+  bcl_mem.setAddress(m_RefParam);
+  String null_readers=getNextLabel();
+  bcl.ifStmt(m_Param0,"==",NullConstant.v(),null_readers);
+  for (  Type type : m_OrderedHistory) {
+    makeReadFromHeapMethodForType(type,false);
+  }
+  bcl.label(null_readers);
+  makeReadForNull();
+  RefType obj=RefType.v("java.lang.Object");
+  makeReadFromHeapMethodForType(obj,true);
+  bcl.returnValue(NullConstant.v());
+  bcl.endMethod();
+}

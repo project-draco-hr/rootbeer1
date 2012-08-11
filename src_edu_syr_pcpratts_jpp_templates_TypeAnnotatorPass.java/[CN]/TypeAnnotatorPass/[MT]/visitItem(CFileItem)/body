@@ -1,0 +1,5 @@
+{
+  if (item instanceof CStatement == false)   return;
+  CStatement stmt=(CStatement)item;
+  System.out.println(stmt.toString());
+}

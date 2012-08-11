@@ -1,0 +1,41 @@
+{
+  try {
+    int _type=WHITESPACE;
+    int _channel=DEFAULT_TOKEN_CHANNEL;
+{
+      int cnt9=0;
+      loop9:       do {
+        int alt9=2;
+        int LA9_0=input.LA(1);
+        if (((LA9_0 >= '\t' && LA9_0 <= '\n') || (LA9_0 >= '\f' && LA9_0 <= '\r') || LA9_0 == ' ' || LA9_0 == '\uFFFF')) {
+          alt9=1;
+        }
+switch (alt9) {
+case 1:
+{
+            if ((input.LA(1) >= '\t' && input.LA(1) <= '\n') || (input.LA(1) >= '\f' && input.LA(1) <= '\r') || input.LA(1) == ' ' || input.LA(1) == '\uFFFF') {
+              input.consume();
+            }
+ else {
+              MismatchedSetException mse=new MismatchedSetException(null,input);
+              recover(mse);
+              throw mse;
+            }
+          }
+        break;
+default :
+      if (cnt9 >= 1)       break loop9;
+    EarlyExitException eee=new EarlyExitException(9,input);
+  throw eee;
+}
+cnt9++;
+}
+ while (true);
+_channel=HIDDEN;
+}
+state.type=_type;
+state.channel=_channel;
+}
+  finally {
+}
+}

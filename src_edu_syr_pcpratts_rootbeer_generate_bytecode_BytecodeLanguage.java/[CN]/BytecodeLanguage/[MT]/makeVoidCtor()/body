@@ -1,0 +1,9 @@
+{
+  startMethod("<init>",VoidType.v());
+  SootClass super_soot_class=mCurrClass.getSuperclass();
+  Local thisref=refThis();
+  pushMethod(super_soot_class.getName(),"<init>",VoidType.v());
+  invokeMethodNoRet(thisref);
+  returnVoid();
+  endMethod();
+}

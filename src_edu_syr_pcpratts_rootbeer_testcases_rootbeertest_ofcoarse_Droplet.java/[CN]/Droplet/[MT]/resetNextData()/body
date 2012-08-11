@@ -1,0 +1,6 @@
+{
+  mXSum=0;
+  mYSum=0;
+  mVolumeSum=0;
+  mSumCount=0;
+}

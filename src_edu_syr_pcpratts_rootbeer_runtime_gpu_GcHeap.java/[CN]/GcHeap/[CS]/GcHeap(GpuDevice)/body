@@ -1,0 +1,4 @@
+{
+  mDevice=device;
+  m_HandlesList=new ArrayList<Long>();
+}

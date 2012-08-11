@@ -1,0 +1,4 @@
+{
+  Point p2=new Point(p1.X,p1.Y);
+  return m_Box.contains(p2);
+}

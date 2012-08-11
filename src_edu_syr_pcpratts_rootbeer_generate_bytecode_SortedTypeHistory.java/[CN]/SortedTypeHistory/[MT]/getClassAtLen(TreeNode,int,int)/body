@@ -1,0 +1,17 @@
+{
+  if (curr_len == desired_len) {
+    m_JustReturned=true;
+    return curr.getSootClass();
+  }
+  List<TreeNode> children=curr.getChildren();
+  for (int i=0; i < children.size(); ++i) {
+    TreeNode child=children.get(i);
+    SootClass ret=getClassAtLen(child,curr_len + 1,desired_len);
+    if (m_JustReturned) {
+      children.remove(i);
+      m_JustReturned=false;
+    }
+    if (ret != null)     return ret;
+  }
+  return null;
+}

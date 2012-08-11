@@ -1,0 +1,8 @@
+{
+  String ret="";
+  Iterator<String> iter=set.iterator();
+  while (iter.hasNext()) {
+    ret+=iter.next() + "\n";
+  }
+  return ret;
+}

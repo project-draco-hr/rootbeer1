@@ -1,0 +1,6 @@
+{
+  int hash=5;
+  hash=19 * hash + (this.mMethodSubsignature != null ? this.mMethodSubsignature.hashCode() : 0);
+  hash=19 * hash + (this.mClassHierarchy != null ? this.mClassHierarchy.hashCode() : 0);
+  return hash;
+}

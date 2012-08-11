@@ -1,0 +1,3 @@
+{
+  writeInt(IntConstant.v(size));
+}

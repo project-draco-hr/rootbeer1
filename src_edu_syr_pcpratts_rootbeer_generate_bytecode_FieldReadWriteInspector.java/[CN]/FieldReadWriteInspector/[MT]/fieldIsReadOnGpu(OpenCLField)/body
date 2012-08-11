@@ -1,0 +1,5 @@
+{
+  SootField soot_field=ocl_field.getSootField();
+  if (mReadOnGpuFields.contains(soot_field))   return true;
+  return false;
+}

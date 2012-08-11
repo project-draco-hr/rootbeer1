@@ -1,0 +1,14 @@
+{
+  Iterator<Unit> iter=body.getUnits().iterator();
+  while (iter.hasNext()) {
+    Unit curr=iter.next();
+    if (curr instanceof AssignStmt == false)     continue;
+    AssignStmt assign=(AssignStmt)curr;
+    Value lhs=assign.getLeftOp();
+    if (lhs instanceof FieldRef == false)     continue;
+    FieldRef ref=(FieldRef)lhs;
+    SootField field=ref.getField();
+    String name=field.getDeclaringClass().getName();
+    if (m_WrittenClasses.contains(name) == false)     m_WrittenClasses.add(name);
+  }
+}

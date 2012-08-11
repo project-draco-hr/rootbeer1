@@ -1,0 +1,26 @@
+{
+  if (mWriteToHeapMethodsMade.contains(type))   return;
+  mWriteToHeapMethodsMade.add(type);
+  if (type instanceof RefType) {
+    RefType ref_type=(RefType)type;
+    SootClass soot_class=ref_type.getSootClass();
+    if (soot_class.getName().equals("java.lang.Object"))     return;
+    if (differentPackageAndPrivate(ref_type)) {
+      return;
+    }
+    if (m_ClassesToIgnore.contains(ref_type.getSootClass().getName())) {
+      return;
+    }
+  }
+  if (typeIsPublic(type) == false)   return;
+  String label=getNextLabel();
+  BytecodeLanguage bcl=m_Bcl.top();
+  bcl.ifInstanceOfStmt(m_Param0,type,label);
+  if (type instanceof ArrayType) {
+    makeWriteToHeapBodyForArrayType((ArrayType)type);
+  }
+ else {
+    makeWriteToHeapBodyForRefType((RefType)type);
+  }
+  bcl.label(label);
+}

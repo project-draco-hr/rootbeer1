@@ -1,0 +1,28 @@
+{
+  SootClass obj_cls=RootbeerScene.v().getClass("java.lang.Object");
+  BytecodeLanguage bcl=m_Bcl.top();
+  bcl.startMethod("doWriteToHeap",VoidType.v(),obj_cls.getType(),BooleanType.v(),LongType.v(),BooleanType.v());
+  m_ThisRef=bcl.refThis();
+  m_GcObjVisitor.push(m_ThisRef);
+  m_Param0=bcl.refParameter(0);
+  m_Param1=bcl.refParameter(1);
+  m_RefParam=bcl.refParameter(2);
+  m_ReadOnlyParam=bcl.refParameter(3);
+  m_Mem=bcl.refInstanceField(m_ThisRef,"mMem");
+  m_TextureMem=bcl.refInstanceField(m_ThisRef,"mTextureMem");
+  String label1=getNextLabel();
+  String label2=getNextLabel();
+  Local mem=bcl.local(m_Mem.getType());
+  bcl.ifStmt(m_ReadOnlyParam,"==",IntConstant.v(1),label1);
+  bcl.assign(mem,m_Mem);
+  bcl.gotoLabel(label2);
+  bcl.label(label1);
+  bcl.assign(mem,m_TextureMem);
+  bcl.label(label2);
+  m_CurrentMem.push(mem);
+  for (  Type type : m_OrderedHistory) {
+    makeWriteToHeapMethodForType(type);
+  }
+  bcl.returnVoid();
+  bcl.endMethod();
+}

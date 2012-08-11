@@ -1,0 +1,29 @@
+{
+  mOutput.append("(");
+  arg0.getOp1().apply(this);
+  mOutput.append(" >> ");
+  arg0.getOp2().apply(this);
+  mOutput.append(" ) & ");
+  OpenCLType lhs_ocl_type=new OpenCLType(arg0.getOp1().getType());
+  OpenCLType rhs_ocl_type=new OpenCLType(arg0.getOp2().getType());
+  int max_size=lhs_ocl_type.getSize();
+  if (rhs_ocl_type.getSize() > max_size) {
+    max_size=rhs_ocl_type.getSize();
+  }
+  String mask="";
+switch (max_size) {
+case 1:
+    mask="0x7f";
+  break;
+case 2:
+mask="0x7fff";
+break;
+case 4:
+mask="0x7fffffff";
+break;
+case 8:
+mask="0x7fffffffffffffffL";
+break;
+}
+mOutput.append(mask);
+}

@@ -1,0 +1,4 @@
+{
+  mBcl.pushMethod(mMem,"writeRef",VoidType.v(),LongType.v());
+  mBcl.invokeMethodNoRet(mMem,ref);
+}

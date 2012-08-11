@@ -1,0 +1,11 @@
+{
+  File[] files=dir.listFiles();
+  for (  File f : files) {
+    if (f.isDirectory()) {
+      getFiles(total_files,f);
+    }
+ else {
+      total_files.add(f);
+    }
+  }
+}

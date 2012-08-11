@@ -1,0 +1,5 @@
+{
+  determineFieldTypes();
+  FieldPackingSorter sorter=new FieldPackingSorter();
+  return sorter.sort(mInstanceRefFields);
+}

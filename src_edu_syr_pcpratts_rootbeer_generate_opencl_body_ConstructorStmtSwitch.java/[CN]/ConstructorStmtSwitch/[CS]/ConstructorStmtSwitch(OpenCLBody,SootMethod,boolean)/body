@@ -1,0 +1,6 @@
+{
+  super(parent,soot_method);
+  m_EmitRetVoid=emit_ret_void;
+  m_SootClass=soot_method.getDeclaringClass();
+  m_SootClass=RootbeerScene.v().getClass(m_SootClass.getName());
+}

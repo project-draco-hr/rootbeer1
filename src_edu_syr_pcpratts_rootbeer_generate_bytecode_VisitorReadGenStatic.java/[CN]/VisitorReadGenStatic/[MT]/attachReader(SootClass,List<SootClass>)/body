@@ -1,0 +1,35 @@
+{
+  String method_name=getReaderName(soot_class);
+  if (m_AttachedReaders.contains(method_name))   return;
+  m_AttachedReaders.add(method_name);
+  List<OpenCLField> static_fields=m_StaticOffsets.getStaticFields(soot_class);
+  BytecodeLanguage bcl=new BytecodeLanguage();
+  m_Bcl.push(bcl);
+  bcl.openClass(soot_class);
+  SootClass mem=RootbeerScene.v().getClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  bcl.startStaticMethod(method_name,VoidType.v(),mem.getType(),m_ThisRef.getType());
+  Local memory=bcl.refParameter(0);
+  Local gc_visit=bcl.refParameter(1);
+  m_GcObjVisitor.push(gc_visit);
+  m_CurrMem.push(memory);
+  BclMemory bcl_mem=new BclMemory(bcl,memory);
+  for (  OpenCLField field : static_fields) {
+    if (m_FieldInspector.fieldIsWrittenOnGpu(field) == false)     continue;
+    int index=m_StaticOffsets.getIndex(field);
+    bcl_mem.setAddress(LongConstant.v(index));
+    if (field.getType().isRefType()) {
+      readRefField(field);
+    }
+ else {
+      readNonRefField(field);
+    }
+  }
+  for (  SootClass child : children) {
+    attachAndCallReader(child,new ArrayList<SootClass>());
+  }
+  bcl.returnVoid();
+  bcl.endMethod();
+  m_GcObjVisitor.pop();
+  m_CurrMem.pop();
+  m_Bcl.pop();
+}

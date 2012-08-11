@@ -1,0 +1,28 @@
+{
+  StringBuilder ret=new StringBuilder();
+  String device_function_qual=Tweaks.v().getDeviceFunctionQualifier();
+  String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
+  ret.append(device_function_qual + " int \n");
+  ret.append("java_lang_Object_clone(" + address_qual + " char * gc_info, int thisref, int * exception){\n");
+  ret.append("  char * src_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n");
+  ret.append("  GC_OBJ_TYPE_TYPE type = edu_syr_pcpratts_gc_get_type(src_deref);\n");
+  ret.append("  if(0){}\n");
+  Iterator<OpenCLArrayType> iter1=arrays.iterator();
+  while (iter1.hasNext()) {
+    OpenCLArrayType atype=iter1.next();
+    cloneArray(ret,atype);
+  }
+  Iterator<String> iter2=classes.keySet().iterator();
+  while (iter2.hasNext()) {
+    String key=iter2.next();
+    if (key.contains(".")) {
+      continue;
+    }
+    OpenCLClass ocl_class=classes.get(key);
+    String soot_class=ocl_to_soot.get(key);
+    cloneRefType(ret,soot_class,ocl_class);
+  }
+  ret.append("  return -1;\n");
+  ret.append("}\n");
+  return ret.toString();
+}

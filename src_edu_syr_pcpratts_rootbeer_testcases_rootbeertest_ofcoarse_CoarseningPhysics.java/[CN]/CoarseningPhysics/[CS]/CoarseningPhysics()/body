@@ -1,0 +1,9 @@
+{
+  mMinAggregateSize=200;
+  mCnum=2.8;
+  mVolumeScale=0.9;
+  mTimeStep=800;
+  mAgeStep=1;
+  m_UsingVariableAgeStep=false;
+  mDebug=new GpuList<GpuNumber>();
+}

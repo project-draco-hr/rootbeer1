@@ -1,0 +1,11 @@
+{
+  StringBuilder ret=new StringBuilder();
+  int count=0;
+  for (int i=0; i < m_VAgeStepItems.size(); ++i) {
+    VAgeStepItem item=m_VAgeStepItems.get(i);
+    ret.append(item.m_AgeStep);
+    if (count < m_VAgeStepItems.size() - 1)     ret.append(",");
+    count++;
+  }
+  return ret.toString();
+}

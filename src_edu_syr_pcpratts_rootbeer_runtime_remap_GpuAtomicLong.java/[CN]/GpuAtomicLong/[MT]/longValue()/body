@@ -1,0 +1,5 @@
+{
+synchronized (this) {
+    return m_Value;
+  }
+}

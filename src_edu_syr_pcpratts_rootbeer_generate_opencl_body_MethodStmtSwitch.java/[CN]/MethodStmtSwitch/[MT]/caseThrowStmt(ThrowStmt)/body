@@ -1,0 +1,12 @@
+{
+  m_Output.append(" *exception = ");
+  Value op=arg0.getOp();
+  op.apply(m_ValueSwitch);
+  m_Output.append(";\n");
+  if (m_SootMethod.isSynchronized()) {
+    m_Output.append("edu_syr_pcpratts_exitMonitorMem(gc_info, mem, old);\n");
+  }
+  m_Output.append("return");
+  if (methodReturnsAValue())   m_Output.append(" 0;\n");
+ else   m_Output.append(";\n");
+}

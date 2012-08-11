@@ -1,0 +1,3 @@
+{
+  m_Pointer=m_Stack.pop();
+}

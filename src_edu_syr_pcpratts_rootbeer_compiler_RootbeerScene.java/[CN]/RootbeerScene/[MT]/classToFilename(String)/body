@@ -1,0 +1,3 @@
+{
+  return classToFilename(name,"jar-contents" + File.separator);
+}

@@ -1,0 +1,15 @@
+{
+  if (m_Result != rhs.m_Result) {
+    System.out.println("result");
+    System.out.println("lhs: " + m_Result);
+    System.out.println("rhs: " + rhs.m_Result);
+    return false;
+  }
+  if (m_Result2 != rhs.m_Result2) {
+    System.out.println("result2");
+    System.out.println("lhs: " + m_Result2);
+    System.out.println("rhs: " + rhs.m_Result2);
+    return false;
+  }
+  return true;
+}

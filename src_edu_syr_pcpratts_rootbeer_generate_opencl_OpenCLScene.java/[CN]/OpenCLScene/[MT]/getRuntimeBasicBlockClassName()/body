@@ -1,0 +1,5 @@
+{
+  SootClass soot_class=rootSootClass;
+  OpenCLClass ocl_class=getOpenCLClass(soot_class);
+  return ocl_class.getName();
+}

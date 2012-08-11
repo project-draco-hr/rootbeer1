@@ -1,0 +1,9 @@
+{
+  if (curr_class.isApplicationClass()) {
+    attachReader(curr_class.getName(),ref_types);
+    callBaseClassReader(curr_class.getName(),ref_types);
+  }
+ else {
+    insertReader(curr_class.getName(),ref_types);
+  }
+}

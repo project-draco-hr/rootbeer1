@@ -1,0 +1,7 @@
+{
+  long max=Long.MIN_VALUE;
+  for (  Memory mem : m_ToSpace) {
+    if (mem.getHeapEndPtr() > max)     max=mem.getHeapEndPtr();
+  }
+  return max;
+}

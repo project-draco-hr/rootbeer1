@@ -1,0 +1,20 @@
+{
+  Iterator<Trap> traps=m_Body.getTraps().iterator();
+  int trap_num=0;
+  while (traps.hasNext()) {
+    Trap t=traps.next();
+    TrapItem item=new TrapItem(t,bodyIterator(),trap_num,t.getException());
+    List<Unit> trap_units=item.getUnits();
+    for (    Unit u : trap_units) {
+      addTrapItem(u,item);
+    }
+    trap_num++;
+    m_AllTraps.add(item);
+  }
+  MonitorGroups monitor_groups=new MonitorGroups();
+  List<MonitorGroupItem> root_items=monitor_groups.getItems(m_Body);
+  for (  MonitorGroupItem item : root_items) {
+    handleMonitorGroupItem(item);
+  }
+  return m_StmtSwitch.toString();
+}

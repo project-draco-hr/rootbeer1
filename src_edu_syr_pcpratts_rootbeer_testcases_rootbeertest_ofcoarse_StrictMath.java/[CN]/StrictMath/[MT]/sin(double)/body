@@ -1,0 +1,16 @@
+{
+  if (a == Double.NEGATIVE_INFINITY || !(a < Double.POSITIVE_INFINITY))   return Double.NaN;
+  if (abs(a) <= PI / 4)   return sin(a,0);
+  double[] y=new double[2];
+  int n=remPiOver2(a,y);
+switch (n & 3) {
+case 0:
+    return sin(y[0],y[1]);
+case 1:
+  return cos(y[0],y[1]);
+case 2:
+return -sin(y[0],y[1]);
+default :
+return -cos(y[0],y[1]);
+}
+}

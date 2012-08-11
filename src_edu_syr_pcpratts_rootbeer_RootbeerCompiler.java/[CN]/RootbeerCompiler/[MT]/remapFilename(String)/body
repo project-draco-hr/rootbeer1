@@ -1,0 +1,10 @@
+{
+  File f=new File("src");
+  cls=cls.replace(".",File.separator);
+  cls+=".class";
+  cls=f.getAbsolutePath() + File.separator + cls;
+  File f2=new File(cls);
+  String folder=f2.getParent();
+  new File(folder).mkdirs();
+  return cls;
+}

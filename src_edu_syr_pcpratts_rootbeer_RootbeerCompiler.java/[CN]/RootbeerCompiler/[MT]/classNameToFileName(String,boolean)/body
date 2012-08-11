@@ -1,0 +1,13 @@
+{
+  File f;
+  if (jimple)   f=new File(m_jimpleOutputFolder);
+ else   f=new File(m_classOutputFolder);
+  cls=cls.replace(".",File.separator);
+  if (jimple)   cls+=".jimple";
+ else   cls+=".class";
+  cls=f.getAbsolutePath() + File.separator + cls;
+  File f2=new File(cls);
+  String folder=f2.getParent();
+  new File(folder).mkdirs();
+  return cls;
+}

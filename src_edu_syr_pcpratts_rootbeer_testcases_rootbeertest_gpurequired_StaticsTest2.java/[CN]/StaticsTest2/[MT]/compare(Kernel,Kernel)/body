@@ -1,0 +1,5 @@
+{
+  StaticsTest2RunOnGpu blhs=(StaticsTest2RunOnGpu)lhs;
+  StaticsTest2RunOnGpu brhs=(StaticsTest2RunOnGpu)rhs;
+  return blhs.compare(brhs);
+}

@@ -1,0 +1,8 @@
+{
+  m_Labels=new ArrayList<Unit>();
+  m_TrapMap=new HashMap<Unit,List<TrapItem>>();
+  m_AllTraps=new ArrayList<TrapItem>();
+  m_IsConstructor=false;
+  m_IsConstructorBodyWithoutHeader=true;
+  setup(body);
+}

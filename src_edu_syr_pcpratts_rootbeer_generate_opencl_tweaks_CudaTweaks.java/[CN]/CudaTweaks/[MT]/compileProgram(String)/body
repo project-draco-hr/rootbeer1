@@ -1,0 +1,36 @@
+{
+  try {
+    DeadMethods dead_methods=new DeadMethods("entry");
+    cuda_code=dead_methods.filter(cuda_code);
+    File generated=new File("generated.cu");
+    PrintWriter writer=new PrintWriter(generated.getAbsoluteFile());
+    writer.println(cuda_code.toString());
+    writer.flush();
+    writer.close();
+    File code_file=new File("code_file.cubin");
+    String modelString="";
+    String command;
+    if (File.separator.equals("/")) {
+      command="/usr/local/cuda/bin/nvcc " + modelString + " -arch sm_20 -cubin "+ generated.getAbsolutePath()+ " -o "+ code_file.getAbsolutePath();
+    }
+ else {
+      GenerateClScript generate=new GenerateClScript();
+      File cl_script=generate.execute(generated,code_file);
+      command="cmd /c \"" + cl_script.getAbsolutePath() + "\"";
+    }
+    CompilerRunner runner=new CompilerRunner();
+    runner.run(command);
+    List<byte[]> file_contents=null;
+    try {
+      file_contents=readFile(code_file);
+    }
+ catch (    FileNotFoundException ex) {
+      file_contents=new ArrayList<byte[]>();
+      ex.printStackTrace();
+    }
+    return file_contents;
+  }
+ catch (  Exception ex) {
+    throw new RuntimeException(ex);
+  }
+}

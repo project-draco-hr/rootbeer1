@@ -1,0 +1,12 @@
+{
+  Iterator<SootClass> iter=soot_class.getInterfaces().iterator();
+  while (iter.hasNext()) {
+    m_ClassLoadList.add(iter.next().getName());
+  }
+  if (soot_class.hasSuperclass()) {
+    m_ClassLoadList.add(soot_class.getSuperclass().getName());
+  }
+  if (soot_class.hasOuterClass()) {
+    m_ClassLoadList.add(soot_class.getOuterClass().getName());
+  }
+}

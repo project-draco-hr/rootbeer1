@@ -1,0 +1,7 @@
+{
+  for (  String path : paths) {
+    File file=new File(path);
+    if (file.exists())     return path;
+  }
+  throw new RuntimeException("cannot find path for: " + desc);
+}

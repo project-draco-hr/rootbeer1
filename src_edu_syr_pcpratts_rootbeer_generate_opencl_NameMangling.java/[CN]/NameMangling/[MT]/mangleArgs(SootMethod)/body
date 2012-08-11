@@ -1,0 +1,11 @@
+{
+  String ret="";
+  Type return_type=method.getReturnType();
+  ret+=mangle(return_type);
+  List parameter_types=method.getParameterTypes();
+  for (int i=0; i < parameter_types.size(); ++i) {
+    Type type=(Type)parameter_types.get(i);
+    ret+=mangle(type);
+  }
+  return ret;
+}

@@ -1,0 +1,8 @@
+{
+  fields=staticFilter(fields);
+  List<SortableField> ret=new ArrayList<SortableField>();
+  for (  OpenCLField field : fields) {
+    ret.add(new SortableField(field,soot_class));
+  }
+  return ret;
+}

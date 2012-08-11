@@ -1,0 +1,7 @@
+{
+  String ret="";
+  for (  CFileItem item : m_Items) {
+    ret+=item.toString() + "\n";
+  }
+  return ret;
+}

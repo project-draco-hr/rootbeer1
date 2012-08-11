@@ -1,0 +1,9 @@
+{
+  List<CFileVisitor> passes=new ArrayList<CFileVisitor>();
+  passes.add(new TypeAnnotatorPass(m_TypeTable));
+  passes.add(new MethodDeclFinderPass());
+  for (  CFileVisitor pass : passes) {
+    pass.visit(cfile);
+  }
+  return cfile;
+}

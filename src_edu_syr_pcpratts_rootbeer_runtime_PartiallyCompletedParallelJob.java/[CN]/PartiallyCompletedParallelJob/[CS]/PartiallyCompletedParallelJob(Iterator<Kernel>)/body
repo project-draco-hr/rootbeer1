@@ -1,0 +1,5 @@
+{
+  m_RemainingJobs=remaining_jobs;
+  m_ActiveJobs=new LinkedList<Kernel>();
+  m_NotWritten=new ArrayList<Kernel>();
+}

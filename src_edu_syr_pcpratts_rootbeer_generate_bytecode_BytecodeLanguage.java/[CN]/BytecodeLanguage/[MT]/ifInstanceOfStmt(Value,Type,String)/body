@@ -1,0 +1,9 @@
+{
+  Value lhs_instanceof_rhs;
+  lhs_instanceof_rhs=jimple.newInstanceOfExpr(lhs,rhs);
+  Local lhs_instance_of_rhs_local=jimple.newLocal(getLocalName(),BooleanType.v());
+  Unit u1=jimple.newAssignStmt(lhs_instance_of_rhs_local,lhs_instanceof_rhs);
+  mAssembler.add(u1);
+  Value eq=jimple.newEqExpr(lhs_instance_of_rhs_local,IntConstant.v(0));
+  mAssembler.addIf(eq,target);
+}

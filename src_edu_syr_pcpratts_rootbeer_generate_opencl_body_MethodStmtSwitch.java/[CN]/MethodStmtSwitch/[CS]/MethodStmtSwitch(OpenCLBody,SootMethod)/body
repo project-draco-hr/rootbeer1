@@ -1,0 +1,8 @@
+{
+  m_SootMethod=soot_method;
+  m_Output=new StringBuilder();
+  m_ValueSwitch=new MethodJimpleValueSwitch(m_Output);
+  m_Parent=parent;
+  m_VariableNumber=1;
+  m_OldValueFromMonitorStack=new Stack<String>();
+}

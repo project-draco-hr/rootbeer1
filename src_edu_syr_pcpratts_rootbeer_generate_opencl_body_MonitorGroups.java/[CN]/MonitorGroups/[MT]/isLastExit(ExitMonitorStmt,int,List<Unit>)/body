@@ -1,0 +1,18 @@
+{
+  Value op=exit.getOp();
+  Local op_local=(Local)op;
+  for (int j=index + 1; j < units.size(); ++j) {
+    Unit curr=units.get(j);
+    if (curr instanceof EnterMonitorStmt) {
+      return true;
+    }
+ else     if (curr instanceof ExitMonitorStmt) {
+      ExitMonitorStmt exit2=(ExitMonitorStmt)curr;
+      Local op_local2=(Local)exit2.getOp();
+      if (op_local.getName().equals(op_local2.getName())) {
+        return false;
+      }
+    }
+  }
+  return true;
+}

@@ -1,0 +1,18 @@
+{
+  InvokeExpr expr=arg0.getInvokeExpr();
+  if (expr instanceof SpecialInvokeExpr == false) {
+    super.caseInvokeStmt(arg0);
+    return;
+  }
+  SpecialInvokeExpr sexpr=(SpecialInvokeExpr)expr;
+  if (needsReWriting(sexpr) == false) {
+    super.caseInvokeStmt(arg0);
+    return;
+  }
+  SootMethod soot_method=sexpr.getMethod();
+  SootClass soot_class=soot_method.getDeclaringClass();
+  if (soot_class.getName().equals("java.lang.Object"))   return;
+  OpenCLMethod ocl_method=new OpenCLMethod(soot_method,soot_class);
+  m_Output.append(ocl_method.getConstructorBodyInvokeString(sexpr));
+  m_Output.append(";\n");
+}

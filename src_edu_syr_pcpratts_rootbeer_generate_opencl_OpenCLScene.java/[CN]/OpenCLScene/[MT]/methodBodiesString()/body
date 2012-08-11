@@ -1,0 +1,32 @@
+{
+  StringBuilder ret=new StringBuilder();
+  if (mUsesGarbageCollector)   ret.append("#define USING_GARBAGE_COLLECTOR\n");
+  Set<String> bodies=new HashSet<String>();
+  ArrayCopyGenerate arr_generate=new ArrayCopyGenerate();
+  bodies.add(arr_generate.get(m_ArrayTypes));
+  ObjectCloneGenerate clone_generate=new ObjectCloneGenerate();
+  bodies.add(clone_generate.get(m_ArrayTypes,m_Classes,m_OclToSoot));
+  List<OpenCLMethod> methods=mMethodHierarchies.getMethods();
+  for (  OpenCLMethod method : methods) {
+    bodies.add(method.getMethodBody());
+  }
+  List<OpenCLPolymorphicMethod> poly_methods=mMethodHierarchies.getPolyMorphicMethods();
+  for (  OpenCLPolymorphicMethod poly_method : poly_methods) {
+    bodies.add(poly_method.getMethodBody());
+  }
+  FieldTypeSwitch type_switch=new FieldTypeSwitch();
+  FieldCodeGeneration gen=new FieldCodeGeneration();
+  String field_bodies=gen.bodies(m_Classes,codeSegment.getReadWriteFieldInspector(),type_switch);
+  bodies.add(field_bodies);
+  for (  OpenCLArrayType array_type : m_ArrayTypes) {
+    bodies.add(array_type.getBodies());
+  }
+  Iterator<String> iter=bodies.iterator();
+  ret.append(type_switch.getFunctions());
+  while (iter.hasNext()) {
+    ret.append(iter.next());
+  }
+  String kernel_path=Tweaks.v().getKernelPath();
+  ret.append(ResourceReader.getResource(kernel_path));
+  return ret.toString();
+}

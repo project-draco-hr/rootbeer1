@@ -1,0 +1,6 @@
+{
+  if (tokens.isEmpty())   return false;
+  Token first=tokens.get(0);
+  if (first.getString().equals("template"))   return true;
+  return false;
+}

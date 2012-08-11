@@ -1,0 +1,5 @@
+{
+  m_CurrChar=m_NextChar;
+  if (m_Reader.hasNext())   m_NextChar=m_Reader.next();
+ else   throw new Exception("end of stream");
+}

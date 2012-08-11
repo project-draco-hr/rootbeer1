@@ -1,0 +1,10 @@
+{
+  while (true) {
+    try {
+      m_InQueue.put(job);
+      return;
+    }
+ catch (    Exception ex) {
+    }
+  }
+}

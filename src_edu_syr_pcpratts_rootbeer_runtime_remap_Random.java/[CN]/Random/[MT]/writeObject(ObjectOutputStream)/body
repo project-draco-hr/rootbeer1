@@ -1,0 +1,7 @@
+{
+  ObjectOutputStream.PutField fields=s.putFields();
+  fields.put("seed",seed.get());
+  fields.put("nextNextGaussian",nextNextGaussian);
+  fields.put("haveNextNextGaussian",haveNextNextGaussian);
+  s.writeFields();
+}

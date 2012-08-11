@@ -1,0 +1,4 @@
+{
+  mBcl.pushMethod(mMem,"readFloat",FloatType.v());
+  return mBcl.invokeMethodRet(mMem);
+}

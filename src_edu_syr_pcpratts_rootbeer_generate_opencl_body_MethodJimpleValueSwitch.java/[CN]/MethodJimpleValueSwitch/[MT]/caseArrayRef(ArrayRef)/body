@@ -1,0 +1,11 @@
+{
+  OpenCLArrayType array=new OpenCLArrayType((ArrayType)arg0.getBase().getType());
+  if (isLhs()) {
+    mOutput.append(array.getArrayRefSetter(arg0));
+    setCheckException();
+  }
+ else {
+    mOutput.append(array.getArrayRefGetter(arg0));
+    setCheckException();
+  }
+}

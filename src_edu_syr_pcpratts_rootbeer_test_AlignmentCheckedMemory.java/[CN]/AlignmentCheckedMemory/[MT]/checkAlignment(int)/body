@@ -1,0 +1,6 @@
+{
+  long ptr=getPointer();
+  if (ptr % alignment != 0) {
+    throw new RuntimeException("alignment of: " + alignment + " not working.  ptr: "+ ptr);
+  }
+}

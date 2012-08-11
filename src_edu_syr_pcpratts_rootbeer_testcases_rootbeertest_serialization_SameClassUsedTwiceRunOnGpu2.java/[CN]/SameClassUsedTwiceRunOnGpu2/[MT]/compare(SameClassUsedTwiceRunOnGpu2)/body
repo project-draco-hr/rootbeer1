@@ -1,0 +1,8 @@
+{
+  if (m_Int != brhs.m_Int) {
+    System.out.println("m_Int");
+    System.out.println("lhs: " + m_Int + " rhs: "+ brhs.m_Int);
+    return false;
+  }
+  return true;
+}

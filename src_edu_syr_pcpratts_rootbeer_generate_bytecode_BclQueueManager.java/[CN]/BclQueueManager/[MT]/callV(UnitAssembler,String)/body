@@ -1,0 +1,13 @@
+{
+  mUuid=uuid;
+  String reg1=RegisterNamer.v().getName();
+  Type type1=RefType.v("edu.syr.pcpratts.javaautogpu.runtime.QueueManager");
+  mQueueManagerLocal=jimple.newLocal(reg1,type1);
+  List parameter_types=new ArrayList();
+  parameter_types.add(RefType.v("java.lang.String"));
+  SootMethod QueueManagerV=new SootMethod("v",parameter_types,type1,Modifier.STATIC);
+  QueueManagerV.setDeclaringClass(mQueueManagerClass);
+  Value rvalue=jimple.newStaticInvokeExpr(QueueManagerV.makeRef(),StringConstant.v(uuid));
+  Unit u1=jimple.newAssignStmt(mQueueManagerLocal,rvalue);
+  assembler.add(u1);
+}

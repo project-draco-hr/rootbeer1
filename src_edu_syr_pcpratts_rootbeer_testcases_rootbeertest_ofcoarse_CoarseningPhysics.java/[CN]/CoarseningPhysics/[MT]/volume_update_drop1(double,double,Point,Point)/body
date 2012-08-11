@@ -1,0 +1,8 @@
+{
+  double L_k=PointDistance.distance(x1_k,x2_k);
+  v1_k*=mVolumeScale;
+  v2_k*=mVolumeScale;
+  double term1=v1_k;
+  double term2=mTimeStep * (4 * StrictMath.pow(StrictMath.PI,4.0 / 3.0)) / (StrictMath.log(L_k / StrictMath.pow(v1_k,1.0 / 3.0)) + StrictMath.log(L_k / StrictMath.pow(v2_k,1.0 / 3.0))) * (StrictMath.pow(v1_k,-1.0 / 3.0) - StrictMath.pow(v2_k,-1.0 / 3.0));
+  return term1 - term2;
+}

@@ -1,0 +1,9 @@
+{
+  if (m_SootClass.hasSuperclass() == false)   return false;
+  SootMethod method=sexpr.getMethod();
+  SootClass soot_class=method.getDeclaringClass();
+  String parent_name=m_SootClass.getSuperclass().getName();
+  if (soot_class.getName().equals(parent_name) == false)   return false;
+  if (method.getName().equals("<init>") == false)   return false;
+  return true;
+}

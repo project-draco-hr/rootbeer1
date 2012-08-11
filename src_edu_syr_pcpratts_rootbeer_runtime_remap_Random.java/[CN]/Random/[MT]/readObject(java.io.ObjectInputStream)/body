@@ -1,0 +1,7 @@
+{
+  ObjectInputStream.GetField fields=s.readFields();
+  long seedVal=fields.get("seed",-1L);
+  if (seedVal < 0)   throw new java.io.StreamCorruptedException("Random: invalid seed");
+  nextNextGaussian=fields.get("nextNextGaussian",0.0);
+  haveNextNextGaussian=fields.get("haveNextNextGaussian",false);
+}

@@ -1,0 +1,15 @@
+{
+  if (sorted.isEmpty())   return;
+  OpenCLField first=sorted.get(0);
+  int prev_size=first.getSize();
+  for (  OpenCLField field : sorted) {
+    if (field.isCloned())     continue;
+    if (prev_size != field.getSize()) {
+      int mod=m_CurrOffset % prev_size;
+      if (mod != 0)       m_CurrOffset+=(prev_size - mod);
+      prev_size=field.getSize();
+    }
+    m_CurrOffsetSubMap.put(field,m_CurrOffset);
+    m_CurrOffset+=field.getSize();
+  }
+}

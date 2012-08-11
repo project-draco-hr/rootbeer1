@@ -1,0 +1,23 @@
+{
+  if (m_Bodies.containsKey(method.getSignature())) {
+    return m_Bodies.get(method.getSignature());
+  }
+  Body ret=null;
+  try {
+    ret=method.getActiveBody();
+  }
+ catch (  Exception ex) {
+    if (method.getDeclaringClass().resolvingLevel() != SootClass.BODIES) {
+      throw new RaiseResolvingLevelException(method.getDeclaringClass().getName());
+    }
+    try {
+      ret=method.retrieveActiveBody();
+    }
+ catch (    RuntimeException ex2) {
+      System.out.println("Failed to load body for method: " + method.getSignature());
+      ret=null;
+    }
+  }
+  m_Bodies.put(method.getSignature(),ret);
+  return ret;
+}

@@ -1,0 +1,18 @@
+{
+  String name=makeJarFileName(f,folder);
+  ZipEntry entry=new ZipEntry(name);
+  byte[] contents=readFile(f);
+  entry.setSize(contents.length);
+  entry.setCrc(calcCrc32(contents));
+  zos.putNextEntry(entry);
+  int wrote_len=0;
+  int total_len=contents.length;
+  while (wrote_len < total_len) {
+    int len=4096;
+    int len_left=total_len - wrote_len;
+    if (len > len_left)     len=len_left;
+    zos.write(contents,wrote_len,len);
+    wrote_len+=len;
+  }
+  zos.flush();
+}

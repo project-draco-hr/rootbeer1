@@ -1,0 +1,5 @@
+{
+  codeSegment=new LoopCodeSegment(block);
+  jimple=Jimple.v();
+  mFirstIterationLocals=new ArrayList<Local>();
+}

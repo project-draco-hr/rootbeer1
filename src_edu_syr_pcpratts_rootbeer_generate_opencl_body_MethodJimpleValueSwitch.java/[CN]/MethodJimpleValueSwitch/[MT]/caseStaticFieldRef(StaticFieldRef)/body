@@ -1,0 +1,10 @@
+{
+  SootField field=arg0.getField();
+  OpenCLField ocl_field=new OpenCLField(arg0.getField(),field.getDeclaringClass());
+  if (isLhs()) {
+    mOutput.append(ocl_field.getStaticSetterInvoke());
+  }
+ else {
+    mOutput.append(ocl_field.getStaticGetterInvoke());
+  }
+}

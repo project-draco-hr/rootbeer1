@@ -1,0 +1,11 @@
+{
+  if (cls.equals("java.lang.Object"))   return;
+  try {
+    SootClass c=RootbeerScene.v().getClass(cls);
+    JimpleWriter writer=new JimpleWriter();
+    writer.write(classNameToFileName(cls,true),c);
+  }
+ catch (  Exception ex) {
+    System.out.println("Error writing .jimple: " + cls);
+  }
+}

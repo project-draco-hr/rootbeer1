@@ -1,0 +1,5 @@
+{
+  String path=Tweaks.v().getHeaderPath();
+  if (path == null)   return "";
+  return ResourceReader.getResource(path);
+}

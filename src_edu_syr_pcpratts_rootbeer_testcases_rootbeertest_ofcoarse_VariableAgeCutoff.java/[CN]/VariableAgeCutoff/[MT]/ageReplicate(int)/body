@@ -1,0 +1,8 @@
+{
+  GpuList<Integer> to_replicate=createListOfRandomIntegers(m_VAgeStepItems.size());
+  for (int i=0; i < to_replicate.size(); ++i) {
+    Integer index=to_replicate.get(i);
+    VAgeStepItem item=m_VAgeStepItems.get(index);
+    item.m_AgeStep=age_step;
+  }
+}

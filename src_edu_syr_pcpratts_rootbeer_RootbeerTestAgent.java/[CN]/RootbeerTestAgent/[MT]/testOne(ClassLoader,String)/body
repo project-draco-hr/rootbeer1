@@ -1,0 +1,34 @@
+{
+  Configuration.setRunAllTests(false);
+  Class test_case_cls=cls_loader.loadClass(test_case);
+  Object test_case_obj=test_case_cls.newInstance();
+  if (test_case_obj instanceof TestSerialization) {
+    TestSerialization test_ser=(TestSerialization)test_case_obj;
+    System.out.println("[TEST 1/1] " + test_ser.toString());
+    test(test_ser);
+    if (m_passed) {
+      System.out.println("  PASSED");
+      System.out.println("  Cpu time: " + m_cpuTime + " ms");
+      System.out.println("  Gpu time: " + m_gpuTime + " ms");
+    }
+ else {
+      System.out.println("  FAILED");
+      System.out.println("  " + m_message);
+    }
+  }
+ else   if (test_case_obj instanceof TestException) {
+    TestException test_ex=(TestException)test_case_obj;
+    System.out.println("[TEST 1/1] " + test_ex.toString());
+    ex_test(test_ex);
+    if (m_passed) {
+      System.out.println("  PASSED");
+    }
+ else {
+      System.out.println("  FAILED");
+      System.out.println("  " + m_message);
+    }
+  }
+ else {
+    throw new RuntimeException("unknown test case type");
+  }
+}

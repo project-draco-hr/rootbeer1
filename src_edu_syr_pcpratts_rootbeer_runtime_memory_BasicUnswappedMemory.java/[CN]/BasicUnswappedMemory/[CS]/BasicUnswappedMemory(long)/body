@@ -1,0 +1,17 @@
+{
+  super(i);
+  loffset0=7;
+  loffset1=6;
+  loffset2=5;
+  loffset3=4;
+  loffset4=3;
+  loffset5=2;
+  loffset6=1;
+  loffset7=0;
+  ioffset0=3;
+  ioffset1=2;
+  ioffset2=1;
+  ioffset3=0;
+  soffset0=1;
+  soffset1=0;
+}

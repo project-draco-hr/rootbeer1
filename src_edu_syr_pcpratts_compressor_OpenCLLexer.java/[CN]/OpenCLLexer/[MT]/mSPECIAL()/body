@@ -1,0 +1,146 @@
+{
+  try {
+    int _type=SPECIAL;
+    int _channel=DEFAULT_TOKEN_CHANNEL;
+{
+      int alt1=26;
+      alt1=dfa1.predict(input);
+switch (alt1) {
+case 1:
+{
+          match("&&");
+        }
+      break;
+case 2:
+{
+      match("||");
+    }
+  break;
+case 3:
+{
+  match("==");
+}
+break;
+case 4:
+{
+match('=');
+}
+break;
+case 5:
+{
+match('>');
+}
+break;
+case 6:
+{
+match(">=");
+}
+break;
+case 7:
+{
+match("<=");
+}
+break;
+case 8:
+{
+match('<');
+}
+break;
+case 9:
+{
+match('/');
+}
+break;
+case 10:
+{
+match('?');
+}
+break;
+case 11:
+{
+match('+');
+}
+break;
+case 12:
+{
+match('-');
+}
+break;
+case 13:
+{
+match(':');
+}
+break;
+case 14:
+{
+match("//");
+}
+break;
+case 15:
+{
+match("/*");
+}
+break;
+case 16:
+{
+match("\\*");
+}
+break;
+case 17:
+{
+match("+=");
+}
+break;
+case 18:
+{
+match("-=");
+}
+break;
+case 19:
+{
+match("++");
+}
+break;
+case 20:
+{
+match('%');
+}
+break;
+case 21:
+{
+match("--");
+}
+break;
+case 22:
+{
+match(">>");
+}
+break;
+case 23:
+{
+match("<<");
+}
+break;
+case 24:
+{
+match('\\');
+}
+break;
+case 25:
+{
+match("!=");
+}
+break;
+case 26:
+{
+match("\\\"");
+}
+break;
+}
+}
+state.type=_type;
+state.channel=_channel;
+}
+  finally {
+}
+}

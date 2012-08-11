@@ -1,0 +1,34 @@
+{
+  if (x != x)   return x;
+  if (x > EXP_LIMIT_H)   return Double.POSITIVE_INFINITY;
+  if (x < EXP_LIMIT_L)   return 0;
+  double hi;
+  double lo;
+  int k;
+  double t=abs(x);
+  if (t > 0.5 * LN2) {
+    if (t < 1.5 * LN2) {
+      hi=t - LN2_H;
+      lo=LN2_L;
+      k=1;
+    }
+ else {
+      k=(int)(INV_LN2 * t + 0.5);
+      hi=t - k * LN2_H;
+      lo=k * LN2_L;
+    }
+    if (x < 0) {
+      hi=-hi;
+      lo=-lo;
+      k=-k;
+    }
+    x=hi - lo;
+  }
+ else   if (t < 1 / TWO_28)   return 1;
+ else   lo=hi=k=0;
+  t=x * x;
+  double c=x - t * (P1 + t * (P2 + t * (P3 + t * (P4 + t * P5))));
+  if (k == 0)   return 1 - (x * c / (c - 2) - x);
+  double y=1 - (lo - x * c / (2 - c) - hi);
+  return scale(y,k);
+}

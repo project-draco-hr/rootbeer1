@@ -1,0 +1,20 @@
+{
+  try {
+    int _type=SEP;
+    int _channel=DEFAULT_TOKEN_CHANNEL;
+{
+      if (input.LA(1) == '!' || (input.LA(1) >= '(' && input.LA(1) <= ')') || input.LA(1) == ',' || input.LA(1) == '.' || input.LA(1) == '@' || input.LA(1) == '[' || input.LA(1) == ']' || input.LA(1) == '{' || input.LA(1) == '}') {
+        input.consume();
+      }
+ else {
+        MismatchedSetException mse=new MismatchedSetException(null,input);
+        recover(mse);
+        throw mse;
+      }
+    }
+    state.type=_type;
+    state.channel=_channel;
+  }
+  finally {
+  }
+}

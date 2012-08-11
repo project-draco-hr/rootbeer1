@@ -1,0 +1,4 @@
+{
+  mBcl.pushMethod(mMem,"endIntegerList",VoidType.v());
+  mBcl.invokeMethodNoRet(mMem);
+}

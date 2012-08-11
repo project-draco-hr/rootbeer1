@@ -1,0 +1,5 @@
+{
+  Scene.v().addClass(ret);
+  m_Classes.put(ret.getName(),ret);
+  m_AddedClasses.add(ret.getName());
+}

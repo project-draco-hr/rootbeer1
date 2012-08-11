@@ -1,0 +1,19 @@
+{
+  Map<OpenCLField,Integer> offset_map=m_OffsetMap.get(soot_class);
+  if (field.isCloned()) {
+    if (offset_map.containsKey(field.getCloneSource())) {
+      return offset_map.get(field.getCloneSource());
+    }
+ else {
+      return -1;
+    }
+  }
+ else {
+    if (offset_map.containsKey(field)) {
+      return offset_map.get(field);
+    }
+ else {
+      return -1;
+    }
+  }
+}

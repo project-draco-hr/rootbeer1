@@ -1,0 +1,5 @@
+{
+  SootClass soot_class=ref_type.getSootClass();
+  soot_class=RootbeerScene.v().getClass(soot_class.getName());
+  return soot_class;
+}

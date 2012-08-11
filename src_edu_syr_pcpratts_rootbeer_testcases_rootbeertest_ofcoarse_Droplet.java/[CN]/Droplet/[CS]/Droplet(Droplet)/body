@@ -1,0 +1,5 @@
+{
+  mCenter=new Point(drop1.mCenter.X,drop1.mCenter.Y);
+  mVolume=drop1.mVolume;
+  resetNextData();
+}

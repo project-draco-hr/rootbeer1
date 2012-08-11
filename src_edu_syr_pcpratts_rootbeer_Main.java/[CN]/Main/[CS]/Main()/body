@@ -1,0 +1,6 @@
+{
+  m_libJars=new ArrayList<String>();
+  m_directories=new ArrayList<String>();
+  m_mode=Configuration.MODE_GPU;
+  m_simpleCompile=false;
+}

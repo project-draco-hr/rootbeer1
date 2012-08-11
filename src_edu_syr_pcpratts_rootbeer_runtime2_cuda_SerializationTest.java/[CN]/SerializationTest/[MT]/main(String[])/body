@@ -1,0 +1,9 @@
+{
+  SerializationTest test=new SerializationTest();
+  try {
+    test.execute("../Rootbeer-Test4/dist/Rootbeer-Test4.jar");
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

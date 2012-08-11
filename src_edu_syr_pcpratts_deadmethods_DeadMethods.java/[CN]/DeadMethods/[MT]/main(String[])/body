@@ -1,0 +1,6 @@
+{
+  DeadMethods dead=new DeadMethods("entry");
+  String code=dead.readFile("/home/pcpratts/code/Rootbeer/Rootbeer-Product/generated.cu");
+  String results=dead.filter(code);
+  dead.save(results);
+}

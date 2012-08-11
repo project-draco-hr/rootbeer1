@@ -1,0 +1,4 @@
+{
+  IteratorTester m=new IteratorTester();
+  m.run();
+}

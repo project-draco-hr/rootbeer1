@@ -1,0 +1,5 @@
+{
+  VAgeStepItem item=get(p);
+  if (item == null)   return false;
+  return item.pastAgeStep((int)time);
+}

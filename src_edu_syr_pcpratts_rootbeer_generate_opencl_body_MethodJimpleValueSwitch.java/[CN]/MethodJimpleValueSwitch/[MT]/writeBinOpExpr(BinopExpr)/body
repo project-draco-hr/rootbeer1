@@ -1,0 +1,37 @@
+{
+  String symbol=arg0.getSymbol().trim();
+  if (needDoubleMod(arg0,symbol)) {
+    mOutput.append("edu_syr_pcpratts_modulus(");
+    arg0.getOp1().apply(this);
+    mOutput.append(", ");
+    arg0.getOp2().apply(this);
+    mOutput.append(")");
+  }
+ else   if (symbol.equals("cmp")) {
+    mOutput.append("edu_syr_pcpratts_cmp(");
+    arg0.getOp1().apply(this);
+    mOutput.append(", ");
+    arg0.getOp2().apply(this);
+    mOutput.append(")");
+  }
+ else   if (symbol.equals("cmpl")) {
+    mOutput.append("edu_syr_pcpratts_cmpl((double)");
+    arg0.getOp1().apply(this);
+    mOutput.append(", (double)");
+    arg0.getOp2().apply(this);
+    mOutput.append(")");
+  }
+ else   if (symbol.equals("cmpg")) {
+    mOutput.append("edu_syr_pcpratts_cmpg((double)");
+    arg0.getOp1().apply(this);
+    mOutput.append(", (double)");
+    arg0.getOp2().apply(this);
+    mOutput.append(")");
+  }
+ else {
+    arg0.getOp1().apply(this);
+    mOutput.append(" " + symbol + " ");
+    arg0.getOp2().apply(this);
+    mOutput.append(" ");
+  }
+}

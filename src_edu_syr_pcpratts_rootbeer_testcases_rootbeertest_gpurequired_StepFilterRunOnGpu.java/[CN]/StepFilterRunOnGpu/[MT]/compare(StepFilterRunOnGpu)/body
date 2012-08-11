@@ -1,0 +1,21 @@
+{
+  if (a.length != brhs.a.length) {
+    System.out.println("len failed");
+    System.out.println("c.length: " + a.length);
+    System.out.println("brhs.c.length: " + brhs.a.length);
+    return false;
+  }
+  if (a[index] != brhs.a[index]) {
+    System.out.println("a failed");
+    System.out.println("lhs: " + a[index]);
+    System.out.println("rhs: " + brhs.a[index]);
+    return false;
+  }
+  if (b[index] != brhs.b[index]) {
+    System.out.println("b failed");
+    System.out.println("lhs: " + b[index]);
+    System.out.println("rhs: " + brhs.b[index]);
+    return false;
+  }
+  return true;
+}

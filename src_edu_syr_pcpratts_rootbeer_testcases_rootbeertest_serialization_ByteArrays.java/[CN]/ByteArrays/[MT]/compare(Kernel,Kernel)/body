@@ -1,0 +1,5 @@
+{
+  ByteArraysRunOnGpu blhs=(ByteArraysRunOnGpu)lhs;
+  ByteArraysRunOnGpu brhs=(ByteArraysRunOnGpu)rhs;
+  return blhs.compare(brhs);
+}

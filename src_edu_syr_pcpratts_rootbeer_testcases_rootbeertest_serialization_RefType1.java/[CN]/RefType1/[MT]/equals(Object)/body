@@ -1,0 +1,38 @@
+{
+  if (o instanceof RefType1 == false) {
+    System.out.println("1");
+    return false;
+  }
+  RefType1 other=(RefType1)o;
+  if (m_Byte != other.m_Byte) {
+    System.out.println("2");
+    System.out.println("lhs: " + m_Byte);
+    System.out.println("rhs: " + other.m_Byte);
+    return false;
+  }
+  if (m_Char != other.m_Char) {
+    System.out.println("3");
+    return false;
+  }
+  if (m_Short != other.m_Short) {
+    System.out.println("4");
+    return false;
+  }
+  if (m_Int != other.m_Int) {
+    System.out.println("5");
+    return false;
+  }
+  if (m_Long != other.m_Long) {
+    System.out.println("6");
+    return false;
+  }
+  if (m_Float != other.m_Float) {
+    System.out.println("7");
+    return false;
+  }
+  if (m_Double != other.m_Double) {
+    System.out.println("8");
+    return false;
+  }
+  return true;
+}

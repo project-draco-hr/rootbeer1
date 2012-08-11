@@ -1,0 +1,10 @@
+{
+  Value binop=null;
+  if (op.equals("*")) {
+    binop=jimple.newMulExpr(lhs,rhs);
+  }
+  Local ret=jimple.newLocal(getLocalName(),lhs.getType());
+  Unit u=jimple.newAssignStmt(ret,binop);
+  mAssembler.add(u);
+  return ret;
+}

@@ -1,0 +1,9 @@
+{
+  if (m_NumBlocksRun == m_JobsWritten.size())   return;
+  List<Kernel> cpu_jobs=m_JobsWritten.subList(m_NumBlocksRun,m_JobsWritten.size());
+  m_CpuRunner.run(cpu_jobs);
+  m_CpuRunner.join();
+  for (  Kernel job : cpu_jobs) {
+    m_Partial.enqueueJob(job);
+  }
+}

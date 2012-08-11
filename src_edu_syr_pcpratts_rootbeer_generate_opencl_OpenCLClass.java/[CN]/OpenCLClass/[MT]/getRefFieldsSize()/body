@@ -1,0 +1,4 @@
+{
+  determineFieldTypes();
+  return mInstanceRefFields.size();
+}

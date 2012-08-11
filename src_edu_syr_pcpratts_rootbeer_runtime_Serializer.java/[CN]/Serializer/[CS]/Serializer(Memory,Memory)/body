@@ -1,0 +1,6 @@
+{
+  mMem=mem;
+  mTextureMem=texture_mem;
+  mReadFromGpuCache.clear();
+  mWriteToGpuCache.clear();
+}

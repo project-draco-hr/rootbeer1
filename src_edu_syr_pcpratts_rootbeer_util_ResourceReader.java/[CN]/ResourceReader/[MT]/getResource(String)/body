@@ -1,0 +1,12 @@
+{
+  InputStream is=ResourceReader.class.getResourceAsStream(path);
+  StringBuilder ret=new StringBuilder();
+  BufferedReader reader=new BufferedReader(new InputStreamReader(is));
+  while (true) {
+    String line=reader.readLine();
+    if (line == null)     break;
+    ret.append(line + "\n");
+  }
+  is.close();
+  return ret.toString();
+}

@@ -1,0 +1,4 @@
+{
+  String class_name=getTypeString(class_instance);
+  pushMethod(class_name,method_name,return_type,arg_types);
+}

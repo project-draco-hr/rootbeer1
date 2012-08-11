@@ -1,0 +1,5 @@
+{
+  m_SingleDefineSymbols=new HashSet<String>();
+  m_DoubleDefineSymbols=new HashMap<String,String>();
+  m_Macros=new ArrayList<Macro>();
+}

@@ -1,0 +1,34 @@
+{
+  int i=0;
+  try {
+    Rootbeer rootbeer=new Rootbeer();
+    List<Kernel> known_good_items=creator.create();
+    List<Kernel> testing_items=creator.create();
+    Stopwatch watch=new Stopwatch();
+    watch.start();
+    rootbeer.runAll(testing_items);
+    boolean passed=true;
+    watch.stopAndPrint("GPU time: ");
+    watch.start();
+    for (i=0; i < known_good_items.size(); ++i) {
+      Kernel known_good_item=known_good_items.get(i);
+      known_good_item.gpuMethod();
+    }
+    watch.stopAndPrint("CPU time: ");
+    for (i=0; i < known_good_items.size(); ++i) {
+      Kernel known_good_item=known_good_items.get(i);
+      Kernel testing_item=testing_items.get(i);
+      if (!creator.compare(known_good_item,testing_item)) {
+        System.out.println("Results failed at: " + i);
+        passed=false;
+        return false;
+      }
+    }
+    return passed;
+  }
+ catch (  Throwable ex) {
+    System.out.println("Results failed at: " + i);
+    ex.printStackTrace();
+    return false;
+  }
+}

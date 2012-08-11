@@ -1,0 +1,9 @@
+{
+  try {
+    OffsetCalculator calc=OpenCLScene.v().getOffsetCalculator(m_SootClass);
+    return calc.getSize(m_SootClass);
+  }
+ catch (  RuntimeException ex) {
+    return 0;
+  }
+}

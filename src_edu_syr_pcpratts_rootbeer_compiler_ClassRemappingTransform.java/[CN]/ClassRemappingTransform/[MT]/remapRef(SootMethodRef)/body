@@ -1,0 +1,11 @@
+{
+  Type return_type=fixType(ref.returnType());
+  List params=fixParameterList(ref.parameterTypes());
+  SootMethod method=new SootMethod(ref.name(),params,return_type);
+  SootClass decl_class=ref.declaringClass();
+  if (shouldMap(decl_class)) {
+    decl_class=getMapping(decl_class);
+  }
+  method.setDeclaringClass(decl_class);
+  return method.makeRef();
+}

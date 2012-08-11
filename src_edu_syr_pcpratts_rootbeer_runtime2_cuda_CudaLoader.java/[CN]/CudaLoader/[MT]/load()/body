@@ -1,0 +1,4 @@
+{
+  doLoad(m_LibCudas);
+  doLoad(m_Rootbeers);
+}

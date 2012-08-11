@@ -1,0 +1,3 @@
+{
+  writeByte(IntConstant.v(value));
+}

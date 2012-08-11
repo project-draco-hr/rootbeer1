@@ -1,0 +1,7 @@
+{
+  List<Type> ret=new ArrayList<Type>();
+  for (  Type type : types) {
+    if (type instanceof RefType)     ret.add(type);
+  }
+  return ret;
+}

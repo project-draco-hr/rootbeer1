@@ -1,0 +1,23 @@
+{
+  Iterator<Unit> iter=bodyIterator();
+  while (iter.hasNext()) {
+    Unit curr=iter.next();
+    if (curr instanceof IfStmt) {
+      IfStmt ifstmt=(IfStmt)curr;
+      m_Labels.add(ifstmt.getTarget());
+    }
+ else     if (curr instanceof GotoStmt) {
+      GotoStmt gotostmt=(GotoStmt)curr;
+      m_Labels.add(gotostmt.getTarget());
+    }
+ else     if (curr instanceof LookupSwitchStmt) {
+      LookupSwitchStmt lookup=(LookupSwitchStmt)curr;
+      addTargets(lookup.getTargets());
+      m_Labels.add(lookup.getDefaultTarget());
+    }
+ else     if (curr instanceof TableSwitchStmt) {
+      TableSwitchStmt table=(TableSwitchStmt)curr;
+      addTargets(table.getTargets());
+    }
+  }
+}

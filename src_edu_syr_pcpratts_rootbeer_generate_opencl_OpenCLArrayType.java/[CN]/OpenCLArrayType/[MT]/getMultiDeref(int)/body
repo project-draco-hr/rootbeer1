@@ -1,0 +1,7 @@
+{
+  Type base_type=m_ArrayType.baseType;
+  ArrayType array_type=ArrayType.v(base_type,dimensions);
+  OpenCLType type=new OpenCLType(array_type);
+  String ret=type.getDerefString();
+  return ret;
+}

@@ -1,0 +1,4 @@
+{
+  URL[] urls=filenameToUrl(jar_name);
+  m_loader=new URLClassLoader(urls,ClassLoader.getSystemClassLoader().getParent());
+}

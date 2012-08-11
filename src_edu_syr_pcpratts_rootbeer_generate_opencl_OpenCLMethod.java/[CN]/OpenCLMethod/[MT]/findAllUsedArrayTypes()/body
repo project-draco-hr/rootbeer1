@@ -1,0 +1,20 @@
+{
+  SootClass soot_class=m_SootMethod.getDeclaringClass();
+  Body body;
+  try {
+    body=m_SootMethod.getActiveBody();
+  }
+ catch (  RuntimeException ex) {
+    return;
+  }
+  PatchingChain<Unit> units=body.getUnits();
+  Iterator<Unit> iter=units.iterator();
+  while (iter.hasNext()) {
+    Unit next=iter.next();
+    List<ValueBox> boxes=next.getUseAndDefBoxes();
+    for (    ValueBox box : boxes) {
+      Value value=box.getValue();
+      FindMethodsFieldsAndArrayTypes.arrayTypes(value);
+    }
+  }
+}

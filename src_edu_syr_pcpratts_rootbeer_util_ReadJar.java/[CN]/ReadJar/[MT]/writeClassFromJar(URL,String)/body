@@ -1,0 +1,22 @@
+{
+  try {
+    JarURLConnection con=(JarURLConnection)url.openConnection();
+    JarFile archive=con.getJarFile();
+    Enumeration<JarEntry> entries=archive.entries();
+    while (entries.hasMoreElements()) {
+      JarEntry entry=entries.nextElement();
+      if (jarEntryEqual(entry.getName(),cls) == false)       continue;
+      String entry_name=entry.getName();
+      String filename=Constants.JAR_CONTENTS_FOLDER + File.separator + entry_name;
+      if (m_UseDirectories)       JarEntryHelp.mkdir(filename);
+      if (entry.isDirectory()) {
+        return;
+      }
+      InputStream is=archive.getInputStream(entry);
+      writeToFile(is,filename);
+    }
+  }
+ catch (  IOException ex) {
+    throw new RuntimeException(ex);
+  }
+}

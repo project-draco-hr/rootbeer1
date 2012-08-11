@@ -1,0 +1,3 @@
+{
+  return (x & 0xffffffff00000000L) >> 32;
+}

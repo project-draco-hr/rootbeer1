@@ -1,0 +1,6 @@
+{
+  m_Map.put(key,value);
+  m_RuntimeClasses.add(value);
+  value="/" + value.replace(".","/") + ".class";
+  m_RuntimeClassesJar.add(value);
+}

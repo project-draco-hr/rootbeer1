@@ -1,0 +1,7 @@
+{
+  m_floor=StrictMath.floor(StrictMath.PI);
+  m_abs=StrictMath.abs(StrictMath.PI);
+  m_sqrt=StrictMath.sqrt(StrictMath.PI);
+  m_round=StrictMath.round(StrictMath.PI);
+  m_pow=StrictMath.pow(StrictMath.PI,2.0 / 3.0);
+}

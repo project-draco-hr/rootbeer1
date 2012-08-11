@@ -1,0 +1,6 @@
+{
+  int alignment=8;
+  long total_blocks=align(total_size,alignment);
+  m_AllocSize=256 * 1024 * 1024L;
+  m_AllocCount=((int)(total_blocks / m_AllocSize)) - 2;
+}

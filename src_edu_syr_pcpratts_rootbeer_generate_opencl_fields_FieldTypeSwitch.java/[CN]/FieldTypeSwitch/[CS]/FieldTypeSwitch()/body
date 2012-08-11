@@ -1,0 +1,4 @@
+{
+  m_BodyToNameMap=new HashMap<String,String>();
+  m_CurrFunctionNum=0;
+}

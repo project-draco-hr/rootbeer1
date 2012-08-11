@@ -1,0 +1,4 @@
+{
+  checkAlignment(4);
+  super.writeFloat(value);
+}

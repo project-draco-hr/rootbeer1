@@ -1,0 +1,10 @@
+{
+  List<String> ret=new ArrayList<String>();
+  BufferedReader reader=new BufferedReader(new FileReader(filename));
+  while (true) {
+    String line=reader.readLine();
+    if (line == null)     break;
+    ret.add(line);
+  }
+  return ret;
+}

@@ -1,0 +1,22 @@
+{
+  Token big_token;
+  while (true) {
+    big_token=m_LowerLevel.next();
+    if (big_token.isComment() && m_LowerLevel.hasNext()) {
+      continue;
+    }
+ else {
+      break;
+    }
+  }
+  String next=big_token.getString();
+  if (big_token.isImmutable() || big_token.isNewLine()) {
+    m_Tokens.add(big_token);
+  }
+ else {
+    String[] tokens=next.split("\\s+");
+    for (    String token : tokens) {
+      m_Tokens.add(new Token(token));
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  FieldCloner cloner=new FieldCloner();
+  cloner.setup(m_Classes);
+  List<CompositeField> composites=cloner.getCompositeFields();
+  for (  CompositeField composite : composites) {
+    List<SootClass> classes=composite.getClasses();
+    if (classes.contains(soot_class))     return new OffsetCalculator(composite);
+  }
+  throw new RuntimeException("Cannot find composite field for soot_class");
+}

@@ -1,0 +1,4 @@
+{
+  if (m_Instance == null)   m_Instance=new NativeCpuRuntime();
+  return m_Instance;
+}

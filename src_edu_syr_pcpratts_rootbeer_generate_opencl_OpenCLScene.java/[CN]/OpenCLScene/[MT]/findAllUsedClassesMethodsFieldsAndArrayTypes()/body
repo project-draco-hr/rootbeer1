@@ -1,0 +1,19 @@
+{
+  FindMethodsFieldsAndArrayTypes.reset();
+  addBuiltinRequirements();
+  codeSegment.findAllUsedMethodsAndFields();
+  List<OpenCLMethod> all_methods=mMethodHierarchies.getMethods();
+  for (  OpenCLMethod method : all_methods) {
+    method.findAllUsedMethodsAndFields();
+  }
+  codeSegment.findAllUsedArrayTypes();
+  all_methods=mMethodHierarchies.getMethods();
+  for (  OpenCLMethod method : all_methods) {
+    method.findAllUsedArrayTypes();
+  }
+  m_TypeHistory=new TypeHistory(codeSegment.getRootSootClass());
+  List<Type> scene_types=OpenCLScene.v().getTypes();
+  for (  Type scene_type : scene_types) {
+    m_TypeHistory.addType(scene_type);
+  }
+}

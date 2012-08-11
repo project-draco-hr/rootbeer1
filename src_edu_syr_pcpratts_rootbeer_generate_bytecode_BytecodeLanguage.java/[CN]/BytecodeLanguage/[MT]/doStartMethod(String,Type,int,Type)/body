@@ -1,0 +1,9 @@
+{
+  mAssembler=new UnitAssembler();
+  mParameterTypes=convertTypeArrayToList(arg_types);
+  mCurrMethod=new SootMethod(method_name,mParameterTypes,return_type,modifiers);
+  mCurrMethod.setDeclaringClass(mCurrClass);
+  mCurrBody=jimple.newBody(mCurrMethod);
+  mCurrMethod.setActiveBody(mCurrBody);
+  mCurrClass.addMethod(mCurrMethod);
+}

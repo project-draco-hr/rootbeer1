@@ -1,0 +1,5 @@
+{
+  m_Handles=handles;
+  m_Items=items;
+  m_NotWrittenItems=not_written;
+}

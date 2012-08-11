@@ -1,0 +1,12 @@
+{
+  String str=token.getString();
+  if (str.equals("{"))   return true;
+  if (str.equals("}"))   return true;
+  if (str.equals(";"))   return true;
+  if (str.equals(":")) {
+    if (hitClass())     return false;
+    if (prevIsAccessSpec())     return true;
+    if (labeledStatement())     return true;
+  }
+  return false;
+}

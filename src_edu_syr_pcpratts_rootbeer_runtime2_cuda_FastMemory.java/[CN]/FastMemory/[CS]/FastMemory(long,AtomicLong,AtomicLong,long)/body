@@ -1,0 +1,8 @@
+{
+  m_CpuBase=cpu_base_address;
+  m_SpaceSize=space_size;
+  m_InstanceMemPointer=new MemPointer(instance_pointer);
+  m_StaticMemPointer=new MemPointer(static_pointer);
+  m_CurrMemPointer=m_InstanceMemPointer;
+  m_Reserve=1024;
+}

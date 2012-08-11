@@ -1,0 +1,4 @@
+{
+  int intValue=Float.floatToIntBits(value);
+  writeInt(intValue);
+}

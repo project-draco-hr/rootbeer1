@@ -1,0 +1,6 @@
+{
+  if (o instanceof OpenCLArrayType == false)   return false;
+  OpenCLArrayType other=(OpenCLArrayType)o;
+  if (this.m_ArrayType.equals(other.m_ArrayType))   return true;
+  return false;
+}

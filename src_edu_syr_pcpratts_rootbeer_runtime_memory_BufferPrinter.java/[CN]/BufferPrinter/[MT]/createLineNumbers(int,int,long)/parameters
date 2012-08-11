@@ -1,0 +1,3 @@
+int num_lines
+int elements_per_line
+long start_ptr

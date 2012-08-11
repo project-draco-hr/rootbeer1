@@ -1,0 +1,45 @@
+{
+  if (m_Char2 != brhs.m_Char2) {
+    System.out.println("char");
+    System.out.println("lhs: " + (int)m_Char2);
+    System.out.println("rhs: " + (int)brhs.m_Char2);
+    return false;
+  }
+  if (m_Short2 != brhs.m_Short2) {
+    System.out.println("short");
+    return false;
+  }
+  if (m_Int2 != brhs.m_Int2) {
+    System.out.println("int");
+    System.out.println("lhs: " + (int)m_Int2);
+    System.out.println("rhs: " + (int)brhs.m_Int2);
+    return false;
+  }
+  if (m_Long2 != brhs.m_Long2) {
+    System.out.println("long");
+    return false;
+  }
+  if (m_Float2 != brhs.m_Float2) {
+    System.out.println("float");
+    return false;
+  }
+  if (m_Double2 != brhs.m_Double2) {
+    System.out.println("double");
+    return false;
+  }
+  if (brhs.m_Bool2 != true) {
+    System.out.println("instance bool");
+    return false;
+  }
+  if (m_Bool != true) {
+    System.out.println("static bool");
+    return false;
+  }
+  StaticsTest2PublicClass cls=new StaticsTest2PublicClass();
+  int get_number=cls.getNumber2();
+  if (get_number != 90) {
+    System.out.println("getNumber: " + get_number);
+    return false;
+  }
+  return true;
+}

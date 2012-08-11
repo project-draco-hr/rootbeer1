@@ -1,0 +1,4 @@
+String main_jar
+List<String> lib_jars
+List<String> dirs
+String dest_jar

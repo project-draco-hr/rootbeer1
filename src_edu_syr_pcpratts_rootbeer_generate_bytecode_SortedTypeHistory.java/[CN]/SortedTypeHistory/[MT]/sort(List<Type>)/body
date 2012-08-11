@@ -1,0 +1,14 @@
+{
+  m_Hierarchy=new ArrayList<TreeNode>();
+  MultiDimensionalArrayTypeCreator creator=new MultiDimensionalArrayTypeCreator();
+  types=creator.create(types);
+  types=findExtraRefTypes(types);
+  List<Type> array_types=getArrayTypes(types);
+  List<Type> ref_types=getRefTypes(types);
+  doSort(ref_types);
+  List<Type> hierarchy=createSingleHierarchy();
+  hierarchy=trimDuplicates(hierarchy);
+  hierarchy=reachableFilter(hierarchy);
+  array_types.addAll(hierarchy);
+  return array_types;
+}

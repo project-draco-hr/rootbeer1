@@ -1,0 +1,10 @@
+{
+  for (  Type type : types) {
+    if (type instanceof ArrayType) {
+      m_ArrayTypes.add((ArrayType)type);
+    }
+ else {
+      m_NotArrayTypes.add(type);
+    }
+  }
+}

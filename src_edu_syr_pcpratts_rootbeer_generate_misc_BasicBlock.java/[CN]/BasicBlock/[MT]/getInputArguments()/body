@@ -1,0 +1,11 @@
+{
+  List<Local> ret=mInputOutputParameters.getInputArguments();
+  if (mUsingSharedState) {
+    List<Local> ret2=new ArrayList<Local>();
+    for (int i=0; i < ret.size(); ++i) {
+      if (mSharedStateValuesToFilterOut.contains(i) == false)       ret2.add(ret.get(i));
+    }
+    return ret2;
+  }
+  return ret;
+}

@@ -1,0 +1,5 @@
+{
+  CharArraysRunOnGpu blhs=(CharArraysRunOnGpu)lhs;
+  CharArraysRunOnGpu brhs=(CharArraysRunOnGpu)rhs;
+  return blhs.compare(brhs);
+}

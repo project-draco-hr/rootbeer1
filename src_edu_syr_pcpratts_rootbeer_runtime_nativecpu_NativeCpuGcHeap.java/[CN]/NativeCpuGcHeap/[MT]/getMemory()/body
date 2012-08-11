@@ -1,0 +1,9 @@
+{
+  List<Memory> ret=new ArrayList<Memory>();
+  ret.add(mToSpaceMemory);
+  ret.add(mHandlesMemory);
+  ret.add(mHeapEndPtrMemory);
+  ret.add(mGcInfoSpaceMemory);
+  ret.add(mExceptionsMemory);
+  return ret;
+}

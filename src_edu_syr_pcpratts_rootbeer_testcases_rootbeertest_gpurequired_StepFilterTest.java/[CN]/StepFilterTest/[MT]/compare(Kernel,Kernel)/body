@@ -1,0 +1,5 @@
+{
+  StepFilterRunOnGpu blhs=(StepFilterRunOnGpu)lhs;
+  StepFilterRunOnGpu brhs=(StepFilterRunOnGpu)rhs;
+  return blhs.compare(brhs);
+}

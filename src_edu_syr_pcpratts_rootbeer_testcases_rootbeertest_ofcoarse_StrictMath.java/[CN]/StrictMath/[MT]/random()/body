@@ -1,0 +1,4 @@
+{
+  if (rand == null)   rand=new Random();
+  return rand.nextDouble();
+}

@@ -1,0 +1,5 @@
+{
+  Class classToLoad=Class.forName(class_name,true,loader);
+  Object instance=classToLoad.newInstance();
+  return instance;
+}

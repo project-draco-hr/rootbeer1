@@ -1,0 +1,6 @@
+{
+  List<Type> ret=new ArrayList<Type>();
+  ret.addAll(m_ArrayTypes);
+  ret.addAll(m_NotArrayTypes);
+  return ret;
+}

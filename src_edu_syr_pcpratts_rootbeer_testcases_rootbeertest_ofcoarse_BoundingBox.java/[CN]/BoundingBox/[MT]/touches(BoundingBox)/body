@@ -1,0 +1,11 @@
+{
+  if (other.contains(m_UpperLeft))   return true;
+  if (other.contains(m_UpperRight))   return true;
+  if (other.contains(m_LowerLeft))   return true;
+  if (other.contains(m_LowerRight))   return true;
+  if (contains(other.m_UpperLeft))   return true;
+  if (contains(other.m_UpperRight))   return true;
+  if (contains(other.m_LowerLeft))   return true;
+  if (contains(other.m_LowerRight))   return true;
+  return false;
+}

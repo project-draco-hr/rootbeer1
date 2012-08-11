@@ -1,0 +1,5 @@
+{
+  long ret=m_Stack.get(m_Index);
+  m_Index--;
+  return ret;
+}

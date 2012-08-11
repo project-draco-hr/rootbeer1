@@ -1,0 +1,9 @@
+{
+  while (true) {
+    try {
+      return m_Queue.take();
+    }
+ catch (    Exception ex) {
+    }
+  }
+}

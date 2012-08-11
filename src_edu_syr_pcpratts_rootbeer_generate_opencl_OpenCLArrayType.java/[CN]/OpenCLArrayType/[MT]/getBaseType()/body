@@ -1,0 +1,6 @@
+{
+  Type base_type=null;
+  ArrayType array_type=(ArrayType)m_ArrayType;
+  base_type=array_type.baseType;
+  return base_type;
+}

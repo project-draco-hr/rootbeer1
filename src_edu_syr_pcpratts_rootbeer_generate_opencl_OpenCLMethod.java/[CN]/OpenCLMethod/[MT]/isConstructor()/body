@@ -1,0 +1,5 @@
+{
+  String method_name=m_SootMethod.getName();
+  if (method_name.equals("<init>"))   return true;
+  return false;
+}

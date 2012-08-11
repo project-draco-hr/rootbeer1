@@ -1,0 +1,12 @@
+{
+  List<Unit> units=mLoop.getWholeBodyOfMethod();
+  for (int i=mStart; i <= mStop; ++i) {
+    Unit curr=units.get(i);
+    List<ValueBox> def_boxes=curr.getDefBoxes();
+    for (    ValueBox box : def_boxes) {
+      Value v=box.getValue();
+      if (v.equals(local))       return true;
+    }
+  }
+  return false;
+}

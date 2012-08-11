@@ -1,0 +1,3 @@
+CompositeField composite
+boolean writable
+FieldTypeSwitch type_switch

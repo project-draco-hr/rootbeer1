@@ -1,0 +1,9 @@
+{
+  List parameter_types=new ArrayList();
+  SootMethod run=new SootMethod("run",parameter_types,VoidType.v());
+  run.setDeclaringClass(mQueueManagerClass);
+  Expr expr=jimple.newVirtualInvokeExpr(mQueueManagerLocal,run.makeRef(),new ArrayList());
+  Unit unit=jimple.newInvokeStmt(expr);
+  assembler.add(unit);
+  return unit;
+}

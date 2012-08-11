@@ -1,0 +1,12 @@
+{
+  for (  String classname : m_Classes.keySet()) {
+    try {
+      SootClass cls=getClass(classname);
+      JimpleWriter writer=new JimpleWriter();
+      writer.write("copied",cls);
+    }
+ catch (    Exception ex) {
+      ex.printStackTrace();
+    }
+  }
+}

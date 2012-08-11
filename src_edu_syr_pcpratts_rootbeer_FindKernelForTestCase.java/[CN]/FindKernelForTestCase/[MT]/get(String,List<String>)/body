@@ -1,0 +1,12 @@
+{
+  m_kernels=kernels;
+  SootClass test_class=RootbeerScene.v().getClass(test_case);
+  List<SootMethod> methods=test_class.getMethods();
+  for (  SootMethod method : methods) {
+    String kernel=searchMethod(method);
+    if (kernel != null) {
+      return kernel;
+    }
+  }
+  throw new RuntimeException("cannot find kernel for test case: " + test_case);
+}

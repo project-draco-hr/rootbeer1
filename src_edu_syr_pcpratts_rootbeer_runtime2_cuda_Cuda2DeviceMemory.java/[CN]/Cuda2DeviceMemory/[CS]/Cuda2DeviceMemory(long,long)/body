@@ -1,0 +1,3 @@
+{
+  setup(cpu_addr,gpu_addr);
+}

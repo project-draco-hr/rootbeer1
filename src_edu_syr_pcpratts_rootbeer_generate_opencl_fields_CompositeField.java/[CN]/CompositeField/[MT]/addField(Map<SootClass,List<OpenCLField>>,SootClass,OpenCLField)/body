@@ -1,0 +1,12 @@
+{
+  if (fields_by_class.containsKey(soot_class)) {
+    List<OpenCLField> lst=fields_by_class.get(soot_class);
+    lst.add(field);
+  }
+ else {
+    List<OpenCLField> lst=new ArrayList<OpenCLField>();
+    lst.add(field);
+    fields_by_class.put(soot_class,lst);
+  }
+  if (m_Classes.contains(soot_class) == false)   m_Classes.add(soot_class);
+}

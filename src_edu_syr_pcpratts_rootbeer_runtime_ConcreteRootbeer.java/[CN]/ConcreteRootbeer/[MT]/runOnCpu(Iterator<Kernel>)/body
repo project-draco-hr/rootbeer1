@@ -1,0 +1,11 @@
+{
+  try {
+    PartiallyCompletedParallelJob partial=CpuRuntime.v().run(jobs);
+    return new ResultIterator(partial,CpuRuntime.v());
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    System.exit(-1);
+    return null;
+  }
+}

@@ -1,0 +1,3 @@
+{
+  m_Tokens=new LinkedList<Token>();
+}

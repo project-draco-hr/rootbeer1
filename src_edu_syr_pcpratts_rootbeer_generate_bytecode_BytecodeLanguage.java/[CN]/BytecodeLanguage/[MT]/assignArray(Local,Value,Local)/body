@@ -1,0 +1,5 @@
+{
+  Value lhs=jimple.newArrayRef(base,i);
+  Unit u=jimple.newAssignStmt(lhs,value);
+  mAssembler.add(u);
+}

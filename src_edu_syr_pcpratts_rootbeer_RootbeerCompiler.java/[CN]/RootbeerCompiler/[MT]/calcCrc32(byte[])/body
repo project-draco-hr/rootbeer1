@@ -1,0 +1,5 @@
+{
+  CRC32 crc=new CRC32();
+  crc.update(buffer);
+  return crc.getValue();
+}

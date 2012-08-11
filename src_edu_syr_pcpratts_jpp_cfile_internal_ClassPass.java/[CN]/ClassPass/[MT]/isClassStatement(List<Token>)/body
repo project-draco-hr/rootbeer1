@@ -1,0 +1,10 @@
+{
+  if (tokens.isEmpty())   return false;
+  Token first=tokens.get(0);
+  if (first.getString().equals("class"))   return true;
+  if (first.getString().equals("struct"))   return true;
+  if (first.getString().equals("enum"))   return true;
+  if (first.getString().equals("union"))   return true;
+  if (first.getString().equals("typedef"))   return true;
+  return false;
+}

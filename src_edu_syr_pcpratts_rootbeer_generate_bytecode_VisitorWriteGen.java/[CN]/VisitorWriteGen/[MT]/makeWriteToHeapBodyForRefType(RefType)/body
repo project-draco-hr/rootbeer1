@@ -1,0 +1,35 @@
+{
+  BytecodeLanguage bcl=m_Bcl.top();
+  BclMemory bcl_mem=new BclMemory(bcl,m_CurrentMem.top());
+  int class_id=OpenCLScene.v().getClassType(type);
+  SootClass soot_class=type.getSootClass();
+  Local object_to_write_from=bcl.cast(type,m_Param0);
+  OpenCLClass ocl_class=OpenCLScene.v().getOpenCLClass(soot_class);
+  int size=ocl_class.getSize();
+  int gc_count=ocl_class.getRefFieldsSize();
+  bcl_mem.writeByte((byte)gc_count);
+  bcl_mem.writeByte((byte)0);
+  bcl_mem.writeByte((byte)class_id);
+  bcl_mem.writeByte((byte)0);
+  bcl_mem.writeInt(size);
+  bcl_mem.incrementAddress(4);
+  bcl_mem.writeInt(-1);
+  bcl_mem.pushAddress();
+  int size_minus_gc_info=size - Constants.SizeGcInfo;
+  bcl_mem.incrementAddress(size_minus_gc_info);
+  m_CurrClass=soot_class;
+  m_CurrObj.push(object_to_write_from);
+  writeFields(true);
+  Local after_array_write_address=bcl_mem.getPointer();
+  bcl_mem.popAddress();
+  invokeWriteRefs(m_CurrClass,m_CurrentMem.top());
+  bcl_mem.align();
+  writeFields(false);
+  bcl_mem.setAddress(after_array_write_address);
+  BclMemory bcl_mem0=new BclMemory(bcl,m_Mem);
+  bcl_mem0.align();
+  BclMemory bcl_mem1=new BclMemory(bcl,m_TextureMem);
+  bcl_mem1.align();
+  bcl.returnVoid();
+  m_CurrObj.pop();
+}

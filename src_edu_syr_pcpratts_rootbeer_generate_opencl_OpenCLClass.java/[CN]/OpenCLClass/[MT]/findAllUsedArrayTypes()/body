@@ -1,0 +1,5 @@
+{
+  for (  OpenCLMethod ocl_method : m_Methods) {
+    ocl_method.findAllUsedArrayTypes();
+  }
+}

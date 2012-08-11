@@ -1,0 +1,24 @@
+{
+  m_OffsetMap=new HashMap<SootClass,Map<OpenCLField,Integer>>();
+  List<SootClass> classes=composite.getClasses();
+  for (int i=classes.size() - 1; i >= 0; --i) {
+    SootClass curr_key_class=classes.get(i);
+    m_CurrOffsetSubMap=new HashMap<OpenCLField,Integer>();
+    m_CurrOffset=Constants.SizeGcInfo;
+    for (int j=i; j >= 0; --j) {
+      SootClass curr_field_class=classes.get(j);
+      List<OpenCLField> fields=composite.getRefFieldsByClass(curr_field_class);
+      fields=trimFields(fields,curr_field_class,true);
+      calculateForSet(fields);
+      alignCurrOffset();
+    }
+    for (int j=i; j >= 0; --j) {
+      SootClass curr_field_class=classes.get(j);
+      List<OpenCLField> fields=composite.getNonRefFieldsByClass(curr_field_class);
+      fields=trimFields(fields,curr_field_class,false);
+      calculateForSet(fields);
+      alignCurrOffset();
+    }
+    m_OffsetMap.put(curr_key_class,m_CurrOffsetSubMap);
+  }
+}

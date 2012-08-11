@@ -1,0 +1,6 @@
+{
+  m_UpperLeft=new Point(other.m_UpperLeft);
+  m_LowerRight=new Point(other.m_LowerRight);
+  m_UpperRight=new Point(other.m_UpperRight);
+  m_LowerLeft=new Point(other.m_LowerLeft);
+}

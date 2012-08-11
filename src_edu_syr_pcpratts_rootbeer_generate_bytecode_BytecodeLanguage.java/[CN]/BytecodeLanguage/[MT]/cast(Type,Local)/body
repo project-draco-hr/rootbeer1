@@ -1,0 +1,7 @@
+{
+  Local ret=jimple.newLocal(getLocalName(),type);
+  Value rhs_value=jimple.newCastExpr(rhs,type);
+  Unit u=jimple.newAssignStmt(ret,rhs_value);
+  mAssembler.add(u);
+  return ret;
+}

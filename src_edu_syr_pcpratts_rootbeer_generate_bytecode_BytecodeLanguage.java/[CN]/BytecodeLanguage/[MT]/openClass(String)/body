@@ -1,0 +1,3 @@
+{
+  mCurrClass=RootbeerScene.v().getClass(name);
+}

@@ -1,0 +1,6 @@
+{
+  List<File> output_class_files=getFiles(Constants.OUTPUT_CLASS_FOLDER);
+  for (  File f : output_class_files) {
+    writeFileToOutput(f,zos,Constants.OUTPUT_CLASS_FOLDER);
+  }
+}

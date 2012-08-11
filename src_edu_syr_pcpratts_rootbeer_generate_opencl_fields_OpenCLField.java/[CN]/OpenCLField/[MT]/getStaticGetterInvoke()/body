@@ -1,0 +1,3 @@
+{
+  return "static_getter_" + getFullName() + "(gc_info, exception)";
+}

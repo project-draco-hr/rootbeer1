@@ -1,0 +1,13 @@
+{
+  String ret="";
+  for (  CTemplate template : m_Templates) {
+    ret+=template.toString() + "\n";
+  }
+  if (m_Namespace != null) {
+    ret+=m_Namespace.toString() + "::";
+  }
+  for (  Token token : m_Tokens) {
+    ret+=token.getString() + " ";
+  }
+  return ret;
+}

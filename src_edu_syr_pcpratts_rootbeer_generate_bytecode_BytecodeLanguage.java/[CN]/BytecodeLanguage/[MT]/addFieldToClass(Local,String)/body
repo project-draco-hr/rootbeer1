@@ -1,0 +1,4 @@
+{
+  SootField field=new SootField(name,local.getType(),Modifier.PUBLIC);
+  mCurrClass.addField(field);
+}

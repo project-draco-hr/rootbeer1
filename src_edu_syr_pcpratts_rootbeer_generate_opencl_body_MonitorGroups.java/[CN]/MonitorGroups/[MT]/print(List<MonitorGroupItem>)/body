@@ -1,0 +1,18 @@
+{
+  for (  MonitorGroupItem item : ret) {
+    System.out.println("<group_item>");
+    System.out.println("<prefix>");
+    List<Unit> prefix=item.getPrefixUnits();
+    for (    Unit pre : prefix) {
+      System.out.println(pre.toString());
+    }
+    System.out.println("</prefix>");
+    if (item.getEnterMonitor() != null) {
+      System.out.println("<enter>");
+      System.out.println(item.getEnterMonitor().toString());
+      System.out.println("</enter>");
+    }
+    print(item.getGroups());
+    System.out.println("</group_item>");
+  }
+}

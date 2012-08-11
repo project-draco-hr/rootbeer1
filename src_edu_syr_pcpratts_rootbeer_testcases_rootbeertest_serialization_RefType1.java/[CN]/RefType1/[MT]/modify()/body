@@ -1,0 +1,9 @@
+{
+  m_Byte++;
+  m_Char--;
+  m_Short--;
+  m_Int--;
+  m_Long--;
+  m_Float--;
+  m_Double--;
+}

@@ -1,0 +1,12 @@
+{
+  SortableField[] fields=new SortableField[input.size()];
+  for (int i=0; i < input.size(); ++i) {
+    fields[i]=new SortableField(input.get(i));
+  }
+  Arrays.sort(fields);
+  List<OpenCLField> ret=new ArrayList<OpenCLField>();
+  for (int i=0; i < fields.length; ++i) {
+    ret.add(fields[i].getField());
+  }
+  return ret;
+}

@@ -1,0 +1,5 @@
+{
+  Token token=m_LowerLevel.next();
+  token=replace(token);
+  m_Tokens.add(token);
+}

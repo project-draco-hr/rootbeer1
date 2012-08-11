@@ -1,0 +1,47 @@
+{
+  StringBuilder ret=new StringBuilder();
+  if (shouldEmitBody()) {
+    ret.append(getMethodDecl(false) + "{\n");
+    try {
+      if (methodIsRuntimeBasicBlockRun() == false) {
+        if (isSynchronized()) {
+          ret.append(synchronizedEnter());
+        }
+        OpenCLBody ocl_body=new OpenCLBody(m_SootMethod,isConstructor());
+        ret.append(ocl_body.getBody());
+        if (isSynchronized()) {
+          if (isLinux()) {
+            ret.append("  } else {");
+            ret.append("    count++;\n");
+            ret.append("    if(count > 99 && *((int *) mystery) == 0){\n");
+            ret.append("      count = 0;\n");
+            ret.append("    }\n");
+            ret.append("  }\n");
+            ret.append("}\n");
+          }
+ else {
+            ret.append("  }\n");
+            ret.append("}\n");
+          }
+        }
+        if (returnsAValue()) {
+          ret.append("return 0;");
+        }
+      }
+    }
+ catch (    RuntimeException ex) {
+      System.out.println("Error creating method body: " + m_SootMethod.getSignature());
+      OpenCLMethod ocl_method=new OpenCLMethod(m_SootMethod,m_SootClass);
+      if (ocl_method.returnsAValue())       ret.append("return 0;\n");
+ else       ret.append("\n");
+    }
+    ret.append("}\n");
+    if (isConstructor()) {
+      ret.append(getMethodDecl(true) + "{\n");
+      OpenCLBody ocl_body=new OpenCLBody(RootbeerScene.v().getBody(m_SootMethod));
+      ret.append(ocl_body.getBody());
+      ret.append("}\n");
+    }
+  }
+  return ret.toString();
+}

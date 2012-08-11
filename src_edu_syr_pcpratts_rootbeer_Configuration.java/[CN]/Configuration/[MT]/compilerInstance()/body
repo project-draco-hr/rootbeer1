@@ -1,0 +1,6 @@
+{
+  if (m_Instance == null) {
+    m_Instance=new Configuration();
+  }
+  return m_Instance;
+}

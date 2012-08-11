@@ -1,0 +1,3 @@
+{
+  writeClassFile(cls,classNameToFileName(cls,false));
+}

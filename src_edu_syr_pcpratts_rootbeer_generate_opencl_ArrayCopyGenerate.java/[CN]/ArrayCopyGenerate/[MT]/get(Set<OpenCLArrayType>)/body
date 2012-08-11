@@ -1,0 +1,27 @@
+{
+  createSet(array_types_set);
+  StringBuilder ret=new StringBuilder();
+  String device_function_qual=Tweaks.v().getDeviceFunctionQualifier();
+  String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
+  ret.append(device_function_qual + " void \n");
+  ret.append("java_lang_System_arraycopy(" + address_qual + " char * gc_info, ");
+  ret.append("int src_handle, int srcPos, int dest_handle, int destPos, int length, int * exception){\n");
+  ret.append("  int i;\n");
+  ret.append("  int src_index;\n");
+  ret.append("  int dest_index;\n");
+  ret.append("  " + address_qual + " char * src_deref = edu_syr_pcpratts_gc_deref(gc_info, src_handle);\n");
+  ret.append("  " + address_qual + " char * dest_deref = edu_syr_pcpratts_gc_deref(gc_info, dest_handle);\n");
+  ret.append("  \n");
+  ret.append("  GC_OBJ_TYPE_TYPE src_type = edu_syr_pcpratts_gc_get_type(src_deref);\n");
+  ret.append("  GC_OBJ_TYPE_TYPE dest_type = edu_syr_pcpratts_gc_get_type(dest_deref);\n");
+  ret.append("  \n");
+  ret.append("  if(srcPos < destPos){\n");
+  ret.append("      if(0){}\n");
+  ret.append(generateForList());
+  ret.append("  } else {\n");
+  ret.append("      if(0){}\n");
+  ret.append(generateForList());
+  ret.append("  }\n");
+  ret.append("}\n");
+  return ret.toString();
+}

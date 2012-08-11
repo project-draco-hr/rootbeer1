@@ -1,0 +1,7 @@
+{
+  SootClass soot_class=soot_method.getDeclaringClass();
+  OpenCLClass ocl_class=getOpenCLClass(soot_class);
+  ocl_class.addMethod(new OpenCLMethod(soot_method,soot_class));
+  mMethodHierarchies.addMethod(soot_method);
+  mClassHierarchy.getClassHierarchy(soot_class);
+}

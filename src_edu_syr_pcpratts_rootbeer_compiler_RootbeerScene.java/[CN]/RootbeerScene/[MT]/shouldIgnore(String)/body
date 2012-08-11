@@ -1,0 +1,8 @@
+{
+  for (  String ignore : m_ignorePackages) {
+    if (class_name.startsWith(ignore)) {
+      return true;
+    }
+  }
+  return false;
+}

@@ -1,0 +1,14 @@
+{
+  StringBuilder ret=new StringBuilder();
+  ret.append(Tweaks.v().getDeviceFunctionQualifier() + " ");
+  if (ctor_body) {
+    ret.append("void");
+  }
+ else {
+    ret.append(getReturnString());
+  }
+  ret.append(" ");
+  ret.append(getPolymorphicNameInternal(ctor_body));
+  ret.append(getArgumentListString(ctor_body));
+  return ret.toString();
+}

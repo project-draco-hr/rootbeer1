@@ -1,0 +1,7 @@
+{
+  Type system=RefType.v("java.lang.System");
+  Local out=refStaticField(system,"out");
+  Type string=RefType.v("java.lang.String");
+  pushMethod(out,"println",VoidType.v(),string);
+  invokeMethodNoRet(out,StringConstant.v(message));
+}

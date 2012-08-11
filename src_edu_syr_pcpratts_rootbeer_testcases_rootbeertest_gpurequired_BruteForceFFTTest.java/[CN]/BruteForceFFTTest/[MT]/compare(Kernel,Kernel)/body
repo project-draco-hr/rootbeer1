@@ -1,0 +1,5 @@
+{
+  BruteForceFFTRunOnGpu blhs=(BruteForceFFTRunOnGpu)lhs;
+  BruteForceFFTRunOnGpu brhs=(BruteForceFFTRunOnGpu)rhs;
+  return blhs.compare(brhs);
+}

@@ -1,0 +1,9 @@
+{
+  List<Kernel> jobs=new ArrayList<Kernel>();
+  SynchronizedStaticMethodShared obj=new SynchronizedStaticMethodShared();
+  for (int i=0; i < 32; ++i) {
+    SynchronizedStaticMethodRunOnGpu curr=new SynchronizedStaticMethodRunOnGpu(obj);
+    jobs.add(curr);
+  }
+  return jobs;
+}

@@ -1,0 +1,14 @@
+{
+  if (soot_class.getName().equals("java.lang.Object")) {
+    return;
+  }
+  List<SootMethod> methods=soot_class.getMethods();
+  for (  SootMethod method : methods) {
+    String signature=method.getSignature();
+    if (m_intoGpuMethod.contains(signature) == false) {
+      m_intoGpuMethod.add(signature);
+    }
+  }
+  SootClass parent=soot_class.getSuperclass();
+  addClass(parent);
+}

@@ -1,0 +1,4 @@
+{
+  RefType ref_type=(RefType)type;
+  return RootbeerScene.v().getClass(ref_type.getClassName());
+}
