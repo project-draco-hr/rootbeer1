@@ -1,6 +1,5 @@
 {
   List<TestException> ret=new ArrayList<TestException>();
-  ret.add(new ExceptionBasicTest());
   ret.add(new NullPointer1Test());
   ret.add(new NullPointer2Test());
   return ret;

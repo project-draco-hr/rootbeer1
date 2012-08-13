@@ -10,9 +10,6 @@
     ret.add(System.getProperty("java.home") + s + "lib"+ s+ "jce.jar");
     ret.add(System.getProperty("java.home") + s + "lib"+ s+ "charsets.jar");
     ret.add(System.getProperty("java.home") + s + "lib"+ s+ "jsse.jar");
-    if (s.equals("/")) {
-      ret.add(System.getProperty("java.home") + s + "lib"+ s+ "rhino.jar");
-    }
   }
   return ret;
 }
