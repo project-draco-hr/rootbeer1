@@ -1,0 +1,10 @@
+{
+  List<Kernel> jobs=new ArrayList<Kernel>();
+  int[] ret=new int[arrays.size()];
+  for (int i=0; i < arrays.size(); ++i) {
+    jobs.add(new ArraySum(arrays.get(i),ret,i));
+  }
+  Rootbeer rootbeer=new Rootbeer();
+  rootbeer.runAll(jobs);
+  return ret;
+}
