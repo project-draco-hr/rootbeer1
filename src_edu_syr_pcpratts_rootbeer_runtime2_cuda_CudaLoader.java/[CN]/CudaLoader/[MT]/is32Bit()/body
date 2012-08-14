@@ -1,0 +1,9 @@
+{
+  String arch=System.getProperty("os.arch");
+  if (arch.equals("x86")) {
+    return true;
+  }
+ else {
+    return false;
+  }
+}
