@@ -1,4 +1,5 @@
 {
+  m_num_args=args.length;
   for (int i=0; i < args.length; ++i) {
     String arg=args[i];
     if (arg.equals("-nemu")) {
@@ -33,6 +34,9 @@
       m_runTests=true;
       m_testCase=safeGet(args,i + 1,"-runtest");
       ++i;
+    }
+ else     if (arg.equals("-printdeviceinfo")) {
+      m_printDeviceInfo=true;
     }
  else {
       m_mainJar=arg;

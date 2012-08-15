@@ -1,4 +1,16 @@
 {
+  if (m_printDeviceInfo) {
+    if (m_num_args == 1) {
+      CudaLoader loader=new CudaLoader();
+      loader.load();
+      CudaRuntime2.printDeviceInfo();
+    }
+ else {
+      System.out.println("-printdeviceinfo can only be used by itself. Remove other arguments.");
+      System.out.flush();
+      return;
+    }
+  }
   if (m_runTests) {
     RootbeerTest test=new RootbeerTest();
     test.runTests(m_testCase);
