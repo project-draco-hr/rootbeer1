@@ -1,7 +1,12 @@
 {
   m_libCudas=new ArrayList<String>();
   m_rootbeers=new ArrayList<String>();
-  if (File.separator.equals("/")) {
+  if ("Mac OS X".equals(System.getProperty("os.name"))) {
+    m_libCudas.add("/usr/local/cuda/lib/libcuda.dylib");
+    m_rootbeers.add("cudaruntime.dylib");
+    extract("cudaruntime.dylib");
+  }
+ else   if (File.separator.equals("/")) {
     if (is32Bit()) {
       m_libCudas.add("/usr/lib/libcuda.so");
       m_rootbeers.add("cudaruntime_x86.so.1");
