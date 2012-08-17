@@ -1,0 +1,16 @@
+{
+  List<int[]> arrays=new ArrayList<int[]>();
+  for (int i=0; i < 1024; ++i) {
+    int[] array=new int[512];
+    for (int j=0; j < array.length; ++j) {
+      array[j]=j;
+    }
+    arrays.add(array);
+  }
+  List<Kernel> jobs=new ArrayList<Kernel>();
+  int[] ret=new int[arrays.size()];
+  for (int i=0; i < arrays.size(); ++i) {
+    jobs.add(new ArraySum(arrays.get(i),ret,i));
+  }
+  return jobs;
+}

@@ -1,0 +1,4 @@
+{
+  CallsPrivateMethod caller=new CallsPrivateMethod();
+  m_ret=caller.getNumber();
+}

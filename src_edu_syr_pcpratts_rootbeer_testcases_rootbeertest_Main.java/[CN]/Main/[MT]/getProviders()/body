@@ -36,5 +36,7 @@
   ret.add(new StepFilterTest());
   ret.add(new GpuListTest());
   ret.add(new WhileTrueTest());
+  ret.add(new ArraySumTest());
+  ret.add(new RemapTest());
   return ret;
 }

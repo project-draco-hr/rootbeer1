@@ -1,0 +1,8 @@
+{
+  RemapRunOnGpu lhs=(RemapRunOnGpu)original;
+  RemapRunOnGpu rhs=(RemapRunOnGpu)from_heap;
+  if (lhs.getRet() != rhs.getRet()) {
+    return false;
+  }
+  return true;
+}
