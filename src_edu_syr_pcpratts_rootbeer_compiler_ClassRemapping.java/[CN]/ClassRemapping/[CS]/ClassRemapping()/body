@@ -5,4 +5,6 @@
   m_RuntimeClassesJar=new ArrayList<String>();
   put("java.util.concurrent.atomic.AtomicLong","edu.syr.pcpratts.rootbeer.runtime.remap.GpuAtomicLong");
   put("java.util.Random","edu.syr.pcpratts.rootbeer.runtime.remap.Random");
+  put("edu.syr.pcpratts.rootbeer.testcases.rootbeertest.remaptest.CallsPrivateMethod","edu.syr.pcpratts.rootbeer.runtime.remap.DoesntCallPrivateMethod");
+  put("java.lang.Math","edu.syr.pcpratts.rootbeer.runtime.remap.java.lang.Math");
 }
