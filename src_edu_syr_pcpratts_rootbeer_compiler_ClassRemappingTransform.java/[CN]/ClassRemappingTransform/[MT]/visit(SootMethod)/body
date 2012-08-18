@@ -1,4 +1,8 @@
 {
+  SootClass soot_class=method.getDeclaringClass();
+  if (m_classRemapping.containsKey(soot_class.getName())) {
+    return;
+  }
   Body body=RootbeerScene.v().getBody(method);
   if (body == null)   return;
   fixArguments(method);

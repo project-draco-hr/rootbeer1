@@ -19,7 +19,9 @@
     copyClass(cls);
   }
   List<String> app_classes=m_loader.getVisitedClasses();
-  if (!Main.disable_class_remapping())   app_classes.addAll(transform.getModifiedClasses());
+  if (!Main.disable_class_remapping()) {
+    app_classes.addAll(transform.getModifiedClasses());
+  }
   for (  String cls : app_classes) {
     writeClassFile(cls);
     writeJimpleFile(cls);

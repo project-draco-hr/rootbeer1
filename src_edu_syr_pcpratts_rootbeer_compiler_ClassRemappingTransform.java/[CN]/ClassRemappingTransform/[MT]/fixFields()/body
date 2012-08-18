@@ -1,5 +1,5 @@
 {
-  Iterator<SootField> iter=m_FieldsToFix.keySet().iterator();
+  Iterator<SootField> iter=m_fieldsToFix.keySet().iterator();
   while (iter.hasNext()) {
     SootField curr=iter.next();
     SootField orig=curr;
@@ -25,7 +25,7 @@
         curr.setType(new_type);
       }
     }
-    List<FieldRef> refs=m_FieldsToFix.get(orig);
+    List<FieldRef> refs=m_fieldsToFix.get(orig);
     for (    FieldRef ref : refs) {
       ref.setFieldRef(curr.makeRef());
     }

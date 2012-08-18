@@ -1,3 +1,6 @@
 {
-  return m_Modified;
+  Set<String> ret=new HashSet<String>();
+  ret.addAll(m_modified);
+  ret.addAll(m_classRemapping.getValues());
+  return ret;
 }

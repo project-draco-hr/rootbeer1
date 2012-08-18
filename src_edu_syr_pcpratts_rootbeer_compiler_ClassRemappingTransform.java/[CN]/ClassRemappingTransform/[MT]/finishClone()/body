@@ -1,5 +1,5 @@
 {
-  List<String> cloned=m_ClassRemapping.getCloned();
+  List<String> cloned=m_classRemapping.getCloned();
   for (  String cls : cloned) {
     run(cls,true);
   }
