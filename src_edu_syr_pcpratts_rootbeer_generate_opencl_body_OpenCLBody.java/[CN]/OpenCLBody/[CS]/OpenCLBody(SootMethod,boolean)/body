@@ -6,6 +6,6 @@
   m_IsConstructorBodyWithoutHeader=false;
   m_SootMethod=method;
   m_SootClass=method.getDeclaringClass();
-  Body body=RootbeerScene.v().getBody(method);
+  Body body=method.getActiveBody();
   setup(body);
 }

@@ -1,7 +1,7 @@
 {
   for (  String classname : m_Classes.keySet()) {
     try {
-      SootClass cls=getClass(classname);
+      SootClass cls=Scene.v().getSootClass(classname);
       JimpleWriter writer=new JimpleWriter();
       writer.write("copied",cls);
     }

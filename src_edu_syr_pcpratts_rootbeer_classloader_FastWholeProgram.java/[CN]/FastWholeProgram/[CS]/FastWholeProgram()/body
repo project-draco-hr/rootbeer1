@@ -1,0 +1,13 @@
+{
+  m_log=Logger.getLogger("edu.syr.pcpratts");
+  showAllLogging();
+  m_paths=new ArrayList<String>();
+  m_classPaths=new ArrayList<String>();
+  m_entryMethods=new HashSet<SootMethod>();
+  m_classes=new HashMap<String,SootClass>();
+  m_tempFolder="jar-contents";
+  File file=new File(m_tempFolder);
+  file.mkdirs();
+  m_resolver=new FastClassResolver(m_tempFolder,m_classPaths);
+  m_applicationClasses=new ArrayList<String>();
+}

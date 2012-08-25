@@ -1,0 +1,3 @@
+{
+  m_resolver.resolveClass(class_name,level);
+}

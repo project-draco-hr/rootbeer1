@@ -1,0 +1,24 @@
+{
+  if (file.isDirectory()) {
+    File[] children=file.listFiles();
+    for (    File child : children) {
+      loadToSignatures(child);
+    }
+    return;
+  }
+  String name=file.getAbsolutePath();
+  if (name.endsWith(".class") == false) {
+    return;
+  }
+  File full_temp_folder=new File(m_tempFolder);
+  name=name.substring(full_temp_folder.getAbsolutePath().length());
+  if (isFilename(name)) {
+    name=filenameToClass(name);
+  }
+  if (m_applicationClasses.contains(name) == false) {
+    return;
+  }
+  m_log.log(Level.FINE,"Loading class to signature: " + name);
+  SootClass loaded=m_resolver.resolveClass(name,SootClass.SIGNATURES);
+  m_classes.put(name,loaded);
+}

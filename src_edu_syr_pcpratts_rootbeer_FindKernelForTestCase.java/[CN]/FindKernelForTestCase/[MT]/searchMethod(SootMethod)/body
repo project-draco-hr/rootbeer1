@@ -1,5 +1,5 @@
 {
-  Body body=RootbeerScene.v().getBody(method);
+  Body body=method.retrieveActiveBody();
   List<ValueBox> boxes=body.getUseAndDefBoxes();
   for (  ValueBox box : boxes) {
     Value value=box.getValue();

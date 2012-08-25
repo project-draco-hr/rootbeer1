@@ -3,6 +3,6 @@
   if (ctor_body) {
     ret+="_body";
   }
-  if (m_DontMangleMethods.contains(ret) == false)   ret+=NameMangling.v().mangleArgs(m_SootMethod);
+  if (m_DontMangleMethods.contains(ret) == false)   ret+=NameMangling.v().mangleArgs(m_sootMethod);
   return ret;
 }

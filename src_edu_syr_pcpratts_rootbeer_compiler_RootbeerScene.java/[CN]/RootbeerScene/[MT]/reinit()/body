@@ -12,6 +12,6 @@
   }
   Scene.v().loadNecessaryClasses();
   for (  String cls : m_GetClassClasses) {
-    getClass(cls);
+    Scene.v().getSootClass(cls);
   }
 }

@@ -1,6 +1,6 @@
 {
   if (soot_method.isConcrete()) {
-    Body body=RootbeerScene.v().getBody(soot_method);
+    Body body=soot_method.getActiveBody();
     loadFieldRefsForBody(body);
     List<String> methods=findMethodCallsForBody(body);
     for (    String sig : methods) {

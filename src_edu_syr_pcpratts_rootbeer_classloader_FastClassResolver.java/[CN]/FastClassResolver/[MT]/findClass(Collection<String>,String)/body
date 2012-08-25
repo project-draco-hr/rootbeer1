@@ -1,0 +1,20 @@
+{
+  for (  String jar : jars) {
+    JarInputStream fin=new JarInputStream(new FileInputStream(jar));
+    while (true) {
+      JarEntry entry=fin.getNextJarEntry();
+      if (entry == null) {
+        break;
+      }
+      if (entry.getName().equals(filename) == false) {
+        continue;
+      }
+      WriteJarEntry writer=new WriteJarEntry();
+      writer.write(entry,fin,m_tempFolder);
+      fin.close();
+      return true;
+    }
+    fin.close();
+  }
+  return false;
+}

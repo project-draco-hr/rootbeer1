@@ -2,7 +2,7 @@
   List<String> ret=new ArrayList<String>();
   for (  String cls : app_classes) {
     try {
-      SootClass soot_class=RootbeerScene.v().getClass(cls);
+      SootClass soot_class=Scene.v().getSootClass(cls);
       if (matches(soot_class)) {
         ret.add(soot_class.getName());
       }

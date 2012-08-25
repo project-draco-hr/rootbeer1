@@ -2,7 +2,7 @@
   if (cls.equals("java.lang.Object"))   return;
   FileOutputStream fos=null;
   PrintWriter writer=null;
-  SootClass c=RootbeerScene.v().getClass(cls);
+  SootClass c=Scene.v().getSootClass(cls);
   try {
     fos=new FileOutputStream(filename);
     OutputStream out1=new JasminOutputStream(fos);

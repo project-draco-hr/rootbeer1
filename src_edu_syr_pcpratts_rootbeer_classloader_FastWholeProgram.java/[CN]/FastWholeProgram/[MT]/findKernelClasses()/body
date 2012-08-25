@@ -1,0 +1,18 @@
+{
+  detectEntryPoints();
+  loadBuiltIns();
+  loadToBodies();
+  for (  SootClass sc : m_classes.values()) {
+    if (sc.resolvingLevel() == SootClass.BODIES) {
+      addConstructorsToEntryPoints(sc);
+    }
+  }
+  List<String> ret=new ArrayList<String>();
+  for (  SootMethod method : m_entryMethods) {
+    String soot_class=method.getDeclaringClass().toString();
+    if (ret.contains(soot_class) == false) {
+      ret.add(soot_class);
+    }
+  }
+  return ret;
+}

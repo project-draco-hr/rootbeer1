@@ -1,8 +1,8 @@
 {
-  SootClass soot_class=m_SootMethod.getDeclaringClass();
+  SootClass soot_class=m_sootMethod.getDeclaringClass();
   Body body;
   try {
-    body=m_SootMethod.getActiveBody();
+    body=m_sootMethod.getActiveBody();
   }
  catch (  RuntimeException ex) {
     return;

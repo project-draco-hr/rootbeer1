@@ -4,7 +4,7 @@
   for (  SootMethod method : methods) {
     SootMethod new_method=new SootMethod(method.getName(),method.getParameterTypes(),method.getReturnType(),method.getModifiers(),method.getExceptions());
     if (method.isConcrete()) {
-      Body body=RootbeerScene.v().getBody(method);
+      Body body=method.getActiveBody();
       new_method.setActiveBody((Body)body.clone());
     }
     ret.addMethod(new_method);

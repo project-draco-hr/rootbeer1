@@ -1,13 +1,13 @@
 {
   BytecodeLanguage bcl=m_Bcl.top();
   SootField soot_field=ref_field.getSootField();
-  SootClass obj=RootbeerScene.v().getClass("java.lang.Object");
+  SootClass obj=Scene.v().getSootClass("java.lang.Object");
   Local field_value;
   if (m_ApplicationClass) {
     field_value=bcl.refInstanceField(m_CurrObj.top(),soot_field.getName());
   }
  else {
-    SootClass string=RootbeerScene.v().getClass("java.lang.String");
+    SootClass string=Scene.v().getSootClass("java.lang.String");
     bcl.pushMethod(m_GcObjVisitor.top(),"readField",obj.getType(),obj.getType(),string.getType());
     field_value=bcl.invokeMethodRet(m_GcObjVisitor.top(),m_CurrObj.top(),StringConstant.v(soot_field.getName()));
   }

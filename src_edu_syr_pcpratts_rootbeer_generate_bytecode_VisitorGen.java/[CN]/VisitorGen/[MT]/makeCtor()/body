@@ -1,5 +1,5 @@
 {
-  SootClass mem_cls=RootbeerScene.v().getClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  SootClass mem_cls=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
   m_Bcl.top().startMethod("<init>",VoidType.v(),mem_cls.getType(),mem_cls.getType());
   Local this_ref=m_Bcl.top().refThis();
   Local param0=m_Bcl.top().refParameter(0);

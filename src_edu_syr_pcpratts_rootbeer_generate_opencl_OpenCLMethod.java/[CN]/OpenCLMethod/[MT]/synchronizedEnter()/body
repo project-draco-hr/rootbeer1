@@ -4,7 +4,7 @@
   StaticOffsets static_offsets=new StaticOffsets();
   int junk_index=static_offsets.getEndIndex() - 4;
   int mystery_index=junk_index - 4;
-  if (m_SootMethod.isStatic()) {
+  if (m_sootMethod.isStatic()) {
     int offset=static_offsets.getIndex(m_SootClass);
     ret+="char * mem = edu_syr_pcpratts_gc_deref(gc_info, 0);\n";
     ret+="char * trash = mem + " + junk_index + ";\n";

@@ -1,0 +1,20 @@
+{
+  if (sc.resolvingLevel() >= SootClass.HIERARCHY)   return;
+  sc.setResolvingLevel(SootClass.HIERARCHY);
+  String className=sc.getName();
+  try {
+    InputStream fin=getInputStream(className);
+    if (fin == null) {
+      sc.setPhantom(true);
+      return;
+    }
+    ClassSource is=new CoffiClassSource(className,fin);
+    Dependencies dependencies=is.resolve(sc);
+    classToTypesSignature.put(sc,new ArrayList(dependencies.typesToSignature));
+    classToTypesHierarchy.put(sc,new ArrayList(dependencies.typesToHierarchy));
+    reResolveHierarchy(sc);
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

@@ -10,7 +10,7 @@
     }
   }
   try {
-    SootClass soot_class=RootbeerScene.v().getClass(cls);
+    SootClass soot_class=Scene.v().getSootClass(cls);
     JimpleWriter writer=new JimpleWriter();
     writer.write("copied",soot_class);
   }

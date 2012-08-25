@@ -23,7 +23,7 @@
   for (int i=0; i < m_VisitedClasses.size(); ++i) {
     String cls=m_VisitedClasses.get(i);
     if (cls.equals("java.lang.Object"))     continue;
-    SootClass soot_class=RootbeerScene.v().getClass(cls);
+    SootClass soot_class=Scene.v().getSootClass(cls);
     List<SootMethod> methods=soot_class.getMethods();
     for (    SootMethod method : methods) {
       if (m_VisitedMethods.contains(method.getSignature()))       continue;
@@ -31,7 +31,7 @@
     }
   }
   for (  String cls : m_AppClasses) {
-    SootClass soot_class=RootbeerScene.v().getClass(cls);
+    SootClass soot_class=Scene.v().getSootClass(cls);
     soot_class.setApplicationClass();
   }
   return run_on_gpu;

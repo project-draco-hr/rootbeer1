@@ -1,0 +1,8 @@
+{
+  Logger parent=Logger.getLogger(this.getClass().getPackage().getName());
+  parent.setLevel(Level.ALL);
+  Handler handler=new SystemOutHandler();
+  m_log.setUseParentHandlers(true);
+  m_log.setLevel(Level.ALL);
+  m_log.addHandler(handler);
+}

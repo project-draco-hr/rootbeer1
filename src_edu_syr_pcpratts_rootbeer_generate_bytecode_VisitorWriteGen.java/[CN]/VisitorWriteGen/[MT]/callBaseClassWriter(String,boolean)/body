@@ -1,5 +1,5 @@
 {
-  SootClass mem=RootbeerScene.v().getClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  SootClass mem=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
   String specialization;
   if (ref_fields) {
     specialization="RefFields";

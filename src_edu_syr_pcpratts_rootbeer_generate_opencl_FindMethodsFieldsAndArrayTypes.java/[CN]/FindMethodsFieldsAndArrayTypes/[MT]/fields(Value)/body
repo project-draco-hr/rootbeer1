@@ -3,7 +3,7 @@
   FieldRef field_ref=(FieldRef)value;
   SootField field=field_ref.getField();
   SootClass soot_class=field.getDeclaringClass();
-  soot_class=RootbeerScene.v().getClass(soot_class.getName());
+  soot_class=Scene.v().getSootClass(soot_class.getName());
   field=soot_class.getField(field.getSubSignature());
   OpenCLScene.v().addField(field);
 }

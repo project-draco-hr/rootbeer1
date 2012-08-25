@@ -1,0 +1,13 @@
+{
+  final String soot_class_str=SignatureUtil.classFromMethodSig(method_signature);
+  m_log.log(Level.FINER,"Resolving to bodies:  " + soot_class_str);
+  m_resolver.resolveClass(soot_class_str,SootClass.BODIES);
+  SootMethod curr=m_resolver.resolveMethod(method_signature);
+  if (curr == null || curr.isConcrete() == false) {
+    m_log.log(Level.FINER,"Unable to find a concrete body for " + soot_class_str);
+    return null;
+  }
+  SootClass actual_class=curr.getDeclaringClass();
+  m_resolver.forceResolveClass(actual_class.getName(),SootClass.BODIES);
+  return curr;
+}

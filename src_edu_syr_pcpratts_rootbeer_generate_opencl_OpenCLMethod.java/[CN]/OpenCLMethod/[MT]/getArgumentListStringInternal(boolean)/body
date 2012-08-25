@@ -5,7 +5,7 @@
   if (isConstructor() == true) {
     ret.append(address_space_qual + " char * gc_info");
   }
- else   if ((isConstructor() == false || override_ctor == true) && m_SootMethod.isStatic() == false) {
+ else   if ((isConstructor() == false || override_ctor == true) && m_sootMethod.isStatic() == false) {
     ret.append(address_space_qual + " char * gc_info, int thisref");
   }
  else {

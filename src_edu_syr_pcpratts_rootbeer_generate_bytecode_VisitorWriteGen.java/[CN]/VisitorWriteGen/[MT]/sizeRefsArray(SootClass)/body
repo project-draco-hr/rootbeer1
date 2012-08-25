@@ -2,7 +2,7 @@
   int ret=0;
   while (true) {
     ret+=getRefFields(soot_class).size();
-    soot_class=RootbeerScene.v().getClass(soot_class.getSuperclass().getName());
+    soot_class=Scene.v().getSootClass(soot_class.getSuperclass().getName());
     if (soot_class.getName().equals("java.lang.Object"))     return ret;
     if (soot_class.isApplicationClass())     return ret;
   }

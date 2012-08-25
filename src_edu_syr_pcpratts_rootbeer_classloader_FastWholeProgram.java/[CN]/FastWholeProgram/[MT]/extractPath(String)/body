@@ -1,0 +1,7 @@
+{
+  File file=new File(path);
+  File[] children=file.listFiles();
+  for (  File child : children) {
+    extractPath(path,child.getName());
+  }
+}

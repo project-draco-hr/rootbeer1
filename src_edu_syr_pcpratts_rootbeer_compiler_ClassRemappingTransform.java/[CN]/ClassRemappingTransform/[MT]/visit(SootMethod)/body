@@ -3,7 +3,7 @@
   if (m_classRemapping.containsKey(soot_class.getName())) {
     return;
   }
-  Body body=RootbeerScene.v().getBody(method);
+  Body body=method.getActiveBody();
   if (body == null)   return;
   fixArguments(method);
   Iterator<Unit> iter=body.getUnits().iterator();

@@ -7,4 +7,5 @@
  else {
     Tweaks.setInstance(new NativeCpuTweaks());
   }
+  m_fastLoader=new FastWholeProgram();
 }

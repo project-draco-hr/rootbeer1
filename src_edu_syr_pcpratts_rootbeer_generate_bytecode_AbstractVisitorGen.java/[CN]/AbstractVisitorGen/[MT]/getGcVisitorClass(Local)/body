@@ -1,5 +1,5 @@
 {
   RefType type=(RefType)visitor.getType();
-  SootClass gc_visitor=RootbeerScene.v().getClass(type.getClassName());
+  SootClass gc_visitor=Scene.v().getSootClass(type.getClassName());
   return gc_visitor;
 }

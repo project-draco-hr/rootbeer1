@@ -1,6 +1,6 @@
 {
   loadAllClasses(cls);
-  SootClass soot_class=RootbeerScene.v().getClass(cls);
+  SootClass soot_class=Scene.v().getSootClass(cls);
   SootMethod soot_method=null;
   while (true) {
     try {

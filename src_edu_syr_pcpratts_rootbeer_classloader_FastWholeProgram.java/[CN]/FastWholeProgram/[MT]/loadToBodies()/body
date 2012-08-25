@@ -1,0 +1,25 @@
+{
+  m_callGraph=new FastCallGraph();
+  m_bodiesClasses=new ArrayList<String>();
+  for (  SootMethod entry : m_entryMethods) {
+    String class_name=entry.getDeclaringClass().getName();
+    if (m_bodiesClasses.contains(class_name) == false) {
+      m_bodiesClasses.add(class_name);
+    }
+  }
+  m_resolver.setBodiesClasses(m_bodiesClasses);
+  m_cgWorkQueue=new LinkedList<String>();
+  m_cgVisited=new HashSet<String>();
+  for (  SootMethod method : m_entryMethods) {
+    m_cgWorkQueue.add(method.getSignature());
+  }
+  while (m_cgWorkQueue.isEmpty() == false) {
+    String curr_signature=m_cgWorkQueue.get(0);
+    m_cgWorkQueue.remove(0);
+    if (m_cgVisited.contains(curr_signature)) {
+      continue;
+    }
+    m_cgVisited.add(curr_signature);
+    loadToBody(curr_signature);
+  }
+}
