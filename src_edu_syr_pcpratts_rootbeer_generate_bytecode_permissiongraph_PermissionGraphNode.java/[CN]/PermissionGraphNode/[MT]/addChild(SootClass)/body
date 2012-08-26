@@ -1,3 +1,3 @@
 {
-  m_Children.add(soot_class);
+  m_children.add(soot_class);
 }
