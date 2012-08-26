@@ -1,4 +1,0 @@
-{
-  SootClass soot_class=Scene.v().getSootClass(cls);
-  addHierarchy(soot_class);
-}

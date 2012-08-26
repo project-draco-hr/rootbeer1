@@ -1,9 +1,0 @@
-{
-  try {
-    RootbeerClassLoader pre_compile=new RootbeerClassLoader();
-    pre_compile.load("../../FruitingCompute/ofcoarse/ofcoarse-1.0.jar");
-  }
- catch (  Exception ex) {
-    ex.printStackTrace();
-  }
-}

@@ -2,7 +2,7 @@
   String sig=method.getSignature();
   if (m_Inspected.contains(sig))   return;
   m_Inspected.add(sig);
-  Body body=method.getActiveBody();
+  Body body=method.retrieveActiveBody();
   if (body == null)   return;
   inspectBody(body);
   FindMethodCalls finder=new FindMethodCalls();

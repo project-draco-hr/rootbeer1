@@ -1,7 +1,0 @@
-{
-  m_AllClasses=new ArrayList<String>();
-  clearOutputFolders();
-  writeJars(jar_files);
-  writeRuntimeClasses();
-  return m_AllClasses;
-}

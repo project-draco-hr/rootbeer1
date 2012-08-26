@@ -1,9 +1,0 @@
-{
-  List<String> ret=new ArrayList<String>();
-  Iterator<String> iter=m_VisitedClasses.iterator();
-  while (iter.hasNext()) {
-    String cls=iter.next();
-    ret.add(cls);
-  }
-  return ret;
-}
