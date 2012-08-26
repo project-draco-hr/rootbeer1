@@ -1,4 +1,3 @@
 {
-  m_Shared.increment();
   throw new RuntimeException();
 }

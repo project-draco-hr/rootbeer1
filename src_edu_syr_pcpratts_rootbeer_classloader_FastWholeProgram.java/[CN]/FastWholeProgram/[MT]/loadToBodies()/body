@@ -1,4 +1,5 @@
 {
+  System.out.println("loading to bodies...");
   m_callGraph=new FastCallGraph();
   m_bodiesClasses=new ArrayList<String>();
   m_bodiesClasses.addAll(m_applicationClasses);

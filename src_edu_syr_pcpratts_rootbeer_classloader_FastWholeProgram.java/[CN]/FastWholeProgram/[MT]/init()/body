@@ -1,5 +1,6 @@
 {
   try {
+    System.out.println("loading application jars...");
     for (    String path : m_paths) {
       File file=new File(path);
       if (file.isDirectory()) {

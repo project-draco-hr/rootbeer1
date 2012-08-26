@@ -3,13 +3,11 @@
   if (curr == null) {
     return;
   }
-  m_log.log(Level.FINEST,"call graph dfs: " + curr.getSignature());
   Body body=null;
   try {
     body=curr.retrieveActiveBody();
   }
  catch (  RuntimeException e) {
-    m_log.log(Level.FINER,"cannot find body for method: " + curr.getSignature());
     return;
   }
   for (  Unit curr_unit : body.getUnits()) {

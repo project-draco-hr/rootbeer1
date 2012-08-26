@@ -1,3 +1,4 @@
 {
   m_addedClasses=new ArrayList<String>();
+  m_allClasses=new ArrayList<SootClass>();
 }

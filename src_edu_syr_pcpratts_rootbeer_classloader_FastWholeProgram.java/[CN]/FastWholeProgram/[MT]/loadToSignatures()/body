@@ -1,4 +1,5 @@
 {
+  System.out.println("loading to signatures...");
   File root=new File(m_tempFolder);
   loadToSignatures(root);
 }

@@ -1,4 +1,5 @@
 {
+  System.out.println("detecting entry points...");
   for (  SootClass sc : m_classes.values()) {
     Chain<SootClass> ifaces=sc.getInterfaces();
     Iterator<SootClass> iter=ifaces.iterator();

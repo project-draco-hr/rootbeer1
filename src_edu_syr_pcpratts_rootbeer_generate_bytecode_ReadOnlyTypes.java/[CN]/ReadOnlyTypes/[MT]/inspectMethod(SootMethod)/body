@@ -2,6 +2,9 @@
   String sig=method.getSignature();
   if (m_Inspected.contains(sig))   return;
   m_Inspected.add(sig);
+  if (method.isConcrete() == false) {
+    return;
+  }
   Body body=method.retrieveActiveBody();
   if (body == null)   return;
   inspectBody(body);

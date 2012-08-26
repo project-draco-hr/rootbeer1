@@ -18,7 +18,6 @@
   if (m_applicationClasses.contains(name) == false) {
     return;
   }
-  m_log.log(Level.FINE,"Loading class to signature: " + name);
   SootClass loaded=m_resolver.resolveClass(name,SootClass.SIGNATURES);
   m_classes.put(name,loaded);
 }

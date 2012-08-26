@@ -1,4 +1,5 @@
 {
+  System.out.println("loading built-ins...");
   addBasicClass("java.lang.Object");
   addBasicClass("java.lang.Class",SootClass.SIGNATURES);
   addBasicClass("java.lang.Void",SootClass.SIGNATURES);
