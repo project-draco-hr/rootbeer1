@@ -1,0 +1,11 @@
+{
+  SootClass soot_class=Scene.v().getSootClass(cls);
+  List<SootMethod> methods=soot_class.getMethods();
+  for (  SootMethod method : methods) {
+    if (method.isConcrete()) {
+      Body body=method.getActiveBody();
+      SpecialInvokeFixup fixup=new SpecialInvokeFixup();
+      method.setActiveBody(fixup.fixup(body));
+    }
+  }
+}

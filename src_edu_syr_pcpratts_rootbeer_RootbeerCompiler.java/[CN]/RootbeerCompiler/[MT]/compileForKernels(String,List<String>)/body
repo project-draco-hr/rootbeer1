@@ -14,20 +14,18 @@
   for (  String cls : run_on_gpu_classes) {
     transform2.run(cls);
   }
-  List<String> copy=m_loader.getClassesToCopy();
-  for (  String cls : copy) {
-    copyClass(cls);
-  }
-  List<String> app_classes=m_loader.getVisitedClasses();
+  List<String> app_classes=m_fastLoader.getApplicationClasses();
   if (!Main.disable_class_remapping()) {
     app_classes.addAll(transform.getModifiedClasses());
   }
   for (  String cls : app_classes) {
+    loadAllMethods(cls);
     writeClassFile(cls);
     writeJimpleFile(cls);
   }
   List<String> added_classes=RootbeerScene.v().getAddedClasses();
   for (  String cls : added_classes) {
+    loadAllMethods(cls);
     writeClassFile(cls);
     writeJimpleFile(cls);
   }

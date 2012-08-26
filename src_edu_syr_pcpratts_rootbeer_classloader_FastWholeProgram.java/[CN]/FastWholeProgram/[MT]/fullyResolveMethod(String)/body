@@ -1,5 +1,9 @@
 {
   final String soot_class_str=SignatureUtil.classFromMethodSig(method_signature);
+  if (m_resolvedMethods.contains(method_signature)) {
+    return m_resolver.resolveMethod(method_signature);
+  }
+  m_resolvedMethods.add(method_signature);
   m_log.log(Level.FINER,"Resolving to bodies:  " + soot_class_str);
   m_resolver.resolveClass(soot_class_str,SootClass.BODIES);
   SootMethod curr=m_resolver.resolveMethod(method_signature);
