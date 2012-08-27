@@ -1,5 +1,0 @@
-{
-  if (m_allClasses.contains(soot_class) == false) {
-    m_allClasses.add(soot_class);
-  }
-}

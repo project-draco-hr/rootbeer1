@@ -1,6 +1,6 @@
 {
   OpenCLClass ocl_class=new OpenCLClass(m_SootClass);
-  String method_name=m_sootMethod.getName();
+  String method_name=m_SootMethod.getName();
   method_name=method_name.replace("<init>","init" + OpenCLScene.v().getUuid());
   String ret=ocl_class.getName() + "_" + method_name;
   return ret;

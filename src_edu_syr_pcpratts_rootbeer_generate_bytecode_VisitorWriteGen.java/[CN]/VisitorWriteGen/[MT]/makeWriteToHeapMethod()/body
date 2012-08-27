@@ -1,5 +1,5 @@
 {
-  SootClass obj_cls=Scene.v().getSootClass("java.lang.Object");
+  SootClass obj_cls=RootbeerScene.v().getClass("java.lang.Object");
   BytecodeLanguage bcl=m_Bcl.top();
   bcl.startMethod("doWriteToHeap",VoidType.v(),obj_cls.getType(),BooleanType.v(),LongType.v(),BooleanType.v());
   m_ThisRef=bcl.refThis();

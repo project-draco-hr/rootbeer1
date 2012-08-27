@@ -1,4 +1,4 @@
 {
-  SootClass soot_class=m_sootMethod.getDeclaringClass();
+  SootClass soot_class=m_SootMethod.getDeclaringClass();
   return OpenCLScene.v().getClassHierarchy(soot_class);
 }

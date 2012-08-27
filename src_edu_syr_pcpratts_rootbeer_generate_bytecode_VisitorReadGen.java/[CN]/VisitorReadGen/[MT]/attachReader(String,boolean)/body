@@ -11,9 +11,9 @@
   String visited_name=class_name + specialization;
   if (m_VisitedReader.contains(visited_name))   return;
   m_VisitedReader.add(visited_name);
-  SootClass curr_class=Scene.v().getSootClass(class_name);
+  SootClass curr_class=RootbeerScene.v().getClass(class_name);
   SootClass parent=curr_class.getSuperclass();
-  parent=Scene.v().getSootClass(parent.getName());
+  parent=RootbeerScene.v().getClass(parent.getName());
   if (parent.isApplicationClass()) {
     attachReader(parent.getName(),ref_fields);
   }
@@ -21,7 +21,7 @@
   Local gc_obj_visit=m_GcObjVisitor.top();
   m_Bcl.push(bcl);
   bcl.openClass(class_name);
-  SootClass mem=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  SootClass mem=RootbeerScene.v().getClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
   bcl.startMethod("edu_syr_pcpratts_readFromHeap" + specialization,VoidType.v(),mem.getType(),gc_obj_visit.getType());
   m_ObjSerializing.push(bcl.refThis());
   m_CurrMem.push(bcl.refParameter(0));

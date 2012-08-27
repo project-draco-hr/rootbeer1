@@ -1,7 +1,7 @@
 {
   mBcl=new BytecodeLanguage();
   mBcl.continueMethod(assembler);
-  SootClass peek_iterator_soot_class=Scene.v().getSootClass("edu.syr.pcpratts.util.PeekIterator");
+  SootClass peek_iterator_soot_class=RootbeerScene.v().getClass("edu.syr.pcpratts.util.PeekIterator");
   mBcl.pushMethod(mQueueManagerLocal,"iterator",peek_iterator_soot_class.getType());
   Local ret=mBcl.invokeMethodRet(mQueueManagerLocal);
   return ret;

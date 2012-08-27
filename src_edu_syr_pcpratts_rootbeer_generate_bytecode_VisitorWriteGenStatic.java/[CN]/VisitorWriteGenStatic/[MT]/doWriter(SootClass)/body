@@ -4,25 +4,17 @@
   Local gc_visit=m_GcObjVisitor.top();
   List<OpenCLField> static_fields=m_StaticOffsets.getStaticFields(soot_class);
   BclMemory bcl_mem=new BclMemory(bcl,memory);
-  SootClass obj=Scene.v().getSootClass("java.lang.Object");
+  SootClass obj=RootbeerScene.v().getClass("java.lang.Object");
   for (  OpenCLField field : static_fields) {
     Local field_value;
     if (soot_class.isApplicationClass()) {
       field_value=bcl.refStaticField(soot_class.getType(),field.getName());
     }
  else {
-      SootClass string=Scene.v().getSootClass("java.lang.String");
-      SootClass cls=Scene.v().getSootClass("java.lang.Class");
+      SootClass string=RootbeerScene.v().getClass("java.lang.String");
+      SootClass cls=RootbeerScene.v().getClass("java.lang.Class");
       bcl.pushMethod(gc_visit,"readStaticField",obj.getType(),cls.getType(),string.getType());
-      Local obj_field_value=bcl.invokeMethodRet(gc_visit,ClassConstant.v(toConstant(soot_class.getName())),StringConstant.v(field.getName()));
-      if (field.getType().isRefType()) {
-        field_value=obj_field_value;
-      }
- else {
-        Local capital_value=bcl.cast(field.getType().getCapitalType(),obj_field_value);
-        bcl.pushMethod(capital_value,field.getType().getName() + "Value",field.getType().getSootType());
-        field_value=bcl.invokeMethodRet(capital_value);
-      }
+      field_value=bcl.invokeMethodRet(gc_visit,ClassConstant.v(toConstant(soot_class.getName())),StringConstant.v(field.getName()));
     }
     if (field.getType().isRefType()) {
       bcl.pushMethod(gc_visit,"writeToHeap",LongType.v(),obj.getType(),BooleanType.v());

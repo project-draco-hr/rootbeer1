@@ -1,12 +1,10 @@
 {
   Options.v().set_allow_phantom_refs(true);
-  m_fastLoader.addPath(jar_filename);
-  m_fastLoader.addClassPath(getRuntimeJars());
-  m_fastLoader.init();
-  List<String> kernel_classes=m_fastLoader.findKernelClasses();
+  m_loader=new RootbeerClassLoader();
+  List<String> run_on_gpu_classes=m_loader.load(jar_filename);
   FindKernelForTestCase finder=new FindKernelForTestCase();
-  String kernel=finder.get(test_case,kernel_classes);
-  kernel_classes.clear();
-  kernel_classes.add(kernel);
-  compileForKernels(outname,kernel_classes);
+  String kernel=finder.get(test_case,run_on_gpu_classes);
+  run_on_gpu_classes.clear();
+  run_on_gpu_classes.add(kernel);
+  compileForKernels(outname,run_on_gpu_classes);
 }

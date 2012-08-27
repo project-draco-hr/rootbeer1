@@ -7,8 +7,8 @@
     field_value=bcl.refInstanceField(m_CurrObj.top(),soot_field.getName());
   }
  else {
-    SootClass obj=Scene.v().getSootClass("java.lang.Object");
-    SootClass string=Scene.v().getSootClass("java.lang.String");
+    SootClass obj=RootbeerScene.v().getClass("java.lang.Object");
+    SootClass string=RootbeerScene.v().getClass("java.lang.String");
     String private_field_fun_name="read" + getTypeString(soot_field);
     Local private_fields=bcl.newInstance("edu.syr.pcpratts.rootbeer.runtime.PrivateFields");
     bcl.pushMethod(private_fields,private_field_fun_name,soot_field.getType(),obj.getType(),string.getType());

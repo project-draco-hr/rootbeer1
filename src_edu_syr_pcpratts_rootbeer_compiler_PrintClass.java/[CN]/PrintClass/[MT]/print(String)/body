@@ -1,0 +1,20 @@
+{
+  while (true) {
+    try {
+      loadClass(cls);
+      break;
+    }
+ catch (    RuntimeException ex) {
+      AddBasicClass adder=new AddBasicClass();
+      adder.add(ex);
+    }
+  }
+  try {
+    SootClass soot_class=RootbeerScene.v().getClass(cls);
+    JimpleWriter writer=new JimpleWriter();
+    writer.write("copied",soot_class);
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

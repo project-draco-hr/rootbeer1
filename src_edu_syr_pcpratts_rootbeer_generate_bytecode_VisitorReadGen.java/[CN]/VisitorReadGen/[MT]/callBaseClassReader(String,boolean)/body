@@ -8,7 +8,7 @@
   }
   specialization+=JavaNameToOpenCL.convert(class_name);
   specialization+=OpenCLScene.v().getIdent();
-  SootClass mem=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  SootClass mem=RootbeerScene.v().getClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
   BytecodeLanguage bcl=m_Bcl.top();
   Local gc_obj_visit=m_GcObjVisitor.top();
   bcl.pushMethod(class_name,"edu_syr_pcpratts_readFromHeap" + specialization,VoidType.v(),mem.getType(),gc_obj_visit.getType());

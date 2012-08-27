@@ -1,0 +1,7 @@
+{
+  loadClassesForType(soot_method.getReturnType());
+  List<Type> param_types=soot_method.getParameterTypes();
+  for (  Type param_type : param_types) {
+    loadClassesForType(param_type);
+  }
+}

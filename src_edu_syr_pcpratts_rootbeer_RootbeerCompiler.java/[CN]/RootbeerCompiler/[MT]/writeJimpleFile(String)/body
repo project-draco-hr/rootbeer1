@@ -1,7 +1,7 @@
 {
   if (cls.equals("java.lang.Object"))   return;
   try {
-    SootClass c=Scene.v().getSootClass(cls);
+    SootClass c=RootbeerScene.v().getClass(cls);
     JimpleWriter writer=new JimpleWriter();
     writer.write(classNameToFileName(cls,true),c);
   }

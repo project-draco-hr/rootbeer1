@@ -44,7 +44,7 @@
     throw new UnsupportedOperationException();
   }
   if (new_object != null) {
-    SootClass obj_cls=Scene.v().getSootClass("java.lang.Object");
+    SootClass obj_cls=RootbeerScene.v().getClass("java.lang.Object");
     bcl.pushMethod(m_ThisRef,"readFromHeap",obj_cls.getType(),obj_cls.getType(),BooleanType.v(),LongType.v());
     ret_obj=bcl.invokeMethodRet(m_ThisRef,new_object,IntConstant.v(1),m_RefParam);
     bcl.returnValue(ret_obj);

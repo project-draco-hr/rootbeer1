@@ -1,6 +1,6 @@
 {
   SootField soot_field=ref_field.getSootField();
-  SootClass soot_class=Scene.v().getSootClass(soot_field.getDeclaringClass().getName());
+  SootClass soot_class=RootbeerScene.v().getClass(soot_field.getDeclaringClass().getName());
   BytecodeLanguage bcl=m_Bcl.top();
   Local gc_obj_visit=m_GcObjVisitor.top();
   BclMemory bcl_mem=new BclMemory(bcl,m_CurrMem.top());
@@ -8,8 +8,8 @@
   bcl_mem.useInstancePointer();
   bcl_mem.pushAddress();
   bcl_mem.setAddress(ref);
-  SootClass obj_class=Scene.v().getSootClass("java.lang.Object");
-  SootClass string=Scene.v().getSootClass("java.lang.String");
+  SootClass obj_class=RootbeerScene.v().getClass("java.lang.Object");
+  SootClass string=RootbeerScene.v().getClass("java.lang.String");
   Local original_field_value;
   if (soot_class.isLibraryClass()) {
     bcl.pushMethod(gc_obj_visit,"readField",obj_class.getType(),obj_class.getType(),string.getType());

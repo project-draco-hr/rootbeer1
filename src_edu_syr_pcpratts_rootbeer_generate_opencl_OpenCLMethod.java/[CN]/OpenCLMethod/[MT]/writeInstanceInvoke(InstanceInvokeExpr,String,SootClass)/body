@@ -1,5 +1,5 @@
 {
-  OpenCLMethod corrected_this=new OpenCLMethod(m_sootMethod,soot_class);
+  OpenCLMethod corrected_this=new OpenCLMethod(m_SootMethod,soot_class);
   StringBuilder ret=new StringBuilder();
   Value base=arg0.getBase();
   if (base instanceof Local == false)   throw new UnsupportedOperationException("How do we handle an invoke on a non loca?");

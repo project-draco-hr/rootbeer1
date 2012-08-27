@@ -1,6 +1,6 @@
 {
   SootClass ret=new SootClass(name,Modifier.PUBLIC);
-  SootClass parent_class=Scene.v().getSootClass(parent);
+  SootClass parent_class=RootbeerScene.v().getClass(parent);
   ret.setSuperclass(parent_class);
   RootbeerScene.v().addClass(ret);
   ret.setApplicationClass();

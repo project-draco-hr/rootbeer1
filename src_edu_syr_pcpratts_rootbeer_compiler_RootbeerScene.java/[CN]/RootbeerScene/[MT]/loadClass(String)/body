@@ -1,0 +1,30 @@
+{
+  List<String> filenames=getFilenames(name);
+  for (  String filename : filenames) {
+    try {
+      File file=new File(filename);
+      InputStream is=null;
+      if (file.exists()) {
+        is=new FileInputStream(filename);
+      }
+ else {
+        is=RootbeerScene.class.getResourceAsStream(filename);
+        if (is == null) {
+          String jar_filename=filename.substring(Constants.JAR_CONTENTS_FOLDER.length());
+          is=RootbeerScene.class.getResourceAsStream(jar_filename);
+        }
+      }
+      if (is != null) {
+        if (isFilename(name)) {
+          name=filenameToClass(name);
+        }
+        name=removeExtraPath(name);
+        return doLoadClass(is,name);
+      }
+    }
+ catch (    Exception ex) {
+      continue;
+    }
+  }
+  throw new RuntimeException("cannot find class: " + name);
+}

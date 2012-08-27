@@ -4,7 +4,7 @@
     ret.append("int");
   }
  else {
-    OpenCLType return_type=new OpenCLType(m_sootMethod.getReturnType());
+    OpenCLType return_type=new OpenCLType(m_SootMethod.getReturnType());
     ret.append(return_type.getRefString());
   }
   return ret.toString();

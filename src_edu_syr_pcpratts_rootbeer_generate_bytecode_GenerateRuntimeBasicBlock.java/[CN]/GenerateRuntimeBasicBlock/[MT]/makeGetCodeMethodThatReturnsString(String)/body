@@ -7,7 +7,7 @@
   Local thislocal=jimple.newLocal("this0",mSootClass.getType());
   Unit thisid=jimple.newIdentityStmt(thislocal,jimple.newThisRef(mSootClass.getType()));
   assembler.add(thisid);
-  SootClass string_builder_soot_class=Scene.v().getSootClass("java.lang.StringBuilder");
+  SootClass string_builder_soot_class=RootbeerScene.v().getClass("java.lang.StringBuilder");
   Local r1=jimple.newLocal("r1",string_builder_soot_class.getType());
   Value r1_assign_rhs=jimple.newNewExpr(string_builder_soot_class.getType());
   Unit r1_assign=jimple.newAssignStmt(r1,r1_assign_rhs);
@@ -19,7 +19,7 @@
   Local r2=jimple.newLocal("r2",string_builder_soot_class.getType());
   Unit r2_assign_r1=jimple.newAssignStmt(r2,r1);
   assembler.add(r2_assign_r1);
-  SootClass string_class=Scene.v().getSootClass("java.lang.String");
+  SootClass string_class=RootbeerScene.v().getClass("java.lang.String");
   List parameter_types=new ArrayList();
   parameter_types.add(string_class.getType());
   SootMethod string_builder_append=string_builder_soot_class.getMethod("append",parameter_types,string_builder_soot_class.getType());

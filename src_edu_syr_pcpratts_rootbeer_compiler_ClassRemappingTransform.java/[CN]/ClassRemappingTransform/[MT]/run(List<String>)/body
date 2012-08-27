@@ -2,7 +2,7 @@
   SignatureUtil sig_util=new SignatureUtil();
   for (  String method : reachable_methods) {
     String cls_name=sig_util.classFromMethodSig(method);
-    SootClass soot_class=Scene.v().getSootClass(cls_name);
+    SootClass soot_class=RootbeerScene.v().getClass(cls_name);
     m_appClass=soot_class.isApplicationClass();
     m_currClass=cls_name;
     String sub_sig=sig_util.methodSubSigFromMethodSig(method);

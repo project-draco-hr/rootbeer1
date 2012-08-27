@@ -1,9 +1,0 @@
-{
-  String sep="/";
-  if (name.startsWith(sep)) {
-    name=name.substring(sep.length());
-  }
-  name=name.replace(".class","");
-  name=name.replace(sep,".");
-  return name;
-}

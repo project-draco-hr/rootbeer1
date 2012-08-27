@@ -1,0 +1,10 @@
+{
+  if (type instanceof RefType) {
+    RefType ref_type=(RefType)type;
+    loadAllClasses(ref_type.getSootClass().getName());
+  }
+  if (type instanceof ArrayType) {
+    ArrayType array_type=(ArrayType)type;
+    loadClassesForType(array_type.baseType);
+  }
+}

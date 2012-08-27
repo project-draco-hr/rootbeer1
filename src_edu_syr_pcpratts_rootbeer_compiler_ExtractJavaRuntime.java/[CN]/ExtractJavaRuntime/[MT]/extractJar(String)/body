@@ -1,0 +1,20 @@
+{
+  FileInputStream fin=new FileInputStream(rt_jar);
+  JarInputStream jin=new JarInputStream(fin);
+  while (true) {
+    JarEntry entry=jin.getNextJarEntry();
+    if (entry == null)     break;
+    if (entry.isDirectory()) {
+      mkdir(Constants.JAR_CONTENTS_FOLDER + File.separator + entry.getName());
+      continue;
+    }
+    String name=entry.getName();
+    if (name.endsWith(".class") == false)     continue;
+    m_AllClasses.add(name);
+    String filename=Constants.JAR_CONTENTS_FOLDER + File.separator + name;
+    File f=new File(filename);
+    if (f.exists())     continue;
+    write(jin,filename);
+  }
+  jin.close();
+}

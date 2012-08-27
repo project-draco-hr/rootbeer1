@@ -1,0 +1,16 @@
+{
+  List<String> ret=new ArrayList<String>();
+  List<String> prefixes=new ArrayList<String>();
+  prefixes.add("jar-contents" + File.separator);
+  prefixes.add("src" + File.separator);
+  if (isFilename(name)) {
+    ret.add(name);
+  }
+ else {
+    for (    String prefix : prefixes) {
+      String filename=classToFilename(name,prefix);
+      ret.add(filename);
+    }
+  }
+  return ret;
+}

@@ -1,7 +1,0 @@
-{
-  String ret=getName();
-  Character first=ret.charAt(0);
-  String first_str="" + first;
-  first_str=first_str.toUpperCase();
-  return first_str + ret.substring(1);
-}

@@ -1,4 +1,0 @@
-{
-  if (sc.resolvingLevel() >= desiredLevel)   return;
-  worklist[desiredLevel].add(sc);
-}

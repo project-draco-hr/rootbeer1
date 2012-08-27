@@ -1,5 +1,5 @@
 {
-  SootClass soot_class=Scene.v().getSootClass(mClassName);
+  SootClass soot_class=RootbeerScene.v().getClass(mClassName);
   Local u1_lhs=jimple.newLocal(getLocalName(),soot_class.getType());
   Value u1_rhs=jimple.newNewExpr(soot_class.getType());
   Unit u1=jimple.newAssignStmt(u1_lhs,u1_rhs);

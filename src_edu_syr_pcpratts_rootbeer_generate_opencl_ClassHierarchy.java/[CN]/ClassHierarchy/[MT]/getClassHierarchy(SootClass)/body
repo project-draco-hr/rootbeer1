@@ -1,7 +1,7 @@
 {
   String class_name=soot_class.getName();
   if (mMap.containsKey(class_name))   return mMap.get(class_name);
-  Iterator<SootClass> iter=RootbeerScene.v().getAllClasses().iterator();
+  Iterator<SootClass> iter=RootbeerScene.v().getClasses();
   List<SootClass> ret=new ArrayList<SootClass>();
   while (iter.hasNext()) {
     SootClass next=iter.next();
@@ -13,7 +13,7 @@
         }
         if (curr.hasSuperclass()) {
           curr=curr.getSuperclass();
-          curr=Scene.v().getSootClass(curr.getName());
+          curr=RootbeerScene.v().getClass(curr.getName());
         }
  else {
           break;

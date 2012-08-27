@@ -1,0 +1,5 @@
+{
+  List<String> jar_files=new ArrayList<String>();
+  jar_files.add(single_jar_file);
+  return setup(jar_files);
+}

@@ -1,5 +1,5 @@
 {
-  SootClass soot_class=Scene.v().getSootClass(cls);
+  SootClass soot_class=RootbeerScene.v().getClass(cls);
   List<SootMethod> methods=soot_class.getMethods();
   for (  SootMethod method : methods) {
     if (reachesIntoGpuMethod(method)) {

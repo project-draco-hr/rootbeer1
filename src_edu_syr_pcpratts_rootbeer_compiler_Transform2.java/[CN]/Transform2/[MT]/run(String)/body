@@ -1,7 +1,7 @@
 {
   OpenCLScene.v();
   System.out.println("Running Transform2 on: " + cls);
-  SootClass soot_class1=Scene.v().getSootClass(cls);
+  SootClass soot_class1=RootbeerScene.v().getClass(cls);
   SootMethod method=soot_class1.getMethod("void gpuMethod()");
   String uuid=getUuid();
   GenerateRuntimeBasicBlock generate=new GenerateRuntimeBasicBlock(method,uuid);
@@ -12,7 +12,7 @@
     ex.printStackTrace();
   }
   SootClass soot_class=method.getDeclaringClass();
-  SootClass iface_class=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.CompiledKernel");
+  SootClass iface_class=RootbeerScene.v().getClass("edu.syr.pcpratts.rootbeer.runtime.CompiledKernel");
   soot_class.addInterface(iface_class);
   OpenCLScene.releaseV();
 }

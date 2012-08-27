@@ -1,8 +1,2 @@
 {
-  try {
-    increment();
-  }
- catch (  Throwable ex) {
-    value1++;
-  }
 }

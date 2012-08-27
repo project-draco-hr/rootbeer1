@@ -1,3 +1,0 @@
-{
-  addBasicClass(class_name,SootClass.HIERARCHY);
-}

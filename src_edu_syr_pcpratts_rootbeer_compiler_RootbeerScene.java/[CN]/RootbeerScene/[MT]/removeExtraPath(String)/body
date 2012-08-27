@@ -1,0 +1,4 @@
+{
+  String[] tokens=name.split("jar-contents\\.");
+  return tokens[tokens.length - 1];
+}

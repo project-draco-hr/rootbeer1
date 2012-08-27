@@ -3,9 +3,6 @@
   if (type instanceof ByteType) {
     writeByte(curr);
   }
- else   if (type instanceof BooleanType) {
-    writeBoolean(curr);
-  }
  else   if (type instanceof ShortType) {
     writeShort(curr);
   }

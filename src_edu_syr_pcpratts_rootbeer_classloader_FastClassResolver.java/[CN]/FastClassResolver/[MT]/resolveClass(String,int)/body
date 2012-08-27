@@ -1,6 +1,0 @@
-{
-  SootClass resolvedClass=makeClassRef(className);
-  addToResolveWorklist(resolvedClass,desiredLevel);
-  processResolveWorklist();
-  return resolvedClass;
-}

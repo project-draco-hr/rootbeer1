@@ -1,6 +1,0 @@
-{
-  String[] tokens=signature.split(":");
-  String second=tokens[1].trim();
-  String[] tokens2=second.split("\\)");
-  return tokens2[0].trim() + ")";
-}

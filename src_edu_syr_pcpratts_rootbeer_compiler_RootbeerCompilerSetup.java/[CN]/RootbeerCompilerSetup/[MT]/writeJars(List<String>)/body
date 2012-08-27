@@ -1,0 +1,14 @@
+{
+  String folder=Constants.JAR_CONTENTS_FOLDER;
+  File folder_file=new File(folder);
+  folder_file.mkdirs();
+  try {
+    JarToFolder jtf=new JarToFolder(this);
+    for (    String jar : jar_files) {
+      jtf.writeJar(jar,folder);
+    }
+  }
+ catch (  Exception ex) {
+    throw new RuntimeException(ex);
+  }
+}

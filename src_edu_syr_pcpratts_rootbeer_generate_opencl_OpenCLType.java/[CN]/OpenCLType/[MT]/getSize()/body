@@ -1,6 +1,6 @@
 {
-  if (m_sootType instanceof RefLikeType)   return 4;
-  String type=m_sootType.toString();
+  if (mSootType instanceof RefLikeType)   return 4;
+  String type=mSootType.toString();
   if (type.equals("byte"))   return 1;
   if (type.equals("boolean"))   return 1;
   if (type.equals("char"))   return 4;

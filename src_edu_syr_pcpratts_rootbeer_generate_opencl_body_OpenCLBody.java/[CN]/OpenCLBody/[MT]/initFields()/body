@@ -4,7 +4,7 @@
   while (true) {
     initFieldsForClass(soot_class,ret);
     if (soot_class.getName().equals("java.lang.Object"))     break;
-    soot_class=Scene.v().getSootClass(soot_class.getSuperclass().getName());
+    soot_class=RootbeerScene.v().getClass(soot_class.getSuperclass().getName());
     if (soot_class.getName().equals("java.lang.Object"))     break;
   }
   return ret.toString();
