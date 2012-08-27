@@ -1,0 +1,8 @@
+{
+  String ret="";
+  ret+="root: " + m_class.getName() + "\n";
+  for (  SootClass child : m_children) {
+    ret+="child: " + child.getName();
+  }
+  return ret;
+}

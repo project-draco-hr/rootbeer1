@@ -1,0 +1,29 @@
+{
+  String class_name=SignatureUtil.classFromMethodSig(method_sig);
+  String method_subsig=SignatureUtil.methodSubSigFromMethodSig(method_sig);
+  SootClass soot_class=Scene.v().getSootClass(class_name);
+  if (soot_class.isPhantom()) {
+    return null;
+  }
+  SootClass curr_class=soot_class;
+  while (true) {
+    SootMethod ret=find(curr_class,method_subsig);
+    if (ret == null) {
+      Iterator<SootClass> iter=curr_class.getInterfaces().iterator();
+      while (iter.hasNext()) {
+        SootClass curr=iter.next();
+        ret=find(curr,method_subsig);
+        if (ret != null) {
+          return ret;
+        }
+      }
+      if (curr_class.hasSuperclass() == false) {
+        return null;
+      }
+      curr_class=curr_class.getSuperclass();
+    }
+ else {
+      return ret;
+    }
+  }
+}

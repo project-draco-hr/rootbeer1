@@ -12,6 +12,9 @@
     if (soot_class.isApplicationClass()) {
       attachAndCallReader(soot_class,node.getChildren());
     }
+ else {
+      doReader(soot_class);
+    }
   }
   bcl.returnVoid();
   bcl.endMethod();

@@ -1,0 +1,19 @@
+{
+  try {
+    System.out.println("loading application jars...");
+    for (    String path : m_paths) {
+      File file=new File(path);
+      if (file.isDirectory()) {
+        extractPath(path);
+      }
+ else {
+        extractJar(path);
+      }
+    }
+    m_resolver.cachePackageNames();
+    loadToSignatures();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

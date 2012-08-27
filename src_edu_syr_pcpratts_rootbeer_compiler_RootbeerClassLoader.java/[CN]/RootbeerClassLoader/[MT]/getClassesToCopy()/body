@@ -1,8 +1,0 @@
-{
-  List<String> ret=new ArrayList<String>();
-  List<String> visited=getVisitedClasses();
-  for (  String str : m_AppClasses) {
-    if (visited.contains(str) == false)     ret.add(str);
-  }
-  return ret;
-}

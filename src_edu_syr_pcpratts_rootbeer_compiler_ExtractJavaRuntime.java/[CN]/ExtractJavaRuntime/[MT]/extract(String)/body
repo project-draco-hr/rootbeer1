@@ -1,9 +1,0 @@
-{
-  m_AllClasses=new ArrayList<String>();
-  mkdir(folder);
-  List<String> rt_jars=getRuntimeJars();
-  for (  String rt_jar : rt_jars) {
-    extractJar(rt_jar);
-  }
-  return m_AllClasses;
-}

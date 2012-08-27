@@ -1,5 +1,5 @@
 {
-  SootClass object_soot_class=RootbeerScene.v().getClass("java.lang.Object");
+  SootClass object_soot_class=Scene.v().getSootClass("java.lang.Object");
   m_Bcl.top().startMethod("doWriteArrayToHeap",VoidType.v(),object_soot_class.getType(),LongType.v(),IntType.v(),IntType.v(),IntType.v());
   m_ThisRef=m_Bcl.top().refThis();
   m_Param0=m_Bcl.top().refParameter(0);

@@ -1,3 +1,0 @@
-{
-  m_SootLoadedClasses.put("java.lang.Object",SootClass.HIERARCHY);
-}

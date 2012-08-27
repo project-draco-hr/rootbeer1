@@ -1,4 +1,4 @@
 {
-  SootClass soot_class=RootbeerScene.v().getClass(cls);
+  SootClass soot_class=Scene.v().getSootClass(cls);
   run(cls,soot_class.isApplicationClass());
 }

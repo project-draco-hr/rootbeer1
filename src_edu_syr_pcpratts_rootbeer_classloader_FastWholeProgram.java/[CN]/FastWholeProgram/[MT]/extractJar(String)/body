@@ -1,0 +1,24 @@
+{
+  File pathFile=new File(path);
+  try {
+    JarInputStream is=new JarInputStream(new FileInputStream(pathFile));
+    while (true) {
+      JarEntry entry=is.getNextJarEntry();
+      if (entry == null) {
+        break;
+      }
+      if (entry.isDirectory() == false) {
+        String class_name=filenameToClass(entry.getName());
+        if (ignorePackage(class_name) == false) {
+          m_applicationClasses.add(class_name);
+        }
+      }
+      WriteJarEntry writer=new WriteJarEntry();
+      writer.write(entry,is,m_tempFolder);
+    }
+    is.close();
+  }
+ catch (  Exception ex) {
+    m_log.log(Level.WARNING,"Unable to extract Jar",ex);
+  }
+}

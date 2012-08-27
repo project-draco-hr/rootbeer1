@@ -4,7 +4,7 @@
   List<SootClass> hierarchy;
   if (base_type instanceof ArrayType) {
     hierarchy=new ArrayList<SootClass>();
-    SootClass obj=RootbeerScene.v().getClass("java.lang.Object");
+    SootClass obj=Scene.v().getSootClass("java.lang.Object");
     hierarchy.add(obj);
   }
  else   if (base_type instanceof RefType) {

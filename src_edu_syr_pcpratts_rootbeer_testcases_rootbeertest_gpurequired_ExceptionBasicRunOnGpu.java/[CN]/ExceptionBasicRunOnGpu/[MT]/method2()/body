@@ -1,0 +1,15 @@
+{
+  int[] arr=new int[]{10,20,30};
+  try {
+    try {
+      method3();
+    }
+ catch (    RuntimeException ex) {
+      index++;
+      method3();
+    }
+  }
+ catch (  Throwable ex) {
+    throw new RuntimeException(ex);
+  }
+}

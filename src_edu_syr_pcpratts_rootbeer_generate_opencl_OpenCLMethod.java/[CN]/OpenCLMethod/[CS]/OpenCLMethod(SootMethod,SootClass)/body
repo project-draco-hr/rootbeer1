@@ -1,5 +1,5 @@
 {
-  m_SootMethod=soot_method;
+  m_sootMethod=soot_method;
   m_SootClass=soot_class;
   createDontMangleMethods();
 }

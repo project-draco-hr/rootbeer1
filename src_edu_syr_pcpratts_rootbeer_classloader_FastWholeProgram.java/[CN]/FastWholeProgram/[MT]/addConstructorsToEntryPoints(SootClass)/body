@@ -1,0 +1,4 @@
+{
+  m_entryMethods.addAll(DetectionUtils.findConstructors(sc));
+  m_entryMethods.addAll(DetectionUtils.findStaticInitializers(sc));
+}

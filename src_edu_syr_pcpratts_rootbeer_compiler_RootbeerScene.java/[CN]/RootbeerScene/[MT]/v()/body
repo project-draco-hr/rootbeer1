@@ -1,4 +1,6 @@
 {
-  if (m_Instance == null)   m_Instance=new RootbeerScene();
-  return m_Instance;
+  if (m_instance == null) {
+    m_instance=new RootbeerScene();
+  }
+  return m_instance;
 }

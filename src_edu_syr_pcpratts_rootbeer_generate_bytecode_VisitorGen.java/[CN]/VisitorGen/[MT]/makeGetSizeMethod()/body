@@ -1,5 +1,5 @@
 {
-  SootClass object_soot_class=RootbeerScene.v().getClass("java.lang.Object");
+  SootClass object_soot_class=Scene.v().getSootClass("java.lang.Object");
   m_Bcl.top().startMethod("getArrayLength",IntType.v(),object_soot_class.getType());
   m_ThisRef=m_Bcl.top().refThis();
   mParam0=m_Bcl.top().refParameter(0);

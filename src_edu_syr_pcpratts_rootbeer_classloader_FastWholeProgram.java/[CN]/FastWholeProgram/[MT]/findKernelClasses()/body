@@ -1,0 +1,24 @@
+{
+  detectEntryPoints();
+  loadBuiltIns();
+  loadToBodies();
+  for (  SootClass sc : m_classes.values()) {
+    if (sc.resolvingLevel() == SootClass.BODIES) {
+      addConstructorsToEntryPoints(sc);
+    }
+  }
+  List<String> ret=new ArrayList<String>();
+  for (  SootMethod method : m_entryMethods) {
+    SootClass soot_class=method.getDeclaringClass();
+    for (    SootClass iface : soot_class.getInterfaces()) {
+      if (iface.getName().equals("edu.syr.pcpratts.rootbeer.runtime.Kernel") == false) {
+        continue;
+      }
+      String name=soot_class.getName();
+      if (ret.contains(name) == false) {
+        ret.add(name);
+      }
+    }
+  }
+  return ret;
+}

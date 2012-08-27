@@ -1,0 +1,3 @@
+{
+  addToResolveWorklist(makeClassRef(className),level);
+}

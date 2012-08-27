@@ -1,4 +1,4 @@
 {
-  m_Class=soot_class;
-  m_Children=new ArrayList<SootClass>();
+  m_class=soot_class;
+  m_children=new ArrayList<SootClass>();
 }

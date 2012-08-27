@@ -1,9 +1,0 @@
-{
-  if (m_CopiedClasses.contains(soot_class.getName()))   return;
-  m_CopiedClasses.add(soot_class.getName());
-  try {
-    RootbeerScene.v().addClass(soot_class);
-  }
- catch (  RuntimeException ex) {
-  }
-}

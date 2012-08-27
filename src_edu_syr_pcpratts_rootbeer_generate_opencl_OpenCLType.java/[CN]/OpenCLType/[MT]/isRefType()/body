@@ -1,4 +1,4 @@
 {
-  if (mSootType instanceof RefLikeType)   return true;
+  if (m_sootType instanceof RefLikeType)   return true;
   return false;
 }

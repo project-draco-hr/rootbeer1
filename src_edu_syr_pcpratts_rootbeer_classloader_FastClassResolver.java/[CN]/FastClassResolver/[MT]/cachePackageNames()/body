@@ -1,0 +1,41 @@
+{
+  for (  String jar : m_classPaths) {
+    if (jar.endsWith(".jar")) {
+      m_log.fine("caching package names for: " + jar);
+      try {
+        JarInputStream jin=new JarInputStream(new FileInputStream(jar));
+        while (true) {
+          JarEntry entry=jin.getNextJarEntry();
+          if (entry == null) {
+            break;
+          }
+          String name=entry.getName();
+          if (name.endsWith(".class")) {
+            name=name.replace(".class","");
+            name=name.replace("/",".");
+            name=getPackageName(name);
+          }
+ else {
+            name=name.replace("/",".");
+            name=name.substring(0,name.length() - 1);
+          }
+          if (m_packageNameCache.containsKey(name)) {
+            Set<String> jars=m_packageNameCache.get(name);
+            if (jars.contains(jar) == false) {
+              jars.add(jar);
+            }
+          }
+ else {
+            Set<String> jars=new HashSet<String>();
+            jars.add(jar);
+            m_packageNameCache.put(name,jars);
+          }
+        }
+        jin.close();
+      }
+ catch (      Exception ex) {
+        ex.printStackTrace();
+      }
+    }
+  }
+}

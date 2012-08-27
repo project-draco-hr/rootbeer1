@@ -1,7 +1,0 @@
-{
-  String begin_message="Aborting: can't find classfile ";
-  message=message.trim();
-  if (message.startsWith(begin_message) == false)   return false;
-  m_MissingClass=message.substring(begin_message.length()).trim();
-  return true;
-}

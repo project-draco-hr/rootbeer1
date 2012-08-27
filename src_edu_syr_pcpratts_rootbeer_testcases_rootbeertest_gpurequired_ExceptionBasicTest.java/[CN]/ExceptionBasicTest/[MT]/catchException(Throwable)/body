@@ -1,0 +1,4 @@
+{
+  if (thrwbl instanceof RuntimeException)   return true;
+  return false;
+}

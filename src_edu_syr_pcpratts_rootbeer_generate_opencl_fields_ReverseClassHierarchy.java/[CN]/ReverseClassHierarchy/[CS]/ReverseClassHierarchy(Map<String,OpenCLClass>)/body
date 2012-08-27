@@ -6,7 +6,7 @@
   Set<String> visited=new HashSet<String>();
   for (  String key : key_set) {
     OpenCLClass ocl_class=classes.get(key);
-    SootClass soot_class=RootbeerScene.v().getClass(ocl_class.getJavaName());
+    SootClass soot_class=Scene.v().getSootClass(ocl_class.getJavaName());
     if (soot_class.hasSuperclass() == false)     continue;
     SootClass parent=soot_class.getSuperclass();
     if (parent.getName().equals("java.lang.Object")) {
@@ -22,7 +22,7 @@
     for (    String key : key_set) {
       if (visited.contains(key))       continue;
       OpenCLClass ocl_class=classes.get(key);
-      SootClass soot_class=RootbeerScene.v().getClass(ocl_class.getJavaName());
+      SootClass soot_class=Scene.v().getSootClass(ocl_class.getJavaName());
       if (soot_class.hasSuperclass() == false)       continue;
       SootClass parent=soot_class.getSuperclass();
       TreeNode node=getNode(parent);
