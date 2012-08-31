@@ -1,8 +1,11 @@
 {
-  if (Scene.v().containsClass(className))   return Scene.v().getSootClass(className);
-  SootClass newClass;
-  newClass=new SootClass(className);
-  newClass.setResolvingLevel(SootClass.DANGLING);
-  Scene.v().addClass(newClass);
-  return newClass;
+  if (Scene.v().containsClass(class_name))   return Scene.v().getSootClass(class_name);
+  SootClass new_class;
+  new_class=new SootClass(class_name);
+  new_class.setResolvingLevel(SootClass.DANGLING);
+  Scene.v().addClass(new_class);
+  if (m_appClasses.contains(class_name)) {
+    new_class.setApplicationClass();
+  }
+  return new_class;
 }

@@ -1,5 +1,6 @@
 {
   m_log=Logger.getLogger("edu.syr.pcpratts");
+  m_appClasses=app_classes;
   worklist[SootClass.HIERARCHY]=new LinkedList<SootClass>();
   worklist[SootClass.SIGNATURES]=new LinkedList<SootClass>();
   worklist[SootClass.BODIES]=new LinkedList<SootClass>();
