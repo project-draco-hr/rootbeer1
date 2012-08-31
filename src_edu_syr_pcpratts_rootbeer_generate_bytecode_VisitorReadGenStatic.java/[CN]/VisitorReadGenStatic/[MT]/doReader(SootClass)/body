@@ -33,23 +33,10 @@
       field_value=bcl.invokeMethodRet(m_ThisRef,field_value,IntConstant.v(0),ref);
     }
  else {
-      if (soot_class.isApplicationClass()) {
-        field_value=bcl_mem.readVar(field.getType().getSootType());
-      }
- else {
-        SootClass string=Scene.v().getSootClass("java.lang.String");
-        SootClass cls=Scene.v().getSootClass("java.lang.Class");
-        bcl.pushMethod(gc_visit,"readStaticField",obj.getType(),cls.getType(),string.getType());
-        Local obj_field_value=bcl.invokeMethodRet(gc_visit,ClassConstant.v(toConstant(soot_class.getName())),StringConstant.v(field.getName()));
-        if (field.getType().isRefType()) {
-          field_value=obj_field_value;
-        }
- else {
-          Local capital_value=bcl.cast(field.getType().getCapitalType(),obj_field_value);
-          bcl.pushMethod(capital_value,field.getType().getName() + "Value",field.getType().getSootType());
-          field_value=bcl.invokeMethodRet(capital_value);
-        }
-      }
+      bcl_mem.useStaticPointer();
+      bcl_mem.setAddress(LongConstant.v(m_StaticOffsets.getIndex(field)));
+      field_value=bcl_mem.readVar(field.getType().getSootType());
+      bcl_mem.useInstancePointer();
     }
     if (field.isFinal()) {
       continue;
