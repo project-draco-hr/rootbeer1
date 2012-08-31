@@ -2,6 +2,10 @@
   mUsesGarbageCollector=false;
   findAllUsedClassesMethodsFieldsAndArrayTypes();
   StringBuilder ret=new StringBuilder();
+  headerString();
+  garbageCollectorString();
+  methodPrototypesString();
+  methodBodiesString();
   ret.append(headerString());
   ret.append(garbageCollectorString());
   ret.append(methodPrototypesString());
