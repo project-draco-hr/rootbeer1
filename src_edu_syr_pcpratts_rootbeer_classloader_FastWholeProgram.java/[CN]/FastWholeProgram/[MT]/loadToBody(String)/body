@@ -10,6 +10,8 @@
  catch (  RuntimeException e) {
     return;
   }
+  SootClass soot_class=curr.getDeclaringClass();
+  soot_class.setApplicationClass();
   for (  Unit curr_unit : body.getUnits()) {
     for (    ValueBox box : (List<ValueBox>)curr_unit.getUseAndDefBoxes()) {
       final Value value=box.getValue();

@@ -7,7 +7,11 @@
   if (isConstructor()) {
     ret.append("edu_syr_pcpratts_gc_assign (gc_info, \n&" + local.getName() + ", ");
   }
-  ret.append(method_prefix + corrected_this.getPolymorphicName() + "(");
+  String function_name=method_prefix + corrected_this.getPolymorphicName();
+  if (function_name.equals("invoke_java_lang_StringBuffer_expandCapacity0_4_")) {
+    System.out.println(function_name);
+  }
+  ret.append(function_name + "(");
   List args=arg0.getArgs();
   List<String> args_list=new ArrayList<String>();
   args_list.add("gc_info");

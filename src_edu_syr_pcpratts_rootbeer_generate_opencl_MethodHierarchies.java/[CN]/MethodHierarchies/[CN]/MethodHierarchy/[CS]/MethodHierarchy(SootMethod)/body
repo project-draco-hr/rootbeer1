@@ -1,4 +1,7 @@
 {
-  mMethodSubsignature=method.getSubSignature();
-  mClassHierarchy=OpenCLScene.v().getClassHierarchy(method.getDeclaringClass());
+  if (method.getName().equals("expandCapacity")) {
+    System.out.println("hello world");
+  }
+  m_methodSubsignature=method.getSubSignature();
+  m_sootMethod=method;
 }

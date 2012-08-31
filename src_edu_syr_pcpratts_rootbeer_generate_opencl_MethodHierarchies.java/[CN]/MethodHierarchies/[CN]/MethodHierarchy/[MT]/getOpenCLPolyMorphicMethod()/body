@@ -1,12 +1,13 @@
 {
-  for (  SootClass soot_class : mClassHierarchy) {
+  List<SootClass> class_hierarchy=OpenCLScene.v().getClassHierarchy(m_sootMethod.getDeclaringClass());
+  for (  SootClass soot_class : class_hierarchy) {
     try {
-      SootMethod soot_method=soot_class.getMethod(mMethodSubsignature);
+      SootMethod soot_method=soot_class.getMethod(m_methodSubsignature);
       return new OpenCLPolymorphicMethod(soot_method);
     }
  catch (    RuntimeException ex) {
       continue;
     }
   }
-  throw new RuntimeException("Cannot find class: " + mMethodSubsignature);
+  throw new RuntimeException("Cannot find class: " + m_methodSubsignature);
 }

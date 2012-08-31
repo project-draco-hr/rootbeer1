@@ -1,4 +1,5 @@
 {
-  if (mClassHierarchy.size() > 1)   return true;
+  List<SootClass> class_hierarchy=OpenCLScene.v().getClassHierarchy(m_sootMethod.getDeclaringClass());
+  if (class_hierarchy.size() > 1)   return true;
   return false;
 }
