@@ -1,24 +1,29 @@
 {
-  for (int i=SootClass.BODIES; i >= SootClass.HIERARCHY; i--) {
-    while (!worklist[i].isEmpty()) {
-      SootClass sc=(SootClass)worklist[i].removeFirst();
-      if (m_bodiesClasses != null) {
-        if (m_bodiesClasses.contains(sc.getName()) == false) {
-          bringToSignatures(sc);
-          continue;
+  while (true) {
+    for (int i=SootClass.BODIES; i >= SootClass.HIERARCHY; i--) {
+      while (!worklist[i].isEmpty()) {
+        SootClass sc=(SootClass)worklist[i].removeFirst();
+        if (m_bodiesClasses != null) {
+          if (m_bodiesClasses.contains(sc.getName()) == false) {
+            bringToSignatures(sc);
+            continue;
+          }
         }
-      }
 switch (i) {
 case SootClass.BODIES:
-        bringToBodies(sc);
-      break;
+          bringToBodies(sc);
+        break;
 case SootClass.SIGNATURES:
-    bringToSignatures(sc);
-  break;
+      bringToSignatures(sc);
+    break;
 case SootClass.HIERARCHY:
-bringToHierarchy(sc);
+  bringToHierarchy(sc);
 break;
 }
+}
+}
+if (allEmpty(worklist)) {
+return;
 }
 }
 }

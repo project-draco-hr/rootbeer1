@@ -2,11 +2,6 @@
   detectEntryPoints();
   loadBuiltIns();
   loadToBodies();
-  for (  SootClass sc : m_classes.values()) {
-    if (sc.resolvingLevel() == SootClass.BODIES) {
-      addConstructorsToEntryPoints(sc);
-    }
-  }
   List<String> ret=new ArrayList<String>();
   for (  SootMethod method : m_entryMethods) {
     SootClass soot_class=method.getDeclaringClass();
@@ -20,5 +15,6 @@
       }
     }
   }
+  m_resolver.clearBodyClasses();
   return ret;
 }

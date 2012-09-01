@@ -1,0 +1,11 @@
+{
+  for (  LinkedList<SootClass> sub_list : worklist) {
+    if (sub_list == null) {
+      continue;
+    }
+    if (sub_list.isEmpty() == false) {
+      return false;
+    }
+  }
+  return true;
+}

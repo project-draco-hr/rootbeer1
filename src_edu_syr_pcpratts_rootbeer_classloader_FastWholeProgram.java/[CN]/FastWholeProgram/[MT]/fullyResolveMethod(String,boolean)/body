@@ -11,6 +11,11 @@
     return null;
   }
   SootClass actual_class=curr.getDeclaringClass();
-  m_resolver.forceResolveClass(actual_class.getName(),SootClass.BODIES);
+  if (force_resolve) {
+    m_resolver.forceResolveClass(actual_class.getName(),SootClass.BODIES);
+  }
+ else {
+    m_resolver.resolveClass(actual_class.getName(),SootClass.BODIES);
+  }
   return curr;
 }

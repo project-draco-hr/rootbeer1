@@ -1,0 +1,47 @@
+{
+  if (curr == null) {
+    return;
+  }
+  Body body=null;
+  try {
+    body=curr.retrieveActiveBody();
+  }
+ catch (  RuntimeException e) {
+    return;
+  }
+  SootClass soot_class=curr.getDeclaringClass();
+  soot_class.setApplicationClass();
+  for (  Unit curr_unit : body.getUnits()) {
+    for (    ValueBox box : (List<ValueBox>)curr_unit.getUseAndDefBoxes()) {
+      final Value value=box.getValue();
+      if (value instanceof InvokeExpr) {
+        final InvokeExpr expr=(InvokeExpr)value;
+        try {
+          final SootMethodRef method_ref=expr.getMethodRef();
+          final String class_name=method_ref.declaringClass().getName();
+          if (ignorePackage(class_name)) {
+            continue;
+          }
+          if (m_bodiesClasses.contains(class_name) == false) {
+            m_bodiesClasses.add(class_name);
+          }
+          final String dest_sig=method_ref.getSignature();
+          SootMethod dest_method=fullyResolveMethod(dest_sig,force_resolve);
+          if (dest_method == null) {
+            continue;
+          }
+          try {
+            Body dest_body=dest_method.retrieveActiveBody();
+          }
+ catch (          Exception ex) {
+            continue;
+          }
+          m_cgWorkQueue.add(dest_sig);
+        }
+ catch (        Exception ex) {
+          m_log.log(Level.WARNING,"Exception while recording call",ex);
+        }
+      }
+    }
+  }
+}

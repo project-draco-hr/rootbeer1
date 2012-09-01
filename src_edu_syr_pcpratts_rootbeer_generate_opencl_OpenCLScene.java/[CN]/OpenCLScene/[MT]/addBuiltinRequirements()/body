@@ -1,4 +1,5 @@
 {
+  FastWholeProgram.v().loadToBodyLater("<java.lang.String: void <init>(char[])>");
   SootClass string_class=Scene.v().getSootClass("java.lang.String");
   SootMethod ctor_method=string_class.getMethod("void <init>(char[])");
   addMethod(ctor_method);

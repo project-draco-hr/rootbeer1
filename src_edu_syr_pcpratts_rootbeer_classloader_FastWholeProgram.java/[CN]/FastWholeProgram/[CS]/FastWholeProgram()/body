@@ -26,6 +26,7 @@
   m_ignorePackages.add("antlr.");
   m_ignorePackages.add("jas.");
   m_ignorePackages.add("scm.");
+  m_ignorePackages.add("java.");
   m_keepPackages=new ArrayList<String>();
   m_keepPackages.add("edu.syr.pcpratts.rootbeer.testcases.");
   m_keepPackages.add("edu.syr.pcpratts.rootbeer.runtime.remap.");

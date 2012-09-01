@@ -2,6 +2,10 @@
   if (sc.resolvingLevel() >= SootClass.HIERARCHY)   return;
   sc.setResolvingLevel(SootClass.HIERARCHY);
   String className=sc.getName();
+  List<SootMethod> methods=sc.getMethods();
+  for (  SootMethod method : methods) {
+    sc.removeMethod(method);
+  }
   try {
     InputStream fin=getInputStream(className);
     if (fin == null) {

@@ -8,5 +8,5 @@
  else {
     Tweaks.setInstance(new NativeCpuTweaks());
   }
-  m_fastLoader=new FastWholeProgram();
+  m_fastLoader=FastWholeProgram.v();
 }
