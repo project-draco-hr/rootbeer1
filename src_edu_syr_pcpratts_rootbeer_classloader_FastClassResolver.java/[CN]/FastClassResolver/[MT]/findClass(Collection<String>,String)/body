@@ -9,6 +9,7 @@
       if (entry.getName().equals(filename) == false) {
         continue;
       }
+      m_filenameToJar.put(filename,jar);
       WriteJarEntry writer=new WriteJarEntry();
       writer.write(entry,fin,m_tempFolder);
       fin.close();

@@ -10,7 +10,16 @@
     return;
   }
   SootClass soot_class=curr.getDeclaringClass();
-  soot_class.setApplicationClass();
+  if (force_resolve) {
+    soot_class.setApplicationClass();
+  }
+ else {
+    String filename=classToFilename(soot_class.getName());
+    String jar_name=m_resolver.getJarNameForFilename(filename);
+    if (isApplicationJar(jar_name)) {
+      soot_class.setApplicationClass();
+    }
+  }
   for (  Unit curr_unit : body.getUnits()) {
     for (    ValueBox box : (List<ValueBox>)curr_unit.getUseAndDefBoxes()) {
       final Value value=box.getValue();

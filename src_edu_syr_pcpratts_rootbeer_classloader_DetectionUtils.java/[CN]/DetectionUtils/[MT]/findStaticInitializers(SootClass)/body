@@ -1,9 +1,0 @@
-{
-  ArrayList<SootMethod> returnVal=new ArrayList<SootMethod>();
-  for (  SootMethod sm : sc.getMethods()) {
-    if ("<clinit>".equals(sm.getName())) {
-      returnVal.add(sm);
-    }
-  }
-  return returnVal;
-}

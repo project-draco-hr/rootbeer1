@@ -9,6 +9,7 @@
   m_refFinder=new MethodRefFinder();
   m_packageNameCache=new HashMap<String,Set<String>>();
   m_methodFinder=new MethodFinder();
+  m_filenameToJar=new HashMap<String,String>();
   try {
     m_missingClassLog=new PrintWriter("missing_classes.txt");
   }
