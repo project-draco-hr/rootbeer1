@@ -11,21 +11,19 @@
     }
   }
   m_resolver.setBodiesClasses(m_bodiesClasses);
-  m_cgWorkQueue=new LinkedList<String>();
   m_cgVisited=new HashSet<String>();
-  for (  String soot_class_str : m_bodiesClasses) {
-    SootClass soot_class=Scene.v().getSootClass(soot_class_str);
-    for (    SootMethod method : soot_class.getMethods()) {
-      m_cgWorkQueue.add(method.getSignature());
-    }
+  if (m_kernelOverrideClass != null) {
+    SootClass soot_class=Scene.v().getSootClass(m_kernelOverrideClass);
+    SootMethod root_method=soot_class.getMethod("void gpuMethod()");
+    loadToBodyRootMethod(root_method);
   }
-  while (m_cgWorkQueue.isEmpty() == false) {
-    String curr_signature=m_cgWorkQueue.get(0);
-    m_cgWorkQueue.remove(0);
-    if (m_cgVisited.contains(curr_signature)) {
-      continue;
+ else {
+    for (int i=0; i < m_bodiesClasses.size(); ++i) {
+      String soot_class_str=m_bodiesClasses.get(i);
+      SootClass soot_class=Scene.v().getSootClass(soot_class_str);
+      for (      SootMethod method : soot_class.getMethods()) {
+        loadToBodyRootMethod(method);
+      }
     }
-    m_cgVisited.add(curr_signature);
-    loadToBody(curr_signature);
   }
 }

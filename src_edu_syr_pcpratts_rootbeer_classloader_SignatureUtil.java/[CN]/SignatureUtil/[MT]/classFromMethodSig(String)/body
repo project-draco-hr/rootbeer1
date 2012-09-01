@@ -1,5 +1,0 @@
-{
-  String[] tokens=signature.split(":");
-  String first=tokens[0].trim();
-  return first.substring(1);
-}

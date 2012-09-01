@@ -27,6 +27,10 @@
   m_ignorePackages.add("jas.");
   m_ignorePackages.add("scm.");
   m_ignorePackages.add("java.");
+  m_ignorePackages.add("org.xmlpull.v1.");
+  m_ignorePackages.add("android.util.");
+  m_ignorePackages.add("android.content.res.");
+  m_ignorePackages.add("org.apache.commons.codec.");
   m_keepPackages=new ArrayList<String>();
   m_keepPackages.add("edu.syr.pcpratts.rootbeer.testcases.");
   m_keepPackages.add("edu.syr.pcpratts.rootbeer.runtime.remap.");
@@ -47,4 +51,6 @@
   m_runtimeClasses.add("edu.syr.pcpratts.rootbeer.runtime.util.Stopwatch");
   m_runtimeClasses.add("edu.syr.pcpratts.rootbeer.runtime.PrivateFields");
   m_resolvedMethods=new HashSet<String>();
+  m_dfsMethods=new HashMap<SootMethod,Set<SootMethod>>();
+  m_cgWorkQueue=new LinkedList<String>();
 }

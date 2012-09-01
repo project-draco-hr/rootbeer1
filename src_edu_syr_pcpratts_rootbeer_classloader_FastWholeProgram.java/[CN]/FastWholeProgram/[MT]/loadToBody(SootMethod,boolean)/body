@@ -2,6 +2,9 @@
   if (curr == null) {
     return;
   }
+  if (m_currDfsMethods.contains(curr) == false) {
+    m_currDfsMethods.add(curr);
+  }
   Body body=null;
   try {
     body=curr.retrieveActiveBody();
@@ -10,15 +13,10 @@
     return;
   }
   SootClass soot_class=curr.getDeclaringClass();
-  if (force_resolve) {
+  String filename=classToFilename(soot_class.getName());
+  String jar_name=m_resolver.getJarNameForFilename(filename);
+  if (isApplicationJar(jar_name)) {
     soot_class.setApplicationClass();
-  }
- else {
-    String filename=classToFilename(soot_class.getName());
-    String jar_name=m_resolver.getJarNameForFilename(filename);
-    if (isApplicationJar(jar_name)) {
-      soot_class.setApplicationClass();
-    }
   }
   for (  Unit curr_unit : body.getUnits()) {
     for (    ValueBox box : (List<ValueBox>)curr_unit.getUseAndDefBoxes()) {
@@ -28,24 +26,33 @@
         try {
           final SootMethodRef method_ref=expr.getMethodRef();
           final String class_name=method_ref.declaringClass().getName();
-          if (ignorePackage(class_name)) {
-            continue;
+          if (m_bodiesClasses != null) {
+            if (m_bodiesClasses.contains(class_name) == false) {
+              m_bodiesClasses.add(class_name);
+            }
           }
-          if (m_bodiesClasses.contains(class_name) == false) {
-            m_bodiesClasses.add(class_name);
-          }
-          final String dest_sig=method_ref.getSignature();
+          String dest_sig=method_ref.getSignature();
           SootMethod dest_method=fullyResolveMethod(dest_sig,force_resolve);
           if (dest_method == null) {
             continue;
           }
-          try {
-            Body dest_body=dest_method.retrieveActiveBody();
+          while (true) {
+            if (dest_method.isConcrete()) {
+              try {
+                Body dest_body=dest_method.retrieveActiveBody();
+              }
+ catch (              Exception ex) {
+                continue;
+              }
+              m_cgWorkQueue.add(dest_sig);
+            }
+            SootClass curr_class=dest_method.getDeclaringClass();
+            dest_method=getSuperMethod(curr_class,dest_method);
+            if (dest_method == null) {
+              break;
+            }
+            dest_sig=dest_method.getSignature();
           }
- catch (          Exception ex) {
-            continue;
-          }
-          m_cgWorkQueue.add(dest_sig);
         }
  catch (        Exception ex) {
           m_log.log(Level.WARNING,"Exception while recording call",ex);

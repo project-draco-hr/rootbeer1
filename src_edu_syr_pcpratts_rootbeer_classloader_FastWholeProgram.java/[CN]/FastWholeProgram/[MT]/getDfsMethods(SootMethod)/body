@@ -1,0 +1,7 @@
+{
+  if (m_singleKernel) {
+    return m_currDfsMethods;
+  }
+  m_currDfsMethods=m_dfsMethods.get(entry);
+  return m_currDfsMethods;
+}

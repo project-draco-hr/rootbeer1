@@ -1,4 +1,4 @@
 {
-  mInstance=null;
-  mCurrentIdent++;
+  m_instance=null;
+  m_curentIdent++;
 }

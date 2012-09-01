@@ -3,10 +3,11 @@
   m_fastLoader.addPath(jar_filename);
   m_fastLoader.addClassPath(getRuntimeJars());
   m_fastLoader.init();
-  List<String> kernel_classes=m_fastLoader.findKernelClasses();
+  m_fastLoader.singleKernel();
   FindKernelForTestCase finder=new FindKernelForTestCase();
-  String kernel=finder.get(test_case,kernel_classes);
-  kernel_classes.clear();
+  String kernel=finder.get(test_case,m_fastLoader.getApplicationClasses());
+  m_fastLoader.findKernelClasses(kernel);
+  List<String> kernel_classes=new ArrayList<String>();
   kernel_classes.add(kernel);
   compileForKernels(outname,kernel_classes);
 }

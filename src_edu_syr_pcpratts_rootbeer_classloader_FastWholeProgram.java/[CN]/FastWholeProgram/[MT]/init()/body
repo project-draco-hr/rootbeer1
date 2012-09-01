@@ -12,6 +12,8 @@
     }
     m_resolver.cachePackageNames();
     loadToSignatures();
+    detectEntryPoints();
+    loadBuiltIns();
   }
  catch (  Exception ex) {
     ex.printStackTrace();

@@ -1,11 +1,11 @@
 {
-  System.out.println("Finding kernel reachable methods...");
+  System.out.println("finding kernel reachable methods...");
   KernelReachableMethods reachable_finder=new KernelReachableMethods();
   List<String> reachables=reachable_finder.get(run_on_gpu_classes);
   RootbeerScene.v().setReachableMethods(reachables);
   ClassRemappingTransform transform=null;
   if (!Main.disable_class_remapping()) {
-    System.out.println("Remapping some classes to GPU versions...");
+    System.out.println("remapping some classes to GPU versions...");
     transform=new ClassRemappingTransform(false);
     transform.run(reachables);
     transform.finishClone();
@@ -14,9 +14,16 @@
   for (  String cls : run_on_gpu_classes) {
     transform2.run(cls);
   }
-  List<String> app_classes=m_fastLoader.getApplicationClasses();
+  Set<String> app_classes=new HashSet<String>();
   if (!Main.disable_class_remapping()) {
     app_classes.addAll(transform.getModifiedClasses());
+  }
+  SignatureUtil util=new SignatureUtil();
+  for (  String method_sig : reachables) {
+    String class_name=util.classFromMethodSig(method_sig);
+    if (app_classes.contains(class_name) == false) {
+      app_classes.add(class_name);
+    }
   }
   for (  String cls : app_classes) {
     loadAllMethods(cls);

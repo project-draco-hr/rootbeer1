@@ -1,6 +1,4 @@
 {
-  detectEntryPoints();
-  loadBuiltIns();
   loadToBodies();
   List<String> ret=new ArrayList<String>();
   for (  SootMethod method : m_entryMethods) {

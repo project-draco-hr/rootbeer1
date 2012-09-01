@@ -8,7 +8,7 @@
   addMethod(getThreadId);
   ArrayType char_array=ArrayType.v(CharType.v(),1);
   OpenCLArrayType ocl_array=new OpenCLArrayType(char_array);
-  m_ArrayTypes.add(ocl_array);
+  m_arrayTypes.add(ocl_array);
   SootClass throwable_class=Scene.v().getSootClass("java.lang.Throwable");
   SootMethod getStackTrace=throwable_class.getMethod("java.lang.StackTraceElement[] getStackTrace()");
   addMethod(getStackTrace);

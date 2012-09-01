@@ -1,0 +1,14 @@
+{
+  while (true) {
+    if (curr_class.hasSuperclass() == false) {
+      return null;
+    }
+    SootClass parent=curr_class.getSuperclass();
+    if (parent.declaresMethod(dest_method.getSubSignature())) {
+      return parent.getMethod(dest_method.getSubSignature());
+    }
+ else {
+      curr_class=parent;
+    }
+  }
+}

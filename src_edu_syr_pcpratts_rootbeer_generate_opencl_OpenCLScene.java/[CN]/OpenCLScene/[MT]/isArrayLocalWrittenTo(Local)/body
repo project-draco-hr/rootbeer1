@@ -1,3 +1,3 @@
 {
-  return codeSegment.getReadWriteFieldInspector().localRepresentingArrayIsWrittenOnGpu(local);
+  return m_codeSegment.getReadWriteFieldInspector().localRepresentingArrayIsWrittenOnGpu(local);
 }

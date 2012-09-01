@@ -1,0 +1,4 @@
+{
+  m_kernelOverrideClass=kernel;
+  findKernelClasses();
+}
