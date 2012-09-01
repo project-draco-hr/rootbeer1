@@ -1,6 +1,5 @@
 {
   name=name.replace(".","/");
   name+=".class";
-  name="/" + name;
   return name;
 }

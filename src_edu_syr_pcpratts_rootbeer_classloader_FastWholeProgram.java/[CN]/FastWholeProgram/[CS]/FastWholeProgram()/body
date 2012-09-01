@@ -9,7 +9,7 @@
   File file=new File(m_tempFolder);
   file.mkdirs();
   m_applicationClasses=new ArrayList<String>();
-  m_resolver=new FastClassResolver(m_tempFolder,m_classPaths,m_applicationClasses);
+  m_resolver=new FastClassResolver(m_tempFolder,m_classPaths,m_paths,m_applicationClasses);
   m_ignorePackages=new ArrayList<String>();
   m_ignorePackages.add("edu.syr.pcpratts.compressor.");
   m_ignorePackages.add("edu.syr.pcpratts.deadmethods.");
@@ -51,6 +51,6 @@
   m_runtimeClasses.add("edu.syr.pcpratts.rootbeer.runtime.util.Stopwatch");
   m_runtimeClasses.add("edu.syr.pcpratts.rootbeer.runtime.PrivateFields");
   m_resolvedMethods=new HashSet<String>();
-  m_dfsMethods=new HashMap<SootMethod,Set<SootMethod>>();
+  m_dfsMethods=new HashMap<SootMethod,Set<String>>();
   m_cgWorkQueue=new LinkedList<String>();
 }

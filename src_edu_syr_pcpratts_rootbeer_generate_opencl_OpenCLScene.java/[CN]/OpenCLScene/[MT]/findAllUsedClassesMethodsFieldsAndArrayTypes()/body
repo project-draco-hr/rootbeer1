@@ -1,11 +1,13 @@
 {
   FindMethodsFieldsAndArrayTypes.reset();
   addBuiltinRequirements();
-  Set<SootMethod> dfs_methods=FastWholeProgram.v().getDfsMethods(m_codeSegment.getRootMethod());
-  Iterator<SootMethod> iter=dfs_methods.iterator();
+  SignatureUtil util=new SignatureUtil();
+  Set<String> dfs_methods=FastWholeProgram.v().getDfsMethods(m_codeSegment.getRootMethod());
+  Iterator<String> iter=dfs_methods.iterator();
   while (iter.hasNext()) {
-    SootMethod curr=iter.next();
-    addMethod(curr);
+    String sig=iter.next();
+    SootClass soot_class=Scene.v().getSootClass(util.classFromMethodSig(sig));
+    addMethod(soot_class.getMethod(util.methodSubSigFromMethodSig(sig)));
   }
   m_codeSegment.findAllUsedMethodsAndFields();
   int prev_size=0;

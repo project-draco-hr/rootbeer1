@@ -1,4 +1,4 @@
 {
-  m_currDfsMethods=new HashSet<SootMethod>();
+  m_currDfsMethods=new HashSet<String>();
   m_singleKernel=true;
 }

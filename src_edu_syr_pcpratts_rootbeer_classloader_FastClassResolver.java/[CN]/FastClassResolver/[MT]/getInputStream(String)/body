@@ -5,7 +5,6 @@
     return new FileInputStream(filename);
   }
  else {
-    m_log.fine("searching for: " + filename);
     findClass(className);
     file=new File(filename);
     if (file.exists() == false) {

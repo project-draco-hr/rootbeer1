@@ -18,11 +18,12 @@
     loadToBodyRootMethod(root_method);
   }
  else {
-    for (int i=0; i < m_bodiesClasses.size(); ++i) {
-      String soot_class_str=m_bodiesClasses.get(i);
+    for (int i=0; i < m_applicationClasses.size(); ++i) {
+      String soot_class_str=m_applicationClasses.get(i);
       SootClass soot_class=Scene.v().getSootClass(soot_class_str);
-      for (      SootMethod method : soot_class.getMethods()) {
-        loadToBodyRootMethod(method);
+      if (soot_class.declaresMethod("void gpuMethod()")) {
+        SootMethod root_method=soot_class.getMethod("void gpuMethod()");
+        loadToBodyRootMethod(root_method);
       }
     }
   }

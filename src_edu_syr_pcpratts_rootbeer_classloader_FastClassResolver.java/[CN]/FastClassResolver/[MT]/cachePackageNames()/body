@@ -1,5 +1,11 @@
 {
-  for (  String jar : m_classPaths) {
+  Set<String> to_cache=new HashSet<String>();
+  to_cache.addAll(m_classPaths);
+  to_cache.addAll(m_paths);
+  String[] to_cache_array=new String[to_cache.size()];
+  to_cache_array=to_cache.toArray(to_cache_array);
+  Arrays.sort(to_cache_array);
+  for (  String jar : to_cache_array) {
     if (jar.endsWith(".jar")) {
       m_log.fine("caching package names for: " + jar);
       try {

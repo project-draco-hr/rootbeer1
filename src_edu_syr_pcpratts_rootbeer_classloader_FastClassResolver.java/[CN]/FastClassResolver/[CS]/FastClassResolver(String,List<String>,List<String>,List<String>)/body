@@ -6,6 +6,7 @@
   worklist[SootClass.BODIES]=new LinkedList<SootClass>();
   m_tempFolder=temp_folder;
   m_classPaths=class_paths;
+  m_paths=paths;
   m_refFinder=new MethodRefFinder();
   m_packageNameCache=new HashMap<String,Set<String>>();
   m_methodFinder=new MethodFinder();

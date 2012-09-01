@@ -2,8 +2,8 @@
   if (curr == null) {
     return;
   }
-  if (m_currDfsMethods.contains(curr) == false) {
-    m_currDfsMethods.add(curr);
+  if (m_currDfsMethods.contains(curr.getSignature()) == false) {
+    m_currDfsMethods.add(curr.getSignature());
   }
   Body body=null;
   try {
@@ -14,7 +14,7 @@
   }
   SootClass soot_class=curr.getDeclaringClass();
   String filename=classToFilename(soot_class.getName());
-  String jar_name=m_resolver.getJarNameForFilename(filename);
+  String jar_name=m_resolver.getJarNameForFilename(filename,soot_class.getName());
   if (isApplicationJar(jar_name)) {
     soot_class.setApplicationClass();
   }
