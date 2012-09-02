@@ -1,5 +1,5 @@
 {
-  if (m_yypes.contains(type) == false) {
-    m_yypes.add(type);
+  if (m_types.contains(type) == false) {
+    m_types.add(type);
   }
 }

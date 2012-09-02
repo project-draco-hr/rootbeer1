@@ -5,6 +5,6 @@
   m_oclToSoot=new HashMap<String,String>();
   m_arrayTypes=new LinkedHashSet<OpenCLArrayType>();
   m_methodHierarchies=new MethodHierarchies();
-  m_yypes=new ArrayList<Type>();
+  m_types=new ArrayList<Type>();
   m_multiArrayDimensions=new HashMap<ArrayType,List<Integer>>();
 }
