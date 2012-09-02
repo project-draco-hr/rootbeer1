@@ -5,7 +5,7 @@
   bcl.pushMethod(m_CurrMem.top(),function_name,soot_field.getType());
   Local data=bcl.invokeMethodRet(m_CurrMem.top());
   SootClass soot_class=Scene.v().getSootClass(soot_field.getDeclaringClass().getName());
-  if (soot_class.isApplicationClass()) {
+  if (FastWholeProgram.v().isApplicationClass(soot_class)) {
     if (field.isInstance()) {
       bcl.setInstanceField(soot_field,m_ObjSerializing.top(),data);
     }

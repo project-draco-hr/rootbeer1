@@ -9,7 +9,7 @@
   Local ctor_used=bcl_mem.readByte();
   bcl.ifStmt(ctor_used,"==",IntConstant.v(0),label);
   String name=soot_class.getName();
-  if (soot_class.isLibraryClass()) {
+  if (FastWholeProgram.v().isApplicationClass(soot_class) == false) {
     if (soot_class.declaresMethod("void <init>()")) {
       Local new_object=bcl.newInstance(name);
       bcl.assign(object_to_write_to,new_object);

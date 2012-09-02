@@ -3,7 +3,7 @@
   if (type_to_create instanceof RefType) {
     RefType ref_type=(RefType)type_to_create;
     SootClass soot_class=getClassForType(ref_type);
-    if (soot_class.isLibraryClass()) {
+    if (FastWholeProgram.v().isApplicationClass(soot_class) == false) {
       if (soot_class.declaresMethod("void <init>()") == false) {
         return;
       }
@@ -19,7 +19,7 @@
     RefType ref_type=(RefType)type_to_create;
     SootClass soot_class=getClassForType(ref_type);
     String name=ref_type.getClassName();
-    if (soot_class.isLibraryClass()) {
+    if (FastWholeProgram.v().isApplicationClass(soot_class) == false) {
       if (soot_class.declaresMethod("void <init>()")) {
         new_object=bcl.newInstance(name);
       }

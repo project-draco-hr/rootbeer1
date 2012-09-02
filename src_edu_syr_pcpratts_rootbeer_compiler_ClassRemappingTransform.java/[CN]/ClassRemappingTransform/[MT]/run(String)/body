@@ -1,4 +1,4 @@
 {
   SootClass soot_class=Scene.v().getSootClass(cls);
-  run(cls,soot_class.isApplicationClass());
+  run(cls,FastWholeProgram.v().isApplicationClass(soot_class));
 }

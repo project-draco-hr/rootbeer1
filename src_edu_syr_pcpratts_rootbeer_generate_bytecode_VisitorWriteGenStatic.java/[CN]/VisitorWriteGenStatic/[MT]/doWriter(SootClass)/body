@@ -7,7 +7,7 @@
   SootClass obj=Scene.v().getSootClass("java.lang.Object");
   for (  OpenCLField field : static_fields) {
     Local field_value;
-    if (soot_class.isApplicationClass()) {
+    if (FastWholeProgram.v().isApplicationClass(soot_class)) {
       field_value=bcl.refStaticField(soot_class.getType(),field.getName());
     }
  else {

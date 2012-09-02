@@ -1,5 +1,5 @@
 {
-  if (curr_class.isApplicationClass()) {
+  if (FastWholeProgram.v().isApplicationClass(curr_class)) {
     attachReader(curr_class.getName(),ref_types);
     callBaseClassReader(curr_class.getName(),ref_types);
   }

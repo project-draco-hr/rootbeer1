@@ -11,7 +11,7 @@
   SootClass obj_class=Scene.v().getSootClass("java.lang.Object");
   SootClass string=Scene.v().getSootClass("java.lang.String");
   Local original_field_value;
-  if (soot_class.isLibraryClass()) {
+  if (FastWholeProgram.v().isApplicationClass(soot_class) == false) {
     bcl.pushMethod(gc_obj_visit,"readField",obj_class.getType(),obj_class.getType(),string.getType());
     original_field_value=bcl.invokeMethodRet(gc_obj_visit,m_ObjSerializing.top(),StringConstant.v(soot_field.getName()));
   }
@@ -25,7 +25,7 @@
   Local ret_obj=bcl.invokeMethodRet(gc_obj_visit,original_field_value,IntConstant.v(should_read),ref);
   Type type=soot_field.getType();
   Local ret=bcl.cast(type,ret_obj);
-  if (soot_class.isLibraryClass()) {
+  if (FastWholeProgram.v().isApplicationClass(soot_class) == false) {
     bcl.pushMethod(gc_obj_visit,"writeField",VoidType.v(),obj_class.getType(),string.getType(),obj_class.getType());
     bcl.invokeMethodNoRet(gc_obj_visit,m_ObjSerializing.top(),StringConstant.v(soot_field.getName()),ret);
   }
