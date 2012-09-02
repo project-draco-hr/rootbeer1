@@ -1,4 +1,11 @@
 {
+  String[] sorted=new String[run_on_gpu_classes.size()];
+  sorted=run_on_gpu_classes.toArray(sorted);
+  Arrays.sort(sorted);
+  run_on_gpu_classes.clear();
+  for (  String cls : sorted) {
+    run_on_gpu_classes.add(cls);
+  }
   System.out.println("finding kernel reachable methods...");
   KernelReachableMethods reachable_finder=new KernelReachableMethods();
   List<String> reachables=reachable_finder.get(run_on_gpu_classes);

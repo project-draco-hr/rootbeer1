@@ -3,7 +3,7 @@
   if (mSentinalCtorsCreated.contains(soot_class.getName()))   return;
   mSentinalCtorsCreated.add(soot_class.getName());
   soot_class=Scene.v().getSootClass(soot_class.getName());
-  if (soot_class.isLibraryClass())   return;
+  if (FastWholeProgram.v().isApplicationClass(soot_class) == false)   return;
   if (soot_class.declaresMethod("void <init>(edu.syr.pcpratts.rootbeer.runtime.Sentinal)")) {
     return;
   }
@@ -20,7 +20,6 @@
       bcl.invokeMethodNoRet(thisref);
     }
  else {
-      FastWholeProgram.v().isApplicationClass(parent_class);
       System.out.println("Library class " + parent_name + " on the GPU does not have a void constructor");
       System.exit(-1);
     }
