@@ -1,6 +1,6 @@
 {
   m_kernels=kernels;
-  SootClass test_class=RootbeerScene.v().getClass(test_case);
+  SootClass test_class=Scene.v().getSootClass(test_case);
   List<SootMethod> methods=test_class.getMethods();
   for (  SootMethod method : methods) {
     String kernel=searchMethod(method);

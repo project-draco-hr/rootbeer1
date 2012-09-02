@@ -1,0 +1,3 @@
+{
+  FastWholeProgram.v().loadToBodyLater(m_sootMethod.getSignature());
+}

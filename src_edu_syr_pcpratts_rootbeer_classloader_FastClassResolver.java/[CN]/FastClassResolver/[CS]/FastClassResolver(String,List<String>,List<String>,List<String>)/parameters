@@ -1,0 +1,4 @@
+String temp_folder
+List<String> class_paths
+List<String> paths
+List<String> app_classes

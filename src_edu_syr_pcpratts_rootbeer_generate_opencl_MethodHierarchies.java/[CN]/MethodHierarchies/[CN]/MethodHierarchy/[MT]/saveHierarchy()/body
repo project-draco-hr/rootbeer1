@@ -1,0 +1,3 @@
+{
+  m_hierarchy=OpenCLScene.v().getClassHierarchy(m_sootMethod.getDeclaringClass());
+}

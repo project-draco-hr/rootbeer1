@@ -1,12 +1,12 @@
 {
   ArrayType type=expr.getBaseType();
   List<Integer> dimensions;
-  if (m_MultiArrayDimensions.containsKey(type)) {
-    dimensions=m_MultiArrayDimensions.get(type);
+  if (m_multiArrayDimensions.containsKey(type)) {
+    dimensions=m_multiArrayDimensions.get(type);
   }
  else {
     dimensions=new ArrayList<Integer>();
-    m_MultiArrayDimensions.put(type,dimensions);
+    m_multiArrayDimensions.put(type,dimensions);
   }
   int dim=expr.getSizeCount();
   if (dimensions.contains(dim))   return;

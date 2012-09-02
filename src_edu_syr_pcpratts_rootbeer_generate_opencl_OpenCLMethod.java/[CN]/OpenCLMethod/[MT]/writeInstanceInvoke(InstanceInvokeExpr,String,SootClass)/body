@@ -1,5 +1,5 @@
 {
-  OpenCLMethod corrected_this=new OpenCLMethod(m_SootMethod,soot_class);
+  OpenCLMethod corrected_this=new OpenCLMethod(m_sootMethod,soot_class);
   StringBuilder ret=new StringBuilder();
   Value base=arg0.getBase();
   if (base instanceof Local == false)   throw new UnsupportedOperationException("How do we handle an invoke on a non loca?");
@@ -7,7 +7,8 @@
   if (isConstructor()) {
     ret.append("edu_syr_pcpratts_gc_assign (gc_info, \n&" + local.getName() + ", ");
   }
-  ret.append(method_prefix + corrected_this.getPolymorphicName() + "(");
+  String function_name=method_prefix + corrected_this.getPolymorphicName();
+  ret.append(function_name + "(");
   List args=arg0.getArgs();
   List<String> args_list=new ArrayList<String>();
   args_list.add("gc_info");

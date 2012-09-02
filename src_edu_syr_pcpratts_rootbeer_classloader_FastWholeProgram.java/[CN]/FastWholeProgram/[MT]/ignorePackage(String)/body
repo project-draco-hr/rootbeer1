@@ -1,0 +1,18 @@
+{
+  for (  String runtime_class : m_runtimeClasses) {
+    if (class_name.equals(runtime_class)) {
+      return false;
+    }
+  }
+  for (  String keep_package : m_keepPackages) {
+    if (class_name.startsWith(keep_package)) {
+      return false;
+    }
+  }
+  for (  String ignore_package : m_ignorePackages) {
+    if (class_name.startsWith(ignore_package)) {
+      return true;
+    }
+  }
+  return false;
+}

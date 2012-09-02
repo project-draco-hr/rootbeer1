@@ -1,3 +1,3 @@
 {
-  mHierarchies=new LinkedHashSet<MethodHierarchy>();
+  m_hierarchies=new LinkedHashSet<MethodHierarchy>();
 }

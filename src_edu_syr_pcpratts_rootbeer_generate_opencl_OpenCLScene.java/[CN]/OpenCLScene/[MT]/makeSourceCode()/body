@@ -1,11 +1,22 @@
 {
-  mUsesGarbageCollector=false;
+  m_usesGarbageCollector=false;
   findAllUsedClassesMethodsFieldsAndArrayTypes();
   StringBuilder ret=new StringBuilder();
   ret.append(headerString());
   ret.append(garbageCollectorString());
   ret.append(methodPrototypesString());
   ret.append(methodBodiesString());
+  String prev_hash="";
+  String curr_hash=DigestUtils.md5Hex(ret.toString());
+  while (prev_hash.equals(curr_hash) == false) {
+    ret=new StringBuilder();
+    ret.append(headerString());
+    ret.append(garbageCollectorString());
+    ret.append(methodPrototypesString());
+    ret.append(methodBodiesString());
+    prev_hash=curr_hash;
+    curr_hash=DigestUtils.md5Hex(ret.toString());
+  }
   String cuda_code;
   if (true) {
     cuda_code=ret.toString();

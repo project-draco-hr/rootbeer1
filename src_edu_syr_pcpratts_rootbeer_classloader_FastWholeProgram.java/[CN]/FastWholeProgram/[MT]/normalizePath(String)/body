@@ -1,0 +1,10 @@
+{
+  File file=new File(path);
+  if (file.isDirectory() == false) {
+    return path;
+  }
+  if (path.endsWith(File.separator) == false) {
+    path+=File.separator;
+  }
+  return path;
+}

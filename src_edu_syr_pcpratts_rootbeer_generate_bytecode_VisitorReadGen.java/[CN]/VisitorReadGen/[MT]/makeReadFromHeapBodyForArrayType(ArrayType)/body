@@ -17,7 +17,7 @@
   bcl.label(label_new_float);
   bcl.assign(ret,bcl.newArray(type,size));
   bcl.label(label_after_new_float);
-  SootClass obj_class=RootbeerScene.v().getClass("java.lang.Object");
+  SootClass obj_class=Scene.v().getSootClass("java.lang.Object");
   bcl.pushMethod(m_ThisRef,"checkCache",obj_class.getType(),LongType.v(),obj_class.getType());
   ret=bcl.invokeMethodRet(m_ThisRef,m_RefParam,ret);
   ret=bcl.cast(type,ret);

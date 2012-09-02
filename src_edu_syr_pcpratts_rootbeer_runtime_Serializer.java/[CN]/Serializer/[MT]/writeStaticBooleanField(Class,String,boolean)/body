@@ -1,0 +1,13 @@
+{
+  while (true) {
+    try {
+      Field f=cls.getDeclaredField(name);
+      f.setAccessible(true);
+      f.setBoolean(null,value);
+      return;
+    }
+ catch (    Exception ex) {
+      cls=cls.getSuperclass();
+    }
+  }
+}

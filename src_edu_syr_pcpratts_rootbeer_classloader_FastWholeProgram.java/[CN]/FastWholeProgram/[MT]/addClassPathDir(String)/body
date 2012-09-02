@@ -1,0 +1,22 @@
+{
+  File file=new File(folder);
+  if (file.exists() == false) {
+    throw new RuntimeException("folder: " + folder + " does not exist");
+  }
+  File[] children=file.listFiles();
+  for (  File child : children) {
+    if (child.isDirectory()) {
+      addClassPathDir(child.getAbsolutePath());
+    }
+ else {
+      String name=child.getName();
+      if (name.startsWith(".")) {
+        continue;
+      }
+      if (name.endsWith(".jar") == false) {
+        continue;
+      }
+      addClassPath(child.getAbsolutePath());
+    }
+  }
+}

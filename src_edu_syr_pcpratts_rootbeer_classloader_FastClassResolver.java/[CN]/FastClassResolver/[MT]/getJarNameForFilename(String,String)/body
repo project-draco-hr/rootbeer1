@@ -1,0 +1,10 @@
+{
+  if (m_filenameToJar.containsKey(filename) == false) {
+    try {
+      findClass(class_name);
+    }
+ catch (    Exception ex) {
+    }
+  }
+  return m_filenameToJar.get(filename);
+}

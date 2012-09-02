@@ -2,12 +2,12 @@
   if (mMethodsInspected.contains(method))   return;
   mMethodsInspected.add(method);
   SootClass soot_class=method.getDeclaringClass();
-  soot_class=RootbeerScene.v().getClass(soot_class.getName());
+  soot_class=Scene.v().getSootClass(soot_class.getName());
   while (true) {
     mTypeHistory.addType(soot_class.getType());
     if (soot_class.hasSuperclass() == false)     break;
     soot_class=soot_class.getSuperclass();
-    soot_class=RootbeerScene.v().getClass(soot_class.getName());
+    soot_class=Scene.v().getSootClass(soot_class.getName());
     if (soot_class.getName().equals("java.lang.Object"))     break;
   }
   Body body;

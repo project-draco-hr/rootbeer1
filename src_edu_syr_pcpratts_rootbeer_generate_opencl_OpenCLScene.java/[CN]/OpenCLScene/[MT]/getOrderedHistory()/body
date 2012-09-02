@@ -1,5 +1,5 @@
 {
-  List<Type> ordered_history=m_TypeHistory.getHistory();
+  List<Type> ordered_history=m_typeHistory.getHistory();
   SortedTypeHistory sorter=new SortedTypeHistory();
   List<Type> all_possible_types=sorter.sort(ordered_history);
   return all_possible_types;

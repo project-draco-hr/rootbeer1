@@ -1,2 +1,2 @@
 String outname
-List<String> run_on_gpu_classes
+List<String> kernel_classes

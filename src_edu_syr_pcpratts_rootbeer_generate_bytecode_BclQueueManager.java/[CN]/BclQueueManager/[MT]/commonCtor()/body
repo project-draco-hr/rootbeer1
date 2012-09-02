@@ -1,4 +1,4 @@
 {
   jimple=Jimple.v();
-  mQueueManagerClass=RootbeerScene.v().getClass("edu.syr.pcpratts.javaautogpu.runtime.QueueManager");
+  mQueueManagerClass=Scene.v().getSootClass("edu.syr.pcpratts.javaautogpu.runtime.QueueManager");
 }

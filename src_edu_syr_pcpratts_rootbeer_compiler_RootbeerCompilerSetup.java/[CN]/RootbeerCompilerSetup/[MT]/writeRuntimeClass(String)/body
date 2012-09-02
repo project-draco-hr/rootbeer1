@@ -1,4 +1,0 @@
-{
-  ReadJar reader=new ReadJar();
-  reader.writeRuntimeClass(cls);
-}

@@ -1,0 +1,13 @@
+{
+  if (m_singleKernel) {
+    return m_currDfsMethods;
+  }
+  if (m_dfsMethods.containsKey(entry) == false) {
+    m_currDfsMethods=new HashSet<String>();
+    m_dfsMethods.put(entry,m_currDfsMethods);
+  }
+ else {
+    m_currDfsMethods=m_dfsMethods.get(entry);
+  }
+  return m_currDfsMethods;
+}

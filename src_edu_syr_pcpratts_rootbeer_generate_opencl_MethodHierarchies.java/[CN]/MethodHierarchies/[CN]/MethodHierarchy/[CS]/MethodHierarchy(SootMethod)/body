@@ -1,4 +1,4 @@
 {
-  mMethodSubsignature=method.getSubSignature();
-  mClassHierarchy=OpenCLScene.v().getClassHierarchy(method.getDeclaringClass());
+  m_methodSubsignature=method.getSubSignature();
+  m_sootMethod=method;
 }

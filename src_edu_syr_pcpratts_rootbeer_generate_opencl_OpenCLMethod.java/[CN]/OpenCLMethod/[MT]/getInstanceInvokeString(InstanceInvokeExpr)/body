@@ -4,7 +4,7 @@
   List<SootClass> hierarchy;
   if (base_type instanceof ArrayType) {
     hierarchy=new ArrayList<SootClass>();
-    SootClass obj=RootbeerScene.v().getClass("java.lang.Object");
+    SootClass obj=Scene.v().getSootClass("java.lang.Object");
     hierarchy.add(obj);
   }
  else   if (base_type instanceof RefType) {
@@ -15,7 +15,7 @@
     throw new UnsupportedOperationException("how do we handle this case?");
   }
   if (hierarchy.size() == 1 || isConstructor() || arg0 instanceof SpecialInvokeExpr) {
-    return writeInstanceInvoke(arg0,"",m_SootClass);
+    return writeInstanceInvoke(arg0,"",m_sootClass);
   }
  else   if (hierarchy.size() == 0) {
     System.out.println("size = 0");

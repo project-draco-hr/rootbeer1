@@ -1,0 +1,8 @@
+{
+  int resolvingLevel=cl.resolvingLevel();
+  if (resolvingLevel < SootClass.HIERARCHY)   return;
+  reResolveHierarchy(cl);
+  cl.setResolvingLevel(SootClass.HIERARCHY);
+  addToResolveWorklist(cl,resolvingLevel);
+  processResolveWorklist();
+}

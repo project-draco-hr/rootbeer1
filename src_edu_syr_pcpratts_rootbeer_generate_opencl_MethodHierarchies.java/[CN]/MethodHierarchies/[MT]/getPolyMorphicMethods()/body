@@ -1,6 +1,6 @@
 {
   List<OpenCLPolymorphicMethod> ret=new ArrayList<OpenCLPolymorphicMethod>();
-  for (  MethodHierarchy method_hierarchy : mHierarchies) {
+  for (  MethodHierarchy method_hierarchy : m_hierarchies) {
     if (method_hierarchy.isPolyMorphic()) {
       ret.add(method_hierarchy.getOpenCLPolyMorphicMethod());
     }

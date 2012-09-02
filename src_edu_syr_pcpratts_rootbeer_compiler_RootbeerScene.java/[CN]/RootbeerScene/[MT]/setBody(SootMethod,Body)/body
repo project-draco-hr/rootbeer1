@@ -1,3 +1,0 @@
-{
-  m_Bodies.put(method.getSignature(),body);
-}

@@ -1,0 +1,5 @@
+{
+  if (sc.hasSuperclass())   addToResolveWorklist(sc.getSuperclass(),SootClass.HIERARCHY);
+  if (sc.hasOuterClass())   addToResolveWorklist(sc.getOuterClass(),SootClass.HIERARCHY);
+  for (  SootClass iface : sc.getInterfaces())   addToResolveWorklist(iface,SootClass.HIERARCHY);
+}

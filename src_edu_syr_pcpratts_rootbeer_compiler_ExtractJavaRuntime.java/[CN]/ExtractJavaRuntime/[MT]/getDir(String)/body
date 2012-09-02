@@ -1,8 +1,0 @@
-{
-  String[] tokens=name.split("/");
-  String ret="";
-  for (int i=0; i < tokens.length - 1; ++i) {
-    ret+=tokens[i] + File.separator;
-  }
-  return ret;
-}

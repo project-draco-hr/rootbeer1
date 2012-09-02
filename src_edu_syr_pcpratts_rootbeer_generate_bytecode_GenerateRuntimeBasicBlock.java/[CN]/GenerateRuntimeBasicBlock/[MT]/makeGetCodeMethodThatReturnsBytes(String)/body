@@ -1,7 +1,7 @@
 {
   BytecodeLanguage bcl=new BytecodeLanguage();
   bcl.openClass(mSootClass);
-  SootClass string=RootbeerScene.v().getClass("java.lang.String");
+  SootClass string=Scene.v().getSootClass("java.lang.String");
   bcl.startMethod("getCubin",string.getType());
   Local thisref=bcl.refThis();
   bcl.returnValue(StringConstant.v(filename));

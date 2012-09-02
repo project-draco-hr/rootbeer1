@@ -1,0 +1,15 @@
+{
+  System.out.println("detecting entry points...");
+  for (  SootClass sc : m_classes.values()) {
+    Chain<SootClass> ifaces=sc.getInterfaces();
+    Iterator<SootClass> iter=ifaces.iterator();
+    while (iter.hasNext()) {
+      SootClass curr=iter.next();
+      if (curr.toString().equals("edu.syr.pcpratts.rootbeer.runtime.Kernel")) {
+        SootMethod entry=sc.getMethodByName("gpuMethod");
+        m_entryMethods.add(entry);
+        break;
+      }
+    }
+  }
+}

@@ -1,5 +1,5 @@
 {
   String ret=getBaseMethodName();
-  if (m_DontMangleMethods.contains(ret))   return false;
+  if (m_dontMangleMethods.contains(ret))   return false;
   return true;
 }

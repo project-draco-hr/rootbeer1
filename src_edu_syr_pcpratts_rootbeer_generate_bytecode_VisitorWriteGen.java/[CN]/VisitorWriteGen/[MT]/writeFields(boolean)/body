@@ -1,5 +1,5 @@
 {
-  if (m_CurrClass.isApplicationClass()) {
+  if (FastWholeProgram.v().isApplicationClass(m_CurrClass)) {
     attachWriter(m_CurrClass.getName(),ref_fields);
     callBaseClassWriter(m_CurrClass.getName(),ref_fields);
   }

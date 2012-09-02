@@ -4,8 +4,8 @@
   BytecodeLanguage bcl=m_Bcl.top();
   bcl.pushMethod(m_CurrMem.top(),function_name,soot_field.getType());
   Local data=bcl.invokeMethodRet(m_CurrMem.top());
-  SootClass soot_class=RootbeerScene.v().getClass(soot_field.getDeclaringClass().getName());
-  if (soot_class.isApplicationClass()) {
+  SootClass soot_class=Scene.v().getSootClass(soot_field.getDeclaringClass().getName());
+  if (FastWholeProgram.v().isApplicationClass(soot_class)) {
     if (field.isInstance()) {
       bcl.setInstanceField(soot_field,m_ObjSerializing.top(),data);
     }
@@ -14,8 +14,8 @@
     }
   }
  else {
-    SootClass obj=RootbeerScene.v().getClass("java.lang.Object");
-    SootClass string=RootbeerScene.v().getClass("java.lang.String");
+    SootClass obj=Scene.v().getSootClass("java.lang.Object");
+    SootClass string=Scene.v().getSootClass("java.lang.String");
     String static_str;
     SootClass first_param_type;
     Value first_param;
@@ -26,7 +26,7 @@
     }
  else {
       static_str="Static";
-      first_param_type=RootbeerScene.v().getClass("java.lang.Class");
+      first_param_type=Scene.v().getSootClass("java.lang.Class");
       first_param=ClassConstant.v(soot_class.getName());
     }
     String private_field_fun_name="write" + static_str + getTypeString(soot_field);

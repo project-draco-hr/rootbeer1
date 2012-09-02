@@ -1,19 +1,32 @@
 {
   FindMethodsFieldsAndArrayTypes.reset();
   addBuiltinRequirements();
-  codeSegment.findAllUsedMethodsAndFields();
-  List<OpenCLMethod> all_methods=mMethodHierarchies.getMethods();
-  for (  OpenCLMethod method : all_methods) {
-    method.findAllUsedMethodsAndFields();
+  SignatureUtil util=new SignatureUtil();
+  Set<String> dfs_methods=FastWholeProgram.v().getDfsMethods(m_codeSegment.getRootMethod());
+  Iterator<String> iter=dfs_methods.iterator();
+  while (iter.hasNext()) {
+    String sig=iter.next();
+    SootClass soot_class=Scene.v().getSootClass(util.classFromMethodSig(sig));
+    addMethod(soot_class.getMethod(util.methodSubSigFromMethodSig(sig)));
   }
-  codeSegment.findAllUsedArrayTypes();
-  all_methods=mMethodHierarchies.getMethods();
+  m_codeSegment.findAllUsedMethodsAndFields();
+  int prev_size=0;
+  List<OpenCLMethod> all_methods=m_methodHierarchies.getMethods();
+  while (prev_size != all_methods.size()) {
+    prev_size=all_methods.size();
+    all_methods=m_methodHierarchies.getMethods();
+    for (    OpenCLMethod method : all_methods) {
+      method.findAllUsedMethodsAndFields();
+    }
+  }
+  m_codeSegment.findAllUsedArrayTypes();
+  all_methods=m_methodHierarchies.getMethods();
   for (  OpenCLMethod method : all_methods) {
     method.findAllUsedArrayTypes();
   }
-  m_TypeHistory=new TypeHistory(codeSegment.getRootSootClass());
+  m_typeHistory=new TypeHistory(m_codeSegment.getRootSootClass());
   List<Type> scene_types=OpenCLScene.v().getTypes();
   for (  Type scene_type : scene_types) {
-    m_TypeHistory.addType(scene_type);
+    m_typeHistory.addType(scene_type);
   }
 }

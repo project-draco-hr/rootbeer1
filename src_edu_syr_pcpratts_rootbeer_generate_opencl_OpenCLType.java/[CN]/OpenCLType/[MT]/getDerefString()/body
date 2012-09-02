@@ -1,5 +1,5 @@
 {
-  String ret=mSootType.toString();
+  String ret=m_sootType.toString();
   ret=ret.replaceAll("\\.","_");
   ret=ret.replaceAll("\\[\\]","__array");
   return ret;

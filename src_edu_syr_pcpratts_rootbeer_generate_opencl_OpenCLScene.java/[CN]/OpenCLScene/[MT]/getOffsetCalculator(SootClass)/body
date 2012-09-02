@@ -1,6 +1,6 @@
 {
   FieldCloner cloner=new FieldCloner();
-  cloner.setup(m_Classes);
+  cloner.setup(m_classes);
   List<CompositeField> composites=cloner.getCompositeFields();
   for (  CompositeField composite : composites) {
     List<SootClass> classes=composite.getClasses();

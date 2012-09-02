@@ -1,11 +1,16 @@
 {
+  Set<String> visited=new HashSet<String>();
   SignatureUtil sig_util=new SignatureUtil();
-  for (  String method : reachable_methods) {
-    String cls_name=sig_util.classFromMethodSig(method);
-    SootClass soot_class=RootbeerScene.v().getClass(cls_name);
-    m_appClass=soot_class.isApplicationClass();
+  for (  String method_sig : reachable_methods) {
+    if (visited.contains(method_sig)) {
+      continue;
+    }
+    visited.add(method_sig);
+    String cls_name=sig_util.classFromMethodSig(method_sig);
+    SootClass soot_class=Scene.v().getSootClass(cls_name);
+    m_appClass=FastWholeProgram.v().isApplicationClass(soot_class);
     m_currClass=cls_name;
-    String sub_sig=sig_util.methodSubSigFromMethodSig(method);
+    String sub_sig=sig_util.methodSubSigFromMethodSig(method_sig);
     SootMethod soot_method=soot_class.getMethod(sub_sig);
     visit(soot_method);
   }

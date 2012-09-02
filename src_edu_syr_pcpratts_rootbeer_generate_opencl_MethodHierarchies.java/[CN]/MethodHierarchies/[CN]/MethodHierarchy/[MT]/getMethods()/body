@@ -1,9 +1,10 @@
 {
   List<OpenCLMethod> ret=new ArrayList<OpenCLMethod>();
-  for (  SootClass soot_class : mClassHierarchy) {
+  List<SootClass> class_hierarchy=OpenCLScene.v().getClassHierarchy(m_sootMethod.getDeclaringClass());
+  for (  SootClass soot_class : class_hierarchy) {
     SootMethod soot_method=null;
     try {
-      soot_method=soot_class.getMethod(mMethodSubsignature);
+      soot_method=soot_class.getMethod(m_methodSubsignature);
     }
  catch (    Exception ex) {
       continue;

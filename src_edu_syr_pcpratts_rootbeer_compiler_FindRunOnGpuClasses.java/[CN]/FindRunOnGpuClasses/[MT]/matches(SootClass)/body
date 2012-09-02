@@ -1,9 +1,0 @@
-{
-  Chain<SootClass> interfaces=soot_class.getInterfaces();
-  Iterator<SootClass> iter=interfaces.iterator();
-  while (iter.hasNext()) {
-    SootClass cls=iter.next();
-    if (cls.getName().equals("edu.syr.pcpratts.rootbeer.runtime.Kernel"))     return true;
-  }
-  return false;
-}

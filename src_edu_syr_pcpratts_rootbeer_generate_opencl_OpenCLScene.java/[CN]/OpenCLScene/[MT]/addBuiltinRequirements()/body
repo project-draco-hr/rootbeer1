@@ -1,20 +1,21 @@
 {
-  SootClass string_class=RootbeerScene.v().getClass("java.lang.String");
+  FastWholeProgram.v().loadToBodyLater("<java.lang.String: void <init>(char[])>");
+  SootClass string_class=Scene.v().getSootClass("java.lang.String");
   SootMethod ctor_method=string_class.getMethod("void <init>(char[])");
   addMethod(ctor_method);
-  SootClass rootbeer_gpu_class=RootbeerScene.v().getClass("edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu");
+  SootClass rootbeer_gpu_class=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu");
   SootMethod getThreadId=rootbeer_gpu_class.getMethodByName("getThreadId");
   addMethod(getThreadId);
   ArrayType char_array=ArrayType.v(CharType.v(),1);
   OpenCLArrayType ocl_array=new OpenCLArrayType(char_array);
-  m_ArrayTypes.add(ocl_array);
-  SootClass throwable_class=RootbeerScene.v().getClass("java.lang.Throwable");
+  m_arrayTypes.add(ocl_array);
+  SootClass throwable_class=Scene.v().getSootClass("java.lang.Throwable");
   SootMethod getStackTrace=throwable_class.getMethod("java.lang.StackTraceElement[] getStackTrace()");
   addMethod(getStackTrace);
-  SootClass stack_trace_elem=RootbeerScene.v().getClass("java.lang.StackTraceElement");
+  SootClass stack_trace_elem=Scene.v().getSootClass("java.lang.StackTraceElement");
   SootMethod stack_ctor=stack_trace_elem.getMethod("void <init>(java.lang.String,java.lang.String,java.lang.String,int)");
   addMethod(stack_ctor);
-  SootClass out_of_mem=RootbeerScene.v().getClass("java.lang.OutOfMemoryError");
+  SootClass out_of_mem=Scene.v().getSootClass("java.lang.OutOfMemoryError");
   SootMethod out_ctor=out_of_mem.getMethod("void <init>()");
   addMethod(out_ctor);
   addType(out_of_mem.getType());

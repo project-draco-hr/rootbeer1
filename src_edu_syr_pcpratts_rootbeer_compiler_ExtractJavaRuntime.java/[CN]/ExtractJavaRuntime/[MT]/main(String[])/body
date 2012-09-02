@@ -1,9 +1,0 @@
-{
-  try {
-    ExtractJavaRuntime extractor=new ExtractJavaRuntime();
-    extractor.extract(Constants.JAR_CONTENTS_FOLDER);
-  }
- catch (  Exception ex) {
-    ex.printStackTrace();
-  }
-}

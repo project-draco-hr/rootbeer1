@@ -2,7 +2,7 @@
   if (method.isConcrete() == false) {
     return false;
   }
-  Body body=RootbeerScene.v().getBody(method);
+  Body body=method.retrieveActiveBody();
   if (body == null) {
     return false;
   }
@@ -13,7 +13,7 @@
       InvokeExpr expr=(InvokeExpr)value;
       SootClass soot_class=expr.getMethodRef().declaringClass();
       try {
-        soot_class=RootbeerScene.v().getClass(soot_class.getName());
+        soot_class=Scene.v().getSootClass(soot_class.getName());
       }
  catch (      RuntimeException ex) {
         continue;

@@ -1,0 +1,26 @@
+{
+  SootMethod src_method=m_finder.find(src);
+  if (src_method == null) {
+    return;
+  }
+  SootMethod dest_method=m_finder.find(dest);
+  if (dest_method == null) {
+    return;
+  }
+  if (m_methodCalls.containsKey(src)) {
+    List<String> methods=m_methodCalls.get(src);
+    if (methods.contains(dest)) {
+      return;
+    }
+    methods.add(dest);
+    Edge edge=new Edge(src_method,stmt,dest_method);
+    m_edges.add(edge);
+  }
+ else {
+    List<String> methods=new ArrayList<String>();
+    methods.add(dest);
+    Edge edge=new Edge(src_method,stmt,dest_method);
+    m_edges.add(edge);
+    m_methodCalls.put(src,methods);
+  }
+}

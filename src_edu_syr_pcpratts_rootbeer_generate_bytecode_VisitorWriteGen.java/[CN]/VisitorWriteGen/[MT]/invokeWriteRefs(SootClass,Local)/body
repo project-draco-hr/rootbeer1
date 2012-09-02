@@ -1,7 +1,7 @@
 {
   BytecodeLanguage bcl=m_Bcl.top();
-  if (curr_class.isApplicationClass()) {
-    SootClass mem=RootbeerScene.v().getClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  if (FastWholeProgram.v().isApplicationClass(curr_class)) {
+    SootClass mem=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
     String specialization=JavaNameToOpenCL.convert(curr_class.getName()) + OpenCLScene.v().getIdent();
     bcl.pushMethod(m_CurrObj.top(),"edu_syr_pcpratts_writeRefs" + specialization,VoidType.v(),mem.getType());
     bcl.invokeMethodNoRet(m_CurrObj.top(),mem_local);

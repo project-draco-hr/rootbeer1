@@ -1,7 +1,7 @@
 {
   Body body;
   try {
-    body=RootbeerScene.v().getBody(m_SootMethod);
+    body=m_sootMethod.getActiveBody();
     if (body == null)     return;
   }
  catch (  RuntimeException ex) {

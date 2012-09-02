@@ -1,4 +1,0 @@
-{
-  SootClass soot_class=RootbeerScene.v().getClass(cls);
-  addHierarchy(soot_class);
-}

@@ -1,4 +1,0 @@
-{
-  RootbeerCompiler4 compiler=new RootbeerCompiler4();
-  compiler.compile("Rootbeer.jar","output.jar");
-}

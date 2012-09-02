@@ -3,7 +3,7 @@
   if (next.getName().equals(class_name))   return true;
   SootClass curr=next;
   while (true) {
-    if (curr.isLibraryClass())     return false;
+    if (FastWholeProgram.v().isApplicationClass(curr) == false)     return false;
     if (hasSuperClass(curr) == false)     return false;
     SootClass superclass=curr.getSuperclass();
     if (superclass.getName().equals(class_name))     return true;

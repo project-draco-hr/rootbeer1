@@ -1,0 +1,4 @@
+{
+  m_bodiesClasses.add(name);
+  return resolveClass(name,level);
+}

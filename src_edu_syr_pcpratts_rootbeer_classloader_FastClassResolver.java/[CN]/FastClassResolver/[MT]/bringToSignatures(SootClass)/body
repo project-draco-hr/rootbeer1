@@ -1,0 +1,17 @@
+{
+  if (sc.resolvingLevel() >= SootClass.SIGNATURES) {
+    return;
+  }
+  bringToHierarchy(sc);
+  sc.setResolvingLevel(SootClass.SIGNATURES);
+  for (  SootField f : sc.getFields())   addToResolveWorklist(f.getType(),SootClass.HIERARCHY);
+  for (  SootMethod m : sc.getMethods()) {
+    addToResolveWorklist(m.getReturnType(),SootClass.HIERARCHY);
+    for (    Type ptype : (List<Type>)m.getParameterTypes())     addToResolveWorklist(ptype,SootClass.HIERARCHY);
+    for (    SootClass exception : m.getExceptions()) {
+      addToResolveWorklist(exception,SootClass.HIERARCHY);
+    }
+  }
+  if (sc.hasSuperclass())   addToResolveWorklist(sc.getSuperclass(),SootClass.SIGNATURES);
+  for (  SootClass iface : sc.getInterfaces())   addToResolveWorklist(iface,SootClass.SIGNATURES);
+}

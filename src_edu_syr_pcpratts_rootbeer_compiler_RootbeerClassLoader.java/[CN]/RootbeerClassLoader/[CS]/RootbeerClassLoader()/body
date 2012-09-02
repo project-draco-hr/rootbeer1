@@ -1,6 +1,0 @@
-{
-  m_ClassLoadList=new ArrayList<String>();
-  m_VisitedClasses=new ArrayList<String>();
-  m_MethodLoadList=new ArrayList<String>();
-  m_VisitedMethods=new HashSet<String>();
-}

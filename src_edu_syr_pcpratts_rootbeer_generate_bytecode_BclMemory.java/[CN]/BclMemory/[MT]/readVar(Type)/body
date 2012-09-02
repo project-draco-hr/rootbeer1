@@ -2,6 +2,9 @@
   if (type instanceof ByteType) {
     return readByte();
   }
+ else   if (type instanceof BooleanType) {
+    return readBoolean();
+  }
  else   if (type instanceof ShortType) {
     return readShort();
   }
