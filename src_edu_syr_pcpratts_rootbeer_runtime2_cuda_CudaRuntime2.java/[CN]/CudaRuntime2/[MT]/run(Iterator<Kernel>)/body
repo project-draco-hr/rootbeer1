@@ -12,7 +12,8 @@
   Stopwatch watch=new Stopwatch();
   watch.start();
   runOnGpu();
-  watch.stopAndPrint("GPU time: ");
+  watch.stop();
+  m_executionTime=watch.elapsedTimeMillis();
   readBlocks();
   unload();
   runExtraBlocks();
