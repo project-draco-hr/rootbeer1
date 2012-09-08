@@ -2,10 +2,8 @@
   FindMethodsFieldsAndArrayTypes.reset();
   addBuiltinRequirements();
   SignatureUtil util=new SignatureUtil();
-  Set<String> dfs_methods=FastWholeProgram.v().getDfsMethods(m_codeSegment.getRootMethod());
-  Iterator<String> iter=dfs_methods.iterator();
-  while (iter.hasNext()) {
-    String sig=iter.next();
+  List<String> methods=RootbeerScene.v().getForwardReachableMethods();
+  for (  String sig : methods) {
     SootClass soot_class=Scene.v().getSootClass(util.classFromMethodSig(sig));
     addMethod(soot_class.getMethod(util.methodSubSigFromMethodSig(sig)));
   }

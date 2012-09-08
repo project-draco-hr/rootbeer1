@@ -2,6 +2,7 @@
   if (method.isConcrete() == false) {
     return false;
   }
+  FastWholeProgram.v().loadToBodyLater(method.getSignature());
   Body body=method.retrieveActiveBody();
   if (body == null) {
     return false;

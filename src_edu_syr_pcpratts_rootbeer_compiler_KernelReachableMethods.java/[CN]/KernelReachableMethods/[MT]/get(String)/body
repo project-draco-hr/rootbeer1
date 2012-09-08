@@ -1,9 +1,9 @@
 {
   m_ret=new ArrayList<String>();
-  m_kernelClasses=kernel_classes;
-  for (  String kernel_class : kernel_classes) {
-    find(kernel_class);
-  }
+  m_forwardReachables=new ArrayList<String>();
+  m_kernelClasses=new ArrayList<String>();
+  m_kernelClasses.add(kernel_class);
+  find(kernel_class);
   String[] array_ret=new String[m_ret.size()];
   array_ret=m_ret.toArray(array_ret);
   Arrays.sort(array_ret);
