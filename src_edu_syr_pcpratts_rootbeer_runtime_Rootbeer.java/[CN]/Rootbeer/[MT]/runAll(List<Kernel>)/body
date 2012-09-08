@@ -1,3 +1,13 @@
 {
-  m_Rootbeer.runAll(jobs);
+  if (jobs.isEmpty()) {
+    return;
+  }
+  if (jobs.get(0) instanceof CompiledKernel == false) {
+    for (    Kernel job : jobs) {
+      job.gpuMethod();
+    }
+  }
+ else {
+    m_Rootbeer.runAll(jobs);
+  }
 }
