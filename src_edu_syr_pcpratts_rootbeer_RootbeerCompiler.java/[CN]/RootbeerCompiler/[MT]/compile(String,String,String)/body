@@ -6,6 +6,7 @@
   m_fastLoader.singleKernel();
   FindKernelForTestCase finder=new FindKernelForTestCase();
   String kernel=finder.get(test_case,m_fastLoader.getApplicationClasses());
+  m_provider=finder.getProvider();
   m_fastLoader.findKernelClasses(kernel);
   List<String> kernel_classes=new ArrayList<String>();
   kernel_classes.add(kernel);
