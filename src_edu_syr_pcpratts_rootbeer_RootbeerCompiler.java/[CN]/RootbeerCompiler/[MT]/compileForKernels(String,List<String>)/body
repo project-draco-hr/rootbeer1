@@ -31,6 +31,20 @@
       transform.finishClone();
     }
   }
+  reachables=new HashMap<String,List<String>>();
+  forward_reachables=new HashMap<String,List<String>>();
+  all_reachables=new ArrayList<String>();
+  for (  String kernel : kernel_classes) {
+    SootClass soot_class=Scene.v().getSootClass(kernel);
+    SootMethod kernel_method=soot_class.getMethod("void gpuMethod()");
+    FastWholeProgram.v().getDfsMethods(kernel_method);
+    System.out.println("finding kernel reachable methods for: " + soot_class.getShortName() + "...");
+    KernelReachableMethods reachable_finder=new KernelReachableMethods();
+    List<String> curr_reachables=reachable_finder.get(kernel);
+    forward_reachables.put(kernel,reachable_finder.getForward());
+    all_reachables.addAll(curr_reachables);
+    reachables.put(kernel,curr_reachables);
+  }
   Transform2 transform2=new Transform2();
   for (  String cls : kernel_classes) {
     List<String> curr_reachables=reachables.get(cls);
