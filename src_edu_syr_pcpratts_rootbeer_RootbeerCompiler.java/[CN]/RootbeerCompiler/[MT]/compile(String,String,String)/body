@@ -1,5 +1,6 @@
 {
   Options.v().set_allow_phantom_refs(true);
+  extractJar(jar_filename);
   m_fastLoader.addPath(jar_filename);
   m_fastLoader.addClassPath(getRuntimeJars());
   m_fastLoader.init();

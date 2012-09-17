@@ -8,8 +8,8 @@
   bcl_mem.writeByte((byte)0);
   bcl_mem.writeByte((byte)class_id);
   bcl_mem.writeByte((byte)0);
-  SootClass constants_soot_class=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.generate.bytecode.Constants");
-  Local size=bcl.refStaticField(constants_soot_class.getType(),"SizeGcInfo");
+  Local size=bcl.local(IntType.v());
+  bcl.assign(size,IntConstant.v(Constants.SizeGcInfo));
   Local element_size=bcl.local(IntType.v());
   if (type.numDimensions == 1) {
     OpenCLType ocl_type=new OpenCLType(type.baseType);

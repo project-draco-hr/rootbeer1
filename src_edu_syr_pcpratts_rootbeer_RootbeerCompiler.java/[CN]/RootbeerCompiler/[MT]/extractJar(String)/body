@@ -1,0 +1,10 @@
+{
+  JarToFolder extractor=new JarToFolder();
+  try {
+    extractor.writeJar(jar_filename,Constants.JAR_CONTENTS_FOLDER);
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    System.exit(0);
+  }
+}
