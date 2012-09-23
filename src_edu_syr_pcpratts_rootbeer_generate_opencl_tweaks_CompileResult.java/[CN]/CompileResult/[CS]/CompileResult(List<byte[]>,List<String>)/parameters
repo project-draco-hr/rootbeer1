@@ -1,0 +1,2 @@
+List<byte[]> binary
+List<String> errors

@@ -1,0 +1,9 @@
+{
+  if (m_ret != rhs.m_ret) {
+    System.out.println("m_ret error.");
+    System.out.println("lhs: " + m_ret);
+    System.out.println("rhs: " + rhs.m_ret);
+    return false;
+  }
+  return true;
+}

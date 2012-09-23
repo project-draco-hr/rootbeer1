@@ -1,0 +1,3 @@
+String jar_filename
+String outname
+boolean run_tests

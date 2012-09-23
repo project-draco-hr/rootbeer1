@@ -28,7 +28,10 @@
       command="cmd /c \"" + cl_script.getAbsolutePath() + "\"";
     }
     CompilerRunner runner=new CompilerRunner();
-    runner.run(command);
+    List<String> errors=runner.run(command);
+    if (errors.isEmpty() == false) {
+      return new CompileResult(null,errors);
+    }
     List<byte[]> file_contents=null;
     try {
       file_contents=readFile(code_file);
@@ -37,7 +40,7 @@
       file_contents=new ArrayList<byte[]>();
       ex.printStackTrace();
     }
-    return file_contents;
+    return new CompileResult(file_contents,errors);
   }
  catch (  Exception ex) {
     throw new RuntimeException(ex);

@@ -1,0 +1,8 @@
+{
+  if (this instanceof Object) {
+    m_ret=1;
+  }
+ else {
+    m_ret=2;
+  }
+}

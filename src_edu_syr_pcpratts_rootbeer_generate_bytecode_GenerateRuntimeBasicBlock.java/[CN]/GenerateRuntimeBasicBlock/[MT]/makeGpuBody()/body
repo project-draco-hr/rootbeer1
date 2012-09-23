@@ -1,10 +1,17 @@
 {
   OpenCLScene.v().addCodeSegment(codeSegment);
   if (Configuration.compilerInstance().getMode() == Configuration.MODE_GPU) {
-    List<byte[]> bytes=OpenCLScene.v().getCudaCode();
-    writeBytesToFile(bytes,cubinFilename(true));
-    makeGetCodeMethodThatReturnsBytes(cubinFilename(false));
-    makeGetCodeMethodThatReturnsString("");
+    CompileResult result=OpenCLScene.v().getCudaCode();
+    if (result.getBinary() == null) {
+      makeGetCodeMethodThatReturnsBytes(cubinFilename(false) + ".error");
+      makeGetCodeMethodThatReturnsString("");
+    }
+ else {
+      List<byte[]> bytes=result.getBinary();
+      writeBytesToFile(bytes,cubinFilename(true));
+      makeGetCodeMethodThatReturnsBytes(cubinFilename(false));
+      makeGetCodeMethodThatReturnsString("");
+    }
   }
  else {
     String code=OpenCLScene.v().getOpenCLCode();

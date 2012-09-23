@@ -5,7 +5,7 @@
   String rootbeer_jar=jar_name.get();
   try {
     if (test_case == null) {
-      compiler.compile(rootbeer_jar,dest_jar);
+      compiler.compile(rootbeer_jar,dest_jar,true);
     }
  else {
       compiler.compile(rootbeer_jar,dest_jar,test_case);

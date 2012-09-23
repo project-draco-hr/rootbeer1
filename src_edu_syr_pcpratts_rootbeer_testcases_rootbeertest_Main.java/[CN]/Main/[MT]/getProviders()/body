@@ -38,5 +38,6 @@
   ret.add(new WhileTrueTest());
   ret.add(new ArraySumTest());
   ret.add(new RemapTest());
+  ret.add(new InstanceofTest());
   return ret;
 }

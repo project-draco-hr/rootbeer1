@@ -1,11 +1,3 @@
 {
-  Options.v().set_allow_phantom_refs(true);
-  CurrJarName jar_name=new CurrJarName();
-  extractJar(jar_filename);
-  m_fastLoader.addPath(jar_filename);
-  m_fastLoader.addRootbeerPath(jar_name.get());
-  m_fastLoader.addClassPath(getRuntimeJars());
-  m_fastLoader.init();
-  List<String> kernel_classes=m_fastLoader.findKernelClasses();
-  compileForKernels(outname,kernel_classes);
+  compile(jar_filename,outname,false);
 }

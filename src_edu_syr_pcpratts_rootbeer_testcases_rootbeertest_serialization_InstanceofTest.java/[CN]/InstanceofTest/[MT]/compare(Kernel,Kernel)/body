@@ -1,0 +1,5 @@
+{
+  InstanceofRunOnGpu lhs=(InstanceofRunOnGpu)original;
+  InstanceofRunOnGpu rhs=(InstanceofRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}
