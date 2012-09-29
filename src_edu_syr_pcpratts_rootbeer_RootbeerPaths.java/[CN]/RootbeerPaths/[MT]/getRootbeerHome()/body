@@ -1,0 +1,8 @@
+{
+  String home=System.getProperty("user.home");
+  File folder=new File(home + File.separator + ".rootbeer"+ File.separator);
+  if (folder.exists() == false) {
+    folder.mkdirs();
+  }
+  return folder.getAbsolutePath();
+}

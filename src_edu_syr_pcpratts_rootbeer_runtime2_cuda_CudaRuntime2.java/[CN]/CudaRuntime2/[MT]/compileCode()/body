@@ -1,12 +1,12 @@
 {
-  Stopwatch watch=new Stopwatch();
-  watch.start();
   String filename=m_FirstJob.getCubin();
-  List<byte[]> cubin=readCubin(filename);
-  int total_size=0;
-  for (  byte[] buffer : cubin) {
-    total_size+=buffer.length;
+  File file=new File(filename);
+  String dest_filename=RootbeerPaths.v().getRootbeerHome() + File.separator + file.getName();
+  try {
+    ResourceReader.writeToFile(filename,dest_filename);
   }
-  loadFunction(getHeapEndPtr(),cubin,cubin.size(),total_size,m_NumBlocksRun);
-  watch.stopAndPrint("compile code: ");
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+  loadFunction(getHeapEndPtr(),dest_filename,m_NumBlocksRun);
 }

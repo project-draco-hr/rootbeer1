@@ -1,0 +1,6 @@
+{
+  if (m_instance == null) {
+    m_instance=new RootbeerPaths();
+  }
+  return m_instance;
+}

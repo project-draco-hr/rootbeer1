@@ -1,0 +1,3 @@
+long heap_end_ptr
+String filename
+int num_blocks

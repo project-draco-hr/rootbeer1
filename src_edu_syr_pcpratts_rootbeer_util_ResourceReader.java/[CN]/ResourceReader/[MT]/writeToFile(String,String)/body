@@ -1,0 +1,9 @@
+{
+  List<byte[]> bytes=getResourceArray(jar_filename);
+  FileOutputStream fout=new FileOutputStream(dest_filename);
+  for (  byte[] byte_array : bytes) {
+    fout.write(byte_array);
+  }
+  fout.flush();
+  fout.close();
+}

@@ -12,15 +12,15 @@
     writer.println(cuda_code.toString());
     writer.flush();
     writer.close();
-    File code_file=new File("code_file.cubin");
-    String modelString="";
+    File code_file=new File("code_file.ptx");
+    String modelString="-m64";
     String command;
     if (File.separator.equals("/")) {
       String cuda_path=System.getenv("CUDA_BIN_PATH");
       if (cuda_path == null) {
         cuda_path="/usr/local/cuda/bin";
       }
-      command=cuda_path + "/nvcc " + modelString+ " -arch sm_20 -cubin "+ generated.getAbsolutePath()+ " -o "+ code_file.getAbsolutePath();
+      command=cuda_path + "/nvcc " + modelString+ " -arch sm_20 -ptx "+ generated.getAbsolutePath()+ " -o "+ code_file.getAbsolutePath();
     }
  else {
       GenerateClScript generate=new GenerateClScript();
