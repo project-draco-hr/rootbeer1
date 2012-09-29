@@ -11,7 +11,7 @@
     }
   }
  else {
-    String class_name=filenameToClass(File.separator + subfolder);
+    String class_name=filenameToClass(File.separator + subfolder,File.separator);
     m_applicationClasses.add(class_name);
     FileInputStream fin=new FileInputStream(full_name);
     FileOutputStream fout=new FileOutputStream(m_tempFolder + File.separator + subfolder);

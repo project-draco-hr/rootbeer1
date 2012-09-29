@@ -1,9 +1,9 @@
 {
   File file=new File(RootbeerPaths.v().getConfigFile());
   if (file.exists() == false) {
-    int reserve_mem=findReserveMem(m_BlockShaper.getMaxBlocksPerProc(),m_BlockShaper.getMaxThreadsPerBlock());
+    long reserve_mem=findReserveMem(m_BlockShaper.getMaxBlocksPerProc(),m_BlockShaper.getMaxThreadsPerBlock());
     Properties props=new Properties();
-    props.setProperty("reserve_mem",Integer.toString(reserve_mem));
+    props.setProperty("reserve_mem",Long.toString(reserve_mem));
     try {
       OutputStream fout=new FileOutputStream(file);
       OutputStreamWriter writer=new OutputStreamWriter(fout);

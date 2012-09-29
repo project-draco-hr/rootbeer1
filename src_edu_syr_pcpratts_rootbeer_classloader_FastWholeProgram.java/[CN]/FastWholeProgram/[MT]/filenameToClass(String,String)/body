@@ -1,5 +1,4 @@
 {
-  String sep="/";
   if (name.startsWith(sep)) {
     name=name.substring(sep.length());
   }

@@ -13,7 +13,7 @@
   File full_temp_folder=new File(m_tempFolder);
   name=name.substring(full_temp_folder.getAbsolutePath().length());
   if (isFilename(name)) {
-    name=filenameToClass(name);
+    name=filenameToClass(name,File.separator);
   }
   if (m_applicationClasses.contains(name) == false) {
     return;

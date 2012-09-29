@@ -11,7 +11,7 @@
         if (entry.getName().endsWith(".class") == false) {
           continue;
         }
-        String class_name=filenameToClass(entry.getName());
+        String class_name=filenameToClass(entry.getName(),"/");
         if (ignorePackage(class_name) == false) {
           m_applicationClasses.add(class_name);
         }
