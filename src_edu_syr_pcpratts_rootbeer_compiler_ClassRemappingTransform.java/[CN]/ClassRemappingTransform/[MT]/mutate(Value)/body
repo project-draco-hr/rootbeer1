@@ -31,11 +31,17 @@
     InvokeExpr expr=(InvokeExpr)value;
     SootMethodRef ref=expr.getMethodRef();
     SootClass soot_class=ref.declaringClass();
+    final NumberedString subSignature=ref.getSubSignature();
     if (shouldMap(soot_class)) {
       SootClass new_class=getMapping(soot_class);
-      SootMethod new_method=new_class.getMethod(ref.getSubSignature());
-      fixArguments(new_method);
-      expr.setMethodRef(new_method.makeRef());
+      if (new_class.declaresMethod(subSignature)) {
+        SootMethod new_method=new_class.getMethod(subSignature);
+        fixArguments(new_method);
+        expr.setMethodRef(new_method.makeRef());
+      }
+ else {
+        System.err.println("method not found: " + subSignature);
+      }
     }
  else {
       if (soot_class.declaresMethod(ref.getSubSignature())) {
