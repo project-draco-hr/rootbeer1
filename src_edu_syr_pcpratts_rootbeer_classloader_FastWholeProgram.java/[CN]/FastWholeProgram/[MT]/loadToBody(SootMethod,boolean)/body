@@ -42,7 +42,6 @@
                 Body dest_body=dest_method.retrieveActiveBody();
               }
  catch (              Exception ex) {
-                continue;
               }
               m_cgWorkQueue.add(dest_sig);
             }
