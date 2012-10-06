@@ -1,8 +1,8 @@
 {
-  arg0.getInvokeExpr().apply(m_ValueSwitch);
+  arg0.getInvokeExpr().apply(m_valueSwitch);
   SootMethod method=arg0.getInvokeExpr().getMethod();
-  m_Output.append(";\n");
-  if (m_ValueSwitch.getCheckException()) {
+  m_output.append(";\n");
+  if (m_valueSwitch.getCheckException()) {
     checkException();
   }
 }

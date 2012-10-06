@@ -1,5 +1,5 @@
 {
-  String ret="monitor_var" + m_VariableNumber;
-  m_VariableNumber++;
+  String ret="monitor_var" + m_variableNumber;
+  m_variableNumber++;
   return ret;
 }

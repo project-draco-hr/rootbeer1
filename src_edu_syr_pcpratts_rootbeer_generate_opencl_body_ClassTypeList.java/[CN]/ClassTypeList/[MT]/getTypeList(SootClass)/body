@@ -1,5 +1,5 @@
 {
-  List<SootClass> classes=getTrimmedClassHierarchy();
+  List<SootClass> classes=getTrimmedClassHierarchy(input_class);
   List<Integer> ret=new ArrayList<Integer>();
   for (  SootClass soot_class : classes) {
     int num=OpenCLScene.v().getClassType(soot_class);

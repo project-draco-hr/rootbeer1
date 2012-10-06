@@ -1,18 +1,18 @@
 {
-  m_Output.append("switch(");
-  arg0.getKey().apply(m_ValueSwitch);
-  m_Output.append("){\n");
+  m_output.append("switch(");
+  arg0.getKey().apply(m_valueSwitch);
+  m_output.append("){\n");
   List<Value> values=arg0.getLookupValues();
   List<Unit> units=arg0.getTargets();
   Unit default_target=arg0.getDefaultTarget();
   int label_num;
   for (int i=0; i < values.size(); ++i) {
-    m_Output.append("case ");
-    values.get(i).apply(m_ValueSwitch);
-    label_num=m_Parent.labelNum(units.get(i));
-    m_Output.append(": goto label" + Integer.toString(label_num) + ";\n");
+    m_output.append("case ");
+    values.get(i).apply(m_valueSwitch);
+    label_num=m_parent.labelNum(units.get(i));
+    m_output.append(": goto label" + Integer.toString(label_num) + ";\n");
   }
-  label_num=m_Parent.labelNum(default_target);
-  m_Output.append("default: goto label" + Integer.toString(label_num) + ";\n");
-  m_Output.append("}\n");
+  label_num=m_parent.labelNum(default_target);
+  m_output.append("default: goto label" + Integer.toString(label_num) + ";\n");
+  m_output.append("}\n");
 }
