@@ -1,0 +1,3 @@
+{
+  return m_classToNumber.get(soot_class);
+}

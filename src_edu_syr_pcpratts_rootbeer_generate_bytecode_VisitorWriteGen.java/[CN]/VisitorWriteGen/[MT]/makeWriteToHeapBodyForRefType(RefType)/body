@@ -1,7 +1,7 @@
 {
   BytecodeLanguage bcl=m_bcl.top();
   BclMemory bcl_mem=new BclMemory(bcl,m_CurrentMem.top());
-  int class_id=OpenCLScene.v().getClassType(type);
+  int class_id=RootbeerScene.v().getDfsInfo().getClassNumber(type);
   SootClass soot_class=type.getSootClass();
   Local object_to_write_from=bcl.cast(type,m_Param0);
   OpenCLClass ocl_class=OpenCLScene.v().getOpenCLClass(soot_class);

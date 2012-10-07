@@ -4,4 +4,5 @@
   doDfs(kernel_method);
   m_currDfsInfo.expandArrayTypes();
   m_currDfsInfo.orderTypes();
+  m_currDfsInfo.createClassHierarchy();
 }

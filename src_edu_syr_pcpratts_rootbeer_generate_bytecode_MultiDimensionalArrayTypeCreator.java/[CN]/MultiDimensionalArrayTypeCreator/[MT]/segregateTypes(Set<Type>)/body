@@ -1,8 +1,0 @@
-{
-  for (  Type type : types) {
-    if (type instanceof ArrayType) {
-      m_arrayTypes.add((ArrayType)type);
-      m_allArrayTypes.add((ArrayType)type);
-    }
-  }
-}

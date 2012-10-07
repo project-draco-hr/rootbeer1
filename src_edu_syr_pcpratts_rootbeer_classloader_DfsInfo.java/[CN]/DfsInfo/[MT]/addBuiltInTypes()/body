@@ -1,0 +1,23 @@
+{
+  addRefType("java.lang.Object");
+  addRefType("java.lang.String");
+  addRefType("java.lang.AbstractStringBuilder");
+  addRefType("java.lang.StringBuilder");
+  addRefType("java.lang.StackTraceElement");
+  addRefType("java.lang.Throwable");
+  addRefType("java.lang.Exception");
+  addRefType("java.lang.RuntimeException");
+  addRefType("java.lang.NullPointerException");
+  addRefType("java.lang.Error");
+  addRefType("java.lang.VirtualMachineError");
+  addRefType("java.lang.OutOfMemoryError");
+  addRefType("edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu");
+  m_builtInTypes.add(ByteType.v());
+  m_builtInTypes.add(CharType.v());
+  m_builtInTypes.add(ShortType.v());
+  m_builtInTypes.add(IntType.v());
+  m_builtInTypes.add(LongType.v());
+  m_builtInTypes.add(FloatType.v());
+  m_builtInTypes.add(DoubleType.v());
+  m_builtInTypes.add(BooleanType.v());
+}

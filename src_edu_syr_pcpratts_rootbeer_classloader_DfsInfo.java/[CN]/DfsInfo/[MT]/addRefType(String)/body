@@ -1,0 +1,4 @@
+{
+  SootClass soot_class=Scene.v().getSootClass(class_name);
+  m_builtInTypes.add(soot_class.getType());
+}

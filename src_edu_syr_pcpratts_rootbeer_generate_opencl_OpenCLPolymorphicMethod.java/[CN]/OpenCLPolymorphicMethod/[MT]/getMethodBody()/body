@@ -1,13 +1,18 @@
 {
-  if (mSootMethod.getName().equals("<init>"))   return "";
-  List<SootClass> hierarchy=getHierarchy();
-  SootClass first_soot_class=hierarchy.get(0);
+  if (m_sootMethod.getName().equals("<init>"))   return "";
+  List<Type> hierarchy=getHierarchy();
+  Type first_type=hierarchy.get(0);
+  if (first_type instanceof RefType == false) {
+    throw new RuntimeException("please report bug in OpenCLPolymorphicMethod.getMethodBody");
+  }
+  RefType ref_type=(RefType)first_type;
+  SootClass first_soot_class=ref_type.getSootClass();
   StringBuilder ret=new StringBuilder();
   String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
   ret.append(getMethodDecl());
   ret.append("{\n");
-  if (mSootMethod.isStatic()) {
-    if (mSootMethod.getReturnType() instanceof VoidType == false) {
+  if (m_sootMethod.isStatic()) {
+    if (m_sootMethod.getReturnType() instanceof VoidType == false) {
       ret.append("return ");
     }
     String invoke_string=getStaticInvokeString(first_soot_class);
@@ -17,14 +22,14 @@
     ret.append("if(thisref == -1){\n");
     ret.append("  *exception = -2;\n");
     ret.append("return ");
-    if (mSootMethod.getReturnType() instanceof VoidType == false)     ret.append("-1");
+    if (m_sootMethod.getReturnType() instanceof VoidType == false)     ret.append("-1");
     ret.append(";\n");
     ret.append("}\n");
     ret.append(address_qual + " char * thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n");
     if (sizeHierarchy(hierarchy) == 1) {
       SootClass sclass=getSingleMethodInHierarchy(hierarchy);
       String invoke_string=getInvokeString(sclass);
-      if (mSootMethod.getReturnType() instanceof VoidType == false) {
+      if (m_sootMethod.getReturnType() instanceof VoidType == false) {
         ret.append("return ");
       }
       ret.append(invoke_string + "\n");
@@ -33,10 +38,15 @@
       ret.append("GC_OBJ_TYPE_TYPE derived_type = edu_syr_pcpratts_gc_get_type(thisref_deref);\n");
       ret.append("if(0){}\n");
       int count=0;
-      for (      SootClass sclass : hierarchy) {
+      for (      Type type : hierarchy) {
+        if (type instanceof RefType == false) {
+          continue;
+        }
+        RefType curr_ref_type=(RefType)type;
+        SootClass sclass=curr_ref_type.getSootClass();
         if (sootClassHasMethod(sclass) == false)         continue;
-        ret.append("else if(derived_type == " + OpenCLScene.v().getClassType(sclass) + "){\n");
-        if (mSootMethod.getReturnType() instanceof VoidType == false) {
+        ret.append("else if(derived_type == " + RootbeerScene.v().getDfsInfo().getClassNumber(sclass) + "){\n");
+        if (m_sootMethod.getReturnType() instanceof VoidType == false) {
           ret.append("return ");
         }
         String invoke_string=getInvokeString(sclass);
@@ -47,7 +57,7 @@
     }
   }
   ret.append("return ");
-  if (mSootMethod.getReturnType() instanceof VoidType == false)   ret.append("-1");
+  if (m_sootMethod.getReturnType() instanceof VoidType == false)   ret.append("-1");
   ret.append(";\n");
   ret.append("}\n");
   return ret.toString();

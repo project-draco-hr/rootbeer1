@@ -13,6 +13,11 @@
   for (  SootField field : fields) {
     addField(field);
   }
+  Set<ArrayType> array_types=RootbeerScene.v().getDfsInfo().getArrayTypes();
+  for (  ArrayType array_type : array_types) {
+    OpenCLArrayType ocl_array_type=new OpenCLArrayType(array_type);
+    addArrayType(ocl_array_type);
+  }
   StringBuilder ret=new StringBuilder();
   ret.append(headerString());
   ret.append(garbageCollectorString());

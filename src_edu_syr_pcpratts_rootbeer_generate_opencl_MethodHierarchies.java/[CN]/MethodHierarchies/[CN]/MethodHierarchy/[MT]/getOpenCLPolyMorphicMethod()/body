@@ -1,6 +1,11 @@
 {
-  List<SootClass> class_hierarchy=OpenCLScene.v().getClassHierarchy(m_sootMethod.getDeclaringClass());
-  for (  SootClass soot_class : class_hierarchy) {
+  List<Type> class_hierarchy=RootbeerScene.v().getDfsInfo().getHierarchy(m_sootMethod.getDeclaringClass());
+  for (  Type type : class_hierarchy) {
+    if (type instanceof RefType == false) {
+      continue;
+    }
+    RefType ref_type=(RefType)type;
+    SootClass soot_class=ref_type.getSootClass();
     try {
       SootMethod soot_method=soot_class.getMethod(m_methodSubsignature);
       return new OpenCLPolymorphicMethod(soot_method);

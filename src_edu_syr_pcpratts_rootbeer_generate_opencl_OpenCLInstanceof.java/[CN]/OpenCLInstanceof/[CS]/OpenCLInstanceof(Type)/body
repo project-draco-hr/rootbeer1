@@ -1,5 +1,4 @@
 {
   m_type=type;
   m_oclType=new OpenCLType(m_type);
-  m_typeList=new ClassTypeList();
 }

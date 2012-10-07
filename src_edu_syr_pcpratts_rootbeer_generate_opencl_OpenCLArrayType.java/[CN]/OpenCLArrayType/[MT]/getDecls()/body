@@ -5,6 +5,5 @@
   ret.add(function_qual + " " + getAssignType()+ " "+ getDerefTypeString()+ "_get("+ address_qual+ " char * gc_info, int thisref, int parameter0, int * exception)");
   ret.add(function_qual + " void " + getDerefTypeString()+ "_set("+ address_qual+ " char * gc_info, int thisref, int parameter0, "+ getAssignType()+ " parameter1, int * exception)");
   ret.add(function_qual + " int " + getDerefTypeString()+ "_new("+ address_qual+ " char * gc_info, int size, int * exception)");
-  ret.addAll(getMultiArrayDecls());
   return ret;
 }

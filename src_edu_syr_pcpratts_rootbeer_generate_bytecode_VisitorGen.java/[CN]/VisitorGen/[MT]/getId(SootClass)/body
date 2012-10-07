@@ -1,3 +1,0 @@
-{
-  return OpenCLScene.v().getClassType(soot_class);
-}

@@ -1,5 +1,2 @@
 {
-  m_arrayTypes=new ArrayList<ArrayType>();
-  m_allArrayTypes=new HashSet<Type>();
-  m_ret=new HashSet<Type>();
 }

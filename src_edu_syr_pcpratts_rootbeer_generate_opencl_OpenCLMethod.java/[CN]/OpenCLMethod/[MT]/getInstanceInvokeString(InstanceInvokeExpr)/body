@@ -1,21 +1,21 @@
 {
   Value base=arg0.getBase();
   Type base_type=base.getType();
-  List<SootClass> hierarchy;
+  List<Type> hierarchy;
   if (base_type instanceof ArrayType) {
-    hierarchy=new ArrayList<SootClass>();
+    hierarchy=new ArrayList<Type>();
     SootClass obj=Scene.v().getSootClass("java.lang.Object");
-    hierarchy.add(obj);
+    hierarchy.add(obj.getType());
   }
  else   if (base_type instanceof RefType) {
     RefType ref_type=(RefType)base_type;
-    hierarchy=OpenCLScene.v().getClassHierarchy(ref_type.getSootClass());
+    hierarchy=RootbeerScene.v().getDfsInfo().getHierarchy(ref_type.getSootClass());
   }
  else {
     throw new UnsupportedOperationException("how do we handle this case?");
   }
   if (hierarchy.size() == 1 || isConstructor() || arg0 instanceof SpecialInvokeExpr) {
-    return writeInstanceInvoke(arg0,"",m_sootClass);
+    return writeInstanceInvoke(arg0,"",m_sootClass.getType());
   }
  else   if (hierarchy.size() == 0) {
     System.out.println("size = 0");

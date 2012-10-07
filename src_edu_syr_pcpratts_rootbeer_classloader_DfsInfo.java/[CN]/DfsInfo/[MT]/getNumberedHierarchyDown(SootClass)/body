@@ -1,0 +1,3 @@
+{
+  return m_hierarchyDown.get(sootClass.getType());
+}

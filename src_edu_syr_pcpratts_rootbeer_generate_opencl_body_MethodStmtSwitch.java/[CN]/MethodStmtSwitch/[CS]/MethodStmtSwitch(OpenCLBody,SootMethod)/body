@@ -5,5 +5,4 @@
   m_parent=parent;
   m_variableNumber=1;
   m_oldValueFromMonitorStack=new Stack<String>();
-  m_classTypeList=new ClassTypeList();
 }
