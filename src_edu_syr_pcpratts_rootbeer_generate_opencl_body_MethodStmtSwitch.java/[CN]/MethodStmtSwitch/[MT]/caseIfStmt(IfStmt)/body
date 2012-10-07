@@ -1,8 +1,8 @@
 {
-  m_Output.append("if (");
-  arg0.getCondition().apply(m_ValueSwitch);
-  m_Output.append(" ) goto label");
+  m_output.append("if (");
+  arg0.getCondition().apply(m_valueSwitch);
+  m_output.append(" ) goto label");
   Unit target=arg0.getTarget();
-  int label_num=m_Parent.labelNum(target);
-  m_Output.append(Integer.toString(label_num) + ";\n");
+  int label_num=m_parent.labelNum(target);
+  m_output.append(Integer.toString(label_num) + ";\n");
 }

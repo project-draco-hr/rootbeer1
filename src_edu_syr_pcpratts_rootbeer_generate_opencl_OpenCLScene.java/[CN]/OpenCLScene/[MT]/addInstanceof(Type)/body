@@ -1,0 +1,6 @@
+{
+  OpenCLInstanceof to_add=new OpenCLInstanceof(type);
+  if (m_instanceOfs.contains(to_add) == false) {
+    m_instanceOfs.add(to_add);
+  }
+}

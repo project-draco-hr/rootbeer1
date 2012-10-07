@@ -1,3 +1,5 @@
 {
-  mOutput.append("instanceof: <" + arg0.toString() + " >");
+  OpenCLScene.v().addInstanceof(arg0.getCheckType());
+  OpenCLInstanceof instance_of=new OpenCLInstanceof(arg0.getCheckType());
+  mOutput.append(instance_of.invokeExpr(arg0));
 }

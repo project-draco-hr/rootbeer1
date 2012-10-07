@@ -14,6 +14,9 @@
   for (  OpenCLArrayType array_type : m_arrayTypes) {
     protos.add(array_type.getPrototypes());
   }
+  for (  OpenCLInstanceof type : m_instanceOfs) {
+    protos.add(type.getPrototype());
+  }
   Iterator<String> iter=protos.iterator();
   while (iter.hasNext()) {
     ret.append(iter.next());

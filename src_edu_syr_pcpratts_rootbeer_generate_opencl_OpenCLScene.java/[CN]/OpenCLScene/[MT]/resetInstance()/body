@@ -7,4 +7,5 @@
   m_methodHierarchies=new MethodHierarchies();
   m_types=new ArrayList<Type>();
   m_multiArrayDimensions=new HashMap<ArrayType,List<Integer>>();
+  m_instanceOfs=new HashSet<OpenCLInstanceof>();
 }

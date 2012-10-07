@@ -1,32 +1,32 @@
 {
-  m_Output.append("if(*exception != 0) { \n");
-  if (m_TrapItems != null) {
-    m_Output.append("  GC_OBJ_TYPE_TYPE ex_type;\n");
-    m_Output.append("  if(*exception < 0){\n");
-    m_Output.append("    ex_type = *exception;\n");
-    m_Output.append("  } else {\n");
-    m_Output.append("    char * ex_deref = edu_syr_pcpratts_gc_deref(gc_info, *exception);\n");
-    m_Output.append("    ex_type = edu_syr_pcpratts_gc_get_type(ex_deref);\n");
-    m_Output.append("  }\n");
-    m_Output.append("if(0){}\n");
-    for (    TrapItem item : m_TrapItems) {
-      m_Output.append("else if(");
-      List<Integer> types=item.getTypeList();
+  m_output.append("if(*exception != 0) { \n");
+  if (m_trapItems != null) {
+    m_output.append("  GC_OBJ_TYPE_TYPE ex_type;\n");
+    m_output.append("  if(*exception < 0){\n");
+    m_output.append("    ex_type = *exception;\n");
+    m_output.append("  } else {\n");
+    m_output.append("    char * ex_deref = edu_syr_pcpratts_gc_deref(gc_info, *exception);\n");
+    m_output.append("    ex_type = edu_syr_pcpratts_gc_get_type(ex_deref);\n");
+    m_output.append("  }\n");
+    m_output.append("if(0){}\n");
+    for (    TrapItem item : m_trapItems) {
+      m_output.append("else if(");
+      List<Integer> types=m_classTypeList.getTypeList(item.getException());
       for (int i=0; i < types.size(); ++i) {
-        m_Output.append("ex_type == " + types.get(i));
+        m_output.append("ex_type == " + types.get(i));
         if (i < types.size() - 1) {
-          m_Output.append(" || ");
+          m_output.append(" || ");
         }
       }
-      m_Output.append("){\n");
-      m_Output.append("goto trap" + item.getTrapNum() + ";\n");
-      m_Output.append("}\n");
+      m_output.append("){\n");
+      m_output.append("goto trap" + item.getTrapNum() + ";\n");
+      m_output.append("}\n");
     }
   }
-  if (m_SootMethod.isSynchronized()) {
-    m_Output.append("edu_syr_pcpratts_exitMonitorMem(gc_info, mem, old);\n");
+  if (m_sootMethod.isSynchronized()) {
+    m_output.append("edu_syr_pcpratts_exitMonitorMem(gc_info, mem, old);\n");
   }
-  m_Output.append("return ");
-  if (methodReturnsAValue())   m_Output.append("0");
-  m_Output.append("; }\n");
+  m_output.append("return ");
+  if (methodReturnsAValue())   m_output.append("0");
+  m_output.append("; }\n");
 }

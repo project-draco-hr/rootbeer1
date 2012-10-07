@@ -13,6 +13,6 @@
   SootClass soot_class=soot_method.getDeclaringClass();
   if (soot_class.getName().equals("java.lang.Object"))   return;
   OpenCLMethod ocl_method=new OpenCLMethod(soot_method,soot_class);
-  m_Output.append(ocl_method.getConstructorBodyInvokeString(sexpr));
-  m_Output.append(";\n");
+  m_output.append(ocl_method.getConstructorBodyInvokeString(sexpr));
+  m_output.append(";\n");
 }

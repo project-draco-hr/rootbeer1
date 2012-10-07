@@ -1,0 +1,3 @@
+{
+  return "edu_syr_pcpratts_rootbeer_instanceof_" + m_oclType.getDerefString();
+}

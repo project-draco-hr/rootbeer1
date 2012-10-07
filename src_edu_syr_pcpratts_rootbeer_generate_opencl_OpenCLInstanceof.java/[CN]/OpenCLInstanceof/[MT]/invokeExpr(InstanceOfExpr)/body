@@ -1,0 +1,5 @@
+{
+  String ret=getMethodName();
+  ret+="(gc_info, " + arg0.getOp().toString() + ", exception)";
+  return ret;
+}

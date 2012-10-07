@@ -1,0 +1,12 @@
+{
+  if (other == null) {
+    return false;
+  }
+  if (other instanceof OpenCLInstanceof) {
+    OpenCLInstanceof rhs=(OpenCLInstanceof)other;
+    return m_type.equals(rhs.m_type);
+  }
+ else {
+    return false;
+  }
+}
