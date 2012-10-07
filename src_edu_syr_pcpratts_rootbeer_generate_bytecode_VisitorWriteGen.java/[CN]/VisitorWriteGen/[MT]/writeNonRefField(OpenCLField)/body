@@ -1,7 +1,7 @@
 {
   SootField soot_field=non_ref_field.getSootField();
   String function_name="write" + getTypeString(soot_field);
-  BytecodeLanguage bcl=m_Bcl.top();
+  BytecodeLanguage bcl=m_bcl.top();
   Local field_value;
   if (m_ApplicationClass) {
     field_value=bcl.refInstanceField(m_CurrObj.top(),soot_field.getName());

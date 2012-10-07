@@ -1,0 +1,22 @@
+{
+  System.out.println("loading to hierarchies...");
+  for (  String app_class : m_applicationClasses) {
+    SootClass soot_class=m_resolver.resolveClass(app_class,SootClass.HIERARCHY);
+    Iterator<SootClass> iter=soot_class.getInterfaces().iterator();
+    while (iter.hasNext()) {
+      SootClass curr=iter.next();
+      if (curr.getName().equals("edu.syr.pcpratts.rootbeer.runtime.Kernel")) {
+        m_kernelClasses.add(soot_class);
+        m_resolver.resolveClass(soot_class.getName(),SootClass.BODIES);
+      }
+      if (curr.getName().equals("edu.syr.pcpratts.rootbeer.test.TestException")) {
+        m_testFactoryClasses.add(soot_class);
+        m_resolver.resolveClass(soot_class.getName(),SootClass.BODIES);
+      }
+      if (curr.getName().equals("edu.syr.pcpratts.rootbeer.test.TestSerialization")) {
+        m_testFactoryClasses.add(soot_class);
+        m_resolver.resolveClass(soot_class.getName(),SootClass.BODIES);
+      }
+    }
+  }
+}

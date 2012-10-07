@@ -1,0 +1,11 @@
+{
+  if (m_singleKernel) {
+    return m_currDfsInfo;
+  }
+  if (m_dfsInfos.containsKey(entry) == false) {
+    return null;
+  }
+ else {
+    return m_dfsInfos.get(entry);
+  }
+}

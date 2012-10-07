@@ -1,7 +1,7 @@
 {
   SootClass soot_class=ref_type.getSootClass();
-  if (mSentinalCtorsCreated.contains(soot_class.getName()))   return;
-  mSentinalCtorsCreated.add(soot_class.getName());
+  if (m_sentinalCtorsCreated.contains(soot_class.getName()))   return;
+  m_sentinalCtorsCreated.add(soot_class.getName());
   soot_class=Scene.v().getSootClass(soot_class.getName());
   if (FastWholeProgram.v().isApplicationClass(soot_class) == false)   return;
   if (soot_class.declaresMethod("void <init>(edu.syr.pcpratts.rootbeer.runtime.Sentinal)")) {

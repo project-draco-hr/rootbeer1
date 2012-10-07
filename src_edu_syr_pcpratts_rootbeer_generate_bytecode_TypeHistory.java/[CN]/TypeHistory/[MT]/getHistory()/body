@@ -1,8 +1,0 @@
-{
-  List<Type> ret=new ArrayList<Type>();
-  Iterator<Type> iter=mHistory.iterator();
-  while (iter.hasNext()) {
-    ret.add(iter.next());
-  }
-  return ret;
-}

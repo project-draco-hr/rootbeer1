@@ -1,6 +1,6 @@
 {
-  BytecodeLanguage bcl=m_Bcl.top();
-  BclMemory bcl_mem=new BclMemory(bcl,m_CurrMem.top());
+  BytecodeLanguage bcl=m_bcl.top();
+  BclMemory bcl_mem=new BclMemory(bcl,m_currMem.top());
   Local curr;
   String after_read=getNextLabel();
   String before_read_int=getNextLabel();
@@ -16,8 +16,8 @@
   Local object_addr=bcl_mem.readRef();
   bcl_mem.pushAddress();
   SootClass obj_cls=Scene.v().getSootClass("java.lang.Object");
-  bcl.pushMethod(m_ThisRef,"readFromHeap",obj_cls.getType(),obj_cls.getType(),BooleanType.v(),LongType.v());
-  Local ret=bcl.invokeMethodRet(m_ThisRef,curr_phi,m_Param1,object_addr);
+  bcl.pushMethod(m_thisRef,"readFromHeap",obj_cls.getType(),obj_cls.getType(),BooleanType.v(),LongType.v());
+  Local ret=bcl.invokeMethodRet(m_thisRef,curr_phi,m_Param1,object_addr);
   bcl_mem.popAddress();
   return ret;
 }

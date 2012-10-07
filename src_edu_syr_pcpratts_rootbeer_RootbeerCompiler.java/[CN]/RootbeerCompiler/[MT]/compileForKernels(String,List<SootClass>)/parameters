@@ -1,0 +1,2 @@
+String outname
+List<SootClass> kernel_classes

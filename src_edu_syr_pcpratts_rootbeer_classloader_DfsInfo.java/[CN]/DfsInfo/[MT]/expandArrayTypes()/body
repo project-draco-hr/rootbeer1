@@ -1,0 +1,9 @@
+{
+  MultiDimensionalArrayTypeCreator creator=new MultiDimensionalArrayTypeCreator();
+  Set<Type> added=creator.create(m_dfsTypes);
+  m_dfsTypes.addAll(added);
+  SootClass obj_class=Scene.v().getSootClass("java.lang.Object");
+  for (  Type added_type : added) {
+    addSuperClass(added_type,obj_class.getType());
+  }
+}

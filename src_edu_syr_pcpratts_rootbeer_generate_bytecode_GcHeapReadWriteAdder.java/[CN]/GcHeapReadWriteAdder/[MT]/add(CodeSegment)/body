@@ -1,11 +1,6 @@
 {
   System.out.println("generating serialization bytecode...");
-  mTypeHistory=OpenCLScene.v().getTypeHistory();
-  ;
   SootClass block_class=block.getRootSootClass();
-  mMethodsInspected=new HashSet<SootMethod>();
-  SootMethod root_method=block.getRootMethod();
-  addToMethod(root_method);
   VisitorGen generate_visitor=new VisitorGen(block.getReadWriteFieldInspector(),block_class);
   generate_visitor.generate();
   gcObjectVisitorClassName=generate_visitor.getClassName();

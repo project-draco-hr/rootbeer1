@@ -1,0 +1,4 @@
+{
+  addType(ifr.getBase().getType());
+  addFieldRef(ifr.getFieldRef());
+}

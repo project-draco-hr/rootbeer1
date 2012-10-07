@@ -1,0 +1,27 @@
+{
+  String signature=method.getSignature();
+  if (m_currDfsInfo.containsMethod(signature)) {
+    return;
+  }
+  m_currDfsInfo.addMethod(signature);
+  SootClass soot_class=method.getDeclaringClass();
+  addType(soot_class.getType());
+  DfsValueSwitch value_switch=new DfsValueSwitch();
+  value_switch.run(method);
+  Set<Type> types=value_switch.getTypes();
+  for (  Type type : types) {
+    addType(type);
+  }
+  Set<SootMethodRef> methods=value_switch.getMethodRefs();
+  for (  SootMethodRef ref : methods) {
+    SootClass method_class=ref.declaringClass();
+    addType(method_class.getType());
+    doDfs(ref.resolve());
+  }
+  Set<SootFieldRef> fields=value_switch.getFieldRefs();
+  for (  SootFieldRef ref : fields) {
+    addType(ref.type());
+    SootField field=ref.resolve();
+    m_currDfsInfo.addField(field);
+  }
+}

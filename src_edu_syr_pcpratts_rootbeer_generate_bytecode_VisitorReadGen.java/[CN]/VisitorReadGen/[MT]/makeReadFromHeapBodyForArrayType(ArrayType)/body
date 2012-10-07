@@ -1,7 +1,7 @@
 {
-  BytecodeLanguage bcl=m_Bcl.top();
+  BytecodeLanguage bcl=m_bcl.top();
   Local object_to_read_from=bcl.cast(type,m_Param0);
-  BclMemory bcl_mem=new BclMemory(bcl,m_CurrMem.top());
+  BclMemory bcl_mem=new BclMemory(bcl,m_currMem.top());
   bcl_mem.incrementAddress(3);
   Local ctor_used=bcl_mem.readByte();
   bcl_mem.incrementAddress(4);
@@ -18,8 +18,8 @@
   bcl.assign(ret,bcl.newArray(type,size));
   bcl.label(label_after_new_float);
   SootClass obj_class=Scene.v().getSootClass("java.lang.Object");
-  bcl.pushMethod(m_ThisRef,"checkCache",obj_class.getType(),LongType.v(),obj_class.getType());
-  ret=bcl.invokeMethodRet(m_ThisRef,m_RefParam,ret);
+  bcl.pushMethod(m_thisRef,"checkCache",obj_class.getType(),LongType.v(),obj_class.getType());
+  ret=bcl.invokeMethodRet(m_thisRef,m_RefParam,ret);
   ret=bcl.cast(type,ret);
   if (type.baseType == IntType.v() && type.numDimensions == 1) {
     bcl_mem.readIntArray(ret,size);

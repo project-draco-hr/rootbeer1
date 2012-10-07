@@ -1,0 +1,5 @@
+{
+  if (m_methods.contains(ref) == false) {
+    m_methods.add(ref);
+  }
+}

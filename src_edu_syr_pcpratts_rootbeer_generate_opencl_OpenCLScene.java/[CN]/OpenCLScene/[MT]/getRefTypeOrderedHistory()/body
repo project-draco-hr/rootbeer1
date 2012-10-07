@@ -1,8 +1,0 @@
-{
-  List<Type> all_possible_types=getOrderedHistory();
-  List<RefType> ret=new ArrayList<RefType>();
-  for (  Type type : all_possible_types) {
-    if (type instanceof RefType)     ret.add((RefType)type);
-  }
-  return ret;
-}

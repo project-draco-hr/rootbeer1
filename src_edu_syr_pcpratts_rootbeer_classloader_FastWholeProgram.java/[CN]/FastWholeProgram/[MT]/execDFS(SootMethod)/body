@@ -1,0 +1,7 @@
+{
+  m_currDfsInfo=new DfsInfo();
+  m_dfsInfos.put(kernel_method,m_currDfsInfo);
+  doDfs(kernel_method);
+  m_currDfsInfo.expandArrayTypes();
+  m_currDfsInfo.orderTypes();
+}

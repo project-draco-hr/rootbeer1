@@ -1,11 +1,13 @@
 {
-  for (  ArrayType type : m_ArrayTypes) {
-    addDimension(type.baseType,type.numDimensions);
-  }
-  Iterator<Type> iter=m_Dimensions.keySet().iterator();
-  while (iter.hasNext()) {
-    Type key=iter.next();
-    Set<Integer> dimensions=m_Dimensions.get(key);
-    doClone(key,dimensions);
+  for (  ArrayType type : m_arrayTypes) {
+    Type base_type=type.baseType;
+    int dim=type.numDimensions;
+    for (int i=dim - 1; i > 0; --i) {
+      ArrayType curr=ArrayType.v(base_type,i);
+      if (m_allArrayTypes.contains(curr) == false) {
+        m_ret.add(curr);
+        m_allArrayTypes.add(curr);
+      }
+    }
   }
 }

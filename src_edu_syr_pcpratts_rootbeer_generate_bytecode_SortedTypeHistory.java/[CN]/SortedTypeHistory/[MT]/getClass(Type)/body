@@ -1,4 +1,0 @@
-{
-  RefType ref_type=(RefType)type;
-  return Scene.v().getSootClass(ref_type.getClassName());
-}

@@ -1,0 +1,13 @@
+{
+  if (m_parentsToChildren.containsKey(superclass)) {
+    List<Type> children=m_parentsToChildren.get(superclass);
+    if (children.contains(curr) == false) {
+      children.add(curr);
+    }
+  }
+ else {
+    List<Type> children=new ArrayList<Type>();
+    children.add(curr);
+    m_parentsToChildren.put(superclass,children);
+  }
+}

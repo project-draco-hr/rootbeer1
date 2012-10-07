@@ -1,4 +1,0 @@
-{
-  mHistory=new HashSet<Type>();
-  addType(runtime_basic_block.getType());
-}

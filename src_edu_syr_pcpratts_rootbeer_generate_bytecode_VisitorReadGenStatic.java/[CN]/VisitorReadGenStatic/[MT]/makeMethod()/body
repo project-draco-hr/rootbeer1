@@ -1,10 +1,10 @@
 {
-  BytecodeLanguage bcl=m_Bcl.top();
+  BytecodeLanguage bcl=m_bcl.top();
   bcl.startMethod("doReadStaticsFromHeap",VoidType.v());
-  m_ThisRef=bcl.refThis();
-  m_Mem=bcl.refInstanceField(m_ThisRef,"mMem");
-  m_CurrMem.push(m_Mem);
-  m_GcObjVisitor.push(m_ThisRef);
+  m_thisRef=bcl.refThis();
+  m_mem=bcl.refInstanceField(m_thisRef,"mMem");
+  m_currMem.push(m_mem);
+  m_gcObjVisitor.push(m_thisRef);
   PermissionGraph graph=new PermissionGraph();
   List<PermissionGraphNode> roots=graph.getRoots();
   for (  PermissionGraphNode node : roots) {
@@ -18,6 +18,6 @@
   }
   bcl.returnVoid();
   bcl.endMethod();
-  m_CurrMem.pop();
-  m_GcObjVisitor.pop();
+  m_currMem.pop();
+  m_gcObjVisitor.pop();
 }

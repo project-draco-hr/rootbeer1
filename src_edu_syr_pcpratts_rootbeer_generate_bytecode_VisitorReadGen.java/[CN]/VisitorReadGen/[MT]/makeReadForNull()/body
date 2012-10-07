@@ -1,6 +1,6 @@
 {
-  BytecodeLanguage bcl=m_Bcl.top();
-  BclMemory bcl_mem=new BclMemory(bcl,m_CurrMem.top());
+  BytecodeLanguage bcl=m_bcl.top();
+  BclMemory bcl_mem=new BclMemory(bcl,m_currMem.top());
   Local start=bcl_mem.getPointer();
   bcl_mem.incrementAddress(2);
   Local type_id=bcl_mem.readByte();

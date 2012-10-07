@@ -1,8 +1,0 @@
-{
-  int max_int=findMax(dimensions);
-  for (int i=1; i < max_int; ++i) {
-    if (dimensions.contains(i))     continue;
-    ArrayType curr=ArrayType.v(key,i);
-    m_ArrayTypes.add(curr);
-  }
-}

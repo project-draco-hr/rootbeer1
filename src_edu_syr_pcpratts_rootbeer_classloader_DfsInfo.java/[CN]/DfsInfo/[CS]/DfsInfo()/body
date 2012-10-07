@@ -1,0 +1,7 @@
+{
+  m_dfsMethods=new HashSet<String>();
+  m_dfsTypes=new HashSet<Type>();
+  m_dfsFields=new HashSet<SootField>();
+  m_callGraph=new CallGraph();
+  m_parentsToChildren=new HashMap<Type,List<Type>>();
+}

@@ -1,0 +1,21 @@
+{
+  m_kernels=kernels;
+  if (test_case.contains(".") == false) {
+    String new_test_case=findTestCaseClass(test_case);
+    if (new_test_case == null) {
+      System.out.println("cannot find test case class: " + test_case);
+      System.exit(0);
+    }
+    test_case=new_test_case;
+  }
+  m_provider=test_case;
+  SootClass test_class=Scene.v().getSootClass(test_case);
+  List<SootMethod> methods=test_class.getMethods();
+  for (  SootMethod method : methods) {
+    SootClass kernel=searchMethod(method);
+    if (kernel != null) {
+      return kernel;
+    }
+  }
+  throw new RuntimeException("cannot find kernel for test case: " + test_case);
+}

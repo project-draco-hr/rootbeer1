@@ -1,5 +1,5 @@
 {
-  m_Bcl.push(new BytecodeLanguage());
+  m_bcl.push(new BytecodeLanguage());
   makeSentinalCtors();
   makeGcObjectVisitor();
   addGetVisitorMethodToRuntimeBasicBlock();

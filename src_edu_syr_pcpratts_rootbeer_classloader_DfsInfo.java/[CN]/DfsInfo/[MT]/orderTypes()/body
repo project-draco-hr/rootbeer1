@@ -1,0 +1,33 @@
+{
+  List<NumberedType> numbered_types=new ArrayList<NumberedType>();
+  int number=1;
+  SootClass obj_cls=Scene.v().getSootClass("java.lang.Object");
+  Type curr=obj_cls.getType();
+  List<Type> queue=new LinkedList<Type>();
+  queue.add(curr);
+  while (queue.isEmpty() == false) {
+    curr=queue.get(0);
+    queue.remove(0);
+    NumberedType numbered_type=new NumberedType(curr,number);
+    numbered_types.add(numbered_type);
+    number++;
+    if (m_parentsToChildren.containsKey(curr) == false) {
+      continue;
+    }
+    List<Type> children=m_parentsToChildren.get(curr);
+    queue.addAll(children);
+  }
+  m_numberedTypes=new ArrayList<NumberedType>();
+  m_orderedTypes=new ArrayList<Type>();
+  m_orderedRefTypes=new ArrayList<RefType>();
+  for (int i=numbered_types.size() - 1; i >= 0; --i) {
+    NumberedType curr2=numbered_types.get(i);
+    m_numberedTypes.add(curr2);
+    m_orderedTypes.add(curr2.getType());
+    Type type=curr2.getType();
+    if (type instanceof RefType) {
+      RefType ref_type=(RefType)type;
+      m_orderedRefTypes.add(ref_type);
+    }
+  }
+}

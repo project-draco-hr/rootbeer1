@@ -1,9 +1,0 @@
-{
-  if (value instanceof FieldRef == false)   return;
-  FieldRef field_ref=(FieldRef)value;
-  SootField field=field_ref.getField();
-  SootClass soot_class=field.getDeclaringClass();
-  soot_class=Scene.v().getSootClass(soot_class.getName());
-  field=soot_class.getField(field.getSubSignature());
-  OpenCLScene.v().addField(field);
-}

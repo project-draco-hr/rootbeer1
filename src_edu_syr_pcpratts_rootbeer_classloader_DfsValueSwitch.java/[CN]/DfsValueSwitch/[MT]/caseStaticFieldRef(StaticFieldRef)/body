@@ -1,0 +1,4 @@
+{
+  addType(sfr.getField().getType());
+  addFieldRef(sfr.getFieldRef());
+}

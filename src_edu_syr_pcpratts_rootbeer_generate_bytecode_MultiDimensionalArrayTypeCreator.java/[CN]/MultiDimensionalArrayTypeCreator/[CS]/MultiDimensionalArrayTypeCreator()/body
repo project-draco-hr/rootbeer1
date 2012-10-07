@@ -1,5 +1,5 @@
 {
-  m_ArrayTypes=new ArrayList<ArrayType>();
-  m_NotArrayTypes=new ArrayList<Type>();
-  m_Dimensions=new HashMap<Type,Set<Integer>>();
+  m_arrayTypes=new ArrayList<ArrayType>();
+  m_allArrayTypes=new HashSet<Type>();
+  m_ret=new HashSet<Type>();
 }

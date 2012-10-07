@@ -1,10 +1,10 @@
 {
-  BytecodeLanguage bcl=m_Bcl.top();
+  BytecodeLanguage bcl=m_bcl.top();
   bcl.startMethod("doWriteStaticsToHeap",VoidType.v());
-  m_ThisRef=bcl.refThis();
-  m_GcObjVisitor.push(m_ThisRef);
-  m_Mem=bcl.refInstanceField(m_ThisRef,"mMem");
-  m_CurrMem.push(m_Mem);
+  m_thisRef=bcl.refThis();
+  m_gcObjVisitor.push(m_thisRef);
+  m_Mem=bcl.refInstanceField(m_thisRef,"mMem");
+  m_currMem.push(m_Mem);
   BclMemory bcl_mem=new BclMemory(bcl,m_Mem);
   bcl_mem.useInstancePointer();
   bcl_mem.mallocWithSize(IntConstant.v(m_StaticOffsets.getEndIndex()));
@@ -32,5 +32,5 @@
   bcl_mem.useInstancePointer();
   bcl.returnVoid();
   bcl.endMethod();
-  m_GcObjVisitor.pop();
+  m_gcObjVisitor.pop();
 }

@@ -1,6 +1,0 @@
-{
-  for (  Type curr : ret) {
-    RefType ref_type=(RefType)curr;
-    System.out.println(ref_type);
-  }
-}

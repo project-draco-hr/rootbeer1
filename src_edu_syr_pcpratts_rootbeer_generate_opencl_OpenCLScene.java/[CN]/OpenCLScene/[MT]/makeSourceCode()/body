@@ -1,6 +1,18 @@
 {
   m_usesGarbageCollector=false;
-  findAllUsedClassesMethodsFieldsAndArrayTypes();
+  Set<String> methods=RootbeerScene.v().getDfsInfo().getMethods();
+  SignatureUtil util=new SignatureUtil();
+  for (  String method_sig : methods) {
+    String cls=util.classFromMethodSig(method_sig);
+    String method_sub_sig=util.methodSubSigFromMethodSig(method_sig);
+    SootClass soot_class=Scene.v().getSootClass(cls);
+    SootMethod method=soot_class.getMethod(method_sub_sig);
+    addMethod(method);
+  }
+  Set<SootField> fields=RootbeerScene.v().getDfsInfo().getFields();
+  for (  SootField field : fields) {
+    addField(field);
+  }
   StringBuilder ret=new StringBuilder();
   ret.append(headerString());
   ret.append(garbageCollectorString());

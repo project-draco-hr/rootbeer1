@@ -1,5 +1,5 @@
 {
-  BytecodeLanguage bcl=m_Bcl.top();
+  BytecodeLanguage bcl=m_bcl.top();
   SootField soot_field=ref_field.getSootField();
   SootClass obj=Scene.v().getSootClass("java.lang.Object");
   Local field_value;
@@ -8,9 +8,9 @@
   }
  else {
     SootClass string=Scene.v().getSootClass("java.lang.String");
-    bcl.pushMethod(m_GcObjVisitor.top(),"readField",obj.getType(),obj.getType(),string.getType());
-    field_value=bcl.invokeMethodRet(m_GcObjVisitor.top(),m_CurrObj.top(),StringConstant.v(soot_field.getName()));
+    bcl.pushMethod(m_gcObjVisitor.top(),"readField",obj.getType(),obj.getType(),string.getType());
+    field_value=bcl.invokeMethodRet(m_gcObjVisitor.top(),m_CurrObj.top(),StringConstant.v(soot_field.getName()));
   }
-  bcl.pushMethod(m_GcObjVisitor.top(),"writeToHeap",LongType.v(),obj.getType(),BooleanType.v());
-  return bcl.invokeMethodRet(m_GcObjVisitor.top(),field_value,copy_values);
+  bcl.pushMethod(m_gcObjVisitor.top(),"writeToHeap",LongType.v(),obj.getType(),BooleanType.v());
+  return bcl.invokeMethodRet(m_gcObjVisitor.top(),field_value,copy_values);
 }

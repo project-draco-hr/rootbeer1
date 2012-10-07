@@ -5,6 +5,8 @@
   m_classPaths=new ArrayList<String>();
   m_entryMethods=new HashSet<SootMethod>();
   m_classes=new HashMap<String,SootClass>();
+  m_kernelClasses=new ArrayList<SootClass>();
+  m_testFactoryClasses=new ArrayList<SootClass>();
   m_tempFolder="jar-contents";
   File file=new File(m_tempFolder);
   file.mkdirs();
@@ -51,6 +53,6 @@
   m_runtimeClasses.add("edu.syr.pcpratts.rootbeer.runtime.util.Stopwatch");
   m_runtimeClasses.add("edu.syr.pcpratts.rootbeer.runtime.PrivateFields");
   m_resolvedMethods=new HashSet<String>();
-  m_dfsMethods=new HashMap<SootMethod,Set<String>>();
   m_cgWorkQueue=new LinkedList<String>();
+  m_dfsInfos=new HashMap<SootMethod,DfsInfo>();
 }

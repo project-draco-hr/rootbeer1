@@ -1,10 +1,10 @@
 {
-  BytecodeLanguage bcl=m_Bcl.top();
+  BytecodeLanguage bcl=m_bcl.top();
   SootClass soot_class=type.getSootClass();
   soot_class=Scene.v().getSootClass(soot_class.getName());
   Local object_to_write_to=bcl.cast(type,m_Param0);
   String label=getNextLabel();
-  BclMemory bcl_mem=new BclMemory(bcl,m_CurrMem.top());
+  BclMemory bcl_mem=new BclMemory(bcl,m_currMem.top());
   bcl_mem.incrementAddress(3);
   Local ctor_used=bcl_mem.readByte();
   bcl.ifStmt(ctor_used,"==",IntConstant.v(0),label);
@@ -22,8 +22,8 @@
   }
   bcl.label(label);
   SootClass obj_class=Scene.v().getSootClass("java.lang.Object");
-  bcl.pushMethod(m_ThisRef,"checkCache",obj_class.getType(),LongType.v(),obj_class.getType());
-  object_to_write_to=bcl.invokeMethodRet(m_ThisRef,m_RefParam,object_to_write_to);
+  bcl.pushMethod(m_thisRef,"checkCache",obj_class.getType(),LongType.v(),obj_class.getType());
+  object_to_write_to=bcl.invokeMethodRet(m_thisRef,m_RefParam,object_to_write_to);
   object_to_write_to=bcl.cast(type,object_to_write_to);
   bcl_mem.incrementAddress(12);
   m_CurrObj.push(object_to_write_to);

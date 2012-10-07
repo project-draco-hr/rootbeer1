@@ -1,7 +1,0 @@
-{
-  List<Type> ret=new ArrayList<Type>();
-  for (  Type type : types) {
-    if (type instanceof ArrayType)     ret.add(type);
-  }
-  return ret;
-}

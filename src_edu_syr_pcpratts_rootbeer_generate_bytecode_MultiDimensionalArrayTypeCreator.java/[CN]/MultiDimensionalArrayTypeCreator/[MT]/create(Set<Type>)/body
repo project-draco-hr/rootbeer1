@@ -1,0 +1,5 @@
+{
+  segregateTypes(types);
+  cloneArrayTypes();
+  return m_ret;
+}

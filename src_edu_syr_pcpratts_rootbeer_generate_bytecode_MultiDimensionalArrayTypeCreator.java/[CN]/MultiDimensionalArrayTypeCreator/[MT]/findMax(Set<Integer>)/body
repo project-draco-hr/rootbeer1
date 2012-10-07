@@ -1,9 +1,0 @@
-{
-  int ret=1;
-  Iterator<Integer> iter=dimensions.iterator();
-  while (iter.hasNext()) {
-    int value=iter.next();
-    if (value > ret)     ret=value;
-  }
-  return ret;
-}

@@ -1,5 +1,5 @@
 {
-  BytecodeLanguage bcl=m_Bcl.top();
+  BytecodeLanguage bcl=m_bcl.top();
   BclMemory bcl_mem=new BclMemory(bcl,m_CurrentMem.top());
   int class_id=OpenCLScene.v().getClassType(type);
   SootClass soot_class=type.getSootClass();

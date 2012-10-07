@@ -1,5 +1,5 @@
 {
-  BytecodeLanguage bcl=m_Bcl.top();
+  BytecodeLanguage bcl=m_bcl.top();
   if (FastWholeProgram.v().isApplicationClass(curr_class)) {
     SootClass mem=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
     String specialization=JavaNameToOpenCL.convert(curr_class.getName()) + OpenCLScene.v().getIdent();

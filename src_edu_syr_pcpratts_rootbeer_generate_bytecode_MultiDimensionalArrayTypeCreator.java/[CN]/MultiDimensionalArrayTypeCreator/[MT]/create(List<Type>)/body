@@ -1,5 +1,0 @@
-{
-  segregateTypes(types);
-  cloneArrayTypes();
-  return combine();
-}

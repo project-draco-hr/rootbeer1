@@ -1,3 +1,0 @@
-{
-  mSootMethodsVisited=new HashSet<SootMethod>();
-}

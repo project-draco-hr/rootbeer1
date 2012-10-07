@@ -6,6 +6,6 @@
   m_fastLoader.addRootbeerPath(jar_name.get(),run_tests);
   m_fastLoader.addClassPath(getRuntimeJars());
   m_fastLoader.init();
-  List<String> kernel_classes=m_fastLoader.findKernelClasses();
+  List<SootClass> kernel_classes=m_fastLoader.getKernelClasses();
   compileForKernels(outname,kernel_classes);
 }

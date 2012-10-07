@@ -17,13 +17,13 @@
     attachWriter(parent.getName(),ref_fields);
   }
   BytecodeLanguage bcl=new BytecodeLanguage();
-  m_Bcl.push(bcl);
+  m_bcl.push(bcl);
   bcl.openClass(class_name);
   SootClass mem=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
-  bcl.startMethod("edu_syr_pcpratts_writeToHeap" + specialization,VoidType.v(),mem.getType(),m_GcObjVisitor.top().getType());
+  bcl.startMethod("edu_syr_pcpratts_writeToHeap" + specialization,VoidType.v(),mem.getType(),m_gcObjVisitor.top().getType());
   m_CurrObj.push(bcl.refThis());
   m_CurrentMem.push(bcl.refParameter(0));
-  m_GcObjVisitor.push(bcl.refParameter(1));
+  m_gcObjVisitor.push(bcl.refParameter(1));
   m_ApplicationClass=true;
   SootClass soot_class=Scene.v().getSootClass(class_name);
   if (ref_fields) {
@@ -47,7 +47,7 @@
   bcl.endMethod();
   m_CurrObj.pop();
   m_CurrentMem.pop();
-  m_GcObjVisitor.pop();
+  m_gcObjVisitor.pop();
   if (ref_fields) {
     bcl.startMethod("edu_syr_pcpratts_writeRefs" + JavaNameToOpenCL.convert(class_name) + OpenCLScene.v().getIdent(),VoidType.v(),mem.getType());
     m_CurrObj.push(bcl.refThis());
@@ -64,5 +64,5 @@
     m_CurrObj.pop();
     m_CurrentMem.pop();
   }
-  m_Bcl.pop();
+  m_bcl.pop();
 }
