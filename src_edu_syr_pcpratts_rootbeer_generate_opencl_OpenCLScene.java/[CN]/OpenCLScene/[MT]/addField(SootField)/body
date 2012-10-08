@@ -1,5 +1,8 @@
 {
   SootClass soot_class=soot_field.getDeclaringClass();
   OpenCLClass ocl_class=getOpenCLClass(soot_class);
+  if (ocl_class == null) {
+    System.out.println("hello");
+  }
   ocl_class.addField(new OpenCLField(soot_field,soot_class));
 }

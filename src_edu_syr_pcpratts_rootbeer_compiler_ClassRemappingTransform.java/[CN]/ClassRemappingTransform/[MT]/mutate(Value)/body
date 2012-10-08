@@ -36,6 +36,7 @@
       SootClass new_class=getMapping(soot_class);
       if (new_class.declaresMethod(subSignature)) {
         SootMethod new_method=RootbeerScene.v().getMethod(new_class,subSignature.getString());
+        addAddedMethod(new_method);
         fixArguments(new_method);
         RootbeerScene.v().getDfsInfo().addReachableMethodSig(new_method.getSignature());
         expr.setMethodRef(new_method.makeRef());

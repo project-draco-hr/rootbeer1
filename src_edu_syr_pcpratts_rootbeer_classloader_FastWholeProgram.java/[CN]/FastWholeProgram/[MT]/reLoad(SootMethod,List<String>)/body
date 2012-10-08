@@ -1,0 +1,14 @@
+{
+  System.out.println("reloading dfs_info on: " + kernel_method.getDeclaringClass().getName() + "...");
+  m_currDfsInfo=new DfsInfo(kernel_method);
+  m_dfsInfos.put(kernel_method,m_currDfsInfo);
+  MethodSignatureUtil util=new MethodSignatureUtil();
+  for (  String sig : method_sigs) {
+    String class_name=util.classFromSig(sig);
+    String method_sub_sig=util.methodSubSig(sig);
+    SootClass soot_class=Scene.v().getSootClass(class_name);
+    SootMethod method=soot_class.getMethod(method_sub_sig);
+    doDfs(method);
+  }
+  buildHierarchy();
+}

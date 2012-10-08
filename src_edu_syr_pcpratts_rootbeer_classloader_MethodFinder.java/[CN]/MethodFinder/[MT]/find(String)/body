@@ -1,7 +1,7 @@
 {
-  SignatureUtil util=new SignatureUtil();
-  String class_name=util.classFromMethodSig(method_sig);
-  String method_subsig=util.methodSubSigFromMethodSig(method_sig);
+  MethodSignatureUtil util=new MethodSignatureUtil();
+  String class_name=util.classFromSig(method_sig);
+  String method_subsig=util.methodSubSig(method_sig);
   SootClass soot_class=Scene.v().getSootClass(class_name);
   if (soot_class.isPhantom()) {
     return null;

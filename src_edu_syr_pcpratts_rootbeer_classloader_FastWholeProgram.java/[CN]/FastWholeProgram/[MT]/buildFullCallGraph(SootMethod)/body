@@ -7,11 +7,11 @@
       methods.add(method.getSignature());
     }
   }
-  SignatureUtil util=new SignatureUtil();
+  MethodSignatureUtil util=new MethodSignatureUtil();
   for (int i=0; i < methods.size(); ++i) {
     String method_sig=methods.get(i);
-    SootClass soot_class=Scene.v().getSootClass(util.classFromMethodSig(method_sig));
-    SootMethod method=soot_class.getMethod(util.methodSubSigFromMethodSig(method_sig));
+    SootClass soot_class=Scene.v().getSootClass(util.classFromSig(method_sig));
+    SootMethod method=soot_class.getMethod(util.methodSubSig(method_sig));
     if (method.isConcrete() == false) {
       continue;
     }

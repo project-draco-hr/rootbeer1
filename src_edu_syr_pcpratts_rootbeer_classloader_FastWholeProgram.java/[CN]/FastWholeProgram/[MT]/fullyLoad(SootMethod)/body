@@ -3,4 +3,6 @@
   m_currDfsInfo=new DfsInfo(kernel_method);
   m_dfsInfos.put(kernel_method,m_currDfsInfo);
   doDfs(kernel_method);
+  buildFullCallGraph(kernel_method);
+  buildHierarchy();
 }

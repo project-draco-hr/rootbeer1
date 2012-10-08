@@ -2,12 +2,14 @@
   while (edges.hasNext()) {
     Edge edge=edges.next();
     SootMethod src=edge.src();
-    if (visited.contains(src) == false) {
+    System.out.println("src: " + src);
+    if (visited.contains(src) == false && FastWholeProgram.v().shouldDfsMethod(src)) {
       queue.add(src);
       visited.add(src);
     }
-    SootMethod dest=edge.src();
-    if (visited.contains(dest) == false) {
+    SootMethod dest=edge.tgt();
+    System.out.println("dest: " + dest);
+    if (visited.contains(dest) == false && FastWholeProgram.v().shouldDfsMethod(dest)) {
       queue.add(dest);
       visited.add(dest);
     }

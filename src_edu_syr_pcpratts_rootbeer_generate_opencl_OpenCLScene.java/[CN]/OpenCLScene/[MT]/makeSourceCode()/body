@@ -1,10 +1,10 @@
 {
   m_usesGarbageCollector=false;
   Set<String> methods=RootbeerScene.v().getDfsInfo().getAllMethods();
-  SignatureUtil util=new SignatureUtil();
+  MethodSignatureUtil util=new MethodSignatureUtil();
   for (  String method_sig : methods) {
-    String cls=util.classFromMethodSig(method_sig);
-    String method_sub_sig=util.methodSubSigFromMethodSig(method_sig);
+    String cls=util.classFromSig(method_sig);
+    String method_sub_sig=util.methodSubSig(method_sig);
     SootClass soot_class=Scene.v().getSootClass(cls);
     OpenCLScene.v().addClass(soot_class);
     SootMethod method=RootbeerScene.v().getMethod(soot_class,method_sub_sig);
