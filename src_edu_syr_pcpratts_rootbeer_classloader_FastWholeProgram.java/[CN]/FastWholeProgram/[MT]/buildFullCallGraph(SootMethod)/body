@@ -1,0 +1,25 @@
+{
+  System.out.println("building full call graph for: " + kernel_method.getDeclaringClass().getName() + "...");
+  List<String> methods=new ArrayList<String>();
+  for (  String cls : m_applicationClasses) {
+    SootClass soot_class=m_resolver.resolveClass(cls,SootClass.BODIES);
+    for (    SootMethod method : soot_class.getMethods()) {
+      methods.add(method.getSignature());
+    }
+  }
+  SignatureUtil util=new SignatureUtil();
+  for (int i=0; i < methods.size(); ++i) {
+    String method_sig=methods.get(i);
+    SootClass soot_class=Scene.v().getSootClass(util.classFromMethodSig(method_sig));
+    SootMethod method=soot_class.getMethod(util.methodSubSigFromMethodSig(method_sig));
+    if (method.isConcrete() == false) {
+      continue;
+    }
+    DfsValueSwitch value_switch=new DfsValueSwitch();
+    value_switch.run(method);
+    Set<DfsMethodRef> method_refs=value_switch.getMethodRefs();
+    for (    DfsMethodRef dfs_ref : method_refs) {
+      m_currDfsInfo.addCallGraphEdge(method,dfs_ref.getStmt(),dfs_ref.getSootMethodRef().resolve());
+    }
+  }
+}

@@ -10,7 +10,7 @@
       if (tokens.length != 2) {
         continue;
       }
-      m_ClonedMap.put(tokens[0].trim(),tokens[1].trim());
+      m_clonedMap.put(tokens[0].trim(),tokens[1].trim());
       put(tokens[0].trim(),tokens[1].trim());
     }
   }

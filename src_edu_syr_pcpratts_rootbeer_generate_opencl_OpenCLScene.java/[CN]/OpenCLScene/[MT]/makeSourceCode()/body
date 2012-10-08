@@ -18,22 +18,15 @@
     OpenCLArrayType ocl_array_type=new OpenCLArrayType(array_type);
     addArrayType(ocl_array_type);
   }
+  Set<Type> instanceofs=RootbeerScene.v().getDfsInfo().getInstanceOfs();
+  for (  Type type : instanceofs) {
+    addInstanceof(type);
+  }
   StringBuilder ret=new StringBuilder();
   ret.append(headerString());
   ret.append(garbageCollectorString());
   ret.append(methodPrototypesString());
   ret.append(methodBodiesString());
-  String prev_hash="";
-  String curr_hash=DigestUtils.md5Hex(ret.toString());
-  while (prev_hash.equals(curr_hash) == false) {
-    ret=new StringBuilder();
-    ret.append(headerString());
-    ret.append(garbageCollectorString());
-    ret.append(methodPrototypesString());
-    ret.append(methodBodiesString());
-    prev_hash=curr_hash;
-    curr_hash=DigestUtils.md5Hex(ret.toString());
-  }
   String cuda_code;
   if (true) {
     cuda_code=ret.toString();

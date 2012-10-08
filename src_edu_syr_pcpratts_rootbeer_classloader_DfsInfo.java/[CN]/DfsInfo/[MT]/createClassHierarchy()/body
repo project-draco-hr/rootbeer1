@@ -1,4 +1,5 @@
 {
+  m_childrenToParents=new HashMap<String,List<NumberedType>>();
   for (  Type type : m_dfsTypes) {
     List<NumberedType> parents=new ArrayList<NumberedType>();
     NumberedType curr_type=m_numberedTypeMap.get(type.toString());

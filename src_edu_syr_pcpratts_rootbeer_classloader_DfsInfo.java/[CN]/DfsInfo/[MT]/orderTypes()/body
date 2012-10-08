@@ -1,4 +1,6 @@
 {
+  m_numberedTypeMap=new HashMap<String,NumberedType>();
+  m_classToNumber=new HashMap<SootClass,Integer>();
   List<NumberedType> numbered_types=new ArrayList<NumberedType>();
   int number=1;
   List<Type> queue=new LinkedList<Type>();

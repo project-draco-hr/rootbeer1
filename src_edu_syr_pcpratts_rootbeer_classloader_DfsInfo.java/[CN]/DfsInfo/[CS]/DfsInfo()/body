@@ -3,10 +3,9 @@
   m_dfsTypes=new HashSet<Type>();
   m_dfsFields=new HashSet<SootField>();
   m_callGraph=new CallGraph();
-  m_parentsToChildren=new HashMap<String,List<Type>>();
-  m_childrenToParents=new HashMap<String,List<NumberedType>>();
-  m_classToNumber=new HashMap<SootClass,Integer>();
   m_builtInTypes=new ArrayList<Type>();
-  m_numberedTypeMap=new HashMap<String,NumberedType>();
+  m_instanceOfs=new HashSet<Type>();
+  m_reachableMethodSigs=new ArrayList<String>();
+  m_parentsToChildren=new HashMap<String,List<Type>>();
   addBuiltInTypes();
 }
