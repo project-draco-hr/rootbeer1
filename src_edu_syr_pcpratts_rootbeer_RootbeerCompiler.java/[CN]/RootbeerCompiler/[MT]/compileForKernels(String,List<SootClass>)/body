@@ -14,8 +14,7 @@
   for (  SootClass kernel : kernel_classes) {
     SootMethod kernel_method=kernel.getMethod("void gpuMethod()");
     FastWholeProgram.v().execDFS(kernel_method);
-    DfsInfo info=FastWholeProgram.v().getDfsInfo(kernel_method);
-    info.print();
+    FastWholeProgram.v().getDfsInfo(kernel_method);
   }
   Transform2 transform2=new Transform2();
   for (  SootClass soot_class : kernel_classes) {
@@ -24,4 +23,22 @@
     RootbeerScene.v().setDfsInfo(info);
     transform2.run(soot_class.getName());
   }
+  for (  SootClass soot_class : kernel_classes) {
+    SootMethod kernel_method=soot_class.getMethod("void gpuMethod()");
+    DfsInfo dfs_info=FastWholeProgram.v().getDfsInfo(kernel_method);
+    List<RefType> ref_types=dfs_info.getOrderedRefTypes();
+    for (    RefType cls : ref_types) {
+      loadAllMethods(cls.getClassName());
+      writeClassFile(cls.getClassName());
+      writeJimpleFile(cls.getClassName());
+    }
+  }
+  List<String> added_classes=RootbeerScene.v().getAddedClasses();
+  for (  String cls : added_classes) {
+    loadAllMethods(cls);
+    writeClassFile(cls);
+    writeJimpleFile(cls);
+  }
+  makeOutJar();
+  pack(outname);
 }
