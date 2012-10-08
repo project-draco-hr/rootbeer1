@@ -2,12 +2,7 @@
   List<NumberedType> nret=m_childrenToParents.get(input_class.getType().toString());
   List<Type> ret=new ArrayList<Type>();
   for (  NumberedType ntype : nret) {
-    try {
-      ret.add(ntype.getType());
-    }
- catch (    Exception ex) {
-      ex.printStackTrace();
-    }
+    ret.add(ntype.getType());
   }
   return ret;
 }

@@ -1,6 +1,9 @@
 {
   m_childrenToParents=new HashMap<String,List<NumberedType>>();
-  for (  Type type : m_dfsTypes) {
+  Set<Type> to_process=new HashSet<Type>();
+  to_process.addAll(m_dfsTypes);
+  to_process.addAll(m_builtInTypes);
+  for (  Type type : to_process) {
     List<NumberedType> parents=new ArrayList<NumberedType>();
     NumberedType curr_type=m_numberedTypeMap.get(type.toString());
     parents.add(curr_type);
@@ -8,8 +11,8 @@
       RefType ref_type=(RefType)type;
       SootClass curr_class=ref_type.getSootClass();
       while (curr_class.hasSuperclass()) {
-        parents.add(m_numberedTypeMap.get(curr_class.getType().toString()));
         curr_class=curr_class.getSuperclass();
+        parents.add(m_numberedTypeMap.get(curr_class.getType().toString()));
       }
     }
  else     if (type instanceof ArrayType) {

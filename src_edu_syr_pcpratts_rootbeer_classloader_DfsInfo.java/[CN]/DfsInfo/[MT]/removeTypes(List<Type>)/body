@@ -11,7 +11,10 @@
     m_dfsTypes.remove(type);
   }
   m_parentsToChildren=new HashMap<String,List<Type>>();
-  for (  Type type : m_dfsTypes) {
+  Set<Type> to_process=new HashSet<Type>();
+  to_process.addAll(m_dfsTypes);
+  to_process.addAll(m_builtInTypes);
+  for (  Type type : to_process) {
     if (type instanceof RefType) {
       RefType ref_type=(RefType)type;
       SootClass child=ref_type.getSootClass();
