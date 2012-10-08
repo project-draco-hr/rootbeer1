@@ -1,4 +1,3 @@
 {
-  if (m_instance == null)   m_instance=new OpenCLScene();
   return m_instance;
 }

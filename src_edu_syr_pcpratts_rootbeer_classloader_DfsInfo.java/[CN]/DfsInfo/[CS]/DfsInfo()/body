@@ -7,5 +7,6 @@
   m_instanceOfs=new HashSet<Type>();
   m_reachableMethodSigs=new ArrayList<String>();
   m_parentsToChildren=new HashMap<String,List<Type>>();
+  m_oclScene=new OpenCLScene();
   addBuiltInTypes();
 }

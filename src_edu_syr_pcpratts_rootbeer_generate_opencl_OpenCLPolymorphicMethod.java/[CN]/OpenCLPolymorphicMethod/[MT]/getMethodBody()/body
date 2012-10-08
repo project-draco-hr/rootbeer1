@@ -1,7 +1,7 @@
 {
   if (m_sootMethod.getName().equals("<init>"))   return "";
   List<Type> hierarchy=getHierarchy();
-  Type first_type=hierarchy.get(1);
+  Type first_type=hierarchy.get(0);
   if (first_type instanceof RefType == false) {
     throw new RuntimeException("please report bug in OpenCLPolymorphicMethod.getMethodBody");
   }
