@@ -1,3 +1,9 @@
 {
-  return (int)m_numberedTypeMap.get(type).getNumber();
+  try {
+    return (int)m_numberedTypeMap.get(type.toString()).getNumber();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    return 0;
+  }
 }

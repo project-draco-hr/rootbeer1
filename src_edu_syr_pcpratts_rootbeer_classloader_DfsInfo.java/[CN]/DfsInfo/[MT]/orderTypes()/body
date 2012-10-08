@@ -8,17 +8,17 @@
     queue.remove(0);
     NumberedType numbered_type=new NumberedType(curr,number);
     numbered_types.add(numbered_type);
-    m_numberedTypeMap.put(curr,numbered_type);
+    m_numberedTypeMap.put(curr.toString(),numbered_type);
     if (curr instanceof RefType) {
       RefType ref_type=(RefType)curr;
       SootClass curr_class=ref_type.getSootClass();
       m_classToNumber.put(curr_class,number);
     }
     number++;
-    if (m_parentsToChildren.containsKey(curr) == false) {
+    if (m_parentsToChildren.containsKey(curr.toString()) == false) {
       continue;
     }
-    List<Type> children=m_parentsToChildren.get(curr);
+    List<Type> children=m_parentsToChildren.get(curr.toString());
     queue.addAll(children);
   }
   m_numberedTypes=new ArrayList<NumberedType>();

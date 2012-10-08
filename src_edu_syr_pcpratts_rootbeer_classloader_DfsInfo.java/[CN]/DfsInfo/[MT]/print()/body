@@ -1,7 +1,7 @@
 {
   printSet("methods: ",m_dfsMethods);
   System.out.println("parentsToChildren: ");
-  for (  Type parent : m_parentsToChildren.keySet()) {
+  for (  String parent : m_parentsToChildren.keySet()) {
     List<Type> children=m_parentsToChildren.get(parent);
     System.out.println("  " + parent);
     for (    Type child : children) {

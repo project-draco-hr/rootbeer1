@@ -1,6 +1,6 @@
 {
-  if (m_parentsToChildren.containsKey(superclass)) {
-    List<Type> children=m_parentsToChildren.get(superclass);
+  if (m_parentsToChildren.containsKey(superclass.toString())) {
+    List<Type> children=m_parentsToChildren.get(superclass.toString());
     if (children.contains(curr) == false) {
       children.add(curr);
     }
@@ -8,6 +8,6 @@
  else {
     List<Type> children=new ArrayList<Type>();
     children.add(curr);
-    m_parentsToChildren.put(superclass,children);
+    m_parentsToChildren.put(superclass.toString(),children);
   }
 }
