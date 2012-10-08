@@ -1,4 +1,5 @@
 {
-  VisitorWriteGen write_gen=new VisitorWriteGen(OpenCLScene.v().getOrderedHistory(),mClassName,m_Bcl.top(),m_FieldInspector);
+  List<Type> types=RootbeerScene.v().getDfsInfo().getOrderedRefLikeTypes();
+  VisitorWriteGen write_gen=new VisitorWriteGen(types,m_className,m_bcl.top(),m_FieldInspector);
   write_gen.makeWriteToHeapMethod();
 }

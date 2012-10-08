@@ -1,12 +1,12 @@
 {
   SootClass object_soot_class=Scene.v().getSootClass("java.lang.Object");
-  m_Bcl.top().startMethod("getArrayLength",IntType.v(),object_soot_class.getType());
-  m_ThisRef=m_Bcl.top().refThis();
-  mParam0=m_Bcl.top().refParameter(0);
-  List<Type> all_possible_types=OpenCLScene.v().getOrderedHistory();
-  for (  Type type : all_possible_types) {
+  m_bcl.top().startMethod("getArrayLength",IntType.v(),object_soot_class.getType());
+  m_thisRef=m_bcl.top().refThis();
+  m_param0=m_bcl.top().refParameter(0);
+  List<Type> types=RootbeerScene.v().getDfsInfo().getOrderedTypes();
+  for (  Type type : types) {
     makeGetLengthMethodForType(type);
   }
-  m_Bcl.top().returnValue(IntConstant.v(0));
-  m_Bcl.top().endMethod();
+  m_bcl.top().returnValue(IntConstant.v(0));
+  m_bcl.top().endMethod();
 }

@@ -1,7 +1,12 @@
 {
-  List<SootClass> hierarchy=getHierarchy();
-  SootClass soot_class=hierarchy.get(0);
-  OpenCLMethod ocl_method=new OpenCLMethod(mSootMethod,soot_class);
+  List<Type> hierarchy=getHierarchy();
+  Type type=hierarchy.get(0);
+  if (type instanceof RefType == false) {
+    throw new RuntimeException("please report bug in OpenCLPolymorphicMethod.getMethodDecl");
+  }
+  RefType ref_type=(RefType)type;
+  SootClass soot_class=ref_type.getSootClass();
+  OpenCLMethod ocl_method=new OpenCLMethod(m_sootMethod,soot_class);
   StringBuilder ret=new StringBuilder();
   ret.append(Tweaks.v().getDeviceFunctionQualifier() + " ");
   ret.append(ocl_method.getReturnString());

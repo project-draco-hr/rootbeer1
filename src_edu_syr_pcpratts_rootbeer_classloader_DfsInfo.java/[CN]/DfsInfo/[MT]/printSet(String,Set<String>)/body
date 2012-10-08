@@ -1,0 +1,6 @@
+{
+  System.out.println(name);
+  for (  String curr : curr_set) {
+    System.out.println("  " + curr);
+  }
+}

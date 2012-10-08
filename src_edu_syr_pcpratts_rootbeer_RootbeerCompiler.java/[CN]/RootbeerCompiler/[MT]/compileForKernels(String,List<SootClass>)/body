@@ -1,0 +1,27 @@
+{
+  if (kernel_classes.isEmpty()) {
+    System.out.println("There are no kernel classes. Please implement the following interface to use rootbeer:");
+    System.out.println("edu.syr.pcpratts.rootbeer.runtime.Kernel");
+    System.exit(0);
+  }
+  SootClass[] sorted=new SootClass[kernel_classes.size()];
+  sorted=kernel_classes.toArray(sorted);
+  Arrays.sort(sorted);
+  kernel_classes.clear();
+  for (  SootClass cls : sorted) {
+    kernel_classes.add(cls);
+  }
+  for (  SootClass kernel : kernel_classes) {
+    SootMethod kernel_method=kernel.getMethod("void gpuMethod()");
+    FastWholeProgram.v().execDFS(kernel_method);
+    DfsInfo info=FastWholeProgram.v().getDfsInfo(kernel_method);
+    info.print();
+  }
+  Transform2 transform2=new Transform2();
+  for (  SootClass soot_class : kernel_classes) {
+    SootMethod kernel_method=soot_class.getMethod("void gpuMethod()");
+    DfsInfo info=FastWholeProgram.v().getDfsInfo(kernel_method);
+    RootbeerScene.v().setDfsInfo(info);
+    transform2.run(soot_class.getName());
+  }
+}

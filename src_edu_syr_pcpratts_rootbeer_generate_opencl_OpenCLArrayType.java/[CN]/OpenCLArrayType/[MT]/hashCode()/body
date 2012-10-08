@@ -1,5 +1,5 @@
 {
   int hash=5;
-  hash=79 * hash + (this.m_ArrayType != null ? this.m_ArrayType.hashCode() : 0);
+  hash=79 * hash + (this.m_arrayType != null ? this.m_arrayType.hashCode() : 0);
   return hash;
 }

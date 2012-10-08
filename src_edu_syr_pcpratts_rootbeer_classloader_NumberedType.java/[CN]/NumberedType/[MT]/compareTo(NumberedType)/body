@@ -1,0 +1,3 @@
+{
+  return Long.valueOf(o.m_number).compareTo(Long.valueOf(m_number));
+}

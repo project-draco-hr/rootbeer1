@@ -1,5 +1,5 @@
 {
-  BytecodeLanguage bcl=m_Bcl.top();
+  BytecodeLanguage bcl=m_bcl.top();
   SootClass soot_class=Scene.v().getSootClass(class_name);
   List<OpenCLField> ref_fields=getRefFields(soot_class);
   List<OpenCLField> non_ref_fields=getNonRefFields(soot_class);

@@ -1,4 +1,4 @@
 {
-  m_currDfsMethods=new HashSet<String>();
+  m_currDfsInfo=new DfsInfo();
   m_singleKernel=true;
 }

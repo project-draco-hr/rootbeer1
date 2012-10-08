@@ -1,4 +1,5 @@
 {
-  VisitorReadGen read_gen=new VisitorReadGen(OpenCLScene.v().getOrderedHistory(),mClassName,m_Bcl.top(),m_FieldInspector);
+  List<Type> types=RootbeerScene.v().getDfsInfo().getOrderedRefLikeTypes();
+  VisitorReadGen read_gen=new VisitorReadGen(types,m_className,m_bcl.top(),m_FieldInspector);
   read_gen.makeReadFromHeapMethod();
 }

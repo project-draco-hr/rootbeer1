@@ -1,3 +1,3 @@
 {
-  return mClassName;
+  return m_className;
 }

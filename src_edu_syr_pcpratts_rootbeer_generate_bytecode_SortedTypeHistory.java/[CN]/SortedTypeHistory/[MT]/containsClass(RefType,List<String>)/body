@@ -1,4 +1,0 @@
-{
-  SootClass soot_class=ref_type.getSootClass();
-  return remap_used.contains(soot_class.getName());
-}

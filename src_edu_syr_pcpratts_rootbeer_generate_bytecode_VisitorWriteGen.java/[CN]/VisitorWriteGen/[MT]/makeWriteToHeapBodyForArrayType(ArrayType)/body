@@ -1,8 +1,8 @@
 {
-  BytecodeLanguage bcl=m_Bcl.top();
+  BytecodeLanguage bcl=m_bcl.top();
   Local object_to_write_from=bcl.cast(type,m_Param0);
   Local length=bcl.lengthof(object_to_write_from);
-  int class_id=OpenCLScene.v().getClassType(type);
+  int class_id=RootbeerScene.v().getDfsInfo().getClassNumber(type);
   BclMemory bcl_mem=new BclMemory(bcl,m_CurrentMem.top());
   bcl_mem.writeByte((byte)0);
   bcl_mem.writeByte((byte)0);
@@ -39,14 +39,14 @@
   Local curr=bcl.indexArray(object_to_write_from,i);
   if (type.numDimensions != 1) {
     SootClass object_soot_class=Scene.v().getSootClass("java.lang.Object");
-    bcl.pushMethod(m_ThisRef,"writeToHeap",LongType.v(),object_soot_class.getType(),BooleanType.v());
-    Local array_element=bcl.invokeMethodRet(m_ThisRef,curr,m_Param1);
+    bcl.pushMethod(m_thisRef,"writeToHeap",LongType.v(),object_soot_class.getType(),BooleanType.v());
+    Local array_element=bcl.invokeMethodRet(m_thisRef,curr,m_Param1);
     bcl_mem.addIntegerToList(array_element);
   }
  else   if (type.baseType instanceof RefType) {
     SootClass object_soot_class=Scene.v().getSootClass("java.lang.Object");
-    bcl.pushMethod(m_ThisRef,"writeToHeap",LongType.v(),object_soot_class.getType(),BooleanType.v());
-    Local array_element=bcl.invokeMethodRet(m_ThisRef,curr,m_Param1);
+    bcl.pushMethod(m_thisRef,"writeToHeap",LongType.v(),object_soot_class.getType(),BooleanType.v());
+    Local array_element=bcl.invokeMethodRet(m_thisRef,curr,m_Param1);
     bcl_mem.addIntegerToList(array_element);
   }
  else {

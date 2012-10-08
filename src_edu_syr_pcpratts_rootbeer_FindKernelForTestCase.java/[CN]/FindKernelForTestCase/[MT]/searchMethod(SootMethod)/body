@@ -6,8 +6,8 @@
     if (value instanceof InvokeExpr) {
       InvokeExpr expr=(InvokeExpr)value;
       SootClass to_call=expr.getMethodRef().declaringClass();
-      if (m_kernels.contains(to_call.getName())) {
-        return to_call.getName();
+      if (m_kernels.contains(to_call)) {
+        return to_call;
       }
     }
   }

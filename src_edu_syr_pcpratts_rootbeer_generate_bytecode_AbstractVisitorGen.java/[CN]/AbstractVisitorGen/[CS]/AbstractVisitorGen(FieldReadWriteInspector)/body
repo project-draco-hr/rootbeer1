@@ -1,8 +1,8 @@
 {
   m_LabelI=0;
-  m_Bcl=new Stack<BytecodeLanguage>();
-  m_GcObjVisitor=new Stack<Local>();
-  m_CurrMem=new Stack<Local>();
+  m_bcl=new Stack<BytecodeLanguage>();
+  m_gcObjVisitor=new Stack<Local>();
+  m_currMem=new Stack<Local>();
   m_ObjSerializing=new Stack<Local>();
   m_FieldInspector=inspector;
   m_ClassesToIgnore=new ArrayList<String>();

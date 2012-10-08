@@ -1,7 +1,0 @@
-{
-  for (  SootClass sclass : hierarchy) {
-    if (sootClassHasMethod(sclass) == false)     continue;
-    return sclass;
-  }
-  return null;
-}

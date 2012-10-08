@@ -1,20 +1,20 @@
 {
-  BytecodeLanguage bcl=m_Bcl.top();
-  Local memory=m_CurrMem.top();
-  Local gc_visit=m_GcObjVisitor.top();
-  List<OpenCLField> static_fields=m_StaticOffsets.getStaticFields(soot_class);
+  BytecodeLanguage bcl=m_bcl.top();
+  Local memory=m_currMem.top();
+  Local gc_visit=m_gcObjVisitor.top();
+  List<OpenCLField> static_fields=m_staticOffsets.getStaticFields(soot_class);
   BclMemory bcl_mem=new BclMemory(bcl,memory);
   SootClass obj=Scene.v().getSootClass("java.lang.Object");
   for (  OpenCLField field : static_fields) {
     Local field_value;
     if (field.getType().isRefType()) {
       bcl_mem.useStaticPointer();
-      bcl_mem.setAddress(LongConstant.v(m_StaticOffsets.getIndex(field)));
+      bcl_mem.setAddress(LongConstant.v(m_staticOffsets.getIndex(field)));
       Local ref=bcl_mem.readRef();
       bcl_mem.useInstancePointer();
       if (FastWholeProgram.v().isApplicationClass(soot_class)) {
         bcl_mem.useStaticPointer();
-        bcl_mem.setAddress(LongConstant.v(m_StaticOffsets.getIndex(field)));
+        bcl_mem.setAddress(LongConstant.v(m_staticOffsets.getIndex(field)));
         field_value=bcl_mem.readVar(field.getType().getSootType());
         bcl_mem.useInstancePointer();
       }
@@ -32,12 +32,12 @@
           field_value=bcl.invokeMethodRet(capital_value);
         }
       }
-      bcl.pushMethod(m_ThisRef,"readFromHeap",obj.getType(),obj.getType(),BooleanType.v(),LongType.v());
-      field_value=bcl.invokeMethodRet(m_ThisRef,field_value,IntConstant.v(0),ref);
+      bcl.pushMethod(m_thisRef,"readFromHeap",obj.getType(),obj.getType(),BooleanType.v(),LongType.v());
+      field_value=bcl.invokeMethodRet(m_thisRef,field_value,IntConstant.v(0),ref);
     }
  else {
       bcl_mem.useStaticPointer();
-      bcl_mem.setAddress(LongConstant.v(m_StaticOffsets.getIndex(field)));
+      bcl_mem.setAddress(LongConstant.v(m_staticOffsets.getIndex(field)));
       field_value=bcl_mem.readVar(field.getType().getSootType());
       bcl_mem.useInstancePointer();
     }

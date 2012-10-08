@@ -1,8 +1,0 @@
-{
-  int ret=0;
-  for (  SootClass sclass : hierarchy) {
-    if (sootClassHasMethod(sclass) == false)     continue;
-    ret++;
-  }
-  return ret;
-}

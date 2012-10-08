@@ -3,7 +3,7 @@
     throw new RuntimeException("not supported yet");
   }
   RefType ref_type=(RefType)m_type;
-  List<Integer> type_list=m_typeList.getTypeList(ref_type.getSootClass());
+  List<NumberedType> type_list=RootbeerScene.v().getDfsInfo().getNumberedHierarchyDown(ref_type.getSootClass());
   String ret=getDecl();
   ret+="{\n";
   ret+="  if(thisref == -1){\n";
@@ -12,8 +12,8 @@
   ret+="  char * thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n";
   ret+="  GC_OBJ_TYPE_TYPE type = edu_syr_pcpratts_gc_get_type(thisref_deref);\n";
   ret+="  switch(type){\n";
-  for (  Integer type : type_list) {
-    ret+="    case " + type + ":\n";
+  for (  NumberedType ntype : type_list) {
+    ret+="    case " + ntype.getNumber() + ":\n";
   }
   ret+="      return 1;\n";
   ret+="  }\n";

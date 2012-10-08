@@ -1,0 +1,41 @@
+{
+  List<NumberedType> numbered_types=new ArrayList<NumberedType>();
+  int number=1;
+  List<Type> queue=new LinkedList<Type>();
+  queue.addAll(m_builtInTypes);
+  while (queue.isEmpty() == false) {
+    Type curr=queue.get(0);
+    queue.remove(0);
+    NumberedType numbered_type=new NumberedType(curr,number);
+    numbered_types.add(numbered_type);
+    m_numberedTypeMap.put(curr,numbered_type);
+    if (curr instanceof RefType) {
+      RefType ref_type=(RefType)curr;
+      SootClass curr_class=ref_type.getSootClass();
+      m_classToNumber.put(curr_class,number);
+    }
+    number++;
+    if (m_parentsToChildren.containsKey(curr) == false) {
+      continue;
+    }
+    List<Type> children=m_parentsToChildren.get(curr);
+    queue.addAll(children);
+  }
+  m_numberedTypes=new ArrayList<NumberedType>();
+  m_orderedTypes=new ArrayList<Type>();
+  m_orderedRefTypes=new ArrayList<RefType>();
+  m_orderedRefLikeTypes=new ArrayList<Type>();
+  for (int i=numbered_types.size() - 1; i >= 0; --i) {
+    NumberedType curr2=numbered_types.get(i);
+    m_numberedTypes.add(curr2);
+    m_orderedTypes.add(curr2.getType());
+    Type type=curr2.getType();
+    if (type instanceof RefType) {
+      RefType ref_type=(RefType)type;
+      m_orderedRefTypes.add(ref_type);
+    }
+    if (type instanceof RefLikeType) {
+      m_orderedRefLikeTypes.add(type);
+    }
+  }
+}

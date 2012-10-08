@@ -1,6 +1,6 @@
 {
   try {
-    SootMethod soot_method=sclass.getMethod(mSootMethod.getSubSignature());
+    SootMethod soot_method=sclass.getMethod(m_sootMethod.getSubSignature());
     return true;
   }
  catch (  Exception ex) {

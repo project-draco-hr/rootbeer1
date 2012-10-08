@@ -11,9 +11,8 @@
       }
     }
     m_resolver.cachePackageNames();
-    loadToSignatures();
-    detectEntryPoints();
     loadBuiltIns();
+    loadToHierarchies();
   }
  catch (  Exception ex) {
     ex.printStackTrace();

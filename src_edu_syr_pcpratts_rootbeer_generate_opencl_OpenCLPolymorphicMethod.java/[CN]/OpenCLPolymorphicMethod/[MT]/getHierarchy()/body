@@ -1,4 +1,4 @@
 {
-  SootClass soot_class=mSootMethod.getDeclaringClass();
-  return OpenCLScene.v().getClassHierarchy(soot_class);
+  SootClass soot_class=m_sootMethod.getDeclaringClass();
+  return RootbeerScene.v().getDfsInfo().getHierarchy(soot_class);
 }

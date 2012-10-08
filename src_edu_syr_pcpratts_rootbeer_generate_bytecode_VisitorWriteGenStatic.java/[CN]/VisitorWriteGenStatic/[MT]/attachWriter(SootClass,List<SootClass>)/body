@@ -3,21 +3,21 @@
   if (m_AttachedWriters.contains(method_name))   return;
   m_AttachedWriters.add(method_name);
   BytecodeLanguage bcl=new BytecodeLanguage();
-  m_Bcl.push(bcl);
+  m_bcl.push(bcl);
   bcl.openClass(soot_class);
   SootClass mem=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
-  bcl.startStaticMethod(method_name,VoidType.v(),mem.getType(),m_GcObjVisitor.top().getType());
+  bcl.startStaticMethod(method_name,VoidType.v(),mem.getType(),m_gcObjVisitor.top().getType());
   Local memory=bcl.refParameter(0);
   Local gc_visit=bcl.refParameter(1);
-  m_CurrMem.push(memory);
-  m_GcObjVisitor.push(gc_visit);
+  m_currMem.push(memory);
+  m_gcObjVisitor.push(gc_visit);
   doWriter(soot_class);
   for (  SootClass child : children) {
     attachAndCallWriter(child,new ArrayList<SootClass>());
   }
   bcl.returnVoid();
   bcl.endMethod();
-  m_Bcl.pop();
-  m_GcObjVisitor.pop();
-  m_CurrMem.pop();
+  m_bcl.pop();
+  m_gcObjVisitor.pop();
+  m_currMem.pop();
 }

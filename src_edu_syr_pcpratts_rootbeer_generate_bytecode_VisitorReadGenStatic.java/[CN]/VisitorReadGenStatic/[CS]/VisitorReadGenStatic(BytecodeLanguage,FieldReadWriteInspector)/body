@@ -1,11 +1,11 @@
 {
   super(inspector);
-  m_Bcl.push(bcl);
-  m_OrderedHistory=OpenCLScene.v().getRefTypeOrderedHistory();
-  m_WriteToHeapMethodsMade=new HashSet<RefType>();
-  m_AttachedReaders=new HashSet<String>();
+  m_bcl.push(bcl);
+  m_orderedHistory=RootbeerScene.v().getDfsInfo().getOrderedRefTypes();
+  m_writeToHeapMethodsMade=new HashSet<RefType>();
+  m_attachedReaders=new HashSet<String>();
   m_ObjSerializing=new Stack<Local>();
-  m_StaticOffsets=new StaticOffsets();
+  m_staticOffsets=new StaticOffsets();
   m_FieldInspector=inspector;
-  m_CurrMem=new Stack<Local>();
+  m_currMem=new Stack<Local>();
 }

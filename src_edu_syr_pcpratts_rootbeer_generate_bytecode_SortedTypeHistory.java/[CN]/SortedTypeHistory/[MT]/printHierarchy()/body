@@ -1,6 +1,0 @@
-{
-  for (  TreeNode node : m_Hierarchy) {
-    System.out.println("New root:");
-    node.print();
-  }
-}

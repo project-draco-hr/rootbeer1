@@ -6,10 +6,9 @@
   m_fastLoader.init();
   m_fastLoader.singleKernel();
   FindKernelForTestCase finder=new FindKernelForTestCase();
-  String kernel=finder.get(test_case,m_fastLoader.getApplicationClasses());
+  SootClass kernel=finder.get(test_case,m_fastLoader.getKernelClasses());
   m_provider=finder.getProvider();
-  m_fastLoader.findKernelClasses(kernel);
-  List<String> kernel_classes=new ArrayList<String>();
+  List<SootClass> kernel_classes=new ArrayList<SootClass>();
   kernel_classes.add(kernel);
   compileForKernels(outname,kernel_classes);
 }

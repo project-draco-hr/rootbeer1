@@ -1,5 +1,0 @@
-{
-  m_methodCalls=new HashMap<String,List<String>>();
-  m_edges=new ArrayList<Edge>();
-  m_finder=new MethodFinder();
-}

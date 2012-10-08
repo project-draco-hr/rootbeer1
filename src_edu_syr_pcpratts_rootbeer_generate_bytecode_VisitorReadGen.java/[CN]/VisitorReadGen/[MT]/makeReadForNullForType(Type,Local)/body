@@ -9,9 +9,9 @@
       }
     }
   }
-  int id=OpenCLScene.v().getClassType(type_to_create);
+  int id=RootbeerScene.v().getDfsInfo().getClassNumber(type_to_create);
   String label_after=getNextLabel();
-  BytecodeLanguage bcl=m_Bcl.top();
+  BytecodeLanguage bcl=m_bcl.top();
   bcl.ifStmt(type_id,"!=",IntConstant.v(id),label_after);
   Local ret_obj=null;
   Local new_object=null;
@@ -30,7 +30,7 @@
     }
   }
  else   if (type_to_create instanceof ArrayType) {
-    BclMemory bcl_mem=new BclMemory(bcl,m_CurrMem.top());
+    BclMemory bcl_mem=new BclMemory(bcl,m_currMem.top());
     Local start=bcl_mem.getPointer();
     bcl_mem.incrementAddress(8);
     Local size=bcl_mem.readInt();
@@ -45,8 +45,8 @@
   }
   if (new_object != null) {
     SootClass obj_cls=Scene.v().getSootClass("java.lang.Object");
-    bcl.pushMethod(m_ThisRef,"readFromHeap",obj_cls.getType(),obj_cls.getType(),BooleanType.v(),LongType.v());
-    ret_obj=bcl.invokeMethodRet(m_ThisRef,new_object,IntConstant.v(1),m_RefParam);
+    bcl.pushMethod(m_thisRef,"readFromHeap",obj_cls.getType(),obj_cls.getType(),BooleanType.v(),LongType.v());
+    ret_obj=bcl.invokeMethodRet(m_thisRef,new_object,IntConstant.v(1),m_RefParam);
     bcl.returnValue(ret_obj);
   }
  else {

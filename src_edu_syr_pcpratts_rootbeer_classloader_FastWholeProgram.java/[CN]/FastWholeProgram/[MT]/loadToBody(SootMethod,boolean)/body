@@ -2,9 +2,7 @@
   if (curr == null) {
     return;
   }
-  if (m_currDfsMethods.contains(curr.getSignature()) == false) {
-    m_currDfsMethods.add(curr.getSignature());
-  }
+  m_currDfsInfo.addMethod(curr.getSignature());
   Body body=null;
   try {
     body=curr.retrieveActiveBody();

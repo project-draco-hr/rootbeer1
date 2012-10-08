@@ -1,0 +1,3 @@
+{
+  return (int)m_numberedTypeMap.get(type).getNumber();
+}

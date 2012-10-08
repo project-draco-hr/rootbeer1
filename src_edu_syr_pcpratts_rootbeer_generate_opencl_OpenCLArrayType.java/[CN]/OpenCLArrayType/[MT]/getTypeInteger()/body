@@ -1,3 +1,3 @@
 {
-  return OpenCLScene.v().getClassType(m_ArrayType);
+  return RootbeerScene.v().getDfsInfo().getClassNumber(m_arrayType);
 }

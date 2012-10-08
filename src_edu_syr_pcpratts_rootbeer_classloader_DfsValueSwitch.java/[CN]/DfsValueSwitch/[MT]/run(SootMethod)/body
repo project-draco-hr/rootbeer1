@@ -1,0 +1,18 @@
+{
+  m_types=new HashSet<Type>();
+  m_methods=new HashSet<SootMethodRef>();
+  m_fields=new HashSet<SootFieldRef>();
+  addType(method.getReturnType());
+  List<Type> param_types=method.getParameterTypes();
+  for (  Type param_type : param_types) {
+    addType(param_type);
+  }
+  SootClass soot_class=method.getDeclaringClass();
+  FastWholeProgram.v().getResolver().resolveClass(soot_class.getName(),SootClass.BODIES);
+  Body body=method.retrieveActiveBody();
+  List<ValueBox> boxes=body.getUseAndDefBoxes();
+  for (  ValueBox box : boxes) {
+    Value value=box.getValue();
+    value.apply(this);
+  }
+}

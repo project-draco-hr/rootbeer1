@@ -1,0 +1,14 @@
+{
+  Set<ArrayType> ret=new HashSet<ArrayType>();
+  for (  ArrayType type : types) {
+    Type base_type=type.baseType;
+    int dim=type.numDimensions;
+    for (int i=dim - 1; i > 0; --i) {
+      ArrayType curr=ArrayType.v(base_type,i);
+      if (types.contains(curr) == false) {
+        ret.add(curr);
+      }
+    }
+  }
+  return ret;
+}

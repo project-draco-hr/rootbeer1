@@ -1,9 +1,0 @@
-{
-  if (mFoundAllUsedMethodsAndFields)   return;
-  mFoundAllUsedMethodsAndFields=true;
-  List<OpenCLMethod> old_methods=new ArrayList<OpenCLMethod>();
-  old_methods.addAll(m_Methods);
-  for (  OpenCLMethod ocl_method : old_methods) {
-    ocl_method.findAllUsedMethodsAndFields();
-  }
-}

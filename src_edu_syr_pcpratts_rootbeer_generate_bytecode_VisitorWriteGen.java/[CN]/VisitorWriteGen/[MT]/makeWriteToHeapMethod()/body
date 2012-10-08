@@ -1,15 +1,15 @@
 {
   SootClass obj_cls=Scene.v().getSootClass("java.lang.Object");
-  BytecodeLanguage bcl=m_Bcl.top();
+  BytecodeLanguage bcl=m_bcl.top();
   bcl.startMethod("doWriteToHeap",VoidType.v(),obj_cls.getType(),BooleanType.v(),LongType.v(),BooleanType.v());
-  m_ThisRef=bcl.refThis();
-  m_GcObjVisitor.push(m_ThisRef);
+  m_thisRef=bcl.refThis();
+  m_gcObjVisitor.push(m_thisRef);
   m_Param0=bcl.refParameter(0);
   m_Param1=bcl.refParameter(1);
   m_RefParam=bcl.refParameter(2);
   m_ReadOnlyParam=bcl.refParameter(3);
-  m_Mem=bcl.refInstanceField(m_ThisRef,"mMem");
-  m_TextureMem=bcl.refInstanceField(m_ThisRef,"mTextureMem");
+  m_Mem=bcl.refInstanceField(m_thisRef,"mMem");
+  m_TextureMem=bcl.refInstanceField(m_thisRef,"mTextureMem");
   String label1=getNextLabel();
   String label2=getNextLabel();
   Local mem=bcl.local(m_Mem.getType());
