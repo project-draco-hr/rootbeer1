@@ -1,0 +1,15 @@
+{
+  Iterator<Edge> edges=m_callGraph.edgesInto(m_rootMethod);
+  List<SootMethod> queue=new LinkedList<SootMethod>();
+  Set<SootMethod> visited=new HashSet<SootMethod>();
+  addToQueue(edges,queue,visited);
+  while (queue.isEmpty() == false) {
+    SootMethod curr=queue.get(0);
+    queue.remove(0);
+    addReachableMethodSig(curr.getSignature());
+    Iterator<Edge> curr_into=m_callGraph.edgesInto(curr);
+    Iterator<Edge> curr_outof=m_callGraph.edgesOutOf(curr);
+    addToQueue(curr_into,queue,visited);
+    addToQueue(curr_outof,queue,visited);
+  }
+}

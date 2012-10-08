@@ -1,18 +1,8 @@
 {
-  if (m_appClass) {
-    if (m_classRemapping.containsKey(soot_class.getName())) {
-      setModified();
-      return true;
-    }
- else {
-      return false;
-    }
+  if (m_classRemapping.containsKey(soot_class.getName())) {
+    return true;
   }
  else {
-    if (m_classRemapping.containsKey(soot_class.getName()) && !m_classRemapping.cloned(m_currClass)) {
-      m_hasNext=true;
-      m_classRemapping.cloneClass(m_currClass);
-    }
     return false;
   }
 }

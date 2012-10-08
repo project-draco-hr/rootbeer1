@@ -30,7 +30,7 @@
       transform=new ClassRemappingTransform(false);
       transform.run(sigs);
       transform.finishClone();
-      info.removeTypes(transform.getErasedTypes());
+      info.removeTypes(transform.getErasedTypes(),transform.getAddedTypes());
     }
   }
   Transform2 transform2=new Transform2();

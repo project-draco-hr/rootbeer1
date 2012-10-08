@@ -8,5 +8,6 @@
   m_reachableMethodSigs=new ArrayList<String>();
   m_parentsToChildren=new HashMap<String,List<Type>>();
   m_oclScene=new OpenCLScene();
+  m_rootMethod=soot_method;
   addBuiltInTypes();
 }

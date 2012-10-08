@@ -1,0 +1,16 @@
+{
+  SootClass curr_class=soot_class;
+  while (true) {
+    try {
+      SootMethod ret=curr_class.getMethod(subSignature);
+      return ret;
+    }
+ catch (    Exception ex) {
+      if (curr_class.hasSuperclass() == false) {
+        break;
+      }
+      curr_class=curr_class.getSuperclass();
+    }
+  }
+  throw new RuntimeException("cannot find method: " + subSignature + " in class: "+ soot_class);
+}

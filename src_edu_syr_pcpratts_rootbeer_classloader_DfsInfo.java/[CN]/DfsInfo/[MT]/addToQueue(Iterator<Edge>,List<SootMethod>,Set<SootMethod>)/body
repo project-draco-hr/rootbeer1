@@ -1,0 +1,15 @@
+{
+  while (edges.hasNext()) {
+    Edge edge=edges.next();
+    SootMethod src=edge.src();
+    if (visited.contains(src) == false) {
+      queue.add(src);
+      visited.add(src);
+    }
+    SootMethod dest=edge.src();
+    if (visited.contains(dest) == false) {
+      queue.add(dest);
+      visited.add(dest);
+    }
+  }
+}

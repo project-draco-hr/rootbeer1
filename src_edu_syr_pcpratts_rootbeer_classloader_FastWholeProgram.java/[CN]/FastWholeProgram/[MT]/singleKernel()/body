@@ -1,4 +1,0 @@
-{
-  m_currDfsInfo=new DfsInfo();
-  m_singleKernel=true;
-}

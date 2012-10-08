@@ -1,5 +1,5 @@
 {
-  for (  Type type : types) {
+  for (  Type type : removed_types) {
     if (type instanceof RefType) {
       RefType ref_type=(RefType)type;
       SootClass soot_class=ref_type.getSootClass();
@@ -10,6 +10,7 @@
     }
     m_dfsTypes.remove(type);
   }
+  m_dfsTypes.addAll(added_types);
   m_parentsToChildren=new HashMap<String,List<Type>>();
   Set<Type> to_process=new HashSet<Type>();
   to_process.addAll(m_dfsTypes);

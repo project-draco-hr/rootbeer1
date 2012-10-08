@@ -1,5 +1,6 @@
 {
   addRefType("java.lang.Object");
+  addRefType("java.lang.System");
   addRefType("java.lang.String");
   addRefType("java.lang.AbstractStringBuilder");
   addRefType("java.lang.StringBuilder");
