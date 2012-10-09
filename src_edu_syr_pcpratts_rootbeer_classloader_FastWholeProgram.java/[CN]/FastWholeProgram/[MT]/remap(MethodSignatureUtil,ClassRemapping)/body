@@ -1,0 +1,11 @@
+{
+  util.setReturnType(remapping.remap(util.getReturnType()));
+  List<String> params=util.getParameterTypes();
+  for (int i=0; i < params.size(); ++i) {
+    String param=params.get(i);
+    param=remapping.remap(param);
+    params.set(i,param);
+  }
+  util.setParameterTypes(params);
+  util.setClassName(remapping.remap(util.getClassName()));
+}

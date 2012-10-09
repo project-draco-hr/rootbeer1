@@ -1,6 +1,6 @@
 {
-  MethodSignatureUtil util=new MethodSignatureUtil();
-  final String soot_class_str=util.classFromSig(method_signature);
+  MethodSignatureUtil util=new MethodSignatureUtil(method_signature);
+  final String soot_class_str=util.getClassName();
   if (m_resolvedMethods.contains(method_signature)) {
     return m_resolver.resolveMethod(method_signature);
   }

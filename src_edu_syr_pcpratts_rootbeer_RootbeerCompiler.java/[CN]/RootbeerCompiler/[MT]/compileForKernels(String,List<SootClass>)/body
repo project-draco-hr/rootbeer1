@@ -28,7 +28,7 @@
       transform=new ClassRemappingTransform(false);
       transform.run(sigs);
       transform.finishClone();
-      FastWholeProgram.v().reLoad(kernel_method,sigs,transform.getClassRemapping());
+      FastWholeProgram.v().fullyLoad(kernel_method);
     }
   }
   Transform2 transform2=new Transform2();
