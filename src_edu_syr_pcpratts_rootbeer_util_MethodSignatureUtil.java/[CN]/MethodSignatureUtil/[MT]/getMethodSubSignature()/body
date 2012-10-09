@@ -1,8 +1,5 @@
 {
   StringBuilder ret=new StringBuilder();
-  ret.append("<");
-  ret.append(m_className);
-  ret.append(": ");
   ret.append(m_returnType);
   ret.append(" ");
   ret.append(m_methodName);
@@ -13,6 +10,6 @@
       ret.append(",");
     }
   }
-  ret.append(")>");
+  ret.append(")");
   return ret.toString();
 }

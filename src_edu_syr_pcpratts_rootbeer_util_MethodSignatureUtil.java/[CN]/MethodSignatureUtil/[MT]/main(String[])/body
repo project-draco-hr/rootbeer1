@@ -1,5 +1,5 @@
 {
-  String sig="<rootbeertest.GpuWorkItem: void <init>(java.lang.String, java.util.Random)>";
+  String sig="<rootbeertest.GpuWorkItem: void <init>()>";
   MethodSignatureUtil util=new MethodSignatureUtil();
   util.parse(sig);
   util.print();

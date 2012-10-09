@@ -3,8 +3,9 @@
   Set<String> methods=RootbeerScene.v().getDfsInfo().getAllMethods();
   MethodSignatureUtil util=new MethodSignatureUtil();
   for (  String method_sig : methods) {
-    String cls=util.classFromSig(method_sig);
-    String method_sub_sig=util.methodSubSig(method_sig);
+    util.parse(method_sig);
+    String cls=util.getClassName();
+    String method_sub_sig=util.getMethodSubSignature();
     SootClass soot_class=Scene.v().getSootClass(cls);
     OpenCLScene.v().addClass(soot_class);
     SootMethod method=RootbeerScene.v().getMethod(soot_class,method_sub_sig);

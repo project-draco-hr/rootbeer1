@@ -14,6 +14,9 @@
   String[] param_tokens=params.split(",");
   m_params=new ArrayList<String>();
   for (  String param : param_tokens) {
-    m_params.add(param.trim());
+    String curr=param.trim();
+    if (curr.equals("") == false) {
+      m_params.add(curr);
+    }
   }
 }
