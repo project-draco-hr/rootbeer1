@@ -4,10 +4,15 @@
   List<NumberedType> numbered_types=new ArrayList<NumberedType>();
   int number=1;
   List<Type> queue=new LinkedList<Type>();
+  Set<Type> visited=new HashSet<Type>();
   queue.addAll(m_builtInTypes);
   while (queue.isEmpty() == false) {
     Type curr=queue.get(0);
     queue.remove(0);
+    if (visited.contains(curr)) {
+      continue;
+    }
+    visited.add(curr);
     NumberedType numbered_type=new NumberedType(curr,number);
     numbered_types.add(numbered_type);
     m_numberedTypeMap.put(curr.toString(),numbered_type);
