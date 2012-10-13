@@ -15,7 +15,7 @@
   }
   for (  SootClass kernel : kernel_classes) {
     SootMethod kernel_method=kernel.getMethod("void gpuMethod()");
-    FastWholeProgram.v().fullyLoad(kernel_method);
+    FastWholeProgram.v().fullyLoad(kernel_method,true);
   }
   ClassRemappingTransform transform=null;
   if (!Main.disable_class_remapping()) {
@@ -28,7 +28,7 @@
       transform=new ClassRemappingTransform(false);
       transform.run(sigs);
       transform.finishClone();
-      FastWholeProgram.v().fullyLoad(kernel_method);
+      FastWholeProgram.v().fullyLoad(kernel_method,false);
     }
   }
   Transform2 transform2=new Transform2();

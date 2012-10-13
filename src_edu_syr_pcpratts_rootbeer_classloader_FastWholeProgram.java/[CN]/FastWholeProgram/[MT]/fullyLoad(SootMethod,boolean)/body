@@ -4,5 +4,8 @@
   m_dfsInfos.put(kernel_method,m_currDfsInfo);
   doDfs(kernel_method);
   buildFullCallGraph(kernel_method);
+  if (find_reachables) {
+    findReachableMethods();
+  }
   buildHierarchy();
 }

@@ -23,5 +23,4 @@
       m_currDfsInfo.addCallGraphEdge(method,dfs_ref.getStmt(),dfs_ref.getSootMethodRef().resolve());
     }
   }
-  m_currDfsInfo.findReachableMethods();
 }

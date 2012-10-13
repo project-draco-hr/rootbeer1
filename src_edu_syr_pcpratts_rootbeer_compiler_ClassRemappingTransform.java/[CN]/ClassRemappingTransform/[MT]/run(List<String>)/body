@@ -1,8 +1,4 @@
 {
-  System.out.println("reachable methods: ");
-  for (  String method : reachable_methods) {
-    System.out.println("  " + method);
-  }
   Set<SootClass> reachable_classes=new HashSet<SootClass>();
   for (  String method : reachable_methods) {
     MethodSignatureUtil sig_util=new MethodSignatureUtil(method);
