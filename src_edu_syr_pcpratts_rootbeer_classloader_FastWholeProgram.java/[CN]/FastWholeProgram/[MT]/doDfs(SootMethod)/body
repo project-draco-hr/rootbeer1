@@ -1,5 +1,8 @@
 {
   String signature=method.getSignature();
+  if (signature.equals("<java.lang.Object: java.lang.String toString()>")) {
+    System.out.println("toString");
+  }
   if (m_currDfsInfo.containsMethod(signature)) {
     return;
   }
@@ -15,11 +18,15 @@
   Set<DfsMethodRef> methods=value_switch.getMethodRefs();
   for (  DfsMethodRef ref : methods) {
     SootMethodRef mref=ref.getSootMethodRef();
+    SootClass method_class=mref.declaringClass();
+    m_resolver.resolveClass(method_class.getName(),SootClass.BODIES);
     SootMethod dest=mref.resolve();
+    if (dest.getName().equals("hashCode")) {
+      System.out.println("hello");
+    }
     if (dest.isConcrete() == false) {
       continue;
     }
-    SootClass method_class=mref.declaringClass();
     addType(method_class.getType());
     m_currDfsInfo.addCallGraphEdge(method,ref.getStmt(),dest);
     doDfs(dest);
@@ -33,5 +40,13 @@
   Set<Type> instance_ofs=value_switch.getInstanceOfs();
   for (  Type type : instance_ofs) {
     m_currDfsInfo.addInstanceOf(type);
+  }
+  while (soot_class.hasSuperclass()) {
+    SootClass super_class=soot_class.getSuperclass();
+    if (super_class.declaresMethod(method.getSubSignature())) {
+      SootMethod super_method=super_class.getMethod(method.getSubSignature());
+      doDfs(super_method);
+    }
+    soot_class=super_class;
   }
 }

@@ -5,4 +5,10 @@
  catch (  NullPointerException ex) {
     m_Result2=10;
   }
+  try {
+    m_Object.increment2();
+  }
+ catch (  NullPointerException ex) {
+    m_Result2+=10;
+  }
 }
