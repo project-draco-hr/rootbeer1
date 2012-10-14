@@ -26,6 +26,7 @@
   m_dontMangleMethods.add("java_lang_Throwable_getStackTraceDepth");
   m_dontMangleMethods.add("java_lang_Throwable_getStackTraceElement");
   m_dontMangleMethods.add("java_lang_Object_clone");
+  m_dontMangleMethods.add("java_lang_Object_hashCode");
   m_dontMangleMethods.add("java_lang_OutOfMemoryError_initab850b60f96d11de8a390800200c9a66");
   m_dontMangleMethods.add("edu_syr_pcpratts_rootbeer_runtime_RootbeerGpu_isOnGpu");
   m_dontMangleMethods.add("edu_syr_pcpratts_rootbeer_runtime_RootbeerGpu_getThreadId");
