@@ -14,7 +14,7 @@
   m_currMem.push(memory);
   BclMemory bcl_mem=new BclMemory(bcl,memory);
   for (  OpenCLField field : static_fields) {
-    if (m_FieldInspector.fieldIsWrittenOnGpu(field) == false)     continue;
+    if (m_fieldInspector.fieldIsWrittenOnGpu(field) == false)     continue;
     int index=m_staticOffsets.getIndex(field);
     bcl_mem.setAddress(LongConstant.v(index));
     if (field.getType().isRefType()) {

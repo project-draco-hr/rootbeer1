@@ -1,5 +1,5 @@
 {
-  String ret="phillabel" + Integer.toString(m_LabelI);
-  m_LabelI++;
+  String ret="phillabel" + Integer.toString(m_labelI);
+  m_labelI++;
   return ret;
 }

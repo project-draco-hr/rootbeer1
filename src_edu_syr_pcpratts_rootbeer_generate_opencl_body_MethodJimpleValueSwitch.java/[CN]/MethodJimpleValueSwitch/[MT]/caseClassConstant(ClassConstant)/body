@@ -1,3 +1,6 @@
 {
-  mOutput.append("$$CLASS_CONSTANT$$");
+  String value=arg0.getValue();
+  Type type=classConstantToType(value);
+  int num=RootbeerScene.v().getDfsInfo().getClassNumber(type);
+  mOutput.append("m_Local[2][" + num + "]");
 }

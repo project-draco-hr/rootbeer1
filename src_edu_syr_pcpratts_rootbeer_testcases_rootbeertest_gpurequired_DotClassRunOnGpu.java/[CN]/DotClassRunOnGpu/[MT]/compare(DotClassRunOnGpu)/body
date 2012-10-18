@@ -1,0 +1,9 @@
+{
+  if (m_name.equals(rhs.m_name) == false) {
+    return false;
+  }
+  if (m_name2.equals(rhs.m_name2) == false) {
+    return false;
+  }
+  return true;
+}

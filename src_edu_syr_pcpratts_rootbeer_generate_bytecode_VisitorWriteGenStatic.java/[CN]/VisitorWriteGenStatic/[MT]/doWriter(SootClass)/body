@@ -2,6 +2,7 @@
   BytecodeLanguage bcl=m_bcl.top();
   Local memory=m_currMem.top();
   Local gc_visit=m_gcObjVisitor.top();
+  writeType(soot_class.getType());
   List<OpenCLField> static_fields=m_StaticOffsets.getStaticFields(soot_class);
   BclMemory bcl_mem=new BclMemory(bcl,memory);
   SootClass obj=Scene.v().getSootClass("java.lang.Object");

@@ -1,4 +1,4 @@
 {
-  VisitorWriteGenStatic static_write_gen=new VisitorWriteGenStatic(m_bcl.top(),m_FieldInspector);
+  VisitorWriteGenStatic static_write_gen=new VisitorWriteGenStatic(m_bcl.top(),m_fieldInspector);
   static_write_gen.makeMethod();
 }

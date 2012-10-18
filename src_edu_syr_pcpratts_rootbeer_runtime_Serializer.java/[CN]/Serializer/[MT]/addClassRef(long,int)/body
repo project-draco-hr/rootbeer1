@@ -1,0 +1,3 @@
+{
+  m_classRefToTypeNumber.put(ref,class_number);
+}

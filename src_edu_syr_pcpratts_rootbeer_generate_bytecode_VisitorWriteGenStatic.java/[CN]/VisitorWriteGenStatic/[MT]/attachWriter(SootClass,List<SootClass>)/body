@@ -17,7 +17,6 @@
   }
   bcl.returnVoid();
   bcl.endMethod();
-  m_bcl.pop();
   m_gcObjVisitor.pop();
   m_currMem.pop();
 }

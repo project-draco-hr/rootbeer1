@@ -7,7 +7,7 @@
   SootClass soot_class=Scene.v().getSootClass(soot_field.getDeclaringClass().getName());
   if (FastWholeProgram.v().isApplicationClass(soot_class)) {
     if (field.isInstance()) {
-      bcl.setInstanceField(soot_field,m_ObjSerializing.top(),data);
+      bcl.setInstanceField(soot_field,m_objSerializing.top(),data);
     }
  else {
       bcl.setStaticField(soot_field,data);
@@ -22,7 +22,7 @@
     if (field.isInstance()) {
       static_str="";
       first_param_type=obj;
-      first_param=m_ObjSerializing.top();
+      first_param=m_objSerializing.top();
     }
  else {
       static_str="Static";

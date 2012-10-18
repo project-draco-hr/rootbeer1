@@ -1,10 +1,11 @@
 {
-  m_LabelI=0;
+  m_labelI=0;
   m_bcl=new Stack<BytecodeLanguage>();
   m_gcObjVisitor=new Stack<Local>();
   m_currMem=new Stack<Local>();
-  m_ObjSerializing=new Stack<Local>();
-  m_FieldInspector=inspector;
-  m_ClassesToIgnore=new ArrayList<String>();
-  m_ClassesToIgnore.add("edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu");
+  m_currThisRef=new Stack<Local>();
+  m_objSerializing=new Stack<Local>();
+  m_fieldInspector=inspector;
+  m_classesToIgnore=new ArrayList<String>();
+  m_classesToIgnore.add("edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu");
 }

@@ -6,8 +6,8 @@
   m_bcl=new Stack<BytecodeLanguage>();
   m_bcl.push(bcl);
   m_gcObjVisitor=new Stack<Local>();
-  m_FieldInspector=inspector;
-  m_ObjSerializing=new Stack<Local>();
+  m_fieldInspector=inspector;
+  m_objSerializing=new Stack<Local>();
   m_currMem=new Stack<Local>();
   m_CurrObj=new Stack<Local>();
 }

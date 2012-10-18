@@ -2,6 +2,7 @@
   BytecodeLanguage bcl=m_bcl.top();
   bcl.startMethod("doWriteStaticsToHeap",VoidType.v());
   m_thisRef=bcl.refThis();
+  m_currThisRef.push(m_thisRef);
   m_gcObjVisitor.push(m_thisRef);
   m_Mem=bcl.refInstanceField(m_thisRef,"mMem");
   m_currMem.push(m_Mem);
@@ -18,6 +19,10 @@
  else {
       doWriter(soot_class);
     }
+  }
+  Set<ArrayType> array_types=RootbeerScene.v().getDfsInfo().getArrayTypes();
+  for (  ArrayType type : array_types) {
+    writeType(type);
   }
   bcl_mem.useStaticPointer();
   bcl_mem.setAddress(LongConstant.v(m_StaticOffsets.getLockStart()));
