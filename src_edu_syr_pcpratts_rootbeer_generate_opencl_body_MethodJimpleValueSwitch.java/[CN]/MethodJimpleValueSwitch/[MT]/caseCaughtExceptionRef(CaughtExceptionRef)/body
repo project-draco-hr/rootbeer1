@@ -1,4 +1,4 @@
 {
-  mOutput.append(" *exception ");
-  mCaughtExceptionRef=true;
+  m_output.append(" *exception ");
+  m_caughtExceptionRef=true;
 }

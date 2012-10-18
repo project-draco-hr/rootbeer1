@@ -1,6 +1,6 @@
 {
   OpenCLScene.v().setUsingGarbageCollector();
   OpenCLArrayType array_type=new OpenCLArrayType((ArrayType)arg0.getType());
-  mOutput.append(array_type.invokeNewArrayExpr(arg0));
-  mNewCalled=true;
+  m_output.append(array_type.invokeNewArrayExpr(arg0));
+  m_newCalled=true;
 }

@@ -1,6 +1,6 @@
 {
   String value=arg0.getValue();
-  Type type=classConstantToType(value);
+  Type type=m_classConstantReader.stringToType(value);
   int num=RootbeerScene.v().getDfsInfo().getClassNumber(type);
-  mOutput.append("m_Local[2][" + num + "]");
+  m_output.append("m_Local[2][" + num + "]");
 }

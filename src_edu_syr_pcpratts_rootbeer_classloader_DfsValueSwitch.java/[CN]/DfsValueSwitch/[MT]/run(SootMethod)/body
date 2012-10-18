@@ -3,6 +3,7 @@
   m_methods=new HashSet<DfsMethodRef>();
   m_fields=new HashSet<SootFieldRef>();
   m_instanceOfs=new HashSet<Type>();
+  m_classConstantReader=new ClassConstantReader();
   addType(method.getReturnType());
   List<Type> param_types=method.getParameterTypes();
   for (  Type param_type : param_types) {

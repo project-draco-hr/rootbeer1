@@ -7,10 +7,10 @@
   RefType ref=(RefType)type;
   OpenCLField ocl_field=new OpenCLField(arg0.getField(),ref.getSootClass());
   if (isLhs()) {
-    mOutput.append(ocl_field.getInstanceSetterInvoke(arg0.getBase()));
+    m_output.append(ocl_field.getInstanceSetterInvoke(arg0.getBase()));
   }
  else {
-    mOutput.append(ocl_field.getInstanceGetterInvoke(arg0.getBase()));
+    m_output.append(ocl_field.getInstanceGetterInvoke(arg0.getBase()));
   }
   setCheckException();
 }

@@ -2,6 +2,6 @@
   SootMethod soot_method=arg0.getMethod();
   SootClass soot_class=soot_method.getDeclaringClass();
   OpenCLMethod ocl_method=new OpenCLMethod(soot_method,soot_class);
-  mOutput.append(ocl_method.getInstanceInvokeString(arg0));
+  m_output.append(ocl_method.getInstanceInvokeString(arg0));
   setCheckException();
 }

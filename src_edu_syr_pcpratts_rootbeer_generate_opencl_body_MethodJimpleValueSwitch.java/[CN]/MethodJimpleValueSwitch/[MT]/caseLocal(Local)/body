@@ -1,4 +1,4 @@
 {
-  mOutput.append(" " + arg0.getName() + " ");
-  m_PreviousLocal=arg0.getName();
+  m_output.append(" " + arg0.getName() + " ");
+  m_previousLocal=arg0.getName();
 }
