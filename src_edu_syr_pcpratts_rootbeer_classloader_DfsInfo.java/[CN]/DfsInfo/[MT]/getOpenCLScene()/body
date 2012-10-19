@@ -7,7 +7,7 @@
       continue;
     }
     RefType ref_type=(RefType)type;
-    m_oclScene.addClass(ref_type.getSootClass());
+    OpenCLClass ocl_class=m_oclScene.addClass(ref_type.getSootClass());
   }
   return m_oclScene;
 }

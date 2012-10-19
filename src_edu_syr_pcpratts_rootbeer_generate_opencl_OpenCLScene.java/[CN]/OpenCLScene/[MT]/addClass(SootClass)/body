@@ -3,7 +3,11 @@
   if (m_classes.containsKey(soot_class.getName()) == false) {
     m_classes.put(soot_class.getName(),ocl_class);
   }
+ else {
+    ocl_class=m_classes.get(soot_class.getName());
+  }
   if (m_oclToSoot.containsKey(ocl_class.getName()) == false) {
     m_oclToSoot.put(ocl_class.getName(),soot_class.getName());
   }
+  return ocl_class;
 }

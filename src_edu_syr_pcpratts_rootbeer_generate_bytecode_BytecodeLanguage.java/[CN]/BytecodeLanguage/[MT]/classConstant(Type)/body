@@ -1,5 +1,5 @@
 {
-  String class_name=convertToConstant(type.toString());
+  String class_name=convertToConstant(type);
   Value curr=ClassConstant.v(class_name);
   Local ret=jimple.newLocal(getLocalName(),curr.getType());
   Unit u=jimple.newAssignStmt(ret,curr);

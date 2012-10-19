@@ -1,0 +1,14 @@
+{
+  int max_type=0;
+  for (  int num : m_classRefToTypeNumber.values()) {
+    if (num > max_type) {
+      max_type=num;
+    }
+  }
+  int[] ret=new int[max_type + 1];
+  for (  long value : m_classRefToTypeNumber.keySet()) {
+    int pos=m_classRefToTypeNumber.get(value);
+    ret[pos]=(int)(value >> 4);
+  }
+  return ret;
+}

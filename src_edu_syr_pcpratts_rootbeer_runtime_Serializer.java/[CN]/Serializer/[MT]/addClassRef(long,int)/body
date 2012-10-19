@@ -1,3 +1,4 @@
 {
+  System.out.println("addingClassRef: " + ref + " cls_#: "+ class_number+ " obj: "+ mWriteToGpuCache.get(ref));
   m_classRefToTypeNumber.put(ref,class_number);
 }

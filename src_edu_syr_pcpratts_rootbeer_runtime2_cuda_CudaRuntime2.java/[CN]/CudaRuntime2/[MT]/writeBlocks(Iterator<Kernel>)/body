@@ -63,6 +63,7 @@
     }
   }
   m_Partial.addNotWritten(m_NotWritten);
+  writeClassTypeRef(visitors.get(0).getClassRefArray());
   watch.stop();
   m_serializationTime=watch.elapsedTimeMillis();
   if (Configuration.getRunAllTests() == false) {

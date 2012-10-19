@@ -3,5 +3,5 @@
   mTextureMem=texture_mem;
   mReadFromGpuCache.clear();
   mWriteToGpuCache.clear();
-  m_classRefToTypeNumber=new HashMap<Long,Integer>();
+  m_classRefToTypeNumber.clear();
 }

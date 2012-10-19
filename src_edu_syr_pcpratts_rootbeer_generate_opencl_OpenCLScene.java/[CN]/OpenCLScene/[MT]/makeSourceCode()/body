@@ -26,8 +26,8 @@
   }
   StringBuilder ret=new StringBuilder();
   ret.append(headerString());
-  ret.append(garbageCollectorString());
   ret.append(methodPrototypesString());
+  ret.append(garbageCollectorString());
   ret.append(methodBodiesString());
   String cuda_code;
   if (true) {
