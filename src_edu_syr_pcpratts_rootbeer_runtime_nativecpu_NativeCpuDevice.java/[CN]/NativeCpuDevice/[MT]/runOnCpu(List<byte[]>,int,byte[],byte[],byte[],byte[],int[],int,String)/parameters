@@ -4,5 +4,6 @@ byte[] handles
 byte[] heap_end_ptr
 byte[] gc_info
 byte[] exceptions
+int[] java_lang_class_refs
 int num_threads
 String library_name

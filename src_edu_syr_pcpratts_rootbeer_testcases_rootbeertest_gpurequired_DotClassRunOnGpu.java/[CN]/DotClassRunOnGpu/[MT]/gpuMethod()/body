@@ -1,4 +1,5 @@
 {
   m_name=DotClassRunOnGpu.class.getName();
-  m_name2=int[][].class.getName();
+  m_ref=RootbeerGpu.getRef(m_name);
+  m_ref2=RootbeerGpu.getRef(DotClassRunOnGpu.class);
 }

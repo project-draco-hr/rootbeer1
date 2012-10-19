@@ -1,4 +1,6 @@
 {
+  System.out.println("m_ref: " + rhs.m_ref);
+  System.out.println("m_ref2: " + rhs.m_ref2);
   if (m_name.equals(rhs.m_name) == false) {
     System.out.println("m_name: " + m_name);
     System.out.println("rhs.m_name: " + rhs.m_name);
