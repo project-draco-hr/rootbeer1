@@ -24,6 +24,7 @@
     return DoubleType.v();
   }
  else {
+    constant=constant.substring(1,constant.length() - 2);
     return RefType.v(constant);
   }
 }
