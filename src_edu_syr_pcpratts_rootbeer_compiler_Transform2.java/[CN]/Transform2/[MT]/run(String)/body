@@ -11,6 +11,8 @@
   }
  catch (  Exception ex) {
     ex.printStackTrace();
+    OpenCLScene.releaseV();
+    return;
   }
   SootClass soot_class=method.getDeclaringClass();
   SootClass iface_class=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.CompiledKernel");
