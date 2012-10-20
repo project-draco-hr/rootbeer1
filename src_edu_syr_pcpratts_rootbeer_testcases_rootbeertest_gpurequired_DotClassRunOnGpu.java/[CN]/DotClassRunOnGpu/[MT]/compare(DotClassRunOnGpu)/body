@@ -19,5 +19,15 @@
     System.out.println("rhs.m_name2: " + rhs.m_name2);
     return false;
   }
+  if (m_child.getName() == null || rhs.m_child.getName() == null) {
+    System.out.println("child.name: " + m_child.getName());
+    System.out.println("rhs.child.name: " + rhs.m_child.getName());
+    return false;
+  }
+  if (m_child.getName().equals(rhs.m_child.getName()) == false) {
+    System.out.println("child.name: " + m_child.getName());
+    System.out.println("rhs.child.name: " + rhs.m_child.getName());
+    return false;
+  }
   return true;
 }
