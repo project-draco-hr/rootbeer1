@@ -14,6 +14,7 @@
   m_Readers=new ArrayList<ToSpaceReader>();
   m_Writers=new ArrayList<ToSpaceWriter>();
   m_NumCores=Runtime.getRuntime().availableProcessors();
+  m_serializers=new ArrayList<Serializer>();
   AtomicLong to_space_inst_ptr=new AtomicLong(0);
   AtomicLong to_space_static_ptr=new AtomicLong(0);
   AtomicLong texture_inst_ptr=new AtomicLong(0);

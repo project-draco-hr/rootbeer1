@@ -10,6 +10,7 @@
   m_JobsWritten.clear();
   m_HandlesCache.clear();
   m_NotWritten.clear();
+  m_serializers.clear();
   ReadOnlyAnalyzer analyzer=null;
   boolean first_block=true;
   int count=0;
@@ -26,7 +27,6 @@
   if (count == 0) {
     return false;
   }
-  List<Serializer> visitors=new ArrayList<Serializer>();
   for (int i=0; i < m_NumCores; ++i) {
     Memory mem=m_ToSpace.get(i);
     Memory texture_mem=m_Texture.get(i);
@@ -34,12 +34,12 @@
     texture_mem.clearHeapEndPtr();
     Serializer visitor=m_FirstJob.getSerializer(mem,texture_mem);
     visitor.setAnalyzer(analyzer);
-    visitors.add(visitor);
+    m_serializers.add(visitor);
   }
-  visitors.get(0).writeStaticsToHeap();
+  m_serializers.get(0).writeStaticsToHeap();
   int items_per=m_JobsToWrite.size() / m_NumCores;
   for (int i=0; i < m_NumCores; ++i) {
-    Serializer visitor=visitors.get(i);
+    Serializer visitor=m_serializers.get(i);
     int end_index;
     if (i == m_NumCores - 1) {
       end_index=m_JobsToWrite.size();
@@ -63,7 +63,7 @@
     }
   }
   m_Partial.addNotWritten(m_NotWritten);
-  writeClassTypeRef(visitors.get(0).getClassRefArray());
+  writeClassTypeRef(m_serializers.get(0).getClassRefArray());
   watch.stop();
   m_serializationTime=watch.elapsedTimeMillis();
   if (Configuration.getRunAllTests() == false) {

@@ -19,7 +19,7 @@
       }
       Memory mem=m_ToSpace.get(0);
       Memory texture_mem=m_Texture.get(0);
-      Serializer visitor=m_FirstJob.getSerializer(mem,texture_mem);
+      Serializer visitor=m_serializers.get(0);
       mem.setAddress(ref);
       Object except=visitor.readFromHeap(null,true,ref);
       if (except instanceof Error) {
@@ -31,17 +31,10 @@
       }
     }
   }
-  List<Serializer> visitors=new ArrayList<Serializer>();
-  for (int i=0; i < m_NumCores; ++i) {
-    Memory mem=m_ToSpace.get(i);
-    Memory texture_mem=m_Texture.get(i);
-    Serializer visitor=m_FirstJob.getSerializer(mem,texture_mem);
-    visitors.add(visitor);
-  }
-  visitors.get(0).readStaticsFromHeap();
+  m_serializers.get(0).readStaticsFromHeap();
   int items_per=m_NumBlocksRun / m_NumCores;
   for (int i=0; i < m_NumCores; ++i) {
-    Serializer visitor=visitors.get(i);
+    Serializer visitor=m_serializers.get(i);
     int end_index;
     if (i == m_NumCores - 1) {
       end_index=m_NumBlocksRun;

@@ -13,6 +13,7 @@ synchronized (mWriteToGpuCache) {
     }
     long ref=mem.mallocWithSize(size);
     mWriteToGpuCache.put(o,ref);
+    mReverseWriteToGpuCache.put(ref,o);
     return new WriteCacheResult(ref,true);
   }
 }

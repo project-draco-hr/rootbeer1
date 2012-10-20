@@ -3,5 +3,6 @@
   mTextureMem=texture_mem;
   mReadFromGpuCache.clear();
   mWriteToGpuCache.clear();
+  mReverseWriteToGpuCache.clear();
   m_classRefToTypeNumber.clear();
 }
