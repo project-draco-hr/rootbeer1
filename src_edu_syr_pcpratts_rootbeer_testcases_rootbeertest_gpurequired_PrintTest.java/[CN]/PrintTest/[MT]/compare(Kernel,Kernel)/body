@@ -1,0 +1,5 @@
+{
+  PrintRunOnGpu lhs=(PrintRunOnGpu)original;
+  PrintRunOnGpu rhs=(PrintRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}
