@@ -1,3 +1,4 @@
 Object o
 int size
 boolean read_only
+Memory mem

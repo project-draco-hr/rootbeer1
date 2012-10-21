@@ -2,7 +2,7 @@
   List<Kernel> jobs=new ArrayList<Kernel>();
   AtomicLong along=new AtomicLong(0);
   Random random=new Random();
-  int size=500;
+  int size=20;
   for (int i=0; i < size; ++i) {
     AtomicLongRunOnGpu curr=new AtomicLongRunOnGpu(along,random);
     jobs.add(curr);
