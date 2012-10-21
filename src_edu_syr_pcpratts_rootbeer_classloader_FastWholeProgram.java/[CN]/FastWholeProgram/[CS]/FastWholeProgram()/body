@@ -28,7 +28,6 @@
   m_ignorePackages.add("antlr.");
   m_ignorePackages.add("jas.");
   m_ignorePackages.add("scm.");
-  m_ignorePackages.add("java.");
   m_ignorePackages.add("org.xmlpull.v1.");
   m_ignorePackages.add("android.util.");
   m_ignorePackages.add("android.content.res.");

@@ -1,0 +1,5 @@
+{
+  DotClassRunOnGpu lhs=(DotClassRunOnGpu)original;
+  DotClassRunOnGpu rhs=(DotClassRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

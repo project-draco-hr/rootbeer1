@@ -5,7 +5,7 @@
   m_thisRef=bcl.refThis();
   m_gcObjVisitor.push(m_thisRef);
   m_Param0=bcl.refParameter(0);
-  m_ObjSerializing.push(m_Param0);
+  m_objSerializing.push(m_Param0);
   m_Param1=bcl.refParameter(1);
   m_RefParam=bcl.refParameter(2);
   m_Mem=bcl.refInstanceField(m_thisRef,"mMem");
@@ -14,6 +14,12 @@
   bcl.ifStmt(m_RefParam,"!=",LongConstant.v(-1),dont_return_null_label);
   bcl.returnValue(NullConstant.v());
   bcl.label(dont_return_null_label);
+  String dont_fetch_obj=getNextLabel();
+  bcl.ifStmt(m_Param0,"!=",NullConstant.v(),dont_fetch_obj);
+  bcl.pushMethod(m_thisRef,"writeCacheFetch",obj_cls.getType(),LongType.v());
+  Local written_to=bcl.invokeMethodRet(m_thisRef,m_RefParam);
+  bcl.assign(m_Param0,written_to);
+  bcl.label(dont_fetch_obj);
   Local mem=bcl.local(m_Mem.getType());
   bcl.assign(mem,m_Mem);
   m_currMem.push(mem);

@@ -6,7 +6,7 @@
   if (do_ref_fields) {
     List<OpenCLField> ref_fields=getRefFields(soot_class);
     for (    OpenCLField ref_field : ref_fields) {
-      if (m_FieldInspector.fieldIsWrittenOnGpu(ref_field)) {
+      if (m_fieldInspector.fieldIsWrittenOnGpu(ref_field)) {
         bcl_mem.incrementAddress(inc_size);
         inc_size=0;
         readRefField(ref_field);
@@ -22,7 +22,7 @@
  else {
     List<OpenCLField> non_ref_fields=getNonRefFields(soot_class);
     for (    OpenCLField non_ref_field : non_ref_fields) {
-      if (m_FieldInspector.fieldIsWrittenOnGpu(non_ref_field)) {
+      if (m_fieldInspector.fieldIsWrittenOnGpu(non_ref_field)) {
         if (inc_size > 0) {
           bcl_mem.incrementAddress(inc_size);
           inc_size=0;

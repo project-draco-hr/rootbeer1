@@ -1,4 +1,4 @@
 {
-  mRhs=true;
-  mLhs=false;
+  m_rhs=true;
+  m_lhs=false;
 }

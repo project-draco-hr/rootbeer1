@@ -1,0 +1,5 @@
+{
+  if (m_reachableMethodSigs.contains(signature) == false) {
+    m_reachableMethodSigs.add(signature);
+  }
+}

@@ -1,5 +1,7 @@
 {
   addRefType("java.lang.Object");
+  addRefType("java.lang.Class");
+  addRefType("java.lang.System");
   addRefType("java.lang.String");
   addRefType("java.lang.AbstractStringBuilder");
   addRefType("java.lang.StringBuilder");
@@ -20,4 +22,11 @@
   m_builtInTypes.add(FloatType.v());
   m_builtInTypes.add(DoubleType.v());
   m_builtInTypes.add(BooleanType.v());
+  ArrayType char_arr=ArrayType.v(CharType.v(),1);
+  m_builtInTypes.add(char_arr);
+  addBuiltInMethod("<java.lang.String: void <init>(char[])>");
+  addBuiltInMethod("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: int getThreadId()>");
+  addBuiltInMethod("<java.lang.Throwable: java.lang.StackTraceElement[] getStackTrace()>");
+  addBuiltInMethod("<java.lang.StackTraceElement: void <init>(java.lang.String,java.lang.String,java.lang.String,int)>");
+  addBuiltInMethod("<java.lang.OutOfMemoryError: void <init>()>");
 }

@@ -8,7 +8,7 @@
     if (differentPackageAndPrivate(ref_type)) {
       return;
     }
-    if (m_ClassesToIgnore.contains(ref_type.getSootClass().getName())) {
+    if (m_classesToIgnore.contains(ref_type.getSootClass().getName())) {
       return;
     }
   }

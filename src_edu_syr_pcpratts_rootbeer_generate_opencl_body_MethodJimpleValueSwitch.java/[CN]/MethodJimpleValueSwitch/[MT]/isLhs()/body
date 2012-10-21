@@ -1,4 +1,4 @@
 {
-  if (mLhs == false && mRhs == false)   throw new IllegalStateException("Lhs/Rhs in invalid state");
-  return mLhs;
+  if (m_lhs == false && m_rhs == false)   throw new IllegalStateException("Lhs/Rhs in invalid state");
+  return m_lhs;
 }

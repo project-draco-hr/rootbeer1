@@ -1,24 +1,33 @@
 {
-  for (  Type type : m_dfsTypes) {
+  m_childrenToParents=new HashMap<String,List<NumberedType>>();
+  Set<Type> to_process=new HashSet<Type>();
+  to_process.addAll(m_dfsTypes);
+  to_process.addAll(m_builtInTypes);
+  for (  Type type : to_process) {
     List<NumberedType> parents=new ArrayList<NumberedType>();
-    NumberedType curr_type=m_numberedTypeMap.get(type);
+    NumberedType curr_type=m_numberedTypeMap.get(type.toString());
     parents.add(curr_type);
     if (type instanceof RefType) {
       RefType ref_type=(RefType)type;
       SootClass curr_class=ref_type.getSootClass();
       while (curr_class.hasSuperclass()) {
-        parents.add(m_numberedTypeMap.get(curr_class.getType()));
         curr_class=curr_class.getSuperclass();
+        parents.add(m_numberedTypeMap.get(curr_class.getType().toString()));
       }
     }
  else     if (type instanceof ArrayType) {
       SootClass obj_cls=Scene.v().getSootClass("java.lang.Object");
-      parents.add(m_numberedTypeMap.get(obj_cls.getType()));
+      parents.add(m_numberedTypeMap.get(obj_cls.getType().toString()));
     }
  else {
       continue;
     }
-    m_childrenToParents.put(type,parents);
+    m_childrenToParents.put(type.toString(),parents);
   }
-  throw new RuntimeException("do dfs walk down m_parentsToChildren with stack of current types");
+  m_hierarchyDown=new HashMap<String,List<NumberedType>>();
+  SootClass obj_cls=Scene.v().getSootClass("java.lang.Object");
+  Type root=obj_cls.getType();
+  List<Type> stack=new ArrayList<Type>();
+  stack.add(root);
+  hierarchyDfs(root,stack);
 }

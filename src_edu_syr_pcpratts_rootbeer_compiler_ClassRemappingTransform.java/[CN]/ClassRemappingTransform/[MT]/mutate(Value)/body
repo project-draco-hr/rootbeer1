@@ -35,12 +35,11 @@
     if (shouldMap(soot_class)) {
       SootClass new_class=getMapping(soot_class);
       if (new_class.declaresMethod(subSignature)) {
-        SootMethod new_method=new_class.getMethod(subSignature);
+        SootMethod new_method=RootbeerScene.v().getMethod(new_class,subSignature.getString());
+        addAddedMethod(new_method);
         fixArguments(new_method);
+        RootbeerScene.v().getDfsInfo().addReachableMethodSig(new_method.getSignature());
         expr.setMethodRef(new_method.makeRef());
-      }
- else {
-        System.err.println("method not found: " + subSignature);
       }
     }
  else {
@@ -55,6 +54,7 @@
         soot_class=getMapping(soot_class);
       }
       SootMethod method=soot_class.getMethod(ref.getSubSignature());
+      RootbeerScene.v().getDfsInfo().addReachableMethodSig(method.getSignature());
       expr.setMethodRef(method.makeRef());
     }
  catch (    Exception ex) {

@@ -1,18 +1,12 @@
 {
-  if (m_appClass) {
-    if (m_classRemapping.containsKey(soot_class.getName())) {
-      setModified();
-      return true;
+  if (m_classRemapping.containsKey(soot_class.getName())) {
+    String curr_class=m_currMethod.getDeclaringClass().toString();
+    if (m_modified.contains(curr_class) == false) {
+      m_modified.add(curr_class);
     }
- else {
-      return false;
-    }
+    return true;
   }
  else {
-    if (m_classRemapping.containsKey(soot_class.getName()) && !m_classRemapping.cloned(m_currClass)) {
-      m_hasNext=true;
-      m_classRemapping.cloneClass(m_currClass);
-    }
     return false;
   }
 }

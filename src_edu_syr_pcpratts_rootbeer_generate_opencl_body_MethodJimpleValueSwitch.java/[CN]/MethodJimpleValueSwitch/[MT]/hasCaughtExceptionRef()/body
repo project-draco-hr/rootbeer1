@@ -1,3 +1,3 @@
 {
-  return mCaughtExceptionRef;
+  return m_caughtExceptionRef;
 }

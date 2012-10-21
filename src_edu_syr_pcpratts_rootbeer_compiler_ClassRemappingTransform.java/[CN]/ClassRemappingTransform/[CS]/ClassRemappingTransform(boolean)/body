@@ -5,5 +5,5 @@
   }
   m_fieldsToFix=new HashMap<SootField,List<FieldRef>>();
   m_modified=new HashSet<String>();
-  m_hasNext=true;
+  m_addedMethods=new ArrayList<SootMethod>();
 }

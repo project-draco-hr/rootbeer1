@@ -1,0 +1,21 @@
+{
+  int number=RootbeerScene.v().getDfsInfo().getClassNumber(type);
+  Local gc_visit=m_gcObjVisitor.top();
+  Local class_obj=null;
+  if (type instanceof ArrayType) {
+    ArrayType array_type=(ArrayType)type;
+    class_obj=m_bcl.top().classConstant(type);
+  }
+ else {
+    RefType ref_type=(RefType)type;
+    class_obj=m_bcl.top().classConstant(type);
+  }
+  SootClass str_cls=Scene.v().getSootClass("java.lang.String");
+  m_bcl.top().pushMethod(class_obj,"getName",str_cls.getType());
+  m_bcl.top().invokeMethodRet(class_obj);
+  SootClass obj_cls=Scene.v().getSootClass("java.lang.Object");
+  m_bcl.top().pushMethod(gc_visit,"writeToHeap",LongType.v(),obj_cls.getType(),BooleanType.v());
+  Local ref=m_bcl.top().invokeMethodRet(gc_visit,class_obj,IntConstant.v(1));
+  m_bcl.top().pushMethod(gc_visit,"addClassRef",VoidType.v(),LongType.v(),IntType.v());
+  m_bcl.top().invokeMethodNoRet(gc_visit,ref,IntConstant.v(number));
+}

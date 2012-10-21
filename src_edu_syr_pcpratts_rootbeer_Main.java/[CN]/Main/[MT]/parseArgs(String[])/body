@@ -41,6 +41,9 @@
  else     if (arg.equals("-disable-class-remapping")) {
       m_disable_class_remapping=true;
     }
+ else     if (arg.equals("-large-mem-tests")) {
+      m_largeMemTests=true;
+    }
  else {
       m_mainJar=arg;
       m_destJar=safeGet(args,i + 1,arg);

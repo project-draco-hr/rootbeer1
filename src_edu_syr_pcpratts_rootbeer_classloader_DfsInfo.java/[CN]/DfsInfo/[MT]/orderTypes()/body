@@ -1,24 +1,31 @@
 {
+  m_numberedTypeMap=new HashMap<String,NumberedType>();
+  m_classToNumber=new HashMap<SootClass,Integer>();
   List<NumberedType> numbered_types=new ArrayList<NumberedType>();
   int number=1;
   List<Type> queue=new LinkedList<Type>();
+  Set<Type> visited=new HashSet<Type>();
   queue.addAll(m_builtInTypes);
   while (queue.isEmpty() == false) {
     Type curr=queue.get(0);
     queue.remove(0);
+    if (visited.contains(curr)) {
+      continue;
+    }
+    visited.add(curr);
     NumberedType numbered_type=new NumberedType(curr,number);
     numbered_types.add(numbered_type);
-    m_numberedTypeMap.put(curr,numbered_type);
+    m_numberedTypeMap.put(curr.toString(),numbered_type);
     if (curr instanceof RefType) {
       RefType ref_type=(RefType)curr;
       SootClass curr_class=ref_type.getSootClass();
       m_classToNumber.put(curr_class,number);
     }
     number++;
-    if (m_parentsToChildren.containsKey(curr) == false) {
+    if (m_parentsToChildren.containsKey(curr.toString()) == false) {
       continue;
     }
-    List<Type> children=m_parentsToChildren.get(curr);
+    List<Type> children=m_parentsToChildren.get(curr.toString());
     queue.addAll(children);
   }
   m_numberedTypes=new ArrayList<NumberedType>();

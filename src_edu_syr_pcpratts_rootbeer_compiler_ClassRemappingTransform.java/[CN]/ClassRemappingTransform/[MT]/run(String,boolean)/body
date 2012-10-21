@@ -1,7 +1,5 @@
 {
-  m_currClass=cls;
   SootClass soot_class=Scene.v().getSootClass(cls);
-  m_appClass=app_class;
   List<SootMethod> methods=soot_class.getMethods();
   for (  SootMethod method : methods) {
     visit(method);

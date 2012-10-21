@@ -1,3 +1,6 @@
 {
-  mOutput.append("$$CLASS_CONSTANT$$");
+  String value=arg0.getValue();
+  Type type=m_classConstantReader.stringToType(value);
+  int num=RootbeerScene.v().getDfsInfo().getClassNumber(type);
+  m_output.append("edu_syr_pcpratts_classConstant(" + num + ")");
 }

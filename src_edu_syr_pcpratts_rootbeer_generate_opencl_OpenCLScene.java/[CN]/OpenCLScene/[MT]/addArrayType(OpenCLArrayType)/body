@@ -1,11 +1,4 @@
 {
   if (m_arrayTypes.contains(array_type))   return;
   m_arrayTypes.add(array_type);
-  ArrayType soot_type=array_type.getArrayType();
-  for (int i=1; i < soot_type.numDimensions; ++i) {
-    ArrayType new_type=ArrayType.v(soot_type.baseType,i);
-    OpenCLArrayType new_ocl_type=new OpenCLArrayType(new_type);
-    if (m_arrayTypes.contains(new_ocl_type))     continue;
-    m_arrayTypes.add(new_ocl_type);
-  }
 }

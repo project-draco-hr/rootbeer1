@@ -1,0 +1,15 @@
+{
+  while (edges.hasNext()) {
+    Edge edge=edges.next();
+    SootMethod src=edge.src();
+    if (visited.contains(src) == false && FastWholeProgram.v().shouldDfsMethod(src)) {
+      queue.add(src);
+      visited.add(src);
+    }
+    SootMethod dest=edge.tgt();
+    if (visited.contains(dest) == false && FastWholeProgram.v().shouldDfsMethod(dest)) {
+      queue.add(dest);
+      visited.add(dest);
+    }
+  }
+}

@@ -1,9 +1,11 @@
 {
   System.out.println("Running " + m_NumBlocksRun + " blocks.");
   System.out.println("BlockShape: " + m_BlockShape + " GridShape: "+ m_GridShape);
-  int status=runBlocks(m_NumBlocksRun,m_BlockShape,m_GridShape);
-  if (status != 0) {
-    System.out.println("Error running blocks: " + status);
-    System.exit(-1);
+  try {
+    runBlocks(m_NumBlocksRun,m_BlockShape,m_GridShape);
+  }
+ catch (  RuntimeException ex) {
+    reinit(m_BlockShaper.getMaxBlocksPerProc(),m_BlockShaper.getMaxThreadsPerBlock(),getReserveMem());
+    throw ex;
   }
 }

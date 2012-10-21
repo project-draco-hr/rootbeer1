@@ -23,7 +23,7 @@
   bcl.openClass(class_name);
   SootClass mem=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
   bcl.startMethod("edu_syr_pcpratts_readFromHeap" + specialization,VoidType.v(),mem.getType(),gc_obj_visit.getType());
-  m_ObjSerializing.push(bcl.refThis());
+  m_objSerializing.push(bcl.refThis());
   m_currMem.push(bcl.refParameter(0));
   m_gcObjVisitor.push(bcl.refParameter(1));
   doReader(class_name,ref_fields);
@@ -37,7 +37,7 @@
   }
   bcl.returnVoid();
   bcl.endMethod();
-  m_ObjSerializing.pop();
+  m_objSerializing.pop();
   m_currMem.pop();
   m_gcObjVisitor.pop();
   m_bcl.pop();

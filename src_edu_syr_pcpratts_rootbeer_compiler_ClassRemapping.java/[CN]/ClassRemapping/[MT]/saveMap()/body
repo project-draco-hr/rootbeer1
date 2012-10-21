@@ -2,10 +2,10 @@
   String filename="src" + mapFilename();
   try {
     PrintWriter writer=new PrintWriter(filename);
-    Iterator<String> iter=m_ClonedMap.keySet().iterator();
+    Iterator<String> iter=m_clonedMap.keySet().iterator();
     while (iter.hasNext()) {
       String key=iter.next();
-      String value=m_ClonedMap.get(key);
+      String value=m_clonedMap.get(key);
       writer.println(key + " => " + value);
     }
     writer.flush();

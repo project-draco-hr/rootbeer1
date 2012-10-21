@@ -4,18 +4,34 @@
     System.out.println("edu.syr.pcpratts.rootbeer.runtime.Kernel");
     System.exit(0);
   }
-  SootClass[] sorted=new SootClass[kernel_classes.size()];
-  sorted=kernel_classes.toArray(sorted);
+  String[] sorted=new String[kernel_classes.size()];
+  for (int i=0; i < kernel_classes.size(); ++i) {
+    sorted[i]=kernel_classes.get(i).getName();
+  }
   Arrays.sort(sorted);
   kernel_classes.clear();
-  for (  SootClass cls : sorted) {
-    kernel_classes.add(cls);
+  for (  String cls : sorted) {
+    kernel_classes.add(Scene.v().getSootClass(cls));
   }
   for (  SootClass kernel : kernel_classes) {
     SootMethod kernel_method=kernel.getMethod("void gpuMethod()");
-    FastWholeProgram.v().execDFS(kernel_method);
-    DfsInfo info=FastWholeProgram.v().getDfsInfo(kernel_method);
-    info.print();
+    FastWholeProgram.v().fullyLoad(kernel_method,true);
+  }
+  ClassRemappingTransform transform=null;
+  if (!Main.disable_class_remapping()) {
+    System.out.println("remapping some classes to GPU versions...");
+    for (    SootClass kernel : kernel_classes) {
+      SootMethod kernel_method=kernel.getMethod("void gpuMethod()");
+      DfsInfo info=FastWholeProgram.v().getDfsInfo(kernel_method);
+      RootbeerScene.v().setDfsInfo(info);
+      List<String> sigs=info.getReachableMethodSigs();
+      transform=new ClassRemappingTransform(false);
+      transform.run(sigs);
+      transform.finishClone();
+      FastWholeProgram.v().fullyLoad(kernel_method,false);
+      info=FastWholeProgram.v().getDfsInfo(kernel_method);
+      info.setModifiedClasses(transform.getModifiedClasses());
+    }
   }
   Transform2 transform2=new Transform2();
   for (  SootClass soot_class : kernel_classes) {
@@ -24,4 +40,38 @@
     RootbeerScene.v().setDfsInfo(info);
     transform2.run(soot_class.getName());
   }
+  System.out.println("writing classes out...");
+  if (!Main.disable_class_remapping()) {
+    for (    SootClass kernel : kernel_classes) {
+      SootMethod kernel_method=kernel.getMethod("void gpuMethod()");
+      DfsInfo info=FastWholeProgram.v().getDfsInfo(kernel_method);
+      Set<String> modified=info.getModifiedClasses();
+      if (modified == null) {
+        continue;
+      }
+      for (      String cls : modified) {
+        loadAllMethods(cls);
+        writeClassFile(cls);
+        writeJimpleFile(cls);
+      }
+    }
+  }
+  for (  SootClass soot_class : kernel_classes) {
+    SootMethod kernel_method=soot_class.getMethod("void gpuMethod()");
+    DfsInfo dfs_info=FastWholeProgram.v().getDfsInfo(kernel_method);
+    List<RefType> ref_types=dfs_info.getOrderedRefTypes();
+    for (    RefType cls : ref_types) {
+      loadAllMethods(cls.getClassName());
+      writeClassFile(cls.getClassName());
+      writeJimpleFile(cls.getClassName());
+    }
+  }
+  List<String> added_classes=RootbeerScene.v().getAddedClasses();
+  for (  String cls : added_classes) {
+    loadAllMethods(cls);
+    writeClassFile(cls);
+    writeJimpleFile(cls);
+  }
+  makeOutJar();
+  pack(outname);
 }

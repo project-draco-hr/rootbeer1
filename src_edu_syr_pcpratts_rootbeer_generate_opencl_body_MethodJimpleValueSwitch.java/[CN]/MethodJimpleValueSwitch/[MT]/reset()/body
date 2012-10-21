@@ -1,4 +1,4 @@
 {
-  mCaughtExceptionRef=false;
-  m_CheckException=false;
+  m_caughtExceptionRef=false;
+  m_checkException=false;
 }

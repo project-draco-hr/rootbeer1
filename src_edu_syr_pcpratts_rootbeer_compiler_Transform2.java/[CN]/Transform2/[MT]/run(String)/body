@@ -1,5 +1,6 @@
 {
-  OpenCLScene.v();
+  DfsInfo dfs_info=RootbeerScene.v().getDfsInfo();
+  OpenCLScene.setInstance(dfs_info.getOpenCLScene());
   System.out.println("running Transform2 on: " + cls);
   SootClass soot_class1=Scene.v().getSootClass(cls);
   SootMethod method=soot_class1.getMethod("void gpuMethod()");
@@ -10,6 +11,8 @@
   }
  catch (  Exception ex) {
     ex.printStackTrace();
+    OpenCLScene.releaseV();
+    return;
   }
   SootClass soot_class=method.getDeclaringClass();
   SootClass iface_class=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.CompiledKernel");

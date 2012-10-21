@@ -12,16 +12,35 @@
   for (  Type type : types) {
     addType(type);
   }
-  Set<SootMethodRef> methods=value_switch.getMethodRefs();
-  for (  SootMethodRef ref : methods) {
-    SootClass method_class=ref.declaringClass();
+  Set<DfsMethodRef> methods=value_switch.getMethodRefs();
+  for (  DfsMethodRef ref : methods) {
+    SootMethodRef mref=ref.getSootMethodRef();
+    SootClass method_class=mref.declaringClass();
+    m_resolver.resolveClass(method_class.getName(),SootClass.BODIES);
+    SootMethod dest=mref.resolve();
+    if (dest.isConcrete() == false) {
+      continue;
+    }
     addType(method_class.getType());
-    doDfs(ref.resolve());
+    m_currDfsInfo.addCallGraphEdge(method,ref.getStmt(),dest);
+    doDfs(dest);
   }
   Set<SootFieldRef> fields=value_switch.getFieldRefs();
   for (  SootFieldRef ref : fields) {
     addType(ref.type());
     SootField field=ref.resolve();
     m_currDfsInfo.addField(field);
+  }
+  Set<Type> instance_ofs=value_switch.getInstanceOfs();
+  for (  Type type : instance_ofs) {
+    m_currDfsInfo.addInstanceOf(type);
+  }
+  while (soot_class.hasSuperclass()) {
+    SootClass super_class=soot_class.getSuperclass();
+    if (super_class.declaresMethod(method.getSubSignature())) {
+      SootMethod super_method=super_class.getMethod(method.getSubSignature());
+      doDfs(super_method);
+    }
+    soot_class=super_class;
   }
 }

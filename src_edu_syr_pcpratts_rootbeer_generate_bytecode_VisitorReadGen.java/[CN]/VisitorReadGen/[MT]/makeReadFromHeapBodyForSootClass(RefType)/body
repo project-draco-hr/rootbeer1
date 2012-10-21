@@ -27,11 +27,11 @@
   object_to_write_to=bcl.cast(type,object_to_write_to);
   bcl_mem.incrementAddress(12);
   m_CurrObj.push(object_to_write_to);
-  m_ObjSerializing.push(object_to_write_to);
+  m_objSerializing.push(object_to_write_to);
   readFields(soot_class,true);
   readFields(soot_class,false);
   m_CurrObj.pop();
-  m_ObjSerializing.pop();
+  m_objSerializing.pop();
   bcl_mem.finishReading();
   return object_to_write_to;
 }

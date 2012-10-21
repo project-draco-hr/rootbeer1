@@ -11,7 +11,7 @@
   m_dfsTypes.addAll(added);
   m_arrayTypes.addAll(added);
   SootClass obj_class=Scene.v().getSootClass("java.lang.Object");
-  for (  Type added_type : added) {
+  for (  Type added_type : m_arrayTypes) {
     addSuperClass(added_type,obj_class.getType());
   }
 }

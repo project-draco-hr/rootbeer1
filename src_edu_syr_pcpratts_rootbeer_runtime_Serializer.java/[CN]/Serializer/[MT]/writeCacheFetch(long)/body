@@ -1,0 +1,8 @@
+{
+synchronized (mWriteToGpuCache) {
+    if (mReverseWriteToGpuCache.containsKey(ref)) {
+      return mReverseWriteToGpuCache.get(ref);
+    }
+    return null;
+  }
+}

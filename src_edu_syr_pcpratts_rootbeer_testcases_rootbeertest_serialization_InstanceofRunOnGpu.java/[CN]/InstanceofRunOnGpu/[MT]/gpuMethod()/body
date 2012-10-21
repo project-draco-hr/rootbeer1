@@ -1,6 +1,22 @@
 {
   if (this instanceof Object) {
-    m_ret=1;
+    if (m_other instanceof InstanceofOther) {
+      if (m_other instanceof InstanceofOther2) {
+        int[][] array=new int[1][1];
+        if (array instanceof Object) {
+          m_ret=1;
+        }
+ else {
+          m_ret=2;
+        }
+      }
+ else {
+        m_ret=2;
+      }
+    }
+ else {
+      m_ret=2;
+    }
   }
  else {
     m_ret=2;

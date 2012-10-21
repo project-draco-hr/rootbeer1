@@ -5,5 +5,13 @@
   ret.add(function_qual + " " + getAssignType()+ " "+ getDerefTypeString()+ "_get("+ address_qual+ " char * gc_info, int thisref, int parameter0, int * exception)");
   ret.add(function_qual + " void " + getDerefTypeString()+ "_set("+ address_qual+ " char * gc_info, int thisref, int parameter0, "+ getAssignType()+ " parameter1, int * exception)");
   ret.add(function_qual + " int " + getDerefTypeString()+ "_new("+ address_qual+ " char * gc_info, int size, int * exception)");
+  String multi_dim_decl="";
+  multi_dim_decl+=function_qual + " int " + getDerefTypeString()+ "_new_multi_array";
+  multi_dim_decl+="(" + address_qual + " char * gc_info, ";
+  for (int i=0; i < m_arrayType.numDimensions; ++i) {
+    multi_dim_decl+="int dim" + i + ", ";
+  }
+  multi_dim_decl+="int * exception)";
+  ret.add(multi_dim_decl);
   return ret;
 }

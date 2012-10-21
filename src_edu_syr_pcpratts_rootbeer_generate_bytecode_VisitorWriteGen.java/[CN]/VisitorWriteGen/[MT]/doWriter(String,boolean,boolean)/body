@@ -7,7 +7,7 @@
     int count=0;
     for (    OpenCLField ref_field : ref_fields) {
       int constant;
-      if (m_FieldInspector.fieldIsReadOnGpu(ref_field)) {
+      if (m_fieldInspector.fieldIsReadOnGpu(ref_field)) {
         constant=1;
       }
  else {

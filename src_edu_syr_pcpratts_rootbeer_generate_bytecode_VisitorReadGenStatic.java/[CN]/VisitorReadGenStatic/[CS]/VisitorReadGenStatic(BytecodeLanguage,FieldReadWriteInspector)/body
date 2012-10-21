@@ -4,8 +4,8 @@
   m_orderedHistory=RootbeerScene.v().getDfsInfo().getOrderedRefTypes();
   m_writeToHeapMethodsMade=new HashSet<RefType>();
   m_attachedReaders=new HashSet<String>();
-  m_ObjSerializing=new Stack<Local>();
+  m_objSerializing=new Stack<Local>();
   m_staticOffsets=new StaticOffsets();
-  m_FieldInspector=inspector;
+  m_fieldInspector=inspector;
   m_currMem=new Stack<Local>();
 }

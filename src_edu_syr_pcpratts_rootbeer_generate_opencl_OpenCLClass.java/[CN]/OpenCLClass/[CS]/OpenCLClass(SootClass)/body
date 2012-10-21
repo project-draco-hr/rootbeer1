@@ -8,5 +8,4 @@
   mStaticRefFields=null;
   mStaticNonRefFields=null;
   mAllUsedStaticFields=null;
-  mFoundAllUsedMethodsAndFields=false;
 }

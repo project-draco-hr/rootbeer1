@@ -1,5 +1,5 @@
 {
   OpenCLScene.v().addInstanceof(arg0.getCheckType());
   OpenCLInstanceof instance_of=new OpenCLInstanceof(arg0.getCheckType());
-  mOutput.append(instance_of.invokeExpr(arg0));
+  m_output.append(instance_of.invokeExpr(arg0));
 }

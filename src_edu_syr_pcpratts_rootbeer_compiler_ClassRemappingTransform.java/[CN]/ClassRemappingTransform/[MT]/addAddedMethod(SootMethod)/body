@@ -1,0 +1,5 @@
+{
+  if (m_addedMethods.contains(new_method) == false) {
+    m_addedMethods.add(new_method);
+  }
+}

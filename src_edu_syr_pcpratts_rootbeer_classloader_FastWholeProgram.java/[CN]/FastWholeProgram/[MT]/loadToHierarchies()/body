@@ -6,16 +6,22 @@
     while (iter.hasNext()) {
       SootClass curr=iter.next();
       if (curr.getName().equals("edu.syr.pcpratts.rootbeer.runtime.Kernel")) {
-        m_kernelClasses.add(soot_class);
-        m_resolver.resolveClass(soot_class.getName(),SootClass.BODIES);
+        if (m_kernelClasses.contains(soot_class) == false) {
+          m_kernelClasses.add(soot_class);
+          m_resolver.resolveClass(soot_class.getName(),SootClass.BODIES);
+        }
       }
       if (curr.getName().equals("edu.syr.pcpratts.rootbeer.test.TestException")) {
-        m_testFactoryClasses.add(soot_class);
-        m_resolver.resolveClass(soot_class.getName(),SootClass.BODIES);
+        if (m_testFactoryClasses.contains(curr) == false) {
+          m_testFactoryClasses.add(soot_class);
+          m_resolver.resolveClass(soot_class.getName(),SootClass.BODIES);
+        }
       }
       if (curr.getName().equals("edu.syr.pcpratts.rootbeer.test.TestSerialization")) {
-        m_testFactoryClasses.add(soot_class);
-        m_resolver.resolveClass(soot_class.getName(),SootClass.BODIES);
+        if (m_testFactoryClasses.contains(curr) == false) {
+          m_testFactoryClasses.add(soot_class);
+          m_resolver.resolveClass(soot_class.getName(),SootClass.BODIES);
+        }
       }
     }
   }

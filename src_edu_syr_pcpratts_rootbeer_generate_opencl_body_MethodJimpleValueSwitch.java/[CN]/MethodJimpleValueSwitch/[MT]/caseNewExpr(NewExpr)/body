@@ -1,4 +1,4 @@
 {
   OpenCLScene.v().setUsingGarbageCollector();
-  mOutput.append(" -1 ");
+  m_output.append(" -1 ");
 }

@@ -3,10 +3,10 @@
   mMethodsInspected.add(method);
   Body body;
   try {
-    body=method.getActiveBody();
+    body=method.retrieveActiveBody();
   }
  catch (  RuntimeException ex) {
-    System.out.println("No body for method: " + method.toString());
+    System.out.println("no body for method: " + method.toString());
     return;
   }
   List<ValueBox> use_boxes=body.getUseBoxes();

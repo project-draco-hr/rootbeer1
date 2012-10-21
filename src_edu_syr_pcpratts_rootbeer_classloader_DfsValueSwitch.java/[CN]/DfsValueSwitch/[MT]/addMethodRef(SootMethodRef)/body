@@ -1,5 +1,6 @@
 {
-  if (m_methods.contains(ref) == false) {
-    m_methods.add(ref);
+  DfsMethodRef dfs_ref=new DfsMethodRef(ref,m_currStmt);
+  if (m_methods.contains(dfs_ref) == false) {
+    m_methods.add(dfs_ref);
   }
 }

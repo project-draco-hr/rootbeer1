@@ -1,7 +1,3 @@
 {
-  OpenCLClass ocl_class=new OpenCLClass(soot_class);
-  if (m_classes.containsKey(ocl_class.getName()))   ocl_class=m_classes.get(ocl_class.getName());
-  m_classes.put(ocl_class.getName(),ocl_class);
-  m_oclToSoot.put(ocl_class.getName(),soot_class.getName());
-  return ocl_class;
+  return m_classes.get(soot_class.getName());
 }

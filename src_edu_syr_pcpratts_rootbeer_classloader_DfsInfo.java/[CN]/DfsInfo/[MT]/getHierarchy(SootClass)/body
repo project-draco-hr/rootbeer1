@@ -1,5 +1,5 @@
 {
-  List<NumberedType> nret=m_childrenToParents.get(input_class.getType());
+  List<NumberedType> nret=m_childrenToParents.get(input_class.getType().toString());
   List<Type> ret=new ArrayList<Type>();
   for (  NumberedType ntype : nret) {
     ret.add(ntype.getType());

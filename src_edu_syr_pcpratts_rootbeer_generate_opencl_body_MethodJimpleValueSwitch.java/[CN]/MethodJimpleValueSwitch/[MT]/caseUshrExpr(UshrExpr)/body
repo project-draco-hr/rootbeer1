@@ -1,9 +1,9 @@
 {
-  mOutput.append("(");
+  m_output.append("(");
   arg0.getOp1().apply(this);
-  mOutput.append(" >> ");
+  m_output.append(" >> ");
   arg0.getOp2().apply(this);
-  mOutput.append(" ) & ");
+  m_output.append(" ) & ");
   OpenCLType lhs_ocl_type=new OpenCLType(arg0.getOp1().getType());
   OpenCLType rhs_ocl_type=new OpenCLType(arg0.getOp2().getType());
   int max_size=lhs_ocl_type.getSize();
@@ -25,5 +25,5 @@ case 8:
 mask="0x7fffffffffffffffL";
 break;
 }
-mOutput.append(mask);
+m_output.append(mask);
 }

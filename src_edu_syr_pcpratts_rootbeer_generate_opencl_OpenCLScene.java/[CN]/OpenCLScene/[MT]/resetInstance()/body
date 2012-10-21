@@ -1,8 +1,0 @@
-{
-  m_codeSegment=null;
-  m_classes=new LinkedHashMap<String,OpenCLClass>();
-  m_oclToSoot=new HashMap<String,String>();
-  m_arrayTypes=new LinkedHashSet<OpenCLArrayType>();
-  m_methodHierarchies=new MethodHierarchies();
-  m_instanceOfs=new HashSet<OpenCLInstanceof>();
-}

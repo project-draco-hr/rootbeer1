@@ -1,0 +1,48 @@
+{
+  if (type instanceof ArrayType) {
+    ArrayType array_type=(ArrayType)type;
+    String prefix="";
+    int dims=array_type.numDimensions;
+    for (int i=0; i < dims; ++i) {
+      prefix+="[";
+    }
+    String base_string=convertToConstant(array_type.baseType);
+    if (array_type.baseType instanceof RefType) {
+      return prefix + "L" + base_string+ ";";
+    }
+ else {
+      return prefix + base_string;
+    }
+  }
+ else   if (type instanceof RefType) {
+    RefType ref_type=(RefType)type;
+    return ref_type.getSootClass().getName().replace(".","/");
+  }
+ else   if (type instanceof PrimType) {
+    if (type.equals(BooleanType.v())) {
+      return "Z";
+    }
+ else     if (type.equals(ByteType.v())) {
+      return "B";
+    }
+ else     if (type.equals(ShortType.v())) {
+      return "S";
+    }
+ else     if (type.equals(CharType.v())) {
+      return "C";
+    }
+ else     if (type.equals(IntType.v())) {
+      return "I";
+    }
+ else     if (type.equals(LongType.v())) {
+      return "J";
+    }
+ else     if (type.equals(FloatType.v())) {
+      return "F";
+    }
+ else     if (type.equals(DoubleType.v())) {
+      return "D";
+    }
+  }
+  throw new RuntimeException("please report bug in BytecodeLanguage.convertToConstant");
+}
