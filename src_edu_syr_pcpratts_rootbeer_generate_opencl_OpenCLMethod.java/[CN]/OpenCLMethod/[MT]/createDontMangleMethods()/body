@@ -34,4 +34,5 @@
   m_dontMangleMethods.add("java_lang_System_nanoTime");
   m_dontMangleMethods.add("java_lang_Class_getName");
   m_dontMangleMethods.add("java_lang_Object_getClass");
+  m_dontMangleMethods.add("java_lang_StringValue_from");
 }
