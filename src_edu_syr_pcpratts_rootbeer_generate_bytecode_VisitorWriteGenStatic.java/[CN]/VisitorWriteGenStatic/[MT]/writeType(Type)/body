@@ -10,6 +10,9 @@
     RefType ref_type=(RefType)type;
     class_obj=m_bcl.top().classConstant(type);
   }
+  SootClass str_cls=Scene.v().getSootClass("java.lang.String");
+  m_bcl.top().pushMethod(class_obj,"getName",str_cls.getType());
+  m_bcl.top().invokeMethodRet(class_obj);
   SootClass obj_cls=Scene.v().getSootClass("java.lang.Object");
   m_bcl.top().pushMethod(gc_visit,"writeToHeap",LongType.v(),obj_cls.getType(),BooleanType.v());
   Local ref=m_bcl.top().invokeMethodRet(gc_visit,class_obj,IntConstant.v(1));
