@@ -4,7 +4,6 @@
   boolean read_only=false;
   WriteCacheResult result;
   result=checkWriteCache(o,size,read_only,mMem);
-  System.out.println("writeToHeap: " + o.getClass().getName() + " "+ result.m_Ref+ " o: "+ o.toString());
   if (result.m_NeedToWrite == false)   return result.m_Ref;
   doWriteToHeap(o,write_data,result.m_Ref,read_only);
   return result.m_Ref;
