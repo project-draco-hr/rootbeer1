@@ -5,7 +5,7 @@
   m_ExceptionHandles.activate();
   if (Configuration.getRunAllTests() == false) {
     BufferPrinter printer=new BufferPrinter();
-    printer.print(m_ToSpace.get(0),0,720);
+    printer.print(m_ToSpace.get(0),0,2048);
   }
   for (int i=0; i < m_NumBlocksRun; ++i) {
     long ref=m_ExceptionHandles.readLong();

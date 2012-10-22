@@ -3,22 +3,10 @@
     System.out.println("grhs == null");
     return false;
   }
-  if (m_Num1 != grhs.m_Num1) {
-    System.out.println("num1");
-    System.out.println("lhs: " + m_Num1);
-    System.out.println("rhs: " + grhs.m_Num1);
-    return false;
-  }
   if (m_ALong.get() != grhs.m_ALong.get()) {
     System.out.println("value");
     System.out.println("lhs: " + m_ALong.get());
     System.out.println("rhs: " + grhs.m_ALong.get());
-    return false;
-  }
-  if (m_Num2 != grhs.m_Num2) {
-    System.out.println("num2");
-    System.out.println("lhs: " + m_Num2);
-    System.out.println("rhs: " + grhs.m_Num2);
     return false;
   }
   if (grhs.m_Random == -100) {
@@ -27,6 +15,12 @@
   }
   if (grhs.m_Random2 == -100) {
     System.out.println("random2");
+    return false;
+  }
+  if (m_Num1 != grhs.m_Num1) {
+    System.out.println("num1");
+    System.out.println("lhs: " + m_Num1);
+    System.out.println("rhs: " + grhs.m_Num1);
     return false;
   }
   return true;
