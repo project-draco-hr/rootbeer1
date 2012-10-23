@@ -56,6 +56,12 @@
       }
     }
   }
+  List<String> app_classes=FastWholeProgram.v().getApplicationClasses();
+  for (  String app_class : app_classes) {
+    loadAllMethods(app_class);
+    writeClassFile(app_class);
+    writeJimpleFile(app_class);
+  }
   for (  SootClass soot_class : kernel_classes) {
     SootMethod kernel_method=soot_class.getMethod("void gpuMethod()");
     DfsInfo dfs_info=FastWholeProgram.v().getDfsInfo(kernel_method);
