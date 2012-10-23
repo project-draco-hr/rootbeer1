@@ -16,8 +16,11 @@
     test.runTests(m_testCase);
     return;
   }
+  RootbeerCompiler compiler=new RootbeerCompiler();
+  if (m_disableClassRemapping) {
+    compiler.disableClassRemapping();
+  }
   if (m_simpleCompile) {
-    RootbeerCompiler compiler=new RootbeerCompiler();
     try {
       compiler.compile(m_mainJar,m_destJar);
     }
@@ -26,7 +29,6 @@
     }
   }
  else {
-    RootbeerCompiler compiler=new RootbeerCompiler();
     try {
       compiler.compile(m_mainJar,m_libJars,m_directories,m_destJar);
     }

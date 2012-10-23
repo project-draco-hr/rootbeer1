@@ -15,10 +15,10 @@
   }
   for (  SootClass kernel : kernel_classes) {
     SootMethod kernel_method=kernel.getMethod("void gpuMethod()");
-    FastWholeProgram.v().fullyLoad(kernel_method,true);
+    FastWholeProgram.v().fullyLoad(kernel_method,true,m_disableClassRemapping);
   }
   ClassRemappingTransform transform=null;
-  if (!Main.disable_class_remapping()) {
+  if (m_disableClassRemapping=false) {
     System.out.println("remapping some classes to GPU versions...");
     for (    SootClass kernel : kernel_classes) {
       SootMethod kernel_method=kernel.getMethod("void gpuMethod()");
@@ -28,7 +28,7 @@
       transform=new ClassRemappingTransform(false);
       transform.run(sigs);
       transform.finishClone();
-      FastWholeProgram.v().fullyLoad(kernel_method,false);
+      FastWholeProgram.v().fullyLoad(kernel_method,false,m_disableClassRemapping);
       info=FastWholeProgram.v().getDfsInfo(kernel_method);
       info.setModifiedClasses(transform.getModifiedClasses());
     }
@@ -41,7 +41,7 @@
     transform2.run(soot_class.getName());
   }
   System.out.println("writing classes out...");
-  if (!Main.disable_class_remapping()) {
+  if (m_disableClassRemapping) {
     for (    SootClass kernel : kernel_classes) {
       SootMethod kernel_method=kernel.getMethod("void gpuMethod()");
       DfsInfo info=FastWholeProgram.v().getDfsInfo(kernel_method);

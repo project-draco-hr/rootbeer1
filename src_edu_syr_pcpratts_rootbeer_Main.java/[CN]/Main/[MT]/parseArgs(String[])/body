@@ -39,7 +39,7 @@
       m_printDeviceInfo=true;
     }
  else     if (arg.equals("-disable-class-remapping")) {
-      m_disable_class_remapping=true;
+      m_disableClassRemapping=true;
     }
  else     if (arg.equals("-large-mem-tests")) {
       m_largeMemTests=true;

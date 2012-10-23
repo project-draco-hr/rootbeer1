@@ -8,5 +8,6 @@
  else {
     Tweaks.setInstance(new NativeCpuTweaks());
   }
+  m_disableClassRemapping=false;
   m_fastLoader=FastWholeProgram.v();
 }
