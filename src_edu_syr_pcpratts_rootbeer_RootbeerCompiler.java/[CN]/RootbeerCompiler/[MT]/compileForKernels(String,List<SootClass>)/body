@@ -18,7 +18,7 @@
     FastWholeProgram.v().fullyLoad(kernel_method,true,m_disableClassRemapping);
   }
   ClassRemappingTransform transform=null;
-  if (m_disableClassRemapping=false) {
+  if (m_disableClassRemapping == false) {
     System.out.println("remapping some classes to GPU versions...");
     for (    SootClass kernel : kernel_classes) {
       SootMethod kernel_method=kernel.getMethod("void gpuMethod()");
