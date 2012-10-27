@@ -1,0 +1,4 @@
+{
+  m_array=array;
+  m_threadId=thread_id;
+}

@@ -1,0 +1,5 @@
+{
+  BarrierRunOnGpu lhs=(BarrierRunOnGpu)original;
+  BarrierRunOnGpu rhs=(BarrierRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}
