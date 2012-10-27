@@ -1,0 +1,12 @@
+{
+  if (System.getenv().containsKey("CUDA_BIN_PATH")) {
+    return System.getenv("CUDA_BIN_PATH");
+  }
+  for (  String path : m_unixSearchPaths) {
+    File file=new File(path + "nvcc");
+    if (file.exists()) {
+      return path;
+    }
+  }
+  return "/usr/local/cuda/bin/";
+}

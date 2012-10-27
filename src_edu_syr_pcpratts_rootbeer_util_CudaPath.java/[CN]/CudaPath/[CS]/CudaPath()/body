@@ -1,0 +1,7 @@
+{
+  m_windowsSearchPaths=new ArrayList<String>();
+  m_unixSearchPaths=new ArrayList<String>();
+  m_windowsSearchPaths.add("C:\\Program Files\\NVIDIA GPU Computing Toolkit\\CUDA\\");
+  m_windowsSearchPaths.add("C:\\Program Files (x86)\\NVIDIA GPU Computing Toolkit\\CUDA\\");
+  m_unixSearchPaths.add("/usr/local/cuda/bin/");
+}

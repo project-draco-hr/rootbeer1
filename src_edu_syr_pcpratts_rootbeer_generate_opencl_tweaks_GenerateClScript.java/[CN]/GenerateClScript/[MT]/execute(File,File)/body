@@ -1,6 +1,7 @@
 {
   String vs_path=findPath(m_VisualStudioPaths,"Visual Studio");
-  String nvidia_path=findPath(m_NvidiaPaths,"nvcc.exe");
+  CudaPath cuda_path=new CudaPath();
+  String nvidia_path=cuda_path.get();
   String file_text="";
   String endl=System.getProperty("line.separator");
   file_text+="@call \"" + vs_path + "\" amd64"+ endl;

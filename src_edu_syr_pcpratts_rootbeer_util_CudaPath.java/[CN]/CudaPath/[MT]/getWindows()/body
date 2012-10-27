@@ -1,0 +1,12 @@
+{
+  if (System.getenv().containsKey("CUDA_BIN_PATH")) {
+    return findWindowsNvcc(System.getenv("CUDA_BIN_PATH"));
+  }
+  for (  String path : m_windowsSearchPaths) {
+    String nvcc=findWindowsNvcc(path);
+    if (nvcc != null) {
+      return nvcc;
+    }
+  }
+  throw new RuntimeException("cannot find nvcc.exe. Try setting the CUDA_BIN_PATH to the folder with nvcc.exe");
+}

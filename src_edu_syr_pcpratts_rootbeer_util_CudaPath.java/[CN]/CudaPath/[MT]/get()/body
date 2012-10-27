@@ -1,0 +1,8 @@
+{
+  if (File.separator.equals("/")) {
+    return getUnix();
+  }
+ else {
+    return getWindows();
+  }
+}

@@ -4,8 +4,4 @@
   m_VisualStudioPaths.add("D:\\Program Files\\Microsoft Visual Studio 10.0\\VC\\vcvarsall.bat");
   m_VisualStudioPaths.add("C:\\Program Files (x86)\\Microsoft Visual Studio 10.0\\VC\\vcvarsall.bat");
   m_VisualStudioPaths.add("C:\\Program Files\\Microsoft Visual Studio 10.0\\VC\\vcvarsall.bat");
-  String cuda_path=System.getenv("CUDA_BIN_PATH");
-  if (cuda_path == null)   throw new RuntimeException("CUDA_BIN_PATH environment variable was not set, this may mean the Cuda Toolkit is not installed");
-  m_NvidiaPaths=new ArrayList<String>();
-  m_NvidiaPaths.add(cuda_path + "\\nvcc.exe");
 }
