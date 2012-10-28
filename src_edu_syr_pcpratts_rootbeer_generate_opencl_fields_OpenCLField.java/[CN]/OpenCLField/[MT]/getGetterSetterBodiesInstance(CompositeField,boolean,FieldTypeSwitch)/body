@@ -1,11 +1,9 @@
 {
   StringBuilder ret=new StringBuilder();
-  String var_type_string=getType().getRefString();
   List<String> decls=getDecls();
   String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
   String cast_string=getCastString();
   calculateOffsets(composite);
-  String type=getType().getRefString();
   ret.append(decls.get(0) + "{\n");
   int field_offset=getOnlyOffset();
   ret.append("if(thisref == -1){\n");

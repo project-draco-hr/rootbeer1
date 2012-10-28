@@ -2,7 +2,6 @@
   StringBuilder ret=new StringBuilder();
   List<String> decls=getDecls();
   String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
-  String var_type_string=getType().getRefString();
   StaticOffsets static_offsets=new StaticOffsets();
   int offset=static_offsets.getIndex(this);
   String cast_string=getCastString();

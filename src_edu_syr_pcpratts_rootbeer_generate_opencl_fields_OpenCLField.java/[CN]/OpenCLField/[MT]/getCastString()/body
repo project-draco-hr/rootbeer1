@@ -1,11 +1,4 @@
 {
-  String ret=getType().getRefString();
-  ;
-  if (ret.equals("boolean")) {
-    ret="char";
-  }
-  if (ret.equals("byte")) {
-    ret="char";
-  }
+  String ret=getType().getCudaTypeString();
   return ret;
 }

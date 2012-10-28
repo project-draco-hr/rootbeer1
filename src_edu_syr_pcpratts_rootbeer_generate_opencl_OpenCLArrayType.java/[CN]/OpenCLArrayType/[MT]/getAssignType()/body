@@ -2,5 +2,5 @@
   ArrayType array_type=m_arrayType;
   if (array_type.numDimensions != 1)   return "int";
   OpenCLType type=new OpenCLType(array_type.baseType);
-  return type.getRefString();
+  return type.getCudaTypeString();
 }

@@ -5,7 +5,7 @@
   }
  else {
     OpenCLType return_type=new OpenCLType(m_sootMethod.getReturnType());
-    ret.append(return_type.getRefString());
+    ret.append(return_type.getCudaTypeString());
   }
   return ret.toString();
 }

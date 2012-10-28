@@ -1,6 +1,6 @@
 {
   List<String> ret=new ArrayList<String>();
-  String type_string=getType().getRefString();
+  String type_string=getType().getCudaTypeString();
   String device_function_qual=Tweaks.v().getDeviceFunctionQualifier();
   String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
   if (m_SootField.isStatic() == false) {
