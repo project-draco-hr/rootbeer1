@@ -1,0 +1,13 @@
+{
+  try {
+    PrintWriter writer=new PrintWriter(RootbeerPaths.v().getTypeFile());
+    for (    NumberedType type : types) {
+      writer.println(type.getNumber() + " " + type.getType().toString());
+    }
+    writer.flush();
+    writer.close();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}

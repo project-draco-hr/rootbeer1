@@ -44,6 +44,6 @@
     m_EndIndex+=(16 - mod);
     m_ZerosSize+=(16 - mod);
   }
-  m_EndIndex+=16;
-  m_ZerosSize+=16;
+  m_EndIndex+=32;
+  m_ZerosSize+=32;
 }

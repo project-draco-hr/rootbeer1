@@ -1,5 +1,7 @@
 {
   m_usesGarbageCollector=false;
+  List<NumberedType> types=RootbeerScene.v().getDfsInfo().getNumberedTypes();
+  writeTypesToFile(types);
   Set<String> methods=RootbeerScene.v().getDfsInfo().getAllMethods();
   MethodSignatureUtil util=new MethodSignatureUtil();
   for (  String method_sig : methods) {

@@ -14,7 +14,7 @@
           if (isLinux()) {
             ret.append("  } else {");
             ret.append("    count++;\n");
-            ret.append("    if(count > 99 && *((int *) mystery) == 0){\n");
+            ret.append("    if(count > 50 || (*((int *) mystery)) == 0){\n");
             ret.append("      count = 0;\n");
             ret.append("    }\n");
             ret.append("  }\n");
