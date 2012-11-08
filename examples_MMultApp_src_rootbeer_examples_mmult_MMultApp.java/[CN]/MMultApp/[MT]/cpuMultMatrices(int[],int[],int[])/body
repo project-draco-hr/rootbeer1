@@ -1,0 +1,11 @@
+{
+  for (int x=0; x < a.length; ++x) {
+    for (int y=0; y < a.length; ++y) {
+      int sum=0;
+      for (int k=0; k < a.length; ++k) {
+        sum+=(a[x * a.length + y] * b[y * a.length + k]);
+      }
+      c[x * a.length + y]=sum;
+    }
+  }
+}

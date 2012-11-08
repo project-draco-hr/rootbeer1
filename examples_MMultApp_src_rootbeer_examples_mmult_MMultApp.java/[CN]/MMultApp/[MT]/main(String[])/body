@@ -1,0 +1,24 @@
+{
+  MMultApp app=new MMultApp();
+  int size=1024;
+  int[] a=new int[size * size];
+  int[] b=new int[size * size];
+  int[] c_gpu=new int[size * size];
+  int[] c_cpu=new int[size * size];
+  for (int x=0; x < size; ++x) {
+    for (int y=0; y < size; ++y) {
+      a[x * size + y]=x * size + y;
+      b[x * size + y]=x * size + y;
+    }
+  }
+  Stopwatch watch=new Stopwatch();
+  watch.start();
+  app.multMatrices(a,b,c_gpu);
+  watch.stop();
+  System.out.println("gpu time: " + watch.elapsedTimeMillis());
+  watch=new Stopwatch();
+  watch.start();
+  app.cpuMultMatrices(a,b,c_cpu);
+  watch.stop();
+  System.out.println("cpu time: " + watch.elapsedTimeMillis());
+}
