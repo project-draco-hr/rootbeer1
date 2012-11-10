@@ -14,7 +14,7 @@
   SootClass curr_class=Scene.v().getSootClass(class_name);
   SootClass parent=curr_class.getSuperclass();
   parent=Scene.v().getSootClass(parent.getName());
-  if (FastWholeProgram.v().isApplicationClass(parent)) {
+  if (parent.isApplicationClass()) {
     attachReader(parent.getName(),ref_fields);
   }
   BytecodeLanguage bcl=new BytecodeLanguage();
@@ -28,7 +28,7 @@
   m_gcObjVisitor.push(bcl.refParameter(1));
   doReader(class_name,ref_fields);
   if (parent.getName().equals("java.lang.Object") == false) {
-    if (FastWholeProgram.v().isApplicationClass(parent)) {
+    if (parent.isApplicationClass()) {
       callBaseClassReader(parent.getName(),ref_fields);
     }
  else {

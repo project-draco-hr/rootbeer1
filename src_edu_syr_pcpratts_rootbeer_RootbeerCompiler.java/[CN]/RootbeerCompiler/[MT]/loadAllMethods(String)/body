@@ -3,7 +3,7 @@
   List<SootMethod> methods=soot_class.getMethods();
   for (  SootMethod method : methods) {
     if (method.isConcrete()) {
-      m_fastLoader.loadToBodyLater(method.getSignature());
+      SootResolver.v().resolveMethod(method);
       Body body=method.retrieveActiveBody();
       SpecialInvokeFixup fixup=new SpecialInvokeFixup();
       method.setActiveBody(fixup.fixup(body));

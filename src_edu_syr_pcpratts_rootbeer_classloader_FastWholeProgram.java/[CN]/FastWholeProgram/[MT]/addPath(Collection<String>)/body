@@ -1,8 +1,0 @@
-{
-  List<String> list_paths=new ArrayList<String>();
-  list_paths.addAll(paths);
-  for (int i=0; i < list_paths.size(); ++i) {
-    list_paths.set(i,normalizePath(list_paths.get(i)));
-  }
-  m_paths.addAll(paths);
-}

@@ -1,11 +1,7 @@
 {
-  Options.v().set_allow_phantom_refs(true);
+  m_entryDetector=new KernelEntryPointDetector();
   CurrJarName jar_name=new CurrJarName();
-  extractJar(jar_filename);
-  m_fastLoader.addPath(jar_filename);
-  m_fastLoader.addRootbeerPath(jar_name.get(),run_tests);
-  m_fastLoader.addClassPath(getRuntimeJars());
-  m_fastLoader.init();
-  List<SootClass> kernel_classes=m_fastLoader.getKernelClasses();
-  compileForKernels(outname,kernel_classes);
+  setupSoot(jar_filename,jar_name.get(),run_tests);
+  List<SootMethod> kernel_methods=Scene.v().getEntryPoints();
+  compileForKernels(outname,kernel_methods);
 }

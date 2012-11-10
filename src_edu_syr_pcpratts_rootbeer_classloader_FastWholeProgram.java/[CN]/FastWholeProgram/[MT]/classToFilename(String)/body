@@ -1,5 +1,0 @@
-{
-  name=name.replace(".","/");
-  name+=".class";
-  return name;
-}

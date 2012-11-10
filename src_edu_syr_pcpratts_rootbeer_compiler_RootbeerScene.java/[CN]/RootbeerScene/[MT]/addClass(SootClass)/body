@@ -1,6 +1,0 @@
-{
-  if (m_addedClasses.contains(new_class.getName()) == false) {
-    m_addedClasses.add(new_class.getName());
-    Scene.v().addClass(new_class);
-  }
-}

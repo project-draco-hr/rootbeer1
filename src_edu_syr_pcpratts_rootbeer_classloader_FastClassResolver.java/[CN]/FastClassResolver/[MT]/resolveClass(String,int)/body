@@ -1,9 +1,0 @@
-{
-  SootClass resolved_class=makeClassRef(class_name);
-  if (resolved_class.resolvingLevel() >= desired_level) {
-    return resolved_class;
-  }
-  addToResolveWorklist(resolved_class,desired_level);
-  processResolveWorklist();
-  return resolved_class;
-}

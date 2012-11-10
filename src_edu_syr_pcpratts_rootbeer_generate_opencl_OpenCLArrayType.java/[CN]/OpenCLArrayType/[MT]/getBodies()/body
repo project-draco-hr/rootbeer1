@@ -24,7 +24,7 @@
   }
   ret.append("*((" + address_qual + " "+ getAssignType()+ " *) &thisref_deref["+ offset_size+ "+(parameter0*"+ element_size+ ")]) = parameter1;\n");
   ret.append("}\n");
-  int derived_type=RootbeerScene.v().getDfsInfo().getClassNumber(m_arrayType);
+  int derived_type=RootbeerClassLoader.v().getDfsInfo().getClassNumber(m_arrayType);
   ret.append(decls.get(2) + "{\n");
   ret.append("int i;\n");
   ret.append("int total_size = (size * " + element_size + ")+ "+ offset_size+ ";\n");

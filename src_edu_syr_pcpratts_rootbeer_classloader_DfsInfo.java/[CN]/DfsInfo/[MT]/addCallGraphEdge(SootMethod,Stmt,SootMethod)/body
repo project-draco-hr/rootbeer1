@@ -1,4 +1,0 @@
-{
-  Edge e=new Edge(src,stmt,dest);
-  m_callGraph.addEdge(e);
-}

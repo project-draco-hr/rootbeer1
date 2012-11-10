@@ -1,8 +1,8 @@
 {
   m_usesGarbageCollector=false;
-  List<NumberedType> types=RootbeerScene.v().getDfsInfo().getNumberedTypes();
+  List<NumberedType> types=RootbeerClassLoader.v().getDfsInfo().getNumberedTypes();
   writeTypesToFile(types);
-  Set<String> methods=RootbeerScene.v().getDfsInfo().getAllMethods();
+  Set<String> methods=RootbeerClassLoader.v().getDfsInfo().getAllMethods();
   MethodSignatureUtil util=new MethodSignatureUtil();
   for (  String method_sig : methods) {
     util.parse(method_sig);
@@ -10,19 +10,19 @@
     String method_sub_sig=util.getMethodSubSignature();
     SootClass soot_class=Scene.v().getSootClass(cls);
     OpenCLScene.v().addClass(soot_class);
-    SootMethod method=RootbeerScene.v().getMethod(soot_class,method_sub_sig);
+    SootMethod method=RootbeerClassLoader.v().findMethod(soot_class,method_sub_sig);
     addMethod(method);
   }
-  Set<SootField> fields=RootbeerScene.v().getDfsInfo().getFields();
+  Set<SootField> fields=RootbeerClassLoader.v().getDfsInfo().getFields();
   for (  SootField field : fields) {
     addField(field);
   }
-  Set<ArrayType> array_types=RootbeerScene.v().getDfsInfo().getArrayTypes();
+  Set<ArrayType> array_types=RootbeerClassLoader.v().getDfsInfo().getArrayTypes();
   for (  ArrayType array_type : array_types) {
     OpenCLArrayType ocl_array_type=new OpenCLArrayType(array_type);
     addArrayType(ocl_array_type);
   }
-  Set<Type> instanceofs=RootbeerScene.v().getDfsInfo().getInstanceOfs();
+  Set<Type> instanceofs=RootbeerClassLoader.v().getDfsInfo().getInstanceOfs();
   for (  Type type : instanceofs) {
     addInstanceof(type);
   }

@@ -1,3 +1,0 @@
-{
-  m_paths.add(normalizePath(path));
-}

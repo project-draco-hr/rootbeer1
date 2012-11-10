@@ -1,4 +1,0 @@
-{
-  SootMethod curr=fullyResolveMethod(curr_signature,false);
-  loadToBody(curr,false);
-}

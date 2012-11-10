@@ -1,5 +1,5 @@
 {
-  List<Type> types=RootbeerScene.v().getDfsInfo().getOrderedRefLikeTypes();
+  List<Type> types=RootbeerClassLoader.v().getDfsInfo().getOrderedRefLikeTypes();
   VisitorWriteGen write_gen=new VisitorWriteGen(types,m_className,m_bcl.top(),m_fieldInspector);
   write_gen.makeWriteToHeapMethod();
 }

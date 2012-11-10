@@ -1,7 +1,7 @@
 {
   super(inspector);
   m_bcl.push(bcl);
-  m_orderedHistory=RootbeerScene.v().getDfsInfo().getOrderedRefTypes();
+  m_orderedHistory=RootbeerClassLoader.v().getDfsInfo().getOrderedRefTypes();
   m_writeToHeapMethodsMade=new HashSet<RefType>();
   m_attachedReaders=new HashSet<String>();
   m_objSerializing=new Stack<Local>();

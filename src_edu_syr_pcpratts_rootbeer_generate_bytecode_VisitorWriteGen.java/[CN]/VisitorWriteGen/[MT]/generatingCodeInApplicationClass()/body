@@ -6,6 +6,6 @@
     return false;
   }
  else {
-    return FastWholeProgram.v().isApplicationClass(soot_class);
+    return soot_class.isApplicationClass();
   }
 }

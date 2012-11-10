@@ -1,6 +1,0 @@
-{
-  if (m_map.containsKey(cls_name)) {
-    return m_map.get(cls_name);
-  }
-  return cls_name;
-}

@@ -1,6 +1,0 @@
-{
-  if (name.endsWith(".class")) {
-    return true;
-  }
-  return false;
-}

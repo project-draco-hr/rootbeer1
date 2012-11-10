@@ -1,8 +1,0 @@
-{
-  SootClass soot_class=method.getDeclaringClass();
-  String pkg=soot_class.getPackageName();
-  if (ignorePackage(pkg)) {
-    return false;
-  }
-  return true;
-}

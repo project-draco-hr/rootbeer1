@@ -1,5 +1,4 @@
 {
-  loadToBody();
   StringBuilder ret=new StringBuilder();
   if (shouldEmitBody()) {
     ret.append(getMethodDecl(false) + "{\n");

@@ -1,3 +1,0 @@
-SootMethod kernel_method
-boolean find_reachables
-boolean disable_class_remapping

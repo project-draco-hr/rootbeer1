@@ -3,7 +3,7 @@
   if (m_sentinalCtorsCreated.contains(soot_class.getName()))   return;
   m_sentinalCtorsCreated.add(soot_class.getName());
   soot_class=Scene.v().getSootClass(soot_class.getName());
-  if (FastWholeProgram.v().isApplicationClass(soot_class) == false)   return;
+  if (soot_class.isApplicationClass() == false)   return;
   if (soot_class.declaresMethod("void <init>(edu.syr.pcpratts.rootbeer.runtime.Sentinal)")) {
     return;
   }
@@ -14,7 +14,7 @@
   bcl.startMethod("<init>",VoidType.v(),RefType.v("edu.syr.pcpratts.rootbeer.runtime.Sentinal"));
   Local thisref=bcl.refThis();
   String parent_name=parent_class.getName();
-  if (FastWholeProgram.v().isApplicationClass(parent_class) == false) {
+  if (parent_class.isApplicationClass() == false) {
     if (parent_class.declaresMethod("void <init>()")) {
       bcl.pushMethod(parent_name,"<init>",VoidType.v());
       bcl.invokeMethodNoRet(thisref);

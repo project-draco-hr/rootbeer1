@@ -1,6 +1,15 @@
 {
-  DfsInfo dfs_info=RootbeerScene.v().getDfsInfo();
-  OpenCLScene.setInstance(dfs_info.getOpenCLScene());
+  DfsInfo dfs_info=RootbeerClassLoader.v().getDfsInfo();
+  List<Type> types=dfs_info.getOrderedRefLikeTypes();
+  OpenCLScene scene=new OpenCLScene();
+  for (  Type type : types) {
+    if (type instanceof RefType == false) {
+      continue;
+    }
+    RefType ref_type=(RefType)type;
+    scene.addClass(ref_type.getSootClass());
+  }
+  OpenCLScene.setInstance(scene);
   System.out.println("running Transform2 on: " + cls);
   SootClass soot_class1=Scene.v().getSootClass(cls);
   SootMethod method=soot_class1.getMethod("void gpuMethod()");

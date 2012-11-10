@@ -1,9 +1,0 @@
-{
-  m_classRemapping=new ClassRemapping();
-  if (!map_runtime) {
-    m_classRemapping.loadMap();
-  }
-  m_fieldsToFix=new HashMap<SootField,List<FieldRef>>();
-  m_modified=new HashSet<String>();
-  m_addedMethods=new ArrayList<SootMethod>();
-}

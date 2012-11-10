@@ -1,6 +1,0 @@
-{
-  m_paths.add(path);
-  if (run_tests == false) {
-    m_keepPackages.remove("edu.syr.pcpratts.rootbeer.testcases.");
-  }
-}

@@ -1,0 +1,3 @@
+String jar_filename
+String rootbeer_jar
+boolean runtests

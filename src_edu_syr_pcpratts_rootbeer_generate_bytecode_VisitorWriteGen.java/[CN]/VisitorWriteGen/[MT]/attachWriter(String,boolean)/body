@@ -13,7 +13,7 @@
   SootClass curr_class=Scene.v().getSootClass(class_name);
   SootClass parent=curr_class.getSuperclass();
   parent=Scene.v().getSootClass(parent.getName());
-  if (FastWholeProgram.v().isApplicationClass(parent)) {
+  if (parent.isApplicationClass()) {
     attachWriter(parent.getName(),ref_fields);
   }
   BytecodeLanguage bcl=new BytecodeLanguage();
@@ -36,7 +36,7 @@
   }
   doWriter(class_name,ref_fields,true);
   if (parent.getName().equals("java.lang.Object") == false) {
-    if (FastWholeProgram.v().isApplicationClass(parent)) {
+    if (parent.isApplicationClass()) {
       callBaseClassWriter(parent.getName(),ref_fields);
     }
  else {
@@ -58,7 +58,7 @@
       Local ref=bcl.indexArray(m_Array,IntConstant.v(i));
       bcl_mem.writeRef(ref);
     }
-    if (FastWholeProgram.v().isApplicationClass(parent))     invokeWriteRefs(parent,m_CurrentMem.top());
+    if (parent.isApplicationClass())     invokeWriteRefs(parent,m_CurrentMem.top());
     bcl.returnVoid();
     bcl.endMethod();
     m_CurrObj.pop();

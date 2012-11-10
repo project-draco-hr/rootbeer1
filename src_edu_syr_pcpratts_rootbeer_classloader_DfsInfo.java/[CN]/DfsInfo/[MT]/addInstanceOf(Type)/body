@@ -1,5 +1,0 @@
-{
-  if (m_instanceOfs.contains(type) == false) {
-    m_instanceOfs.add(type);
-  }
-}

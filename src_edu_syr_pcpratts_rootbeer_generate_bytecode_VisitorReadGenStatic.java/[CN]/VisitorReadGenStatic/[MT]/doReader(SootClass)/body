@@ -12,7 +12,7 @@
       bcl_mem.setAddress(LongConstant.v(m_staticOffsets.getIndex(field)));
       Local ref=bcl_mem.readRef();
       bcl_mem.useInstancePointer();
-      if (FastWholeProgram.v().isApplicationClass(soot_class)) {
+      if (soot_class.isApplicationClass()) {
         bcl_mem.useStaticPointer();
         bcl_mem.setAddress(LongConstant.v(m_staticOffsets.getIndex(field)));
         field_value=bcl_mem.readVar(field.getType().getSootType());
@@ -44,7 +44,7 @@
     if (field.isFinal()) {
       continue;
     }
-    if (FastWholeProgram.v().isApplicationClass(soot_class)) {
+    if (soot_class.isApplicationClass()) {
       bcl.setStaticField(field.getSootField(),field_value);
     }
  else {

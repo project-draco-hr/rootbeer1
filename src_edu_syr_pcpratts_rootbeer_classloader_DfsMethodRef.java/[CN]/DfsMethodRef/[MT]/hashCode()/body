@@ -1,6 +1,0 @@
-{
-  int hash=3;
-  hash=23 * hash + (this.m_ref != null ? this.m_ref.hashCode() : 0);
-  hash=23 * hash + (this.m_stmt != null ? this.m_stmt.hashCode() : 0);
-  return hash;
-}

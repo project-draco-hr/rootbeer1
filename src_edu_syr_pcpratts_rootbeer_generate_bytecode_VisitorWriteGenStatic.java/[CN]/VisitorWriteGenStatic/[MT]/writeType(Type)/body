@@ -1,5 +1,5 @@
 {
-  int number=RootbeerScene.v().getDfsInfo().getClassNumber(type);
+  int number=RootbeerClassLoader.v().getDfsInfo().getClassNumber(type);
   Local gc_visit=m_gcObjVisitor.top();
   Local class_obj=null;
   if (type instanceof ArrayType) {

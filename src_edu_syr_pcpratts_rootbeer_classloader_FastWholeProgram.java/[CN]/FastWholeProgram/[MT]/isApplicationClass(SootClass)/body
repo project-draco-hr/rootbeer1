@@ -1,5 +1,0 @@
-{
-  String filename=classToFilename(soot_class.getName());
-  String jar_name=m_resolver.getJarNameForFilename(filename,soot_class.getName());
-  return isApplicationJar(jar_name);
-}

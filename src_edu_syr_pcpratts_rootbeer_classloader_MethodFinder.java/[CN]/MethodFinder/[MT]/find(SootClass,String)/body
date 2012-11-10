@@ -1,8 +1,0 @@
-{
-  try {
-    return soot_class.getMethod(method_subsig);
-  }
- catch (  Exception ex) {
-    return null;
-  }
-}

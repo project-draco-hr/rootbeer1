@@ -1,3 +1,0 @@
-{
-  return m_childrenToParents.get(sootClass.getType().toString());
-}

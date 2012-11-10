@@ -13,14 +13,14 @@
   List<PermissionGraphNode> roots=graph.getRoots();
   for (  PermissionGraphNode node : roots) {
     SootClass soot_class=node.getSootClass();
-    if (FastWholeProgram.v().isApplicationClass(soot_class)) {
+    if (soot_class.isApplicationClass()) {
       attachAndCallWriter(soot_class,node.getChildren());
     }
  else {
       doWriter(soot_class);
     }
   }
-  Set<ArrayType> array_types=RootbeerScene.v().getDfsInfo().getArrayTypes();
+  Set<ArrayType> array_types=RootbeerClassLoader.v().getDfsInfo().getArrayTypes();
   for (  ArrayType type : array_types) {
     writeType(type);
   }

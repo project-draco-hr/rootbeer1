@@ -1,5 +1,0 @@
-{
-  if (m_dfsTypes.contains(name) == false) {
-    m_dfsTypes.add(name);
-  }
-}

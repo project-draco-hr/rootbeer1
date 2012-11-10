@@ -13,7 +13,7 @@
       base_class=base_class.getSuperclass();
     }
   }
-  List<Type> types=RootbeerScene.v().getDfsInfo().getHierarchy(original_class);
+  List<Type> types=RootbeerClassLoader.v().getDfsInfo().getHierarchy(original_class);
   for (  Type type : types) {
     if (type instanceof RefType == false) {
       continue;

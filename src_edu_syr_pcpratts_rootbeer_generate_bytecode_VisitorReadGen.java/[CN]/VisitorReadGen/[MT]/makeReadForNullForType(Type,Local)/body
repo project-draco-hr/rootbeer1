@@ -3,13 +3,13 @@
   if (type_to_create instanceof RefType) {
     RefType ref_type=(RefType)type_to_create;
     SootClass soot_class=getClassForType(ref_type);
-    if (FastWholeProgram.v().isApplicationClass(soot_class) == false) {
+    if (soot_class.isApplicationClass() == false) {
       if (soot_class.declaresMethod("void <init>()") == false) {
         return;
       }
     }
   }
-  int id=RootbeerScene.v().getDfsInfo().getClassNumber(type_to_create);
+  int id=RootbeerClassLoader.v().getDfsInfo().getClassNumber(type_to_create);
   String label_after=getNextLabel();
   BytecodeLanguage bcl=m_bcl.top();
   bcl.ifStmt(type_id,"!=",IntConstant.v(id),label_after);
@@ -19,7 +19,7 @@
     RefType ref_type=(RefType)type_to_create;
     SootClass soot_class=getClassForType(ref_type);
     String name=ref_type.getClassName();
-    if (FastWholeProgram.v().isApplicationClass(soot_class) == false) {
+    if (soot_class.isApplicationClass() == false) {
       if (soot_class.declaresMethod("void <init>()")) {
         new_object=bcl.newInstance(name);
       }

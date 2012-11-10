@@ -1,6 +1,0 @@
-{
-  System.out.println("building class hierarchy...");
-  m_currDfsInfo.expandArrayTypes();
-  m_currDfsInfo.orderTypes();
-  m_currDfsInfo.createClassHierarchy();
-}

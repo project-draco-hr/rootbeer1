@@ -1,5 +1,0 @@
-{
-  String value=cc.getValue();
-  Type type=m_classConstantReader.stringToType(value);
-  addType(type);
-}

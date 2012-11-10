@@ -1,15 +1,8 @@
 {
-  Options.v().set_allow_phantom_refs(true);
-  extractJar(jar_filename);
-  m_fastLoader.addPath(jar_filename);
-  m_fastLoader.addClassPath(getRuntimeJars());
-  m_fastLoader.init();
-  FindKernelForTestCase finder=new FindKernelForTestCase();
-  SootClass kernel=finder.get(test_case,m_fastLoader.getKernelClasses());
-  m_provider=finder.getProvider();
-  SootMethod kernel_method=kernel.getMethod("void gpuMethod()");
-  m_fastLoader.singleKernel(kernel_method);
-  List<SootClass> kernel_classes=new ArrayList<SootClass>();
-  kernel_classes.add(kernel);
-  compileForKernels(outname,kernel_classes);
+  TestCaseEntryPointDetector detector=new TestCaseEntryPointDetector(test_case);
+  m_entryDetector=detector;
+  setupSoot(jar_filename,"",true);
+  m_provider=detector.getProvider();
+  List<SootMethod> kernel_methods=Scene.v().getEntryPoints();
+  compileForKernels(outname,kernel_methods);
 }

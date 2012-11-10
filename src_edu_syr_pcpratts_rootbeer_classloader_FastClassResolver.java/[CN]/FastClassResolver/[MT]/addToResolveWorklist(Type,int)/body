@@ -1,4 +1,0 @@
-{
-  if (type instanceof RefType)   addToResolveWorklist(((RefType)type).getClassName(),level);
- else   if (type instanceof ArrayType)   addToResolveWorklist(((ArrayType)type).baseType,level);
-}

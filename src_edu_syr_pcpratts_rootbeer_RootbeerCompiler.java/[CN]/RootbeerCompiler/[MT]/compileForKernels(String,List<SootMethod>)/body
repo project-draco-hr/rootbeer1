@@ -1,0 +1,37 @@
+{
+  if (kernel_methods.isEmpty()) {
+    System.out.println("There are no kernel classes. Please implement the following interface to use rootbeer:");
+    System.out.println("edu.syr.pcpratts.rootbeer.runtime.Kernel");
+    System.exit(0);
+  }
+  if (m_enableClassRemapping) {
+    RootbeerClassLoader.v().remapClasses();
+  }
+  Transform2 transform2=new Transform2();
+  for (  SootMethod kernel_method : kernel_methods) {
+    RootbeerClassLoader.v().loadDfsInfo(kernel_method);
+    SootClass soot_class=kernel_method.getDeclaringClass();
+    transform2.run(soot_class.getName());
+  }
+  System.out.println("writing classes out...");
+  List<SootClass> remapped_classes=Scene.v().getRemappedClasses();
+  for (  SootClass cls : remapped_classes) {
+    loadAllMethods(cls.getName());
+    writeClassFile(cls.getName());
+    writeJimpleFile(cls.getName());
+  }
+  Chain<SootClass> app_classes=Scene.v().getApplicationClasses();
+  for (  SootClass app_class : app_classes) {
+    loadAllMethods(app_class.getName());
+    writeClassFile(app_class.getName());
+    writeJimpleFile(app_class.getName());
+  }
+  List<SootClass> added_classes=Scene.v().getGeneratedClasses();
+  for (  SootClass cls : added_classes) {
+    loadAllMethods(cls.getName());
+    writeClassFile(cls.getName());
+    writeJimpleFile(cls.getName());
+  }
+  makeOutJar();
+  pack(outname);
+}

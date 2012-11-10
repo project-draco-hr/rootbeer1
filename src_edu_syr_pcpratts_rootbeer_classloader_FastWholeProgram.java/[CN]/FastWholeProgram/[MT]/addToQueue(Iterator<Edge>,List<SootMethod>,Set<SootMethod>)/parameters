@@ -1,3 +1,0 @@
-Iterator<Edge> edges
-List<SootMethod> queue
-Set<SootMethod> visited

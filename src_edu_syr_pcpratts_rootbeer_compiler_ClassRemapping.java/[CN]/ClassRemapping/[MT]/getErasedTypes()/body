@@ -1,8 +1,0 @@
-{
-  List<Type> ret=new ArrayList<Type>();
-  for (  String cls : m_map.keySet()) {
-    SootClass soot_class=Scene.v().getSootClass(cls);
-    ret.add(soot_class.getType());
-  }
-  return ret;
-}

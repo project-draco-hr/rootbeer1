@@ -1,5 +1,0 @@
-{
-  if (m_types.contains(type) == false) {
-    m_types.add(type);
-  }
-}

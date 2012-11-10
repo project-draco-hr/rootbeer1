@@ -5,7 +5,7 @@
   SootClass parent=curr_class.getSuperclass();
   parent=Scene.v().getSootClass(parent.getName());
   if (parent.getName().equals("java.lang.Object") == false) {
-    if (FastWholeProgram.v().isApplicationClass(parent)) {
+    if (parent.isApplicationClass()) {
       attachReader(parent.getName(),ref_fields);
       callBaseClassReader(parent.getName(),ref_fields);
     }

@@ -1,5 +1,5 @@
 {
-  List<Type> class_hierarchy=RootbeerScene.v().getDfsInfo().getHierarchy(m_sootMethod.getDeclaringClass());
+  List<Type> class_hierarchy=RootbeerClassLoader.v().getDfsInfo().getHierarchy(m_sootMethod.getDeclaringClass());
   for (  Type type : class_hierarchy) {
     if (type instanceof RefType == false) {
       continue;

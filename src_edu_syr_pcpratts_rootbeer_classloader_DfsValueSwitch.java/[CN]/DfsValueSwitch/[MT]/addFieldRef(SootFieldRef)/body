@@ -1,5 +1,0 @@
-{
-  if (m_fields.contains(ref) == false) {
-    m_fields.add(ref);
-  }
-}

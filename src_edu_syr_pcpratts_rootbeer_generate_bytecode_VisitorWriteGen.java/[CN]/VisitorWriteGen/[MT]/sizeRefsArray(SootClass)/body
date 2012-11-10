@@ -4,6 +4,6 @@
     ret+=getRefFields(soot_class).size();
     soot_class=Scene.v().getSootClass(soot_class.getSuperclass().getName());
     if (soot_class.getName().equals("java.lang.Object"))     return ret;
-    if (FastWholeProgram.v().isApplicationClass(soot_class))     return ret;
+    if (soot_class.isApplicationClass())     return ret;
   }
 }

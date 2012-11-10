@@ -1,0 +1,17 @@
+{
+  if (m_testCase.contains(".") == false) {
+    String new_test_case=findTestCaseClass(m_testCase);
+    if (new_test_case == null) {
+      System.out.println("cannot find test case class: " + m_testCase);
+      System.exit(0);
+    }
+    m_testCase=new_test_case;
+  }
+  m_provider=m_testCase;
+  SootClass prov_class=Scene.v().getSootClass(m_provider);
+  SootMethod method=prov_class.getMethodByName("create");
+  SootClass kernel_class=searchMethod(method);
+  SootMethod gpu_method=kernel_class.getMethodByName("gpuMethod");
+  m_signature=gpu_method.getSignature();
+  m_initialized=true;
+}

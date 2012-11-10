@@ -1,4 +1,0 @@
-{
-  addType(ioe.getCheckType());
-  addInstanceOfType(ioe.getCheckType());
-}

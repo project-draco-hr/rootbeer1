@@ -1,0 +1,55 @@
+{
+  extractJar(jar_filename);
+  List<String> proc_dir=new ArrayList<String>();
+  proc_dir.add(Constants.JAR_CONTENTS_FOLDER);
+  Options.v().set_allow_phantom_refs(true);
+  Options.v().set_rbclassload(true);
+  Options.v().set_prepend_classpath(true);
+  Options.v().set_process_dir(proc_dir);
+  if (m_enableClassRemapping) {
+    Options.v().set_rbclassload_buildcg(true);
+  }
+  if (rootbeer_jar.equals("") == false) {
+    Options.v().set_soot_classpath(rootbeer_jar);
+  }
+  RootbeerClassLoader.v().addEntryPointDetector(m_entryDetector);
+  RootbeerClassLoader.v().addIgnorePackage("edu.syr.pcpratts.compressor.");
+  RootbeerClassLoader.v().addIgnorePackage("edu.syr.pcpratts.deadmethods.");
+  RootbeerClassLoader.v().addIgnorePackage("edu.syr.pcpratts.jpp.");
+  RootbeerClassLoader.v().addIgnorePackage("edu.syr.pcpratts.rootbeer.");
+  RootbeerClassLoader.v().addIgnorePackage("pack.");
+  RootbeerClassLoader.v().addIgnorePackage("jasmin.");
+  RootbeerClassLoader.v().addIgnorePackage("soot.");
+  RootbeerClassLoader.v().addIgnorePackage("beaver.");
+  RootbeerClassLoader.v().addIgnorePackage("polyglot.");
+  RootbeerClassLoader.v().addIgnorePackage("org.antlr.");
+  RootbeerClassLoader.v().addIgnorePackage("java_cup.");
+  RootbeerClassLoader.v().addIgnorePackage("ppg.");
+  RootbeerClassLoader.v().addIgnorePackage("antlr.");
+  RootbeerClassLoader.v().addIgnorePackage("jas.");
+  RootbeerClassLoader.v().addIgnorePackage("scm.");
+  RootbeerClassLoader.v().addIgnorePackage("org.xmlpull.v1.");
+  RootbeerClassLoader.v().addIgnorePackage("android.util.");
+  RootbeerClassLoader.v().addIgnorePackage("android.content.res.");
+  RootbeerClassLoader.v().addIgnorePackage("org.apache.commons.codec.");
+  if (runtests) {
+    RootbeerClassLoader.v().addKeepPackages("edu.syr.pcpratts.rootbeer.testcases.");
+  }
+  RootbeerClassLoader.v().addKeepPackages("edu.syr.pcpratts.rootbeer.runtime.remap.");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.generate.bytecode.Constants");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.runtime.RootbeerFactory");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.runtime.Rootbeer");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.runtime.Kernel");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.runtime.CompiledKernel");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.runtime.Serializer");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.runtime.Sentinal");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.test.TestSerialization");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.test.TestSerializationFactory");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.test.TestException");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.test.TestExceptionFactory");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.runtime.util.Stopwatch");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.runtime.PrivateFields");
+  RootbeerClassLoader.v().loadNecessaryClasses();
+}

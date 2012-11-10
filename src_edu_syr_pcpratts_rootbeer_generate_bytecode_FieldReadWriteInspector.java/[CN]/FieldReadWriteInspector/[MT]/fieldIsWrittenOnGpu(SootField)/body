@@ -14,7 +14,7 @@
   SootClass soot_class=Scene.v().getSootClass(soot_type.toString());
   if (mWritenOnGpuFieldsClassesChecked.contains(soot_type.toString()))   return false;
   mWritenOnGpuFieldsClassesChecked.add(soot_type.toString());
-  List<Type> hierarchy=RootbeerScene.v().getDfsInfo().getHierarchy(soot_class);
+  List<Type> hierarchy=RootbeerClassLoader.v().getDfsInfo().getHierarchy(soot_class);
   for (  Type curr_type : hierarchy) {
     if (curr_type instanceof RefType == false) {
       continue;

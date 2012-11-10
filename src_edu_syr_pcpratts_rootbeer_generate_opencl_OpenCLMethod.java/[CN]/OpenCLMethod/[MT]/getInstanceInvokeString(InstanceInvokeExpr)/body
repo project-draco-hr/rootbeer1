@@ -9,7 +9,7 @@
   }
  else   if (base_type instanceof RefType) {
     RefType ref_type=(RefType)base_type;
-    hierarchy=RootbeerScene.v().getDfsInfo().getHierarchy(ref_type.getSootClass());
+    hierarchy=RootbeerClassLoader.v().getDfsInfo().getHierarchy(ref_type.getSootClass());
   }
  else {
     throw new UnsupportedOperationException("how do we handle this case?");

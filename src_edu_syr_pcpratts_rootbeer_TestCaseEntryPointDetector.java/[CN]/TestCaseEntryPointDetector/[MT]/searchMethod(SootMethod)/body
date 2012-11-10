@@ -1,0 +1,19 @@
+{
+  Body body=method.retrieveActiveBody();
+  List<ValueBox> boxes=body.getUseAndDefBoxes();
+  for (  ValueBox box : boxes) {
+    Value value=box.getValue();
+    if (value instanceof InvokeExpr) {
+      InvokeExpr expr=(InvokeExpr)value;
+      SootClass to_call=expr.getMethodRef().declaringClass();
+      Iterator<SootClass> iter=to_call.getInterfaces().iterator();
+      while (iter.hasNext()) {
+        SootClass iface=iter.next();
+        if (iface.getName().equals("edu.syr.pcpratts.rootbeer.runtime.Kernel")) {
+          return to_call;
+        }
+      }
+    }
+  }
+  return null;
+}

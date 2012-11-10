@@ -1,7 +1,0 @@
-{
-  Type ret_type=method.getReturnType();
-  method.setReturnType(fixType(ret_type));
-  List param_types=method.getParameterTypes();
-  List new_types=fixParameterList(param_types);
-  method.setParameterTypes(new_types);
-}

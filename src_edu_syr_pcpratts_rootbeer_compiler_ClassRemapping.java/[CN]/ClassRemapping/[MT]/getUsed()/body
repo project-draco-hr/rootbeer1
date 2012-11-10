@@ -1,7 +1,0 @@
-{
-  loadMap();
-  List<String> ret=new ArrayList<String>();
-  ret.addAll(m_runtimeClasses);
-  ret.addAll(m_clonedMap.values());
-  return ret;
-}

@@ -1,4 +1,0 @@
-{
-  String new_class=m_classRemapping.get(soot_class.getName());
-  return Scene.v().getSootClass(new_class);
-}
