@@ -1,6 +1,0 @@
-{
-  String sig="<rootbeertest.GpuWorkItem: void <init>()>";
-  MethodSignatureUtil util=new MethodSignatureUtil();
-  util.parse(sig);
-  util.print();
-}
