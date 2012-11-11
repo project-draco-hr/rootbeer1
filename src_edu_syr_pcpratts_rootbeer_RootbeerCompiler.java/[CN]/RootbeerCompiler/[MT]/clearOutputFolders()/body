@@ -3,4 +3,5 @@
   deleter.delete(Constants.OUTPUT_JAR_FOLDER);
   deleter.delete(Constants.OUTPUT_CLASS_FOLDER);
   deleter.delete(Constants.OUTPUT_SHIMPLE_FOLDER);
+  deleter.delete(Constants.JAR_CONTENTS_FOLDER);
 }
