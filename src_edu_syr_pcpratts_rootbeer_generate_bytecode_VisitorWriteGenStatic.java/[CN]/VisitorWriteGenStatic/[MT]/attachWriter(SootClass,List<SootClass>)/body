@@ -11,10 +11,7 @@
   Local gc_visit=bcl.refParameter(1);
   m_currMem.push(memory);
   m_gcObjVisitor.push(gc_visit);
-  doWriter(soot_class);
-  for (  SootClass child : children) {
-    attachAndCallWriter(child,new ArrayList<SootClass>());
-  }
+  doWriter(soot_class,children);
   bcl.returnVoid();
   bcl.endMethod();
   m_gcObjVisitor.pop();

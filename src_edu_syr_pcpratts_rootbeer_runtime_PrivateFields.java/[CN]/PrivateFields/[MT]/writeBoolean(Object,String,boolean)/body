@@ -1,8 +1,0 @@
-{
-  try {
-    getField(obj,name).setBoolean(obj,value);
-  }
- catch (  Exception ex) {
-    throw new RuntimeException(ex);
-  }
-}

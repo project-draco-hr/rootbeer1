@@ -1,8 +1,0 @@
-{
-  try {
-    return getField(obj,name).getShort(obj);
-  }
- catch (  Exception ex) {
-    throw new RuntimeException(ex);
-  }
-}
