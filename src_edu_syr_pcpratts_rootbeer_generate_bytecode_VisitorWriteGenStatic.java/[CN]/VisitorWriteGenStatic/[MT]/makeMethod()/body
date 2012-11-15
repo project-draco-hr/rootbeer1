@@ -17,7 +17,7 @@
       attachAndCallWriter(soot_class,node.getChildren());
     }
  else {
-      doWriter(soot_class,node.getChildren());
+      doWriter(soot_class,new ArrayList<SootClass>());
     }
   }
   Set<ArrayType> array_types=RootbeerClassLoader.v().getDfsInfo().getArrayTypes();
