@@ -4,6 +4,6 @@
     return calc.getSize(m_SootClass);
   }
  catch (  RuntimeException ex) {
-    return 0;
+    return edu.syr.pcpratts.rootbeer.generate.bytecode.Constants.SizeGcInfo;
   }
 }
