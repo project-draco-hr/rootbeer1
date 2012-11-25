@@ -1,0 +1,5 @@
+{
+  String lhs=m_file.getAbsolutePath();
+  String rhs=o.m_file.getAbsolutePath();
+  return rhs.compareTo(lhs);
+}

@@ -4,9 +4,21 @@
     return null;
   }
   File[] children=file.listFiles();
+  FileSorter[] sorted_children=new FileSorter[children.length];
+  for (int i=0; i < children.length; ++i) {
+    File child=children[i];
+    sorted_children[i]=new FileSorter(child);
+  }
+  Arrays.sort(sorted_children);
+  for (int i=0; i < sorted_children.length; ++i) {
+    children[i]=sorted_children[i].getFile();
+  }
   for (  File child : children) {
     if (child.isDirectory()) {
-      findWindowsNvcc(child.getAbsolutePath());
+      String nvcc=findWindowsNvcc(child.getAbsolutePath());
+      if (nvcc != null) {
+        return nvcc;
+      }
     }
  else {
       if (child.getName().equals("nvcc.exe")) {
