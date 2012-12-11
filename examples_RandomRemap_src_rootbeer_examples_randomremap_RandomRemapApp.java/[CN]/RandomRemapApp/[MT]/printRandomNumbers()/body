@@ -1,0 +1,13 @@
+{
+  Random random=new Random();
+  List<Kernel> jobs=new ArrayList<Kernel>();
+  for (int i=0; i < 50; ++i) {
+    jobs.add(new RandomRemap(random));
+  }
+  Rootbeer rootbeer=new Rootbeer();
+  rootbeer.runAll(jobs);
+  for (int i=0; i < jobs.size(); ++i) {
+    RandomRemap curr=(RandomRemap)jobs.get(i);
+    System.out.println(curr.getRandomNumber());
+  }
+}

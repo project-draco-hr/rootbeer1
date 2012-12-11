@@ -1,0 +1,3 @@
+{
+  m_randomNumber=m_random.nextInt();
+}
