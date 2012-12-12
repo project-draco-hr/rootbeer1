@@ -29,10 +29,17 @@
  else     if (arg.equals("-runtests")) {
       m_runTests=true;
       m_testCase=null;
+      m_runHardTests=true;
+    }
+ else     if (arg.equals("-runeasytests")) {
+      m_runTests=true;
+      m_testCase=null;
+      m_runHardTests=false;
     }
  else     if (arg.equals("-runtest")) {
       m_runTests=true;
       m_testCase=safeGet(args,i + 1,"-runtest");
+      m_runHardTests=true;
       ++i;
     }
  else     if (arg.equals("-printdeviceinfo")) {

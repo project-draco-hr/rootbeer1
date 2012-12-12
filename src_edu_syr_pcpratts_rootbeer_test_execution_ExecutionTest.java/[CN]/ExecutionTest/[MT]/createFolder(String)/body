@@ -1,5 +1,0 @@
-{
-  File f=new File(folder);
-  if (f.exists())   return;
-  f.mkdirs();
-}

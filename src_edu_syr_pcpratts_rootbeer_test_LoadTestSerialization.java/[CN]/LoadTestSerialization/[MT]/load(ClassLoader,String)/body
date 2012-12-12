@@ -1,5 +1,0 @@
-{
-  Object instance=doLoad(loader,class_name);
-  TestSerializationFactory factory=(TestSerializationFactory)instance;
-  return factory.getProviders();
-}

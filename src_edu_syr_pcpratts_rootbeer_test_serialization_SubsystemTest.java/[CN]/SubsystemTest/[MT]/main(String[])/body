@@ -1,4 +1,0 @@
-{
-  SubsystemTest test=new SubsystemTest();
-  test.testJar("../Rootbeer-Test1/dist/Rootbeer-Test1.jar","test.jar");
-}

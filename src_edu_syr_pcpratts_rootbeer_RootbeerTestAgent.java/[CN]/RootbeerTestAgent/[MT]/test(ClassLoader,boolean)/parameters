@@ -1,0 +1,2 @@
+ClassLoader cls_loader
+boolean run_hard_tests

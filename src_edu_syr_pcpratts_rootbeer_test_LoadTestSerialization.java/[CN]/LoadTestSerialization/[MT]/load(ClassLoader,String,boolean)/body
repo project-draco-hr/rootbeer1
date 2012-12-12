@@ -1,0 +1,8 @@
+{
+  Object instance=doLoad(loader,class_name);
+  TestSerializationFactory factory=(TestSerializationFactory)instance;
+  if (run_hard_tests) {
+    factory.makeHarder();
+  }
+  return factory.getProviders();
+}

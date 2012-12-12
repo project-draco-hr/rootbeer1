@@ -1,0 +1,3 @@
+ClassLoader loader
+String class_name
+boolean run_hard_tests

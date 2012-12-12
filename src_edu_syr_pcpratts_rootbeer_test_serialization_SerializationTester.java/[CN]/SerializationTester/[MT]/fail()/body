@@ -1,4 +1,0 @@
-{
-  BufferPrinter printer=new BufferPrinter();
-  printer.print(m_ToSpace,0,256 + 64);
-}
