@@ -1,7 +1,7 @@
 {
   DeleteFolder deleter=new DeleteFolder();
-  deleter.delete(Constants.OUTPUT_JAR_FOLDER);
-  deleter.delete(Constants.OUTPUT_CLASS_FOLDER);
-  deleter.delete(Constants.OUTPUT_SHIMPLE_FOLDER);
-  deleter.delete(Constants.JAR_CONTENTS_FOLDER);
+  deleter.delete(RootbeerPaths.v().getOutputJarFolder());
+  deleter.delete(RootbeerPaths.v().getOutputClassFolder());
+  deleter.delete(RootbeerPaths.v().getOutputShimpleFolder());
+  deleter.delete(RootbeerPaths.v().getJarContentsFolder());
 }

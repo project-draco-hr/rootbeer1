@@ -1,7 +1,7 @@
 {
   try {
     InputStream fin=url.openStream();
-    String outfilename=Constants.JAR_CONTENTS_FOLDER + cls;
+    String outfilename=RootbeerPaths.v().getJarContentsFolder() + cls;
     if (m_UseDirectories)     JarEntryHelp.mkdir(outfilename);
     writeToFile(fin,outfilename);
   }

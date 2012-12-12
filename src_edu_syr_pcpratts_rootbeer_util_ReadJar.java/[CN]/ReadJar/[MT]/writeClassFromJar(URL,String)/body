@@ -7,7 +7,7 @@
       JarEntry entry=entries.nextElement();
       if (jarEntryEqual(entry.getName(),cls) == false)       continue;
       String entry_name=entry.getName();
-      String filename=Constants.JAR_CONTENTS_FOLDER + File.separator + entry_name;
+      String filename=RootbeerPaths.v().getJarContentsFolder() + File.separator + entry_name;
       if (m_UseDirectories)       JarEntryHelp.mkdir(filename);
       if (entry.isDirectory()) {
         return;

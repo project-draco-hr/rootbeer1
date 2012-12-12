@@ -1,6 +1,6 @@
 {
   clearOutputFolders();
-  m_classOutputFolder=Constants.OUTPUT_CLASS_FOLDER;
+  m_classOutputFolder=RootbeerPaths.v().getOutputClassFolder();
   m_jimpleOutputFolder="output-jimple";
   if (Configuration.compilerInstance().getMode() == Configuration.MODE_GPU) {
     Tweaks.setInstance(new CudaTweaks());

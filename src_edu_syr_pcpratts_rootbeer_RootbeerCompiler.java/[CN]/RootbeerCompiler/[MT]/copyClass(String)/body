@@ -2,7 +2,7 @@
   String dest=classNameToFileName(cls,false);
   String src=cls.replace(".",File.separator);
   src+=".class";
-  File f=new File(Constants.JAR_CONTENTS_FOLDER);
+  File f=new File(RootbeerPaths.v().getJarContentsFolder());
   src=f.getAbsolutePath() + File.separator + src;
   copyFile(dest,src);
 }

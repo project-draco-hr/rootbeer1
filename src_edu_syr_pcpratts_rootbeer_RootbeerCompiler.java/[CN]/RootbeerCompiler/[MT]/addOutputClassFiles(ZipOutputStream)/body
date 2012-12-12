@@ -1,6 +1,6 @@
 {
-  List<File> output_class_files=getFiles(Constants.OUTPUT_CLASS_FOLDER);
+  List<File> output_class_files=getFiles(RootbeerPaths.v().getOutputClassFolder());
   for (  File f : output_class_files) {
-    writeFileToOutput(f,zos,Constants.OUTPUT_CLASS_FOLDER);
+    writeFileToOutput(f,zos,RootbeerPaths.v().getOutputClassFolder());
   }
 }

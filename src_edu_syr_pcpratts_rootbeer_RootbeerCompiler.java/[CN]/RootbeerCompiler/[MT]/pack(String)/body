@@ -1,6 +1,6 @@
 {
   Pack p=new Pack();
-  String main_jar=Constants.OUTPUT_JAR_FOLDER + File.separator + "partial-ret.jar";
+  String main_jar=RootbeerPaths.v().getOutputJarFolder() + File.separator + "partial-ret.jar";
   List<String> lib_jars=new ArrayList<String>();
   CurrJarName jar_name=new CurrJarName();
   lib_jars.add(jar_name.get());

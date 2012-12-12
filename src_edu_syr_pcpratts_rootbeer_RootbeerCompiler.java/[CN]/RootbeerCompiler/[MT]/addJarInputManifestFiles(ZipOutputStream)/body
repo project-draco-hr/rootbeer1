@@ -1,8 +1,8 @@
 {
-  List<File> jar_input_files=getFiles(Constants.JAR_CONTENTS_FOLDER);
+  List<File> jar_input_files=getFiles(RootbeerPaths.v().getJarContentsFolder());
   for (  File f : jar_input_files) {
     if (f.getPath().contains("META-INF")) {
-      writeFileToOutput(f,zos,Constants.JAR_CONTENTS_FOLDER);
+      writeFileToOutput(f,zos,RootbeerPaths.v().getJarContentsFolder());
     }
   }
 }
