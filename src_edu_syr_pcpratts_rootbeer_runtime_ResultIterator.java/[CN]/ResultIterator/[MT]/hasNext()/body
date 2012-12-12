@@ -1,12 +1,12 @@
 {
-  if (m_CurrIter.hasNext())   return true;
-  if (m_JobsToEnqueue.hasNext() == false)   return false;
+  if (m_currIter.hasNext())   return true;
+  if (m_jobsToEnqueue.hasNext() == false)   return false;
   try {
-    readPartial(m_Runtime.run(m_JobsToEnqueue));
+    readPartial(m_runtime.run(m_jobsToEnqueue,m_rootbeer));
   }
  catch (  Exception ex) {
     ex.printStackTrace();
     return false;
   }
-  return m_CurrIter.hasNext();
+  return m_currIter.hasNext();
 }

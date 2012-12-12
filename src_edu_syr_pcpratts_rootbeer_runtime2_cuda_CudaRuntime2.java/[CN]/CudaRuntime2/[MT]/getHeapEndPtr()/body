@@ -3,6 +3,5 @@
   for (  Memory mem : m_ToSpace) {
     if (mem.getHeapEndPtr() > max)     max=mem.getHeapEndPtr();
   }
-  System.out.println("heap end ptr: " + max);
   return max;
 }

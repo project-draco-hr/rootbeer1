@@ -1,0 +1,42 @@
+{
+  int i=0;
+  try {
+    Rootbeer rootbeer=new Rootbeer();
+    Configuration.setPrintMem(print_mem);
+    List<Kernel> known_good_items=creator.create();
+    List<Kernel> testing_items=creator.create();
+    Stopwatch watch=new Stopwatch();
+    watch.start();
+    rootbeer.runAll(testing_items);
+    m_passed=true;
+    watch.stop();
+    m_gpuTime=watch.elapsedTimeMillis();
+    watch.start();
+    for (i=0; i < known_good_items.size(); ++i) {
+      Kernel known_good_item=known_good_items.get(i);
+      known_good_item.gpuMethod();
+    }
+    watch.stop();
+    m_cpuTime=watch.elapsedTimeMillis();
+    for (i=0; i < known_good_items.size(); ++i) {
+      Kernel known_good_item=known_good_items.get(i);
+      Kernel testing_item=testing_items.get(i);
+      if (!creator.compare(known_good_item,testing_item)) {
+        m_message="Compare failed at: " + i;
+        m_passed=false;
+        return;
+      }
+    }
+  }
+ catch (  Throwable ex) {
+    ex.printStackTrace();
+    m_message="Exception thrown at index: " + i + "\n";
+    ByteArrayOutputStream os=new ByteArrayOutputStream();
+    PrintWriter writer=new PrintWriter(os);
+    ex.printStackTrace(writer);
+    writer.flush();
+    writer.close();
+    m_message+=os.toString();
+    m_passed=false;
+  }
+}

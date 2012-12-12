@@ -1,6 +1,4 @@
 {
-  System.out.println("Running " + m_NumBlocksRun + " blocks.");
-  System.out.println("BlockShape: " + m_BlockShape + " GridShape: "+ m_GridShape);
   try {
     runBlocks(m_NumBlocksRun,m_BlockShape,m_GridShape);
   }

@@ -1,7 +1,7 @@
 {
   try {
-    PartiallyCompletedParallelJob partial=CpuRuntime.v().run(jobs);
-    return new ResultIterator(partial,CpuRuntime.v());
+    PartiallyCompletedParallelJob partial=CpuRuntime.v().run(jobs,m_rootbeer);
+    return new ResultIterator(partial,CpuRuntime.v(),m_rootbeer);
   }
  catch (  Exception ex) {
     ex.printStackTrace();

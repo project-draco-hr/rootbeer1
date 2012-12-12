@@ -1,3 +1,0 @@
-{
-  return CudaRuntime2.v().getDeserializationTime();
-}

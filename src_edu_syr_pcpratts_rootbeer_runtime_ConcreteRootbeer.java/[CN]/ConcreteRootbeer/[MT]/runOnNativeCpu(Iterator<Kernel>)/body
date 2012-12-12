@@ -1,5 +1,5 @@
 {
   Tweaks.setInstance(new NativeCpuTweaks());
-  PartiallyCompletedParallelJob partial=NativeCpuRuntime.v().run(jobs);
-  return new ResultIterator(partial,NativeCpuRuntime.v());
+  PartiallyCompletedParallelJob partial=NativeCpuRuntime.v().run(jobs,m_rootbeer);
+  return new ResultIterator(partial,NativeCpuRuntime.v(),m_rootbeer);
 }

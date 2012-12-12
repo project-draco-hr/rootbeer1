@@ -28,5 +28,6 @@
   m_Handles=new Handles(m_HandlesAddr,m_GpuHandlesAddr);
   m_ExceptionHandles=new Handles(m_ExceptionsHandlesAddr,m_GpuExceptionsHandlesAddr);
   m_CpuRunner=new CpuRunner();
-  watch.stopAndPrint("CudaRuntime2 ctor: ");
+  Configuration.setPrintMem(false);
+  m_initTime=watch.elapsedTimeMillis();
 }

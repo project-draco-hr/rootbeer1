@@ -66,7 +66,7 @@
   writeClassTypeRef(m_serializers.get(0).getClassRefArray());
   watch.stop();
   m_serializationTime=watch.elapsedTimeMillis();
-  if (Configuration.getRunAllTests() == false) {
+  if (Configuration.getPrintMem()) {
     BufferPrinter printer=new BufferPrinter();
     printer.print(m_ToSpace.get(0),0,896);
   }

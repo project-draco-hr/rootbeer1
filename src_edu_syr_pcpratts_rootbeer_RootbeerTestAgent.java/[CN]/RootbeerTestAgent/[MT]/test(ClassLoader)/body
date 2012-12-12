@@ -1,5 +1,4 @@
 {
-  Configuration.setRunAllTests(true);
   LoadTestSerialization loader=new LoadTestSerialization();
   List<TestSerialization> creators=loader.load(cls_loader,"edu.syr.pcpratts.rootbeer.testcases.rootbeertest.Main");
   List<TestException> ex_creators=loader.loadException(cls_loader,"edu.syr.pcpratts.rootbeer.testcases.rootbeertest.ExMain");
@@ -7,7 +6,7 @@
   int test_num=1;
   for (  TestSerialization creator : creators) {
     System.out.println("[TEST " + test_num + "/"+ num_tests+ "] "+ creator.toString());
-    test(creator);
+    test(creator,false);
     if (m_passed) {
       System.out.println("  PASSED");
       System.out.println("  Cpu time: " + m_cpuTime + " ms");

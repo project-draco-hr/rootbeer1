@@ -1,3 +1,0 @@
-{
-  ConcreteRootbeer rootbeer=new ConcreteRootbeer();
-}

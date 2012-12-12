@@ -1,0 +1,29 @@
+{
+  Stopwatch watch2=new Stopwatch();
+  watch2.start();
+  RootbeerGpu.setIsOnGpu(true);
+  m_Partial=new PartiallyCompletedParallelJob(jobs);
+  boolean any_jobs=writeBlocks(jobs);
+  if (any_jobs == false) {
+    return m_Partial;
+  }
+  String filename=m_FirstJob.getCubin();
+  if (filename.endsWith(".error")) {
+    return m_Partial;
+  }
+  calculateShape();
+  compileCode();
+  Stopwatch watch=new Stopwatch();
+  watch.start();
+  runOnGpu();
+  watch.stop();
+  m_executionTime=watch.elapsedTimeMillis();
+  readBlocks();
+  unload();
+  runExtraBlocks();
+  RootbeerGpu.setIsOnGpu(false);
+  m_overallTime=watch2.elapsedTimeMillis();
+  StatsRow stats_row=new StatsRow(m_serializationTime,m_executionTime,m_deserializationTime,m_overallTime,m_GridShape,m_BlockShape);
+  rootbeer.addStatsRow(stats_row);
+  return m_Partial;
+}

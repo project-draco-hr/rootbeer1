@@ -1,5 +1,5 @@
 {
   List<Kernel> active_jobs=partial.getActiveJobs();
-  m_CurrIter=active_jobs.iterator();
-  m_JobsToEnqueue=partial.getJobsToEnqueue();
+  m_currIter=active_jobs.iterator();
+  m_jobsToEnqueue=partial.getJobsToEnqueue();
 }

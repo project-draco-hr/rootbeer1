@@ -3,7 +3,7 @@
   watch.start();
   for (int i=0; i < m_NumCores; ++i)   m_ToSpace.get(i).setAddress(0);
   m_ExceptionHandles.activate();
-  if (Configuration.getRunAllTests() == false) {
+  if (Configuration.getPrintMem()) {
     BufferPrinter printer=new BufferPrinter();
     printer.print(m_ToSpace.get(0),0,2048);
   }
