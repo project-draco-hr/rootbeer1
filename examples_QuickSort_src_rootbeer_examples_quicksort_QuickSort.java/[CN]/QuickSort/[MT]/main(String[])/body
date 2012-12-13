@@ -1,0 +1,4 @@
+{
+  QuickSort app=new QuickSort();
+  app.execTest();
+}
