@@ -4,5 +4,5 @@
   if (folder.exists() == false) {
     folder.mkdirs();
   }
-  return folder.getAbsolutePath();
+  return folder.getAbsolutePath() + File.separator;
 }

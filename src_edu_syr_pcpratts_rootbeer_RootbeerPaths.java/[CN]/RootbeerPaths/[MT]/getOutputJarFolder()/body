@@ -1,4 +1,4 @@
 {
   String folder=getRootbeerHome();
-  return folder + File.separator + "output-jar";
+  return folder + "output-jar";
 }

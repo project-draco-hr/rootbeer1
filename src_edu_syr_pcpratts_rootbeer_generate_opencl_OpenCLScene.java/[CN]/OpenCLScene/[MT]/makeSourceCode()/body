@@ -42,7 +42,7 @@
   String replacement=getRuntimeBasicBlockClassName() + "_gpuMethod" + mangle;
   replacement=replacement.replace("$","\\$");
   cuda_code=cuda_code.replaceAll("%%invoke_run%%",replacement);
-  PrintWriter writer=new PrintWriter(new FileWriter("generated.cu"));
+  PrintWriter writer=new PrintWriter(new FileWriter(RootbeerPaths.v().getRootbeerHome() + "generated.cu"));
   writer.println(cuda_code.toString());
   writer.flush();
   writer.close();

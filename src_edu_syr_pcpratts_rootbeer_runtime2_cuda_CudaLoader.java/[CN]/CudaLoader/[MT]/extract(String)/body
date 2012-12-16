@@ -6,7 +6,7 @@
       path="src" + path;
       is=new FileInputStream(path);
     }
-    OutputStream os=new FileOutputStream(filename);
+    OutputStream os=new FileOutputStream(RootbeerPaths.v().getRootbeerHome() + filename);
     while (true) {
       byte[] buffer=new byte[32 * 1024];
       int len=is.read(buffer);
