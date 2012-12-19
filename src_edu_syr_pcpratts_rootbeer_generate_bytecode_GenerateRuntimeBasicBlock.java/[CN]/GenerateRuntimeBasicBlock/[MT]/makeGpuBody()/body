@@ -15,6 +15,9 @@
   }
  else {
     String code=OpenCLScene.v().getOpenCLCode();
+    System.out.println("removing dead methods...");
+    DeadMethods dead_methods=new DeadMethods("entry");
+    code=dead_methods.filter(code);
     makeGetCodeMethodThatReturnsString(code);
     makeGetCodeMethodThatReturnsBytes("");
   }

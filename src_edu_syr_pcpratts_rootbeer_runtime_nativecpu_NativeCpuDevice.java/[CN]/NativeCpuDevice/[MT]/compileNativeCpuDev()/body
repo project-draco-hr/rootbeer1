@@ -5,13 +5,18 @@
     if (nemu_file.exists() == false) {
       nemu_file.mkdirs();
     }
+    String nemu=nemu_file.getAbsolutePath() + File.separator;
+    extractFromNative("NativeCpuDevice.c",nemu);
+    extractFromNative("edu_syr_pcpratts_rootbeer_runtime_nativecpu_NativeCpuDevice.h",nemu);
+    PrintWriter writer=new PrintWriter(nemu + "generated.c");
+    writer.println(code);
+    writer.flush();
+    writer.close();
     if ("Mac OS X".equals(System.getProperty("os.name"))) {
-      String jdk_path=unixSearchJdk("/System/Library/Java/JavaVirtualMachines/");
-      return compileUnix(nemu_file,jdk_path,code);
+      return compileMac(nemu_file);
     }
  else     if (File.separator.equals("/")) {
-      String jdk_path=unixSearchJdk("/usr/lib/jvm/");
-      return compileUnix(nemu_file,jdk_path,code);
+      return compileLinux(nemu_file);
     }
  else {
       return compileWindows(nemu_file,code);
