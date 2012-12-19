@@ -1,0 +1,11 @@
+{
+  String nemu=nemu_file.getAbsolutePath() + File.separator;
+  String name="libnemu";
+  WindowsCompile compiler=new WindowsCompile();
+  String jdk_path=compiler.jdkPath();
+  windowsCompile("cl /I\"" + jdk_path + "\\include\" /I"+ jdk_path+ "\\include\\win32\" "+ nemu+ "generated.c /link /DLL /OUT:libnemu.dll /MACHINE:X64");
+  File f1=new File(nemu + "nativecpudev.dll");
+  System.load(f1.getAbsolutePath());
+  File f2=new File(nemu + name + ".dll");
+  return f2.getAbsolutePath();
+}

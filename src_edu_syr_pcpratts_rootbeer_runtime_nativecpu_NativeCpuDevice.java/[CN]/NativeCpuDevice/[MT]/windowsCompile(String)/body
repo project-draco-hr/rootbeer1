@@ -1,0 +1,11 @@
+{
+  WindowsCompile compiler=new WindowsCompile();
+  List<String> errors=compiler.compile(cmd);
+  if (errors.isEmpty()) {
+    System.out.println("compilation failed!");
+    for (    String error : errors) {
+      System.out.println(error);
+    }
+    System.exit(-1);
+  }
+}

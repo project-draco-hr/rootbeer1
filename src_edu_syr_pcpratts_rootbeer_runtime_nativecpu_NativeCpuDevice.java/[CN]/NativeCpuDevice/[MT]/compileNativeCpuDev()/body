@@ -19,7 +19,7 @@
       return compileLinux(nemu_file);
     }
  else {
-      return compileWindows(nemu_file,code);
+      return compileWindows(nemu_file);
     }
   }
  catch (  Exception ex) {

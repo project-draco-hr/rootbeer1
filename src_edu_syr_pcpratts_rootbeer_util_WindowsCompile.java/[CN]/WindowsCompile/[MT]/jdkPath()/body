@@ -1,0 +1,7 @@
+{
+  List<String> possible_paths=findPossibleJdkPaths();
+  String[] path_array=new String[possible_paths.size()];
+  path_array=possible_paths.toArray(path_array);
+  Arrays.sort(path_array);
+  return path_array[path_array.length - 1];
+}
