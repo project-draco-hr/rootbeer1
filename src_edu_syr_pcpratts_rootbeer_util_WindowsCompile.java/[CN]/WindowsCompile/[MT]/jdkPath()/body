@@ -1,7 +1,15 @@
 {
-  List<String> possible_paths=findPossibleJdkPaths();
-  String[] path_array=new String[possible_paths.size()];
-  path_array=possible_paths.toArray(path_array);
-  Arrays.sort(path_array);
-  return path_array[path_array.length - 1];
+  for (  String root : m_jdkPaths) {
+    List<String> possible_paths=findPossibleJdkPaths(root);
+    if (possible_paths.isEmpty()) {
+      continue;
+    }
+    String[] path_array=new String[possible_paths.size()];
+    path_array=possible_paths.toArray(path_array);
+    Arrays.sort(path_array);
+    return path_array[path_array.length - 1];
+  }
+  System.out.println("JDK not installed. Please install.");
+  System.exit(-1);
+  return "";
 }

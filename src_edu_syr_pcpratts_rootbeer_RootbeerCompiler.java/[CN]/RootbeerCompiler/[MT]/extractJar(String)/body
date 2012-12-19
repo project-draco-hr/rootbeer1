@@ -1,6 +1,7 @@
 {
   JarToFolder extractor=new JarToFolder();
   try {
+    System.out.println("extracting jar " + jar_filename + "...");
     extractor.writeJar(jar_filename,RootbeerPaths.v().getJarContentsFolder());
   }
  catch (  Exception ex) {
