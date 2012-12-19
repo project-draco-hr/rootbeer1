@@ -1,46 +1,21 @@
 {
   try {
     String code=m_Blocks.get(0).getCode();
-    PrintWriter writer=new PrintWriter("generated.c");
-    writer.println(code);
-    writer.flush();
-    writer.close();
-    String name=UUID.randomUUID().toString();
-    String cmd="rm *.so.1";
-    Process p=Runtime.getRuntime().exec(cmd,null,new File("native"));
-    int status=p.waitFor();
-    cmd="gcc -ggdb -Wall -fPIC -g -c -I/usr/lib/jvm/java-6-openjdk/include/ -I/usr/lib/jvm/java-6-openjdk/include/linux NativeCpuDevice.c -o NativeCpuDevice.o";
-    p=Runtime.getRuntime().exec(cmd,null,new File("native"));
-    status=p.waitFor();
-    if (status != 0) {
-      System.out.println("Compilation failure!");
-      System.exit(-1);
+    File nemu_file=new File(RootbeerPaths.v().getRootbeerHome() + "nemu");
+    if (nemu_file.exists() == false) {
+      nemu_file.mkdirs();
     }
-    cmd="gcc -ggdb -fPIC -Wall -g -c -lpthread ../generated.c -o generated.o";
-    p=Runtime.getRuntime().exec(cmd,null,new File("native"));
-    status=p.waitFor();
-    if (status != 0) {
-      System.out.println("Compilation failure!");
-      System.exit(-1);
+    if ("Mac OS X".equals(System.getProperty("os.name"))) {
+      String jdk_path=unixSearchJdk("/System/Library/Java/JavaVirtualMachines/");
+      return compileUnix(nemu_file,jdk_path,code);
     }
-    cmd="gcc -shared -Wl,-soname," + name + " -o "+ name+ ".so.1 generated.o -lc";
-    p=Runtime.getRuntime().exec(cmd,null,new File("native"));
-    status=p.waitFor();
-    if (status != 0) {
-      System.out.println("Compilation failure!");
-      System.exit(-1);
+ else     if (File.separator.equals("/")) {
+      String jdk_path=unixSearchJdk("/usr/lib/jvm/");
+      return compileUnix(nemu_file,jdk_path,code);
     }
-    cmd="gcc -shared -Wl,-soname,nativecpudev -o nativecpudev.so.1 NativeCpuDevice.o generated.o -lc";
-    p=Runtime.getRuntime().exec(cmd,null,new File("native"));
-    status=p.waitFor();
-    if (status != 0) {
-      System.out.println("Compilation failure!");
-      System.exit(-1);
+ else {
+      return compileWindows(nemu_file,code);
     }
-    File f1=new File("native/nativecpudev.so.1");
-    System.load(f1.getAbsolutePath());
-    File f2=new File("native/" + name + ".so.1");
-    return f2.getAbsolutePath();
   }
  catch (  Exception ex) {
     ex.printStackTrace();
