@@ -1,7 +1,7 @@
 {
   WindowsCompile compiler=new WindowsCompile();
   List<String> errors=compiler.compile(cmd);
-  if (errors.isEmpty()) {
+  if (errors.isEmpty() == false) {
     System.out.println("compilation failed!");
     for (    String error : errors) {
       System.out.println(error);
