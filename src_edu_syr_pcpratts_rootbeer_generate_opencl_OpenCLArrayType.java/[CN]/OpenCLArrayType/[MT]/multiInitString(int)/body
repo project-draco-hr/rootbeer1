@@ -10,7 +10,7 @@
     String set_str=getMultiDeref(dim - i) + "_set(" + address_qual+ "gc_info, "+ thisref;
     if (i < dim - 1) {
       String new_str=getMultiDeref(dim - 1 - i) + "_new(" + address_qual+ "gc_info, dim"+ (i + 1)+ ", exception)";
-      ret+="  int aref" + i + " = "+ new_str+ ";\n";
+      ret+="  aref" + i + " = "+ new_str+ ";\n";
       ret+="  " + set_str + ", index"+ i+ ", aref"+ i+ ", exception);\n";
     }
  else {
