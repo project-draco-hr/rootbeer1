@@ -1,0 +1,16 @@
+{
+  String kernel_path;
+  if (unix) {
+    kernel_path=Tweaks.v().getUnixKernelPath();
+  }
+ else {
+    kernel_path=Tweaks.v().getWindowsKernelPath();
+  }
+  String specific_kernel_code=ResourceReader.getResource(kernel_path);
+  String both_kernel_code="";
+  String both_kernel_path=Tweaks.v().getBothKernelPath();
+  if (both_kernel_path != null) {
+    both_kernel_code=ResourceReader.getResource(both_kernel_path);
+  }
+  return both_kernel_code + "\n" + specific_kernel_code;
+}

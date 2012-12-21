@@ -29,7 +29,5 @@
   while (iter.hasNext()) {
     ret.append(iter.next());
   }
-  String kernel_path=Tweaks.v().getKernelPath();
-  ret.append(ResourceReader.getResource(kernel_path));
   return ret.toString();
 }

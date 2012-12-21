@@ -1,0 +1,8 @@
+{
+  String cuda_code=builder.toString();
+  String mangle=NameMangling.v().mangle(VoidType.v());
+  String replacement=getRuntimeBasicBlockClassName() + "_gpuMethod" + mangle;
+  replacement=replacement.replace("$","\\$");
+  cuda_code=cuda_code.replaceAll("%%invoke_run%%",replacement);
+  return cuda_code;
+}

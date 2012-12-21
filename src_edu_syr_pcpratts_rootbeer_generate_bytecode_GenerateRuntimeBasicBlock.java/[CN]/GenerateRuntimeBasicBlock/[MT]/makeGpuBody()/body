@@ -4,21 +4,27 @@
     CompileResult result=OpenCLScene.v().getCudaCode();
     if (result.getBinary() == null) {
       makeGetCodeMethodThatReturnsBytes(cubinFilename(false) + ".error");
-      makeGetCodeMethodThatReturnsString("");
+      makeGetCodeMethodThatReturnsString("",true);
+      makeGetCodeMethodThatReturnsString("",false);
     }
  else {
       List<byte[]> bytes=result.getBinary();
       writeBytesToFile(bytes,cubinFilename(true));
       makeGetCodeMethodThatReturnsBytes(cubinFilename(false));
-      makeGetCodeMethodThatReturnsString("");
+      makeGetCodeMethodThatReturnsString("",true);
+      makeGetCodeMethodThatReturnsString("",false);
     }
   }
  else {
-    String code=OpenCLScene.v().getOpenCLCode();
+    String[] code=OpenCLScene.v().getOpenCLCode();
     System.out.println("removing dead methods...");
     DeadMethods dead_methods=new DeadMethods("entry");
-    code=dead_methods.filter(code);
-    makeGetCodeMethodThatReturnsString(code);
+    code[0]=dead_methods.filter(code[0]);
+    dead_methods=new DeadMethods("entry");
+    code[1]=dead_methods.filter(code[1]);
+    code[1]=code[1].replace("void entry(char * gc_info_space,","__declspec(export)\nvoid entry(char * gc_info_space,");
+    makeGetCodeMethodThatReturnsString(code[0],true);
+    makeGetCodeMethodThatReturnsString(code[1],false);
     makeGetCodeMethodThatReturnsBytes("");
   }
 }

@@ -1,6 +1,15 @@
 {
   try {
-    String code=m_Blocks.get(0).getCode();
+    String code="";
+    if ("Mac OS X".equals(System.getProperty("os.name"))) {
+      code=m_Blocks.get(0).getCodeUnix();
+    }
+ else     if (File.separator.equals("/")) {
+      code=m_Blocks.get(0).getCodeUnix();
+    }
+ else {
+      code=m_Blocks.get(0).getCodeWindows();
+    }
     File nemu_file=new File(RootbeerPaths.v().getRootbeerHome() + "nemu");
     if (nemu_file.exists() == false) {
       nemu_file.mkdirs();

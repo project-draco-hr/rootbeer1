@@ -26,25 +26,33 @@
   for (  Type type : instanceofs) {
     addInstanceof(type);
   }
-  StringBuilder ret=new StringBuilder();
-  ret.append(headerString());
-  ret.append(methodPrototypesString());
-  ret.append(garbageCollectorString());
-  ret.append(methodBodiesString());
-  String cuda_code;
-  if (true) {
-    cuda_code=ret.toString();
-  }
- else {
-    cuda_code=readCudaCodeFromFile();
-  }
-  String mangle=NameMangling.v().mangle(VoidType.v());
-  String replacement=getRuntimeBasicBlockClassName() + "_gpuMethod" + mangle;
-  replacement=replacement.replace("$","\\$");
-  cuda_code=cuda_code.replaceAll("%%invoke_run%%",replacement);
-  PrintWriter writer=new PrintWriter(new FileWriter(RootbeerPaths.v().getRootbeerHome() + "generated.cu"));
-  writer.println(cuda_code.toString());
+  StringBuilder unix_code=new StringBuilder();
+  StringBuilder windows_code=new StringBuilder();
+  String method_protos=methodPrototypesString();
+  String gc_string=garbageCollectorString();
+  String bodies_string=methodBodiesString();
+  unix_code.append(headerString(true));
+  unix_code.append(method_protos);
+  unix_code.append(gc_string);
+  unix_code.append(bodies_string);
+  unix_code.append(kernelString(true));
+  windows_code.append(headerString(false));
+  windows_code.append(method_protos);
+  windows_code.append(gc_string);
+  windows_code.append(bodies_string);
+  windows_code.append(kernelString(false));
+  String cuda_unix=setupEntryPoint(unix_code);
+  String cuda_windows=setupEntryPoint(windows_code);
+  PrintWriter writer=new PrintWriter(new FileWriter(RootbeerPaths.v().getRootbeerHome() + "generated_unix.cu"));
+  writer.println(cuda_unix);
   writer.flush();
   writer.close();
-  return cuda_code;
+  writer=new PrintWriter(new FileWriter(RootbeerPaths.v().getRootbeerHome() + "generated_windows.cu"));
+  writer.println(cuda_windows);
+  writer.flush();
+  writer.close();
+  String[] ret=new String[2];
+  ret[0]=cuda_unix;
+  ret[1]=cuda_windows;
+  return ret;
 }

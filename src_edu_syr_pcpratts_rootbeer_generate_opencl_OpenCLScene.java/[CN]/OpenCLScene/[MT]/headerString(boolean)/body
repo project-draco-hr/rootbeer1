@@ -1,0 +1,17 @@
+{
+  String specific_path;
+  if (unix) {
+    specific_path=Tweaks.v().getUnixHeaderPath();
+  }
+ else {
+    specific_path=Tweaks.v().getWindowsHeaderPath();
+  }
+  if (specific_path == null)   return "";
+  String both_path=Tweaks.v().getBothHeaderPath();
+  String both_header="";
+  if (both_path != null) {
+    both_header=ResourceReader.getResource(both_path);
+  }
+  String specific_header=ResourceReader.getResource(specific_path);
+  return specific_header + "\n" + both_header;
+}
