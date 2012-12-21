@@ -4,11 +4,12 @@
     ret.append(getMethodDecl(false) + "{\n");
     try {
       if (methodIsRuntimeBasicBlockRun() == false) {
+        OpenCLBody ocl_body=new OpenCLBody(m_sootMethod,isConstructor());
+        ret.append(ocl_body.getLocals());
         if (isSynchronized()) {
           ret.append(synchronizedEnter());
         }
-        OpenCLBody ocl_body=new OpenCLBody(m_sootMethod,isConstructor());
-        ret.append(ocl_body.getBody());
+        ret.append(ocl_body.getBodyNoLocals());
         if (isSynchronized()) {
           if (isLinux()) {
             ret.append("  } else {");

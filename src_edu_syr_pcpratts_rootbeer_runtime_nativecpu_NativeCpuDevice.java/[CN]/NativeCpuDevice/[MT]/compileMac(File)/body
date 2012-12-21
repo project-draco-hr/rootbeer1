@@ -5,13 +5,15 @@
   String cmd;
   Process p;
   String cflags="-fno-common -Os -arch i386 -arch x86_64 -c";
-  cmd="llvm-gcc " + cflags + " -I/System/Library/Frameworks/JavaVM.framework/Versions/A/Headers "+ nemu+ "NativeCpuDevice.c -o "+ nemu+ "NativeCpuDevice.o";
-  p=Runtime.getRuntime().exec(cmd,null,nemu_file);
-  status=p.waitFor();
-  if (status != 0) {
-    System.out.println("Compilation failure!");
-    System.out.println(cmd);
-    System.exit(-1);
+  if (m_nativeCpuInitialized == false) {
+    cmd="llvm-gcc " + cflags + " -I/System/Library/Frameworks/JavaVM.framework/Versions/A/Headers "+ nemu+ "NativeCpuDevice.c -o "+ nemu+ "NativeCpuDevice.o";
+    p=Runtime.getRuntime().exec(cmd,null,nemu_file);
+    status=p.waitFor();
+    if (status != 0) {
+      System.out.println("Compilation failure!");
+      System.out.println(cmd);
+      System.exit(-1);
+    }
   }
   cmd="llvm-gcc " + cflags + " -lpthread "+ nemu+ "generated.c -o "+ nemu+ "generated.o";
   p=Runtime.getRuntime().exec(cmd,null,nemu_file);
@@ -22,13 +24,15 @@
     System.exit(-1);
   }
   String ldflags="-arch i386 -arch x86_64 -dynamiclib";
-  cmd="llvm-gcc " + ldflags + " -o "+ nemu+ "nativecpudev.dylib -dylib "+ nemu+ "NativeCpuDevice.o -lc";
-  p=Runtime.getRuntime().exec(cmd,null,nemu_file);
-  status=p.waitFor();
-  if (status != 0) {
-    System.out.println("Compilation failure!");
-    System.out.println(cmd);
-    System.exit(-1);
+  if (m_nativeCpuInitialized == false) {
+    cmd="llvm-gcc " + ldflags + " -o "+ nemu+ "nativecpudev.dylib -dylib "+ nemu+ "NativeCpuDevice.o -lc";
+    p=Runtime.getRuntime().exec(cmd,null,nemu_file);
+    status=p.waitFor();
+    if (status != 0) {
+      System.out.println("Compilation failure!");
+      System.out.println(cmd);
+      System.exit(-1);
+    }
   }
   cmd="llvm-gcc " + ldflags + " -o "+ nemu+ name+ ".dylib -dylib "+ nemu+ "generated.o -lc";
   p=Runtime.getRuntime().exec(cmd,null,nemu_file);
@@ -38,8 +42,11 @@
     System.out.println(cmd);
     System.exit(-1);
   }
-  File f1=new File(nemu + "nativecpudev.dylib");
-  System.load(f1.getAbsolutePath());
+  if (m_nativeCpuInitialized == false) {
+    File f1=new File(nemu + "nativecpudev.dylib");
+    System.load(f1.getAbsolutePath());
+    m_nativeCpuInitialized=true;
+  }
   File f2=new File(nemu + name + ".dylib");
   return f2.getAbsolutePath();
 }

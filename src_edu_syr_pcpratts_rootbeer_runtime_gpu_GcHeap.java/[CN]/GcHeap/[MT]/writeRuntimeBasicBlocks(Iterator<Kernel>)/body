@@ -36,7 +36,7 @@
     mToHandleMapMemory.finishCopy(mMaxToHandleMapAddress);
   }
   mHeapEndPtrMemory.finishCopy(8);
-  if (Configuration.getRunAllTests() == false) {
+  if (Configuration.getPrintMem()) {
     BufferPrinter printer=new BufferPrinter();
     printer.print(mToSpaceMemory,0,1024);
   }
