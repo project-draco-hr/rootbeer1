@@ -9,6 +9,9 @@
     }
  catch (    Exception ex) {
       cls=cls.getSuperclass();
+      if (cls == null) {
+        return null;
+      }
     }
   }
 }
