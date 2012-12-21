@@ -38,7 +38,7 @@
   mHeapEndPtrMemory.finishCopy(8);
   if (Configuration.getRunAllTests() == false) {
     BufferPrinter printer=new BufferPrinter();
-    printer.print(mToSpaceMemory,0,512);
+    printer.print(mToSpaceMemory,0,1024);
   }
   return m_CountWritten;
 }
