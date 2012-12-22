@@ -6,11 +6,13 @@
   List<NumberedType> type_list=RootbeerClassLoader.v().getDfsInfo().getNumberedHierarchyDown(ref_type.getSootClass());
   String ret=getDecl();
   ret+="{\n";
+  ret+="  char * thisref_deref;\n";
+  ret+="  GC_OBJ_TYPE_TYPE type;\n";
   ret+="  if(thisref == -1){\n";
   ret+="    return 0;\n";
   ret+="  }\n";
-  ret+="  char * thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n";
-  ret+="  GC_OBJ_TYPE_TYPE type = edu_syr_pcpratts_gc_get_type(thisref_deref);\n";
+  ret+="  thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n";
+  ret+="  type = edu_syr_pcpratts_gc_get_type(thisref_deref);\n";
   ret+="  switch(type){\n";
   for (  NumberedType ntype : type_list) {
     ret+="    case " + ntype.getNumber() + ":\n";
