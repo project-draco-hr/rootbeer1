@@ -14,6 +14,7 @@
       ret.addAll(reader1.m_Lines);
       ret.addAll(reader2.m_Lines);
     }
+    p.destroy();
     return ret;
   }
  catch (  Exception ex) {

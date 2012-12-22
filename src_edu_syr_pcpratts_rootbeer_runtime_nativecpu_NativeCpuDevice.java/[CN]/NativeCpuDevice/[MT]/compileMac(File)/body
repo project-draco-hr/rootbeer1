@@ -14,6 +14,7 @@
       System.out.println(cmd);
       System.exit(-1);
     }
+    p.destroy();
   }
   cmd="llvm-gcc " + cflags + " -lpthread "+ nemu+ "generated.c -o "+ nemu+ "generated.o";
   p=Runtime.getRuntime().exec(cmd,null,nemu_file);
@@ -23,6 +24,7 @@
     System.out.println(cmd);
     System.exit(-1);
   }
+  p.destroy();
   String ldflags="-arch i386 -arch x86_64 -dynamiclib";
   if (m_nativeCpuInitialized == false) {
     cmd="llvm-gcc " + ldflags + " -o "+ nemu+ "nativecpudev.dylib -dylib "+ nemu+ "NativeCpuDevice.o -lc";
@@ -33,6 +35,7 @@
       System.out.println(cmd);
       System.exit(-1);
     }
+    p.destroy();
   }
   cmd="llvm-gcc " + ldflags + " -o "+ nemu+ name+ ".dylib -dylib "+ nemu+ "generated.o -lc";
   p=Runtime.getRuntime().exec(cmd,null,nemu_file);
@@ -42,6 +45,7 @@
     System.out.println(cmd);
     System.exit(-1);
   }
+  p.destroy();
   if (m_nativeCpuInitialized == false) {
     File f1=new File(nemu + "nativecpudev.dylib");
     System.load(f1.getAbsolutePath());
