@@ -1,0 +1,4 @@
+{
+  int value_int=Float.floatToIntBits(value);
+  setSharedInteger(index,value_int);
+}

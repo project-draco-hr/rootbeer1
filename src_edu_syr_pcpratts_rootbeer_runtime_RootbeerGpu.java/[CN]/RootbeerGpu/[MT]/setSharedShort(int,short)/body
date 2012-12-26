@@ -1,0 +1,4 @@
+{
+  m_sharedMem[index]=(byte)(value & 0xff);
+  m_sharedMem[index + 1]=(byte)((value >> 8) & 0xff);
+}

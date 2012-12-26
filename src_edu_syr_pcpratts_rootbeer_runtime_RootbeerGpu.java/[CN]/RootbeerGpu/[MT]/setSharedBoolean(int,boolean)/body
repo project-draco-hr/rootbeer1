@@ -1,0 +1,10 @@
+{
+  byte value_byte;
+  if (value == true) {
+    value_byte=1;
+  }
+ else {
+    value_byte=0;
+  }
+  m_sharedMem[index]=value_byte;
+}
