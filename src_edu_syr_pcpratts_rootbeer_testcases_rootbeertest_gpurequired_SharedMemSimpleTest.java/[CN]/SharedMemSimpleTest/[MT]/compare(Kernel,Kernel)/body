@@ -1,0 +1,5 @@
+{
+  SharedMemSimpleRunOnGpu lhs=(SharedMemSimpleRunOnGpu)original;
+  SharedMemSimpleRunOnGpu rhs=(SharedMemSimpleRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

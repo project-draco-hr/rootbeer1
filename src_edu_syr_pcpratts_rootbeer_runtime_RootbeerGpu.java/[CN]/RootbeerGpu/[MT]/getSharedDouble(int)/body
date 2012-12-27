@@ -1,0 +1,4 @@
+{
+  long value_long=getSharedLong(index);
+  return Double.longBitsToDouble(value_long);
+}

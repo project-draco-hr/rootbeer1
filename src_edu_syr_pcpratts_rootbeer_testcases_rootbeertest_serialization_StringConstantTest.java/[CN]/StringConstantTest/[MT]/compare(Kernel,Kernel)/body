@@ -1,0 +1,5 @@
+{
+  StringConstantKernel lhs=(StringConstantKernel)original;
+  StringConstantKernel rhs=(StringConstantKernel)from_heap;
+  return lhs.compare(rhs);
+}

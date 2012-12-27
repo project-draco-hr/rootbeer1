@@ -1,0 +1,35 @@
+{
+  if (m_boolean != rhs.m_boolean) {
+    System.out.println("m_boolean");
+    return false;
+  }
+  if (m_byte != rhs.m_byte) {
+    System.out.println("m_byte");
+    return false;
+  }
+  if (m_char != rhs.m_char) {
+    System.out.println("m_char");
+    return false;
+  }
+  if (m_short != rhs.m_short) {
+    System.out.println("m_short");
+    return false;
+  }
+  if (m_integer != rhs.m_integer) {
+    System.out.println("m_integer");
+    return false;
+  }
+  if (m_long != rhs.m_long) {
+    System.out.println("m_long");
+    return false;
+  }
+  if (m_float != rhs.m_float) {
+    System.out.append("m_float");
+    return false;
+  }
+  if (m_double != rhs.m_double) {
+    System.out.println("m_double");
+    return false;
+  }
+  return true;
+}

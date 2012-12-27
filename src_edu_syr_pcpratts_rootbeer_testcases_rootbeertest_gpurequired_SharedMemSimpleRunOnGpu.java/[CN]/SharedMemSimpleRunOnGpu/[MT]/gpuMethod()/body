@@ -1,0 +1,19 @@
+{
+  RootbeerGpu.setSharedBoolean(0,true);
+  RootbeerGpu.setSharedByte(1,(byte)2);
+  RootbeerGpu.setSharedChar(2,(char)3);
+  RootbeerGpu.setSharedShort(4,(short)4);
+  RootbeerGpu.setSharedInteger(6,5);
+  RootbeerGpu.setSharedLong(10,6);
+  RootbeerGpu.setSharedFloat(18,7.1f);
+  RootbeerGpu.setSharedDouble(22,8.2);
+  RootbeerGpu.synchthreads();
+  m_boolean=RootbeerGpu.getSharedBoolean(0);
+  m_byte=RootbeerGpu.getSharedByte(1);
+  m_char=RootbeerGpu.getSharedChar(2);
+  m_short=RootbeerGpu.getSharedShort(4);
+  m_integer=RootbeerGpu.getSharedInteger(6);
+  m_long=RootbeerGpu.getSharedLong(10);
+  m_float=RootbeerGpu.getSharedFloat(18);
+  m_double=RootbeerGpu.getSharedDouble(22);
+}
