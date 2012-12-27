@@ -9,7 +9,8 @@
   ret+="char * thisref_synch_deref;\n";
   if (m_sootMethod.isStatic() == false) {
     ret+="if(thisref == -1){\n";
-    ret+="  *exception = " + Constants.NullPointerNumber + ";\n";
+    SootClass null_ptr=Scene.v().getSootClass("java.lang.NullPointerException");
+    ret+="  *exception = " + RootbeerClassLoader.v().getDfsInfo().getClassNumber(null_ptr) + ";\n";
     if (returnsAValue()) {
       ret+="  return 0;\n";
     }

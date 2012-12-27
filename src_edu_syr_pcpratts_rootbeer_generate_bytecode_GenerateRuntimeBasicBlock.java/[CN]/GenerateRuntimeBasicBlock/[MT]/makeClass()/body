@@ -4,6 +4,7 @@
   makeGpuBody();
   makeIsUsingGarbageCollectorBody();
   makeIsReadOnly();
+  makeExceptionNumbers();
   GcHeapReadWriteAdder adder=new GcHeapReadWriteAdder();
   adder.add(codeSegment);
 }

@@ -1,5 +1,6 @@
 {
   m_dontMangleMethods=new HashSet<String>();
+  m_emitUnmangled=new HashSet<String>();
   m_dontMangleMethods.add("java_lang_StrictMath_exp");
   m_dontMangleMethods.add("java_lang_StrictMath_log");
   m_dontMangleMethods.add("java_lang_StrictMath_log10");
@@ -36,4 +37,6 @@
   m_dontMangleMethods.add("java_lang_Class_getName");
   m_dontMangleMethods.add("java_lang_Object_getClass");
   m_dontMangleMethods.add("java_lang_StringValue_from");
+  m_dontMangleMethods.add("java_lang_String_initab850b60f96d11de8a390800200c9a66");
+  m_emitUnmangled.add("java_lang_String_initab850b60f96d11de8a390800200c9a66");
 }

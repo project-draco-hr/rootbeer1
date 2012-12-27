@@ -15,7 +15,6 @@
   }
   Set<SootField> fields=RootbeerClassLoader.v().getDfsInfo().getFields();
   for (  SootField field : fields) {
-    System.out.println("addField: " + field.toString());
     addField(field);
   }
   Set<ArrayType> array_types=RootbeerClassLoader.v().getDfsInfo().getArrayTypes();

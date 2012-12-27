@@ -1,0 +1,4 @@
+{
+  makeExceptionMethod("getNullPointerNumber","java.lang.NullPointerException");
+  makeExceptionMethod("getOutOfMemoryNumber","java.lang.OutOfMemoryError");
+}

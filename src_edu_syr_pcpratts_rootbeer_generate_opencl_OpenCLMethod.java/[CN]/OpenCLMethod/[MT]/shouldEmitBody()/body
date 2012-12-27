@@ -1,5 +1,8 @@
 {
   String ret=getBaseMethodName();
+  if (m_emitUnmangled.contains(ret)) {
+    return true;
+  }
   if (m_dontMangleMethods.contains(ret))   return false;
   return true;
 }
