@@ -1,4 +1,7 @@
 {
+  if (m_sootMethod.getSignature().equals("<java.lang.String: void <init>(char[])>")) {
+    System.out.println("hello");
+  }
   StringBuilder ret=new StringBuilder();
   if (shouldEmitBody()) {
     ret.append(getMethodDecl(false) + "{\n");

@@ -1,8 +1,10 @@
 {
-  String ret=getBaseMethodName();
-  if (m_emitUnmangled.contains(ret)) {
+  String signature=m_sootMethod.getSignature();
+  if (m_emitUnmangled.contains(signature)) {
     return true;
   }
-  if (m_dontMangleMethods.contains(ret))   return false;
+  if (m_dontMangleMethods.contains(signature)) {
+    return false;
+  }
   return true;
 }
