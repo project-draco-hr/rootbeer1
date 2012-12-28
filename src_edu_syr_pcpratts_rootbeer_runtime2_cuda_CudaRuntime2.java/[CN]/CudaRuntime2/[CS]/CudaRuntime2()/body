@@ -4,7 +4,8 @@
   CudaLoader loader=new CudaLoader();
   loader.load();
   m_BlockShaper=new BlockShaper();
-  setup(m_BlockShaper.getMaxBlocksPerProc(),m_BlockShaper.getMaxThreadsPerBlock(),getReserveMem());
+  initNativeModule();
+  System.out.println("to_space_size: " + m_ToSpaceSize);
   m_JobsToWrite=new ArrayList<Kernel>();
   m_JobsWritten=new ArrayList<Kernel>();
   m_NotWritten=new ArrayList<Kernel>();

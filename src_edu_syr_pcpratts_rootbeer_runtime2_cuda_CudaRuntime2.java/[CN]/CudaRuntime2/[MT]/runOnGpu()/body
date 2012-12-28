@@ -3,7 +3,7 @@
     runBlocks(m_NumBlocksRun,m_BlockShape,m_GridShape);
   }
  catch (  RuntimeException ex) {
-    reinit(m_BlockShaper.getMaxBlocksPerProc(),m_BlockShaper.getMaxThreadsPerBlock(),getReserveMem());
+    reinit(m_BlockShaper.getMaxBlocksPerProc(),m_BlockShaper.getMaxThreadsPerBlock(),m_reserveMem);
     throw ex;
   }
 }

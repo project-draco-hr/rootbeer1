@@ -1,9 +1,9 @@
 {
   File file=new File(RootbeerPaths.v().getConfigFile());
   if (file.exists() == false) {
-    long reserve_mem=findReserveMem(m_BlockShaper.getMaxBlocksPerProc(),m_BlockShaper.getMaxThreadsPerBlock());
+    m_reserveMem=findReserveMem(m_BlockShaper.getMaxBlocksPerProc(),m_BlockShaper.getMaxThreadsPerBlock());
     Properties props=new Properties();
-    props.setProperty("reserve_mem",Long.toString(reserve_mem));
+    props.setProperty("reserve_mem",Long.toString(m_reserveMem));
     try {
       OutputStream fout=new FileOutputStream(file);
       OutputStreamWriter writer=new OutputStreamWriter(fout);
@@ -12,11 +12,9 @@
       fout.flush();
       writer.close();
       fout.close();
-      return reserve_mem;
     }
  catch (    Exception ex) {
       ex.printStackTrace();
-      return reserve_mem;
     }
   }
  else {
@@ -25,11 +23,11 @@
       BufferedReader reader=new BufferedReader(new InputStreamReader(fin));
       Properties props=new Properties();
       props.load(reader);
-      return Integer.parseInt(props.getProperty("reserve_mem"));
+      m_reserveMem=Long.parseLong(props.getProperty("reserve_mem"));
+      setup(m_BlockShaper.getMaxBlocksPerProc(),m_BlockShaper.getMaxThreadsPerBlock(),m_reserveMem);
     }
  catch (    Exception ex) {
       ex.printStackTrace();
-      return findReserveMem(m_BlockShaper.getMaxBlocksPerProc(),m_BlockShaper.getMaxThreadsPerBlock());
     }
   }
 }
