@@ -1,4 +1,5 @@
 {
+  RootbeerClassLoader.v().setUserJar(jar_filename);
   extractJar(jar_filename);
   List<String> proc_dir=new ArrayList<String>();
   proc_dir.add(RootbeerPaths.v().getJarContentsFolder());
