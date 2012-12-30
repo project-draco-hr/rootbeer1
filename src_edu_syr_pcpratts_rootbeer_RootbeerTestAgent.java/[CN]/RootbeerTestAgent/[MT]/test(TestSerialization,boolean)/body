@@ -8,6 +8,11 @@
     Stopwatch watch=new Stopwatch();
     watch.start();
     rootbeer.runAll(testing_items);
+    if (rootbeer.getRanGpu() == false) {
+      m_message="Ran on CPU";
+      m_passed=false;
+      return;
+    }
     m_passed=true;
     watch.stop();
     m_gpuTime=watch.elapsedTimeMillis();
