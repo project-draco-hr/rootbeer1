@@ -1,14 +1,17 @@
 {
   if (jobs.isEmpty()) {
+    m_ranGpu=false;
     return;
   }
   if (jobs.get(0) instanceof CompiledKernel == false) {
     for (    Kernel job : jobs) {
       job.gpuMethod();
     }
+    m_ranGpu=false;
   }
  else {
     m_stats=new ArrayList<StatsRow>();
     m_Rootbeer.runAll(jobs);
+    m_ranGpu=true;
   }
 }
