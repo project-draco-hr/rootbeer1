@@ -1,14 +1,9 @@
 {
-  if (sm.getSubSignature().equals("void gpuMethod()") == false) {
-    return false;
+  if (isKernel(sm)) {
+    return true;
   }
-  SootClass soot_class=sm.getDeclaringClass();
-  Iterator<SootClass> iter=soot_class.getInterfaces().iterator();
-  while (iter.hasNext()) {
-    SootClass iface=iter.next();
-    if (iface.getName().equals("edu.syr.pcpratts.rootbeer.runtime.Kernel")) {
-      return true;
-    }
+  if (isRootbeer(sm)) {
+    return true;
   }
   return false;
 }
