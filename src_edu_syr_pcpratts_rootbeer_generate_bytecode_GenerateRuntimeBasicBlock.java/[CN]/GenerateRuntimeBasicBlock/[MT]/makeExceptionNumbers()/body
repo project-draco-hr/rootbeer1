@@ -1,4 +1,5 @@
 {
-  makeExceptionMethod("getNullPointerNumber","java.lang.NullPointerException");
-  makeExceptionMethod("getOutOfMemoryNumber","java.lang.OutOfMemoryError");
+  String prefix=Options.v().rbcl_remap_prefix();
+  makeExceptionMethod("getNullPointerNumber",prefix + "java.lang.NullPointerException");
+  makeExceptionMethod("getOutOfMemoryNumber",prefix + "java.lang.OutOfMemoryError");
 }

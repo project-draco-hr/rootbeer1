@@ -1,6 +1,7 @@
 {
-  SootClass oom_cls=Scene.v().getSootClass("java.lang.OutOfMemoryError");
-  SootClass null_cls=Scene.v().getSootClass("java.lang.NullPointerException");
+  String prefix=Options.v().rbcl_remap_prefix();
+  SootClass oom_cls=Scene.v().getSootClass(prefix + "java.lang.OutOfMemoryError");
+  SootClass null_cls=Scene.v().getSootClass(prefix + "java.lang.NullPointerException");
   int oom_num=RootbeerClassLoader.v().getDfsInfo().getClassNumber(oom_cls);
   int null_num=RootbeerClassLoader.v().getDfsInfo().getClassNumber(null_cls);
   m_output.append("if(*exception != 0) { \n");

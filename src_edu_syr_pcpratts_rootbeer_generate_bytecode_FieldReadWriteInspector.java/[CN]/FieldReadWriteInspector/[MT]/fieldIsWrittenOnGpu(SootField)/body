@@ -1,4 +1,9 @@
 {
+  DfsInfo dfs_info=RootbeerClassLoader.v().getDfsInfo();
+  Set<SootField> reachable_fields=dfs_info.getFields();
+  if (reachable_fields.contains(soot_field) == false) {
+    return false;
+  }
   if (mWrittenOnGpuFields.contains(soot_field))   return true;
   if (soot_field.getDeclaringClass().getName().equals("java.lang.String"))   return true;
   OpenCLType type=new OpenCLType(soot_field.getType());
@@ -23,7 +28,9 @@
     SootClass curr_class=ref_type.getSootClass();
     Chain<SootField> fields=curr_class.getFields();
     for (    SootField field : fields) {
-      if (fieldIsWrittenOnGpu(field))       return true;
+      if (fieldIsWrittenOnGpu(field)) {
+        return true;
+      }
     }
   }
   return false;

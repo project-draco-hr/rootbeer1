@@ -4,7 +4,8 @@
   String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
   String cast_string=getCastString();
   calculateOffsets(composite);
-  SootClass null_cls=Scene.v().getSootClass("java.lang.NullPointerException");
+  String prefix=Options.v().rbcl_remap_prefix();
+  SootClass null_cls=Scene.v().getSootClass(prefix + "java.lang.NullPointerException");
   int null_num=RootbeerClassLoader.v().getDfsInfo().getClassNumber(null_cls);
   ret.append(decls.get(0) + "{\n");
   int field_offset=getOnlyOffset();
