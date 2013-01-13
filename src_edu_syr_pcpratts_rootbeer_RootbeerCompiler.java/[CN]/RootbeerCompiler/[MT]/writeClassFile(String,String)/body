@@ -3,6 +3,7 @@
   FileOutputStream fos=null;
   PrintWriter writer=null;
   SootClass c=Scene.v().getSootClass(cls);
+  List<String> before_sigs=getMethodSignatures(c);
   try {
     fos=new FileOutputStream(filename);
     OutputStream out1=new JasminOutputStream(fos);
@@ -11,25 +12,12 @@
   }
  catch (  Exception ex) {
     System.out.println("Error writing .class: " + cls);
-    if (cls.equals("java.lang.Object") == false) {
-      ex.printStackTrace();
-      PrintWriter writer2=new PrintWriter(System.out);
-      try {
-        List<SootMethod> methods=c.getMethods();
-        for (        SootMethod method : methods) {
-          if (method.hasActiveBody()) {
-            System.out.println(method.getSignature());
-            Body body=method.getActiveBody();
-            Printer.v().printTo(body,writer2);
-            writer2.flush();
-            System.out.flush();
-          }
-        }
-      }
- catch (      Exception ex2) {
-        ex2.printStackTrace();
-      }
-    }
+    ex.printStackTrace();
+    List<String> after_sigs=getMethodSignatures(c);
+    System.out.println("Before sigs: ");
+    printMethodSigs(before_sigs);
+    System.out.println("After sigs: ");
+    printMethodSigs(after_sigs);
   }
  finally {
     writer.flush();
