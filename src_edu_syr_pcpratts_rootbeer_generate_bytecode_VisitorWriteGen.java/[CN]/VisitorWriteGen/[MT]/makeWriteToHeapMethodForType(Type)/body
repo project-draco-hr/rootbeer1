@@ -1,4 +1,7 @@
 {
+  if (type instanceof ArrayType == false && type instanceof RefType == false) {
+    return;
+  }
   if (mWriteToHeapMethodsMade.contains(type))   return;
   mWriteToHeapMethodsMade.add(type);
   if (type instanceof RefType) {

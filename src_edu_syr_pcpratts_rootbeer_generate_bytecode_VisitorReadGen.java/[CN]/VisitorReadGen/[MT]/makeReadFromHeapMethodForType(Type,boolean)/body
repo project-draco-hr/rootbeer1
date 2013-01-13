@@ -1,4 +1,7 @@
 {
+  if (type instanceof ArrayType == false && type instanceof RefType == false) {
+    return;
+  }
   if (m_ReadFromHeapMethodsMade.containsKey(type))   return;
   if (type instanceof RefType) {
     RefType ref_type=(RefType)type;
