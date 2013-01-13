@@ -3,7 +3,6 @@
     init();
   }
   if (sm.getSignature().equals(m_signature)) {
-    return true;
+    m_entryPoints.add(sm.getSignature());
   }
-  return false;
 }

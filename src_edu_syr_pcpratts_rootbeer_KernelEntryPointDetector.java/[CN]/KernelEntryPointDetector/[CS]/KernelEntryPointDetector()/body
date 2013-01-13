@@ -1,0 +1,4 @@
+{
+  m_entryPoints=new ArrayList<String>();
+  m_entryPoints.add("<edu.syr.pcpratts.rootbeer.runtime.Rootbeer: void runAll(java.util.List)>");
+}

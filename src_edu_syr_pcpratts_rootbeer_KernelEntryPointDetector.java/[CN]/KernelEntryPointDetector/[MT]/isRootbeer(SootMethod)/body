@@ -1,6 +1,0 @@
-{
-  if (sm.getSignature().equals("<edu.syr.pcpratts.rootbeer.runtime.Rootbeer: void runAll(java.util.List)>")) {
-    return true;
-  }
-  return false;
-}

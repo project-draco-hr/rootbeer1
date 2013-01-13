@@ -17,6 +17,14 @@
   }
  else {
     String[] code=OpenCLScene.v().getOpenCLCode();
+    PrintWriter writer=new PrintWriter(RootbeerPaths.v().getRootbeerHome() + "pre_dead_unix.c");
+    writer.println(code[0]);
+    writer.flush();
+    writer.close();
+    writer=new PrintWriter(RootbeerPaths.v().getRootbeerHome() + "pre_dead_windows.c");
+    writer.println(code[1]);
+    writer.flush();
+    writer.close();
     System.out.println("removing dead methods...");
     DeadMethods dead_methods=new DeadMethods("entry");
     code[0]=dead_methods.filter(code[0]);

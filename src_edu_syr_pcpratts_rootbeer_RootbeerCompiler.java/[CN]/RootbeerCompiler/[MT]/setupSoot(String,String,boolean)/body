@@ -56,5 +56,14 @@
   RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.test.TestExceptionFactory");
   RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.runtime.util.Stopwatch");
   RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.runtime.PrivateFields");
+  List<String> cuda_entries=new ArrayList<String>();
+  cuda_entries.add("<java.lang.String: void <init>(char[])>");
+  cuda_entries.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: int getThreadId()>");
+  cuda_entries.add("<java.lang.Throwable: java.lang.StackTraceElement[] getStackTrace()>");
+  cuda_entries.add("<java.lang.StackTraceElement: void <init>(java.lang.String,java.lang.String,java.lang.String,int)>");
+  cuda_entries.add("<java.lang.OutOfMemoryError: void <init>()>");
+  cuda_entries.add("<edu.syr.pcpratts.rootbeer.runtime.Serializer: void <init>(edu.syr.pcpratts.rootbeer.runtime.memory.Memory,edu.syr.pcpratts.rootbeer.runtime.memory.Memory)>");
+  cuda_entries.add("<edu.syr.pcpratts.rootbeer.runtime.Sentinal: void <init>()>");
+  RootbeerClassLoader.v().setCudaEntryPoints(cuda_entries);
   RootbeerClassLoader.v().loadNecessaryClasses();
 }

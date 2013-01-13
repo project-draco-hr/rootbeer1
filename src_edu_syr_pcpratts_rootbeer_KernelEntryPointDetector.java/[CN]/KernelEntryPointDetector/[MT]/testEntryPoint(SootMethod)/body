@@ -1,0 +1,5 @@
+{
+  if (isKernel(sm)) {
+    m_entryPoints.add(sm.getSignature());
+  }
+}

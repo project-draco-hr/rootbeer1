@@ -1,9 +1,0 @@
-{
-  if (isKernel(sm)) {
-    return true;
-  }
-  if (isRootbeer(sm)) {
-    return true;
-  }
-  return false;
-}
