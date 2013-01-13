@@ -6,4 +6,5 @@
   mCurrBody=jimple.newBody(mCurrMethod);
   mCurrMethod.setActiveBody(mCurrBody);
   mCurrClass.addMethod(mCurrMethod);
+  RootbeerClassLoader.v().addGeneratedMethod(mCurrMethod.getSignature());
 }

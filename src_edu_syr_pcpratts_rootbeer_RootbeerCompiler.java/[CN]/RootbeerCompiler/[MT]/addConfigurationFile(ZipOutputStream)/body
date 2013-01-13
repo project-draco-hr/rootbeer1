@@ -1,5 +1,6 @@
 {
-  String name="edu/syr/pcpratts/rootbeer/runtime/config.txt";
+  String folder_name="edu/syr/pcpratts/rootbeer/runtime/";
+  String name=folder_name + "config.txt";
   ZipEntry entry=new ZipEntry(name);
   entry.setSize(1);
   byte[] contents=new byte[1];
@@ -8,6 +9,10 @@
   zos.putNextEntry(entry);
   zos.write(contents);
   zos.flush();
+  File file=new File(RootbeerPaths.v().getOutputClassFolder() + File.separator + folder_name);
+  if (file.exists() == false) {
+    file.mkdirs();
+  }
   FileOutputStream fout=new FileOutputStream(RootbeerPaths.v().getOutputClassFolder() + File.separator + name);
   fout.write(contents);
   fout.flush();
