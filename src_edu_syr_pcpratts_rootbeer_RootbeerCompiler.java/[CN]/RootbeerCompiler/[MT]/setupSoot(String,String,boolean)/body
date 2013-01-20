@@ -36,11 +36,12 @@
   RootbeerClassLoader.v().addIgnorePackage("android.content.res.");
   RootbeerClassLoader.v().addIgnorePackage("org.apache.commons.codec.");
   if (runtests) {
-    RootbeerClassLoader.v().addKeepPackages("edu.syr.pcpratts.rootbeer.testcases.");
+    RootbeerClassLoader.v().addTestCasePackage("edu.syr.pcpratts.rootbeer.testcases.");
     RootbeerClassLoader.v().addKeepPackages("edu.syr.pcpratts.rootbeer.testagent.");
     RootbeerClassLoader.v().addKeepPackages("edu.syr.pcpratts.rootbeer.test.");
   }
   RootbeerClassLoader.v().addKeepPackages("edu.syr.pcpratts.rootbeer.runtime.");
+  RootbeerClassLoader.v().addKeepPackages("edu.syr.pcpratts.rootbeer.runtime2.");
   RootbeerClassLoader.v().addKeepPackages("edu.syr.pcpratts.rootbeer.configuration.");
   RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.generate.bytecode.Constants");
   RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.runtime.RootbeerFactory");
