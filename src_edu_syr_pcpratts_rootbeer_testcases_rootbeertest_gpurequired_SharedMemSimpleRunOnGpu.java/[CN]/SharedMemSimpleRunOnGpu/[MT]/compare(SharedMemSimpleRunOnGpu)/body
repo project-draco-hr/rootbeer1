@@ -24,7 +24,10 @@
     return false;
   }
   if (m_float != rhs.m_float) {
-    System.out.append("m_float");
+    System.out.println("m_float");
+    System.out.println("org: " + floatToString(7.1f));
+    System.out.println("lhs: " + floatToString(m_float));
+    System.out.println("rhs: " + floatToString(rhs.m_float));
     return false;
   }
   if (m_double != rhs.m_double) {
