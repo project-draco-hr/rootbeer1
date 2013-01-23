@@ -1,0 +1,7 @@
+{
+  String str=Long.toBinaryString(value);
+  while (str.length() < 64) {
+    str="0" + str;
+  }
+  return str;
+}
