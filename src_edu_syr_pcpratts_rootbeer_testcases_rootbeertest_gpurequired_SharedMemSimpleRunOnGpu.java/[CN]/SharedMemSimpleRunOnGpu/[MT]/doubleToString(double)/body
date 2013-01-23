@@ -1,0 +1,8 @@
+{
+  long bits=Double.doubleToLongBits(value);
+  String str=Long.toBinaryString(bits);
+  while (str.length() < 64) {
+    str="0" + str;
+  }
+  return str;
+}

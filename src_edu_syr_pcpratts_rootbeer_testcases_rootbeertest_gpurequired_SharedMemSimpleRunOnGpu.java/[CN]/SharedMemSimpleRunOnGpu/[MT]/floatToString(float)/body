@@ -1,0 +1,8 @@
+{
+  int bits=Float.floatToIntBits(value);
+  String str=Integer.toBinaryString(bits);
+  while (str.length() < 32) {
+    str="0" + str;
+  }
+  return str;
+}

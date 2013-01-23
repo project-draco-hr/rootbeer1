@@ -24,11 +24,25 @@
     return false;
   }
   if (m_float != rhs.m_float) {
-    System.out.append("m_float");
+    System.out.println("m_float");
+    System.out.println("org: " + floatToString(7.1f));
+    System.out.println("lhs: " + floatToString(m_float));
+    System.out.println("rhs: " + floatToString(rhs.m_float));
     return false;
   }
   if (m_double != rhs.m_double) {
     System.out.println("m_double");
+    System.out.println("org: " + doubleToString(8.2));
+    System.out.println("lhs: " + doubleToString(m_double));
+    System.out.println("  lhs byte 0: " + byteToString(RootbeerGpu.getSharedByte(22)));
+    System.out.println("  lhs byte 1: " + byteToString(RootbeerGpu.getSharedByte(22 + 1)));
+    System.out.println("  lhs byte 2: " + byteToString(RootbeerGpu.getSharedByte(22 + 2)));
+    System.out.println("  lhs byte 3: " + byteToString(RootbeerGpu.getSharedByte(22 + 3)));
+    System.out.println("  lhs byte 4: " + byteToString(RootbeerGpu.getSharedByte(22 + 4)));
+    System.out.println("  lhs byte 5: " + byteToString(RootbeerGpu.getSharedByte(22 + 5)));
+    System.out.println("  lhs byte 6: " + byteToString(RootbeerGpu.getSharedByte(22 + 6)));
+    System.out.println("  lhs byte 7: " + byteToString(RootbeerGpu.getSharedByte(22 + 7)));
+    System.out.println("rhs: " + doubleToString(rhs.m_double));
     return false;
   }
   return true;

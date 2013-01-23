@@ -2,7 +2,7 @@
   int ret=0;
   ret|=m_sharedMem[index] & 0x000000ff;
   ret|=(m_sharedMem[index + 1] << 8) & 0x0000ff00;
-  ret|=(m_sharedMem[index + 1] << 16) & 0x00ff0000;
-  ret|=(m_sharedMem[index + 1] << 24) & 0xff000000;
+  ret|=(m_sharedMem[index + 2] << 16) & 0x00ff0000;
+  ret|=(m_sharedMem[index + 3] << 24) & 0xff000000;
   return ret;
 }
