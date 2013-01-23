@@ -1,0 +1,7 @@
+{
+  String str=Integer.toBinaryString(value);
+  while (str.length() < 8) {
+    str="0" + str;
+  }
+  return str;
+}
