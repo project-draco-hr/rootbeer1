@@ -18,7 +18,7 @@
  else   if (test_case_obj instanceof TestException) {
     TestException test_ex=(TestException)test_case_obj;
     System.out.println("[TEST 1/1] " + test_ex.toString());
-    ex_test(test_ex);
+    ex_test(test_ex,true);
     if (m_passed) {
       System.out.println("  PASSED");
     }

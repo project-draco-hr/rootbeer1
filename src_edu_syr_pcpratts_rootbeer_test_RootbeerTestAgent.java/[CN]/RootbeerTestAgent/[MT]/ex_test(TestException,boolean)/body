@@ -1,5 +1,6 @@
 {
   Rootbeer rootbeer=new Rootbeer();
+  Configuration.setPrintMem(print_mem);
   List<Kernel> testing_items=creator.create();
   try {
     rootbeer.runAll(testing_items);

@@ -22,7 +22,7 @@
   }
   for (  TestException ex_creator : ex_creators) {
     System.out.println("[TEST " + test_num + "/"+ num_tests+ "] "+ ex_creator.toString());
-    ex_test(ex_creator);
+    ex_test(ex_creator,false);
     if (m_passed) {
       System.out.println("  PASSED");
     }
