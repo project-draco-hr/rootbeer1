@@ -46,7 +46,9 @@
         }
         RefType curr_ref_type=(RefType)type;
         SootClass sclass=curr_ref_type.getSootClass();
-        if (sootClassHasMethod(sclass) == false)         continue;
+        if (sootClassHasMethod(sclass) == false) {
+          continue;
+        }
         ret.append("else if(derived_type == " + RootbeerClassLoader.v().getDfsInfo().getClassNumber(sclass) + "){\n");
         if (m_sootMethod.getReturnType() instanceof VoidType == false) {
           ret.append("return ");
