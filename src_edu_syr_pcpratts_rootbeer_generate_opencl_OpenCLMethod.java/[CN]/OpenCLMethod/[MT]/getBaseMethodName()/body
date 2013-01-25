@@ -1,7 +1,19 @@
 {
-  OpenCLClass ocl_class=new OpenCLClass(m_sootClass);
-  String method_name=m_sootMethod.getName();
-  method_name=method_name.replace("<init>","init" + OpenCLScene.v().getUuid());
-  String ret=ocl_class.getName() + "_" + method_name;
-  return ret;
+  if (m_sootMethod.isConcrete() == false) {
+    Set<String> virtual_signatures=RootbeerClassLoader.v().getVirtualSignaturesDown(m_sootMethod);
+    if (virtual_signatures.size() != 1) {
+      return getBaseMethodName(m_sootClass,m_sootMethod);
+    }
+ else {
+      String signature=virtual_signatures.iterator().next();
+      MethodSignatureUtil util=new MethodSignatureUtil();
+      util.parse(signature);
+      SootMethod soot_method=util.getSootMethod();
+      SootClass soot_class=soot_method.getDeclaringClass();
+      return getBaseMethodName(soot_class,soot_method);
+    }
+  }
+ else {
+    return getBaseMethodName(m_sootClass,m_sootMethod);
+  }
 }

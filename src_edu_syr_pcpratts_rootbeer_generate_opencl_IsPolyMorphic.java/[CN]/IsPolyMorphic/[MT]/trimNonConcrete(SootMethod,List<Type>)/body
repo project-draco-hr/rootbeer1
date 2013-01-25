@@ -1,0 +1,20 @@
+{
+  List<Type> ret=new ArrayList<Type>();
+  for (  Type type : hierarchy) {
+    if (type instanceof RefType) {
+      RefType ref_type=(RefType)type;
+      SootClass soot_class=ref_type.getSootClass();
+      String subsig=soot_method.getSubSignature();
+      if (soot_class.declaresMethod(subsig)) {
+        SootMethod curr_method=soot_class.getMethod(subsig);
+        if (curr_method.isConcrete()) {
+          ret.add(type);
+        }
+      }
+    }
+ else {
+      ret.add(type);
+    }
+  }
+  return ret;
+}

@@ -1,0 +1,7 @@
+{
+  OpenCLClass ocl_class=new OpenCLClass(soot_class);
+  String method_name=soot_method.getName();
+  method_name=method_name.replace("<init>","init" + OpenCLScene.v().getUuid());
+  String ret=ocl_class.getName() + "_" + method_name;
+  return ret;
+}
