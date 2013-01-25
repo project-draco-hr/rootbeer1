@@ -1,0 +1,4 @@
+{
+  AbstractTestBaseClass base_class=new AbstractTestDerivedClass();
+  m_result=base_class.add(10,10);
+}
