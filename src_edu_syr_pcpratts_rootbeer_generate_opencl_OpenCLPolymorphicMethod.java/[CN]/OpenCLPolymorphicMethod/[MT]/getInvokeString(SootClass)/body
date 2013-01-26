@@ -1,5 +1,6 @@
 {
   if (m_sootMethod.getName().equals("<init>"))   return "";
+  SootClass soot_class=start_class;
   SootMethod soot_method=null;
   String subsig=m_sootMethod.getSubSignature();
   while (true) {
@@ -14,7 +15,7 @@
       soot_class=soot_class.getSuperclass();
     }
  else {
-      throw new RuntimeException("cannot find concrete base method: " + m_sootMethod.getSignature());
+      throw new RuntimeException("cannot find concrete base method: " + m_sootMethod.getSignature() + " "+ start_class);
     }
   }
   OpenCLMethod ocl_method=new OpenCLMethod(soot_method,soot_class);
