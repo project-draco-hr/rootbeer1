@@ -1,0 +1,13 @@
+{
+  byte[] haplotype_bases=new byte[20];
+  byte[] read_bases=new byte[20];
+  byte[] read_quals=new byte[20];
+  byte[] insertion_gop=new byte[20];
+  byte[] deletion_gop=new byte[20];
+  byte[] overall_gcp=new byte[20];
+  haplotype_bases[0]=1;
+  read_quals[0]=10;
+  int hap_start_index=50;
+  boolean recache_read_value=true;
+  m_result=hmm(haplotype_bases,read_bases,read_quals,insertion_gop,deletion_gop,overall_gcp,hap_start_index,recache_read_value);
+}

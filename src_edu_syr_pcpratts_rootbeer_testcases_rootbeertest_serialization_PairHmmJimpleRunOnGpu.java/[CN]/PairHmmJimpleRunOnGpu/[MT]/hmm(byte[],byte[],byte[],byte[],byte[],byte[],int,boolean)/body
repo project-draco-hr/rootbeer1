@@ -1,0 +1,7 @@
+{
+  for (int i=0; i < readQuals.length; i++) {
+    readQuals[i]=(readQuals[i] < PairHmmQualityUtils.MIN_USABLE_Q_SCORE ? PairHmmQualityUtils.MIN_USABLE_Q_SCORE : (readQuals[i] > Byte.MAX_VALUE ? Byte.MAX_VALUE : readQuals[i]));
+  }
+  double ret=pairHMM.computeReadLikelihoodGivenHaplotypeLog10(haplotypeBases,readBases,readQuals,insertionGOP,deletionGOP,overallGCP,hapStartIndex,recacheReadValues);
+  return ret;
+}

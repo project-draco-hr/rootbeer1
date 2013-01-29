@@ -1,0 +1,5 @@
+{
+  PairHmmJimpleRunOnGpu lhs=(PairHmmJimpleRunOnGpu)original;
+  PairHmmJimpleRunOnGpu rhs=(PairHmmJimpleRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

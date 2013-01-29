@@ -1,0 +1,3 @@
+{
+  return haplotypeBases[0] + readBases[0] + readQuals[0]+ insertionGOP[0]+ deletionGOP[0]+ overallGCP[0];
+}

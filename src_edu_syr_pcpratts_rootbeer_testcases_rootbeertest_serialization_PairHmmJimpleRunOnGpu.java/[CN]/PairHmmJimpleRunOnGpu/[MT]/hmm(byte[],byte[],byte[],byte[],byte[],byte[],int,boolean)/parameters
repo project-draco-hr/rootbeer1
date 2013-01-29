@@ -1,0 +1,8 @@
+byte[] haplotypeBases
+byte[] readBases
+byte[] readQuals
+byte[] insertionGOP
+byte[] deletionGOP
+byte[] overallGCP
+int hapStartIndex
+boolean recacheReadValues
