@@ -1,0 +1,15 @@
+{
+  try {
+    if (getResult() != rhs.getResult()) {
+      System.out.println("m_result");
+      System.out.println("lhs: " + getResult());
+      System.out.println("rhs: " + rhs.getResult());
+      return false;
+    }
+    return true;
+  }
+ catch (  Exception ex) {
+    System.out.println("exception thrown");
+    return false;
+  }
+}
