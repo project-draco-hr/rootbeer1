@@ -11,7 +11,17 @@
   if (filename.endsWith(".error")) {
     return m_Partial;
   }
-  calculateShape();
+  if (thread_config == null) {
+    calculateShape();
+  }
+ else {
+    m_BlockShape=thread_config.getBlockShapeX();
+    m_GridShape=thread_config.getGridShapeX();
+    m_NumBlocksRun=m_GridShape * m_BlockShape;
+    if (m_NumBlocksRun > m_JobsWritten.size()) {
+      m_NumBlocksRun=m_JobsWritten.size();
+    }
+  }
   compileCode();
   Stopwatch watch=new Stopwatch();
   watch.start();

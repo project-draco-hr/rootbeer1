@@ -1,0 +1,4 @@
+{
+  ThreadConfigApp app=new ThreadConfigApp();
+  app.run();
+}

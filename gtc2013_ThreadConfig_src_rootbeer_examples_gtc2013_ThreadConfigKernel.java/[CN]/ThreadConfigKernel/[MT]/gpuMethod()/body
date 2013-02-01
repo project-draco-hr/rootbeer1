@@ -1,0 +1,6 @@
+{
+  m_threadIdxx=RootbeerGpu.getThreadIdxx();
+  m_blockIdxx=RootbeerGpu.getBlockIdxx();
+  m_blockDimx=RootbeerGpu.getBlockDimx();
+  m_threadId=RootbeerGpu.getThreadId();
+}

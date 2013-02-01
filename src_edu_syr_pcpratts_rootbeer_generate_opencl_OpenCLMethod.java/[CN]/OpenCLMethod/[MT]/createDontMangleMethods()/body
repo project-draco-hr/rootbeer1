@@ -34,6 +34,9 @@
   m_dontMangleMethods.add("<java.lang.OutOfMemoryError: void <init>()>");
   m_dontMangleMethods.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: boolean isOnGpu()>");
   m_dontMangleMethods.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: int getThreadId()>");
+  m_dontMangleMethods.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: int getThreadIdxx()>");
+  m_dontMangleMethods.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: int getBlockIdxx()>");
+  m_dontMangleMethods.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: int getBlockDimx()>");
   m_dontMangleMethods.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: long getRef(java.lang.Object)>");
   m_dontMangleMethods.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: void synchthreads()>");
   m_dontMangleMethods.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: byte getSharedByte(int)>");
