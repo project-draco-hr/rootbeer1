@@ -1,0 +1,5 @@
+{
+  ChangeThreadRunOnGpu lhs=(ChangeThreadRunOnGpu)original;
+  ChangeThreadRunOnGpu rhs=(ChangeThreadRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}
