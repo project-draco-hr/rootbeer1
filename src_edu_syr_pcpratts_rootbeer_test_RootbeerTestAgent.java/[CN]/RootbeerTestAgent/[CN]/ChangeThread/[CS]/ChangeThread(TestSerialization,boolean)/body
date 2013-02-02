@@ -1,0 +1,5 @@
+{
+  m_creator=creator;
+  m_printMem=print_mem;
+  m_rootbeer=new Rootbeer();
+}
