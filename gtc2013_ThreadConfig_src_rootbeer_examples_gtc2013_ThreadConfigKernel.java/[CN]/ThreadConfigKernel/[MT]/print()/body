@@ -1,0 +1,6 @@
+{
+  System.out.println("thread_id: " + m_threadId);
+  System.out.println("thread_idxx: " + m_threadIdxx);
+  System.out.println("block_idxx: " + m_blockIdxx);
+  System.out.println("block_dimx: " + m_blockDimx);
+}

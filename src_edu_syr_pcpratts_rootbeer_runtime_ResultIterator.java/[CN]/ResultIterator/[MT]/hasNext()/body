@@ -2,7 +2,7 @@
   if (m_currIter.hasNext())   return true;
   if (m_jobsToEnqueue.hasNext() == false)   return false;
   try {
-    readPartial(m_runtime.run(m_jobsToEnqueue,m_rootbeer));
+    readPartial(m_runtime.run(m_jobsToEnqueue,m_rootbeer,null));
   }
  catch (  Exception ex) {
     ex.printStackTrace();

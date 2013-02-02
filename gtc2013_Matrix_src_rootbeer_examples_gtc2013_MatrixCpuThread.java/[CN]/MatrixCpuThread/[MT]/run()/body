@@ -1,0 +1,10 @@
+{
+  int num_each=m_b.length / 4;
+  int start_row=m_index * num_each;
+  int stop_row=(m_index + 1) * num_each;
+  if (m_index == 3) {
+    stop_row=m_b.length;
+  }
+  for (int b_row=start_row; b_row < stop_row; ++b_row) {
+  }
+}
