@@ -2,8 +2,8 @@
   LoadTestSerialization loader=new LoadTestSerialization();
   List<TestSerialization> creators=loader.load(cls_loader,"edu.syr.pcpratts.rootbeer.test.Main",run_hard_tests);
   List<TestException> ex_creators=loader.loadException(cls_loader,"edu.syr.pcpratts.rootbeer.test.ExMain");
-  List<TestSerialization> change_thread=loader.load(cls_loader,"edu.syr.pcpratts.rootbeer.test.Main",run_hard_tests);
-  int num_tests=creators.size() + ex_creators.size();
+  List<TestSerialization> change_thread=loader.load(cls_loader,"edu.syr.pcpratts.rootbeer.test.ChangeThread",run_hard_tests);
+  int num_tests=creators.size() + ex_creators.size() + change_thread.size();
   int test_num=1;
   for (  TestSerialization creator : creators) {
     System.out.println("[TEST " + test_num + "/"+ num_tests+ "] "+ creator.toString());
@@ -34,10 +34,9 @@
     }
     ++test_num;
   }
-  for (  TestSerialization creator : creators) {
+  for (  TestSerialization creator : change_thread) {
     System.out.println("[TEST " + test_num + "/"+ num_tests+ "] "+ creator.toString());
     testChangeThread(creator,false);
-    ForceGC.gc();
     if (m_passed) {
       System.out.println("  PASSED");
       System.out.println("  Cpu time: " + m_cpuTime + " ms");
