@@ -1,0 +1,10 @@
+{
+  Thread t=new Thread(new ChangeThread(creator,print_mem));
+  t.start();
+  try {
+    t.join();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+  }
+}
