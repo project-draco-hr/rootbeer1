@@ -17,8 +17,13 @@
     String command;
     CudaPath cuda_path=new CudaPath();
     if (File.separator.equals("/")) {
-      String gencode_options="--generate-code arch=sm_11,code=compute_11,arch=sm_12,code=compute_12,arch=sm_13,code=compute_13,";
-      gencode_options+="arch=sm_20,code=compute_20,arch=sm_21,code=compute_20,arch=sm_30,code=compute_30,arch=sm_35,code=compute_35";
+      String gencode_options="--generate-code arch=compute_11,code=\"sm_11,compute_11\" ";
+      gencode_options+="--generate-code arch=compute_12,code=\"sm_12,compute_12\" ";
+      gencode_options+="--generate-code arch=compute_13,code=\"sm_13,compute_13\" ";
+      gencode_options+="--generate-code arch=compute_20,code=\"sm_20,compute_20\" ";
+      gencode_options+="--generate-code arch=compute_20,code=\"sm_21,compute_20\" ";
+      gencode_options+="--generate-code arch=compute_30,code=\"sm_30,compute_30\" ";
+      gencode_options+="--generate-code arch=compute_35,code=\"sm_35,compute_35\" ";
       command=cuda_path.get() + "/nvcc " + modelString+ " "+ gencode_options+ " -fatbin "+ generated.getAbsolutePath()+ " -o "+ code_file.getAbsolutePath();
       System.out.println(command);
       CompilerRunner runner=new CompilerRunner();
