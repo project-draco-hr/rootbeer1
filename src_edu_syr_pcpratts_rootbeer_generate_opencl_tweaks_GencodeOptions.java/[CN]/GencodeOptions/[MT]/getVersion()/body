@@ -1,0 +1,6 @@
+{
+  CudaPath cuda_path=new CudaPath();
+  String nvcc_path=cuda_path.get() + "/nvcc";
+  CmdRunner runner=new CmdRunner();
+  return ret;
+}

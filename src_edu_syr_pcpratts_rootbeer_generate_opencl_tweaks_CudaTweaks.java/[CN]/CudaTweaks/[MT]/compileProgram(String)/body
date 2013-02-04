@@ -16,14 +16,9 @@
     String modelString="-m64";
     String command;
     CudaPath cuda_path=new CudaPath();
+    GencodeOptions options_gen=new GencodeOptions();
+    String gencode_options=options_gen.getOptions();
     if (File.separator.equals("/")) {
-      String gencode_options="--generate-code arch=compute_11,code=\"sm_11,compute_11\" ";
-      gencode_options+="--generate-code arch=compute_12,code=\"sm_12,compute_12\" ";
-      gencode_options+="--generate-code arch=compute_13,code=\"sm_13,compute_13\" ";
-      gencode_options+="--generate-code arch=compute_20,code=\"sm_20,compute_20\" ";
-      gencode_options+="--generate-code arch=compute_20,code=\"sm_21,compute_20\" ";
-      gencode_options+="--generate-code arch=compute_30,code=\"sm_30,compute_30\" ";
-      gencode_options+="--generate-code arch=compute_35,code=\"sm_35,compute_35\" ";
       command=cuda_path.get() + "/nvcc " + modelString+ " "+ gencode_options+ " -fatbin "+ generated.getAbsolutePath()+ " -o "+ code_file.getAbsolutePath();
       System.out.println(command);
       CompilerRunner runner=new CompilerRunner();
@@ -35,7 +30,7 @@
  else {
       WindowsCompile compile=new WindowsCompile();
       String nvidia_path=cuda_path.get();
-      command="\"" + nvidia_path + "\" -arch sm_20 -cubin \""+ generated.getAbsolutePath()+ "\" -o \""+ code_file.getAbsolutePath()+ "\""+ compile.endl();
+      command="\"" + nvidia_path + "\" "+ gencode_options+ " -fatbin \""+ generated.getAbsolutePath()+ "\" -o \""+ code_file.getAbsolutePath()+ "\""+ compile.endl();
       List<String> errors=compile.compile(command);
       if (errors.isEmpty() == false) {
         return new CompileResult(null,errors);
