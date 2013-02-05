@@ -2,5 +2,11 @@
   CudaPath cuda_path=new CudaPath();
   String nvcc_path=cuda_path.get() + "/nvcc";
   CmdRunner runner=new CmdRunner();
-  return ret;
+  runner.run(nvcc_path + " --version",new File("."));
+  List<String> lines=runner.getOutput();
+  if (lines.isEmpty()) {
+    throw new RuntimeException("error detecting nvcc version.");
+  }
+  String last_line=lines.get(lines.size() - 1);
+  return last_line;
 }

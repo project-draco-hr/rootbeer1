@@ -1,0 +1,14 @@
+{
+  try {
+    while (true) {
+      String line=m_reader.readLine();
+      if (line == null)       break;
+      m_stream.add(line);
+    }
+  }
+ catch (  Exception ex) {
+  }
+ finally {
+    m_done=true;
+  }
+}
