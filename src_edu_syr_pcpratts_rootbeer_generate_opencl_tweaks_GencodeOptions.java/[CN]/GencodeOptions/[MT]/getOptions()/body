@@ -4,37 +4,28 @@
   String sm_30="--generate-code arch=compute_30,code=\"sm_30,compute_30\" ";
   String sm_21="--generate-code arch=compute_20,code=\"sm_21,compute_20\" ";
   String sm_20="--generate-code arch=compute_20,code=\"sm_20,compute_20\" ";
-  String sm_13="--generate-code arch=compute_13,code=\"sm_13,compute_13\" ";
-  String sm_12="--generate-code arch=compute_12,code=\"sm_12,compute_12\" ";
-  String sm_11="--generate-code arch=compute_11,code=\"sm_11,compute_11\" ";
   if (version.equals("Cuda compilation tools, release 5.0, V0.2.1221")) {
-    return sm_35 + sm_30 + sm_21+ sm_20+ sm_13+ sm_12+ sm_11;
+    return sm_35 + sm_30 + sm_21+ sm_20;
   }
  else   if (version.equals("Cuda compilation tools, release 4.2, V0.2.1221")) {
-    return sm_30 + sm_21 + sm_20+ sm_13+ sm_12+ sm_11;
+    return sm_30 + sm_21 + sm_20;
   }
  else   if (version.equals("Cuda compilation tools, release 4.1, V0.2.1221")) {
-    return sm_30 + sm_21 + sm_20+ sm_13+ sm_12+ sm_11;
+    return sm_30 + sm_21 + sm_20;
   }
  else   if (version.equals("Cuda compilation tools, release 4.0, V0.2.1221")) {
-    return sm_30 + sm_21 + sm_20+ sm_13+ sm_12+ sm_11;
+    return sm_30 + sm_21 + sm_20;
   }
  else   if (version.equals("Cuda compilation tools, release 3.2, V0.2.1221")) {
-    return sm_30 + sm_21 + sm_20+ sm_13+ sm_12+ sm_11;
+    return sm_30 + sm_21 + sm_20;
   }
  else   if (version.equals("Cuda compilation tools, release 3.1, V0.2.1221")) {
-    return sm_20 + sm_13 + sm_12+ sm_11;
+    return sm_20;
   }
  else   if (version.equals("Cuda compilation tools, release 3.0, V0.2.1221")) {
-    return sm_20 + sm_13 + sm_12+ sm_11;
-  }
- else   if (version.equals("Cuda compilation tools, release 2.3, V0.2.1221")) {
-    return sm_13 + sm_12 + sm_11;
-  }
- else   if (version.equals("Cuda compilation tools, release 2.2, V0.2.1221")) {
-    return sm_13 + sm_12 + sm_11;
+    return sm_20;
   }
  else {
-    throw new RuntimeException("unsupported nvcc version. please send an email to pcpratts@trifort.org");
+    throw new RuntimeException("unsupported nvcc version. version 3.0 or higher needed. arch sm_20 or higher needed.");
   }
 }
