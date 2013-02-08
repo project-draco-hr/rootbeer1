@@ -1,5 +1,6 @@
 {
   Stopwatch watch=new Stopwatch();
+  watch.start();
   List<Kernel> kernels=new ArrayList<Kernel>();
   for (int i=0; i < m_blockSize * m_gridSize; ++i) {
     kernels.add(new MatrixKernel(m_a,m_b,m_cgpu,m_blockSize));
