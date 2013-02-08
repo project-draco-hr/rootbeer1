@@ -8,5 +8,5 @@
  catch (  Exception ex) {
     ex.printStackTrace();
   }
-  loadFunction(getHeapEndPtr(),dest_filename,m_NumBlocksRun);
+  loadFunction(getHeapEndPtr(),dest_filename,m_JobsWritten.size());
 }

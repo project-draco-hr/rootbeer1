@@ -1,8 +1,11 @@
 {
   try {
-    runBlocks(m_NumBlocksRun,m_BlockShape,m_GridShape);
+    m_runOnGpuStopwatch.start();
+    runBlocks(m_JobsWritten.size(),m_BlockShape,m_GridShape);
+    m_runOnGpuStopwatch.stop();
+    m_executionTime=m_runOnGpuStopwatch.elapsedTimeMillis();
   }
- catch (  RuntimeException ex) {
+ catch (  CudaErrorException ex) {
     reinit(m_BlockShaper.getMaxBlocksPerProc(),m_BlockShaper.getMaxThreadsPerBlock(),m_reserveMem);
     throw ex;
   }

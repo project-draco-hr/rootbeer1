@@ -1,4 +1,4 @@
 {
-  if (thrwbl instanceof RuntimeException)   return true;
+  if (thrwbl instanceof ExceptionTestException)   return true;
   return false;
 }

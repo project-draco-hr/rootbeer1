@@ -1,6 +1,6 @@
 {
-  Stopwatch watch=new Stopwatch();
-  watch.start();
+  m_ctorStopwatch=new Stopwatch();
+  m_ctorStopwatch.start();
   CudaLoader loader=new CudaLoader();
   loader.load();
   m_BlockShaper=new BlockShaper();
@@ -13,6 +13,10 @@
   m_Texture=new ArrayList<Memory>();
   m_Readers=new ArrayList<ToSpaceReader>();
   m_Writers=new ArrayList<ToSpaceWriter>();
+  m_writeBlocksStopwatch=new Stopwatch();
+  m_runStopwatch=new Stopwatch();
+  m_runOnGpuStopwatch=new Stopwatch();
+  m_readBlocksStopwatch=new Stopwatch();
   m_NumCores=1;
   m_serializers=new ArrayList<Serializer>();
   AtomicLong to_space_inst_ptr=new AtomicLong(0);
@@ -29,5 +33,6 @@
   m_ExceptionHandles=new Handles(m_ExceptionsHandlesAddr,m_GpuExceptionsHandlesAddr);
   m_CpuRunner=new CpuRunner();
   Configuration.setPrintMem(false);
-  m_initTime=watch.elapsedTimeMillis();
+  m_ctorStopwatch.stop();
+  m_initTime=m_ctorStopwatch.elapsedTimeMillis();
 }

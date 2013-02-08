@@ -1,6 +1,5 @@
 {
-  Stopwatch watch2=new Stopwatch();
-  watch2.start();
+  m_runStopwatch.start();
   RootbeerGpu.setIsOnGpu(true);
   m_Partial=new PartiallyCompletedParallelJob(jobs);
   boolean any_jobs=writeBlocks(jobs);
@@ -13,17 +12,42 @@
   }
   calculateShape();
   compileCode();
-  Stopwatch watch=new Stopwatch();
-  watch.start();
-  runOnGpu();
-  watch.stop();
-  m_executionTime=watch.elapsedTimeMillis();
-  readBlocks();
-  unload();
-  runExtraBlocks();
+  Object gpu_thrown=null;
+  try {
+    runOnGpu();
+    readBlocks();
+    unload();
+  }
+ catch (  Throwable ex) {
+    gpu_thrown=ex;
+  }
   RootbeerGpu.setIsOnGpu(false);
-  m_overallTime=watch2.elapsedTimeMillis();
+  m_runStopwatch.stop();
+  m_overallTime=m_runStopwatch.elapsedTimeMillis();
   StatsRow stats_row=new StatsRow(m_serializationTime,m_executionTime,m_deserializationTime,m_overallTime,m_GridShape,m_BlockShape);
   rootbeer.addStatsRow(stats_row);
-  return m_Partial;
+  if (gpu_thrown == null) {
+    return m_Partial;
+  }
+ else {
+    if (gpu_thrown instanceof NullPointerException) {
+      NullPointerException null_ex=(NullPointerException)gpu_thrown;
+      throw null_ex;
+    }
+ else     if (gpu_thrown instanceof OutOfMemoryError) {
+      OutOfMemoryError no_mem=(OutOfMemoryError)gpu_thrown;
+      throw no_mem;
+    }
+ else     if (gpu_thrown instanceof Error) {
+      Error error=(Error)gpu_thrown;
+      throw error;
+    }
+ else     if (gpu_thrown instanceof RuntimeException) {
+      RuntimeException runtime_ex=(RuntimeException)gpu_thrown;
+      throw runtime_ex;
+    }
+ else {
+      throw new RuntimeException("unknown exception type.");
+    }
+  }
 }
