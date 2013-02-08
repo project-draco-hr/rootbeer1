@@ -1,6 +1,5 @@
 {
-  Stopwatch watch=new Stopwatch();
-  watch.start();
+  m_writeBlocksStopwatch.start();
   for (  Memory mem : m_ToSpace) {
     mem.setAddress(0);
   }
@@ -22,6 +21,9 @@
     }
     m_JobsToWrite.add(job);
     if (count + 1 == m_BlockShaper.getMaxThreads(m_NumMultiProcessors))     break;
+    if (count + 1 == m_NumBlocks) {
+      break;
+    }
     count++;
   }
   if (count == 0) {
@@ -64,8 +66,8 @@
   }
   m_Partial.addNotWritten(m_NotWritten);
   writeClassTypeRef(m_serializers.get(0).getClassRefArray());
-  watch.stop();
-  m_serializationTime=watch.elapsedTimeMillis();
+  m_writeBlocksStopwatch.stop();
+  m_serializationTime=m_writeBlocksStopwatch.elapsedTimeMillis();
   if (Configuration.getPrintMem()) {
     BufferPrinter printer=new BufferPrinter();
     printer.print(m_ToSpace.get(0),0,896);

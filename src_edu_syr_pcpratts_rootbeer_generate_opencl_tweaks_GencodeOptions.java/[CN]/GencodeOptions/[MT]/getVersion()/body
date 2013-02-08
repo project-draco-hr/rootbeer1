@@ -1,0 +1,24 @@
+{
+  CudaPath cuda_path=new CudaPath();
+  String cmd;
+  if (File.separator.equals("/")) {
+    String nvcc_path=cuda_path.get() + "nvcc";
+    cmd=nvcc_path + " --version";
+  }
+ else {
+    String nvcc_path=cuda_path.get();
+    cmd="\"" + nvcc_path + "\" --version";
+  }
+  CmdRunner runner=new CmdRunner();
+  runner.run(cmd,new File("."));
+  List<String> lines=runner.getOutput();
+  if (lines.isEmpty()) {
+    List<String> error_lines=runner.getError();
+    for (    String error_line : error_lines) {
+      System.out.println(error_line);
+    }
+    throw new RuntimeException("error detecting nvcc version.");
+  }
+  String last_line=lines.get(lines.size() - 1);
+  return last_line;
+}

@@ -1,13 +1,12 @@
 {
-  Stopwatch watch=new Stopwatch();
-  watch.start();
+  m_readBlocksStopwatch.start();
   for (int i=0; i < m_NumCores; ++i)   m_ToSpace.get(i).setAddress(0);
   m_ExceptionHandles.activate();
   if (Configuration.getPrintMem()) {
     BufferPrinter printer=new BufferPrinter();
     printer.print(m_ToSpace.get(0),0,2048);
   }
-  for (int i=0; i < m_NumBlocksRun; ++i) {
+  for (int i=0; i < m_JobsWritten.size(); ++i) {
     long ref=m_ExceptionHandles.readLong();
     if (ref != 0) {
       long ref_num=ref >> 4;
@@ -32,12 +31,12 @@
     }
   }
   m_serializers.get(0).readStaticsFromHeap();
-  int items_per=m_NumBlocksRun / m_NumCores;
+  int items_per=m_JobsWritten.size() / m_NumCores;
   for (int i=0; i < m_NumCores; ++i) {
     Serializer visitor=m_serializers.get(i);
     int end_index;
     if (i == m_NumCores - 1) {
-      end_index=m_NumBlocksRun;
+      end_index=m_JobsWritten.size();
     }
  else {
       end_index=(i + 1) * items_per;
@@ -49,6 +48,6 @@
   for (int i=0; i < m_NumCores; ++i) {
     m_Readers.get(i).join();
   }
-  watch.stop();
-  m_deserializationTime=watch.elapsedTimeMillis();
+  m_readBlocksStopwatch.stop();
+  m_deserializationTime=m_readBlocksStopwatch.elapsedTimeMillis();
 }

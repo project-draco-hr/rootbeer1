@@ -1,0 +1,7 @@
+{
+  m_inputStream=input_stream;
+  m_reader=new BufferedReader(new InputStreamReader(m_inputStream));
+  m_stream=new LinkedList<String>();
+  m_done=false;
+  new Thread(this).start();
+}

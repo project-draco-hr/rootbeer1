@@ -1,0 +1,11 @@
+{
+  while (!m_done) {
+    try {
+      Thread.sleep(10);
+    }
+ catch (    Exception ex) {
+      ex.printStackTrace();
+    }
+  }
+  return m_stream;
+}
