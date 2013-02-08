@@ -1,10 +1,19 @@
 {
-  int num_each=m_b.length / 4;
+  int num_each=m_blockSize / m_numCores;
   int start_row=m_index * num_each;
   int stop_row=(m_index + 1) * num_each;
-  if (m_index == 3) {
-    stop_row=m_b.length;
+  if (m_index == m_numCores - 1) {
+    stop_row=m_blockSize;
   }
-  for (int b_row=start_row; b_row < stop_row; ++b_row) {
+  int b_columns=m_blockSize * m_gridSize;
+  int a_columns=m_blockSize;
+  for (int i=start_row; i < stop_row; ++i) {
+    for (int j=0; j < b_columns; ++j) {
+      int sum=0;
+      for (int k=0; k < a_columns; ++k) {
+        sum+=m_a[i * a_columns + k] + m_b[j * b_columns + k];
+      }
+      m_c[i * b_columns + j]=sum;
+    }
   }
 }
