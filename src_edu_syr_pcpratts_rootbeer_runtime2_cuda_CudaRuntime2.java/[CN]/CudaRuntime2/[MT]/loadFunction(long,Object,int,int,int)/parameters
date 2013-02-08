@@ -1,0 +1,5 @@
+long heap_end_ptr
+Object buffer
+int size
+int total_size
+int num_blocks

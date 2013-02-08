@@ -1,12 +1,14 @@
 {
   String filename=m_FirstJob.getCubin();
-  File file=new File(filename);
-  String dest_filename=RootbeerPaths.v().getRootbeerHome() + File.separator + file.getName();
   try {
-    ResourceReader.writeToFile(filename,dest_filename);
+    List<byte[]> buffer=ResourceReader.getResourceArray(filename);
+    int total_len=0;
+    for (    byte[] sub_buffer : buffer) {
+      total_len+=sub_buffer.length;
+    }
+    loadFunction(getHeapEndPtr(),buffer,buffer.size(),total_len,m_JobsWritten.size());
   }
  catch (  Exception ex) {
     ex.printStackTrace();
   }
-  loadFunction(getHeapEndPtr(),dest_filename,m_JobsWritten.size());
 }

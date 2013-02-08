@@ -1,7 +1,14 @@
 {
   CudaPath cuda_path=new CudaPath();
-  String nvcc_path=cuda_path.get() + "nvcc";
-  String cmd=nvcc_path + " --version";
+  String cmd;
+  if (File.separator.equals("/")) {
+    String nvcc_path=cuda_path.get() + "nvcc";
+    cmd=nvcc_path + " --version";
+  }
+ else {
+    String nvcc_path=cuda_path.get();
+    cmd="\"" + nvcc_path + "\" --version";
+  }
   CmdRunner runner=new CmdRunner();
   runner.run(cmd,new File("."));
   List<String> lines=runner.getOutput();
