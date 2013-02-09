@@ -3,11 +3,21 @@
   watch.start();
   List<Kernel> kernels=new ArrayList<Kernel>();
   for (int i=0; i < m_blockSize * m_gridSize; ++i) {
-    kernels.add(new MatrixKernel(m_a,m_b,m_cgpu,m_blockSize));
+    kernels.add(new MatrixKernel(null,null,null,m_blockSize));
   }
   Rootbeer rootbeer=new Rootbeer();
   rootbeer.setThreadConfig(m_blockSize,m_gridSize);
   rootbeer.runAll(kernels);
   watch.stop();
   System.out.println("gpu time: " + watch.elapsedTimeMillis() + " ms");
+  List<StatsRow> stats=rootbeer.getStats();
+  for (  StatsRow row : stats) {
+    System.out.println("  StatsRow:");
+    System.out.println("    init time: " + row.getInitTime());
+    System.out.println("    serial time: " + row.getSerializationTime());
+    System.out.println("    exec time: " + row.getExecutionTime());
+    System.out.println("    deserial time: " + row.getDeserializationTime());
+    System.out.println("    num blocks: " + row.getNumBlocks());
+    System.out.println("    num threads: " + row.getNumThreads());
+  }
 }

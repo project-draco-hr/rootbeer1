@@ -3,5 +3,4 @@
   int row=RootbeerGpu.getThreadIdxx();
   int col=1;
   int block_size=m_blockSize;
-  RootbeerGpu.setSharedFloat((row * block_size) + col,m_a[row * block_size]);
 }
