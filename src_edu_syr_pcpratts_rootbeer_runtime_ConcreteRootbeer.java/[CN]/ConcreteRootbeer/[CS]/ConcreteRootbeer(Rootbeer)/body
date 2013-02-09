@@ -1,7 +1,4 @@
 {
   m_rootbeer=rootbeer;
   m_GpuWorking=true;
-  if (Configuration.runtimeInstance().getMode() == Configuration.MODE_GPU) {
-    CudaRuntime2.v();
-  }
 }

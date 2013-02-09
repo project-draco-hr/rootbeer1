@@ -1,5 +1,8 @@
 {
-  Iterator<Kernel> iter=run(list.iterator());
+  if (list.isEmpty()) {
+    return;
+  }
+  Iterator<Kernel> iter=run(list.iterator(),list.get(0));
   while (iter.hasNext()) {
     iter.next();
   }
