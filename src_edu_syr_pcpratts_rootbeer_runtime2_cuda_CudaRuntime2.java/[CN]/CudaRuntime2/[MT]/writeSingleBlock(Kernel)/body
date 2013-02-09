@@ -1,0 +1,41 @@
+{
+  m_writeBlocksStopwatch.start();
+  for (  Memory mem : m_ToSpace) {
+    mem.setAddress(0);
+  }
+  m_Handles.activate();
+  m_Handles.resetPointer();
+  m_JobsToWrite.clear();
+  m_JobsWritten.clear();
+  m_HandlesCache.clear();
+  m_NotWritten.clear();
+  m_serializers.clear();
+  ReadOnlyAnalyzer analyzer=null;
+  CompiledKernel compiled_kernel=(CompiledKernel)kernel;
+  Memory mem=m_ToSpace.get(0);
+  Memory texture_mem=m_Texture.get(0);
+  mem.clearHeapEndPtr();
+  texture_mem.clearHeapEndPtr();
+  Serializer visitor=compiled_kernel.getSerializer(mem,texture_mem);
+  visitor.setAnalyzer(analyzer);
+  m_serializers.add(visitor);
+  m_serializers.get(0).writeStaticsToHeap();
+  List<Kernel> items=new ArrayList<Kernel>();
+  items.add(kernel);
+  m_Writers.get(0).write(items,visitor);
+  ToSpaceWriterResult result=m_Writers.get(0).join();
+  List<Long> handles=result.getHandles();
+  long handle=handles.get(0);
+  m_HandlesCache.add(handle);
+  for (int i=0; i < m_NumThreads; ++i) {
+    m_Handles.writeLong(handle);
+  }
+  m_NumThreads=m_BlockShape * m_GridShape;
+  writeClassTypeRef(m_serializers.get(0).getClassRefArray());
+  m_writeBlocksStopwatch.stop();
+  m_serializationTime=m_writeBlocksStopwatch.elapsedTimeMillis();
+  if (Configuration.getPrintMem()) {
+    BufferPrinter printer=new BufferPrinter();
+    printer.print(m_ToSpace.get(0),0,896);
+  }
+}

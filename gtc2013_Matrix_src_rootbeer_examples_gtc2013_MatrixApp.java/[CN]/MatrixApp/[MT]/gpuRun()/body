@@ -1,13 +1,9 @@
 {
   Stopwatch watch=new Stopwatch();
   watch.start();
-  List<Kernel> kernels=new ArrayList<Kernel>();
-  for (int i=0; i < m_blockSize * m_gridSize; ++i) {
-    kernels.add(new MatrixKernel(null,null,null,m_blockSize));
-  }
   Rootbeer rootbeer=new Rootbeer();
   rootbeer.setThreadConfig(m_blockSize,m_gridSize);
-  rootbeer.runAll(kernels);
+  rootbeer.runAll(new MatrixKernel(null,null,null,m_blockSize));
   watch.stop();
   System.out.println("gpu time: " + watch.elapsedTimeMillis() + " ms");
   List<StatsRow> stats=rootbeer.getStats();

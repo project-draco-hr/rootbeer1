@@ -64,6 +64,7 @@
       m_Handles.writeLong(handle);
     }
   }
+  m_NumThreads=m_JobsWritten.size();
   m_Partial.addNotWritten(m_NotWritten);
   writeClassTypeRef(m_serializers.get(0).getClassRefArray());
   m_writeBlocksStopwatch.stop();
