@@ -1,7 +1,0 @@
-{
-  m_a=a;
-  m_b=b;
-  m_c=c;
-  m_index=index;
-  m_blockSize=block_size;
-}
