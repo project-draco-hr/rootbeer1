@@ -1,13 +1,4 @@
 {
   m_blockSize=64;
   m_gridSize=64 * 14;
-  m_a=new int[m_blockSize * m_blockSize];
-  m_b=new int[m_blockSize * m_blockSize * m_gridSize];
-  m_c=new int[m_blockSize * m_blockSize * m_gridSize];
-  for (int i=0; i < m_a.length; ++i) {
-    m_a[i]=i;
-  }
-  for (int i=0; i < m_b.length; ++i) {
-    m_b[i]=i;
-  }
 }
