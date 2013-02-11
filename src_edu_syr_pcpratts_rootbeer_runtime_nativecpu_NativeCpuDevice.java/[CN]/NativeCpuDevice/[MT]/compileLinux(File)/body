@@ -5,7 +5,7 @@
   String cmd;
   Process p;
   if (m_nativeCpuInitialized == false) {
-    cmd="gcc -ggdb -Wall -fPIC -g -c -I/usr/lib/jvm/java-6-openjdk/include/ -I/usr/lib/jvm/java-6-openjdk/include/linux " + nemu + "NativeCpuDevice.c -o "+ nemu+ "NativeCpuDevice.o";
+    cmd="gcc -ggdb -Wall -fPIC -g -c -I/usr/lib/jvm/default-java/include/ -I/usr/lib/jvm/default-java/include/linux " + nemu + "NativeCpuDevice.c -o "+ nemu+ "NativeCpuDevice.o";
     p=Runtime.getRuntime().exec(cmd,null,nemu_file);
     status=p.waitFor();
     if (status != 0) {
