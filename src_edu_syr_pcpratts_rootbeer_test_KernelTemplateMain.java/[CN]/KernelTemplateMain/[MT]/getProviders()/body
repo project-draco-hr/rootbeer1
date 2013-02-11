@@ -1,0 +1,5 @@
+{
+  List<TestKernelTemplate> ret=new ArrayList<TestKernelTemplate>();
+  ret.add(new FastMatrixTest());
+  return ret;
+}

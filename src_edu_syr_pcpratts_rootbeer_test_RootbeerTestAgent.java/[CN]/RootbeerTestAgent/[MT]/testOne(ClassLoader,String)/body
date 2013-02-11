@@ -32,6 +32,20 @@
       System.out.println("  " + m_message);
     }
   }
+ else   if (test_case_obj instanceof TestKernelTemplate) {
+    TestKernelTemplate test_kernel_template=(TestKernelTemplate)test_case_obj;
+    System.out.println("[TEST 1/1] " + test_kernel_template.toString());
+    test(test_kernel_template,true);
+    if (m_passed) {
+      System.out.println("  PASSED");
+      System.out.println("  Cpu time: " + m_cpuTime + " ms");
+      System.out.println("  Gpu time: " + m_gpuTime + " ms");
+    }
+ else {
+      System.out.println("  FAILED");
+      System.out.println("  " + m_message);
+    }
+  }
  else {
     throw new RuntimeException("unknown test case type");
   }

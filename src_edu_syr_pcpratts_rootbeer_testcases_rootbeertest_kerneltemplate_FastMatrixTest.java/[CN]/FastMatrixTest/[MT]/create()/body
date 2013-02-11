@@ -1,0 +1,4 @@
+{
+  Kernel ret=new MatrixKernel(m_a,m_b,m_c,m_blockSize,m_gridSize);
+  return ret;
+}

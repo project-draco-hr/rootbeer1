@@ -1,0 +1,5 @@
+{
+  Object instance=doLoad(loader,class_name);
+  TestKernelTemplateFactory factory=(TestKernelTemplateFactory)instance;
+  return factory.getProviders();
+}
