@@ -1,14 +1,18 @@
 {
+  System.out.println("reading: " + o.toString() + " from: "+ address);
 synchronized (mReadFromGpuCache) {
     if (mReadFromGpuCache.containsKey(address)) {
+      System.out.println("in cache");
       Object ret=mReadFromGpuCache.get(address);
       return ret;
     }
   }
   long null_ptr_check=address >> 4;
   if (null_ptr_check == -1) {
+    System.out.println("null pointer");
     return null;
   }
+  System.out.println("made it");
   Object ret=doReadFromHeap(o,read_data,address);
   return checkCache(address,ret);
 }

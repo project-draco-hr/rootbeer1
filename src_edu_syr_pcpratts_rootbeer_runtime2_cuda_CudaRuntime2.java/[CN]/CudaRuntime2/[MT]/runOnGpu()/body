@@ -1,7 +1,7 @@
 {
   try {
     m_runOnGpuStopwatch.start();
-    runBlocks(m_JobsWritten.size(),m_BlockShape,m_GridShape);
+    runBlocks(m_NumThreads,m_BlockShape,m_GridShape);
     m_runOnGpuStopwatch.stop();
     m_executionTime=m_runOnGpuStopwatch.elapsedTimeMillis();
   }

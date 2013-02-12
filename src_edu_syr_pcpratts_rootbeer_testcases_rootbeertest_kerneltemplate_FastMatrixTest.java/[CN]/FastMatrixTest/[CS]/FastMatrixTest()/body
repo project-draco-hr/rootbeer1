@@ -1,0 +1,4 @@
+{
+  m_blockSize=64;
+  m_gridSize=64 * 14;
+}

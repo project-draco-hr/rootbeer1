@@ -57,6 +57,8 @@
   RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.test.TestSerializationFactory");
   RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.test.TestException");
   RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.test.TestExceptionFactory");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.test.TestKernelTemplate");
+  RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.test.TestKernelTemplateFactory");
   RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.runtime.util.Stopwatch");
   RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.runtime.PrivateFields");
   RootbeerClassLoader.v().addRuntimeClass("edu.syr.pcpratts.rootbeer.util.IntStack");

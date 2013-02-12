@@ -1,13 +1,10 @@
 {
   Stopwatch watch=new Stopwatch();
   watch.start();
-  List<Kernel> kernels=new ArrayList<Kernel>();
-  for (int i=0; i < m_blockSize * m_gridSize; ++i) {
-    kernels.add(new MatrixKernel(null,null,null,m_blockSize));
-  }
+  MatrixKernel matrix_kernel=new MatrixKernel(m_a,m_b,m_cgpu,m_blockSize,m_gridSize);
   Rootbeer rootbeer=new Rootbeer();
   rootbeer.setThreadConfig(m_blockSize,m_gridSize);
-  rootbeer.runAll(kernels);
+  rootbeer.runAll(matrix_kernel);
   watch.stop();
   System.out.println("gpu time: " + watch.elapsedTimeMillis() + " ms");
   List<StatsRow> stats=rootbeer.getStats();
@@ -20,4 +17,17 @@
     System.out.println("    num blocks: " + row.getNumBlocks());
     System.out.println("    num threads: " + row.getNumThreads());
   }
+  System.out.println("m_cgpu:");
+  int num=0;
+  for (int index=0; index < 64 * 10; ++index) {
+    System.out.print(m_cgpu[index] + " ");
+    if (num == m_blockSize) {
+      System.out.println();
+      num=0;
+    }
+ else {
+      ++num;
+    }
+  }
+  System.out.println();
 }

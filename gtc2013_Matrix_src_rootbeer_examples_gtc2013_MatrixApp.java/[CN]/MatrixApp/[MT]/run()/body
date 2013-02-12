@@ -1,4 +1,5 @@
 {
   cpuRun();
   gpuRun();
+  verify();
 }

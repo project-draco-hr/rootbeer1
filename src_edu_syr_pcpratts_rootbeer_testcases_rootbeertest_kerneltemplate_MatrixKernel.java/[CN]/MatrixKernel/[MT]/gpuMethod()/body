@@ -1,0 +1,13 @@
+{
+  int block_idxx=RootbeerGpu.getBlockIdxx();
+  int thread_idxx=RootbeerGpu.getThreadIdxx();
+  int b_columns=m_blockSize * m_gridSize;
+  int a_columns=m_blockSize;
+  int i=thread_idxx;
+  int j=block_idxx;
+  int sum=0;
+  for (int k=0; k < a_columns; ++k) {
+    sum+=m_a[i * a_columns + k] + m_b[k * b_columns + j];
+  }
+  m_c[0]=10;
+}

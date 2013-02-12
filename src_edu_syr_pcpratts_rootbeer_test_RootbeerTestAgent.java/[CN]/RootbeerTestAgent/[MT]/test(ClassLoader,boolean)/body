@@ -3,7 +3,8 @@
   List<TestSerialization> creators=loader.load(cls_loader,"edu.syr.pcpratts.rootbeer.test.Main",run_hard_tests);
   List<TestException> ex_creators=loader.loadException(cls_loader,"edu.syr.pcpratts.rootbeer.test.ExMain");
   List<TestSerialization> change_thread=loader.load(cls_loader,"edu.syr.pcpratts.rootbeer.test.ChangeThread",run_hard_tests);
-  int num_tests=creators.size() + ex_creators.size() + change_thread.size();
+  List<TestKernelTemplate> kernel_template_creators=loader.loadKernelTemplate(cls_loader,"edu.syr.pcratts.rootbeer.test.KernelTemplateMain");
+  int num_tests=creators.size() + ex_creators.size() + change_thread.size()+ kernel_template_creators.size();
   int test_num=1;
   for (  TestSerialization creator : creators) {
     System.out.println("[TEST " + test_num + "/"+ num_tests+ "] "+ creator.toString());
@@ -46,6 +47,22 @@
       System.out.println("  FAILED");
       System.out.println("  " + m_message);
       m_failedTests.add(creator.toString());
+    }
+    ++test_num;
+  }
+  for (  TestKernelTemplate kernel_template : kernel_template_creators) {
+    System.out.println("[TEST " + test_num + "/"+ num_tests+ "] "+ kernel_template.toString());
+    test(kernel_template,false);
+    ForceGC.gc();
+    if (m_passed) {
+      System.out.println("  PASSED");
+      System.out.println("  Cpu time: " + m_cpuTime + " ms");
+      System.out.println("  Gpu time: " + m_gpuTime + " ms");
+    }
+ else {
+      System.out.println("  FAILED");
+      System.out.println("  " + m_message);
+      m_failedTests.add(kernel_template.toString());
     }
     ++test_num;
   }

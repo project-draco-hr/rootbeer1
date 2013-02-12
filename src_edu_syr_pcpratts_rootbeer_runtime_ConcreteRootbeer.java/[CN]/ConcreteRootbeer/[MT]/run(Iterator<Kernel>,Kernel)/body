@@ -1,11 +1,2 @@
 {
-  if (Configuration.runtimeInstance().getMode() == Configuration.MODE_NEMU) {
-    return runOnNativeCpu(iter);
-  }
- else   if (Configuration.runtimeInstance().getMode() == Configuration.MODE_JEMU || first instanceof CompiledKernel == false) {
-    return runOnCpu(iter);
-  }
- else {
-    return runOnCudaGpu(iter);
-  }
 }

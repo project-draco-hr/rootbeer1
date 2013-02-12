@@ -1,0 +1,15 @@
+{
+  if (job_template instanceof CompiledKernel == false) {
+    m_ranGpu=false;
+  }
+  m_ranGpu=true;
+  m_stats=new ArrayList<StatsRow>();
+  if (m_threadConfig != null) {
+    m_Rootbeer.setThreadConfig(m_threadConfig);
+    m_threadConfig=null;
+  }
+ else {
+    m_Rootbeer.clearThreadConfig();
+  }
+  m_Rootbeer.runAll(job_template);
+}

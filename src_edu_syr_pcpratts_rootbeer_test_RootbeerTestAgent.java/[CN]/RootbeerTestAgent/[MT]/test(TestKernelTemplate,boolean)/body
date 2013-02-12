@@ -1,0 +1,48 @@
+{
+  int i=0;
+  try {
+    Rootbeer rootbeer=new Rootbeer();
+    Configuration.setPrintMem(print_mem);
+    Kernel known_good_item=creator.create();
+    Kernel testing_item=creator.create();
+    ThreadConfig thread_config=creator.getThreadConfig();
+    rootbeer.setThreadConfig(thread_config.getBlockShapeX(),thread_config.getGridShapeX());
+    Stopwatch watch=new Stopwatch();
+    watch.start();
+    rootbeer.runAll(testing_item);
+    if (rootbeer.getRanGpu() == false) {
+      m_message="Ran on CPU";
+      m_passed=false;
+      return;
+    }
+    m_passed=true;
+    watch.stop();
+    m_gpuTime=watch.elapsedTimeMillis();
+    watch.start();
+    for (int block=0; block < thread_config.getGridShapeX(); ++block) {
+      for (int thread=0; thread < thread_config.getBlockShapeX(); ++thread) {
+        RootbeerGpu.setBlockIdxx(block);
+        RootbeerGpu.setThreadIdxx(thread);
+        known_good_item.gpuMethod();
+      }
+    }
+    watch.stop();
+    m_cpuTime=watch.elapsedTimeMillis();
+    if (!creator.compare(known_good_item,testing_item)) {
+      m_message="Compare failed at: " + i;
+      m_passed=false;
+      return;
+    }
+  }
+ catch (  Throwable ex) {
+    ex.printStackTrace(System.out);
+    m_message="Exception thrown at index: " + i + "\n";
+    ByteArrayOutputStream os=new ByteArrayOutputStream();
+    PrintWriter writer=new PrintWriter(os);
+    ex.printStackTrace(writer);
+    writer.flush();
+    writer.close();
+    m_message+=os.toString();
+    m_passed=false;
+  }
+}

@@ -1,0 +1,14 @@
+{
+  for (int i=0; i < m_ccpu.length; ++i) {
+    int cpu_value=m_ccpu[i];
+    int gpu_value=m_cgpu[i];
+    if (cpu_value != gpu_value) {
+      System.out.println("Verify Failed.");
+      System.out.println("  cpu_value: " + cpu_value);
+      System.out.println("  gpu_value: " + gpu_value);
+      System.out.println("  index: " + i);
+      System.exit(1);
+    }
+  }
+  System.out.println("Verify PASSED!");
+}
