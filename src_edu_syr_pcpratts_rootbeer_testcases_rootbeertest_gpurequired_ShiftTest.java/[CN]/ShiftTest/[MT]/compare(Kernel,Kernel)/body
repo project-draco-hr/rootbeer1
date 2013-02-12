@@ -1,0 +1,5 @@
+{
+  ShiftRunOnGpu lhs=(ShiftRunOnGpu)original;
+  ShiftRunOnGpu rhs=(ShiftRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

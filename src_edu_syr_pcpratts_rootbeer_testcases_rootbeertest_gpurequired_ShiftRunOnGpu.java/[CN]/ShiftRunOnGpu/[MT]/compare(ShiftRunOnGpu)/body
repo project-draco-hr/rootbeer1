@@ -1,0 +1,75 @@
+{
+  if (m_byteRightSigned != rhs.m_byteRightSigned) {
+    System.out.println("m_byteRightSigned");
+    System.out.println("lhs: " + m_byteRightSigned);
+    System.out.println("rhs: " + rhs.m_byteRightSigned);
+    return false;
+  }
+  if (m_byteRightSigned != rhs.m_byteRightSigned) {
+    System.out.println("m_byteRightSigned");
+    System.out.println("lhs: " + m_byteRightSigned);
+    System.out.println("rhs: " + rhs.m_byteRightSigned);
+    return false;
+  }
+  if (m_byteLeft != rhs.m_byteLeft) {
+    System.out.println("m_byteLeft");
+    System.out.println("lhs: " + m_byteLeft);
+    System.out.println("rhs: " + rhs.m_byteLeft);
+    return false;
+  }
+  if (m_shortRightSigned != rhs.m_shortRightSigned) {
+    System.out.println("m_shortRightSigned");
+    System.out.println("lhs: " + m_shortRightSigned);
+    System.out.println("rhs: " + rhs.m_shortRightSigned);
+    return false;
+  }
+  if (m_shortRightSigned != rhs.m_shortRightSigned) {
+    System.out.println("m_shortRightSigned");
+    System.out.println("lhs: " + m_shortRightSigned);
+    System.out.println("rhs: " + rhs.m_shortRightSigned);
+    return false;
+  }
+  if (m_shortLeft != rhs.m_shortLeft) {
+    System.out.println("m_shortLeft");
+    System.out.println("lhs: " + m_shortLeft);
+    System.out.println("rhs: " + rhs.m_shortLeft);
+    return false;
+  }
+  if (m_intRightSigned != rhs.m_intRightSigned) {
+    System.out.println("m_intRightSigned");
+    System.out.println("lhs: " + m_intRightSigned);
+    System.out.println("rhs: " + rhs.m_intRightSigned);
+    return false;
+  }
+  if (m_intRightSigned != rhs.m_intRightSigned) {
+    System.out.println("m_intRightSigned");
+    System.out.println("lhs: " + m_intRightSigned);
+    System.out.println("rhs: " + rhs.m_intRightSigned);
+    return false;
+  }
+  if (m_intLeft != rhs.m_intLeft) {
+    System.out.println("m_intLeft");
+    System.out.println("lhs: " + m_intLeft);
+    System.out.println("rhs: " + rhs.m_intLeft);
+    return false;
+  }
+  if (m_longRightSigned != rhs.m_longRightSigned) {
+    System.out.println("m_longRightSigned");
+    System.out.println("lhs: " + m_longRightSigned);
+    System.out.println("rhs: " + rhs.m_longRightSigned);
+    return false;
+  }
+  if (m_longRightSigned != rhs.m_longRightSigned) {
+    System.out.println("m_longRightSigned");
+    System.out.println("lhs: " + m_longRightSigned);
+    System.out.println("rhs: " + rhs.m_longRightSigned);
+    return false;
+  }
+  if (m_longLeft != rhs.m_longLeft) {
+    System.out.println("m_longLeft");
+    System.out.println("lhs: " + m_longLeft);
+    System.out.println("rhs: " + rhs.m_longLeft);
+    return false;
+  }
+  return true;
+}

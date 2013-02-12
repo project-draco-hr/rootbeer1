@@ -1,0 +1,14 @@
+{
+  m_byteRightSigned=(byte)-127;
+  m_byteRightUnsigned=(byte)-127;
+  m_byteLeft=(byte)-127;
+  m_shortRightSigned=-32765;
+  m_shortRightUnsigned=-32765;
+  m_shortLeft=-32765;
+  m_intRightSigned=-2147483647;
+  m_intRightUnsigned=-2147483647;
+  m_intLeft=-2147483647;
+  m_longRightSigned=-9223372036854775808L;
+  m_longRightUnsigned=-9223372036854775808L;
+  m_longLeft=-9223372036854775808L;
+}
