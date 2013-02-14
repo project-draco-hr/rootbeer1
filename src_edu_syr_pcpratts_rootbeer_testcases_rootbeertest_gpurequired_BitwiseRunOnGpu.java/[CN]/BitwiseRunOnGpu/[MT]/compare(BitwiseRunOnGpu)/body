@@ -1,0 +1,27 @@
+{
+  if (m_intAnd != rhs.m_intAnd) {
+    System.out.println("m_intAnd");
+    System.out.println("lhs: " + m_intAnd);
+    System.out.println("rhs: " + rhs.m_intAnd);
+    return false;
+  }
+  if (m_intXor != rhs.m_intXor) {
+    System.out.println("m_intXor");
+    System.out.println("lhs: " + m_intXor);
+    System.out.println("rhs: " + rhs.m_intXor);
+    return false;
+  }
+  if (m_intOr != rhs.m_intOr) {
+    System.out.println("m_intOr");
+    System.out.println("lhs: " + m_intOr);
+    System.out.println("rhs: " + rhs.m_intOr);
+    return false;
+  }
+  if (m_intInv != rhs.m_intInv) {
+    System.out.println("m_intInv");
+    System.out.println("lhs: " + m_intInv);
+    System.out.println("rhs: " + rhs.m_intInv);
+    return false;
+  }
+  return true;
+}

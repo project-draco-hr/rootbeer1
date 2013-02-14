@@ -32,7 +32,6 @@
   m_Handles=new Handles(m_HandlesAddr,m_GpuHandlesAddr);
   m_ExceptionHandles=new Handles(m_ExceptionsHandlesAddr,m_GpuExceptionsHandlesAddr);
   m_CpuRunner=new CpuRunner();
-  Configuration.setPrintMem(false);
   m_ctorStopwatch.stop();
   m_initTime=m_ctorStopwatch.elapsedTimeMillis();
 }

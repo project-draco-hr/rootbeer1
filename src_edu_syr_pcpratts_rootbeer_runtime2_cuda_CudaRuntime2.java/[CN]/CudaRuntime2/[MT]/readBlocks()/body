@@ -3,8 +3,12 @@
   for (int i=0; i < m_NumCores; ++i)   m_ToSpace.get(i).setAddress(0);
   m_ExceptionHandles.activate();
   if (Configuration.getPrintMem()) {
+    System.out.println("printing mem");
     BufferPrinter printer=new BufferPrinter();
     printer.print(m_ToSpace.get(0),0,2048);
+  }
+ else {
+    System.out.println("not printing mem");
   }
   for (int i=0; i < m_JobsWritten.size(); ++i) {
     long ref=m_ExceptionHandles.readLong();
