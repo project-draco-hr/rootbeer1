@@ -6,7 +6,7 @@
     for (    byte[] sub_buffer : buffer) {
       total_len+=sub_buffer.length;
     }
-    loadFunction(getHeapEndPtr(),buffer,buffer.size(),total_len,m_JobsWritten.size());
+    loadFunction(getHeapEndPtr(),buffer,buffer.size(),total_len,m_NumThreads);
   }
  catch (  Exception ex) {
     ex.printStackTrace();
