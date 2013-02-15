@@ -17,17 +17,4 @@
     System.out.println("    num blocks: " + row.getNumBlocks());
     System.out.println("    num threads: " + row.getNumThreads());
   }
-  System.out.println("m_cgpu:");
-  int num=0;
-  for (int index=0; index < 64 * 10; ++index) {
-    System.out.print(m_cgpu[index] + " ");
-    if (num == m_blockSize) {
-      System.out.println();
-      num=0;
-    }
- else {
-      ++num;
-    }
-  }
-  System.out.println();
 }

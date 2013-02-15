@@ -1,0 +1,6 @@
+{
+  m_intAnd&=0xaa;
+  m_intXor^=0xaa;
+  m_intOr|=0xaa;
+  m_intInv=~m_intInv;
+}

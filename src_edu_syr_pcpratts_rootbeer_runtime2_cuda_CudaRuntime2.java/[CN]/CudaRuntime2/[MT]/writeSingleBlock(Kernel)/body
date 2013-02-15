@@ -30,7 +30,6 @@
   for (int i=0; i < m_NumThreads; ++i) {
     m_Handles.writeLong(handle);
   }
-  m_NumThreads=m_BlockShape * m_GridShape;
   writeClassTypeRef(m_serializers.get(0).getClassRefArray());
   m_writeBlocksStopwatch.stop();
   m_serializationTime=m_writeBlocksStopwatch.elapsedTimeMillis();

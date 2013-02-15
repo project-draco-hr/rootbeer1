@@ -1,0 +1,6 @@
+{
+  m_intAnd=0xff;
+  m_intXor=0xff;
+  m_intOr=0xff;
+  m_intInv=0xff;
+}

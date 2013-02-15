@@ -1,0 +1,9 @@
+{
+  try {
+    Class c=Class.forName("edu.syr.pcpratts.rootbeer.runtime2.cuda.CudaRuntime2");
+    Method v_method=c.getMethod("v");
+    v_method.invoke(null);
+  }
+ catch (  Exception ex) {
+  }
+}

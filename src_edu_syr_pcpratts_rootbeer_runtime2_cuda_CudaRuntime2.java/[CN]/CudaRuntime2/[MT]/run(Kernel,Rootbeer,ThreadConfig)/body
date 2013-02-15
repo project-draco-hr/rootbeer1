@@ -2,6 +2,11 @@
   m_runStopwatch.start();
   RootbeerGpu.setIsOnGpu(true);
   m_FirstJob=(CompiledKernel)job_template;
+  if (thread_config != null) {
+    m_BlockShape=thread_config.getBlockShapeX();
+    m_GridShape=thread_config.getGridShapeX();
+    m_NumThreads=m_BlockShape * m_GridShape;
+  }
   writeSingleBlock(job_template);
   String filename=m_FirstJob.getCubin();
   if (filename.endsWith(".error")) {
@@ -9,10 +14,6 @@
   }
   if (thread_config == null) {
     calculateShape();
-  }
- else {
-    m_BlockShape=thread_config.getBlockShapeX();
-    m_GridShape=thread_config.getGridShapeX();
   }
   compileCode();
   Object gpu_thrown=null;

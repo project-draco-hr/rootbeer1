@@ -1,0 +1,5 @@
+{
+  BitwiseRunOnGpu lhs=(BitwiseRunOnGpu)original;
+  BitwiseRunOnGpu rhs=(BitwiseRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}
