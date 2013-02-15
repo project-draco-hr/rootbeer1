@@ -1,3 +1,4 @@
 {
   m_nativeCpuInitialized=false;
+  m_blockShaper=new BlockShaper();
 }

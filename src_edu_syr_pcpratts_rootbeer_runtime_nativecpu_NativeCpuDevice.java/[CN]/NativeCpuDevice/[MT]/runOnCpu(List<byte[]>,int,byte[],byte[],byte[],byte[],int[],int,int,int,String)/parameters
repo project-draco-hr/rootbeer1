@@ -6,4 +6,6 @@ byte[] gc_info
 byte[] exceptions
 int[] java_lang_class_refs
 int num_threads
+int block_shape
+int thread_shape
 String library_name

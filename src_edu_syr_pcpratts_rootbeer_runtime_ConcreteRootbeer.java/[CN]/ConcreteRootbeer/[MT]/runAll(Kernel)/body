@@ -1,3 +1,15 @@
 {
-  CudaRuntime2.v().run(kernel,m_rootbeer,m_threadConfig);
+  if (kernel instanceof CompiledKernel == false) {
+    runKernelTemplateJava(kernel);
+    return;
+  }
+  if (Configuration.runtimeInstance().getMode() == Configuration.MODE_NEMU) {
+    NativeCpuRuntime.v().run(kernel,m_rootbeer,m_threadConfig);
+  }
+ else   if (Configuration.runtimeInstance().getMode() == Configuration.MODE_JEMU) {
+    runKernelTemplateJava(kernel);
+  }
+ else {
+    CudaRuntime2.v().run(kernel,m_rootbeer,m_threadConfig);
+  }
 }

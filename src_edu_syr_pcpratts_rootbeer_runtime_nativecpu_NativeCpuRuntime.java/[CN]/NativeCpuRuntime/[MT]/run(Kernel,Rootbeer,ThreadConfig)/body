@@ -1,0 +1,3 @@
+{
+  m_Device.run(kernel_template,thread_config);
+}

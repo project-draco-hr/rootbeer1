@@ -1,33 +1,39 @@
 {
   int block_idxx=RootbeerGpu.getBlockIdxx();
   int thread_idxx=RootbeerGpu.getThreadIdxx();
-  int b_columns=m_blockSize * m_gridSize;
+  int bc_columns=m_blockSize * m_gridSize;
   int a_columns=m_blockSize;
   int i=thread_idxx;
   int j=block_idxx;
+  int thread_row=i / 32;
+  int thread_col=i % 32;
   int[] a=m_a;
   int[] b=m_b;
+  int[] c=m_c;
   for (int block_i=0; block_i < 2; ++block_i) {
     for (int block_j=0; block_j < 2; ++block_j) {
-      int copy_i=i % 64;
-      int copy_j=i % 64 * 14;
-      int a_src_i=(block_i * 64) + copy_i;
-      int a_src_j=(block_j * 64) + copy_j;
-      float a_value=a[a_src_i * a_columns + a_src_j];
-      int b_src_i=(block_i * 64) + copy_i;
-      int b_src_j=(block_j * 64 * 14) + copy_j;
-      float b_value=b[b_src_i * b_columns + b_src_j];
-      RootbeerGpu.setSharedFloat(copy_i * 64 + copy_j,a_value);
-      RootbeerGpu.setSharedFloat(64 * 64 + copy_i * 64 + copy_j,b_value);
-      int i_mod=i % 64;
-      int j_mod=j % 64 * 14;
-      int sum=0;
-      for (int k=0; k < 64; ++k) {
-        a_value=RootbeerGpu.getSharedFloat(copy_i * 64 + k);
-        b_value=RootbeerGpu.getSharedFloat(copy_j * 64 + k);
-        sum+=a_value * b_value;
+      for (int m=0; m < 2; ++m) {
+        int bc_col_start=32 * 32 * block_idxx;
+        int start_row=32 * block_i;
+        int start_col=32 * block_j;
+        int src_row=start_row + thread_row;
+        int src_col_a=start_col + thread_col;
+        int src_col_bc=bc_col_start + src_col_a;
+        float a_value=a[src_row * a_columns + src_col_a];
+        float b_value=b[src_row * bc_columns + src_col_bc];
+        RootbeerGpu.synchthreads();
+        int sum=0;
+        for (int k=0; k < 32; ++k) {
+          a_value=2;
+          b_value=2;
+          sum+=a_value * b_value;
+        }
+        int dest_row=start_row + thread_row;
+        int dest_col=bc_col_start + start_col + thread_col;
+        int dest_index=dest_row * bc_columns + dest_col;
+        c[dest_index]+=sum;
+        RootbeerGpu.synchthreads();
       }
-      m_c[i * b_columns + j]+=sum;
     }
   }
 }

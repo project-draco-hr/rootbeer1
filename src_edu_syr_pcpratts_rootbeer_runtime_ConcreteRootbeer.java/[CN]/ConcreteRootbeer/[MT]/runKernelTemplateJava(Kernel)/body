@@ -1,0 +1,9 @@
+{
+  for (int block=0; block < m_threadConfig.getGridShapeX(); ++block) {
+    for (int thread=0; thread < m_threadConfig.getBlockShapeX(); ++thread) {
+      RootbeerGpu.setBlockIdxx(block);
+      RootbeerGpu.setThreadIdxx(thread);
+      kernel.gpuMethod();
+    }
+  }
+}
