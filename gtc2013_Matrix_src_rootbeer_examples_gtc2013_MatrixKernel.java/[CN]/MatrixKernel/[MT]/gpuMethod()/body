@@ -8,7 +8,7 @@
   int[] a=m_a;
   int[] b=m_b;
   for (int block_i=0; block_i < 2; ++block_i) {
-    for (int block_j=0; block_j < 2 * 14; ++block_j) {
+    for (int block_j=0; block_j < 2; ++block_j) {
       int copy_i=i % 64;
       int copy_j=i % 64 * 14;
       int a_src_i=(block_i * 64) + copy_i;
