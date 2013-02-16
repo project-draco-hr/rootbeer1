@@ -11,14 +11,28 @@
   mGcObjectVisitor.readStaticsFromHeap();
   mExceptionsMemory.setAddress(0);
   for (int i=0; i < m_CountWritten; ++i) {
-    int reference=mExceptionsMemory.readInt();
-    if (reference == first_block.getNullPointerNumber()) {
-      throw new NullPointerException();
-    }
-    if (reference != 0) {
-      mToSpaceMemory.setAddress(reference);
-      Object o=mGcObjectVisitor.readFromHeap(null,true,reference);
-      throw new RuntimeException((Throwable)o);
+    long ref=mExceptionsMemory.readLong();
+    if (ref != 0) {
+      long ref_num=ref >> 4;
+      if (ref_num == first_block.getNullPointerNumber()) {
+        throw new NullPointerException();
+      }
+ else       if (ref_num == first_block.getOutOfMemoryNumber()) {
+        throw new OutOfMemoryError();
+      }
+      mToSpaceMemory.setAddress(ref_num);
+      Object except=mGcObjectVisitor.readFromHeap(null,true,ref_num);
+      if (except instanceof Error) {
+        Error except_th=(Error)except;
+        throw except_th;
+      }
+ else       if (except instanceof RuntimeException) {
+        RuntimeException runtime_ex=(RuntimeException)except;
+        throw runtime_ex;
+      }
+ else {
+        throw new RuntimeException((Throwable)except);
+      }
     }
   }
   for (int i=0; i < m_CountWritten; ++i) {
