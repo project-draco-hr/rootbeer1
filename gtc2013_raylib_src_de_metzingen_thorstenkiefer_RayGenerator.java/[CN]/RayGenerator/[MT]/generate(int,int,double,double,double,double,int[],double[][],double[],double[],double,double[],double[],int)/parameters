@@ -1,0 +1,14 @@
+int w
+int h
+double minx
+double maxx
+double miny
+double maxy
+int[] pixels
+double[][] spheres
+double[] light
+double[] observer
+double radius
+double[] vx
+double[] vy
+int numDimensions

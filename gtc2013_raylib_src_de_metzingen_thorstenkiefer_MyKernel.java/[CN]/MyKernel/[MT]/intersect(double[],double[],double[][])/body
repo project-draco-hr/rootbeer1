@@ -1,0 +1,5 @@
+{
+  for (int i=0; i < spheres.length; ++i) {
+    intersect(start,dir,spheres[i]);
+  }
+}

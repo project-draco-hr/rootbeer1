@@ -1,0 +1,36 @@
+{
+  HyperCube hc=new HyperCube();
+  if (i == -1) {
+    hc.points.add(new double[n]);
+  }
+ else {
+    HyperCube h1=hypercube(i - 1,n,pos);
+    HyperCube h2=hypercube(i - 1,n,pos);
+    for (    double[] nd : h1.points) {
+      nd[i]=-pos;
+    }
+    for (    double[] nd : h1.lines) {
+      nd[i]=-pos;
+    }
+    for (    double[] nd : h2.points) {
+      nd[i]=pos;
+    }
+    for (    double[] nd : h2.lines) {
+      nd[i]=pos;
+    }
+    hc.points.addAll(h1.points);
+    hc.points.addAll(h2.points);
+    hc.lines.addAll(h1.lines);
+    hc.lines.addAll(h2.lines);
+    for (int j=0; j < h1.points.size(); ++j) {
+      for (int k=1; k < 5; ++k) {
+        double[] ys=new double[n];
+        for (int l=0; l < n; ++l) {
+          ys[l]=(h1.points.get(j)[l] - h2.points.get(j)[l]) * k / 5 + h2.points.get(j)[l];
+        }
+        hc.lines.add(ys);
+      }
+    }
+  }
+  return hc;
+}

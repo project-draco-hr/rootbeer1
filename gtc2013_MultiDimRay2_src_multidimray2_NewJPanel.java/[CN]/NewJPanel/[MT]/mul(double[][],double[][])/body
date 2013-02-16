@@ -1,0 +1,7 @@
+{
+  double[][] result=new double[matrix1.length][];
+  for (int i=0; i < matrix1.length; ++i) {
+    result[i]=mul(matrix1[i],matrix2);
+  }
+  return result;
+}

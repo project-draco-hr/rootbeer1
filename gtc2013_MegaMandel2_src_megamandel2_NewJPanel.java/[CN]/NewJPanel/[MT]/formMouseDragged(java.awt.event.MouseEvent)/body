@@ -1,0 +1,4 @@
+{
+  dx=0.0001f * (evt.getX() - getWidth() / 2) * (maxx - minx);
+  dy=0.0001f * (evt.getY() - getHeight() / 2) * (maxy - miny);
+}

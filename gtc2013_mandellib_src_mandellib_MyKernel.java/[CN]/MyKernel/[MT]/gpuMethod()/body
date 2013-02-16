@@ -1,0 +1,23 @@
+{
+  double xr=0;
+  double xi=0;
+  int i=RootbeerGpu.getBlockIdxx();
+  int j=RootbeerGpu.getThreadIdxx();
+  double cr=(maxx - minx) * i / w + minx;
+  double ci=(maxy - miny) * j / h + miny;
+  int d=0;
+  while (true) {
+    double xr2=xr * xr - xi * xi + cr;
+    double xi2=2.0f * xr * xi + ci;
+    xr=xr2;
+    xi=xi2;
+    d++;
+    if (d >= maxdepth) {
+      break;
+    }
+    if (xr * xr + xi * xi >= 4) {
+      break;
+    }
+  }
+  result[j * w + i]=(int)((0xff * (0.01 * d + 0) + 1) / 2) << 16 | (int)((0xff * (0.02 * d + 0.01) + 1) / 2) << 8 | (int)((0xff * (0.04 * d + 0.1) + 1) / 2);
+}

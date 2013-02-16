@@ -1,0 +1,12 @@
+{
+  dx=0.0001f * (evt.getX() - getWidth() / 2) * (maxx - minx);
+  dy=0.0001f * (evt.getY() - getHeight() / 2) * (maxy - miny);
+  if (evt.getButton() == MouseEvent.BUTTON1) {
+    fx=0.01f;
+    fy=0.01f;
+  }
+ else   if (evt.getButton() == MouseEvent.BUTTON3) {
+    fx=-0.01f;
+    fy=-0.01f;
+  }
+}

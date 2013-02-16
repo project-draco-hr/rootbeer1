@@ -1,0 +1,8 @@
+int[] result
+int maxdepth
+int w
+int h
+double maxx
+double minx
+double maxy
+double miny

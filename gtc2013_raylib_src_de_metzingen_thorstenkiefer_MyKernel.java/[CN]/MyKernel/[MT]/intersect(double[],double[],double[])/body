@@ -1,0 +1,34 @@
+{
+  sub(observer,sphere,regs[0]);
+  double a=mul(dir,dir);
+  double b=2 * mul(regs[0],dir);
+  double c=mul(regs[0],regs[0]) - radius * radius;
+  double x=b * b - 4 * a * c;
+  if (x < 0) {
+  }
+ else   if (x == 0) {
+    for (int i=0; i < 100; ++i) {
+      if (Double.isNaN(intersections[i])) {
+        intersections[i]=-b / 2 / a;
+        intersectionso[i]=sphere;
+        break;
+      }
+    }
+  }
+ else {
+    for (int i=0; i < 100; ++i) {
+      if (Double.isNaN(intersections[i])) {
+        intersections[i]=(-b + sqrt(x)) / a / 2;
+        intersectionso[i]=sphere;
+        break;
+      }
+    }
+    for (int i=0; i < 100; ++i) {
+      if (Double.isNaN(intersections[i])) {
+        intersections[i]=(-b - sqrt(x)) / a / 2;
+        intersectionso[i]=sphere;
+        break;
+      }
+    }
+  }
+}

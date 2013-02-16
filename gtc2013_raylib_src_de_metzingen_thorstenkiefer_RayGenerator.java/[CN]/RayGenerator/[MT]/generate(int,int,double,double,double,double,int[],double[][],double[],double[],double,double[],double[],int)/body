@@ -1,0 +1,11 @@
+{
+  List<MyKernel> myKernels=new ArrayList<>(w * h);
+  for (int x=0; x < w; ++x) {
+    for (int y=0; y < h; ++y) {
+      myKernels.add(new MyKernel(pixels,minx,maxx,miny,maxy,w,h,spheres,light,observer,vx,vy,x,y,radius,numDimensions));
+    }
+  }
+  List<Kernel> kernels=new ArrayList<>(w * h);
+  kernels.addAll(myKernels);
+  rb.runAll(kernels);
+}

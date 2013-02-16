@@ -1,0 +1,33 @@
+{
+  initComponents();
+  img=new BufferedImage(10,10,BufferedImage.TYPE_3BYTE_BGR);
+  new Thread(){
+    @Override public void run(){
+      while (true) {
+        BufferedImage im=img;
+        int[] ps=new int[im.getHeight() * im.getWidth()];
+        MandelGenerator.generate(im.getWidth(),im.getHeight(),minx,maxx,miny,maxy,maxdepth,ps);
+        im.setRGB(0,0,im.getWidth(),im.getHeight(),ps,0,im.getWidth());
+        float dfx=(maxx - minx) * fx;
+        float dfy=(maxy - miny) * fy;
+        maxx-=dfx;
+        minx+=dfx;
+        maxy-=dfy;
+        miny+=dfy;
+        maxx+=dx;
+        minx+=dx;
+        maxy+=dy;
+        miny+=dy;
+        System.err.println("...");
+        repaint();
+        try {
+          sleep(1);
+        }
+ catch (        InterruptedException ex) {
+          Logger.getLogger(NewJPanel.class.getName()).log(Level.SEVERE,null,ex);
+        }
+      }
+    }
+  }
+.start();
+}
