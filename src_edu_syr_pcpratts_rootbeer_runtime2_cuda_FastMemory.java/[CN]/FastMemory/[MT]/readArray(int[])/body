@@ -1,0 +1,3 @@
+{
+  doReadIntArray(array,m_CpuBase + currPointer(),array.length);
+}

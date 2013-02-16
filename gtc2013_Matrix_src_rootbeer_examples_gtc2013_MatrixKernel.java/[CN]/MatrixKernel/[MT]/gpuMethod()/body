@@ -11,30 +11,32 @@
   int sub_matrix_size=m_blockSize / 32;
   sub_matrix_size*=sub_matrix_size;
   int m_size=m_blockSize / 32;
-  for (int sub_matrix=0; sub_matrix < sub_matrix_size; ++sub_matrix) {
-    int sum=0;
-    for (int m=0; m < m_size; ++m) {
-      int a_src_row=thread_row;
-      int a_src_col=m * 32 + thread_col;
-      int a_src=a_src_row * a_columns + a_src_col;
-      int b_src_row=m * 32 + thread_row;
-      int b_src_col=thread_col;
-      int b_src=b_src_row * bc_columns + b_src_col;
-      float a_value=a[a_src];
-      float b_value=b[b_src];
-      RootbeerGpu.setSharedFloat(thread_idxx,a_value);
-      RootbeerGpu.setSharedFloat(32 * 32 + thread_idxx,b_value);
-      RootbeerGpu.synchthreads();
-      for (int k=0; k < 32; ++k) {
-        a_value=RootbeerGpu.getSharedFloat(thread_row * 32 + k);
-        b_value=RootbeerGpu.getSharedFloat(32 * 32 + thread_col * 32 + k);
-        a_value=2;
-        b_value=2;
-        sum+=a_value * b_value;
+  for (int block_iter=0; block_iter < 256; ++block_iter) {
+    for (int sub_matrix=0; sub_matrix < sub_matrix_size; ++sub_matrix) {
+      int sum=0;
+      for (int m=0; m < m_size; ++m) {
+        int a_src_row=thread_row;
+        int a_src_col=m * 32 + thread_col;
+        int a_src=a_src_row * a_columns + a_src_col;
+        int b_src_row=m * 32 + thread_row;
+        int b_src_col=thread_col;
+        int b_src=b_src_row * bc_columns + b_src_col;
+        float a_value=a[a_src];
+        float b_value=b[b_src];
+        RootbeerGpu.setSharedFloat(thread_idxx,a_value);
+        RootbeerGpu.setSharedFloat(32 * 32 + thread_idxx,b_value);
+        RootbeerGpu.synchthreads();
+        for (int k=0; k < 32; ++k) {
+          a_value=RootbeerGpu.getSharedFloat(thread_row * 32 + k);
+          b_value=RootbeerGpu.getSharedFloat(32 * 32 + thread_col * 32 + k);
+          a_value=2;
+          b_value=2;
+          sum+=a_value * b_value;
+        }
+        RootbeerGpu.synchthreads();
       }
-      RootbeerGpu.synchthreads();
+      int dest_index=(block_idxx * m_blockSize * m_blockSize) + (1024 * sub_matrix) + thread_idxx;
+      c[dest_index]+=sum;
     }
-    int dest_index=block_idxx * m_blockSize * m_blockSize + (1024 * sub_matrix) + thread_idxx;
-    c[dest_index]+=sum;
   }
 }
