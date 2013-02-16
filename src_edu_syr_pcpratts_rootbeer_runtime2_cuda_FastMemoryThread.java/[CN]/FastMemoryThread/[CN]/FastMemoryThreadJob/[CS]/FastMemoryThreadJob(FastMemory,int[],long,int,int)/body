@@ -1,0 +1,7 @@
+{
+  m_thisRef=this_ref;
+  m_array=array;
+  m_addr=addr;
+  m_start=start;
+  m_stop=stop;
+}

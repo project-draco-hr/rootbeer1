@@ -1,0 +1,4 @@
+{
+  FastMemoryThreadJob job=new FastMemoryThreadJob(this_ref,array,addr,start,stop);
+  m_toCores.put(job);
+}

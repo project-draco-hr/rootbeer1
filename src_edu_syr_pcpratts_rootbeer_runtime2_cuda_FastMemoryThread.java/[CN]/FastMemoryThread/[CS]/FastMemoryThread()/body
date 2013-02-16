@@ -1,0 +1,7 @@
+{
+  m_toCores=new BlockingQueue<FastMemoryThreadJob>();
+  m_fromCores=new BlockingQueue<FastMemoryThreadJob>();
+  Thread thread=new Thread(this);
+  thread.setDaemon(true);
+  thread.start();
+}

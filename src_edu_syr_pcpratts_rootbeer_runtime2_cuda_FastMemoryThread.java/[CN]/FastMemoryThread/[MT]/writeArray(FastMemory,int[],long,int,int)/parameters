@@ -1,0 +1,5 @@
+FastMemory this_ref
+int[] array
+long addr
+int start
+int stop
