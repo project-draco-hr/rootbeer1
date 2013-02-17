@@ -1,7 +1,0 @@
-{
-  while (true) {
-    FastMemoryThreadJob job=m_toCores.take();
-    job.process();
-    m_fromCores.put(job);
-  }
-}

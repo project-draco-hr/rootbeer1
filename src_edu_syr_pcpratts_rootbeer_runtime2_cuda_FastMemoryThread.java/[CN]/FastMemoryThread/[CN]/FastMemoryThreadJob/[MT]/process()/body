@@ -1,3 +1,0 @@
-{
-  m_thisRef.doWriteIntArrayEx(m_array,m_addr,m_start,m_stop);
-}
