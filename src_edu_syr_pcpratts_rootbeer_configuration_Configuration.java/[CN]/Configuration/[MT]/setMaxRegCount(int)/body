@@ -1,0 +1,4 @@
+{
+  m_maxRegCount=value;
+  m_maxRegCountSet=true;
+}

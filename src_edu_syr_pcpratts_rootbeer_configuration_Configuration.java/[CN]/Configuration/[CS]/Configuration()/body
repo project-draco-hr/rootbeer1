@@ -1,4 +1,5 @@
 {
   m_compilerInstance=true;
   m_remapAll=true;
+  m_maxRegCountSet=false;
 }
