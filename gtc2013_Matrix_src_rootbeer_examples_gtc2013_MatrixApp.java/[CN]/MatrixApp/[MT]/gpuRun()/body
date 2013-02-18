@@ -1,12 +1,11 @@
 {
-  Stopwatch watch=new Stopwatch();
-  watch.start();
-  MatrixKernel matrix_kernel=new MatrixKernel(m_a,m_b,m_cgpu,m_blockSize,m_gridSize);
+  m_gpuWatch.start();
+  MatrixKernel matrix_kernel=new MatrixKernel(m_a,m_b,m_cgpu,m_blockSize,m_gridSize,m_blockIters);
   Rootbeer rootbeer=new Rootbeer();
   rootbeer.setThreadConfig(1024,14);
   rootbeer.runAll(matrix_kernel);
-  watch.stop();
-  System.out.println("gpu time: " + watch.elapsedTimeMillis() + " ms");
+  m_gpuWatch.stop();
+  System.out.println("avg gpu time: " + m_gpuWatch.getAverageTime() + " ms");
   List<StatsRow> stats=rootbeer.getStats();
   for (  StatsRow row : stats) {
     System.out.println("  StatsRow:");

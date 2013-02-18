@@ -1,8 +1,8 @@
 {
   int block_idxx=RootbeerGpu.getBlockIdxx();
   int thread_idxx=RootbeerGpu.getThreadIdxx();
-  int bc_columns=m_blockSize * m_gridSize;
-  int a_columns=m_blockSize;
+  int bc_columns=m_blockSize * m_gridSize * m_blockIters;
+  int a_columns=m_blockSize * m_blockIters;
   int thread_row=thread_idxx / 32;
   int thread_col=thread_idxx % 32;
   int[] a=m_a;
@@ -11,7 +11,8 @@
   int sub_matrix_size=m_blockSize / 32;
   sub_matrix_size*=sub_matrix_size;
   int m_size=m_blockSize / 32;
-  for (int block_iter=0; block_iter < 256; ++block_iter) {
+  int block_iters=m_blockIters;
+  for (int block_iter=0; block_iter < block_iters; ++block_iter) {
     for (int sub_matrix=0; sub_matrix < sub_matrix_size; ++sub_matrix) {
       int sum=0;
       for (int m=0; m < m_size; ++m) {
@@ -35,7 +36,7 @@
         }
         RootbeerGpu.synchthreads();
       }
-      int dest_index=(block_idxx * m_blockSize * m_blockSize) + (1024 * sub_matrix) + thread_idxx;
+      int dest_index=(block_iter * m_blockSize * m_blockSize* m_gridSize) + (block_idxx * m_blockSize * m_blockSize) + (1024 * sub_matrix)+ thread_idxx;
       c[dest_index]+=sum;
     }
   }

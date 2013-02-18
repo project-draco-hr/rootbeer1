@@ -1,0 +1,15 @@
+{
+  m_blockIters=4;
+  m_blockSize=64;
+  m_gridSize=14;
+  m_a=new int[m_blockSize * m_blockSize];
+  m_b=new int[m_blockSize * m_blockSize * m_gridSize* m_blockIters];
+  m_ccpu=new int[m_blockSize * m_blockSize * m_gridSize* m_blockIters];
+  m_cgpu=new int[m_blockSize * m_blockSize * m_gridSize* m_blockIters];
+  for (int i=0; i < m_a.length; ++i) {
+    m_a[i]=2;
+  }
+  for (int i=0; i < m_b.length; ++i) {
+    m_b[i]=2;
+  }
+}

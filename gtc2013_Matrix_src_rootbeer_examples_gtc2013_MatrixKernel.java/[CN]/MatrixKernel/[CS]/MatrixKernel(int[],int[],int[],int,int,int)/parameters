@@ -3,3 +3,4 @@ int[] b
 int[] c
 int block_size
 int grid_size
+int block_iters

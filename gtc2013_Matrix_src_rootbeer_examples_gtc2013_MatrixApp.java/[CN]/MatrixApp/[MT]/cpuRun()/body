@@ -1,16 +1,15 @@
 {
   int num_cores=Runtime.getRuntime().availableProcessors();
-  Stopwatch watch=new Stopwatch();
-  watch.start();
+  m_cpuWatch.start();
   List<MatrixCpuThread> threads=new ArrayList<MatrixCpuThread>();
   for (int i=0; i < num_cores; ++i) {
-    MatrixCpuThread thread=new MatrixCpuThread(m_a,m_b,m_ccpu,i,m_blockSize,m_gridSize,num_cores);
+    MatrixCpuThread thread=new MatrixCpuThread(m_a,m_b,m_ccpu,i,m_blockSize,m_gridSize * m_blockIters,num_cores);
     threads.add(thread);
   }
   for (int i=0; i < num_cores; ++i) {
     MatrixCpuThread thread=threads.get(i);
     thread.join();
   }
-  watch.stop();
-  System.out.println("cpu time: " + watch.elapsedTimeMillis() + " ms");
+  m_cpuWatch.stop();
+  System.out.println("avg cpu time: " + m_cpuWatch.getAverageTime() + " ms");
 }

@@ -8,6 +8,7 @@
       System.out.println("  gpu_value: " + gpu_value);
       System.out.println("  index: " + i);
       System.exit(1);
+      return;
     }
   }
   System.out.println("Verify PASSED!");
