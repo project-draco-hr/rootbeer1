@@ -6,6 +6,12 @@
   rootbeer.runAll(matrix_kernel);
   m_gpuWatch.stop();
   System.out.println("avg gpu time: " + m_gpuWatch.getAverageTime() + " ms");
+  if (matrix_kernel.m_invalidRead) {
+    System.out.println("  Invalid READ!");
+    System.out.println("    k: " + matrix_kernel.m_invalidIndexK);
+    System.out.println("    col: " + matrix_kernel.m_invalidIndexCol);
+    System.out.println("    b_value: " + matrix_kernel.m_invalidBValue);
+  }
   List<StatsRow> stats=rootbeer.getStats();
   for (  StatsRow row : stats) {
     System.out.println("  StatsRow:");

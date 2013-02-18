@@ -29,8 +29,13 @@
         RootbeerGpu.synchthreads();
         for (int k=0; k < 32; ++k) {
           a_value=RootbeerGpu.getSharedInteger((thread_row * 32 + k) * 4);
-          b_value=RootbeerGpu.getSharedInteger((1024 + thread_col * 32 + k) + 4);
-          b_value=2;
+          b_value=RootbeerGpu.getSharedInteger((1024 + k * 32 + thread_col) * 4);
+          if (b_value != 2 && m_invalidRead == false) {
+            m_invalidRead=true;
+            m_invalidIndexK=k;
+            m_invalidIndexCol=thread_col;
+            m_invalidBValue=b_value;
+          }
           sum+=a_value * b_value;
         }
         RootbeerGpu.synchthreads();
