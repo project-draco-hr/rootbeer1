@@ -2,7 +2,7 @@
   initComponents();
   img=new BufferedImage(10,10,BufferedImage.TYPE_3BYTE_BGR);
   HyperCube hc=hypercube(3,4,2.5);
-  ArrayList<double[]> xs=new ArrayList<>();
+  ArrayList<double[]> xs=new ArrayList<double[]>();
   xs.addAll(hc.points);
   xs.addAll(hc.lines);
   System.err.println(xs.size());
