@@ -1,0 +1,5 @@
+{
+  ArrayListRunOnGpu lhs=(ArrayListRunOnGpu)original;
+  ArrayListRunOnGpu rhs=(ArrayListRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

@@ -1,0 +1,7 @@
+{
+  for (int i=0; i < 5; ++i) {
+    ArrayListTestObject new_object=new ArrayListTestObject();
+    new_object.m_value=i;
+    m_arrayList.add(new_object);
+  }
+}

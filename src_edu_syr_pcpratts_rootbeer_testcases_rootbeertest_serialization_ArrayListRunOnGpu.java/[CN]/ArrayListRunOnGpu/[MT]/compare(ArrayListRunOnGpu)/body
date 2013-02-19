@@ -1,0 +1,25 @@
+{
+  List<ArrayListTestObject> lhs_list=m_arrayList;
+  List<ArrayListTestObject> rhs_list=rhs.m_arrayList;
+  if (lhs_list.size() != rhs_list.size()) {
+    System.out.println("size");
+    return false;
+  }
+  for (int i=0; i < lhs_list.size(); ++i) {
+    ArrayListTestObject lhs_obj=lhs_list.get(i);
+    ArrayListTestObject rhs_obj=rhs_list.get(i);
+    if (lhs_obj == null) {
+      System.out.println("lhs_obj null");
+      return false;
+    }
+    if (rhs_obj == null) {
+      System.out.println("rhs_obj null");
+      return false;
+    }
+    if (lhs_obj.m_value != rhs_obj.m_value) {
+      System.out.println("obj.m_value");
+      return false;
+    }
+  }
+  return true;
+}
