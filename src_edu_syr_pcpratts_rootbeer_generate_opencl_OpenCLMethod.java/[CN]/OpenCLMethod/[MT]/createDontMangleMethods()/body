@@ -55,6 +55,7 @@
   m_dontMangleMethods.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: void setSharedFloat(int,float)>");
   m_dontMangleMethods.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: double getSharedDouble(int)>");
   m_dontMangleMethods.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: void setSharedDouble(int,double)>");
+  m_dontMangleMethods.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: double sin(double)>");
   m_dontMangleMethods.add("<java.lang.System: long nanoTime()>");
   m_dontMangleMethods.add("<java.lang.Class: java.lang.String getName()>");
   m_dontMangleMethods.add("<java.lang.Object: java.lang.Class getClass()>");
