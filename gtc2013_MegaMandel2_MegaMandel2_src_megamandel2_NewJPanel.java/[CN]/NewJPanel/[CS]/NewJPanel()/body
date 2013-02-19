@@ -5,11 +5,11 @@
     @Override public void run(){
       while (true) {
         BufferedImage im=img;
-        int width=getWidth();
-        int height=getHeight();
-        int[] ps=new int[width * height * 3];
+        int width=im.getWidth();
+        int height=im.getHeight();
+        int[] ps=new int[width * height];
         MandelGenerator.generate(width,height,minx,maxx,miny,maxy,maxdepth,ps);
-        im.setRGB(0,0,width,height,ps,0,width * 3);
+        im.setRGB(0,0,width,height,ps,0,width);
         float dfx=(maxx - minx) * fx;
         float dfy=(maxy - miny) * fy;
         maxx-=dfx;
