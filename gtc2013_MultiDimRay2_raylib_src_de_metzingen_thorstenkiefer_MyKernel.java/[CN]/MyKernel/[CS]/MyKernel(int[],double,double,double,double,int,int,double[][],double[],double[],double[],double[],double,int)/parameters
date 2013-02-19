@@ -10,7 +10,5 @@ double[] light
 double[] observer
 double[] vx
 double[] vy
-int x
-int y
 double radius
 int numDimensions

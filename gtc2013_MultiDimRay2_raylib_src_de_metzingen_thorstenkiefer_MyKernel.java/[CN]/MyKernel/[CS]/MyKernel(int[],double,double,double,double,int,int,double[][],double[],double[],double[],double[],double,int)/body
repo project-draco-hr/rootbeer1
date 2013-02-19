@@ -9,8 +9,6 @@
   this.spheres=spheres;
   this.light=light;
   this.observer=observer;
-  this.xpixel=x;
-  this.ypixel=y;
   this.radius=radius;
   this.vx=vx;
   this.vy=vy;
