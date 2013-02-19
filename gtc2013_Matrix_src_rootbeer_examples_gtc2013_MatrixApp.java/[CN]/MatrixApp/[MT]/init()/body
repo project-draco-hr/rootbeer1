@@ -12,4 +12,7 @@
   for (int i=0; i < m_b.length; ++i) {
     m_b[i]=i % 3;
   }
+  printMatrix(m_a,m_blockSize);
+  printRow(m_a,m_blockSize,0);
+  printCol(m_a,m_blockSize,32);
 }
