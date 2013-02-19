@@ -4,6 +4,7 @@
   m_testCasePackages.add("edu.syr.pcpratts.rootbeer.testcases.otherpackage.");
   m_testCasePackages.add("edu.syr.pcpratts.rootbeer.testcases.otherpackage2.");
   m_testCasePackages.add("edu.syr.pcpratts.rootbeer.testcases.rootbeertest.");
+  m_testCasePackages.add("edu.syr.pcpratts.rootbeer.testcases.rootbeertest.apps.fastmatrixdebug.");
   m_testCasePackages.add("edu.syr.pcpratts.rootbeer.testcases.rootbeertest.arraysum.");
   m_testCasePackages.add("edu.syr.pcpratts.rootbeer.testcases.rootbeertest.baseconversion.");
   m_testCasePackages.add("edu.syr.pcpratts.rootbeer.testcases.rootbeertest.exception.");

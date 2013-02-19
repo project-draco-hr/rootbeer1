@@ -4,7 +4,8 @@
   List<TestException> ex_creators=loader.loadException(cls_loader,"edu.syr.pcpratts.rootbeer.test.ExMain");
   List<TestSerialization> change_thread=loader.load(cls_loader,"edu.syr.pcpratts.rootbeer.test.ChangeThread",run_hard_tests);
   List<TestKernelTemplate> kernel_template_creators=loader.loadKernelTemplate(cls_loader,"edu.syr.pcratts.rootbeer.test.KernelTemplateMain");
-  int num_tests=creators.size() + ex_creators.size() + change_thread.size()+ kernel_template_creators.size();
+  List<TestApplication> application_creators=loader.loadApplication(cls_loader,"edu.syr.pcpratts.rootbeer.test.ApplicationMain");
+  int num_tests=creators.size() + ex_creators.size() + change_thread.size()+ kernel_template_creators.size()+ application_creators.size();
   int test_num=1;
   for (  TestSerialization creator : creators) {
     System.out.println("[TEST " + test_num + "/"+ num_tests+ "] "+ creator.toString());
@@ -63,6 +64,18 @@
       System.out.println("  FAILED");
       System.out.println("  " + m_message);
       m_failedTests.add(kernel_template.toString());
+    }
+    ++test_num;
+  }
+  for (  TestApplication application : application_creators) {
+    System.out.println("[TEST " + test_num + "/"+ num_tests+ "] "+ application.toString());
+    if (application.test()) {
+      System.out.println("  PASSED");
+    }
+ else {
+      System.out.println("  FAILED");
+      System.out.println("  " + application.errorMessage());
+      m_failedTests.add(application.toString());
     }
     ++test_num;
   }

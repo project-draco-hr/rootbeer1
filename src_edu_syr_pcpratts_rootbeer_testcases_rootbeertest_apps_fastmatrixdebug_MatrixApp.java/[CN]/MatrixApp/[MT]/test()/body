@@ -1,0 +1,7 @@
+{
+  Rootbeer.init();
+  init();
+  cpuRun();
+  gpuRun();
+  return verify();
+}

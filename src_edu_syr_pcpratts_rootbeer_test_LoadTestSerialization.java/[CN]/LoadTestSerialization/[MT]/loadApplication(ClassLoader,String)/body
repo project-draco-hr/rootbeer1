@@ -1,0 +1,5 @@
+{
+  Object instance=doLoad(loader,class_name);
+  TestApplicationFactory factory=(TestApplicationFactory)instance;
+  return factory.getProviders();
+}
