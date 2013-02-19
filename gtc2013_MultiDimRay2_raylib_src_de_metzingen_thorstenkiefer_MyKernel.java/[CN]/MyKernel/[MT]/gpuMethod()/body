@@ -1,4 +1,9 @@
 {
+  int xpixel=RootbeerGpu.getBlockIdxx();
+  int ypixel=RootbeerGpu.getThreadIdxx();
+  if (xpixel >= w || ypixel >= h) {
+    return;
+  }
   mul(vx,(maxx - minx) * xpixel / w + minx,regs[0]);
   mul(vy,(maxy - miny) * ypixel / h + miny,regs[1]);
   add(regs[0],regs[1],regs[0]);
