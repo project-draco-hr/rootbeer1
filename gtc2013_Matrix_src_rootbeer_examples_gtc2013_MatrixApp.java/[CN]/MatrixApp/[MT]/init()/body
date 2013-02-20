@@ -1,7 +1,7 @@
 {
-  m_blockIters=1;
-  m_blockSize=64;
-  m_gridSize=1;
+  m_blockIters=14;
+  m_blockSize=256;
+  m_gridSize=256;
   m_a=new int[m_blockSize * m_blockSize];
   m_b=new int[m_blockSize * m_blockSize * m_gridSize* m_blockIters];
   m_ccpu=new int[m_blockSize * m_blockSize * m_gridSize* m_blockIters];
@@ -12,7 +12,4 @@
   for (int i=0; i < m_b.length; ++i) {
     m_b[i]=i % 3;
   }
-  printMatrix(m_a,m_blockSize);
-  printRow(m_a,m_blockSize,0);
-  printCol(m_a,m_blockSize,32);
 }

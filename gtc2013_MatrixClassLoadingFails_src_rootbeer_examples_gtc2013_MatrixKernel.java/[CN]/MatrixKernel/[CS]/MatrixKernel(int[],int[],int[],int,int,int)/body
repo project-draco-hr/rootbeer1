@@ -1,0 +1,10 @@
+{
+  m_a=a;
+  m_b=b;
+  m_c=c;
+  m_blockSize=block_size;
+  m_gridSize=grid_size;
+  m_blockIters=block_iters;
+  m_invalidRead=false;
+  m_calcs=new Calculation[1024];
+}

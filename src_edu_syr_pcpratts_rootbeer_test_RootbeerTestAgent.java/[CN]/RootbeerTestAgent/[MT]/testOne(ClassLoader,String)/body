@@ -46,6 +46,17 @@
       System.out.println("  " + m_message);
     }
   }
+ else   if (test_case_obj instanceof TestApplication) {
+    TestApplication test_application=(TestApplication)test_case_obj;
+    System.out.println("[TEST 1/1] " + test_application.toString());
+    if (test_application.test()) {
+      System.out.println("  PASSED");
+    }
+ else {
+      System.out.println("  FAILED");
+      System.out.println("  " + test_application.errorMessage());
+    }
+  }
  else {
     throw new RuntimeException("unknown test case type");
   }

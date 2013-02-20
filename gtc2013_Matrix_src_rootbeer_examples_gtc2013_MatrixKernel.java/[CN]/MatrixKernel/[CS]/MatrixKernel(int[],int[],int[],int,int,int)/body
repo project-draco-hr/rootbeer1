@@ -6,5 +6,4 @@
   m_gridSize=grid_size;
   m_blockIters=block_iters;
   m_invalidRead=false;
-  m_calcs=new Calculation[1024];
 }

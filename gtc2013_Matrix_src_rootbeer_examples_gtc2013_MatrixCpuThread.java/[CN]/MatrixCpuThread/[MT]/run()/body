@@ -12,9 +12,6 @@
       int sum=0;
       int dest_index=i * b_columns + j;
       for (int k=0; k < a_columns; ++k) {
-        if (dest_index == 65) {
-          System.out.println("a[" + i + "]["+ k+ "]="+ m_a[i * a_columns + k]+ " b["+ k+ "]["+ j+ "]="+ m_b[k * b_columns + j]);
-        }
         sum+=m_a[i * a_columns + k] * m_b[k * b_columns + j];
       }
       m_c[i * b_columns + j]=sum;
