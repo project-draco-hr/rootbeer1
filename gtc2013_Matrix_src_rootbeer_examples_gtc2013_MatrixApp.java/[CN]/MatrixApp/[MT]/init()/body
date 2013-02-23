@@ -12,4 +12,6 @@
   for (int i=0; i < m_b.length; ++i) {
     m_b[i]=i % 2;
   }
+  printRow(m_a,m_blockSize,0);
+  printCol(m_b,m_blockSize,0);
 }
