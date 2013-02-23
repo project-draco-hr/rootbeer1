@@ -30,6 +30,13 @@
         RuntimeException runtime_ex=(RuntimeException)except;
         throw runtime_ex;
       }
+ else       if (except instanceof GpuException) {
+        GpuException gpu_except=(GpuException)except;
+        System.out.println("array: " + gpu_except.m_array);
+        System.out.println("index: " + gpu_except.m_arrayIndex);
+        System.out.println("length: " + gpu_except.m_arrayLength);
+        System.exit(1);
+      }
  else {
         throw new RuntimeException((Throwable)except);
       }

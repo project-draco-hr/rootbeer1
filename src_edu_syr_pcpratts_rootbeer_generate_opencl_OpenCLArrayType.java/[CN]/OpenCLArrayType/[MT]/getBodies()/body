@@ -7,6 +7,7 @@
   SootClass null_ptr=Scene.v().getSootClass("java.lang.NullPointerException");
   ret.append(decls.get(0) + "{\n");
   ret.append("int offset;\n");
+  ret.append("int length;\n");
   ret.append(address_qual + " char * thisref_deref;\n");
   ret.append("offset = " + offset_size + "+(parameter0*"+ element_size+ ");\n");
   ret.append("if(thisref == -1){\n");
@@ -14,15 +15,30 @@
   ret.append("  return 0;\n");
   ret.append("}\n");
   ret.append("thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n");
+  if (Configuration.compilerInstance().getArrayChecks()) {
+    ret.append("length = edu_syr_pcpratts_getint(thisref_deref, 8);\n");
+    ret.append("if(parameter0 >= length){\n");
+    ret.append("  *exception = edu_syr_pcpratts_rootbeer_runtimegpu_GpuException_arrayOutOfBounds(gc_info, parameter0, thisref, length, exception);");
+    ret.append("  return 0;\n");
+    ret.append("}\n");
+  }
   ret.append("return *((" + address_qual + " "+ getAssignType()+ " *) &thisref_deref[offset]);\n");
   ret.append("}\n");
   ret.append(decls.get(1) + "{\n");
+  ret.append("int length;\n");
   ret.append(address_qual + " char * thisref_deref;\n");
   ret.append("  if(thisref == -1){\n");
   ret.append("    *exception = " + RootbeerClassLoader.v().getDfsInfo().getClassNumber(null_ptr) + ";\n");
   ret.append("    return;\n");
   ret.append("  }\n");
   ret.append("thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n");
+  if (Configuration.compilerInstance().getArrayChecks()) {
+    ret.append("length = edu_syr_pcpratts_getint(thisref_deref, 8);\n");
+    ret.append("if(parameter0 >= length){\n");
+    ret.append("  *exception = edu_syr_pcpratts_rootbeer_runtimegpu_GpuException_arrayOutOfBounds(gc_info, parameter0, thisref, length, exception);");
+    ret.append("  return;\n");
+    ret.append("}\n");
+  }
   if (isCharArray()) {
     ret.append("*((" + address_qual + " int *) &thisref_deref["+ offset_size+ "+(parameter0*"+ element_size+ ")]) = 0;\n");
   }

@@ -1,0 +1,9 @@
+{
+  for (  OpenCLArrayType ocl_type : array_types) {
+    ArrayType array_type=ocl_type.getArrayType();
+    if (type.equals(array_type)) {
+      return ocl_type;
+    }
+  }
+  return null;
+}

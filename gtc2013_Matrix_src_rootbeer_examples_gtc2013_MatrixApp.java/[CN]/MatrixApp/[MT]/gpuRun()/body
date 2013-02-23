@@ -6,6 +6,23 @@
   rootbeer.runAll(matrix_kernel);
   m_gpuWatch.stop();
   System.out.println("avg gpu time: " + m_gpuWatch.getAverageTime() + " ms");
+  int sum=0;
+  for (int i=0; i < matrix_kernel.m_calcz.length; ++i) {
+    Calculation calc=matrix_kernel.m_calcz[i];
+    if (calc != null) {
+      System.out.println("  calc:");
+      System.out.println("    sub_matrix_row: " + calc.sub_matrix_row);
+      System.out.println("    sub_matrix_col: " + calc.sub_matrix_col);
+      System.out.println("    sub_matrix: " + calc.sub_matrix);
+      System.out.println("    m_size: " + calc.m_size);
+      System.out.println("    thread_row: " + calc.thread_row);
+      System.out.println("    thread_col: " + calc.thread_col);
+      System.out.println("    dest_row: " + calc.dest_row);
+      System.out.println("    dest_col: " + calc.dest_col);
+      System.out.println("    block_size: " + calc.block_size);
+      System.out.println("    dest_index: " + calc.dest_index);
+    }
+  }
   List<StatsRow> stats=rootbeer.getStats();
   for (  StatsRow row : stats) {
     System.out.println("  StatsRow:");

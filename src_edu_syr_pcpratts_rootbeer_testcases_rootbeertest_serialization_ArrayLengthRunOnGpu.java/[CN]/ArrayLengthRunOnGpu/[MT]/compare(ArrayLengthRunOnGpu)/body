@@ -1,0 +1,9 @@
+{
+  if (m_len != rhs.m_len) {
+    System.out.println("m_len");
+    System.out.println("lhs: " + m_len);
+    System.out.println("rhs: " + rhs.m_len);
+    return false;
+  }
+  return true;
+}

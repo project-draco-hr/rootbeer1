@@ -1,0 +1,5 @@
+{
+  ArrayLengthRunOnGpu lhs=(ArrayLengthRunOnGpu)original;
+  ArrayLengthRunOnGpu rhs=(ArrayLengthRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

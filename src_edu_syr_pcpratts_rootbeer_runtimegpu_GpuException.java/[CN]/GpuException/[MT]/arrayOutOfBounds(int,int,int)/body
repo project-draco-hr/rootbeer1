@@ -1,0 +1,7 @@
+{
+  GpuException ret=new GpuException();
+  ret.m_arrayLength=length;
+  ret.m_arrayIndex=index;
+  ret.m_array=array;
+  return ret;
+}

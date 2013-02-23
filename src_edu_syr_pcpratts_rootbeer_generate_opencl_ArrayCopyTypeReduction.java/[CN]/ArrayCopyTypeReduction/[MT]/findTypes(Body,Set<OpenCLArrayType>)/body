@@ -1,0 +1,28 @@
+{
+  Set<OpenCLArrayType> ret=new HashSet<OpenCLArrayType>();
+  PatchingChain<Unit> units=body.getUnits();
+  Unit curr=units.getFirst();
+  while (curr != null) {
+    List<ValueBox> boxes=curr.getUseAndDefBoxes();
+    for (    ValueBox box : boxes) {
+      Value value=box.getValue();
+      if (value instanceof StaticInvokeExpr == false) {
+        continue;
+      }
+      StaticInvokeExpr expr=(StaticInvokeExpr)value;
+      String method_sig=expr.getMethodRef().getSignature();
+      String arraycopy_sig="<java.lang.System: void arraycopy(java.lang.Object,int,java.lang.Object,int,int)>";
+      if (method_sig.equals(arraycopy_sig) == false) {
+        continue;
+      }
+      Value src=expr.getArg(0);
+      Value dest=expr.getArg(2);
+      Type src_type=src.getType();
+      Type dest_type=dest.getType();
+      ret.add(findType(src_type,array_types));
+      ret.add(findType(dest_type,array_types));
+    }
+    curr=units.getSuccOf(curr);
+  }
+  return ret;
+}
