@@ -1,4 +1,5 @@
 {
   m_cpuWatch=new Stopwatch();
   m_gpuWatch=new Stopwatch();
+  m_transposeWatch=new Stopwatch();
 }

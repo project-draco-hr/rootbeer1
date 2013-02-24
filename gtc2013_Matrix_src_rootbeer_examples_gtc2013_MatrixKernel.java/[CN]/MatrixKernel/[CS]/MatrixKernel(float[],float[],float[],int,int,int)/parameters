@@ -1,6 +1,6 @@
-int[] a
-int[] b
-int[] c
+float[] a
+float[] b
+float[] c
 int block_size
 int grid_size
 int block_iters

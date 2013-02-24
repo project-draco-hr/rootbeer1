@@ -3,7 +3,7 @@
   m_cpuWatch.start();
   List<MatrixCpuThread> threads=new ArrayList<MatrixCpuThread>();
   for (int i=0; i < num_cores; ++i) {
-    MatrixCpuThread thread=new MatrixCpuThread(m_a,m_b,m_ccpu,i,m_blockSize,m_gridSize * m_blockIters,num_cores);
+    MatrixCpuThread thread=new MatrixCpuThread(m_a,m_bcpu,m_ccpu,i,m_blockSize,m_gridSize * m_blockIters,num_cores);
     threads.add(thread);
   }
   for (int i=0; i < num_cores; ++i) {
