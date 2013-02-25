@@ -1,13 +1,13 @@
 {
-  StringRunOnGPU typed_original=(StringRunOnGPU)original;
-  StringRunOnGPU typed_from_heap=(StringRunOnGPU)from_heap;
+  StringArrayTest1RunOnGpu typed_original=(StringArrayTest1RunOnGpu)original;
+  StringArrayTest1RunOnGpu typed_from_heap=(StringArrayTest1RunOnGpu)from_heap;
   String[] lhs=typed_original.getResult();
   String[] rhs=typed_from_heap.getResult();
   if (lhs.length != rhs.length) {
     return false;
   }
   for (int i=0; i < lhs.length; ++i) {
-    if (lhs[i] != rhs[i]) {
+    if (lhs[i].equals(rhs[i]) == false) {
       return false;
     }
   }

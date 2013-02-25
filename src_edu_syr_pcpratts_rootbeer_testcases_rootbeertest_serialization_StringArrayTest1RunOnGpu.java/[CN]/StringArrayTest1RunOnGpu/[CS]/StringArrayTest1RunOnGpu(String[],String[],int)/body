@@ -1,0 +1,5 @@
+{
+  m_source=src;
+  m_ret=dst;
+  m_index=i;
+}

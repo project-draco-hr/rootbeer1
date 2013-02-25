@@ -1,0 +1,7 @@
+{
+  String str="york";
+  for (int i=0; i < m_source.length; ++i) {
+    str=m_source[i] + str;
+  }
+  m_ret[m_index]=str;
+}
