@@ -1,0 +1,9 @@
+{
+  List<Kernel> ret=new ArrayList<Kernel>();
+  ret.add(new CmplInfRunOnGpu(Double.NEGATIVE_INFINITY));
+  ret.add(new CmplInfRunOnGpu(Double.POSITIVE_INFINITY));
+  ret.add(new CmplInfRunOnGpu(-10.0));
+  ret.add(new CmplInfRunOnGpu(10.0));
+  ret.add(new CmplInfRunOnGpu(0.0));
+  return ret;
+}

@@ -1,0 +1,5 @@
+{
+  CmplInfRunOnGpu lhs=(CmplInfRunOnGpu)original;
+  CmplInfRunOnGpu rhs=(CmplInfRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}
