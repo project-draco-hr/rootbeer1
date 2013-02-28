@@ -6,11 +6,8 @@
   MethodSignatureUtil util=new MethodSignatureUtil();
   for (  String method_sig : methods) {
     util.parse(method_sig);
-    String cls=util.getClassName();
-    String method_sub_sig=util.getMethodSubSignature();
-    SootClass soot_class=Scene.v().getSootClass(cls);
-    OpenCLScene.v().addClass(soot_class);
-    SootMethod method=RootbeerClassLoader.v().findMethod(soot_class,method_sub_sig);
+    SootMethod method=util.getSootMethod();
+    OpenCLScene.v().addClass(method.getDeclaringClass());
     addMethod(method);
   }
   Set<SootField> fields=RootbeerClassLoader.v().getDfsInfo().getFields();

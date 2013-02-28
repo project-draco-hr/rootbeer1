@@ -1,4 +1,7 @@
 {
+  if (soot_method.isConcrete() == false) {
+    return true;
+  }
   hierarchy=trimNonConcrete(soot_method,hierarchy);
   if (hierarchy.size() > 2) {
     return true;
