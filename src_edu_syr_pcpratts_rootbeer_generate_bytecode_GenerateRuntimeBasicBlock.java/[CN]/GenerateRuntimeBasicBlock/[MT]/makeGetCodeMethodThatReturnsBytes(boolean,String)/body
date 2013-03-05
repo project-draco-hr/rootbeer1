@@ -2,7 +2,7 @@
   BytecodeLanguage bcl=new BytecodeLanguage();
   bcl.openClass(mSootClass);
   SootClass string=Scene.v().getSootClass("java.lang.String");
-  bcl.startMethod("getCubin",string.getType());
+  bcl.startMethod("getCubin" + (m32 ? "32" : "64"),string.getType());
   Local thisref=bcl.refThis();
   bcl.returnValue(StringConstant.v(filename));
   bcl.endMethod();

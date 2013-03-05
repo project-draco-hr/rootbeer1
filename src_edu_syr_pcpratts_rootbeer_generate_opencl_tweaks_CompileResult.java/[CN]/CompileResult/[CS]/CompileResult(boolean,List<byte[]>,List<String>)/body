@@ -1,4 +1,5 @@
 {
+  m_32bit=m32;
   m_binary=binary;
   m_errors=errors;
 }

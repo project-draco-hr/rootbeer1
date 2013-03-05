@@ -1,5 +1,5 @@
 {
-  String class_name=File.separator + gcObjectVisitorClassName.replace(".",File.separator) + ".cubin";
+  String class_name=File.separator + gcObjectVisitorClassName.replace(".",File.separator) + suffix+ ".cubin";
   if (use_class_folder)   return RootbeerPaths.v().getOutputClassFolder() + class_name;
  else   return class_name;
 }
