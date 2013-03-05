@@ -1,4 +1,8 @@
 {
+  String name=soot_method.getName();
+  if (name.equals("<init>") || name.equals("<clinit>")) {
+    return false;
+  }
   if (soot_method.isConcrete() == false) {
     return true;
   }

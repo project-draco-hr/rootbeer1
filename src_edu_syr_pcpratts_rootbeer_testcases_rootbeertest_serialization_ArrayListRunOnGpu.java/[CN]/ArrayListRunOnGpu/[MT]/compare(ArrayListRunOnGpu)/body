@@ -3,6 +3,8 @@
   List<ArrayListTestObject> rhs_list=rhs.m_arrayList;
   if (lhs_list.size() != rhs_list.size()) {
     System.out.println("size");
+    System.out.println("lhs: " + lhs_list.size());
+    System.out.println("rhs: " + rhs_list.size());
     return false;
   }
   for (int i=0; i < lhs_list.size(); ++i) {

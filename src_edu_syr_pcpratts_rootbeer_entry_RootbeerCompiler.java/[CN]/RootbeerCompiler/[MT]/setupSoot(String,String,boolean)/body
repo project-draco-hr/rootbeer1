@@ -79,6 +79,11 @@
   cuda_entries.add("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: edu.syr.pcpratts.rootbeer.runtimegpu.GpuException arrayOutOfBounds(int,int,int)>");
   RootbeerClassLoader.v().setCudaEntryPoints(cuda_entries);
   RootbeerClassLoader.v().addConditionalCudaEntry(new StringConstantCudaEntry());
+  DontDfsMethods dont_dfs_methods=new DontDfsMethods();
+  Set<String> dont_dfs_set=dont_dfs_methods.get();
+  for (  String dont_dfs : dont_dfs_set) {
+    RootbeerClassLoader.v().addDontDfsMethod(dont_dfs);
+  }
   List<String> cuda_fields=new ArrayList<String>();
   cuda_fields.add("<java.lang.Class: java.lang.String name>");
   RootbeerClassLoader.v().setCudaFields(cuda_fields);

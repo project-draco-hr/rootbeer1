@@ -1,5 +1,5 @@
 {
-  List<Type> ret=new ArrayList<Type>();
+  Set<Type> ret_set=new HashSet<Type>();
   for (  Type type : hierarchy) {
     if (type instanceof RefType) {
       RefType ref_type=(RefType)type;
@@ -8,13 +8,15 @@
       if (soot_class.declaresMethod(subsig)) {
         SootMethod curr_method=soot_class.getMethod(subsig);
         if (curr_method.isConcrete()) {
-          ret.add(type);
+          ret_set.add(type);
         }
       }
     }
  else {
-      ret.add(type);
+      ret_set.add(type);
     }
   }
+  List<Type> ret=new ArrayList<Type>();
+  ret.addAll(ret_set);
   return ret;
 }

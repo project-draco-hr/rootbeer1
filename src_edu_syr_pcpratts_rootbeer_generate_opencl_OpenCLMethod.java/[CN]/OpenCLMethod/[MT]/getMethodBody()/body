@@ -9,7 +9,14 @@
         if (isSynchronized()) {
           ret.append(synchronizedEnter());
         }
-        ret.append(ocl_body.getBodyNoLocals());
+        try {
+          ret.append(ocl_body.getBodyNoLocals());
+        }
+ catch (        Exception ex) {
+          ex.printStackTrace();
+          System.out.println("soot_method: " + m_sootMethod.getSignature());
+          System.exit(1);
+        }
         if (isSynchronized()) {
           if (isLinux()) {
             ret.append("  } else {");

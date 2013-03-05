@@ -1,6 +1,6 @@
 {
   if (m_sootMethod.isConcrete() == false) {
-    Set<String> virtual_signatures=RootbeerClassLoader.v().getVirtualSignaturesDown(m_sootMethod);
+    Set<String> virtual_signatures=RootbeerClassLoader.v().getVirtualSignaturesDown(m_sootMethod,null);
     if (virtual_signatures.size() != 1) {
       return getBaseMethodName(m_sootClass,m_sootMethod);
     }
