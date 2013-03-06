@@ -1,0 +1,4 @@
+{
+  m_data=new Calculation[8];
+  m_size=0;
+}

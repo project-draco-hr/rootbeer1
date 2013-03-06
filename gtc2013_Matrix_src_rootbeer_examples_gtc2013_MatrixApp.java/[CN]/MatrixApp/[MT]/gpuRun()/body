@@ -6,6 +6,13 @@
   rootbeer.runAll(matrix_kernel);
   m_gpuWatch.stop();
   System.out.println("avg gpu time: " + m_gpuWatch.getAverageTime() + " ms");
+  List<Calculation> calc_list=matrix_kernel.m_calcList.getList();
+  for (  Calculation calc : calc_list) {
+    if (calc == null) {
+      continue;
+    }
+    System.out.println(calc.toString());
+  }
   List<StatsRow> stats=rootbeer.getStats();
   for (  StatsRow row : stats) {
     System.out.println("  StatsRow:");
