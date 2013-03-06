@@ -13,19 +13,15 @@
       int dest_index=i * b_columns + j;
       for (int k=0; k < a_columns; ++k) {
         int a_src=i * a_columns + k;
-        int b_src=i * a_columns + k;
+        int b_src;
+        if (m_transpose) {
+          b_src=i * a_columns + k;
+        }
+ else {
+          b_src=k * b_columns + j;
+        }
         float a_value=m_a[a_src];
         float b_value=m_b[b_src];
-        if (dest_index == 0) {
-          System.out.println("cpu row: ");
-          System.out.println("  i: " + i);
-          System.out.println("  j: " + j);
-          System.out.println("  k: " + k);
-          System.out.println("  a_src: " + a_src);
-          System.out.println("  b_src: " + b_src);
-          System.out.println("  a_value: " + a_value);
-          System.out.println("  b_value: " + b_value);
-        }
         sum+=a_value * b_value;
       }
       m_c[dest_index]=sum;
