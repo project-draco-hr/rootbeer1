@@ -1,7 +1,7 @@
 {
-  m_blockIters=32;
-  m_blockSize=32;
-  m_gridSize=2;
+  m_blockIters=256;
+  m_blockSize=256;
+  m_gridSize=14;
   m_a=new float[m_blockSize * m_blockSize];
   m_bcpu=new float[m_blockSize * m_blockSize * m_gridSize* m_blockIters];
   m_bcpu2=new float[m_blockSize * m_blockSize * m_gridSize* m_blockIters];
