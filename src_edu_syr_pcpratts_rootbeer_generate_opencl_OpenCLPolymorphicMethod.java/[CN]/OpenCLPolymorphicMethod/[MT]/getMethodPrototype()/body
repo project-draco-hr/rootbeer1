@@ -1,4 +1,0 @@
-{
-  if (m_sootMethod.getName().equals("<init>"))   return "";
-  return getMethodDecl() + ";\n";
-}

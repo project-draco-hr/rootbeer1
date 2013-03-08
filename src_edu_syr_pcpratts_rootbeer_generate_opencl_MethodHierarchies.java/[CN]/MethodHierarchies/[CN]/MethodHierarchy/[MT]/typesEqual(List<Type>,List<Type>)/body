@@ -1,0 +1,10 @@
+{
+  for (int i=0; i < types1.size(); ++i) {
+    Type lhs=types1.get(i);
+    Type rhs=types2.get(i);
+    if (lhs.equals(rhs) == false) {
+      return false;
+    }
+  }
+  return true;
+}

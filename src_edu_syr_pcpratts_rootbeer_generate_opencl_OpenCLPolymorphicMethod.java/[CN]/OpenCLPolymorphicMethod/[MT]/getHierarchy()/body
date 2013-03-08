@@ -3,19 +3,8 @@
   List<Type> types=RootbeerClassLoader.v().getDfsInfo().getHierarchy(soot_class);
   List<Type> ret=new ArrayList<Type>();
   for (  Type type : types) {
-    if (type instanceof RefType) {
-      RefType ref_type=(RefType)type;
-      SootClass hierarchy_class=ref_type.getSootClass();
-      if (hierarchy_class.isAbstract() == false) {
-        if (ret.contains(type) == false) {
-          ret.add(type);
-        }
-      }
-    }
- else {
-      if (ret.contains(type) == false) {
-        ret.add(type);
-      }
+    if (ret.contains(type) == false) {
+      ret.add(type);
     }
   }
   return ret;

@@ -1,24 +1,17 @@
 {
-  if (m_sootMethod.getName().equals("<init>"))   return "";
-  if (m_sootMethod.isConcrete() == false) {
-    return "";
-  }
   List<Type> hierarchy=getHierarchy();
-  Type first_type=hierarchy.get(0);
-  if (first_type instanceof RefType == false) {
-    throw new RuntimeException("please report bug in OpenCLPolymorphicMethod.getMethodBody");
-  }
-  RefType ref_type=(RefType)first_type;
-  SootClass first_soot_class=ref_type.getSootClass();
   StringBuilder ret=new StringBuilder();
   String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
-  ret.append(getMethodDecl());
+  ret.append(decl);
   ret.append("{\n");
   if (m_sootMethod.isStatic()) {
     if (m_sootMethod.getReturnType() instanceof VoidType == false) {
       ret.append("return ");
     }
-    String invoke_string=getStaticInvokeString(first_soot_class);
+    Type first_type=hierarchy.get(0);
+    RefType ref_type=(RefType)first_type;
+    SootClass first_class=ref_type.getSootClass();
+    String invoke_string=getStaticInvokeString(first_class);
     ret.append(invoke_string + "\n");
   }
  else {
