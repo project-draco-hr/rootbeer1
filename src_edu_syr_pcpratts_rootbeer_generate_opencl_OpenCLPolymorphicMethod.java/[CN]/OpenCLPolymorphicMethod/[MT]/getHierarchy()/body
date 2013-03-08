@@ -7,11 +7,15 @@
       RefType ref_type=(RefType)type;
       SootClass hierarchy_class=ref_type.getSootClass();
       if (hierarchy_class.isAbstract() == false) {
-        ret.add(type);
+        if (ret.contains(type) == false) {
+          ret.add(type);
+        }
       }
     }
  else {
-      ret.add(type);
+      if (ret.contains(type) == false) {
+        ret.add(type);
+      }
     }
   }
   return ret;

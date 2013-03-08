@@ -1,4 +1,5 @@
 {
+  System.out.println("instance_invoke: " + arg0.toString());
   Value base=arg0.getBase();
   Type base_type=base.getType();
   List<Type> hierarchy;

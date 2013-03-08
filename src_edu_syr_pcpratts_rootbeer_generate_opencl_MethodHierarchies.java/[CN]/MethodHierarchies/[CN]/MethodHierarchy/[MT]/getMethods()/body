@@ -1,6 +1,7 @@
 {
   List<OpenCLMethod> ret=new ArrayList<OpenCLMethod>();
   Set<Type> class_hierarchy=RootbeerClassLoader.v().getDfsInfo().getPointsTo(m_sootMethod.getSignature());
+  Set<SootClass> valid_hierarchy_classes=RootbeerClassLoader.v().getValidHierarchyClasses();
   if (class_hierarchy == null || m_sootMethod.isConstructor()) {
     OpenCLMethod method=new OpenCLMethod(m_sootMethod,m_sootMethod.getDeclaringClass());
     ret.add(method);
@@ -34,6 +35,9 @@
       subclasses.addAll(subclasses_col);
       subclasses.add(soot_class);
       for (      SootClass subclass : subclasses) {
+        if (valid_hierarchy_classes.contains(subclass) == false) {
+          continue;
+        }
         if (subclass.declaresMethod(m_methodSubsignature)) {
           SootMethod soot_method=subclass.getMethod(m_methodSubsignature);
           if (soot_method.isConcrete() == false) {

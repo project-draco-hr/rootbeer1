@@ -1,8 +1,10 @@
 {
   List<OpenCLMethod> ret=new ArrayList<OpenCLMethod>();
   for (  MethodHierarchy method_hierarchy : m_hierarchies) {
+    System.out.println("MethodHierarchy: " + method_hierarchy.toString());
     List<OpenCLMethod> methods=method_hierarchy.getMethods();
     for (    OpenCLMethod method : methods) {
+      System.out.println("  method: " + method.getSignature());
       ret.add(method);
     }
   }
