@@ -9,11 +9,12 @@
   Local ret=bcl.local(type);
   bcl_mem.incrementAddress(4);
   Local previous_size=bcl.lengthof(object_to_read_from);
-  if (type.baseType.equals(IntType.v()) && type.numDimensions == 1) {
+  if (type.baseType instanceof PrimType && type.numDimensions == 1 && type.baseType.equals(CharType.v()) == false) {
     bcl.pushMethod(m_currMem.top(),"readArray",VoidType.v(),type);
     bcl.invokeMethodNoRet(m_currMem.top(),object_to_read_from);
+    OpenCLType ocl_type=new OpenCLType(type.baseType);
     Local element_size=bcl.local(IntType.v());
-    bcl.assign(element_size,IntConstant.v(4));
+    bcl.assign(element_size,IntConstant.v(ocl_type.getSize()));
     bcl.mult(element_size,previous_size);
     bcl_mem.incrementAddress(element_size);
     return object_to_read_from;

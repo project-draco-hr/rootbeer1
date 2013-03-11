@@ -1,0 +1,11 @@
+{
+  m_data[m_size]=calc;
+  ++m_size;
+  if (m_size == m_data.length) {
+    Calculation[] new_data=new Calculation[m_size * 2];
+    for (int i=0; i < m_size - 1; ++i) {
+      new_data[i]=m_data[i];
+    }
+    m_data=new_data;
+  }
+}

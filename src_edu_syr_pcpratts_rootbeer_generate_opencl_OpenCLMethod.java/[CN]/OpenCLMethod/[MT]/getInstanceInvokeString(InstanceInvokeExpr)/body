@@ -10,6 +10,9 @@
  else   if (base_type instanceof RefType) {
     RefType ref_type=(RefType)base_type;
     hierarchy=RootbeerClassLoader.v().getDfsInfo().getHierarchy(ref_type.getSootClass());
+    PointsToAnalysis analysis=Scene.v().getPointsToAnalysis();
+    PointsToSet set=analysis.reachingObjects((Local)base);
+    hierarchy=trimHierarchy(hierarchy,set);
   }
  else {
     throw new UnsupportedOperationException("how do we handle this case?");

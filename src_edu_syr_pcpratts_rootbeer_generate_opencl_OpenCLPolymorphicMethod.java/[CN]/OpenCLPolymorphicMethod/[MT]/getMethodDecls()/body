@@ -1,0 +1,19 @@
+{
+  List<Type> hierarchy=getHierarchy();
+  List<String> ret=new ArrayList<String>();
+  for (  Type type : hierarchy) {
+    if (type instanceof RefType == false) {
+      continue;
+    }
+    RefType ref_type=(RefType)type;
+    SootClass soot_class=ref_type.getSootClass();
+    OpenCLMethod ocl_method=new OpenCLMethod(m_sootMethod,soot_class);
+    StringBuilder builder=new StringBuilder();
+    builder.append(Tweaks.v().getDeviceFunctionQualifier() + " ");
+    builder.append(ocl_method.getReturnString());
+    builder.append(" invoke_" + ocl_method.getPolymorphicName());
+    builder.append(ocl_method.getArgumentListStringPolymorphic());
+    ret.add(builder.toString());
+  }
+  return ret;
+}

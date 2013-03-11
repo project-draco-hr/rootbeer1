@@ -1,0 +1,5 @@
+{
+  HashSetRunOnGpu lhs=(HashSetRunOnGpu)original;
+  HashSetRunOnGpu rhs=(HashSetRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

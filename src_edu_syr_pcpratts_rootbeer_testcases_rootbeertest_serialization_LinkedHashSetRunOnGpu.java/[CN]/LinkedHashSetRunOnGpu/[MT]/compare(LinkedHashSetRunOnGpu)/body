@@ -1,0 +1,13 @@
+{
+  if (m_set.size() != rhs.m_set.size()) {
+    System.out.println("size");
+    return false;
+  }
+  for (  Integer key : m_set) {
+    if (rhs.m_set.contains(key) == false) {
+      System.out.println("key");
+      return false;
+    }
+  }
+  return true;
+}

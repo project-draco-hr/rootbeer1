@@ -1,8 +1,0 @@
-{
-  try {
-    m_thread.join();
-  }
- catch (  Exception ex) {
-    ex.printStackTrace();
-  }
-}

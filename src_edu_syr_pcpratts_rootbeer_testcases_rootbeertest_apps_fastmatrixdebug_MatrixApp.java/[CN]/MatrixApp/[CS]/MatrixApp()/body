@@ -1,4 +1,0 @@
-{
-  m_cpuWatch=new Stopwatch();
-  m_gpuWatch=new Stopwatch();
-}

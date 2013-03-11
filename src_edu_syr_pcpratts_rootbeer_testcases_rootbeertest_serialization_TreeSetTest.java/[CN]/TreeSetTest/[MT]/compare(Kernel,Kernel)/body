@@ -1,0 +1,5 @@
+{
+  TreeSetRunOnGpu lhs=(TreeSetRunOnGpu)original;
+  TreeSetRunOnGpu rhs=(TreeSetRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

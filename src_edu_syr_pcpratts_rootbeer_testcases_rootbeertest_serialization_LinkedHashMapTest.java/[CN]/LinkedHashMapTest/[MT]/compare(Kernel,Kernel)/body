@@ -1,0 +1,5 @@
+{
+  LinkedHashMapRunOnGpu lhs=(LinkedHashMapRunOnGpu)original;
+  LinkedHashMapRunOnGpu rhs=(LinkedHashMapRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

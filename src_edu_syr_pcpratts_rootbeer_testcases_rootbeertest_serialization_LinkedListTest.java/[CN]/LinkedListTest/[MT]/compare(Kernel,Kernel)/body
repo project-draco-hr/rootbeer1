@@ -1,0 +1,5 @@
+{
+  LinkedListRunOnGpu lhs=(LinkedListRunOnGpu)original;
+  LinkedListRunOnGpu rhs=(LinkedListRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

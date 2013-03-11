@@ -1,0 +1,27 @@
+{
+  List<Type> ret=new ArrayList<Type>();
+  Set<Type> types=set.possibleTypes();
+  for (  Type type : types) {
+    if (type instanceof RefType) {
+      ret.add(type);
+    }
+ else     if (type instanceof AnySubType) {
+      AnySubType any_sub_type=(AnySubType)type;
+      RefType base=any_sub_type.getBase();
+      FastHierarchy fh=Scene.v().getOrMakeFastHierarchy();
+      Collection<SootClass> subclasses=fh.getSubclassesOf(base.getSootClass());
+      List<SootClass> to_proc=new ArrayList<SootClass>();
+      to_proc.add(base.getSootClass());
+      to_proc.addAll(subclasses);
+      for (      SootClass subclass : to_proc) {
+        if (hierarchy.contains(subclass.getType())) {
+          ret.add(subclass.getType());
+        }
+      }
+    }
+ else {
+      ret.add(type);
+    }
+  }
+  return ret;
+}

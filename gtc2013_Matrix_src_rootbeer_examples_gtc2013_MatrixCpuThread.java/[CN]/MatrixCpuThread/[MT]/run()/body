@@ -13,7 +13,13 @@
       int dest_index=i * b_columns + j;
       for (int k=0; k < a_columns; ++k) {
         int a_src=i * a_columns + k;
-        int b_src=k * b_columns + j;
+        int b_src;
+        if (m_transpose) {
+          b_src=j * a_columns + k;
+        }
+ else {
+          b_src=k * b_columns + j;
+        }
         float a_value=m_a[a_src];
         float b_value=m_b[b_src];
         sum+=a_value * b_value;

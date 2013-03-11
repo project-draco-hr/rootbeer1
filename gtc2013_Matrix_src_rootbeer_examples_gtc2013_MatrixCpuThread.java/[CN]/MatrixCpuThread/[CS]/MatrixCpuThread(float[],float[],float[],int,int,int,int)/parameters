@@ -1,7 +1,0 @@
-float[] a
-float[] b
-float[] c
-int index
-int block_size
-int grid_size
-int num_cores

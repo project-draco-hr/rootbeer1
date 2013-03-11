@@ -1,0 +1,5 @@
+{
+  for (  long value : array) {
+    writeLong(value);
+  }
+}

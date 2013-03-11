@@ -1,0 +1,3 @@
+{
+  doReadBooleanArray(array,m_CpuBase + currPointer(),0,array.length);
+}

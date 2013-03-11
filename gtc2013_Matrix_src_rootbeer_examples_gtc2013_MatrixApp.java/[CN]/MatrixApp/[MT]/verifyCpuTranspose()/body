@@ -1,0 +1,15 @@
+{
+  for (int i=0; i < m_ccpu.length; ++i) {
+    float cpu_value=m_ccpu[i];
+    float cpu_value2=m_ccpu2[i];
+    if (cpu_value != cpu_value2) {
+      System.out.println("Verify Failed.");
+      System.out.println("  cpu_value: " + cpu_value);
+      System.out.println("  cpu_value2: " + cpu_value2);
+      System.out.println("  index: " + i);
+      System.exit(1);
+      return;
+    }
+  }
+  System.out.println("Verify PASSED!");
+}

@@ -1,0 +1,10 @@
+{
+  if (m_sootMethod.getName().equals("<init>"))   return "";
+  List<String> decls=getMethodDecls();
+  StringBuilder ret=new StringBuilder();
+  for (  String decl : decls) {
+    decl+=";\n";
+    ret.append(decl);
+  }
+  return ret.toString();
+}

@@ -1,0 +1,5 @@
+{
+  HashMapRunOnGpu lhs=(HashMapRunOnGpu)original;
+  HashMapRunOnGpu rhs=(HashMapRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

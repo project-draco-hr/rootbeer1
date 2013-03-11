@@ -1,0 +1,5 @@
+{
+  TreeMapRunOnGpu lhs=(TreeMapRunOnGpu)original;
+  TreeMapRunOnGpu rhs=(TreeMapRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

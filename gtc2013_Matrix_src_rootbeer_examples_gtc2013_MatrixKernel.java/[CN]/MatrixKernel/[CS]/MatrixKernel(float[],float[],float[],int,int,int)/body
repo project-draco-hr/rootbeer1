@@ -5,4 +5,5 @@
   m_blockSize=block_size;
   m_gridSize=grid_size;
   m_blockIters=block_iters;
+  m_calcList=new CalcList();
 }
