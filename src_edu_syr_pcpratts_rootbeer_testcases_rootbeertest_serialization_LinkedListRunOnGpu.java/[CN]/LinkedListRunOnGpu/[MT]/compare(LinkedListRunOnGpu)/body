@@ -1,0 +1,15 @@
+{
+  if (m_list.size() != rhs.m_list.size()) {
+    System.out.println("size");
+    return false;
+  }
+  for (int i=0; i < m_list.size(); ++i) {
+    double lhs_value=m_list.get(i);
+    double rhs_value=rhs.m_list.get(i);
+    if (lhs_value != rhs_value) {
+      System.out.println("value");
+      return false;
+    }
+  }
+  return true;
+}

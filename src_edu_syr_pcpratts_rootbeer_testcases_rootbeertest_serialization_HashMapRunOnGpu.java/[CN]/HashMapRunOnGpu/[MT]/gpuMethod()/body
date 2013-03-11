@@ -1,0 +1,9 @@
+{
+  m_map=new HashMap<Integer,String>();
+  m_map.put(0,"a");
+  m_map.put(1,"b");
+  m_map.put(2,"c");
+  m_map.put(3,"d");
+  m_map.put(4,"e");
+  m_map.put(5,"f");
+}

@@ -1,5 +1,4 @@
 {
   List<TestApplication> ret=new ArrayList<TestApplication>();
-  ret.add(new MatrixApp());
   return ret;
 }
