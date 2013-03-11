@@ -1,0 +1,4 @@
+boolean[] array
+long addr
+int start
+int len
