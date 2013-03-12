@@ -1,0 +1,6 @@
+{
+  int hash=7;
+  hash=31 * hash + this.m_value;
+  hash=31 * hash + this.m_baseValue;
+  return hash;
+}

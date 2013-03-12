@@ -1,0 +1,5 @@
+{
+  CovarientRunOnGpu lhs=(CovarientRunOnGpu)original;
+  CovarientRunOnGpu rhs=(CovarientRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

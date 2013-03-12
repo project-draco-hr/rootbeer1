@@ -1,0 +1,10 @@
+{
+  if (other instanceof CovarientDerivedClass == false) {
+    return false;
+  }
+  CovarientDerivedClass rhs=(CovarientDerivedClass)other;
+  if (m_derivedValue != rhs.m_derivedValue) {
+    return false;
+  }
+  return super.equals(other);
+}

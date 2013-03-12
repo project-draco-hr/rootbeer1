@@ -1,0 +1,19 @@
+{
+  if (m_base1.equals(rhs.m_base1) == false) {
+    System.out.println("base1");
+    return false;
+  }
+  if (m_base2.equals(rhs.m_base2) == false) {
+    System.out.println("base2");
+    return false;
+  }
+  if (m_base3.equals(rhs.m_base3) == false) {
+    System.out.println("base3");
+    return false;
+  }
+  if (m_derived1.equals(rhs.m_derived1) == false) {
+    System.out.println("derived1");
+    return false;
+  }
+  return true;
+}

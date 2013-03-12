@@ -1,0 +1,13 @@
+{
+  if (other instanceof CovarientBaseClass == false) {
+    return false;
+  }
+  CovarientBaseClass rhs=(CovarientBaseClass)other;
+  if (m_value != rhs.m_value) {
+    return false;
+  }
+  if (m_baseValue != rhs.m_baseValue) {
+    return false;
+  }
+  return true;
+}
