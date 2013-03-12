@@ -1,25 +1,27 @@
 {
   m_cpuWatch.start();
-  int num_cores=Runtime.getRuntime().availableProcessors();
-  int num_each=w / num_cores;
-  List<Thread> threads=new ArrayList<Thread>();
-  for (int i=0; i < num_cores; ++i) {
-    int start_w=i * num_each;
-    int stop_w=(i + 1) * num_each;
-    if (i == num_cores - 1) {
-      stop_w=w;
-    }
-    CpuThreadProc proc=new CpuThreadProc(start_w,stop_w,w,h,minx,maxx,miny,maxy,maxdepth,pixels);
-    Thread thread=new Thread(proc);
-    thread.start();
-    threads.add(thread);
+  for (  MyThread mt : threads) {
+    mt.h=h;
+    mt.w=w;
+    mt.maxdepth=maxdepth;
+    mt.maxx=maxx;
+    mt.maxy=maxy;
+    mt.minx=minx;
+    mt.miny=miny;
+    mt.pixels=pixels;
   }
-  for (  Thread thread : threads) {
-    try {
-      thread.join();
-    }
- catch (    Exception ex) {
-      ex.printStackTrace();
+  for (int y=0; y < h; ++y) {
+    boolean found=false;
+    while (!found) {
+      for (      MyThread mt : threads) {
+        if (!mt.compute) {
+          found=true;
+          mt.y=y;
+          mt.compute=true;
+          mt.interrupt();
+          break;
+        }
+      }
     }
   }
   m_cpuWatch.stop();

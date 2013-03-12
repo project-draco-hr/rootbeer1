@@ -1,10 +1,17 @@
 {
-  double xr=0;
-  double xi=0;
-  for (int i=m_startW; i < m_stopW; ++i) {
-    for (int j=0; j < m_h; ++j) {
-      double cr=(m_maxx - m_minx) * i / m_w + m_minx;
-      double ci=(m_maxy - m_miny) * j / m_h + m_miny;
+  while (true) {
+    while (!compute) {
+      try {
+        sleep(1000);
+      }
+ catch (      InterruptedException ex) {
+      }
+    }
+    for (int x=0; x < w; ++x) {
+      double xr=0;
+      double xi=0;
+      double cr=(maxx - minx) * x / w + minx;
+      double ci=(maxy - miny) * y / h + miny;
       int d=0;
       while (true) {
         double xr2=xr * xr - xi * xi + cr;
@@ -12,7 +19,7 @@
         xr=xr2;
         xi=xi2;
         d++;
-        if (d >= m_maxdepth) {
+        if (d >= maxdepth) {
           break;
         }
         if (xr * xr + xi * xi >= 4) {
@@ -22,8 +29,9 @@
       int r=(int)(0xff * (Math.sin((double)(0.01 * d + 0) + 1)) / 2);
       int g=(int)(0xff * (Math.sin((double)(0.02 * d + 0.01) + 1)) / 2);
       int b=(int)(0xff * (Math.sin((double)(0.04 * d + 0.1) + 1)) / 2);
-      int dest_index=j * m_w + i;
-      m_pixels[dest_index]=(int)((0xff * (0.01 * d + 0) + 1) / 2) << 16 | (int)((0xff * (0.02 * d + 0.01) + 1) / 2) << 8 | (int)((0xff * (0.04 * d + 0.1) + 1) / 2);
+      int dest_index=y * w + x;
+      pixels[dest_index]=(r << 16) | (g << 8) | b;
     }
+    compute=false;
   }
 }
