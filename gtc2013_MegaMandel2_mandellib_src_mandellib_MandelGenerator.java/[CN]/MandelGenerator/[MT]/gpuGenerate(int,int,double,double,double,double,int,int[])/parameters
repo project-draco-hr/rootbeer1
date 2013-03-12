@@ -1,0 +1,8 @@
+int w
+int h
+double minx
+double maxx
+double miny
+double maxy
+int maxdepth
+int[] pixels

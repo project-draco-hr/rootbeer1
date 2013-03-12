@@ -1,0 +1,27 @@
+{
+  m_cpuWatch.start();
+  int num_cores=Runtime.getRuntime().availableProcessors();
+  int num_each=w / num_cores;
+  List<Thread> threads=new ArrayList<Thread>();
+  for (int i=0; i < num_cores; ++i) {
+    int start_w=i * num_each;
+    int stop_w=(i + 1) * num_each;
+    if (i == num_cores - 1) {
+      stop_w=w;
+    }
+    CpuThreadProc proc=new CpuThreadProc(start_w,stop_w,w,h,minx,maxx,miny,maxy,maxdepth,pixels);
+    Thread thread=new Thread(proc);
+    thread.start();
+    threads.add(thread);
+  }
+  for (  Thread thread : threads) {
+    try {
+      thread.join();
+    }
+ catch (    Exception ex) {
+      ex.printStackTrace();
+    }
+  }
+  m_cpuWatch.stop();
+  System.out.println("avg cpu: " + m_cpuWatch.getAverageTime());
+}

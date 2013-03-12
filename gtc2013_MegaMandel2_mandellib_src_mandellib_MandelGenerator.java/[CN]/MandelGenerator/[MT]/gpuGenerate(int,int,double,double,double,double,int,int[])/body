@@ -1,6 +1,8 @@
 {
+  m_gpuWatch.start();
   rb.setThreadConfig(w,h);
   MyKernel myKernel=new MyKernel(pixels,maxdepth,w,h,maxx,minx,maxy,miny);
   rb.runAll(myKernel);
-  System.err.println(rb.getStats().size());
+  m_gpuWatch.stop();
+  System.out.println("avg gpu: " + m_gpuWatch.getAverageTime());
 }

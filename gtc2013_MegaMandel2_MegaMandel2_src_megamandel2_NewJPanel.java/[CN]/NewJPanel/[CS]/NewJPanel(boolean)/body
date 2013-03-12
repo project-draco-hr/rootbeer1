@@ -1,6 +1,7 @@
 {
   initComponents();
-  img=new BufferedImage(200,200,BufferedImage.TYPE_3BYTE_BGR);
+  img=new BufferedImage(256,256,BufferedImage.TYPE_3BYTE_BGR);
+  m_cpu=cpu;
   new Thread(){
     @Override public void run(){
       while (true) {
@@ -8,7 +9,12 @@
         int width=im.getWidth();
         int height=im.getHeight();
         int[] ps=new int[width * height];
-        MandelGenerator.generate(width,height,minx,maxx,miny,maxy,maxdepth,ps);
+        if (m_cpu) {
+          cpuGenerate(width,height,minx,maxx,miny,maxy,maxdepth,ps);
+        }
+ else {
+          MandelGenerator.gpuGenerate(width,height,minx,maxx,miny,maxy,maxdepth,ps);
+        }
         im.setRGB(0,0,width,height,ps,0,width);
         float dfx=(maxx - minx) * fx;
         float dfy=(maxy - miny) * fy;
@@ -20,7 +26,6 @@
         minx+=dx;
         maxy+=dy;
         miny+=dy;
-        System.err.println("...");
         repaint();
         try {
           sleep(1);
