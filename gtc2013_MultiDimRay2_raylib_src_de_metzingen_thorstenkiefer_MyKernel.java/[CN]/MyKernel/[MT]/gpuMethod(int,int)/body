@@ -1,0 +1,45 @@
+{
+  if (xpixel >= w || ypixel >= h) {
+    return;
+  }
+  mul(vx,(maxx - minx) * xpixel / w + minx,regs[0]);
+  mul(vy,(maxy - miny) * ypixel / h + miny,regs[1]);
+  add(regs[0],regs[1],regs[0]);
+  sub(regs[0],observer,sight_dir);
+  double minlambda=Double.NaN;
+  double[] mino=null;
+  nanOut(intersections);
+  intersect(sight_start,sight_dir,spheres);
+  for (int j=0; j < 100; ++j) {
+    if (Double.isNaN(minlambda)) {
+      minlambda=intersections[j];
+      mino=intersectionso[j];
+    }
+ else     if (!Double.isNaN(intersections[j])) {
+      if (intersections[j] < minlambda) {
+        minlambda=intersections[j];
+        mino=intersectionso[j];
+      }
+    }
+  }
+  if (Double.isNaN(minlambda)) {
+    result[xpixel + w * ypixel]=0xff;
+  }
+ else {
+    mul(sight_dir,minlambda,regs[0]);
+    add(regs[0],observer,regs[0]);
+    sub(regs[0],mino,regs[1]);
+    mul(regs[1],1.0 / radius,regs[1]);
+    sub(light,regs[0],regs[2]);
+    double l=sqrt(mul(regs[2],regs[2]));
+    mul(regs[2],1.0 / l,regs[2]);
+    boolean intersects=false;
+    double alpha=mul(regs[1],regs[2]);
+    if (alpha < 0 || intersects) {
+      alpha=0;
+    }
+    if (alpha > 1) {
+    }
+    result[xpixel + w * ypixel]=(int)(0xff * alpha) << 8;
+  }
+}
