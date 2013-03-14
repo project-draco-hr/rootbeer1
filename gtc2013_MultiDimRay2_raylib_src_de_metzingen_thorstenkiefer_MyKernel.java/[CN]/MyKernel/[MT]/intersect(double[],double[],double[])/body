@@ -7,28 +7,16 @@
   if (x < 0) {
   }
  else   if (x == 0) {
-    for (int i=0; i < 100; ++i) {
-      if (Double.isNaN(intersections[i])) {
-        intersections[i]=-b / 2 / a;
-        intersectionso[i]=sphere;
-        break;
-      }
-    }
+    intersections[numIntersections]=-b / 2 / a;
+    intersectionso[numIntersections]=sphere;
+    numIntersections++;
   }
  else {
-    for (int i=0; i < 100; ++i) {
-      if (Double.isNaN(intersections[i])) {
-        intersections[i]=(-b + sqrt(x)) / a / 2;
-        intersectionso[i]=sphere;
-        break;
-      }
-    }
-    for (int i=0; i < 100; ++i) {
-      if (Double.isNaN(intersections[i])) {
-        intersections[i]=(-b - sqrt(x)) / a / 2;
-        intersectionso[i]=sphere;
-        break;
-      }
-    }
+    intersections[numIntersections]=(-b + Math.sqrt(x)) / a / 2;
+    intersectionso[numIntersections]=sphere;
+    numIntersections++;
+    intersections[numIntersections]=(-b - Math.sqrt(x)) / a / 2;
+    intersectionso[numIntersections]=sphere;
+    numIntersections++;
   }
 }
