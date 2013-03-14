@@ -1,5 +1,5 @@
 {
-  ArrayList<Kernel> xs=new ArrayList<Kernel>();
-  xs.add(new GpuMethodKernel());
-  return xs;
+  List<Kernel> ret=new ArrayList<Kernel>();
+  ret.add(new GpuMethodKernel());
+  return ret;
 }
