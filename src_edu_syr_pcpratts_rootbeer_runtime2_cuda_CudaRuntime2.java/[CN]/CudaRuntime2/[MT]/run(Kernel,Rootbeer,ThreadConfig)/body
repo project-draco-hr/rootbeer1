@@ -8,7 +8,13 @@
     m_NumThreads=m_BlockShape * m_GridShape;
   }
   writeSingleBlock(job_template);
-  String filename=m_FirstJob.getCubin();
+  String filename;
+  if (m_32bit) {
+    filename=m_FirstJob.getCubin32();
+  }
+ else {
+    filename=m_FirstJob.getCubin64();
+  }
   if (filename.endsWith(".error")) {
     return;
   }
