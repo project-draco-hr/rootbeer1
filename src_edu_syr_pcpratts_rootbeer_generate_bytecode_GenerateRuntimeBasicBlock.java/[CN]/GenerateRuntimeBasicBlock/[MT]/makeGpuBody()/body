@@ -1,18 +1,21 @@
 {
   OpenCLScene.v().addCodeSegment(codeSegment);
   if (Configuration.compilerInstance().getMode() == Configuration.MODE_GPU) {
-    CompileResult result=OpenCLScene.v().getCudaCode();
-    if (result.getBinary() == null) {
-      makeGetCodeMethodThatReturnsBytes(cubinFilename(false) + ".error");
-      makeGetCodeMethodThatReturnsString("",true);
-      makeGetCodeMethodThatReturnsString("",false);
-    }
+    CompileResult[] result=OpenCLScene.v().getCudaCode();
+    for (    CompileResult res : result) {
+      String suffix=res.is32Bit() ? "-32" : "-64";
+      if (res.getBinary() == null) {
+        makeGetCodeMethodThatReturnsBytes(res.is32Bit(),cubinFilename(false,suffix) + ".error");
+        makeGetCodeMethodThatReturnsString("",true);
+        makeGetCodeMethodThatReturnsString("",false);
+      }
  else {
-      List<byte[]> bytes=result.getBinary();
-      writeBytesToFile(bytes,cubinFilename(true));
-      makeGetCodeMethodThatReturnsBytes(cubinFilename(false));
-      makeGetCodeMethodThatReturnsString("",true);
-      makeGetCodeMethodThatReturnsString("",false);
+        List<byte[]> bytes=res.getBinary();
+        writeBytesToFile(bytes,cubinFilename(true,suffix));
+        makeGetCodeMethodThatReturnsBytes(res.is32Bit(),cubinFilename(false,suffix));
+        makeGetCodeMethodThatReturnsString("",true);
+        makeGetCodeMethodThatReturnsString("",false);
+      }
     }
   }
  else {
@@ -33,6 +36,7 @@
     code[1]=code[1].replace("void entry ( char * gc_info_space ,","__declspec(dllexport)\nvoid entry ( char * gc_info_space ,");
     makeGetCodeMethodThatReturnsString(code[0],true);
     makeGetCodeMethodThatReturnsString(code[1],false);
-    makeGetCodeMethodThatReturnsBytes("");
+    makeGetCodeMethodThatReturnsBytes(true,"");
+    makeGetCodeMethodThatReturnsBytes(false,"");
   }
 }

@@ -1,2 +1,3 @@
+boolean m32
 List<byte[]> binary
 List<String> errors
