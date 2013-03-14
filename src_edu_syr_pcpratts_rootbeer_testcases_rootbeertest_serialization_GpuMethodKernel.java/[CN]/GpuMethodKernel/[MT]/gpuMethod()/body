@@ -1,0 +1,5 @@
+{
+  gpuMethod(1);
+  gpuMethod(1,2);
+  gpuMethod(1,2,3);
+}

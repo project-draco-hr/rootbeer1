@@ -55,6 +55,7 @@
   ret.add(new TreeMapTest());
   ret.add(new LinkedHashMapTest());
   ret.add(new CovarientTest());
+  ret.add(new GpuMethodTest());
   if (m_hardTests) {
     ret.add(new SimpleSynchronizedTest());
     ret.add(new SynchronizedMethodTest());
