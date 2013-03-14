@@ -1,0 +1,15 @@
+{
+  while (true) {
+    while (!compute) {
+      try {
+        sleep(1000);
+      }
+ catch (      InterruptedException ex) {
+      }
+    }
+    for (int x=0; x < w; ++x) {
+      kernel.gpuMethod(x,y);
+    }
+    compute=false;
+  }
+}

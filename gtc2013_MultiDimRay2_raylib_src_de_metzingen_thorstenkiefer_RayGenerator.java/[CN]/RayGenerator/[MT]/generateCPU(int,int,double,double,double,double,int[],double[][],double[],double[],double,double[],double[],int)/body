@@ -1,0 +1,25 @@
+{
+  st.start();
+  for (int i=0; i < threads.length; ++i) {
+    threads[i]=new MyThread();
+    threads[i].kernel=new MyKernel(pixels,minx,maxx,miny,maxy,w,h,spheres,light,observer,vx,vy,radius,numDimensions);
+    threads[i].w=w;
+    threads[i].start();
+  }
+  for (int y=0; y < h; ++y) {
+    boolean found=false;
+    while (!found) {
+      for (      MyThread mt : threads) {
+        if (!mt.compute) {
+          found=true;
+          mt.y=y;
+          mt.compute=true;
+          mt.interrupt();
+          break;
+        }
+      }
+    }
+  }
+  st.stop();
+  System.out.println(st.elapsedTimeMillis());
+}

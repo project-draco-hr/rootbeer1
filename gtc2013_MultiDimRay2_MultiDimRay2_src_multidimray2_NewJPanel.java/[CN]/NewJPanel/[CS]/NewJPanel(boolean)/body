@@ -30,7 +30,12 @@
         double[] observer2=mul(observer,rotationMatrix);
         BufferedImage im=img;
         int[] pixels=new int[im.getWidth() * im.getHeight()];
-        RayGenerator.generate(im.getWidth(),im.getHeight(),minx,maxx,miny,maxy,pixels,spheres,light,observer2,1,vx2,vy2,numDimensions);
+        if (useGPU) {
+          RayGenerator.generateGPU(im.getWidth(),im.getHeight(),minx,maxx,miny,maxy,pixels,spheres,light,observer2,1,vx2,vy2,numDimensions);
+        }
+ else {
+          RayGenerator.generateCPU(im.getWidth(),im.getHeight(),minx,maxx,miny,maxy,pixels,spheres,light,observer2,1,vx2,vy2,numDimensions);
+        }
         im.setRGB(0,0,im.getWidth(),im.getHeight(),pixels,0,im.getWidth());
         repaint();
         requestFocus();
