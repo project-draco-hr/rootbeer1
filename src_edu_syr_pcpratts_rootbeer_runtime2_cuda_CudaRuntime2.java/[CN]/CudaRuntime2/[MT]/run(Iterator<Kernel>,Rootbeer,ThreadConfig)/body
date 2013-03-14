@@ -6,7 +6,7 @@
   if (any_jobs == false) {
     return m_Partial;
   }
-  String filename=m_FirstJob.getCubin();
+  String filename=m_32bit ? m_FirstJob.getCubin32() : m_FirstJob.getCubin64();
   if (filename.endsWith(".error")) {
     return m_Partial;
   }

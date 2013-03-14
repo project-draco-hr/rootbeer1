@@ -1,5 +1,5 @@
 {
-  String filename=m_FirstJob.getCubin();
+  String filename=m_32bit ? m_FirstJob.getCubin32() : m_FirstJob.getCubin64();
   try {
     List<byte[]> buffer=ResourceReader.getResourceArray(filename);
     int total_len=0;

@@ -1,4 +1,6 @@
 {
+  String arch=System.getProperty("os.arch");
+  m_32bit=arch.equals("x86") || arch.equals("i386");
   m_ctorStopwatch=new Stopwatch();
   m_ctorStopwatch.start();
   CudaLoader loader=new CudaLoader();
