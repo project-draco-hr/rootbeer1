@@ -1,5 +1,5 @@
 {
   int xpixel=RootbeerGpu.getBlockIdxx();
   int ypixel=RootbeerGpu.getThreadIdxx();
-  gpuMethod(xpixel,ypixel);
+  compute(xpixel,ypixel);
 }
