@@ -7,12 +7,12 @@
  catch (      InterruptedException ex) {
       }
     }
-    computing.add(this);
-    for (threadid=startid; threadid < endid; ++threadid) {
+    templateThreadListsProvider.getComputing().add(this);
+    for (m_threadIdxx=startid; m_threadIdxx < endid; ++m_threadIdxx) {
       kernel.gpuMethod();
     }
     compute=false;
-    computing.remove(this);
-    sleeping.add(this);
+    templateThreadListsProvider.getComputing().remove(this);
+    templateThreadListsProvider.getSleeping().add(this);
   }
 }

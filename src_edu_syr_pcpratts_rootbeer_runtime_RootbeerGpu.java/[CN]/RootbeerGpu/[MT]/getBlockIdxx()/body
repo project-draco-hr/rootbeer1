@@ -1,6 +1,6 @@
 {
   if (Thread.currentThread() instanceof TemplateThread) {
-    return ((TemplateThread)Thread.currentThread()).blockid;
+    return ((TemplateThread)Thread.currentThread()).m_blockIdxx;
   }
   return m_blockIdxx;
 }
