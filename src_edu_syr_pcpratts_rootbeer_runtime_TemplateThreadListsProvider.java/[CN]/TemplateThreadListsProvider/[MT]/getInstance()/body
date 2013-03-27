@@ -1,6 +1,0 @@
-{
-  if (instance == null) {
-    instance=new TemplateThreadListsProvider();
-  }
-  return instance;
-}

@@ -1,6 +1,6 @@
 {
   for (int i=0; i < Runtime.getRuntime().availableProcessors(); ++i) {
-    TemplateThread t=new TemplateThread();
+    TemplateThread t=new TemplateThread(this);
     t.start();
     sleeping.add(t);
   }
