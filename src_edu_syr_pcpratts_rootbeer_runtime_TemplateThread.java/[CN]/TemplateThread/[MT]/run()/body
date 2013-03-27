@@ -1,0 +1,18 @@
+{
+  while (true) {
+    while (!compute) {
+      try {
+        sleep(100000);
+      }
+ catch (      InterruptedException ex) {
+      }
+    }
+    computing.add(this);
+    for (threadid=startid; threadid < endid; ++threadid) {
+      kernel.gpuMethod();
+    }
+    compute=false;
+    computing.remove(this);
+    sleeping.add(this);
+  }
+}

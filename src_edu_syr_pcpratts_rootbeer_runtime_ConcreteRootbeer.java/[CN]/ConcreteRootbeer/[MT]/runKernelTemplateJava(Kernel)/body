@@ -1,9 +1,15 @@
 {
-  for (int block=0; block < m_threadConfig.getGridShapeX(); ++block) {
-    for (int thread=0; thread < m_threadConfig.getBlockShapeX(); ++thread) {
-      RootbeerGpu.setBlockIdxx(block);
-      RootbeerGpu.setThreadIdxx(thread);
-      kernel.gpuMethod();
-    }
+  int warp=32;
+  for (int i=0; i < m_threadConfig.getBlockShapeX() * m_threadConfig.getGridShapeX() - warp; i+=warp) {
+    while (TemplateThread.sleeping.isEmpty())     ;
+    TemplateThread t=TemplateThread.sleeping.remove(0);
+    t.kernel=kernel;
+    t.blockid=0;
+    t.startid=i;
+    t.endid=i + warp;
+    t.compute=true;
+    t.interrupt();
+  }
+  while (!TemplateThread.computing.isEmpty()) {
   }
 }
