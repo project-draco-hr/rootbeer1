@@ -23,6 +23,6 @@
       break;
     }
   }
-  int dest_index=j * w + i;
+  int dest_index=j * w + i + offset;
   result[dest_index]=(int)((0xff * (0.01 * d + 0) + 1) / 2) << 16 | (int)((0xff * (0.02 * d + 0.01) + 1) / 2) << 8 | (int)((0xff * (0.04 * d + 0.1) + 1) / 2);
 }
