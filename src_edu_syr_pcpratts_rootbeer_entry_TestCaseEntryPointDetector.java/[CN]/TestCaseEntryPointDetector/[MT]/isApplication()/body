@@ -1,6 +1,0 @@
-{
-  if (m_provider.startsWith("edu.syr.pcpratts.rootbeer.testcases.rootbeertest.apps.")) {
-    return true;
-  }
-  return false;
-}

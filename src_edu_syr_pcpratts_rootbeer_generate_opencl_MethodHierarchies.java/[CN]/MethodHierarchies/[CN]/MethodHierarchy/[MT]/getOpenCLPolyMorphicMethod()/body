@@ -1,5 +1,6 @@
 {
   ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
-  List<SootMethod> virtual_methods=class_hierarchy.getAllVirtualMethods(m_sootMethod.getSignature());
-  return new OpenCLPolymorphicMethod(virtual_methods.get(0));
+  List<String> virtual_methods=class_hierarchy.getVirtualMethods(m_sootMethod.getSignature());
+  m_util.parse(virtual_methods.get(0));
+  return new OpenCLPolymorphicMethod(m_util.getSootMethod());
 }

@@ -1,4 +1,3 @@
 {
-  m_sootMethod=soot_method;
   m_util=new MethodSignatureUtil();
 }

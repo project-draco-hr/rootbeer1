@@ -5,8 +5,10 @@
     ret.add(method);
     return ret;
   }
-  List<SootMethod> methods=RootbeerClassLoader.v().getClassHierarchy().getAllVirtualMethods(m_sootMethod.getSignature());
-  for (  SootMethod soot_method : methods) {
+  List<String> methods=RootbeerClassLoader.v().getClassHierarchy().getVirtualMethods(m_sootMethod.getSignature());
+  for (  String virt_method : methods) {
+    m_util.parse(virt_method);
+    SootMethod soot_method=m_util.getSootMethod();
     OpenCLMethod method=new OpenCLMethod(soot_method,soot_method.getDeclaringClass());
     ret.add(method);
   }

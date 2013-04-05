@@ -1,0 +1,3 @@
+{
+  return RootbeerClassLoader.v().getClassHierarchy().getHierarchySootClass("edu.syr.pcpratts.rootbeer.testcases.rootbeertest.serialization.CovarientRunOnGpu");
+}

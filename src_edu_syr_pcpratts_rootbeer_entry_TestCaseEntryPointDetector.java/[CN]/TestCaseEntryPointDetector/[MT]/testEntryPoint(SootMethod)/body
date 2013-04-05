@@ -1,8 +1,0 @@
-{
-  if (m_initialized == false) {
-    init();
-  }
-  if (sm.getSignature().equals(m_signature)) {
-    m_entryPoints.add(sm.getSignature());
-  }
-}

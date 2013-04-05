@@ -1,5 +1,10 @@
 {
   ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
-  List<SootMethod> virtual_methods=class_hierarchy.getAllVirtualMethods(m_sootMethod.getSignature());
-  return virtual_methods;
+  List<String> virtual_methods=class_hierarchy.getVirtualMethods(m_sootMethod.getSignature());
+  List<SootMethod> ret=new ArrayList<SootMethod>();
+  for (  String virtual_method : virtual_methods) {
+    m_util.parse(virtual_method);
+    ret.add(m_util.getSootMethod());
+  }
+  return ret;
 }

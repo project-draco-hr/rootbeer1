@@ -1,3 +1,4 @@
 {
   m_hierarchies=new LinkedHashSet<MethodHierarchy>();
+  m_util=new MethodSignatureUtil();
 }

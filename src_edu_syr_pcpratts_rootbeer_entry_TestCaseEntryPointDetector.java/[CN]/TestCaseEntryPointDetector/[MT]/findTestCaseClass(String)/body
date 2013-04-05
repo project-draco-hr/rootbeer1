@@ -1,7 +1,7 @@
 {
   for (  String pkg : m_testCasePackages) {
     String name=pkg + test_case;
-    if (Scene.v().containsClass(name)) {
+    if (RootbeerClassLoader.v().getClassHierarchy().containsClass(name)) {
       return name;
     }
   }

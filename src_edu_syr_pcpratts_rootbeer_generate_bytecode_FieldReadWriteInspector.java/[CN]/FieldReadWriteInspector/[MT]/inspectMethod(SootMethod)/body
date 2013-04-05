@@ -54,9 +54,13 @@
         if (!invoke.isAbstract() && !invoke.isNative() && mMethodsInspected.add(invoke))         worklist.add(invoke);
         if (!invoke.isStatic() && !invoke.isFinal() && !invoke.getDeclaringClass().isFinal()) {
           ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
-          List<SootMethod> virt_methods=class_hierarchy.getAllVirtualMethods(invoke.getSignature());
-          for (          SootMethod virt_method : virt_methods) {
-            if (!virt_method.isNative() && !virt_method.isAbstract() && mMethodsInspected.add(virt_method))             worklist.add(virt_method);
+          List<String> virt_methods=class_hierarchy.getVirtualMethods(invoke.getSignature());
+          for (          String virt_method : virt_methods) {
+            m_util.parse(virt_method);
+            SootMethod soot_method=m_util.getSootMethod();
+            if (soot_method.isConcrete() && mMethodsInspected.add(soot_method)) {
+              worklist.add(soot_method);
+            }
           }
         }
       }

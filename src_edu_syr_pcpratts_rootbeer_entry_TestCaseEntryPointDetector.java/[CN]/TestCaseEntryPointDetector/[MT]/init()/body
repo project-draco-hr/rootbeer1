@@ -8,18 +8,11 @@
     m_testCase=new_test_case;
   }
   m_provider=m_testCase;
-  SootMethod gpu_method=null;
-  if (isApplication()) {
-    SootClass prov_class=Scene.v().getSootClass(m_provider);
-    SootMethod get_entry_sig=prov_class.getMethod("java.lang.String getEntrySignature()");
-    gpu_method=execGetEntrySig(get_entry_sig);
-  }
- else {
-    SootClass prov_class=Scene.v().getSootClass(m_provider);
-    SootMethod method=prov_class.getMethodByName("create");
-    SootClass kernel_class=searchMethod(method);
-    gpu_method=kernel_class.getMethod("void gpuMethod()");
-  }
+  ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
+  HierarchySootClass prov_class=class_hierarchy.getHierarchySootClass(m_provider);
+  HierarchySootMethod create_method=prov_class.findMethodByName("create");
+  HierarchySootClass kernel_class=searchMethod(create_method);
+  HierarchySootMethod gpu_method=kernel_class.findMethodBySubSignature("void gpuMethod()");
   m_signature=gpu_method.getSignature();
   m_initialized=true;
 }

@@ -1,0 +1,10 @@
+{
+  if (m_initialized == false) {
+    init();
+  }
+  if (sm.getSignature().equals(m_signature)) {
+    if (m_entryPoints.contains(sm.getSignature()) == false) {
+      m_entryPoints.add(sm.getSignature());
+    }
+  }
+}

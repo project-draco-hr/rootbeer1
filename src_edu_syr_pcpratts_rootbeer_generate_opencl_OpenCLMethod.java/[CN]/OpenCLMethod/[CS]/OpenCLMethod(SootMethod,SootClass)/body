@@ -1,5 +1,6 @@
 {
   m_sootMethod=soot_method;
   m_sootClass=soot_class;
+  m_util=new MethodSignatureUtil();
   createDontMangleMethods();
 }

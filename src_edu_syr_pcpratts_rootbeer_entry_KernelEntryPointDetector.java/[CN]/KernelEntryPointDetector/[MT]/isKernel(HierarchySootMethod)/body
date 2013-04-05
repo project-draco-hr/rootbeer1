@@ -1,0 +1,14 @@
+{
+  if (sm.getSubSignature().equals("void gpuMethod()") == false) {
+    return false;
+  }
+  HierarchySootClass soot_class=sm.getHierarchySootClass();
+  Iterator<String> iter=soot_class.getInterfaces().iterator();
+  while (iter.hasNext()) {
+    String iface=iter.next();
+    if (iface.equals("edu.syr.pcpratts.rootbeer.runtime.Kernel")) {
+      return true;
+    }
+  }
+  return false;
+}
