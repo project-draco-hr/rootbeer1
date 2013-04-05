@@ -15,11 +15,4 @@
   }
   System.out.println("writing classes out...");
   RootbeerClassLoader.v().setLoaded();
-  List<String> all_classes=RootbeerClassLoader.v().getClassesToOutput();
-  for (  String cls : all_classes) {
-    writeClassFile(cls);
-    writeJimpleFile(cls);
-  }
-  makeOutJar();
-  pack(outname);
 }

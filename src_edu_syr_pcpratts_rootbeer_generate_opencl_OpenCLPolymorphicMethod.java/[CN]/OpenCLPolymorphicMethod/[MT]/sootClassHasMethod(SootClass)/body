@@ -1,4 +1,0 @@
-{
-  String subsig=m_sootMethod.getSubSignature();
-  return sootClassHasMethod0(sclass,subsig);
-}

@@ -1,7 +1,6 @@
 {
-  List<Type> class_hierarchy=RootbeerClassLoader.v().getDfsInfo().getHierarchy(m_sootMethod.getDeclaringClass());
-  IsPolyMorphic poly_checker=new IsPolyMorphic();
-  if (poly_checker.isPoly(m_sootMethod,class_hierarchy)) {
+  IsPolymorphic poly_checker=new IsPolymorphic();
+  if (poly_checker.test(m_sootMethod)) {
     return true;
   }
   return false;

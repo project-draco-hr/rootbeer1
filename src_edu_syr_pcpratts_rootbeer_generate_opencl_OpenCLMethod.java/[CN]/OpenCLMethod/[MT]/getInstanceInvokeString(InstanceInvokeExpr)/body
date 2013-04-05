@@ -1,35 +1,9 @@
 {
-  Value base=arg0.getBase();
-  Type base_type=base.getType();
-  List<Type> hierarchy;
-  if (base_type instanceof ArrayType) {
-    hierarchy=new ArrayList<Type>();
-    SootClass obj=Scene.v().getSootClass("java.lang.Object");
-    hierarchy.add(obj.getType());
-  }
- else   if (base_type instanceof RefType) {
-    RefType ref_type=(RefType)base_type;
-    hierarchy=RootbeerClassLoader.v().getDfsInfo().getHierarchy(ref_type.getSootClass());
-    PointsToAnalysis analysis=Scene.v().getPointsToAnalysis();
-    PointsToSet set=analysis.reachingObjects((Local)base);
-    hierarchy=trimHierarchy(hierarchy,set);
-  }
- else {
-    throw new UnsupportedOperationException("how do we handle this case?");
-  }
-  if (hierarchy == null) {
-    System.out.println("base_type: " + base_type);
-    throw new RuntimeException("hello");
-  }
-  IsPolyMorphic poly_checker=new IsPolyMorphic();
-  if (poly_checker.isPoly(m_sootMethod,hierarchy) == false || isConstructor() || arg0 instanceof SpecialInvokeExpr) {
+  IsPolymorphic is_polymorphic=new IsPolymorphic();
+  if (is_polymorphic.test(arg0.getMethod(),arg0 instanceof SpecialInvokeExpr)) {
     return writeInstanceInvoke(arg0,"",m_sootClass.getType());
   }
- else   if (hierarchy.size() == 0) {
-    System.out.println("size = 0");
-    return null;
-  }
  else {
-    return writeInstanceInvoke(arg0,"invoke_",hierarchy.get(0));
+    return writeInstanceInvoke(arg0,"invoke_",is_polymorphic.getBaseMethod().getDeclaringClass().getType());
   }
 }

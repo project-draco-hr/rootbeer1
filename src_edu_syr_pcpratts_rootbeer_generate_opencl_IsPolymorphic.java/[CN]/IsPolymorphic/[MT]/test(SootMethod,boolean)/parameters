@@ -1,2 +1,2 @@
 SootMethod soot_method
-List<Type> hierarchy
+boolean special_invoke

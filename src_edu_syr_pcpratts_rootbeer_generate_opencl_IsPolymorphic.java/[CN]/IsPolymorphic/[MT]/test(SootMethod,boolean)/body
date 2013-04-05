@@ -1,0 +1,12 @@
+{
+  String signature=soot_method.getSignature();
+  ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
+  List<SootMethod> virtual_methods=class_hierarchy.getAllVirtualMethods(signature);
+  m_baseMethod=virtual_methods.get(0);
+  if (virtual_methods.size() == 1 || m_baseMethod.isConstructor() || special_invoke) {
+    return false;
+  }
+ else {
+    return true;
+  }
+}

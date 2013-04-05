@@ -1,12 +1,8 @@
 {
-  List<Type> hierarchy=getHierarchy();
+  List<SootMethod> virtual_methods=getVirtualMethods();
   List<String> ret=new ArrayList<String>();
-  for (  Type type : hierarchy) {
-    if (type instanceof RefType == false) {
-      continue;
-    }
-    RefType ref_type=(RefType)type;
-    SootClass soot_class=ref_type.getSootClass();
+  for (  SootMethod virtual_method : virtual_methods) {
+    SootClass soot_class=virtual_method.getDeclaringClass();
     OpenCLMethod ocl_method=new OpenCLMethod(m_sootMethod,soot_class);
     StringBuilder builder=new StringBuilder();
     builder.append(Tweaks.v().getDeviceFunctionQualifier() + " ");

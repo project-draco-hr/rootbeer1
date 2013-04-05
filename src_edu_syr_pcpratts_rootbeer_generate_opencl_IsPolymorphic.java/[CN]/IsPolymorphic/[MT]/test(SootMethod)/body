@@ -1,0 +1,3 @@
+{
+  return test(soot_method,false);
+}

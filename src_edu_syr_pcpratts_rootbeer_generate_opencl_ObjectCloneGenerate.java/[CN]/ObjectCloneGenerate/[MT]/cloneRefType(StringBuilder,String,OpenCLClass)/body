@@ -1,7 +1,7 @@
 {
   SootClass soot_class=Scene.v().getSootClass(key);
   String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
-  int type=RootbeerClassLoader.v().getDfsInfo().getClassNumber(soot_class);
+  int type=RootbeerClassLoader.v().getClassNumber(soot_class);
   ret.append("  else if(type == " + type + "){\n");
   ret.append("    int size = " + ocl_class.getSize() + ";\n");
   ret.append("    long long new_ref = edu_syr_pcpratts_gc_malloc(gc_info, size);\n");

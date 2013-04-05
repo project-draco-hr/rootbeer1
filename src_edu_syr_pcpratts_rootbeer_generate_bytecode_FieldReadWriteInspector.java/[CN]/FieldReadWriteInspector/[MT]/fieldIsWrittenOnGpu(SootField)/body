@@ -19,13 +19,11 @@
   SootClass soot_class=Scene.v().getSootClass(soot_type.toString());
   if (mWritenOnGpuFieldsClassesChecked.contains(soot_type.toString()))   return false;
   mWritenOnGpuFieldsClassesChecked.add(soot_type.toString());
-  List<Type> hierarchy=RootbeerClassLoader.v().getDfsInfo().getHierarchy(soot_class);
-  for (  Type curr_type : hierarchy) {
-    if (curr_type instanceof RefType == false) {
-      continue;
-    }
-    RefType ref_type=(RefType)curr_type;
-    SootClass curr_class=ref_type.getSootClass();
+  ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
+  HierarchyGraph hgraph=class_hierarchy.getHierarchyGraph(soot_class);
+  List<String> classes=hgraph.getAllClasses();
+  for (  String class_name : classes) {
+    SootClass curr_class=Scene.v().getSootClass(class_name);
     Chain<SootField> fields=curr_class.getFields();
     for (    SootField field : fields) {
       if (fieldIsWrittenOnGpu(field)) {

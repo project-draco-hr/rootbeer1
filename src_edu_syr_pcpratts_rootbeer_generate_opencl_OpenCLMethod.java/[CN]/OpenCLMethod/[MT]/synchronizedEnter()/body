@@ -14,7 +14,7 @@
   if (m_sootMethod.isStatic() == false) {
     ret+="if(thisref == -1){\n";
     SootClass null_ptr=Scene.v().getSootClass(prefix + "java.lang.NullPointerException");
-    ret+="  *exception = " + RootbeerClassLoader.v().getDfsInfo().getClassNumber(null_ptr) + ";\n";
+    ret+="  *exception = " + RootbeerClassLoader.v().getClassNumber(null_ptr) + ";\n";
     if (returnsAValue()) {
       ret+="  return 0;\n";
     }

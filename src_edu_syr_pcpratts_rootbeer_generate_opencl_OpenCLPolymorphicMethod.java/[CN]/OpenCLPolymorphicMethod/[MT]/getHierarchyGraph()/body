@@ -1,0 +1,7 @@
+{
+  if (m_hierarchyGraph == null) {
+    ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
+    m_hierarchyGraph=class_hierarchy.getHierarchyGraph(m_sootMethod.getSignature());
+  }
+  return m_hierarchyGraph;
+}

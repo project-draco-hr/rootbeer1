@@ -5,8 +5,8 @@
   }
   SootClass oom_cls=Scene.v().getSootClass(prefix + "java.lang.OutOfMemoryError");
   SootClass null_cls=Scene.v().getSootClass(prefix + "java.lang.NullPointerException");
-  int oom_num=RootbeerClassLoader.v().getDfsInfo().getClassNumber(oom_cls);
-  int null_num=RootbeerClassLoader.v().getDfsInfo().getClassNumber(null_cls);
+  int oom_num=RootbeerClassLoader.v().getClassNumber(oom_cls);
+  int null_num=RootbeerClassLoader.v().getClassNumber(null_cls);
   m_output.append("if(*exception != 0) { \n");
   if (m_trapItems != null) {
     m_output.append("  GC_OBJ_TYPE_TYPE ex_type;\n");

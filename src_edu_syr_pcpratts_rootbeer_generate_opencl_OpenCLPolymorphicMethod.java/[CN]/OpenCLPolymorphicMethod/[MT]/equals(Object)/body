@@ -2,6 +2,6 @@
   if (o instanceof OpenCLPolymorphicMethod == false)   return false;
   OpenCLPolymorphicMethod other=(OpenCLPolymorphicMethod)o;
   if (m_sootMethod.getName().equals(other.m_sootMethod.getName()) == false)   return false;
-  if (getHierarchy().equals(other.getHierarchy()))   return true;
+  if (getHierarchyGraph().equals(other.getHierarchyGraph()))   return true;
   return false;
 }

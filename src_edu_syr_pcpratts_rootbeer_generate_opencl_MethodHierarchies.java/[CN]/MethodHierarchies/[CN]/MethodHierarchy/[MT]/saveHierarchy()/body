@@ -1,3 +1,0 @@
-{
-  m_hierarchy=RootbeerClassLoader.v().getDfsInfo().getHierarchy(m_sootMethod.getDeclaringClass());
-}

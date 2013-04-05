@@ -53,16 +53,10 @@
         SootMethod invoke=((InvokeExpr)use).getMethod();
         if (!invoke.isAbstract() && !invoke.isNative() && mMethodsInspected.add(invoke))         worklist.add(invoke);
         if (!invoke.isStatic() && !invoke.isFinal() && !invoke.getDeclaringClass().isFinal()) {
-          SootClass declClass=invoke.getDeclaringClass();
-          FastHierarchy fa=Scene.v().getOrMakeFastHierarchy();
-          Collection<SootClass> subClasses=declClass.isInterface() ? fa.getAllImplementersOfInterface(declClass) : fa.getSubclassesOf(declClass);
-          String name=invoke.getName();
-          List<Type> paramTypes=invoke.getParameterTypes();
-          Type returnType=invoke.getReturnType();
-          for (          SootClass subClass : subClasses) {
-            if (!subClass.declaresMethod(name,paramTypes))             continue;
-            SootMethod meth=subClass.getMethod(name,paramTypes,returnType);
-            if (!meth.isNative() && !meth.isAbstract() && mMethodsInspected.add(meth))             worklist.add(meth);
+          ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
+          List<SootMethod> virt_methods=class_hierarchy.getAllVirtualMethods(invoke.getSignature());
+          for (          SootMethod virt_method : virt_methods) {
+            if (!virt_method.isNative() && !virt_method.isAbstract() && mMethodsInspected.add(virt_method))             worklist.add(virt_method);
           }
         }
       }

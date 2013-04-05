@@ -1,14 +1,12 @@
 {
   if (m_sootMethod.isConcrete() == false) {
-    Set<String> virtual_signatures=RootbeerClassLoader.v().getVirtualSignaturesDown(m_sootMethod,null);
-    if (virtual_signatures.size() != 1) {
+    ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
+    List<SootMethod> virtual_methods=class_hierarchy.getAllVirtualMethods(m_sootMethod.getSignature());
+    if (virtual_methods.size() != 1) {
       return getBaseMethodName(m_sootClass,m_sootMethod);
     }
  else {
-      String signature=virtual_signatures.iterator().next();
-      MethodSignatureUtil util=new MethodSignatureUtil();
-      util.parse(signature);
-      SootMethod soot_method=util.getSootMethod();
+      SootMethod soot_method=virtual_methods.iterator().next();
       SootClass soot_class=soot_method.getDeclaringClass();
       return getBaseMethodName(soot_class,soot_method);
     }

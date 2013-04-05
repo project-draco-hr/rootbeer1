@@ -1,14 +1,14 @@
 {
-  List<Type> hierarchy=getHierarchy();
   StringBuilder ret=new StringBuilder();
   String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
   ret.append(decl);
   ret.append("{\n");
+  List<SootMethod> virtual_methods=getVirtualMethods();
   if (m_sootMethod.isStatic()) {
     if (m_sootMethod.getReturnType() instanceof VoidType == false) {
       ret.append("return ");
     }
-    Type first_type=hierarchy.get(0);
+    Type first_type=m_sootMethod.getDeclaringClass().getType();
     RefType ref_type=(RefType)first_type;
     SootClass first_class=ref_type.getSootClass();
     String invoke_string=getStaticInvokeString(first_class);
@@ -24,8 +24,8 @@
     ret.append(";\n");
     ret.append("}\n");
     ret.append("thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n");
-    if (sizeHierarchy(hierarchy) == 1) {
-      SootClass sclass=getSingleMethodInHierarchy(hierarchy);
+    if (virtual_methods.size() == 1) {
+      SootClass sclass=virtual_methods.get(0).getDeclaringClass();
       String invoke_string=getInvokeString(sclass);
       if (m_sootMethod.getReturnType() instanceof VoidType == false) {
         ret.append("return ");
@@ -36,16 +36,9 @@
       ret.append("derived_type = edu_syr_pcpratts_gc_get_type(thisref_deref);\n");
       ret.append("if(0){}\n");
       int count=0;
-      for (      Type type : hierarchy) {
-        if (type instanceof RefType == false) {
-          continue;
-        }
-        RefType curr_ref_type=(RefType)type;
-        SootClass sclass=curr_ref_type.getSootClass();
-        if (sootClassHasMethod(sclass) == false) {
-          continue;
-        }
-        ret.append("else if(derived_type == " + RootbeerClassLoader.v().getDfsInfo().getClassNumber(sclass) + "){\n");
+      for (      SootMethod method : virtual_methods) {
+        SootClass sclass=method.getDeclaringClass();
+        ret.append("else if(derived_type == " + RootbeerClassLoader.v().getClassNumber(sclass) + "){\n");
         if (m_sootMethod.getReturnType() instanceof VoidType == false) {
           ret.append("return ");
         }
