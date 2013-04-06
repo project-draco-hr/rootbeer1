@@ -13,7 +13,6 @@
   if (rootbeer_jar.equals("") == false) {
     Options.v().set_soot_classpath(rootbeer_jar);
   }
-  Options.v().set_debug_resolver(true);
   Options.v().set_rbcl_remap_all(false);
   Options.v().set_rbcl_remap_prefix("edu.syr.pcpratts.rootbeer.runtime.remap.");
   RootbeerClassLoader.v().addEntryPointDetector(m_entryDetector);
