@@ -1,5 +1,6 @@
 {
   m_methods=new HashSet<String>();
+  m_methods.add("<java.lang.Object: void registerNatives()>");
   m_methods.add("<java.lang.StrictMath: double exp(double)>");
   m_methods.add("<java.lang.StrictMath: double log(double)>");
   m_methods.add("<java.lang.StrictMath: double log10(double)>");
