@@ -1,0 +1,5 @@
+{
+  List<RefType> ref_types=RootbeerClassLoader.v().getDfsInfo().getOrderedRefTypes();
+  RefType java_lang_class=RefType.v("java.lang.Class");
+  return ref_types.contains(java_lang_class);
+}

@@ -4,5 +4,5 @@
   m_AllTraps=new ArrayList<TrapItem>();
   m_IsConstructor=false;
   m_IsConstructorBodyWithoutHeader=true;
-  setup(body);
+  m_Body=body;
 }

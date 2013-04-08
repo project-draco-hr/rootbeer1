@@ -4,7 +4,10 @@
   List<SootMethod> ret=new ArrayList<SootMethod>();
   for (  String virtual_method : virtual_methods) {
     m_util.parse(virtual_method);
-    ret.add(m_util.getSootMethod());
+    SootMethod soot_method=m_util.getSootMethod();
+    if (soot_method.isConcrete()) {
+      ret.add(soot_method);
+    }
   }
   return ret;
 }

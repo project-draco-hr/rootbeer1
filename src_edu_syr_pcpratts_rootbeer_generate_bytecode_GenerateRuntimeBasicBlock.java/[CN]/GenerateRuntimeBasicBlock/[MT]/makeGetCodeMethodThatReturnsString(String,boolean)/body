@@ -20,7 +20,7 @@
   Value r1_assign_rhs=jimple.newNewExpr(string_builder_soot_class.getType());
   Unit r1_assign=jimple.newAssignStmt(r1,r1_assign_rhs);
   assembler.add(r1_assign);
-  SootMethod string_builder_ctor=string_builder_soot_class.getMethod("<init>",new ArrayList(),VoidType.v());
+  SootMethod string_builder_ctor=string_builder_soot_class.getMethod("void <init>()");
   Value r1_ctor=jimple.newSpecialInvokeExpr(r1,string_builder_ctor.makeRef(),new ArrayList());
   Unit r1_ctor_unit=jimple.newInvokeStmt(r1_ctor);
   assembler.add(r1_ctor_unit);
@@ -28,9 +28,7 @@
   Unit r2_assign_r1=jimple.newAssignStmt(r2,r1);
   assembler.add(r2_assign_r1);
   SootClass string_class=Scene.v().getSootClass("java.lang.String");
-  List parameter_types=new ArrayList();
-  parameter_types.add(string_class.getType());
-  SootMethod string_builder_append=string_builder_soot_class.getMethod("append",parameter_types,string_builder_soot_class.getType());
+  SootMethod string_builder_append=string_builder_soot_class.getMethod("java.lang.StringBuilder append(java.lang.String)");
   GpuCodeSplitter splitter=new GpuCodeSplitter();
   List<String> blocks=splitter.split(gpu_code);
   for (  String block : blocks) {

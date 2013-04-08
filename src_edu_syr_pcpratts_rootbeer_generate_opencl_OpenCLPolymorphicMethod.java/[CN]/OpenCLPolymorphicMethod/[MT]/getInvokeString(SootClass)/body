@@ -15,7 +15,7 @@
       soot_class=soot_class.getSuperclass();
     }
  else {
-      throw new RuntimeException("cannot find concrete base method: " + m_sootMethod.getSignature() + " "+ start_class);
+      return "";
     }
   }
   OpenCLMethod ocl_method=new OpenCLMethod(soot_method,soot_class);

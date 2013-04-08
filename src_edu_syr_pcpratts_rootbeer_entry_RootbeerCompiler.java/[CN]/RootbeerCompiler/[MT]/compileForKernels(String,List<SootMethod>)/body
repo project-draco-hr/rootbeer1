@@ -14,5 +14,22 @@
     transform2.run(soot_class.getName());
   }
   System.out.println("writing classes out...");
-  RootbeerClassLoader.v().setLoaded();
+  Iterator<SootClass> iter=Scene.v().getClasses().iterator();
+  while (iter.hasNext()) {
+    SootClass soot_class=iter.next();
+    if (soot_class.isLibraryClass()) {
+      System.out.println("skipping library class: " + soot_class.getName());
+      continue;
+    }
+    String class_name=soot_class.getName();
+    if (m_runtimeClasses.contains(class_name)) {
+      System.out.println("skipping runtine class: " + class_name);
+      continue;
+    }
+    System.out.println("writing class_file: " + class_name);
+    writeClassFile(class_name);
+    writeJimpleFile(class_name);
+  }
+  makeOutJar();
+  pack(outname);
 }
