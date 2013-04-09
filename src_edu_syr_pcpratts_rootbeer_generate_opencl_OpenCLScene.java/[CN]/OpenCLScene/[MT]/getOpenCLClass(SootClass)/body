@@ -1,3 +1,11 @@
 {
-  return m_classes.get(soot_class.getName());
+  String class_name=soot_class.getName();
+  if (m_classes.containsKey(class_name)) {
+    return m_classes.get(class_name);
+  }
+ else {
+    OpenCLClass ocl_class=new OpenCLClass(soot_class);
+    m_classes.put(class_name,ocl_class);
+    return ocl_class;
+  }
 }

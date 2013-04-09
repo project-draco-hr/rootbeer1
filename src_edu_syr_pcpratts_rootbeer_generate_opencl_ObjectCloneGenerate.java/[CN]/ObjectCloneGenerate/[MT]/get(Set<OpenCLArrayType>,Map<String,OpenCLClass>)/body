@@ -19,7 +19,7 @@
       continue;
     }
     OpenCLClass ocl_class=classes.get(key);
-    String soot_class=ocl_to_soot.get(key);
+    String soot_class=ocl_class.getJavaName();
     cloneRefType(ret,soot_class,ocl_class);
   }
   ret.append("  return -1;\n");

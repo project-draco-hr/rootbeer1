@@ -1,0 +1,9 @@
+{
+  List<String> interfaces=hsc.getInterfaces();
+  for (  String iface : interfaces) {
+    if (m_testCaseInterfaces.contains(iface)) {
+      return true;
+    }
+  }
+  return false;
+}

@@ -7,7 +7,6 @@
   for (  String method_sig : methods) {
     util.parse(method_sig);
     SootMethod method=util.getSootMethod();
-    OpenCLScene.v().addClass(method.getDeclaringClass());
     addMethod(method);
   }
   Set<SootField> fields=RootbeerClassLoader.v().getDfsInfo().getFields();

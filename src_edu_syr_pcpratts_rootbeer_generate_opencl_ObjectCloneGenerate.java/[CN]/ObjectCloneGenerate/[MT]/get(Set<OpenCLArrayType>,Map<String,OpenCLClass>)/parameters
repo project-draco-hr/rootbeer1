@@ -1,3 +1,2 @@
 Set<OpenCLArrayType> arrays
 Map<String,OpenCLClass> classes
-Map<String,String> ocl_to_soot

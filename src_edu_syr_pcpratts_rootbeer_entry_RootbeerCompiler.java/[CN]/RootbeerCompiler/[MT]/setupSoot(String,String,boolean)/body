@@ -60,6 +60,7 @@
   follow_tester.addSignature("<edu.syr.pcpratts.rootbeer.runtime.Serializer: void <init>(edu.syr.pcpratts.rootbeer.runtime.memory.Memory,edu.syr.pcpratts.rootbeer.runtime.memory.Memory)>");
   follow_tester.addSignature("<edu.syr.pcpratts.rootbeer.testcases.rootbeertest.serialization.CovarientTest: void <init>()>");
   RootbeerClassLoader.v().addFollowMethodTester(follow_tester);
+  RootbeerClassLoader.v().addFollowClassTester(new TestCaseFollowTester());
   RootbeerClassLoader.v().addConditionalCudaEntry(new StringConstantCudaEntry());
   DontDfsMethods dont_dfs_methods=new DontDfsMethods();
   ListMethodTester dont_dfs_tester=new ListMethodTester();

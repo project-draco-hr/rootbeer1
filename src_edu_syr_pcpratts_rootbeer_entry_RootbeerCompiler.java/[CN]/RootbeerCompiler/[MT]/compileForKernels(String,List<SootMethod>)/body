@@ -28,6 +28,13 @@
         break;
       }
     }
+    Iterator<SootClass> ifaces=soot_class.getInterfaces().iterator();
+    while (ifaces.hasNext()) {
+      SootClass iface=ifaces.next();
+      if (iface.getName().startsWith("edu.syr.pcpratts.rootbeer.test.")) {
+        write=false;
+      }
+    }
     if (write) {
       writeClassFile(class_name);
       writeJimpleFile(class_name);
