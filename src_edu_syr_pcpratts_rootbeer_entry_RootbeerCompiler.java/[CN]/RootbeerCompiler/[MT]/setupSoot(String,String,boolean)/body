@@ -15,57 +15,59 @@
   }
   Options.v().set_rbcl_remap_all(false);
   Options.v().set_rbcl_remap_prefix("edu.syr.pcpratts.rootbeer.runtime.remap.");
-  RootbeerClassLoader.v().addEntryPointDetector(m_entryDetector);
-  RootbeerClassLoader.v().addIgnorePackage("edu.syr.pcpratts.compressor.");
-  RootbeerClassLoader.v().addIgnorePackage("edu.syr.pcpratts.deadmethods.");
-  RootbeerClassLoader.v().addIgnorePackage("edu.syr.pcpratts.jpp.");
-  RootbeerClassLoader.v().addIgnorePackage("edu.syr.pcpratts.rootbeer.compiler.");
-  RootbeerClassLoader.v().addIgnorePackage("edu.syr.pcpratts.rootbeer.configuration.");
-  RootbeerClassLoader.v().addIgnorePackage("edu.syr.pcpratts.rootbeer.entry.");
-  RootbeerClassLoader.v().addIgnorePackage("edu.syr.pcpratts.rootbeer.generate.");
-  RootbeerClassLoader.v().addIgnorePackage("edu.syr.pcpratts.rootbeer.test.");
-  RootbeerClassLoader.v().addIgnorePackage("edu.syr.pcpratts.rootbeer.testcases.");
-  RootbeerClassLoader.v().addIgnorePackage("edu.syr.pcpratts.rootbeer.util.");
-  RootbeerClassLoader.v().addIgnorePackage("pack.");
-  RootbeerClassLoader.v().addIgnorePackage("jasmin.");
-  RootbeerClassLoader.v().addIgnorePackage("soot.");
-  RootbeerClassLoader.v().addIgnorePackage("beaver.");
-  RootbeerClassLoader.v().addIgnorePackage("polyglot.");
-  RootbeerClassLoader.v().addIgnorePackage("org.antlr.");
-  RootbeerClassLoader.v().addIgnorePackage("java_cup.");
-  RootbeerClassLoader.v().addIgnorePackage("ppg.");
-  RootbeerClassLoader.v().addIgnorePackage("antlr.");
-  RootbeerClassLoader.v().addIgnorePackage("jas.");
-  RootbeerClassLoader.v().addIgnorePackage("scm.");
-  RootbeerClassLoader.v().addIgnorePackage("org.xmlpull.v1.");
-  RootbeerClassLoader.v().addIgnorePackage("android.util.");
-  RootbeerClassLoader.v().addIgnorePackage("android.content.res.");
-  RootbeerClassLoader.v().addIgnorePackage("org.apache.commons.codec.");
-  if (runtests) {
-    RootbeerClassLoader.v().addTestCasePackage("edu.syr.pcpratts.rootbeer.testcases.");
+  RootbeerClassLoader.v().addEntryMethodTester(m_entryDetector);
+  ListClassTester ignore_packages=new ListClassTester();
+  ignore_packages.addPackage("edu.syr.pcpratts.compressor.");
+  ignore_packages.addPackage("edu.syr.pcpratts.deadmethods.");
+  ignore_packages.addPackage("edu.syr.pcpratts.jpp.");
+  ignore_packages.addPackage("edu.syr.pcpratts.rootbeer.compiler.");
+  ignore_packages.addPackage("edu.syr.pcpratts.rootbeer.configuration.");
+  ignore_packages.addPackage("edu.syr.pcpratts.rootbeer.entry.");
+  ignore_packages.addPackage("edu.syr.pcpratts.rootbeer.generate.");
+  ignore_packages.addPackage("edu.syr.pcpratts.rootbeer.test.");
+  if (!runtests) {
+    ignore_packages.addPackage("edu.syr.pcpratts.rootbeer.testcases.");
   }
-  RootbeerClassLoader.v().addKeepPackages("edu.syr.pcpratts.rootbeer.runtime2.");
-  RootbeerClassLoader.v().addKeepPackages("edu.syr.pcpratts.rootbeer.configuration.");
-  for (  String runtime_class : m_runtimeClasses) {
-    RootbeerClassLoader.v().addSignaturesClass(runtime_class);
+  ignore_packages.addPackage("edu.syr.pcpratts.rootbeer.util.");
+  ignore_packages.addPackage("pack.");
+  ignore_packages.addPackage("jasmin.");
+  ignore_packages.addPackage("soot.");
+  ignore_packages.addPackage("beaver.");
+  ignore_packages.addPackage("polyglot.");
+  ignore_packages.addPackage("org.antlr.");
+  ignore_packages.addPackage("java_cup.");
+  ignore_packages.addPackage("ppg.");
+  ignore_packages.addPackage("antlr.");
+  ignore_packages.addPackage("jas.");
+  ignore_packages.addPackage("scm.");
+  ignore_packages.addPackage("org.xmlpull.v1.");
+  ignore_packages.addPackage("android.util.");
+  ignore_packages.addPackage("android.content.res.");
+  ignore_packages.addPackage("org.apache.commons.codec.");
+  RootbeerClassLoader.v().addDontFollowClassTester(ignore_packages);
+  ListClassTester keep_packages=new ListClassTester();
+  for (  String runtime_class : m_runtimePackages) {
+    keep_packages.addPackage(runtime_class);
   }
+  RootbeerClassLoader.v().addToSignaturesClassTester(keep_packages);
   RootbeerClassLoader.v().addNewInvoke("java.lang.StringBuilder");
-  RootbeerClassLoader.v().addFollowSignature("<java.lang.StringBuilder: void <init>()>");
-  RootbeerClassLoader.v().addFollowSignature("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>");
-  RootbeerClassLoader.v().addFollowSignature("java.lang.StringBuilder: java.lang.String toString()>");
-  RootbeerClassLoader.v().addFollowSignature("<edu.syr.pcpratts.rootbeer.runtime.Sentinal: void <init>()>");
-  RootbeerClassLoader.v().addFollowSignature("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: edu.syr.pcpratts.rootbeer.runtimegpu.GpuException arrayOutOfBounds(int,int,int)>");
-  RootbeerClassLoader.v().addFollowSignature("<edu.syr.pcpratts.rootbeer.runtime.Serializer: void <init>(edu.syr.pcpratts.rootbeer.runtime.memory.Memory,edu.syr.pcpratts.rootbeer.runtime.memory.Memory)>");
-  RootbeerClassLoader.v().addFollowSignature("<edu.syr.pcpratts.rootbeer.runtime.memory.Memory: void useInstancePointer()>");
-  RootbeerClassLoader.v().addFollowSignature("<edu.syr.pcpratts.rootbeer.runtime.memory.Memory: void useStaticPointer()>");
-  RootbeerClassLoader.v().addFollowSignature("<edu.syr.pcpratts.rootbeer.runtime.memory.Memory: long mallocWithSize(int)>");
-  RootbeerClassLoader.v().addFollowSignature("<edu.syr.pcpratts.rootbeer.runtime.memory.Memory: void setAddress(long)>");
+  ListMethodTester follow_tester=new ListMethodTester();
+  follow_tester.addSignature("<java.lang.StringBuilder: void <init>()>");
+  follow_tester.addSignature("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>");
+  follow_tester.addSignature("java.lang.StringBuilder: java.lang.String toString()>");
+  follow_tester.addSignature("<edu.syr.pcpratts.rootbeer.runtime.Sentinal: void <init>()>");
+  follow_tester.addSignature("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: edu.syr.pcpratts.rootbeer.runtimegpu.GpuException arrayOutOfBounds(int,int,int)>");
+  follow_tester.addSignature("<edu.syr.pcpratts.rootbeer.runtime.Serializer: void <init>(edu.syr.pcpratts.rootbeer.runtime.memory.Memory,edu.syr.pcpratts.rootbeer.runtime.memory.Memory)>");
+  follow_tester.addSignature("<edu.syr.pcpratts.rootbeer.testcases.rootbeertest.serialization.CovarientTest: void <init>()>");
+  RootbeerClassLoader.v().addFollowMethodTester(follow_tester);
   RootbeerClassLoader.v().addConditionalCudaEntry(new StringConstantCudaEntry());
   DontDfsMethods dont_dfs_methods=new DontDfsMethods();
+  ListMethodTester dont_dfs_tester=new ListMethodTester();
   Set<String> dont_dfs_set=dont_dfs_methods.get();
   for (  String dont_dfs : dont_dfs_set) {
-    RootbeerClassLoader.v().addDontDfsMethod(dont_dfs);
+    dont_dfs_tester.addSignature(dont_dfs);
   }
+  RootbeerClassLoader.v().addDontFollowMethodTester(dont_dfs_tester);
   List<String> cuda_fields=new ArrayList<String>();
   cuda_fields.add("<java.lang.Class: java.lang.String name>");
   RootbeerClassLoader.v().setCudaFields(cuda_fields);

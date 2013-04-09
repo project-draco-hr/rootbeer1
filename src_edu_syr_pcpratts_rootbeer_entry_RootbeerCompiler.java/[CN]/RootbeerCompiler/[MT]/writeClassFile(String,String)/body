@@ -1,12 +1,13 @@
 {
   if (cls.equals("java.lang.Object"))   return;
   FileOutputStream fos=null;
+  OutputStream out1=null;
   PrintWriter writer=null;
   SootClass c=Scene.v().getSootClass(cls);
   List<String> before_sigs=getMethodSignatures(c);
   try {
     fos=new FileOutputStream(filename);
-    OutputStream out1=new JasminOutputStream(fos);
+    out1=new JasminOutputStream(fos);
     writer=new PrintWriter(new OutputStreamWriter(out1));
     new soot.jimple.JasminClass(c).print(writer);
   }
@@ -20,12 +21,14 @@
     printMethodSigs(after_sigs);
   }
  finally {
-    writer.flush();
-    writer.close();
     try {
+      writer.flush();
+      writer.close();
+      out1.close();
       fos.close();
     }
  catch (    Exception ex) {
+      ex.printStackTrace();
     }
   }
 }

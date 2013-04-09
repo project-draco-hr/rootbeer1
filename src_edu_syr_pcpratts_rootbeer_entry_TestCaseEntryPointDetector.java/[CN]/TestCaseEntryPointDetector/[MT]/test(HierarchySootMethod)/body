@@ -4,7 +4,8 @@
   }
   if (sm.getSignature().equals(m_signature)) {
     if (m_entryPoints.contains(sm.getSignature()) == false) {
-      m_entryPoints.add(sm.getSignature());
+      return true;
     }
   }
+  return false;
 }

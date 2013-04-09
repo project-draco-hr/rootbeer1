@@ -1,8 +1,0 @@
-{
-  System.out.println("testEntryPoint: ");
-  System.out.println("  " + sm.getSignature());
-  System.out.println("  " + sm.getSignature());
-  if (isKernel(sm)) {
-    m_entryPoints.add(sm.getSignature());
-  }
-}

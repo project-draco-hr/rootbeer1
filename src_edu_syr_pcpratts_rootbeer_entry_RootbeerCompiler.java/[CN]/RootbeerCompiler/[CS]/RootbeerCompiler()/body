@@ -9,6 +9,6 @@
     Tweaks.setInstance(new NativeCpuTweaks());
   }
   m_enableClassRemapping=true;
-  m_runtimeClasses=new HashSet<String>();
-  addRuntimeClasses();
+  m_runtimePackages=new HashSet<String>();
+  addRuntimePackages();
 }
