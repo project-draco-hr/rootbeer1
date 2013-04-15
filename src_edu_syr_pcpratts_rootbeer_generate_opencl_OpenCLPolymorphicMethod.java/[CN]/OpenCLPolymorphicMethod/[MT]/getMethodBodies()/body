@@ -1,8 +1,5 @@
 {
   if (m_sootMethod.getName().equals("<init>"))   return "";
-  if (m_sootMethod.isConcrete() == false) {
-    return "";
-  }
   List<String> decls=getMethodDecls();
   StringBuilder ret=new StringBuilder();
   for (  String decl : decls) {
