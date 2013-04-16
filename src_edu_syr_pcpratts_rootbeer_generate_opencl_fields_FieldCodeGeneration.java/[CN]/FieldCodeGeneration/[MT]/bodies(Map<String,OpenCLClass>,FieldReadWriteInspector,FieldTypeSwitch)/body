@@ -1,9 +1,10 @@
 {
+  m_Inspector=inspector;
   m_TypeSwitch=type_switch;
-  setup(classes,inspector);
   Set<String> set=new HashSet<String>();
-  for (  CompositeField composite : m_FieldCloner.getCompositeFields()) {
-    set.addAll(getFieldBodies(composite));
+  List<CompositeField> fields=m_compositeFactory.create(classes);
+  for (  CompositeField field : fields) {
+    set.addAll(getFieldBodies(field));
   }
   return setToString(set);
 }

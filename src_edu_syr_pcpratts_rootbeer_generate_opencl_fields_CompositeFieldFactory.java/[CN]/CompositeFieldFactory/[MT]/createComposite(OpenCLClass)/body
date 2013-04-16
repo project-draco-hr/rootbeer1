@@ -1,0 +1,17 @@
+{
+  SootClass soot_class=ocl_class.getSootClass();
+  CompositeField composite=new CompositeField();
+  for (  OpenCLField field : ocl_class.getStaticRefFields()) {
+    composite.addRefField(field,soot_class);
+  }
+  for (  OpenCLField field : ocl_class.getInstanceRefFields()) {
+    composite.addRefField(field,soot_class);
+  }
+  for (  OpenCLField field : ocl_class.getStaticNonRefFields()) {
+    composite.addNonRefField(field,soot_class);
+  }
+  for (  OpenCLField field : ocl_class.getInstanceNonRefFields()) {
+    composite.addNonRefField(field,soot_class);
+  }
+  return composite;
+}

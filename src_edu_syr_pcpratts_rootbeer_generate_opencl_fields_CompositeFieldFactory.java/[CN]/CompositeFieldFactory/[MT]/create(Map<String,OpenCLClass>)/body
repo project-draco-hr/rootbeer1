@@ -1,0 +1,9 @@
+{
+  List<CompositeField> ret=new ArrayList<CompositeField>();
+  for (  String class_name : classes.keySet()) {
+    OpenCLClass ocl_class=classes.get(class_name);
+    CompositeField comp=createComposite(ocl_class);
+    ret.add(comp);
+  }
+  return ret;
+}

@@ -1,7 +1,6 @@
 {
-  FieldCloner cloner=new FieldCloner();
-  cloner.setup(m_classes);
-  List<CompositeField> composites=cloner.getCompositeFields();
+  CompositeFieldFactory composite_factory=new CompositeFieldFactory();
+  List<CompositeField> composites=composite_factory.create(m_classes);
   for (  CompositeField composite : composites) {
     List<SootClass> classes=composite.getClasses();
     if (classes.contains(soot_class))     return new OffsetCalculator(composite);

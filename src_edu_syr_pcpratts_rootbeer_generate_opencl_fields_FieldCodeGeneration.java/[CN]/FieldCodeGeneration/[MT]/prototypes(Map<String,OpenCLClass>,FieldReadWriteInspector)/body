@@ -1,8 +1,9 @@
 {
-  setup(classes,inspector);
+  m_Inspector=inspector;
   Set<String> set=new HashSet<String>();
-  for (  CompositeField composite : m_FieldCloner.getCompositeFields()) {
-    set.addAll(getFieldPrototypes(composite));
+  List<CompositeField> fields=m_compositeFactory.create(classes);
+  for (  CompositeField field : fields) {
+    set.addAll(getFieldPrototypes(field));
   }
   return setToString(set);
 }

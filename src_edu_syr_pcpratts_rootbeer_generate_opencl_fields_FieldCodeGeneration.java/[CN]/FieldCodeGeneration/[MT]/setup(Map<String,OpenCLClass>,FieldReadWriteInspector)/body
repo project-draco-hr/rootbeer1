@@ -1,5 +1,0 @@
-{
-  m_FieldCloner=new FieldCloner();
-  m_FieldCloner.setup(classes);
-  m_Inspector=inspector;
-}

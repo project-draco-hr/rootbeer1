@@ -9,9 +9,25 @@
     SootMethod method=util.getSootMethod();
     addMethod(method);
   }
+  List<String> extra_methods=new ArrayList<String>();
+  extra_methods.add("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: edu.syr.pcpratts.rootbeer.runtimegpu.GpuException arrayOutOfBounds(int,int,int)>");
+  extra_methods.add("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: void <init>()>");
+  for (  String extra_method : extra_methods) {
+    util.parse(extra_method);
+    addMethod(util.getSootMethod());
+  }
   Set<SootField> fields=RootbeerClassLoader.v().getDfsInfo().getFields();
   for (  SootField field : fields) {
     addField(field);
+  }
+  FieldSignatureUtil futil=new FieldSignatureUtil();
+  List<String> extra_fields=new ArrayList<String>();
+  extra_fields.add("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: int m_arrayLength>");
+  extra_fields.add("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: int m_arrayIndex>");
+  extra_fields.add("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: int m_array>");
+  for (  String extra_field : extra_fields) {
+    futil.parse(extra_field);
+    addField(futil.getSootField());
   }
   Set<ArrayType> array_types=RootbeerClassLoader.v().getDfsInfo().getArrayTypes();
   for (  ArrayType array_type : array_types) {
