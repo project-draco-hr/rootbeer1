@@ -11,6 +11,9 @@
     if (differentPackageAndPrivate(ref_type)) {
       return;
     }
+    if (soot_class.isInterface()) {
+      return;
+    }
     if (m_classesToIgnore.contains(ref_type.getSootClass().getName())) {
       return;
     }

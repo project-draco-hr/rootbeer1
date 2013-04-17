@@ -6,8 +6,9 @@
   BclMemory bcl_mem=new BclMemory(bcl,m_CurrentMem.top());
   bcl_mem.writeByte((byte)0);
   bcl_mem.writeByte((byte)0);
-  bcl_mem.writeByte((byte)class_id);
   bcl_mem.writeByte((byte)0);
+  bcl_mem.writeByte((byte)0);
+  bcl_mem.writeInt(class_id);
   Local size=bcl.local(IntType.v());
   bcl.assign(size,IntConstant.v(Constants.SizeGcInfo));
   Local element_size=bcl.local(IntType.v());
@@ -23,6 +24,9 @@
   bcl_mem.writeInt(size);
   bcl_mem.writeInt(length);
   bcl_mem.writeInt(-1);
+  bcl_mem.writeInt(0);
+  bcl_mem.writeInt(0);
+  bcl_mem.writeInt(0);
   if (type.baseType instanceof PrimType && type.numDimensions == 1 && type.baseType.equals(CharType.v()) == false) {
     bcl.pushMethod(m_CurrentMem.top(),"writeArray",VoidType.v(),type);
     bcl.invokeMethodNoRet(m_CurrentMem.top(),object_to_write_from);

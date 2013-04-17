@@ -9,12 +9,13 @@
   int gc_count=ocl_class.getRefFieldsSize();
   bcl_mem.writeByte((byte)gc_count);
   bcl_mem.writeByte((byte)0);
-  bcl_mem.writeByte((byte)class_id);
   bcl_mem.writeByte((byte)0);
+  bcl_mem.writeByte((byte)0);
+  bcl_mem.writeInt(class_id);
   bcl_mem.writeInt(size);
-  bcl_mem.incrementAddress(4);
+  bcl_mem.writeInt(0);
   bcl_mem.writeInt(-1);
-  int written_size=1 + 1 + 1+ 1+ 4+ 4+ 4;
+  int written_size=1 + 1 + 1+ 1+ 4+ 4+ 4+ 4;
   bcl_mem.incrementAddress(Constants.SizeGcInfo - written_size);
   bcl_mem.pushAddress();
   int size_minus_gc_info=size - Constants.SizeGcInfo;

@@ -4,7 +4,7 @@
   BclMemory bcl_mem=new BclMemory(bcl,m_currMem.top());
   bcl_mem.incrementAddress(3);
   Local ctor_used=bcl_mem.readByte();
-  bcl_mem.incrementAddress(4);
+  bcl_mem.incrementAddress(8);
   Local size=bcl_mem.readInt();
   Local ret=bcl.local(type);
   bcl_mem.incrementAddress(4);
