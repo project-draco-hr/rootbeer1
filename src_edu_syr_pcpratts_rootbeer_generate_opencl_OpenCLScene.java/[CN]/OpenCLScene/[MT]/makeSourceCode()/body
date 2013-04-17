@@ -40,6 +40,7 @@
   for (  Type type : instanceofs) {
     addInstanceof(type);
   }
+  buildCompositeFields();
   StringBuilder unix_code=new StringBuilder();
   StringBuilder windows_code=new StringBuilder();
   String method_protos=methodPrototypesString();

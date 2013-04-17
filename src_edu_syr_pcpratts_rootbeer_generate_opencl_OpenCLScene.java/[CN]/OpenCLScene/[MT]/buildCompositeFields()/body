@@ -1,0 +1,5 @@
+{
+  CompositeFieldFactory factory=new CompositeFieldFactory();
+  factory.setup(m_classes);
+  m_compositeFields=factory.getCompositeFields();
+}

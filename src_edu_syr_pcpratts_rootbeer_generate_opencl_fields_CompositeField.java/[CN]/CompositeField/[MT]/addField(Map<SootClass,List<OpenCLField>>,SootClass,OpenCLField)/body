@@ -8,5 +8,7 @@
     lst.add(field);
     fields_by_class.put(soot_class,lst);
   }
-  if (m_Classes.contains(soot_class) == false)   m_Classes.add(soot_class);
+  if (m_Classes.contains(soot_class) == false) {
+    m_Classes.add(soot_class);
+  }
 }

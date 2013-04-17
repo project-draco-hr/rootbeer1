@@ -1,3 +1,0 @@
-{
-  return Integer.valueOf(m_DerivedType).compareTo(Integer.valueOf(o.m_DerivedType));
-}

@@ -1,0 +1,9 @@
+{
+  try {
+    soot_class.getFieldByName(soot_field.getName());
+    return false;
+  }
+ catch (  Exception ex) {
+    return true;
+  }
+}

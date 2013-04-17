@@ -1,4 +1,0 @@
-{
-  m_SootClass=sclass;
-  m_DerivedType=OpenCLScene.v().getClassType(sclass);
-}

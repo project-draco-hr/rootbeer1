@@ -1,6 +1,5 @@
 {
-  CompositeFieldFactory comp_factory=new CompositeFieldFactory();
-  List<CompositeField> composites=comp_factory.create(OpenCLScene.v().getClassMap());
+  List<CompositeField> composites=OpenCLScene.v().getCompositeFields();
   List<SortableField> sortable_fields=new ArrayList<SortableField>();
   for (  CompositeField composite : composites) {
     List<SootClass> classes=composite.getClasses();

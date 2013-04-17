@@ -1,5 +1,4 @@
 {
-  if (cls.equals("java.lang.Object"))   return;
   FileOutputStream fos=null;
   OutputStream out1=null;
   PrintWriter writer=null;

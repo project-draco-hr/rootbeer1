@@ -1,6 +1,5 @@
 {
-  CompositeFieldFactory composite_factory=new CompositeFieldFactory();
-  List<CompositeField> composites=composite_factory.create(m_classes);
+  List<CompositeField> composites=getCompositeFields();
   for (  CompositeField composite : composites) {
     List<SootClass> classes=composite.getClasses();
     if (classes.contains(soot_class))     return new OffsetCalculator(composite);

@@ -5,7 +5,7 @@
   ret.append("switch(type){\n");
   for (  int key : sorted_keys) {
     List<SootClass> classes=offsets.get(key);
-    classes=sortClasses(classes);
+    Collections.sort(classes,new NumberedTypeSortComparator(true));
     for (    SootClass sclass : classes) {
       ret.append(" case " + OpenCLScene.v().getClassType(sclass) + ":\n");
     }
