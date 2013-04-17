@@ -9,6 +9,12 @@ synchronized (mReadFromGpuCache) {
   if (null_ptr_check == -1) {
     return null;
   }
+  if (o == null) {
+    System.out.println("readFromHeap: null. addr: " + address);
+  }
+ else {
+    System.out.println("readFromHeap: " + o.toString() + ". addr: "+ address);
+  }
   Object ret=doReadFromHeap(o,read_data,address);
   return checkCache(address,ret);
 }

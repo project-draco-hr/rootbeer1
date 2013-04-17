@@ -1,5 +1,6 @@
 {
   List<RefType> types=RootbeerClassLoader.v().getDfsInfo().getOrderedRefTypes();
+  Collections.reverse(types);
   for (  RefType ref_type : types) {
     AcceptableGpuTypes accept=new AcceptableGpuTypes();
     if (accept.shouldGenerateCtor(ref_type.getClassName())) {
