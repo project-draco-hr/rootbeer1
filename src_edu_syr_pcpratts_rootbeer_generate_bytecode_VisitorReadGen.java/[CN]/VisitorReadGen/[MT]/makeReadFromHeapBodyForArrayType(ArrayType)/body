@@ -7,7 +7,7 @@
   bcl_mem.incrementAddress(8);
   Local size=bcl_mem.readInt();
   Local ret=bcl.local(type);
-  bcl_mem.incrementAddress(4);
+  bcl_mem.incrementAddress(16);
   Local previous_size=bcl.lengthof(object_to_read_from);
   String label_new_float=getNextLabel();
   String label_after_new_float=getNextLabel();
