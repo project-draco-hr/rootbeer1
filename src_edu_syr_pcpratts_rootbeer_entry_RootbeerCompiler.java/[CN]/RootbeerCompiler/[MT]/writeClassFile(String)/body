@@ -1,3 +1,4 @@
 {
+  System.out.println("writing class file: " + cls);
   writeClassFile(cls,classNameToFileName(cls,false));
 }

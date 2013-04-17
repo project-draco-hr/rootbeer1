@@ -38,6 +38,9 @@
       int count=0;
       for (      SootMethod method : virtual_methods) {
         SootClass sclass=method.getDeclaringClass();
+        if (sclass.isInterface()) {
+          continue;
+        }
         String invoke_string=getInvokeString(sclass);
         if (invoke_string == "") {
           continue;

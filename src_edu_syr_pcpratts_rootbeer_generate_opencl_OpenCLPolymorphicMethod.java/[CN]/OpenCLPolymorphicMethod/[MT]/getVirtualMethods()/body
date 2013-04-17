@@ -9,5 +9,8 @@
       ret.add(soot_method);
     }
   }
+  if (ret.contains(m_sootMethod) == false) {
+    ret.add(m_sootMethod);
+  }
   return ret;
 }

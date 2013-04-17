@@ -1,13 +1,9 @@
 {
-  List<NumberedType> types=RootbeerClassLoader.v().getDfsInfo().getNumberedTypes();
-  for (int i=0; i < types.size(); ++i) {
-    NumberedType ntype=types.get(i);
-    StringToType converter=new StringToType();
-    Type type=converter.convert(ntype.getType());
-    if (type instanceof RefType) {
-      RefType ref_type=(RefType)type;
-      AcceptableGpuTypes accept=new AcceptableGpuTypes();
-      if (accept.shouldGenerateCtor(ref_type.getClassName()))       generateSentinalCtor(ref_type);
+  List<RefType> types=RootbeerClassLoader.v().getDfsInfo().getOrderedRefTypes();
+  for (  RefType ref_type : types) {
+    AcceptableGpuTypes accept=new AcceptableGpuTypes();
+    if (accept.shouldGenerateCtor(ref_type.getClassName())) {
+      generateSentinalCtor(ref_type);
     }
   }
 }
