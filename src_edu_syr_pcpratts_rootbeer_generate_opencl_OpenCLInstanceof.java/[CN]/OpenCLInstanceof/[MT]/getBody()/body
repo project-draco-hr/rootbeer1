@@ -3,7 +3,7 @@
     throw new RuntimeException("not supported yet");
   }
   RefType ref_type=(RefType)m_type;
-  List<NumberedType> type_list=RootbeerClassLoader.v().getDfsInfo().getNumberedHierarchyDown(ref_type.getSootClass());
+  List<NumberedType> type_list=RootbeerClassLoader.v().getDfsInfo().getNumberedHierarchyUp(ref_type.getSootClass());
   String ret=getDecl();
   ret+="{\n";
   ret+="  char * thisref_deref;\n";

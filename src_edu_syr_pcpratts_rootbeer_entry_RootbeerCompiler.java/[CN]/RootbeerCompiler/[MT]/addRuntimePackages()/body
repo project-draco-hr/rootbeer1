@@ -1,10 +1,12 @@
 {
+  m_runtimePackages.add("edu.syr.pcpratts.rootbeer.compiler.");
   m_runtimePackages.add("edu.syr.pcpratts.rootbeer.configuration.");
-  m_runtimePackages.add("edu.syr.pcpratts.rootbeer.runtimegpu.");
+  m_runtimePackages.add("edu.syr.pcpratts.rootbeer.entry.");
   m_runtimePackages.add("edu.syr.pcpratts.rootbeer.generate.");
   m_runtimePackages.add("edu.syr.pcpratts.rootbeer.runtime.");
   m_runtimePackages.add("edu.syr.pcpratts.rootbeer.runtime2.");
   m_runtimePackages.add("edu.syr.pcpratts.rootbeer.runtime2.cuda.ToSpaceWriter");
+  m_runtimePackages.add("edu.syr.pcpratts.rootbeer.runtimegpu.");
   m_runtimePackages.add("edu.syr.pcpratts.rootbeer.test.");
   m_runtimePackages.add("edu.syr.pcpratts.rootbeer.util.");
 }
