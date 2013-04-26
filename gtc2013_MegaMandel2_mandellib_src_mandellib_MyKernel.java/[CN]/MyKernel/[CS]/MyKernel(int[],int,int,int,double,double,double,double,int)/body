@@ -7,4 +7,5 @@
   this.minx=minx;
   this.maxy=maxy;
   this.miny=miny;
+  this.offset=offset;
 }

@@ -16,7 +16,7 @@
  else {
     m_BlockShape=thread_config.getBlockShapeX();
     m_GridShape=thread_config.getGridShapeX();
-    m_NumThreads=m_BlockShape * m_GridShape;
+    m_NumThreads=thread_config.getNumThreads();
   }
   compileCode();
   Object gpu_thrown=null;

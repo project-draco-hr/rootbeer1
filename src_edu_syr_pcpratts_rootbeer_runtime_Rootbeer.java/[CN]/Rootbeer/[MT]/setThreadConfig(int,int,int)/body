@@ -1,0 +1,3 @@
+{
+  m_threadConfig=new ThreadConfig(block_shape_x,grid_shape_x,numThreads);
+}

@@ -6,3 +6,4 @@ double maxx
 double minx
 double maxy
 double miny
+int offset

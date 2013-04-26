@@ -1,4 +1,5 @@
 {
   m_blockShapeX=block_shape_x;
   m_gridShapeX=grid_shape_x;
+  m_numThreads=numThreads;
 }

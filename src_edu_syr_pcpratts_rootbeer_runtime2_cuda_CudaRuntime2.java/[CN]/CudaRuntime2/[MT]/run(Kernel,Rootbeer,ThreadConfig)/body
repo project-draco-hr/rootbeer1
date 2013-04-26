@@ -5,7 +5,7 @@
   if (thread_config != null) {
     m_BlockShape=thread_config.getBlockShapeX();
     m_GridShape=thread_config.getGridShapeX();
-    m_NumThreads=m_BlockShape * m_GridShape;
+    m_NumThreads=thread_config.getNumThreads();
   }
   writeSingleBlock(job_template);
   String filename;
@@ -19,7 +19,7 @@
     return;
   }
   if (thread_config == null) {
-    calculateShape();
+    throw new NullPointerException();
   }
   compileCode();
   Object gpu_thrown=null;
