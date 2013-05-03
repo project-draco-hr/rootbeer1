@@ -25,6 +25,10 @@
         Error except_th=(Error)except;
         throw except_th;
       }
+ else       if (except instanceof GpuException) {
+        GpuException gpu_except=(GpuException)except;
+        gpu_except.throwArrayOutOfBounds();
+      }
  else {
         throw new RuntimeException((Throwable)except);
       }

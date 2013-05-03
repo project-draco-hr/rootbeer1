@@ -1,0 +1,5 @@
+{
+  BigDecimalRunOnGpu lhs=(BigDecimalRunOnGpu)original;
+  BigDecimalRunOnGpu rhs=(BigDecimalRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

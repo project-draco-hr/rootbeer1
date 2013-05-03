@@ -3,4 +3,6 @@
   m_remapAll=true;
   m_maxRegCountSet=false;
   m_arrayChecks=true;
+  m_doubles=true;
+  m_recursion=true;
 }

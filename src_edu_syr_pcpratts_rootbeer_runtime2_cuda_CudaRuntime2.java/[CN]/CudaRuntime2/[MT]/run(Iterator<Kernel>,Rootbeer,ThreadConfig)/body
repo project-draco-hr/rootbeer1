@@ -53,6 +53,10 @@
       RuntimeException runtime_ex=(RuntimeException)gpu_thrown;
       throw runtime_ex;
     }
+ else     if (gpu_thrown instanceof ArrayIndexOutOfBoundsException) {
+      ArrayIndexOutOfBoundsException array_except=(ArrayIndexOutOfBoundsException)gpu_thrown;
+      throw array_except;
+    }
  else {
       throw new RuntimeException("unknown exception type.");
     }
