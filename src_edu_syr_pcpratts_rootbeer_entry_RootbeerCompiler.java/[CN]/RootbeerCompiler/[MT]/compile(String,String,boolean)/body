@@ -1,5 +1,5 @@
 {
-  m_entryDetector=new KernelEntryPointDetector();
+  m_entryDetector=new KernelEntryPointDetector(run_tests);
   CurrJarName jar_name=new CurrJarName();
   setupSoot(jar_filename,jar_name.get(),run_tests);
   List<SootMethod> kernel_methods=RootbeerClassLoader.v().getEntryPoints();
