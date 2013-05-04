@@ -1,0 +1,5 @@
+{
+  SootClass soot_class=Scene.v().getSootClass("java.lang.OutOfMemoryError");
+  int ret=RootbeerClassLoader.v().getClassNumber(soot_class);
+  return ret;
+}
