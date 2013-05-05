@@ -1,0 +1,7 @@
+{
+synchronized (this) {
+    int ret=m_value;
+    ++m_value;
+    return ret;
+  }
+}
