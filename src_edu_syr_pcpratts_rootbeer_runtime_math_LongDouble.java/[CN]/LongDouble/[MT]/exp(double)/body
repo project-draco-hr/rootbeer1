@@ -1,0 +1,9 @@
+{
+  long bits=Double.doubleToLongBits(power);
+  byte pow_sign=(byte)(((byte)(bits >> 63)) & (byte)0x1);
+  short pow_exponent=(short)((short)(bits >> 52) & (short)0x7ff);
+  pow_exponent-=(short)1023;
+  long pow_fraction=(bits & 0x2ffffff) - 1023;
+  LongDouble power_ld=new LongDouble(power);
+  power_ld.print();
+}
