@@ -26,7 +26,7 @@
   }
  else {
     ret.append("derived_type = edu_syr_pcpratts_gc_get_type(thisref_deref);\n");
-    ret.append("offset = " + type_switch.typeSwitchName(m_Offsets) + "(derived_type);\n");
+    ret.append("offset = " + type_switch.typeSwitchName(m_offsets) + "(derived_type);\n");
     ret.append("return *((" + address_qual + " "+ cast_string+ " *) &thisref_deref[offset]);\n");
   }
   ret.append("}\n");
@@ -50,7 +50,7 @@
   }
  else {
     ret.append("derived_type = edu_syr_pcpratts_gc_get_type(thisref_deref);\n");
-    ret.append("offset = " + type_switch.typeSwitchName(m_Offsets) + "(derived_type);\n");
+    ret.append("offset = " + type_switch.typeSwitchName(m_offsets) + "(derived_type);\n");
     if (getType().isRefType()) {
       ret.append("edu_syr_pcpratts_gc_assign_global(gc_info, (" + address_qual + " "+ cast_string+ " *) &thisref_deref[offset], parameter0);\n");
     }

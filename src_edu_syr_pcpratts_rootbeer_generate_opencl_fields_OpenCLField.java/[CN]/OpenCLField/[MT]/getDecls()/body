@@ -3,7 +3,7 @@
   String type_string=getType().getCudaTypeString();
   String device_function_qual=Tweaks.v().getDeviceFunctionQualifier();
   String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
-  if (m_SootField.isStatic() == false) {
+  if (m_sootField.isStatic() == false) {
     ret.add(device_function_qual + " " + type_string+ " instance_getter_"+ getFullName()+ "("+ address_qual+ " char * gc_info, int thisref, int * exception)");
     ret.add(device_function_qual + " void instance_setter_" + getFullName()+ "("+ address_qual+ " char * gc_info, int thisref, "+ type_string+ " parameter0, int * exception)");
   }

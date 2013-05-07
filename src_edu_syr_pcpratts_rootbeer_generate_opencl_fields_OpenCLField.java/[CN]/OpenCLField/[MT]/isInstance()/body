@@ -1,4 +1,4 @@
 {
-  if (m_SootField.isStatic())   return false;
+  if (m_sootField.isStatic())   return false;
   return true;
 }

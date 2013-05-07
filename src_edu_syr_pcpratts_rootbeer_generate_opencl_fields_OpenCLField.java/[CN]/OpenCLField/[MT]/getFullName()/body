@@ -1,4 +1,7 @@
 {
-  OpenCLClass ocl_class=OpenCLScene.v().getOpenCLClass(m_SootClass);
+  FieldSignatureUtil util=new FieldSignatureUtil();
+  util.parse(m_sootField.getSignature());
+  SootField real_field=util.getSootField();
+  OpenCLClass ocl_class=OpenCLScene.v().getOpenCLClass(real_field.getDeclaringClass());
   return ocl_class.getName() + "_" + getName();
 }

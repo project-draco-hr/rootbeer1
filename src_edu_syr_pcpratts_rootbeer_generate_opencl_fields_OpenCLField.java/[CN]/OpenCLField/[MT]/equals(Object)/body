@@ -1,6 +1,6 @@
 {
   if (o instanceof OpenCLField == false)   return false;
   OpenCLField other=(OpenCLField)o;
-  if (m_SootField.equals(other.m_SootField) && m_SootClass.equals(other.m_SootClass))   return true;
+  if (m_sootField.equals(other.m_sootField) && m_sootClass.equals(other.m_sootClass))   return true;
   return false;
 }

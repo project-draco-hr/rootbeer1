@@ -1,3 +1,3 @@
 {
-  return m_SootField.isFinal();
+  return m_sootField.isFinal();
 }

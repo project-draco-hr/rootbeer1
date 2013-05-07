@@ -1,4 +1,4 @@
 {
-  Type soot_type=m_SootField.getType();
+  Type soot_type=m_sootField.getType();
   return new OpenCLType(soot_type);
 }

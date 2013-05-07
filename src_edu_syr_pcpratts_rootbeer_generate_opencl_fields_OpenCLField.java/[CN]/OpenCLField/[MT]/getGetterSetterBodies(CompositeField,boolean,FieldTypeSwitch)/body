@@ -1,5 +1,5 @@
 {
-  if (m_SootField.isStatic()) {
+  if (m_sootField.isStatic()) {
     return getGetterSetterBodiesStatic();
   }
  else {

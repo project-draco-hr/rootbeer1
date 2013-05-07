@@ -1,4 +1,4 @@
 {
-  Type soot_type=m_SootClass.getType();
+  Type soot_type=m_sootClass.getType();
   return new OpenCLType(soot_type);
 }

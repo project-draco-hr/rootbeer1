@@ -1,5 +1,5 @@
 {
-  Iterator<Integer> iter=m_Offsets.keySet().iterator();
+  Iterator<Integer> iter=m_offsets.keySet().iterator();
   while (iter.hasNext()) {
     int ret=iter.next();
     return ret;

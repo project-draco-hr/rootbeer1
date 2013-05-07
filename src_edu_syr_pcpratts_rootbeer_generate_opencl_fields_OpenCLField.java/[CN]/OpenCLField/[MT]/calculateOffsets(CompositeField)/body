@@ -1,15 +1,15 @@
 {
   OffsetCalculator calc=new OffsetCalculator(composite);
-  m_Offsets=new TreeMap<Integer,List<SootClass>>();
+  m_offsets=new TreeMap<Integer,List<SootClass>>();
   for (  SootClass sclass : composite.getClasses()) {
     int field_offset=calc.getOffset(this,sclass);
     List<SootClass> classes;
-    if (m_Offsets.containsKey(field_offset)) {
-      classes=m_Offsets.get(field_offset);
+    if (m_offsets.containsKey(field_offset)) {
+      classes=m_offsets.get(field_offset);
     }
  else {
       classes=new ArrayList<SootClass>();
-      m_Offsets.put(field_offset,classes);
+      m_offsets.put(field_offset,classes);
     }
     classes.add(sclass);
   }

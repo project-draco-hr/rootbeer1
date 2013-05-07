@@ -1,6 +1,5 @@
 {
-  m_SootField=soot_field;
-  m_SootClass=soot_class;
-  m_CheckAlignment=false;
-  m_Cloned=false;
+  m_sootField=soot_field;
+  m_sootClass=soot_class;
+  m_cloned=false;
 }
