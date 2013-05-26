@@ -1,5 +1,5 @@
 {
   Value op=arg0.getOp();
-  m_output.append("! ");
+  m_output.append("-");
   op.apply(this);
 }

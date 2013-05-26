@@ -1,0 +1,5 @@
+{
+  byte b=readByte();
+  if (b != 0)   return true;
+  return false;
+}
