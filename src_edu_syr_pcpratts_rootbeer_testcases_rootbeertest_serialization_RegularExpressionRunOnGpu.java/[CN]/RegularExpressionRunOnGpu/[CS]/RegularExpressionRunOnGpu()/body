@@ -1,0 +1,5 @@
+{
+  m_inputString1="build.xml";
+  m_inputString2="pom.xml";
+  m_exprString="build";
+}
