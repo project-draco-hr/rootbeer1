@@ -3,4 +3,5 @@
   OpenCLClass ocl_class=getOpenCLClass(soot_class);
   ocl_class.addMethod(new OpenCLMethod(soot_method,soot_class));
   m_methodHierarchies.addMethod(soot_method);
+  m_methods.add(soot_method);
 }

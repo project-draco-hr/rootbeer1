@@ -4,4 +4,6 @@
   m_arrayTypes=new LinkedHashSet<OpenCLArrayType>();
   m_methodHierarchies=new MethodHierarchies();
   m_instanceOfs=new HashSet<OpenCLInstanceof>();
+  m_methods=new ArrayList<SootMethod>();
+  loadTypes();
 }

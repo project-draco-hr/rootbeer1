@@ -32,9 +32,6 @@
             ret.append("}\n");
           }
         }
-        if (returnsAValue()) {
-          ret.append("return 0;");
-        }
       }
     }
  catch (    RuntimeException ex) {

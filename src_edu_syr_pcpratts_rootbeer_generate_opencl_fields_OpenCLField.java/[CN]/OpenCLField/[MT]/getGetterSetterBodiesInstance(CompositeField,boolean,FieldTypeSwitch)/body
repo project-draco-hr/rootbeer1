@@ -12,8 +12,10 @@
   int null_num=RootbeerClassLoader.v().getClassNumber(null_cls);
   ret.append(decls.get(0) + "{\n");
   int field_offset=getOnlyOffset();
-  ret.append("GC_OBJ_TYPE_TYPE derived_type;\n");
-  ret.append("int offset;\n");
+  if (composite.getClasses().size() != 1) {
+    ret.append("GC_OBJ_TYPE_TYPE derived_type;\n");
+    ret.append("int offset;\n");
+  }
   ret.append(address_qual + " char * thisref_deref;\n");
   ret.append("if(thisref == -1){\n");
   ret.append("  *exception = " + null_num + ";\n");
@@ -31,8 +33,10 @@
   }
   ret.append("}\n");
   ret.append(decls.get(1) + "{\n");
-  ret.append("GC_OBJ_TYPE_TYPE derived_type;\n");
-  ret.append("int offset;\n");
+  if (composite.getClasses().size() != 1) {
+    ret.append("GC_OBJ_TYPE_TYPE derived_type;\n");
+    ret.append("int offset;\n");
+  }
   ret.append(address_qual + " char * thisref_deref;\n");
   ret.append("if(thisref == -1){\n");
   ret.append("  *exception = " + null_num + ";\n");
