@@ -1,4 +1,5 @@
 {
-  mangleMap=new HashMap<String,Integer>();
-  lastInt=0;
+  m_mangleMap=new HashMap<String,Integer>();
+  m_lastInt=0;
+  addBuiltIns();
 }

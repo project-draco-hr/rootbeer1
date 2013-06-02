@@ -1,0 +1,4 @@
+{
+  m_mangleMap.put(type,m_lastInt);
+  ++m_lastInt;
+}

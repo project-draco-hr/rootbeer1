@@ -54,8 +54,7 @@
   ListMethodTester follow_tester=new ListMethodTester();
   follow_tester.addSignature("<java.lang.String: void <init>(char[])>");
   follow_tester.addSignature("<java.lang.StringBuilder: void <init>()>");
-  follow_tester.addSignature("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>");
-  follow_tester.addSignature("java.lang.StringBuilder: java.lang.String toString()>");
+  follow_tester.addSignature("<java.lang.Integer: java.lang.String toString(int)>");
   follow_tester.addSignature("<edu.syr.pcpratts.rootbeer.runtime.Sentinal: void <init>()>");
   follow_tester.addSignature("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: void <init>()>");
   follow_tester.addSignature("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: edu.syr.pcpratts.rootbeer.runtimegpu.GpuException arrayOutOfBounds(int,int,int)>");
@@ -72,5 +71,13 @@
   }
   RootbeerClassLoader.v().addDontFollowMethodTester(dont_dfs_tester);
   RootbeerClassLoader.v().loadField("<java.lang.Class: java.lang.String name>");
+  RootbeerClassLoader.v().loadField("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: int m_arrayLength>");
+  RootbeerClassLoader.v().loadField("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: int m_arrayIndex>");
+  RootbeerClassLoader.v().loadField("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: int m_array>");
+  RootbeerClassLoader.v().loadField("<java.lang.String: char[] value>");
+  RootbeerClassLoader.v().loadField("<java.lang.String: int count>");
+  RootbeerClassLoader.v().loadField("<java.lang.String: int offset>");
+  RootbeerClassLoader.v().loadField("<java.lang.StringBuilder: char[] value>");
+  RootbeerClassLoader.v().loadField("<java.lang.StringBuilder: int count>");
   RootbeerClassLoader.v().loadNecessaryClasses();
 }

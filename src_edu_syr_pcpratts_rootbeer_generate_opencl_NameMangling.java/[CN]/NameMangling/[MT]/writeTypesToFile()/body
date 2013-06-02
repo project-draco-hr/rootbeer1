@@ -1,8 +1,8 @@
 {
   try {
     PrintWriter writer=new PrintWriter(RootbeerPaths.v().getRootbeerHome() + "mangling");
-    for (    String name : mangleMap.keySet()) {
-      int number=mangleMap.get(name);
+    for (    String name : m_mangleMap.keySet()) {
+      int number=m_mangleMap.get(name);
       writer.println(number + " " + name);
     }
     writer.flush();

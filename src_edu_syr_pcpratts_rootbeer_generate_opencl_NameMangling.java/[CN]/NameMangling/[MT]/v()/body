@@ -1,4 +1,4 @@
 {
-  if (mInstance == null)   mInstance=new NameMangling();
-  return mInstance;
+  if (m_instance == null)   m_instance=new NameMangling();
+  return m_instance;
 }

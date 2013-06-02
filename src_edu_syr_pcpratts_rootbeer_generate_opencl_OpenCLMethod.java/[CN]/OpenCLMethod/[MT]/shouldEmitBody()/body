@@ -6,5 +6,8 @@
   if (m_dontMangleMethods.contains(signature)) {
     return false;
   }
+  if (m_dontEmitMethods.contains(signature)) {
+    return false;
+  }
   return true;
 }

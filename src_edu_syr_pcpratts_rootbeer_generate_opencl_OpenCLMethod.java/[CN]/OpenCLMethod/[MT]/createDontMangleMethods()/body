@@ -1,5 +1,6 @@
 {
   m_dontMangleMethods=new HashSet<String>();
+  m_dontEmitMethods=new HashSet<String>();
   m_emitUnmangled=new HashSet<String>();
   DontDfsMethods dont_dfs_methods=new DontDfsMethods();
   for (  String dont_dfs : dont_dfs_methods.get()) {
@@ -8,6 +9,8 @@
   m_dontMangleMethods.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerAtomicInt: int atomicAdd(int)>");
   m_dontMangleMethods.add("<java.lang.String: void <init>(char[])>");
   m_dontMangleMethods.add("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: edu.syr.pcpratts.rootbeer.runtimegpu.GpuException arrayOutOfBounds(int,int,int)>");
-  m_emitUnmangled.add("<java.lang.String: void <init>(char[])>");
+  m_dontEmitMethods.add("<java.lang.StringBuilder: java.lang.StringBuilder append(int)>");
+  m_dontEmitMethods.add("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>");
+  m_dontEmitMethods.add("<java.lang.StringBuilder: java.lang.String toString()>");
   m_emitUnmangled.add("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: edu.syr.pcpratts.rootbeer.runtimegpu.GpuException arrayOutOfBounds(int,int,int)>");
 }
