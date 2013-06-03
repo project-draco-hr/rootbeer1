@@ -1,9 +1,9 @@
 {
   determineFieldTypes();
-  for (  OpenCLField field : mAllUsedInstanceFields) {
+  for (  OpenCLField field : m_allUsedInstanceFields) {
     if (field.getName().equals(name))     return field;
   }
-  for (  OpenCLField field : mAllUsedStaticFields) {
+  for (  OpenCLField field : m_allUsedStaticFields) {
     if (field.getName().equals(name))     return field;
   }
   return null;

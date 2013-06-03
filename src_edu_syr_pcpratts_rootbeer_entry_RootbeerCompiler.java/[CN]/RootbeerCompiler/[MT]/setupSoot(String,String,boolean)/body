@@ -61,8 +61,9 @@
   follow_tester.addSignature("<edu.syr.pcpratts.rootbeer.runtime.Serializer: void <init>(edu.syr.pcpratts.rootbeer.runtime.memory.Memory,edu.syr.pcpratts.rootbeer.runtime.memory.Memory)>");
   follow_tester.addSignature("<edu.syr.pcpratts.rootbeer.testcases.rootbeertest.serialization.CovarientTest: void <init>()>");
   RootbeerClassLoader.v().addFollowMethodTester(follow_tester);
-  RootbeerClassLoader.v().addFollowClassTester(new TestCaseFollowTester());
-  RootbeerClassLoader.v().addConditionalCudaEntry(new StringConstantCudaEntry());
+  if (runtests) {
+    RootbeerClassLoader.v().addFollowClassTester(new TestCaseFollowTester());
+  }
   DontDfsMethods dont_dfs_methods=new DontDfsMethods();
   ListMethodTester dont_dfs_tester=new ListMethodTester();
   Set<String> dont_dfs_set=dont_dfs_methods.get();
@@ -70,14 +71,9 @@
     dont_dfs_tester.addSignature(dont_dfs);
   }
   RootbeerClassLoader.v().addDontFollowMethodTester(dont_dfs_tester);
-  RootbeerClassLoader.v().loadField("<java.lang.Class: java.lang.String name>");
-  RootbeerClassLoader.v().loadField("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: int m_arrayLength>");
-  RootbeerClassLoader.v().loadField("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: int m_arrayIndex>");
-  RootbeerClassLoader.v().loadField("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: int m_array>");
-  RootbeerClassLoader.v().loadField("<java.lang.String: char[] value>");
-  RootbeerClassLoader.v().loadField("<java.lang.String: int count>");
-  RootbeerClassLoader.v().loadField("<java.lang.String: int offset>");
-  RootbeerClassLoader.v().loadField("<java.lang.StringBuilder: char[] value>");
-  RootbeerClassLoader.v().loadField("<java.lang.StringBuilder: int count>");
+  ExtraFields extra_fields=new ExtraFields();
+  for (  String field_sig : extra_fields.get()) {
+    RootbeerClassLoader.v().loadField(field_sig);
+  }
   RootbeerClassLoader.v().loadNecessaryClasses();
 }

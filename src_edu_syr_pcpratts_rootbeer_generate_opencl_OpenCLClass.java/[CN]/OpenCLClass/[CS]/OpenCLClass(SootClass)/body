@@ -1,11 +1,11 @@
 {
-  m_Methods=new LinkedHashSet<OpenCLMethod>();
-  mFields=new LinkedHashSet<OpenCLField>();
-  m_SootClass=soot_class;
-  mInstanceRefFields=null;
-  mInstanceNonRefFields=null;
-  mAllUsedInstanceFields=null;
-  mStaticRefFields=null;
-  mStaticNonRefFields=null;
-  mAllUsedStaticFields=null;
+  m_methods=new LinkedHashSet<OpenCLMethod>();
+  m_fields=new LinkedHashSet<OpenCLField>();
+  m_sootClass=soot_class;
+  m_instanceRefFields=null;
+  m_instanceNonRefFields=null;
+  m_allUsedInstanceFields=null;
+  m_staticRefFields=null;
+  m_staticNonRefFields=null;
+  m_allUsedStaticFields=null;
 }

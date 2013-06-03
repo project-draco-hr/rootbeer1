@@ -4,5 +4,8 @@
   String replacement=getRuntimeBasicBlockClassName() + "_gpuMethod" + mangle;
   replacement=replacement.replace("$","\\$");
   cuda_code=cuda_code.replaceAll("%%invoke_run%%",replacement);
+  int string_builder_number=RootbeerClassLoader.v().getClassNumber("java.lang.StringBuilder");
+  String sbn_str="" + string_builder_number;
+  cuda_code=cuda_code.replaceAll("%%java_lang_StringBuilder_TypeNumber%%","" + sbn_str);
   return cuda_code;
 }

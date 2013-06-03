@@ -1,5 +1,5 @@
 {
-  for (  OpenCLMethod ocl_method : m_Methods) {
+  for (  OpenCLMethod ocl_method : m_methods) {
     if (ocl_method.getSignature().equals(signature)) {
       return ocl_method;
     }

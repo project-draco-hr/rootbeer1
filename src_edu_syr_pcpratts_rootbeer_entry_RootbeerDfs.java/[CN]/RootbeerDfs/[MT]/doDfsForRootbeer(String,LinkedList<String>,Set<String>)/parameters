@@ -1,0 +1,3 @@
+String signature
+LinkedList<String> queue
+Set<String> visited

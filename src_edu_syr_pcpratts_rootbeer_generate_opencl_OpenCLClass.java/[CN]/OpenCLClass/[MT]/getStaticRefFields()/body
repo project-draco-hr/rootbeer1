@@ -1,5 +1,5 @@
 {
   determineFieldTypes();
   FieldPackingSorter sorter=new FieldPackingSorter();
-  return sorter.sort(mStaticRefFields);
+  return sorter.sort(m_staticRefFields);
 }

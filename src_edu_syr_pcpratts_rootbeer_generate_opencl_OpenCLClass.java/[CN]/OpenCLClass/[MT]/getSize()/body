@@ -1,9 +1,22 @@
 {
+  int max=edu.syr.pcpratts.rootbeer.generate.bytecode.Constants.SizeGcInfo;
   try {
-    OffsetCalculator calc=OpenCLScene.v().getOffsetCalculator(m_SootClass);
-    return calc.getSize(m_SootClass);
+    SootClass soot_class=m_sootClass;
+    while (true) {
+      OffsetCalculator calc=OpenCLScene.v().getOffsetCalculator(soot_class);
+      int size=calc.getSize(soot_class);
+      if (size > max) {
+        max=size;
+      }
+      if (soot_class.hasSuperclass()) {
+        soot_class=soot_class.getSuperclass();
+      }
+ else {
+        return max;
+      }
+    }
   }
  catch (  RuntimeException ex) {
-    return edu.syr.pcpratts.rootbeer.generate.bytecode.Constants.SizeGcInfo;
+    return max;
   }
 }

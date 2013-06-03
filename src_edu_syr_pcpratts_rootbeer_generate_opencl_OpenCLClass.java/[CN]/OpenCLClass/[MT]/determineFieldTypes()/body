@@ -1,32 +1,32 @@
 {
-  if (mInstanceRefFields != null)   return;
-  mInstanceRefFields=new ArrayList<OpenCLField>();
-  mInstanceNonRefFields=new ArrayList<OpenCLField>();
-  mAllUsedInstanceFields=new ArrayList<OpenCLField>();
-  mStaticRefFields=new ArrayList<OpenCLField>();
-  mStaticNonRefFields=new ArrayList<OpenCLField>();
-  mAllUsedStaticFields=new ArrayList<OpenCLField>();
-  for (  OpenCLField field : mFields) {
+  if (m_instanceRefFields != null)   return;
+  m_instanceRefFields=new ArrayList<OpenCLField>();
+  m_instanceNonRefFields=new ArrayList<OpenCLField>();
+  m_allUsedInstanceFields=new ArrayList<OpenCLField>();
+  m_staticRefFields=new ArrayList<OpenCLField>();
+  m_staticNonRefFields=new ArrayList<OpenCLField>();
+  m_allUsedStaticFields=new ArrayList<OpenCLField>();
+  for (  OpenCLField field : m_fields) {
     OpenCLType type=field.getType();
     if (type.isRefType()) {
       if (field.isInstance()) {
-        mInstanceRefFields.add(field);
+        m_instanceRefFields.add(field);
       }
  else {
-        mStaticRefFields.add(field);
+        m_staticRefFields.add(field);
       }
     }
  else {
       if (field.isInstance()) {
-        mInstanceNonRefFields.add(field);
+        m_instanceNonRefFields.add(field);
       }
  else {
-        mStaticNonRefFields.add(field);
+        m_staticNonRefFields.add(field);
       }
     }
   }
-  mAllUsedInstanceFields.addAll(mInstanceRefFields);
-  mAllUsedInstanceFields.addAll(mInstanceNonRefFields);
-  mAllUsedStaticFields.addAll(mStaticRefFields);
-  mAllUsedStaticFields.addAll(mStaticNonRefFields);
+  m_allUsedInstanceFields.addAll(m_instanceRefFields);
+  m_allUsedInstanceFields.addAll(m_instanceNonRefFields);
+  m_allUsedStaticFields.addAll(m_staticRefFields);
+  m_allUsedStaticFields.addAll(m_staticNonRefFields);
 }

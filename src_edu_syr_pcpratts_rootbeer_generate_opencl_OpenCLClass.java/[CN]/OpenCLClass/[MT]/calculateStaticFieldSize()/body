@@ -1,10 +1,10 @@
 {
-  mStaticFieldSize=0;
+  m_staticFieldSize=0;
   determineFieldTypes();
-  for (  OpenCLField field : mAllUsedInstanceFields) {
+  for (  OpenCLField field : m_allUsedInstanceFields) {
     SootField soot_field=field.getSootField();
     if (soot_field.isStatic() == false)     continue;
     OpenCLType type=new OpenCLType(soot_field.getType());
-    mStaticFieldSize+=type.getSize();
+    m_staticFieldSize+=type.getSize();
   }
 }

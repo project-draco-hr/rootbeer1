@@ -1,0 +1,43 @@
+{
+  if (visited.contains(signature)) {
+    return;
+  }
+  visited.add(signature);
+  StringToType converter=new StringToType();
+  FieldSignatureUtil futil=new FieldSignatureUtil();
+  MethodSignatureUtil mutil=new MethodSignatureUtil();
+  mutil.parse(signature);
+  m_currDfsInfo.addType(mutil.getClassName());
+  m_currDfsInfo.addType(mutil.getReturnType());
+  m_currDfsInfo.addMethod(signature);
+  ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
+  List<String> virt_methods=class_hierarchy.getVirtualMethods(signature);
+  for (  String virt_method : virt_methods) {
+    if (RootbeerClassLoader.v().dontFollow(virt_method)) {
+      continue;
+    }
+    if (virt_method.equals(signature) == false) {
+      queue.add(virt_method);
+    }
+  }
+  HierarchyValueSwitch value_switch=RootbeerClassLoader.v().getValueSwitch(signature);
+  for (  String type_str : value_switch.getAllTypes()) {
+    Type type=converter.convert(type_str);
+    m_currDfsInfo.addType(type);
+  }
+  for (  String method_sig : value_switch.getMethodRefs()) {
+    if (RootbeerClassLoader.v().dontFollow(method_sig)) {
+      continue;
+    }
+    queue.add(method_sig);
+  }
+  for (  String field_ref : value_switch.getFieldRefs()) {
+    futil.parse(field_ref);
+    SootField soot_field=futil.getSootField();
+    m_currDfsInfo.addField(soot_field);
+  }
+  for (  String instanceof_str : value_switch.getInstanceOfs()) {
+    Type type=converter.convert(instanceof_str);
+    m_currDfsInfo.addInstanceOf(type);
+  }
+}

@@ -8,6 +8,11 @@
   for (  SootMethod kernel_method : kernel_methods) {
     System.out.println("running transform2 on: " + kernel_method.getSignature() + "...");
     RootbeerClassLoader.v().loadDfsInfo(kernel_method);
+    DfsInfo dfs_info=RootbeerClassLoader.v().getDfsInfo();
+    RootbeerDfs rootbeer_dfs=new RootbeerDfs();
+    rootbeer_dfs.run(dfs_info);
+    dfs_info.expandArrayTypes();
+    dfs_info.finalizeTypes();
     SootClass soot_class=kernel_method.getDeclaringClass();
     transform2.run(soot_class.getName());
   }
