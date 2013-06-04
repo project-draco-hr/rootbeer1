@@ -38,7 +38,7 @@
     ret+="mem = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n";
     ret+="trash = edu_syr_pcpratts_gc_deref(gc_info, 0) + " + junk_index + ";\n";
     ret+="mystery = trash - 8;\n";
-    ret+="mem += 12;\n";
+    ret+="mem += 16;\n";
   }
   ret+="count = 0;\n";
   ret+="while(count < 100){\n";
