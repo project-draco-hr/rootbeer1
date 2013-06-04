@@ -1,0 +1,4 @@
+{
+  int intValue=readInt();
+  return Float.intBitsToFloat(intValue);
+}
