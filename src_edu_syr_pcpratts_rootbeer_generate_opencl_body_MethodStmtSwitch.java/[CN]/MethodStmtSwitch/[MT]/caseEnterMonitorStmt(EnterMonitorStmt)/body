@@ -25,5 +25,6 @@
   m_output.append("      " + count + " = 0;\n");
   m_output.append("    }\n");
   m_output.append("  } else {\n");
+  m_output.append("    printf(\"thread_id entered: %d\\n\", getThreadId());\n");
   m_output.append("  * ( ( int * ) & " + synch + " [ 20 ] ) = 20 ;\n");
 }
