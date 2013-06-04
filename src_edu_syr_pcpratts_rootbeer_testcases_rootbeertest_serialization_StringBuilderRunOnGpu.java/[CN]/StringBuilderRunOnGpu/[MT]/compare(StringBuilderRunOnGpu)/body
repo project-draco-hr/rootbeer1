@@ -1,0 +1,13 @@
+{
+  if (rhs.m_str == null) {
+    System.out.println("rhs.m_str == null");
+    return false;
+  }
+  if (m_str.equals(rhs.m_str) == false) {
+    System.out.println("m_str: ");
+    System.out.println("  lhs: " + m_str);
+    System.out.println("  rhs.m_str: " + rhs.m_str);
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,9 @@
+{
+  m_str+=" " + true;
+  m_str+=" " + 'c';
+  m_str+=" " + 1.0;
+  m_str+=" " + 2.0f;
+  m_str+=" " + 3;
+  m_str+=" " + 4L;
+  m_str+=" " + "str";
+}
