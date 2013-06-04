@@ -1,7 +1,7 @@
 {
   List<Kernel> ret=new ArrayList<Kernel>();
   for (int i=0; i < 5; ++i) {
-    ret.add(new StringBuilderRunOnGpu());
+    ret.add(new StringBuilderRunOnGpu1());
   }
   return ret;
 }

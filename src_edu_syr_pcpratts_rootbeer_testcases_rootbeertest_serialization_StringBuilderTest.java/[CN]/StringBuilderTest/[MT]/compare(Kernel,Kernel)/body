@@ -1,5 +1,0 @@
-{
-  StringBuilderRunOnGpu lhs=(StringBuilderRunOnGpu)original;
-  StringBuilderRunOnGpu rhs=(StringBuilderRunOnGpu)from_heap;
-  return lhs.compare(rhs);
-}

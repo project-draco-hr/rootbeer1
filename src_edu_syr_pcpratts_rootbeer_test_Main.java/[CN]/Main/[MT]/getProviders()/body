@@ -53,7 +53,7 @@
   ret.add(new LinkedHashMapTest());
   ret.add(new CovarientTest());
   ret.add(new GpuMethodTest());
-  ret.add(new StringBuilderTest());
+  ret.add(new StringBuilderTest1());
   ret.add(new StringBuilderTest2());
   if (m_hardTests) {
     ret.add(new SimpleSynchronizedTest());

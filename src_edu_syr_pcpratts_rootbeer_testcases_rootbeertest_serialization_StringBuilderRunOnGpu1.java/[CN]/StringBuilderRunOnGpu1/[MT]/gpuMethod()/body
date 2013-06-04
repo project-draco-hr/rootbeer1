@@ -1,5 +1,5 @@
 {
-  m_str="str " + true;
+  m_str=" " + true;
   m_str+=" " + 'c';
   m_str+=" " + 1.0;
   m_str+=" " + 2.0f;
