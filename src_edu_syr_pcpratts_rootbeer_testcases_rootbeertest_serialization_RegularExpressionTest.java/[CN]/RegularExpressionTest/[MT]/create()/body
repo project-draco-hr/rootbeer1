@@ -1,7 +1,0 @@
-{
-  List<Kernel> ret=new ArrayList<Kernel>();
-  for (int i=0; i < 4; ++i) {
-    ret.add(new RegularExpressionRunOnGpu());
-  }
-  return ret;
-}
