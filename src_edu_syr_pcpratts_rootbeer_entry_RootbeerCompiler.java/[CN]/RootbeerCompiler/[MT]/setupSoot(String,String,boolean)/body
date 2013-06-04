@@ -54,7 +54,12 @@
   ListMethodTester follow_tester=new ListMethodTester();
   follow_tester.addSignature("<java.lang.String: void <init>(char[])>");
   follow_tester.addSignature("<java.lang.StringBuilder: void <init>()>");
+  follow_tester.addSignature("<java.lang.Boolean: java.lang.String toString(boolean)>");
+  follow_tester.addSignature("<java.lang.Character: java.lang.String toString(char)>");
+  follow_tester.addSignature("<java.lang.Double: java.lang.String toString(double)>");
+  follow_tester.addSignature("<java.lang.Float: java.lang.String toString(float)>");
   follow_tester.addSignature("<java.lang.Integer: java.lang.String toString(int)>");
+  follow_tester.addSignature("<java.lang.Long: java.lang.String toString(long)>");
   follow_tester.addSignature("<edu.syr.pcpratts.rootbeer.runtime.Sentinal: void <init>()>");
   follow_tester.addSignature("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: void <init>()>");
   follow_tester.addSignature("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: edu.syr.pcpratts.rootbeer.runtimegpu.GpuException arrayOutOfBounds(int,int,int)>");

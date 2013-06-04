@@ -10,7 +10,12 @@
   extra_methods.add("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: edu.syr.pcpratts.rootbeer.runtimegpu.GpuException arrayOutOfBounds(int,int,int)>");
   extra_methods.add("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: void <init>()>");
   extra_methods.add("<java.lang.String: void <init>(char[])>");
+  extra_methods.add("<java.lang.Boolean: java.lang.String toString(boolean)>");
+  extra_methods.add("<java.lang.Character: java.lang.String toString(char)>");
+  extra_methods.add("<java.lang.Double: java.lang.String toString(double)>");
+  extra_methods.add("<java.lang.Float: java.lang.String toString(float)>");
   extra_methods.add("<java.lang.Integer: java.lang.String toString(int)>");
+  extra_methods.add("<java.lang.Long: java.lang.String toString(long)>");
   for (  String extra_method : extra_methods) {
     util.parse(extra_method);
     addMethod(util.getSootMethod());
