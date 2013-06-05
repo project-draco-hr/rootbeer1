@@ -1,0 +1,8 @@
+{
+  String[] tokens=lhs_str.split("\\.");
+  String token1=tokens[1];
+  if (token1.length() < 7) {
+    return true;
+  }
+  return false;
+}

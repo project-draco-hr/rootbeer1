@@ -55,6 +55,8 @@
   ret.add(new GpuMethodTest());
   ret.add(new StringBuilderTest1());
   ret.add(new StringBuilderTest2());
+  ret.add(new DoubleToStringTest());
+  ret.add(new FloatToStringTest());
   if (m_hardTests) {
     ret.add(new SimpleSynchronizedTest());
     ret.add(new SynchronizedMethodTest());

@@ -1,0 +1,5 @@
+{
+  FloatToStringRunOnGpu lhs=(FloatToStringRunOnGpu)original;
+  FloatToStringRunOnGpu rhs=(FloatToStringRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}
