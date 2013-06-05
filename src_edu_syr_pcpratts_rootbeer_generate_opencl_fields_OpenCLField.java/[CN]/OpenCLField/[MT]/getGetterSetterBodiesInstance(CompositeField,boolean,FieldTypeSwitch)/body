@@ -17,10 +17,12 @@
     ret.append("int offset;\n");
   }
   ret.append(address_qual + " char * thisref_deref;\n");
-  ret.append("if(thisref == -1){\n");
-  ret.append("  *exception = " + null_num + ";\n");
-  ret.append("  return 0;\n");
-  ret.append("}\n");
+  if (Configuration.compilerInstance().getExceptions()) {
+    ret.append("if(thisref == -1){\n");
+    ret.append("  *exception = " + null_num + ";\n");
+    ret.append("  return 0;\n");
+    ret.append("}\n");
+  }
   ret.append("thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n");
   if (composite.getClasses().size() == 1) {
     SootClass sclass=composite.getClasses().get(0);
@@ -38,10 +40,12 @@
     ret.append("int offset;\n");
   }
   ret.append(address_qual + " char * thisref_deref;\n");
-  ret.append("if(thisref == -1){\n");
-  ret.append("  *exception = " + null_num + ";\n");
-  ret.append("  return;\n");
-  ret.append("}\n");
+  if (Configuration.compilerInstance().getExceptions()) {
+    ret.append("if(thisref == -1){\n");
+    ret.append("  *exception = " + null_num + ";\n");
+    ret.append("  return;\n");
+    ret.append("}\n");
+  }
   ret.append("thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n");
   if (composite.getClasses().size() == 1) {
     SootClass sclass=composite.getClasses().get(0);
