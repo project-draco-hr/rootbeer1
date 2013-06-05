@@ -1,4 +1,7 @@
 {
+  if (Configuration.compilerInstance().getExceptions() == false) {
+    return;
+  }
   String prefix=Options.v().rbcl_remap_prefix();
   if (Options.v().rbcl_remap_all() == false) {
     prefix="";
