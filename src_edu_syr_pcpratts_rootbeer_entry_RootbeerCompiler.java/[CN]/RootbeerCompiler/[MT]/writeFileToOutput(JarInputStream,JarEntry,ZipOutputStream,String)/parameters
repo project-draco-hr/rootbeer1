@@ -1,0 +1,4 @@
+JarInputStream jin
+JarEntry jar_entry
+ZipOutputStream zos
+String folder

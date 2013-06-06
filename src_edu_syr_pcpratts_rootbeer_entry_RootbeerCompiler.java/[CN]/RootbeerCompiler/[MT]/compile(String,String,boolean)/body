@@ -3,5 +3,5 @@
   CurrJarName jar_name=new CurrJarName();
   setupSoot(jar_filename,jar_name.get(),run_tests);
   List<SootMethod> kernel_methods=RootbeerClassLoader.v().getEntryPoints();
-  compileForKernels(outname,kernel_methods);
+  compileForKernels(outname,kernel_methods,jar_filename);
 }

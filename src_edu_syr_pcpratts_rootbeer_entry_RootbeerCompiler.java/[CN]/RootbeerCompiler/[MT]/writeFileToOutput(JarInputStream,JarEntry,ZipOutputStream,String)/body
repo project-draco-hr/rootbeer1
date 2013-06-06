@@ -1,0 +1,13 @@
+{
+  ZipEntry entry=new ZipEntry(jar_entry.getName());
+  entry.setSize(jar_entry.getSize());
+  entry.setCrc(jar_entry.getCrc());
+  zos.putNextEntry(entry);
+  while (true) {
+    byte[] buffer=new byte[4096];
+    int len=jin.read(buffer);
+    if (len == -1)     break;
+    zos.write(buffer,0,len);
+  }
+  zos.flush();
+}

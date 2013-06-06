@@ -43,6 +43,6 @@
       writeJimpleFile(class_name);
     }
   }
-  makeOutJar();
+  makeOutJar(jar_filename);
   pack(outname);
 }

@@ -2,7 +2,7 @@
   JarEntryHelp.mkdir(RootbeerPaths.v().getOutputJarFolder() + File.separator);
   String outfile=RootbeerPaths.v().getOutputJarFolder() + File.separator + "partial-ret.jar";
   ZipOutputStream zos=new ZipOutputStream(new FileOutputStream(outfile));
-  addJarInputManifestFiles(zos);
+  addJarInputManifestFiles(zos,jar_filename);
   addOutputClassFiles(zos);
   addConfigurationFile(zos);
   zos.flush();

@@ -1,2 +1,3 @@
 String outname
 List<SootMethod> kernel_methods
+String jar_filename

@@ -1,0 +1,13 @@
+{
+  JarInputStream jin=new JarInputStream(new FileInputStream(jar_filename));
+  while (true) {
+    JarEntry jar_entry=jin.getNextJarEntry();
+    if (jar_entry == null) {
+      break;
+    }
+    if (jar_entry.getName().contains("META_INF")) {
+      writeFileToOutput(jin,jar_entry,zos,RootbeerPaths.v().getJarContentsFolder());
+    }
+  }
+  jin.close();
+}
