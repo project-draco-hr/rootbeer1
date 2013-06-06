@@ -2,7 +2,7 @@
   SootClass ret=new SootClass(name,Modifier.PUBLIC);
   SootClass parent_class=Scene.v().getSootClass(parent);
   ret.setSuperclass(parent_class);
-  Scene.v().addGeneratedClass(ret);
+  Scene.v().addClass(ret);
   ret.setApplicationClass();
   mCurrClass=ret;
   return ret;
