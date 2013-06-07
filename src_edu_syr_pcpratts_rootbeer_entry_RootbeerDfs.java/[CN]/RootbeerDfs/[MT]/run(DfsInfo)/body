@@ -1,15 +1,15 @@
 {
   m_currDfsInfo=dfs_info;
   String signature=dfs_info.getRootMethodSignature();
-  Set<String> visited=new HashSet<String>();
-  LinkedList<String> queue=new LinkedList<String>();
-  queue.add(signature);
-  queue.add("<java.lang.Integer: java.lang.String toString(int)>");
-  queue.add("<edu.syr.pcpratts.rootbeer.runtime.Sentinal: void <init>()>");
-  queue.add("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: void <init>()>");
-  queue.add("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: edu.syr.pcpratts.rootbeer.runtimegpu.GpuException arrayOutOfBounds(int,int,int)>");
+  Set<HierarchySignature> visited=new HashSet<HierarchySignature>();
+  LinkedList<HierarchySignature> queue=new LinkedList<HierarchySignature>();
+  queue.add(new HierarchySignature(signature));
+  queue.add(new HierarchySignature("<java.lang.Integer: java.lang.String toString(int)>"));
+  queue.add(new HierarchySignature("<edu.syr.pcpratts.rootbeer.runtime.Sentinal: void <init>()>"));
+  queue.add(new HierarchySignature("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: void <init>()>"));
+  queue.add(new HierarchySignature("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: edu.syr.pcpratts.rootbeer.runtimegpu.GpuException arrayOutOfBounds(int,int,int)>"));
   while (queue.isEmpty() == false) {
-    String curr=queue.removeFirst();
+    HierarchySignature curr=queue.removeFirst();
     doDfsForRootbeer(curr,queue,visited);
   }
 }

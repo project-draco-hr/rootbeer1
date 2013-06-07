@@ -21,8 +21,9 @@
   mWritenOnGpuFieldsClassesChecked.add(soot_type.toString());
   ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
   HierarchyGraph hgraph=class_hierarchy.getHierarchyGraph(soot_class);
-  Set<String> classes=hgraph.getAllClasses();
-  for (  String class_name : classes) {
+  Set<Integer> classes=hgraph.getAllClasses();
+  for (  Integer class_num : classes) {
+    String class_name=StringNumbers.v().getString(class_num);
     SootClass curr_class=Scene.v().getSootClass(class_name);
     Chain<SootField> fields=curr_class.getFields();
     for (    SootField field : fields) {

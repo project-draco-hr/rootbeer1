@@ -1,0 +1,3 @@
+HierarchySignature signature
+LinkedList<HierarchySignature> queue
+Set<HierarchySignature> visited

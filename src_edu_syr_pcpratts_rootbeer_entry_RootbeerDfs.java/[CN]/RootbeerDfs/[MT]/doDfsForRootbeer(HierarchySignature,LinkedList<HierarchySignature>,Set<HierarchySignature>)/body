@@ -6,13 +6,12 @@
   StringToType converter=new StringToType();
   FieldSignatureUtil futil=new FieldSignatureUtil();
   MethodSignatureUtil mutil=new MethodSignatureUtil();
-  mutil.parse(signature);
-  m_currDfsInfo.addType(mutil.getClassName());
-  m_currDfsInfo.addType(mutil.getReturnType());
-  m_currDfsInfo.addMethod(signature);
+  m_currDfsInfo.addType(signature.getClassName());
+  m_currDfsInfo.addType(signature.getReturnType());
+  m_currDfsInfo.addMethod(signature.toString());
   ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
-  List<String> virt_methods=class_hierarchy.getVirtualMethods(signature);
-  for (  String virt_method : virt_methods) {
+  List<HierarchySignature> virt_methods=class_hierarchy.getVirtualMethods(signature);
+  for (  HierarchySignature virt_method : virt_methods) {
     if (RootbeerClassLoader.v().dontFollow(virt_method)) {
       continue;
     }
@@ -21,11 +20,12 @@
     }
   }
   HierarchyValueSwitch value_switch=RootbeerClassLoader.v().getValueSwitch(signature);
-  for (  String type_str : value_switch.getAllTypes()) {
+  for (  Integer num : value_switch.getAllTypesInteger()) {
+    String type_str=StringNumbers.v().getString(num);
     Type type=converter.convert(type_str);
     m_currDfsInfo.addType(type);
   }
-  for (  String method_sig : value_switch.getMethodRefs()) {
+  for (  HierarchySignature method_sig : value_switch.getMethodRefsHierarchy()) {
     if (RootbeerClassLoader.v().dontFollow(method_sig)) {
       continue;
     }
@@ -36,8 +36,9 @@
     SootField soot_field=futil.getSootField();
     m_currDfsInfo.addField(soot_field);
   }
-  for (  String instanceof_str : value_switch.getInstanceOfs()) {
-    Type type=converter.convert(instanceof_str);
+  for (  Integer num : value_switch.getInstanceOfsInteger()) {
+    String type_str=StringNumbers.v().getString(num);
+    Type type=converter.convert(type_str);
     m_currDfsInfo.addInstanceOf(type);
   }
 }
