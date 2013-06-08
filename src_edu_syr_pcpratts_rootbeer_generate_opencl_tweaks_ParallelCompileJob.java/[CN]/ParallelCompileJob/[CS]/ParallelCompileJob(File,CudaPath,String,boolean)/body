@@ -1,0 +1,6 @@
+{
+  m_generated=generated;
+  m_cudaPath=cuda_path;
+  m_gencodeOptions=gencode_options;
+  m_m32=m32;
+}

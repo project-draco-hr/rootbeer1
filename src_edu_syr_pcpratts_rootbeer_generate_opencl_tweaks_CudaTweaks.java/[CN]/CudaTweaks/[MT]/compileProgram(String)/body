@@ -15,9 +15,8 @@
     CudaPath cuda_path=new CudaPath();
     GencodeOptions options_gen=new GencodeOptions();
     String gencode_options=options_gen.getOptions();
-    CompileResult res32=compileProgram0(generated,cuda_path,gencode_options,true);
-    CompileResult res64=compileProgram0(generated,cuda_path,gencode_options,false);
-    return new CompileResult[]{res32,res64};
+    ParallelCompile parallel_compile=new ParallelCompile();
+    return parallel_compile.compile(generated,cuda_path,gencode_options);
   }
  catch (  Exception ex) {
     throw new RuntimeException("Failed to compile cuda code.",ex);

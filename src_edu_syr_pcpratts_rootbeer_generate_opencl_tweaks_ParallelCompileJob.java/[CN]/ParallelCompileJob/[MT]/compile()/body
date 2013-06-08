@@ -1,0 +1,34 @@
+{
+  List<byte[]> file_contents;
+  try {
+    String model_string=m_m32 ? "-m32" : "-m64";
+    String file_string=m_m32 ? "_32" : "_64";
+    File code_file=new File(RootbeerPaths.v().getRootbeerHome() + "code_file" + file_string+ ".ptx");
+    String command;
+    if (File.separator.equals("/")) {
+      command=m_cudaPath.get() + "/nvcc " + model_string+ " "+ m_gencodeOptions+ " -fatbin "+ m_generated.getAbsolutePath()+ " -o "+ code_file.getAbsolutePath();
+      CompilerRunner runner=new CompilerRunner();
+      List<String> errors=runner.run(command);
+      if (errors.isEmpty() == false) {
+        m_result=new CompileResult(m_m32,null,errors);
+        return;
+      }
+    }
+ else {
+      WindowsCompile compile=new WindowsCompile();
+      String nvidia_path=m_cudaPath.get();
+      command="\"" + nvidia_path + "\" "+ m_gencodeOptions+ " -fatbin \""+ m_generated.getAbsolutePath()+ "\" -o \""+ code_file.getAbsolutePath()+ "\""+ compile.endl();
+      List<String> errors=compile.compile(command);
+      if (errors.isEmpty() == false) {
+        m_result=new CompileResult(m_m32,null,errors);
+        return;
+      }
+    }
+    file_contents=readFile(code_file);
+  }
+ catch (  Exception ex) {
+    file_contents=new ArrayList<byte[]>();
+    ex.printStackTrace();
+  }
+  m_result=new CompileResult(m_m32,file_contents,new ArrayList<String>());
+}
