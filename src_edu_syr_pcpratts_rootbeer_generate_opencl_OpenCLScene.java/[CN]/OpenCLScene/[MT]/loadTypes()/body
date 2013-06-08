@@ -10,6 +10,7 @@
   extra_methods.add("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: edu.syr.pcpratts.rootbeer.runtimegpu.GpuException arrayOutOfBounds(int,int,int)>");
   extra_methods.add("<edu.syr.pcpratts.rootbeer.runtimegpu.GpuException: void <init>()>");
   extra_methods.add("<java.lang.String: void <init>(char[])>");
+  extra_methods.add("<java.lang.Object: int hashCode()>");
   extra_methods.add("<java.lang.Boolean: java.lang.String toString(boolean)>");
   extra_methods.add("<java.lang.Character: java.lang.String toString(char)>");
   extra_methods.add("<java.lang.Double: java.lang.String toString(double)>");
