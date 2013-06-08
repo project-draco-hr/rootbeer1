@@ -1,0 +1,9 @@
+{
+  for (int i=0; i < builder.length(); ++i) {
+    char c=builder.charAt(i);
+    if (c != ' ' && c != '\n') {
+      return false;
+    }
+  }
+  return true;
+}

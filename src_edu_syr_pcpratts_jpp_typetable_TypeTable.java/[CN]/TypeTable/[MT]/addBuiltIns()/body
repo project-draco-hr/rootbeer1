@@ -1,5 +1,0 @@
-{
-  m_Types=new ArrayList<CType>();
-  BuiltInTypes builtins=new BuiltInTypes();
-  m_Types.addAll(builtins.get());
-}

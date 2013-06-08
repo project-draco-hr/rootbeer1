@@ -1,0 +1,12 @@
+{
+  List<String> ret=new ArrayList<String>();
+  for (  Block block : blocks) {
+    if (block.isMethod()) {
+      String name=parseMethodName(block);
+      ret.add(name);
+      Method method=new Method(name);
+      block.setMethod(method);
+    }
+  }
+  return ret;
+}

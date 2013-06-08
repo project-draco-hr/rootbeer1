@@ -6,6 +6,9 @@
   cuda_code=cuda_code.replaceAll("%%invoke_run%%",replacement);
   int string_builder_number=RootbeerClassLoader.v().getClassNumber("java.lang.StringBuilder");
   String sbn_str="" + string_builder_number;
-  cuda_code=cuda_code.replaceAll("%%java_lang_StringBuilder_TypeNumber%%","" + sbn_str);
+  cuda_code=cuda_code.replaceAll("%%java_lang_StringBuilder_TypeNumber%%",sbn_str);
+  int null_pointer_number=RootbeerClassLoader.v().getClassNumber("java.lang.NullPointerException");
+  String np_str="" + null_pointer_number;
+  cuda_code=cuda_code.replaceAll("%%java_lang_NullPointerException_TypeNumber%%",np_str);
   return cuda_code;
 }

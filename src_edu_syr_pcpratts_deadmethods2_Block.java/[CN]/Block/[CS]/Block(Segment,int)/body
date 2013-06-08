@@ -1,0 +1,5 @@
+{
+  m_segments=new ArrayList<Segment>();
+  m_segments.add(segment);
+  m_type=type;
+}

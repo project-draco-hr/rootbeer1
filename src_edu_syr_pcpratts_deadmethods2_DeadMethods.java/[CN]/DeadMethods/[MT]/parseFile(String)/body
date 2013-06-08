@@ -1,0 +1,11 @@
+{
+  ReadFile reader=new ReadFile(filename);
+  String contents="";
+  try {
+    contents=reader.read();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace(System.out);
+  }
+  parseString(contents);
+}

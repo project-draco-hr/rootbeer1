@@ -1,0 +1,21 @@
+{
+  if (m_type == SegmentParser.TYPE_FREE) {
+    return "TYPE_FREE: " + m_str;
+  }
+ else   if (m_type == SegmentParser.TYPE_COMMENT) {
+    return "TYPE_COMMENT: " + m_str;
+  }
+ else   if (m_type == SegmentParser.TYPE_COMMENT) {
+    return "TYPE_COMMENT: " + m_str;
+  }
+ else   if (m_type == SegmentParser.TYPE_STRING) {
+    return "TYPE_STRING: " + m_str;
+  }
+ else   if (m_type == SegmentParser.TYPE_CHAR) {
+    return "TYPE_CHAR: " + m_str;
+  }
+ else   if (m_type == SegmentParser.TYPE_DEFINE) {
+    return "TYPE_DEFINE: " + m_str;
+  }
+  throw new RuntimeException("unknown type: " + m_type + " str: "+ m_str);
+}

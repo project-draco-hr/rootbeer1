@@ -1,4 +1,0 @@
-{
-  super(false);
-  m_TypeTable=type_table;
-}

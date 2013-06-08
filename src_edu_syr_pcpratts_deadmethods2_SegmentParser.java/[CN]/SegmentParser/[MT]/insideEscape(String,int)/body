@@ -1,0 +1,18 @@
+{
+  int count=0;
+  for (int i=index; i >= 0; --i) {
+    char c=contents.charAt(i);
+    if (c == '\\') {
+      ++count;
+    }
+ else {
+      break;
+    }
+  }
+  if (count % 2 == 0) {
+    return false;
+  }
+ else {
+    return true;
+  }
+}

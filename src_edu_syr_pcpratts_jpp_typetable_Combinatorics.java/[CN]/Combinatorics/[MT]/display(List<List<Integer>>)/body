@@ -1,8 +1,0 @@
-{
-  for (  List<Integer> sublist : list) {
-    for (int i=0; i < sublist.size(); ++i) {
-      System.out.print(sublist.get(i) + " ");
-      if (i == sublist.size() - 1)       System.out.println();
-    }
-  }
-}

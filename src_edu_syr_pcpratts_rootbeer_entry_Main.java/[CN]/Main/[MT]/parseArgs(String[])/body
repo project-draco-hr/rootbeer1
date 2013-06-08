@@ -74,6 +74,11 @@
  else     if (m_simpleCompile == false) {
       m_mainJar=arg;
       m_destJar=safeGet(args,i + 1,arg);
+      File main_jar=new File(m_mainJar);
+      if (main_jar.exists() == false) {
+        System.out.println("Cannot find: " + m_mainJar);
+        System.exit(0);
+      }
       ++i;
       m_simpleCompile=true;
     }

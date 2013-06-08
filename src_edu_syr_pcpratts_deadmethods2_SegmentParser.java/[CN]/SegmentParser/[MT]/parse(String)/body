@@ -1,0 +1,124 @@
+{
+  List<Segment> ret=new ArrayList<Segment>();
+  int state=TYPE_FREE;
+  StringBuilder accum=new StringBuilder();
+  for (int i=0; i < contents.length(); ++i) {
+    char c=contents.charAt(i);
+    char cc='\0';
+    if (i < contents.length() - 1) {
+      cc=contents.charAt(i + 1);
+    }
+switch (state) {
+case TYPE_FREE:
+      if (c == '/' && cc == '/') {
+        if (accum.length() != 0) {
+          ret.add(new Segment(accum.toString(),TYPE_FREE));
+        }
+        accum=new StringBuilder("//");
+        state=TYPE_COMMENT;
+        ++i;
+      }
+ else       if (c == '\"') {
+        if (accum.length() != 0) {
+          ret.add(new Segment(accum.toString(),TYPE_FREE));
+        }
+        accum=new StringBuilder("\"");
+        state=TYPE_STRING;
+      }
+ else       if (c == '\'') {
+        if (accum.length() != 0) {
+          ret.add(new Segment(accum.toString(),TYPE_FREE));
+        }
+        accum=new StringBuilder("\'");
+        state=TYPE_CHAR;
+      }
+ else       if (c == '#' && onlyWhitespace(accum)) {
+        if (accum.length() != 0) {
+          ret.add(new Segment(accum.toString(),TYPE_FREE));
+        }
+        accum=new StringBuilder("#");
+        state=TYPE_DEFINE;
+      }
+ else       if (c == '\n') {
+        if (accum.length() != 0) {
+          ret.add(new Segment(accum.toString(),TYPE_FREE));
+        }
+        accum=new StringBuilder("");
+      }
+ else {
+        accum.append(c);
+      }
+    break;
+case TYPE_COMMENT:
+  if (c == '\n') {
+    if (insideEscape(contents,i - 1)) {
+      accum.append(c);
+    }
+ else {
+      if (accum.length() != 0) {
+        ret.add(new Segment(accum.toString(),TYPE_COMMENT));
+      }
+      accum=new StringBuilder();
+      state=TYPE_FREE;
+    }
+  }
+ else {
+    accum.append(c);
+  }
+break;
+case TYPE_STRING:
+if (c == '\"') {
+if (insideEscape(contents,i - 1)) {
+  accum.append(c);
+}
+ else {
+  accum.append(c);
+  ret.add(new Segment(accum.toString(),TYPE_STRING));
+  accum=new StringBuilder();
+  state=TYPE_FREE;
+}
+}
+ else {
+accum.append(c);
+}
+break;
+case TYPE_CHAR:
+if (c == '\'') {
+if (insideEscape(contents,i - 1)) {
+accum.append(c);
+}
+ else {
+accum.append(c);
+ret.add(new Segment(accum.toString(),TYPE_CHAR));
+accum=new StringBuilder();
+state=TYPE_FREE;
+}
+}
+ else {
+accum.append(c);
+}
+break;
+case TYPE_DEFINE:
+if (c == '\n') {
+if (insideEscape(contents,i - 1)) {
+accum.append(c);
+}
+ else {
+if (accum.length() != 0) {
+ret.add(new Segment(accum.toString(),TYPE_DEFINE));
+}
+accum=new StringBuilder();
+state=TYPE_FREE;
+}
+}
+ else {
+accum.append(c);
+}
+break;
+}
+}
+if (accum.length() != 0) {
+ret.add(new Segment(accum.toString(),state));
+}
+return ret;
+}

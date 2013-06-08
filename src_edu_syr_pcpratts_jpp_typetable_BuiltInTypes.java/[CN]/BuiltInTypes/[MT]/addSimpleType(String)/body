@@ -1,5 +1,0 @@
-{
-  List<String> tokens=new ArrayList<String>();
-  tokens.add(type);
-  m_Types.add(new CType(tokens));
-}

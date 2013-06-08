@@ -1,4 +1,0 @@
-{
-  m_IncludePath=new IncludePath();
-  JppSettings.v().setCpp(is_cpp);
-}

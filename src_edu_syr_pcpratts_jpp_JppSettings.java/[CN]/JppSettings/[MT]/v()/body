@@ -1,4 +1,0 @@
-{
-  if (m_Instance == null)   m_Instance=new JppSettings();
-  return m_Instance;
-}

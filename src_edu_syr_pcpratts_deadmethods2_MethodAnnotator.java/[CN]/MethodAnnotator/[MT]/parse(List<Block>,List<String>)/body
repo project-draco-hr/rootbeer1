@@ -1,0 +1,8 @@
+{
+  for (  Block block : blocks) {
+    if (block.isMethod() == false) {
+      continue;
+    }
+    parseMethod(block,method_names);
+  }
+}

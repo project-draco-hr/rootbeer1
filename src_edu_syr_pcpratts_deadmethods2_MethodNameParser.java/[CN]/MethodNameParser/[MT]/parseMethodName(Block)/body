@@ -1,0 +1,27 @@
+{
+  String str=block.getFullString();
+  System.out.println("str: " + str);
+  int pos=str.indexOf('(');
+  int first_char_pos=pos - 1;
+  while (first_char_pos >= 0) {
+    char c=str.charAt(first_char_pos);
+    if (c == ' ') {
+      --first_char_pos;
+    }
+ else {
+      break;
+    }
+  }
+  int first_space_pos=first_char_pos - 1;
+  while (first_space_pos >= 0) {
+    char c=str.charAt(first_space_pos);
+    if (c == ' ') {
+      break;
+    }
+ else {
+      --first_space_pos;
+    }
+  }
+  String method_name=str.substring(first_space_pos + 1,first_char_pos + 1);
+  return method_name;
+}
