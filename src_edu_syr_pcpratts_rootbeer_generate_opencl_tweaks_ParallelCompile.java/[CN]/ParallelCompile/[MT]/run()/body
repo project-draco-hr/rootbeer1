@@ -1,0 +1,5 @@
+{
+  ParallelCompileJob job=m_toCores.take();
+  job.compile();
+  m_fromCores.put(job);
+}
