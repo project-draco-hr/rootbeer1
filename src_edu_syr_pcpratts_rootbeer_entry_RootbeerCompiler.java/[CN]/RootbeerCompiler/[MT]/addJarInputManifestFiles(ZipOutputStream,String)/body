@@ -1,12 +1,12 @@
 {
-  JarInputStream jin=new JarInputStream(new FileInputStream(jar_filename));
+  ZipInputStream jin=new ZipInputStream(new FileInputStream(jar_filename));
   while (true) {
-    JarEntry jar_entry=jin.getNextJarEntry();
+    ZipEntry jar_entry=jin.getNextEntry();
     if (jar_entry == null) {
       break;
     }
-    if (jar_entry.getName().contains("META_INF")) {
-      writeFileToOutput(jin,jar_entry,zos,RootbeerPaths.v().getJarContentsFolder());
+    if (jar_entry.getName().contains("META-INF")) {
+      writeFileToOutput(jin,jar_entry,zos);
     }
   }
   jin.close();
