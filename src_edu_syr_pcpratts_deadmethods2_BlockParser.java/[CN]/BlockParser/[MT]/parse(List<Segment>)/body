@@ -32,6 +32,11 @@
             continue;
           }
           char last_char2=str2.charAt(str2.length() - 1);
+          if (last_char2 == ';' && brace_count == 0) {
+            ret.add(new Block(block_segments,TYPE_DECLARE));
+            i=j;
+            break;
+          }
           if (last_char2 == '{') {
             brace_count++;
           }
