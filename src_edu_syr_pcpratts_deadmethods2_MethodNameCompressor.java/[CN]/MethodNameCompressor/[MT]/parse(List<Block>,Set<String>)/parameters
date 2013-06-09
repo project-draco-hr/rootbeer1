@@ -1,0 +1,2 @@
+List<Block> m_blocks
+Set<String> m_live

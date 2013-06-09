@@ -1,0 +1,9 @@
+{
+  if (m_live == null) {
+    LiveMethodDetector detector=new LiveMethodDetector();
+    m_live=detector.parse(m_blocks);
+  }
+  MethodNameCompressor compressor=new MethodNameCompressor();
+  List<Block> blocks=compressor.parse(m_blocks,m_live);
+  return outputLive(blocks,m_live);
+}

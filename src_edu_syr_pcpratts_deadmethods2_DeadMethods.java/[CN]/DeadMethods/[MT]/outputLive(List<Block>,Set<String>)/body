@@ -1,0 +1,19 @@
+{
+  StringBuilder ret=new StringBuilder();
+  for (  Block block : blocks) {
+    if (block.isMethod()) {
+      Method method=block.getMethod();
+      String name=method.getName();
+      if (live.contains(name) == false) {
+        continue;
+      }
+      ret.append(block.toString());
+      ret.append("\n");
+    }
+ else {
+      ret.append(block.toString());
+      ret.append("\n");
+    }
+  }
+  return ret.toString();
+}

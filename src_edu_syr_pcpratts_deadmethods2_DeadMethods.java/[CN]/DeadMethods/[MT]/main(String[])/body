@@ -1,5 +1,5 @@
 {
   DeadMethods dead_methods=new DeadMethods();
-  dead_methods.parseFile("/home/pcpratts/.rootbeer/pre_dead.cu");
+  dead_methods.parseFile("/home/pcpratts/.rootbeer/generated_unix.cu");
   String ret=dead_methods.getResult();
 }

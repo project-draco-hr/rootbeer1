@@ -1,21 +1,7 @@
 {
-  LiveMethodDetector detector=new LiveMethodDetector();
-  Set<String> live=detector.parse(m_blocks);
-  StringBuilder ret=new StringBuilder();
-  for (  Block block : m_blocks) {
-    if (block.isMethod()) {
-      Method method=block.getMethod();
-      String name=method.getName();
-      if (live.contains(name) == false) {
-        continue;
-      }
-      ret.append(block.toString());
-      ret.append("\n");
-    }
- else {
-      ret.append(block.toString());
-      ret.append("\n");
-    }
+  if (m_live == null) {
+    LiveMethodDetector detector=new LiveMethodDetector();
+    m_live=detector.parse(m_blocks);
   }
-  return ret.toString();
+  return outputLive(m_blocks,m_live);
 }
