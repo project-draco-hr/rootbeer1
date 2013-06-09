@@ -1,7 +1,11 @@
 {
   StringBuilder ret=new StringBuilder();
   if (m_type == BlockParser.TYPE_DECLARE || m_type == BlockParser.TYPE_DEFINE) {
-    ret.append(m_segments.get(0).getString());
+    for (int i=0; i < m_segments.size(); ++i) {
+      Segment segment=m_segments.get(i);
+      ret.append(segment.getString());
+      ret.append("\n");
+    }
   }
  else {
     for (int i=0; i < m_segments.size(); ++i) {
