@@ -1,4 +1,0 @@
-{
-  m_LowerLevel=new ConcreteIteratorEx<Token>(iter);
-  m_Tokens=new LinkedList<Token>();
-}

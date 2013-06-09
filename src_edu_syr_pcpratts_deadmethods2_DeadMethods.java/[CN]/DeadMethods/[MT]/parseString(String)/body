@@ -3,27 +3,9 @@
   List<Segment> segments=segment_parser.parse(contents);
   BlockParser block_parser=new BlockParser();
   List<Block> blocks=block_parser.parse(segments);
-  for (  Block block : blocks) {
-    System.out.println(block.toString());
-  }
   MethodNameParser name_parser=new MethodNameParser();
   List<String> method_names=name_parser.parse(blocks);
-  for (  Block block : blocks) {
-    if (block.isMethod()) {
-      Method method=block.getMethod();
-      System.out.println(method.getName());
-    }
-  }
   MethodAnnotator annotator=new MethodAnnotator();
   annotator.parse(blocks,method_names);
-  for (  Block block : blocks) {
-    if (block.isMethod()) {
-      Method method=block.getMethod();
-      System.out.println("name: " + method.getName());
-      for (      String invoked : method.getInvoked()) {
-        System.out.println("  invoked: " + invoked);
-      }
-    }
-  }
   m_blocks=blocks;
 }

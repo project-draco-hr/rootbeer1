@@ -1,9 +1,0 @@
-{
-  if (new_list.isEmpty())   return;
-  List<CFileItem> ret=new ArrayList<CFileItem>();
-  ret.add(m_Items.get(0));
-  for (  CFileItem item : new_list)   ret.add(item);
-  ret.add(m_Items.get(m_Items.size() - 2));
-  ret.add(m_Items.get(m_Items.size() - 1));
-  m_Items=ret;
-}

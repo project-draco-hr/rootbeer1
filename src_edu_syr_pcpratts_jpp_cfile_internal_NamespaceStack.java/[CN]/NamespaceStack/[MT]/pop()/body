@@ -1,4 +1,0 @@
-{
-  m_Type.remove(m_Type.size() - 1);
-  m_Identifiers.remove(m_Identifiers.size() - 1);
-}

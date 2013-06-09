@@ -1,4 +1,0 @@
-{
-  List<Token> ret=new ArrayList<Token>();
-  return ret;
-}

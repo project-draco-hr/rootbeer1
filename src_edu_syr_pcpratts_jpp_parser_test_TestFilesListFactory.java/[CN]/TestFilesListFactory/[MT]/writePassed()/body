@@ -1,7 +1,0 @@
-{
-  Iterator<String> iter=m_Passed.iterator();
-  while (iter.hasNext()) {
-    m_Writer.println(iter.next());
-    m_Writer.flush();
-  }
-}

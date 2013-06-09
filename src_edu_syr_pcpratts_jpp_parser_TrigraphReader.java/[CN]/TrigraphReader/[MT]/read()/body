@@ -1,6 +1,0 @@
-{
-  m_Curr=m_Next;
-  m_Next=m_NextNext;
-  if (m_CharsLeft != -1)   m_NextNext=new Token("");
- else   m_NextNext=m_LowerLevel.next();
-}

@@ -1,7 +1,0 @@
-{
-  List<Token> ret=new ArrayList<Token>();
-  for (  CFileItem item : m_Items) {
-    ret.addAll(item.getTokens());
-  }
-  return ret;
-}

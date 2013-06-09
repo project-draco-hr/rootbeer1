@@ -1,6 +1,0 @@
-{
-  if (m_NeedToProcessHasNext == false)   return m_HasNext;
-  processHasNext();
-  m_NeedToProcessHasNext=false;
-  return m_HasNext;
-}

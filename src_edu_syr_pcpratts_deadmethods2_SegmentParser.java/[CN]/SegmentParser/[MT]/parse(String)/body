@@ -39,6 +39,11 @@ case TYPE_FREE:
         accum=new StringBuilder("#");
         state=TYPE_DEFINE;
       }
+ else       if (c == '}' || c == '{') {
+        accum.append(c);
+        ret.add(new Segment(accum.toString(),TYPE_FREE));
+        accum=new StringBuilder("");
+      }
  else       if (c == '\n') {
         if (accum.length() != 0) {
           ret.add(new Segment(accum.toString(),TYPE_FREE));

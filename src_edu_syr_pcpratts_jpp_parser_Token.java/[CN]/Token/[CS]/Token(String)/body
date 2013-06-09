@@ -1,6 +1,0 @@
-{
-  m_String=str;
-  m_Immutable=false;
-  if (stringIsComment())   m_Comment=true;
-  if (stringIsPreprocessor())   m_Preprocessor=true;
-}

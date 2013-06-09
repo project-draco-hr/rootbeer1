@@ -1,4 +1,0 @@
-{
-  BufferedReader reader=new BufferedReader(new FileReader(filename));
-  return createPreproc(reader);
-}

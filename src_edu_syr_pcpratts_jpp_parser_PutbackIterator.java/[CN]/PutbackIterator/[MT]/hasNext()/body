@@ -1,4 +1,0 @@
-{
-  if (m_Putbacks.isEmpty() == false)   return true;
-  return m_Iterator.hasNext();
-}

@@ -1,7 +1,0 @@
-{
-  m_LowerLevel=iter;
-  if (m_LowerLevel.hasNext())   m_Curr=m_LowerLevel.next();
-  if (m_LowerLevel.hasNext())   m_Next=m_LowerLevel.next();
-  m_CharsLeft=-1;
-  m_Putbacks=new ArrayList<Token>();
-}

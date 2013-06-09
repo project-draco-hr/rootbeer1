@@ -1,4 +1,0 @@
-{
-  m_Type.push(scope);
-  m_Template.push(template);
-}

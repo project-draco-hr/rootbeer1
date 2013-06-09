@@ -1,7 +1,0 @@
-{
-  if (m_Ret.size() == 1)   return true;
-  String first=m_Ret.get(0).getString();
-  if (first.equals("case"))   return true;
-  if (first.equals("default"))   return true;
-  return false;
-}

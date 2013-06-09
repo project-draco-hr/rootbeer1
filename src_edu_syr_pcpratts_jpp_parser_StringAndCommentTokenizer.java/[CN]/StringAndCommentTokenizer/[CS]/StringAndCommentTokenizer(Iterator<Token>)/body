@@ -1,9 +1,0 @@
-{
-  m_Reader=iter;
-  m_NextNext=new ArrayList<Token>();
-  if (m_Reader.hasNext())   m_CurrChar=m_Reader.next();
- else   m_CurrChar=new Token("");
-  if (m_Reader.hasNext())   m_NextChar=m_Reader.next();
- else   m_NextChar=new Token("");
-  m_Ret=new StringBuilder();
-}

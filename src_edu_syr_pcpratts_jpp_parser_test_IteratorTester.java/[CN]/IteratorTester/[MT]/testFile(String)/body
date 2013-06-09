@@ -1,6 +1,0 @@
-{
-  System.out.println("Running the iteration tester: " + file);
-  copyTextFile(file,"iter_text.orig.c");
-  Iterator<CFileItem> iter7=createIter(file);
-  return test(iter7);
-}

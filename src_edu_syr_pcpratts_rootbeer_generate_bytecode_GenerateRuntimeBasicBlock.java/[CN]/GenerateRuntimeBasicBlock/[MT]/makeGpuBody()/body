@@ -27,11 +27,12 @@
     writer.flush();
     writer.close();
     System.out.println("removing dead methods...");
-    DeadMethods dead_methods=new DeadMethods("entry");
-    code[0]=dead_methods.filter(code[0]);
-    dead_methods=new DeadMethods("entry");
-    code[1]=dead_methods.filter(code[1]);
-    code[1]=code[1].replace("void entry ( char * gc_info_space ,","__declspec(dllexport)\nvoid entry ( char * gc_info_space ,");
+    DeadMethods dead_methods=new DeadMethods();
+    dead_methods.parseString(code[0]);
+    code[0]=dead_methods.getResult();
+    dead_methods.parseString(code[1]);
+    code[1]=dead_methods.getResult();
+    code[1]=code[1].replace("void entry(char * gc_info_space,","__declspec(dllexport)\nvoid entry(char * gc_info_space,");
     makeGetCodeMethodThatReturnsString(code[0],true);
     makeGetCodeMethodThatReturnsString(code[1],false);
     makeGetCodeMethodThatReturnsBytes(true,"");

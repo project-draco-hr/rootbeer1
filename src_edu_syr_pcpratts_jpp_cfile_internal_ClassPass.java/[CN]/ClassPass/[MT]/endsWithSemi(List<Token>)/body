@@ -1,6 +1,0 @@
-{
-  if (tokens.isEmpty())   return false;
-  Token last=tokens.get(tokens.size() - 1);
-  if (last.getString().equals(";"))   return true;
-  return false;
-}

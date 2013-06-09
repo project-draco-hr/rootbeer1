@@ -1,4 +1,0 @@
-{
-  BufferedReader breader=new BufferedReader(reader);
-  return createCpp(breader);
-}

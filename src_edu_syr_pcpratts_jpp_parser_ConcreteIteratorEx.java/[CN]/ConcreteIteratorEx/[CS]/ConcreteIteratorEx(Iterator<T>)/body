@@ -1,4 +1,0 @@
-{
-  m_Iterator=iter;
-  m_TokenList=new ArrayList<T>();
-}

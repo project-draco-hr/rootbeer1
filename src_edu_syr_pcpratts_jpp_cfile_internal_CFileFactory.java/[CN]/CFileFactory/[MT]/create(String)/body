@@ -1,5 +1,0 @@
-{
-  ParserFactory factory=new ParserFactory();
-  PutbackIterator<CFileItem> iter=factory.createCppFromFilename(filename);
-  return create(iter);
-}

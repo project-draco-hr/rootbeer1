@@ -1,9 +1,0 @@
-{
-  String str=token.getString();
-  if (str.equals("<:"))   return new Token("[");
-  if (str.equals(":>"))   return new Token("]");
-  if (str.equals("<%"))   return new Token("{");
-  if (str.equals("%>"))   return new Token("}");
-  if (str.equals("%:"))   return new Token("#");
-  return token;
-}

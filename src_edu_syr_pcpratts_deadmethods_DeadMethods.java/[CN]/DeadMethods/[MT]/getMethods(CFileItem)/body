@@ -1,9 +1,0 @@
-{
-  List<String> ret=new ArrayList<String>();
-  List<Token> tokens=item.getTokens();
-  for (  Token token : tokens) {
-    String curr=token.getString();
-    if (m_MethodNames.contains(curr))     ret.add(curr);
-  }
-  return ret;
-}

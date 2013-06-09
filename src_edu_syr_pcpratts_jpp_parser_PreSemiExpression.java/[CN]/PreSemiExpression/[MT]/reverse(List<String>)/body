@@ -1,4 +1,0 @@
-{
-  Collections.reverse(number_tokens);
-  return number_tokens;
-}

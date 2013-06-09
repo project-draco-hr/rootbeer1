@@ -5,8 +5,9 @@
     writer.println(cuda_code);
     writer.flush();
     writer.close();
-    DeadMethods dead_methods=new DeadMethods("entry");
-    cuda_code=dead_methods.filter(cuda_code);
+    DeadMethods dead_methods=new DeadMethods();
+    dead_methods.parseString(cuda_code);
+    cuda_code=dead_methods.getResult();
     File generated=new File(RootbeerPaths.v().getRootbeerHome() + "generated.cu");
     writer=new PrintWriter(generated);
     writer.println(cuda_code.toString());

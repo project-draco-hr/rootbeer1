@@ -1,4 +1,0 @@
-{
-  m_Tokens=new ArrayList<Token>();
-  m_Tokens.add(token);
-}

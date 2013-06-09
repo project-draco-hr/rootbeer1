@@ -1,8 +1,0 @@
-{
-  Iterator<CStatement> iter=new SemiExpression(tokens.iterator());
-  Iterator<CFileItem> semi=new ForSemiExpression(iter);
-  while (semi.hasNext()) {
-    CFileItem next=semi.next();
-    m_Ret.addItem(next);
-  }
-}

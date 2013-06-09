@@ -1,5 +1,0 @@
-{
-  Token first=tokens.get(0);
-  if (first.getString().equals("namespace"))   return true;
-  return false;
-}

@@ -9,11 +9,11 @@
       if (live.contains(name) == false) {
         continue;
       }
-      ret.append(block.getFullString());
+      ret.append(block.toString());
       ret.append("\n");
     }
  else {
-      ret.append(block.getSegments().get(0).getString());
+      ret.append(block.toString());
       ret.append("\n");
     }
   }

@@ -1,6 +1,0 @@
-{
-  List<String> ret=new ArrayList<String>();
-  addDirectory(ret,"jpp-testsuite" + File.separator);
-  addDirectory(ret,"gcc-testsuite" + File.separator);
-  return ret;
-}

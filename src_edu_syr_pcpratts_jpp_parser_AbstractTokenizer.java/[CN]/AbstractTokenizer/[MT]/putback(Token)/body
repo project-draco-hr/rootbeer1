@@ -1,6 +1,0 @@
-{
-  List<Token> new_tokens=new ArrayList<Token>();
-  new_tokens.add(token);
-  for (  Token tok : m_Tokens)   new_tokens.add(tok);
-  m_Tokens=new_tokens;
-}

@@ -1,5 +1,0 @@
-{
-  m_NeedToCallHasNext=false;
-  if (m_TokenList.isEmpty() == false)   return true;
-  return m_Iterator.hasNext();
-}

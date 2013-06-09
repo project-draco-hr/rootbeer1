@@ -1,4 +1,0 @@
-{
-  m_Type.add(scope);
-  m_Identifiers.add(identifier);
-}

@@ -1,6 +1,0 @@
-{
-  m_Items=new ArrayList<CFileItem>();
-  while (iter.hasNext()) {
-    m_Items.add(iter.next());
-  }
-}

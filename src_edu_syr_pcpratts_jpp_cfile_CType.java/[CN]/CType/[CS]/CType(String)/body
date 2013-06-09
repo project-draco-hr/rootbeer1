@@ -1,5 +1,0 @@
-{
-  m_Tokens=new ArrayList<Token>();
-  m_Tokens.add(new Token(type_name));
-  m_Templates=new ArrayList<CTemplate>();
-}

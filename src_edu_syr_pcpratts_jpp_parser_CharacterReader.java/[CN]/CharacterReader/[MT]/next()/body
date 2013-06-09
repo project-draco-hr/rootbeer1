@@ -1,6 +1,0 @@
-{
-  if (m_HasNext == false)   throw new RuntimeException("end of stream");
-  if (m_NeedToProcessHasNext)   throw new RuntimeException("need to process hasNext");
-  m_NeedToProcessHasNext=true;
-  return new Token(m_NextOutput);
-}

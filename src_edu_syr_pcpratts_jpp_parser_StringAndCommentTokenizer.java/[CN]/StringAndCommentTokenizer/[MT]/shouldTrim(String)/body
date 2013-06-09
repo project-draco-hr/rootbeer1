@@ -1,5 +1,0 @@
-{
-  if (isNewLine(str))   return true;
-  if (str.equals(" "))   return true;
-  return false;
-}

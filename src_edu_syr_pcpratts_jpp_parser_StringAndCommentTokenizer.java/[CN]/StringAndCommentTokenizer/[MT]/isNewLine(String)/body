@@ -1,9 +1,0 @@
-{
-  if (str.equals("\n"))   return true;
-  if (str.equals("\r"))   return true;
-  if (str.length() == 0)   return false;
-  if (str.charAt(0) == 0x0c) {
-    return true;
-  }
-  return false;
-}

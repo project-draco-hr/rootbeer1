@@ -1,7 +1,0 @@
-{
-  if (curr.equals("."))   return false;
-  if (next.equals("."))   return false;
-  if (curr.equals("-"))   return false;
-  if (next.equals("-"))   return false;
-  return true;
-}

@@ -1,6 +1,0 @@
-{
-  String s=File.separator;
-  if (s.equals("\\"))   s="\\\\";
-  String[] tokens=path.split(s);
-  return tokens;
-}

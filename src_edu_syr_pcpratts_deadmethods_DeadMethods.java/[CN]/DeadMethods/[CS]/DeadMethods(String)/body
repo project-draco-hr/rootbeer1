@@ -1,5 +1,0 @@
-{
-  m_MethodNames=new ArrayList<String>();
-  m_MethodsToFollow=new HashSet<String>();
-  m_MethodsToFollow.add(root_method_name);
-}

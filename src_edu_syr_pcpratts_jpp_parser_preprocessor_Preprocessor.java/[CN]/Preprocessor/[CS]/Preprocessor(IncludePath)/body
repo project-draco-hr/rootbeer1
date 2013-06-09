@@ -1,4 +1,0 @@
-{
-  m_IncludeExpander=new IncludeExpander(include_path);
-  m_IfState=new ArrayList<IfState>();
-}

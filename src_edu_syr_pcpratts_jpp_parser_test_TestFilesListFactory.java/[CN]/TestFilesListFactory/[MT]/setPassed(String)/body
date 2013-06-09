@@ -1,4 +1,0 @@
-{
-  m_Writer.println(file);
-  m_Writer.flush();
-}

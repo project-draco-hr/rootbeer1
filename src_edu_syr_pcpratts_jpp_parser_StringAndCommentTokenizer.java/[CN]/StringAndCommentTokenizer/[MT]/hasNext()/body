@@ -1,5 +1,0 @@
-{
-  if (m_NextNext.isEmpty() == false)   return true;
-  if (m_EndOfStream)   return false;
-  return m_Reader.hasNext();
-}

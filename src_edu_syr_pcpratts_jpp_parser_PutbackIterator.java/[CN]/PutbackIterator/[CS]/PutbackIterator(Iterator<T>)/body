@@ -1,4 +1,0 @@
-{
-  m_Iterator=iter;
-  m_Putbacks=new LinkedList<T>();
-}

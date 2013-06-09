@@ -1,9 +1,0 @@
-{
-  ParserFactory factory=new ParserFactory();
-  PutbackIterator<Token> iter1=factory.createPreprocFromFilename(filename);
-  m_MExpander=new MacroExpander();
-  Reader pass2=m_MExpander.process(iter1);
-  PutbackIterator<Token> iter2=factory.createPreprocFromReader(pass2);
-  processIteration(iter2);
-  return new StringReader(m_Builder.toString());
-}

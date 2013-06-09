@@ -2,5 +2,4 @@
   DeadMethods dead_methods=new DeadMethods();
   dead_methods.parseFile("/home/pcpratts/.rootbeer/pre_dead_unix.c");
   String ret=dead_methods.getResult();
-  System.out.println(ret);
 }
