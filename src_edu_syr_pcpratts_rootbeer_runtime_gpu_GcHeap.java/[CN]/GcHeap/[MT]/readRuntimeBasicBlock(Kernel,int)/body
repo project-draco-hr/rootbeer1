@@ -10,7 +10,7 @@
   mToSpaceMemory.setAddress(0);
   mGcObjectVisitor.readStaticsFromHeap();
   mExceptionsMemory.setAddress(0);
-  for (int i=0; i < m_CountWritten; ++i) {
+  for (int i=0; i < num_threads; ++i) {
     long ref=mExceptionsMemory.readLong();
     if (ref != 0) {
       long ref_num=ref >> 4;
