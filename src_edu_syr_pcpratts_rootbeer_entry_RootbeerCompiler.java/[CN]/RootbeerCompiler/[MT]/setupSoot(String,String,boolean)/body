@@ -74,6 +74,13 @@
   for (  String dont_dfs : dont_dfs_set) {
     dont_dfs_tester.addSignature(dont_dfs);
   }
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void println()>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(java.lang.String)>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(double)>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(float)>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void print(java.lang.String)>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void print(double)>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void print(float)>");
   dont_dfs_tester.addSignature("<java.lang.Double: java.lang.String toString(double)>");
   dont_dfs_tester.addSignature("<java.lang.Float: java.lang.String toString(float)>");
   RootbeerClassLoader.v().addDontFollowMethodTester(dont_dfs_tester);
