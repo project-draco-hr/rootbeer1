@@ -1,0 +1,6 @@
+{
+  if (hsm.getSubSignature().equals("void main(java.lang.String[])")) {
+    return true;
+  }
+  return false;
+}

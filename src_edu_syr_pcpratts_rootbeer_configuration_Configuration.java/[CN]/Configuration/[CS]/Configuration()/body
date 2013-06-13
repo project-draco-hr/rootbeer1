@@ -6,4 +6,5 @@
   m_doubles=true;
   m_recursion=true;
   m_exceptions=true;
+  m_keepMains=false;
 }

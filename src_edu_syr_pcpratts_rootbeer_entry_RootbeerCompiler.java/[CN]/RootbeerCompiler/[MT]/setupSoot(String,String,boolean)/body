@@ -68,6 +68,10 @@
   if (runtests) {
     RootbeerClassLoader.v().addFollowClassTester(new TestCaseFollowTester());
   }
+  if (Configuration.compilerInstance().getKeepMains()) {
+    MainTester main_tester=new MainTester();
+    RootbeerClassLoader.v().addFollowMethodTester(main_tester);
+  }
   DontDfsMethods dont_dfs_methods=new DontDfsMethods();
   ListMethodTester dont_dfs_tester=new ListMethodTester();
   Set<String> dont_dfs_set=dont_dfs_methods.get();
