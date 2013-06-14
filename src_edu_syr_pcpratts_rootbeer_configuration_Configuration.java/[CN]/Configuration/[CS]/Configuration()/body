@@ -7,4 +7,5 @@
   m_recursion=true;
   m_exceptions=true;
   m_keepMains=false;
+  m_sharedMemSize=40 * 1024;
 }
