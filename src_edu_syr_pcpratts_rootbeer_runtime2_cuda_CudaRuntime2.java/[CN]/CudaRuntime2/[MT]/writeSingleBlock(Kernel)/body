@@ -2,6 +2,7 @@
   m_writeBlocksStopwatch.start();
   for (  Memory mem : m_ToSpace) {
     mem.setAddress(0);
+    mem.clearHeapEndPtr();
   }
   m_Handles.activate();
   m_Handles.resetPointer();
