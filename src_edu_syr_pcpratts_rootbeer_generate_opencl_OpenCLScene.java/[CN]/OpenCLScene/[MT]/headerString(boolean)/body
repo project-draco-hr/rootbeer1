@@ -1,4 +1,8 @@
 {
+  String defines="";
+  if (Configuration.compilerInstance().getArrayChecks()) {
+    defines+="#define ARRAY_CHECKS\n";
+  }
   String specific_path;
   if (unix) {
     specific_path=Tweaks.v().getUnixHeaderPath();
@@ -18,5 +22,5 @@
   if (barrier_path != null) {
     barrier_code=ResourceReader.getResource(barrier_path);
   }
-  return specific_header + "\n" + both_header+ "\n"+ barrier_code;
+  return defines + "\n" + specific_header+ "\n"+ both_header+ "\n"+ barrier_code;
 }
