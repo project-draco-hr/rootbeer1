@@ -15,6 +15,7 @@
     }
  else {
       m_libCudas.add("/usr/lib64/libcuda.so");
+      m_libCudas.add("/usr/lib/x86_64-linux-gnu/libcudart.so.5.0");
       m_rootbeers.add(RootbeerPaths.v().getRootbeerHome() + "cudaruntime_x64.so.1");
       extract("cudaruntime_x64.so.1");
     }
