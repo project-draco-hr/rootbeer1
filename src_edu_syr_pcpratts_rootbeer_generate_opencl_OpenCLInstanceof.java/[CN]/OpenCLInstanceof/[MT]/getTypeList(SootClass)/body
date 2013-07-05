@@ -1,0 +1,27 @@
+{
+  ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
+  HierarchyGraph hgraph=class_hierarchy.getHierarchyGraph(soot_class);
+  Set<Integer> visited=new TreeSet<Integer>();
+  visited.add(StringNumbers.v().addString(soot_class.getName()));
+  LinkedList<String> queue=new LinkedList<String>();
+  queue.add(soot_class.getName());
+  Set<Integer> new_invokes=RootbeerClassLoader.v().getNewInvokes();
+  List<NumberedType> ret=new ArrayList<NumberedType>();
+  while (queue.isEmpty() == false) {
+    String entry=queue.removeFirst();
+    Integer num=StringNumbers.v().addString(entry);
+    if (new_invokes.contains(num)) {
+      NumberedType ntype=class_hierarchy.getNumberedType(entry);
+      ret.add(ntype);
+    }
+    Set<Integer> children=hgraph.getChildren(num);
+    for (    Integer child : children) {
+      if (visited.contains(child)) {
+        continue;
+      }
+      visited.add(child);
+      queue.add(StringNumbers.v().getString(child));
+    }
+  }
+  return ret;
+}
