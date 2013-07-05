@@ -32,6 +32,8 @@
   m_methods.add("<java.lang.Throwable: java.lang.StackTraceElement getStackTraceElement(int)>");
   m_methods.add("<java.lang.Object: java.lang.Object clone()>");
   m_methods.add("<java.lang.Object: int hashCode()>");
+  m_methods.add("<edu.syr.pcpratts.rootbeer.runtime.GpuStopwatch: void start()>");
+  m_methods.add("<edu.syr.pcpratts.rootbeer.runtime.GpuStopwatch: void stop()>");
   m_methods.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: boolean isOnGpu()>");
   m_methods.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: int getThreadId()>");
   m_methods.add("<edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu: int getThreadIdxx()>");

@@ -13,8 +13,14 @@
   visited.add(new HierarchySignature("<java.lang.StringBuilder: java.lang.StringBuilder append(float)>"));
   visited.add(new HierarchySignature("<java.io.PrintStream: void println()>"));
   visited.add(new HierarchySignature("<java.io.PrintStream: void println(java.lang.String)>"));
-  visited.add(new HierarchySignature("<java.io.PrintStream: void println(double)>"));
+  visited.add(new HierarchySignature("<java.io.PrintStream: void println(boolean)>"));
+  visited.add(new HierarchySignature("<java.io.PrintStream: void println(byte)>"));
+  visited.add(new HierarchySignature("<java.io.PrintStream: void println(char)>"));
+  visited.add(new HierarchySignature("<java.io.PrintStream: void println(short)>"));
+  visited.add(new HierarchySignature("<java.io.PrintStream: void println(int)>"));
+  visited.add(new HierarchySignature("<java.io.PrintStream: void println(long)>"));
   visited.add(new HierarchySignature("<java.io.PrintStream: void println(float)>"));
+  visited.add(new HierarchySignature("<java.io.PrintStream: void println(double)>"));
   visited.add(new HierarchySignature("<java.io.PrintStream: void print(java.lang.String)>"));
   visited.add(new HierarchySignature("<java.io.PrintStream: void print(double)>"));
   visited.add(new HierarchySignature("<java.io.PrintStream: void print(float)>"));
