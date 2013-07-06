@@ -48,23 +48,12 @@
   }
   ret.append("thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n");
   if (composite.getClasses().size() == 1) {
-    SootClass sclass=composite.getClasses().get(0);
-    if (getType().isRefType()) {
-      ret.append("edu_syr_pcpratts_gc_assign_global(gc_info, (" + address_qual + " "+ cast_string+ " *) &thisref_deref["+ Integer.toString(field_offset)+ "], parameter0);\n");
-    }
- else {
-      ret.append("*((" + address_qual + " "+ cast_string+ " *) &thisref_deref["+ Integer.toString(field_offset)+ "]) = parameter0;\n");
-    }
+    ret.append("*((" + address_qual + " "+ cast_string+ " *) &thisref_deref["+ Integer.toString(field_offset)+ "]) = parameter0;\n");
   }
  else {
     ret.append("derived_type = edu_syr_pcpratts_gc_get_type(thisref_deref);\n");
     ret.append("offset = " + type_switch.typeSwitchName(m_offsets) + "(derived_type);\n");
-    if (getType().isRefType()) {
-      ret.append("edu_syr_pcpratts_gc_assign_global(gc_info, (" + address_qual + " "+ cast_string+ " *) &thisref_deref[offset], parameter0);\n");
-    }
- else {
-      ret.append("*((" + address_qual + " "+ cast_string+ " *) &thisref_deref[offset]) = parameter0;\n");
-    }
+    ret.append("*((" + address_qual + " "+ cast_string+ " *) &thisref_deref[offset]) = parameter0;\n");
   }
   ret.append("}\n");
   return ret.toString();
