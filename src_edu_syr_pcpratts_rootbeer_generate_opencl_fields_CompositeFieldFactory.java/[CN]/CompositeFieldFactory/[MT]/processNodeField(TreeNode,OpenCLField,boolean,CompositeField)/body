@@ -10,9 +10,9 @@
     new_field=new OpenCLField(soot_field,soot_class);
     field=new_field;
   }
-  String hash=soot_class.getName() + "." + soot_field.getName();
-  if (m_ProcessNodeVisited.contains(hash) == false) {
-    m_ProcessNodeVisited.add(hash);
+  String hash=soot_field.toString();
+  if (m_processNodeVisited.contains(hash) == false) {
+    m_processNodeVisited.add(hash);
     if (ref_field) {
       composite.addRefField(new_field,soot_class);
     }

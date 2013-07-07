@@ -1,0 +1,5 @@
+{
+  int hash=3;
+  hash=23 * hash + (this.m_field.toString() != null ? this.m_field.toString().hashCode() : 0);
+  return hash;
+}

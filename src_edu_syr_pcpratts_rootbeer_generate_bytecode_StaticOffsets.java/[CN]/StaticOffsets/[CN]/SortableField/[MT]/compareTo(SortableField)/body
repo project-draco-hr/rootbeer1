@@ -1,5 +1,5 @@
 {
-  int this_size=m_Field.getSize();
-  int o_size=o.m_Field.getSize();
+  int this_size=m_field.getSize();
+  int o_size=o.m_field.getSize();
   return Integer.valueOf(o_size).compareTo(Integer.valueOf(this_size));
 }

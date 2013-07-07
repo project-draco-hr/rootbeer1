@@ -1,4 +1,4 @@
 {
-  m_Field=field;
-  m_SootClass=soot_class;
+  m_field=field;
+  m_sootClass=soot_class;
 }

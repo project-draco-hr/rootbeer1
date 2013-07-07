@@ -1,4 +1,4 @@
 {
   ReverseClassHierarchy creator=new ReverseClassHierarchy(classes);
-  m_Hierarchy=creator.get();
+  m_hierarchy=creator.get();
 }

@@ -1,5 +1,5 @@
 {
-  List<OpenCLField> ret=m_StaticFields.get(soot_class);
+  List<OpenCLField> ret=m_staticFields.get(soot_class);
   if (ret == null) {
     ret=new ArrayList<OpenCLField>();
   }

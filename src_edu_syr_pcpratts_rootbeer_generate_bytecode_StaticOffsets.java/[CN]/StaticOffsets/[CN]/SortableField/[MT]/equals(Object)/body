@@ -1,0 +1,13 @@
+{
+  if (other instanceof SortableField == false) {
+    return false;
+  }
+  SortableField rhs=(SortableField)other;
+  if (m_field.getName().equals(rhs.m_field.getName()) == false) {
+    return false;
+  }
+  if (m_field.getSootField().getDeclaringClass().getName().equals(rhs.m_field.getSootField().getDeclaringClass().getName()) == false) {
+    return false;
+  }
+  return true;
+}

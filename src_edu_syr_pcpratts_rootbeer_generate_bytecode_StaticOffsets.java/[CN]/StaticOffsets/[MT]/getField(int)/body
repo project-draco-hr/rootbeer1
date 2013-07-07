@@ -1,3 +1,3 @@
 {
-  return m_OffsetToFieldMap.get(index).m_Field;
+  return m_offsetToFieldMap.get(index).m_field;
 }
