@@ -8,8 +8,12 @@
   curr=bcl.indexArray(object_to_read_from,i);
   bcl.gotoLabel(before_read_int);
   bcl.label(after_read);
-  if (object_to_read_from.getType() instanceof RefLikeType)   bcl.assign(curr,NullConstant.v());
- else   bcl.assign(curr,IntConstant.v(0));
+  if (object_to_read_from.getType() instanceof RefLikeType) {
+    bcl.assign(curr,NullConstant.v());
+  }
+ else {
+    bcl.assign(curr,IntConstant.v(0));
+  }
   bcl.label(before_read_int);
   Local curr_phi=bcl.local(object_to_read_from.getType());
   bcl.assign(curr_phi,curr);

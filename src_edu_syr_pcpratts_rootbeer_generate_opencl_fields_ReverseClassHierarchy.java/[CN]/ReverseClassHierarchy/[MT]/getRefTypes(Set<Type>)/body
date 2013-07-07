@@ -1,0 +1,11 @@
+{
+  Set<String> ret=new HashSet<String>();
+  for (  Type type : dfs_types) {
+    if (type instanceof RefType) {
+      RefType ref_type=(RefType)type;
+      String name=ref_type.getSootClass().getName();
+      ret.add(name);
+    }
+  }
+  return ret;
+}

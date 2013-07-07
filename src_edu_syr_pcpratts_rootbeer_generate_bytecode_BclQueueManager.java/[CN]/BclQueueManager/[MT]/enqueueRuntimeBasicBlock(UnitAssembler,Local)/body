@@ -1,9 +1,0 @@
-{
-  List parameter_types=new ArrayList();
-  parameter_types.add(RefType.v("edu.syr.pcpratts.javaautogpu.runtime.RuntimeBasicBlock"));
-  SootMethod enqueue=new SootMethod("enqueue",parameter_types,VoidType.v());
-  enqueue.setDeclaringClass(mQueueManagerClass);
-  Expr expr=jimple.newVirtualInvokeExpr(mQueueManagerLocal,enqueue.makeRef(),runtime_basic_block);
-  Unit unit=jimple.newInvokeStmt(expr);
-  assembler.add(unit);
-}

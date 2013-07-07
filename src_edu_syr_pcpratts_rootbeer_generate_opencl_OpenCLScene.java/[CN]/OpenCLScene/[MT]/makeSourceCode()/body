@@ -28,6 +28,9 @@
   writer.flush();
   writer.close();
   NameMangling.v().writeTypesToFile();
+  if (false) {
+    cuda_unix=readCode(RootbeerPaths.v().getRootbeerHome() + "generated_debug.cu");
+  }
   String[] ret=new String[2];
   ret[0]=cuda_unix;
   ret[1]=cuda_windows;

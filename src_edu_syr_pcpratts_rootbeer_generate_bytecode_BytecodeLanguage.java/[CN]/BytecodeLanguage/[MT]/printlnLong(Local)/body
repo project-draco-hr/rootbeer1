@@ -1,0 +1,6 @@
+{
+  Type system=RefType.v("java.lang.System");
+  Local out=refStaticField(system,"out");
+  pushMethod(out,"println",VoidType.v(),LongType.v());
+  invokeMethodNoRet(out,number);
+}

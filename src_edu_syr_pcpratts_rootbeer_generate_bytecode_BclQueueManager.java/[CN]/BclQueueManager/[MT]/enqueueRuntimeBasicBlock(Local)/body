@@ -1,3 +1,0 @@
-{
-  enqueueRuntimeBasicBlock(mAssembler,runtime_basic_block);
-}

@@ -1,0 +1,10 @@
+{
+  ReadFile reader=new ReadFile(filename);
+  try {
+    return reader.read();
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace(System.out);
+    throw new RuntimeException(ex);
+  }
+}

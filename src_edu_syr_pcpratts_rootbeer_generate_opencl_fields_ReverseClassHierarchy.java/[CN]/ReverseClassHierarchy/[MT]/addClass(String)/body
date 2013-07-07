@@ -1,5 +1,0 @@
-{
-  SootClass soot_class=Scene.v().getSootClass(cls);
-  OpenCLClass ocl_class=OpenCLScene.v().getOpenCLClass(soot_class);
-  m_Classes.put(cls,ocl_class);
-}

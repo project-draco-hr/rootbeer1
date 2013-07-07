@@ -1,4 +1,0 @@
-{
-  jimple=Jimple.v();
-  mQueueManagerClass=Scene.v().getSootClass("edu.syr.pcpratts.javaautogpu.runtime.QueueManager");
-}

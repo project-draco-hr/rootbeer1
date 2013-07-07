@@ -40,6 +40,9 @@
       if (ocl_method.returnsAValue())       ret.append("return 0;\n");
  else       ret.append("\n");
     }
+    if (returnsAValue()) {
+      ret.append("  return 0;\n");
+    }
     ret.append("}\n");
     if (isConstructor()) {
       ret.append(getMethodDecl(true) + "{\n");

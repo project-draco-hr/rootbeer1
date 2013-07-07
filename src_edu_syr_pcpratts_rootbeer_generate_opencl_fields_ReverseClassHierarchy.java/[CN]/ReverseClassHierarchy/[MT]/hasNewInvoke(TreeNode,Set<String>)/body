@@ -1,0 +1,13 @@
+{
+  SootClass soot_class=tree_node.getSootClass();
+  if (dfs_types.contains(soot_class.getName())) {
+    return true;
+  }
+  List<TreeNode> children=tree_node.getChildren();
+  for (  TreeNode child : children) {
+    if (hasNewInvoke(child,dfs_types)) {
+      return true;
+    }
+  }
+  return false;
+}

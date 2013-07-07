@@ -1,4 +1,0 @@
-{
-  commonCtor();
-  mAssembler=assembler;
-}
