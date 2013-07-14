@@ -1,0 +1,13 @@
+{
+  if (rhs.m_ret == null) {
+    System.out.println("rhs.m_ret == null");
+    return false;
+  }
+  if (m_ret.length != rhs.m_ret.length) {
+    System.out.println("length");
+    System.out.println("lhs: " + m_ret.length);
+    System.out.println("rhs: " + rhs.m_ret.length);
+    return false;
+  }
+  return true;
+}

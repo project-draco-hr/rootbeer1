@@ -6,6 +6,8 @@
   Local ctor_used=bcl_mem.readByte();
   bcl_mem.incrementAddress(8);
   Local size=bcl_mem.readInt();
+  bcl.println("reading size: ");
+  bcl.println(size);
   Local ret=bcl.local(type);
   bcl_mem.incrementAddress(16);
   Local previous_size=bcl.lengthof(object_to_read_from);

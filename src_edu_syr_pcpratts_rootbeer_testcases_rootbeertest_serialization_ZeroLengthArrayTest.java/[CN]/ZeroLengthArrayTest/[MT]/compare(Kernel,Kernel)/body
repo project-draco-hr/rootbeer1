@@ -1,0 +1,5 @@
+{
+  ZeroLengthArrayRunOnGpu lhs=(ZeroLengthArrayRunOnGpu)original;
+  ZeroLengthArrayRunOnGpu rhs=(ZeroLengthArrayRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

@@ -26,7 +26,7 @@
  else   if (type_to_create instanceof ArrayType) {
     BclMemory bcl_mem=new BclMemory(bcl,m_currMem.top());
     Local start=bcl_mem.getPointer();
-    bcl_mem.incrementAddress(8);
+    bcl_mem.incrementAddress(12);
     Local size=bcl_mem.readInt();
     bcl_mem.setAddress(start);
     ArrayType array_type=(ArrayType)type_to_create;
