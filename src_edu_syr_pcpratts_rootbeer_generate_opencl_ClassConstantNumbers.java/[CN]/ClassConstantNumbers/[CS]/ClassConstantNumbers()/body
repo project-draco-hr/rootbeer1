@@ -1,0 +1,4 @@
+{
+  m_map=new HashMap<Type,Integer>();
+  m_offset=0;
+}

@@ -1,0 +1,11 @@
+{
+  if (m_map.containsKey(type)) {
+    return m_map.get(type);
+  }
+ else {
+    m_map.put(type,m_offset);
+    int ret=m_offset;
+    ++m_offset;
+    return ret;
+  }
+}

@@ -6,14 +6,13 @@
   Local ctor_used=bcl_mem.readByte();
   bcl_mem.incrementAddress(8);
   Local size=bcl_mem.readInt();
-  bcl.println("reading size: ");
-  bcl.println(size);
   Local ret=bcl.local(type);
   bcl_mem.incrementAddress(16);
   Local previous_size=bcl.lengthof(object_to_read_from);
   String label_new_float=getNextLabel();
   String label_after_new_float=getNextLabel();
   bcl.ifStmt(ctor_used,"==",IntConstant.v(1),label_new_float);
+  bcl.ifStmt(size,"!=",previous_size,label_new_float);
   bcl.assign(ret,object_to_read_from);
   bcl.gotoLabel(label_after_new_float);
   bcl.label(label_new_float);

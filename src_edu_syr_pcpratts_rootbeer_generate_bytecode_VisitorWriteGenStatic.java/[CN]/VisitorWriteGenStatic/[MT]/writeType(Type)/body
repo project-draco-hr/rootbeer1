@@ -2,7 +2,7 @@
   if (reachesJavaLangClass() == false) {
     return;
   }
-  int number=RootbeerClassLoader.v().getClassNumber(type.toString());
+  int number=OpenCLScene.v().getClassConstantNumbers().get(type);
   Local gc_visit=m_gcObjVisitor.top();
   Local class_obj=null;
   if (type instanceof ArrayType) {
