@@ -2,7 +2,7 @@
   m_gpuWatch.start();
   MatrixKernel matrix_kernel=new MatrixKernel(m_a,m_bgpu,m_cgpu,m_blockSize,m_gridSize,m_blockIters);
   Rootbeer rootbeer=new Rootbeer();
-  rootbeer.setThreadConfig(1024,m_gridSize);
+  rootbeer.setThreadConfig(1024,m_gridSize,1024 * m_gridSize);
   rootbeer.runAll(matrix_kernel);
   m_gpuWatch.stop();
   System.out.println("avg gpu time: " + m_gpuWatch.getAverageTime() + " ms");

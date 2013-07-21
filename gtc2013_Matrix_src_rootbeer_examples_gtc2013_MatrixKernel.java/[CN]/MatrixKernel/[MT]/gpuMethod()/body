@@ -31,13 +31,13 @@
         float b_value=b[b_src];
         RootbeerGpu.setSharedFloat(thread_idxx * 4,a_value);
         RootbeerGpu.setSharedFloat((1024 + thread_idxx) * 4,b_value);
-        RootbeerGpu.synchthreads();
+        RootbeerGpu.syncthreads();
         for (int k=0; k < 32; ++k) {
           a_value=RootbeerGpu.getSharedFloat((thread_row * 32 + k) * 4);
           b_value=RootbeerGpu.getSharedFloat((1024 + k * 32 + thread_col) * 4);
           sum+=a_value * b_value;
         }
-        RootbeerGpu.synchthreads();
+        RootbeerGpu.syncthreads();
       }
       c[dest_index]+=sum;
     }
