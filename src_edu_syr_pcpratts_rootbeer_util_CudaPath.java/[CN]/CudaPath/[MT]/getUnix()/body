@@ -1,6 +1,51 @@
 {
   if (System.getenv().containsKey("CUDA_BIN_PATH")) {
-    return System.getenv("CUDA_BIN_PATH");
+    String s=System.getenv("CUDA_BIN_PATH");
+    if (!s.endsWith("/")) {
+      return s + "/";
+    }
+    return s;
+  }
+  BufferedReader input=null;
+  try {
+    Process p=Runtime.getRuntime().exec("which nvcc");
+    input=new BufferedReader(new InputStreamReader(p.getInputStream()));
+    String output=input.readLine();
+    if (output != null && !output.isEmpty()) {
+      output=output.trim();
+      return output.substring(0,output.lastIndexOf("nvcc"));
+    }
+  }
+ catch (  IOException e) {
+  }
+ finally {
+    try {
+      input.close();
+    }
+ catch (    Exception e) {
+    }
+  }
+  input=null;
+  try {
+    Process p=Runtime.getRuntime().exec("whereis nvcc");
+    input=new BufferedReader(new InputStreamReader(p.getInputStream()));
+    String output=input.readLine();
+    String[] sp=output.split(" ");
+    for (    String s : sp) {
+      s=s.trim();
+      if (s.endsWith("nvcc")) {
+        return s.substring(0,s.lastIndexOf("nvcc"));
+      }
+    }
+  }
+ catch (  IOException e) {
+  }
+ finally {
+    try {
+      input.close();
+    }
+ catch (    Exception e) {
+    }
   }
   for (  String path : m_unixSearchPaths) {
     File file=new File(path + "nvcc");
