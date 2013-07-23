@@ -1,4 +1,4 @@
 {
   String[] source_code=makeSourceCode();
-  return new CudaTweaks().compileProgram(source_code[0]);
+  return new CudaTweaks().compileProgram(source_code[0],Configuration.compilerInstance().getCompileArchitecture());
 }

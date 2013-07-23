@@ -17,7 +17,7 @@
     GencodeOptions options_gen=new GencodeOptions();
     String gencode_options=options_gen.getOptions();
     ParallelCompile parallel_compile=new ParallelCompile();
-    return parallel_compile.compile(generated,cuda_path,gencode_options);
+    return parallel_compile.compile(generated,cuda_path,gencode_options,compileArch);
   }
  catch (  Exception ex) {
     throw new RuntimeException("Failed to compile cuda code.",ex);

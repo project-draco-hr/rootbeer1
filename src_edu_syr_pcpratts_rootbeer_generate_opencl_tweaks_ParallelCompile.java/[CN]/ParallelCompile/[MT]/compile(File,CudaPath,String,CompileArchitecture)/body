@@ -1,0 +1,28 @@
+{
+switch (compileArch) {
+case Arch32bit:
+    System.out.println("compiling CUDA code for 32bit only...");
+  m_toCores.put(new ParallelCompileJob(generated,cuda_path,gencode_options,true));
+break;
+case Arch64bit:
+System.out.println("compiling CUDA code for 64bit only...");
+m_toCores.put(new ParallelCompileJob(generated,cuda_path,gencode_options,false));
+break;
+case Arch32bit64bit:
+System.out.println("compiling CUDA code for 32bit and 64bit...");
+m_toCores.put(new ParallelCompileJob(generated,cuda_path,gencode_options,true));
+m_toCores.put(new ParallelCompileJob(generated,cuda_path,gencode_options,false));
+break;
+}
+ParallelCompileJob[] compJobs=new ParallelCompileJob[m_toCores.size()];
+for (int i=0; i < m_toCores.size(); i++) {
+compJobs[i]=m_fromCores.take();
+}
+List<CompileResult> compResults=new LinkedList<CompileResult>();
+for (ParallelCompileJob j : compJobs) {
+if (j != null) {
+compResults.add(j.getResult());
+}
+}
+return compResults.toArray(new CompileResult[compResults.size()]);
+}
