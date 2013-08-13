@@ -1,0 +1,9 @@
+{
+  StreamEater out_eater=new StreamEater(m_process.getInputStream());
+  StreamEater err_eater=new StreamEater(m_process.getErrorStream());
+  m_outputLines=out_eater.get();
+  m_errorLines=err_eater.get();
+  int ret=m_process.waitFor();
+  m_process.destroy();
+  return ret;
+}
