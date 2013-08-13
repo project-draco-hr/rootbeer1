@@ -1,5 +1,6 @@
 {
   if (job_template instanceof CompiledKernel == false) {
+    System.out.println("m_ranGpu = false #1");
     m_ranGpu=false;
   }
   m_ranGpu=true;

@@ -1,5 +1,5 @@
 {
-  File cl_script=generateScript(cmd);
+  File cl_script=generateScript(cmd,arch64);
   String command="cmd /c \"" + cl_script.getAbsolutePath() + "\"";
   CompilerRunner runner=new CompilerRunner();
   List<String> errors=runner.run(command);

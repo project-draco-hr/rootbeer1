@@ -1,6 +1,11 @@
 {
+  boolean arch64=true;
+  String arch_str=System.getProperty("os.arch");
+  if (arch_str == null || arch_str.equals("x86")) {
+    arch64=false;
+  }
   WindowsCompile compiler=new WindowsCompile();
-  List<String> errors=compiler.compile(cmd);
+  List<String> errors=compiler.compile(cmd,arch64);
   if (errors.isEmpty() == false) {
     System.out.println("compilation failed!");
     for (    String error : errors) {

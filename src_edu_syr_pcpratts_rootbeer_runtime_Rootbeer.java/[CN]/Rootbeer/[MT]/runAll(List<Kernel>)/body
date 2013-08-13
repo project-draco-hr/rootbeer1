@@ -1,5 +1,6 @@
 {
   if (jobs.isEmpty()) {
+    System.out.println("m_ranGpu = false #2");
     m_ranGpu=false;
     return;
   }
@@ -7,6 +8,13 @@
     for (    Kernel job : jobs) {
       job.gpuMethod();
     }
+    Kernel first=jobs.get(0);
+    Class cls=first.getClass();
+    Class[] ifaces=cls.getInterfaces();
+    for (    Class iface : ifaces) {
+      System.out.println("iface: " + iface.getName());
+    }
+    System.out.println("m_ranGpu = false 3");
     m_ranGpu=false;
   }
  else {
