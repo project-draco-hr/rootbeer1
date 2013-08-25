@@ -57,6 +57,7 @@
   ret.add(new DoubleToStringTest());
   ret.add(new FloatToStringTest());
   ret.add(new ZeroLengthArrayTest());
+  ret.add(new ArraysSortTest());
   if (m_hardTests) {
     ret.add(new SimpleSynchronizedTest());
     ret.add(new SynchronizedMethodTest());
