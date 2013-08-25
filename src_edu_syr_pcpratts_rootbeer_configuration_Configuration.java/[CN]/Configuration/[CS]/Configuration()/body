@@ -9,4 +9,5 @@
   m_keepMains=false;
   m_sharedMemSize=40 * 1024;
   m_arch=CompileArchitecture.Arch32bit64bit;
+  m_manualCuda=false;
 }

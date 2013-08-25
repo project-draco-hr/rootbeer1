@@ -1,6 +1,6 @@
 {
-  StrictMatchRunOnGpu glhs=(StrictMatchRunOnGpu)lhs;
-  StrictMatchRunOnGpu grhs=(StrictMatchRunOnGpu)rhs;
+  StrictMathRunOnGpu glhs=(StrictMathRunOnGpu)lhs;
+  StrictMathRunOnGpu grhs=(StrictMathRunOnGpu)rhs;
   if (glhs.compare(grhs) == false) {
     return false;
   }
