@@ -36,6 +36,7 @@
       ret.append("derived_type = edu_syr_pcpratts_gc_get_type(thisref_deref);\n");
       ret.append("if(0){}\n");
       int count=0;
+      List<SootMethod> used_methods=new ArrayList<SootMethod>();
       for (      SootMethod method : virtual_methods) {
         SootClass sclass=method.getDeclaringClass();
         if (sclass.isInterface()) {
@@ -45,6 +46,12 @@
         if (invoke_string == "") {
           continue;
         }
+        used_methods.add(method);
+      }
+      Collections.sort(used_methods,new VirtualMethodComparator());
+      for (      SootMethod method : used_methods) {
+        SootClass sclass=method.getDeclaringClass();
+        String invoke_string=getInvokeString(sclass);
         ret.append("else if(derived_type == " + RootbeerClassLoader.v().getClassNumber(sclass) + "){\n");
         if (m_sootMethod.getReturnType() instanceof VoidType == false) {
           ret.append("return ");

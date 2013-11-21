@@ -1,3 +1,6 @@
 {
-  return m_sootMethod.getSignature();
+  MethodSignatureUtil util=new MethodSignatureUtil();
+  util.parse(m_sootMethod.getSignature());
+  util.setClassName(m_sootClass.getName());
+  return util.getSignature();
 }

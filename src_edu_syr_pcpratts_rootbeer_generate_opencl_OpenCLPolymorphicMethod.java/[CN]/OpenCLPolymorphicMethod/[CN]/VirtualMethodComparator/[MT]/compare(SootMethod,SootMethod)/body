@@ -1,0 +1,7 @@
+{
+  SootClass lhs_class=lhs.getDeclaringClass();
+  SootClass rhs_class=rhs.getDeclaringClass();
+  Integer lhs_number=RootbeerClassLoader.v().getClassNumber(lhs_class);
+  Integer rhs_number=RootbeerClassLoader.v().getClassNumber(rhs_class);
+  return lhs_number.compareTo(rhs_number);
+}

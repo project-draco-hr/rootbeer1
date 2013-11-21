@@ -3,7 +3,7 @@
   if (ctor_body) {
     ret+="_body";
   }
-  String signature=m_sootMethod.getSignature();
+  String signature=getSignature();
   if (m_dontMangleMethods.contains(signature) == false)   ret+=NameMangling.v().mangleArgs(m_sootMethod);
   return ret;
 }

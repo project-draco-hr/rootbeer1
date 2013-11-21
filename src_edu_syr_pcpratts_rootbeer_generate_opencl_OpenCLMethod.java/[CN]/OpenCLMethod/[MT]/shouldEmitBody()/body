@@ -1,5 +1,5 @@
 {
-  String signature=m_sootMethod.getSignature();
+  String signature=getSignature();
   if (m_emitUnmangled.contains(signature)) {
     return true;
   }

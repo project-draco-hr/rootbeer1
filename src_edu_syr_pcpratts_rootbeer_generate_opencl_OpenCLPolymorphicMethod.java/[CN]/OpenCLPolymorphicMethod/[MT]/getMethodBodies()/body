@@ -1,9 +1,10 @@
 {
-  if (m_sootMethod.getName().equals("<init>"))   return "";
+  if (m_sootMethod.getName().equals("<init>"))   return new HashSet<String>();
   List<String> decls=getMethodDecls();
-  StringBuilder ret=new StringBuilder();
+  Set<String> ret=new HashSet<String>();
   for (  String decl : decls) {
-    ret.append(getMethodBody(decl));
+    String method=getMethodBody(decl);
+    ret.add(method);
   }
-  return ret.toString();
+  return ret;
 }
