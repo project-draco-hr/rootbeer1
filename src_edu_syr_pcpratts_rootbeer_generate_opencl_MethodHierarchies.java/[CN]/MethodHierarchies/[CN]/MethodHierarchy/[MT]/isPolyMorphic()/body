@@ -1,6 +1,6 @@
 {
   IsPolymorphic poly_checker=new IsPolymorphic();
-  if (poly_checker.test(m_sootMethod)) {
+  if (poly_checker.test(m_method)) {
     return true;
   }
   return false;

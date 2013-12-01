@@ -1,6 +1,3 @@
 {
-  m_methodSubsignature=method.getSubSignature();
-  m_sootMethod=method;
-  ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
-  m_hierarchyGraph=class_hierarchy.getHierarchyGraph(m_sootMethod.getSignature());
+  m_method=method;
 }

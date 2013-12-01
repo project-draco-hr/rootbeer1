@@ -1,0 +1,12 @@
+{
+  if (m_method.getSubSignature().equals(other.m_method.getSubSignature()) == false)   return false;
+  SootClass lhs_class=m_method.getDeclaringClass();
+  SootClass rhs_class=other.m_method.getDeclaringClass();
+  Integer lhs_number=RootbeerClassLoader.v().getClassNumber(lhs_class);
+  Integer rhs_number=RootbeerClassLoader.v().getClassNumber(rhs_class);
+  HierarchyGraph hgraph=RootbeerClassLoader.v().getClassHierarchy().getHierarchyGraph();
+  if (hgraph.sameHierarchy(lhs_number,rhs_number)) {
+    return true;
+  }
+  return false;
+}

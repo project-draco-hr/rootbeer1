@@ -1,11 +1,11 @@
 {
   List<OpenCLMethod> ret=new ArrayList<OpenCLMethod>();
-  if (m_sootMethod.isConstructor()) {
-    OpenCLMethod method=new OpenCLMethod(m_sootMethod,m_sootMethod.getDeclaringClass());
+  if (m_method.isConstructor()) {
+    OpenCLMethod method=new OpenCLMethod(m_method,m_method.getDeclaringClass());
     ret.add(method);
     return ret;
   }
-  List<String> methods=RootbeerClassLoader.v().getClassHierarchy().getVirtualMethods(m_sootMethod.getSignature());
+  List<String> methods=RootbeerClassLoader.v().getClassHierarchy().getVirtualMethods(m_method.getSignature());
   for (  String virt_method : methods) {
     m_util.parse(virt_method);
     SootMethod soot_method=m_util.getSootMethod();

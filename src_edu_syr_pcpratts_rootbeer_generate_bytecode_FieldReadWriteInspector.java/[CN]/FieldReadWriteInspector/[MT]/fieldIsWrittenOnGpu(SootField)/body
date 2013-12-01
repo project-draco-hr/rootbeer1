@@ -20,7 +20,7 @@
   if (mWritenOnGpuFieldsClassesChecked.contains(soot_type.toString()))   return false;
   mWritenOnGpuFieldsClassesChecked.add(soot_type.toString());
   ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
-  HierarchyGraph hgraph=class_hierarchy.getHierarchyGraph(soot_class);
+  HierarchyGraph hgraph=class_hierarchy.getHierarchyGraph();
   Set<Integer> classes=hgraph.getAllClasses();
   for (  Integer class_num : classes) {
     String class_name=StringNumbers.v().getString(class_num);

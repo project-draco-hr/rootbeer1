@@ -1,7 +1,0 @@
-{
-  m_hierarchyGraph=getHierarchyGraph();
-  int hash=5;
-  hash=53 * hash + (this.m_sootMethod != null ? this.m_sootMethod.hashCode() : 0);
-  hash=53 * hash + (this.m_hierarchyGraph != null ? this.m_hierarchyGraph.hashCode() : 0);
-  return hash;
-}

@@ -1,4 +1,9 @@
 {
   MethodHierarchy new_hierarchy=new MethodHierarchy(method);
-  if (m_hierarchies.contains(new_hierarchy) == false)   m_hierarchies.add(new_hierarchy);
+  for (  MethodHierarchy curr : m_hierarchies) {
+    if (curr.contains(new_hierarchy)) {
+      return;
+    }
+  }
+  m_hierarchies.add(new_hierarchy);
 }

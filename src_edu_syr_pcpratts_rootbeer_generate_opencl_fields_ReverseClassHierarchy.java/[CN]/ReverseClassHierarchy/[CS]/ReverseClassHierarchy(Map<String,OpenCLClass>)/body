@@ -5,7 +5,7 @@
   Set<String> dfs_string_types=getRefTypes(dfs_types);
   ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
   SootClass obj_class=Scene.v().getSootClass("java.lang.Object");
-  HierarchyGraph hgraph=class_hierarchy.getHierarchyGraph(obj_class);
+  HierarchyGraph hgraph=class_hierarchy.getHierarchyGraph();
   Set<Integer> roots=hgraph.getChildren(0);
   for (  Integer root : roots) {
     String root_name=StringNumbers.v().getString(root);

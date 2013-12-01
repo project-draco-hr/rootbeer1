@@ -1,6 +1,0 @@
-{
-  int hash=7;
-  hash=59 * hash + (this.m_methodSubsignature != null ? this.m_methodSubsignature.hashCode() : 0);
-  hash=59 * hash + (this.m_hierarchyGraph != null ? this.m_hierarchyGraph.hashCode() : 0);
-  return hash;
-}

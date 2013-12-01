@@ -1,13 +1,13 @@
 {
-  SootClass soot_class=m_sootMethod.getDeclaringClass();
+  SootClass soot_class=m_method.getDeclaringClass();
   List<SootClass> interfaces=new ArrayList<SootClass>();
   interfaces.addAll(soot_class.getInterfaces());
-  String sub_sig=m_sootMethod.getSubSignature();
+  String sub_sig=m_method.getSubSignature();
   for (  SootClass iface : interfaces) {
     if (iface.declaresMethod(sub_sig)) {
       SootMethod iface_method=iface.getMethod(sub_sig);
       return new OpenCLPolymorphicMethod(iface_method);
     }
   }
-  return new OpenCLPolymorphicMethod(m_sootMethod);
+  return new OpenCLPolymorphicMethod(m_method);
 }
