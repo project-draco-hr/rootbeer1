@@ -22,6 +22,12 @@
   visited.add(new HierarchySignature("<java.io.PrintStream: void println(float)>"));
   visited.add(new HierarchySignature("<java.io.PrintStream: void println(double)>"));
   visited.add(new HierarchySignature("<java.io.PrintStream: void print(java.lang.String)>"));
+  visited.add(new HierarchySignature("<java.io.PrintStream: void print(boolean)>"));
+  visited.add(new HierarchySignature("<java.io.PrintStream: void print(byte)>"));
+  visited.add(new HierarchySignature("<java.io.PrintStream: void print(char)>"));
+  visited.add(new HierarchySignature("<java.io.PrintStream: void print(short)>"));
+  visited.add(new HierarchySignature("<java.io.PrintStream: void print(int)>"));
+  visited.add(new HierarchySignature("<java.io.PrintStream: void print(long)>"));
   visited.add(new HierarchySignature("<java.io.PrintStream: void print(double)>"));
   visited.add(new HierarchySignature("<java.io.PrintStream: void print(float)>"));
   while (queue.isEmpty() == false) {
