@@ -1,0 +1,4 @@
+{
+  m_array2=m_array1.clone();
+  m_array4=m_array3.clone();
+}

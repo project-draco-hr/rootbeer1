@@ -1,0 +1,5 @@
+{
+  ArrayCloneRunOnGpu lhs=(ArrayCloneRunOnGpu)original;
+  ArrayCloneRunOnGpu rhs=(ArrayCloneRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}
