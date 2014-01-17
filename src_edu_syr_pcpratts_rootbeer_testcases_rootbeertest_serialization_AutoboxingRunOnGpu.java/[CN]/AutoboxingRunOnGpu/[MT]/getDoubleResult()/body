@@ -1,0 +1,3 @@
+{
+  return m_double_result;
+}
