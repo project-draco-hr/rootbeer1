@@ -1,6 +1,0 @@
-{
-  List<Local> ret=new ArrayList<Local>();
-  ret.addAll(mInputArguments);
-  ret.addAll(mOutputArguments);
-  return ret;
-}

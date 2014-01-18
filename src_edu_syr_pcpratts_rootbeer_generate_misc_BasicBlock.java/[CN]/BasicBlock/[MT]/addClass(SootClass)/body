@@ -1,4 +1,0 @@
-{
-  mRuntimeBasicBlockClass=soot_class;
-  mReadWriteInspector=new FieldReadWriteInspector(mRuntimeBasicBlockClass);
-}
