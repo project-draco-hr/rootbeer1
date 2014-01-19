@@ -1,8 +1,0 @@
-{
-  List<Unit> whole_body=mLoop.getWholeBodyOfMethod();
-  List<Unit> ret=new ArrayList<Unit>();
-  for (int i=mStart; i <= mStop; ++i) {
-    ret.add(whole_body.get(i));
-  }
-  return ret;
-}
