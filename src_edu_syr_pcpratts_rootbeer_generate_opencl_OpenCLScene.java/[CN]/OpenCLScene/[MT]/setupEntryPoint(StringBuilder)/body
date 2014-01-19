@@ -16,5 +16,8 @@
   int string_number=RootbeerClassLoader.v().getClassNumber("java.lang.String");
   String string_str="" + string_number;
   cuda_code=cuda_code.replaceAll("%%java_lang_String_TypeNumber%%",string_str);
+  int integer_number=RootbeerClassLoader.v().getClassNumber("java.lang.Integer");
+  String integer_str="" + integer_number;
+  cuda_code=cuda_code.replaceAll("%%java_lang_Integer_TypeNumber%%",integer_str);
   return cuda_code;
 }
