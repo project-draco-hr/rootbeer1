@@ -4,7 +4,6 @@
     return false;
   }
   String lhs_str=m_toString;
-  lhs_str=pad(lhs_str);
   if (rhs.m_toString.equals(lhs_str) == false) {
     System.out.println("m_toString");
     System.out.println("  lhs: " + m_toString);

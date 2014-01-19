@@ -1,6 +1,0 @@
-{
-  while (needPad(lhs_str)) {
-    lhs_str+="0";
-  }
-  return lhs_str;
-}
