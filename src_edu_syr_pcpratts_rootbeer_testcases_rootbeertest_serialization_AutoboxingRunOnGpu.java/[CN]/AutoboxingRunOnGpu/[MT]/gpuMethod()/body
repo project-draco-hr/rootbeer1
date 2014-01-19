@@ -1,3 +1,4 @@
 {
-  m_result=returnDouble();
+  m_double_result=returnDouble();
+  m_integer_result=returnInteger();
 }
