@@ -1,9 +1,0 @@
-{
-  m_Inspector=inspector;
-  Set<String> set=new HashSet<String>();
-  List<CompositeField> fields=OpenCLScene.v().getCompositeFields();
-  for (  CompositeField field : fields) {
-    set.addAll(getFieldPrototypes(field));
-  }
-  return setToString(set);
-}

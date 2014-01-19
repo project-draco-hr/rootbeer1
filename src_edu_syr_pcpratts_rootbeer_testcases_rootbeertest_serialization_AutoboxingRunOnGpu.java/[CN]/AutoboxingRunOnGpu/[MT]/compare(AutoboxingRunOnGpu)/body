@@ -1,21 +1,27 @@
 {
-  try {
-    if (getDoubleResult() != rhs.getDoubleResult()) {
-      System.out.println("m_double_result");
-      System.out.println("lhs: " + getDoubleResult());
-      System.out.println("rhs: " + rhs.getDoubleResult());
-      return false;
-    }
-    if (getIntegerResult() != rhs.getIntegerResult()) {
-      System.out.println("m_integer_result");
-      System.out.println("lhs: " + getIntegerResult());
-      System.out.println("rhs: " + rhs.getIntegerResult());
-      return false;
-    }
-    return true;
-  }
- catch (  Exception ex) {
-    System.out.println("exception thrown");
+  if (getDouble() != rhs.getDouble()) {
+    System.out.println("m_double0");
+    System.out.println("lhs: " + getDouble());
+    System.out.println("rhs: " + rhs.getDouble());
     return false;
   }
+  if (getInteger2() != rhs.getInteger2()) {
+    System.out.println("m_int2");
+    System.out.println("lhs: " + getInteger2());
+    System.out.println("rhs: " + rhs.getInteger2());
+    return false;
+  }
+  if (getInteger0() != rhs.getInteger0()) {
+    System.out.println("m_int0");
+    System.out.println("lhs: " + getInteger0());
+    System.out.println("rhs: " + rhs.getInteger0());
+    return false;
+  }
+  if (getInteger1() != rhs.getInteger1()) {
+    System.out.println("m_int1");
+    System.out.println("lhs: " + getInteger1());
+    System.out.println("rhs: " + rhs.getInteger1());
+    return false;
+  }
+  return true;
 }

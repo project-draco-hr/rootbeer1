@@ -6,13 +6,7 @@
   if (do_ref_fields) {
     int count=0;
     for (    OpenCLField ref_field : ref_fields) {
-      int constant;
-      if (m_fieldInspector.fieldIsReadOnGpu(ref_field)) {
-        constant=1;
-      }
- else {
-        constant=0;
-      }
+      int constant=1;
       Local local;
       if (ref_field.isInstance()) {
         local=writeRefField(ref_field,IntConstant.v(constant));

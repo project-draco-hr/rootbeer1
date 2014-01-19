@@ -1,5 +1,5 @@
 {
   List<Type> types=RootbeerClassLoader.v().getDfsInfo().getOrderedRefLikeTypes();
-  VisitorReadGen read_gen=new VisitorReadGen(types,m_className,m_bcl.top(),m_fieldInspector);
+  VisitorReadGen read_gen=new VisitorReadGen(types,m_className,m_bcl.top());
   read_gen.makeReadFromHeapMethod();
 }

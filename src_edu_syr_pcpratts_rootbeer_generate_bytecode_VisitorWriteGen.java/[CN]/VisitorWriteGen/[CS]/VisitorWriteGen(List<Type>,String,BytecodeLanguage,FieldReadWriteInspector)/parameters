@@ -1,4 +1,0 @@
-List<Type> ordered_history
-String class_name
-BytecodeLanguage bcl
-FieldReadWriteInspector inspector

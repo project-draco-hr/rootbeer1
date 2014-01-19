@@ -1,0 +1,5 @@
+{
+  m_runtimeBasicBlock=runtime_basic_block;
+  m_getSizeMethodsMade=new HashSet<Type>();
+  m_sentinalCtorsCreated=new HashSet<String>();
+}

@@ -1,4 +1,3 @@
 {
   this.existingMethod=method;
-  fieldReadWriteInspector=new FieldReadWriteInspector(method);
 }

@@ -1,3 +1,0 @@
-{
-  return mWrittenOnGpuArrayLocals.contains(local);
-}

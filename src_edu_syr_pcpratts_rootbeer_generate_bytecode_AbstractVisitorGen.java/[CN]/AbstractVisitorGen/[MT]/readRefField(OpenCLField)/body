@@ -32,8 +32,7 @@
     }
   }
   bcl.pushMethod(gc_obj_visit,"readFromHeap",obj_class.getType(),obj_class.getType(),BooleanType.v(),LongType.v());
-  int should_read=0;
-  if (m_fieldInspector.fieldIsWrittenOnGpu(ref_field))   should_read=1;
+  int should_read=1;
   Local ret_obj=bcl.invokeMethodRet(gc_obj_visit,original_field_value,IntConstant.v(should_read),ref);
   Type type=soot_field.getType();
   Local ret=bcl.cast(type,ret_obj);

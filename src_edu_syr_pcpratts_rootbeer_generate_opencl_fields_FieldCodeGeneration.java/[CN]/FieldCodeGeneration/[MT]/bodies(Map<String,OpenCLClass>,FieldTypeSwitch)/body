@@ -1,0 +1,9 @@
+{
+  m_TypeSwitch=type_switch;
+  Set<String> set=new HashSet<String>();
+  List<CompositeField> fields=OpenCLScene.v().getCompositeFields();
+  for (  CompositeField field : fields) {
+    set.addAll(getFieldBodies(field));
+  }
+  return setToString(set);
+}

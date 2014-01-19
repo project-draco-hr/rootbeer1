@@ -1,0 +1,9 @@
+{
+  m_bcl.push(bcl);
+  m_orderedHistory=RootbeerClassLoader.v().getDfsInfo().getOrderedRefTypes();
+  m_writeToHeapMethodsMade=new HashSet<RefType>();
+  m_attachedReaders=new HashSet<String>();
+  m_objSerializing=new Stack<Local>();
+  m_staticOffsets=new StaticOffsets();
+  m_currMem=new Stack<Local>();
+}

@@ -1,4 +1,6 @@
 {
-  m_double_result=returnDouble();
-  m_integer_result=returnInteger();
+  m_double0=returnDouble();
+  m_int0=returnInteger0();
+  m_int1=returnInteger1();
+  m_int2=returnInteger2();
 }
