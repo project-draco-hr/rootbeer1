@@ -1,3 +1,0 @@
-{
-  CudaRuntime2.v().printMem(start,len);
-}

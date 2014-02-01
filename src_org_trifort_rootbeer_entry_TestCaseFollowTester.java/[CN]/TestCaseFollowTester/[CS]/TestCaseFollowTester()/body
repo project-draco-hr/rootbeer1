@@ -1,0 +1,7 @@
+{
+  m_testCaseInterfaces=new HashSet<String>();
+  m_testCaseInterfaces.add("org.trifort.rootbeer.test.TestApplication");
+  m_testCaseInterfaces.add("org.trifort.rootbeer.test.TestException");
+  m_testCaseInterfaces.add("org.trifort.rootbeer.test.TestKernelTemplate");
+  m_testCaseInterfaces.add("org.trifort.rootbeer.test.TestSerialization");
+}

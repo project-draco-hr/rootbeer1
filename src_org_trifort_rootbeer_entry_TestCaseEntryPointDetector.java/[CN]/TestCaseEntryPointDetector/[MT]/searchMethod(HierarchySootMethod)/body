@@ -1,0 +1,24 @@
+{
+  ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
+  List<HierarchyInstruction> instructions=method.getInstructions();
+  for (  HierarchyInstruction inst : instructions) {
+    String name=inst.getName();
+    if (name.equals("new")) {
+      List<Operand> operands=inst.getOperands();
+      for (      Operand operand : operands) {
+        if (operand.getType().equals("class_ref") == false) {
+          continue;
+        }
+        String class_name=operand.getValue();
+        HierarchySootClass hclass=class_hierarchy.getHierarchySootClass(class_name);
+        List<String> ifaces=hclass.getInterfaces();
+        for (        String iface : ifaces) {
+          if (iface.equals("org.trifort.rootbeer.runtime.Kernel")) {
+            return hclass;
+          }
+        }
+      }
+    }
+  }
+  return null;
+}

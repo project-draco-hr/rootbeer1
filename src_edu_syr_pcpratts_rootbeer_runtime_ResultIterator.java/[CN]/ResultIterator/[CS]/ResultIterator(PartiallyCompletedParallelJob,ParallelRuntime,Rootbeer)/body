@@ -1,5 +1,0 @@
-{
-  readPartial(partial);
-  m_runtime=runtime;
-  m_rootbeer=rootbeer;
-}

@@ -1,7 +1,0 @@
-{
-  m_testCaseInterfaces=new HashSet<String>();
-  m_testCaseInterfaces.add("edu.syr.pcpratts.rootbeer.test.TestApplication");
-  m_testCaseInterfaces.add("edu.syr.pcpratts.rootbeer.test.TestException");
-  m_testCaseInterfaces.add("edu.syr.pcpratts.rootbeer.test.TestKernelTemplate");
-  m_testCaseInterfaces.add("edu.syr.pcpratts.rootbeer.test.TestSerialization");
-}

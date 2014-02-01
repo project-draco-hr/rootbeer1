@@ -1,0 +1,23 @@
+{
+  if (m_cards != null) {
+    return m_cards;
+  }
+  m_cards=new ArrayList<GpuDevice>();
+  try {
+    Class c=Class.forName("org.trifort.rootbeer.runtime.CUDARuntime");
+    Constructor<IRuntime> ctor=c.getConstructor();
+    m_cudaRuntime=ctor.newInstance();
+    m_cards.addAll(m_cudaRuntime.getGpuDevices());
+  }
+ catch (  Exception ex) {
+  }
+  try {
+    Class c=Class.forName("org.trifort.rootbeer.runtime.OpenCLRuntime");
+    Constructor<IRuntime> ctor=c.getConstructor();
+    m_openCLRuntime=ctor.newInstance();
+    m_cards.addAll(m_openCLRuntime.getGpuDevices());
+  }
+ catch (  Exception ex) {
+  }
+  return m_cards;
+}

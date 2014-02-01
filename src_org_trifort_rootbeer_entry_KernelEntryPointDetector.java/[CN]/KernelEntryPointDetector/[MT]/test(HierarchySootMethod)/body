@@ -1,0 +1,19 @@
+{
+  if (sm.getSubSignature().equals("void gpuMethod()") == false) {
+    return false;
+  }
+  HierarchySootClass soot_class=sm.getHierarchySootClass();
+  if (m_runTests == false) {
+    if (soot_class.getName().startsWith("org.trifort.rootbeer.testcases.")) {
+      return false;
+    }
+  }
+  Iterator<String> iter=soot_class.getInterfaces().iterator();
+  while (iter.hasNext()) {
+    String iface=iter.next();
+    if (iface.equals("org.trifort.rootbeer.runtime.Kernel")) {
+      return true;
+    }
+  }
+  return false;
+}

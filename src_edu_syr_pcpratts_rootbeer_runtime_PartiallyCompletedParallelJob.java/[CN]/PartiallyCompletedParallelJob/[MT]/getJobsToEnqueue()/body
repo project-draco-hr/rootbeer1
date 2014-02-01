@@ -1,3 +1,0 @@
-{
-  return new CompositeIterator(m_NotWritten,m_RemainingJobs);
-}

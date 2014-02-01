@@ -1,0 +1,26 @@
+{
+  GpuDevice ret=new GpuDevice(DEVICE_TYPE_CUDA);
+  ret.setDeviceId(device_id);
+  ret.setVersion(major_version,minor_version,0);
+  ret.setDeviceName(device_name);
+  ret.setFreeGlobalMemoryBytes(free_global_mem_size);
+  ret.setTotalGlobalMemoryBytes(total_global_mem_size);
+  ret.setMaxRegistersPerBlock(max_registers_per_block);
+  ret.setWarpSize(warp_size);
+  ret.setMaxPitch(max_pitch);
+  ret.setMaxThreadsPerBlock(max_threads_per_block);
+  ret.setMaxSharedMemoryPerBlock(max_shared_memory_per_block);
+  ret.setClockRateHz(clock_rate);
+  ret.setMemoryClockRateHz(memory_clock_rate);
+  ret.setTotalConstantMemoryBytes(constant_mem_size);
+  ret.setIntegrated(integrated);
+  ret.setMaxThreadsPerMultiprocessor(max_threads_per_multiprocessor);
+  ret.setMultiProcessorCount(multiprocessor_count);
+  ret.setMaxBlockDimX(max_block_dim_x);
+  ret.setMaxBlockDimY(max_block_dim_y);
+  ret.setMaxBlockDimZ(max_block_dim_z);
+  ret.setMaxGridDimX(max_grid_dim_x);
+  ret.setMaxGridDimY(max_grid_dim_y);
+  ret.setMaxGridDimZ(max_grid_dim_z);
+  return ret;
+}

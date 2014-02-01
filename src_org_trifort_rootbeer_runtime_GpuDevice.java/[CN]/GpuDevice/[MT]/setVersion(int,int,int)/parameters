@@ -1,0 +1,3 @@
+int major
+int minor
+int patch

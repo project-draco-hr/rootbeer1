@@ -1,0 +1,12 @@
+{
+  m_runtimePackages.add("org.trifort.rootbeer.compiler.");
+  m_runtimePackages.add("org.trifort.rootbeer.configuration.");
+  m_runtimePackages.add("org.trifort.rootbeer.entry.");
+  m_runtimePackages.add("org.trifort.rootbeer.generate.");
+  m_runtimePackages.add("org.trifort.rootbeer.runtime.");
+  m_runtimePackages.add("org.trifort.rootbeer.runtime2.");
+  m_runtimePackages.add("org.trifort.rootbeer.runtime2.cuda.ToSpaceWriter");
+  m_runtimePackages.add("org.trifort.rootbeer.runtimegpu.");
+  m_runtimePackages.add("org.trifort.rootbeer.test.");
+  m_runtimePackages.add("org.trifort.rootbeer.util.");
+}

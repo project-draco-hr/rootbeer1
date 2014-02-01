@@ -1,5 +1,0 @@
-{
-  if (m_NotWritten.hasNext())   return m_NotWritten.next();
-  if (m_Remaining.hasNext())   return m_Remaining.next();
-  throw new RuntimeException("out of items");
-}

@@ -1,5 +1,0 @@
-{
-  if (m_NotWritten.hasNext())   return true;
-  if (m_Remaining.hasNext())   return true;
-  return false;
-}

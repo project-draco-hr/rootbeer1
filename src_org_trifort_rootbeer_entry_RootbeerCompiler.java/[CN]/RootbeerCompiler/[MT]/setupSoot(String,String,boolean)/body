@@ -1,0 +1,108 @@
+{
+  RootbeerClassLoader.v().setUserJar(jar_filename);
+  List<String> proc_dir=new ArrayList<String>();
+  proc_dir.add(jar_filename);
+  Options.v().set_allow_phantom_refs(true);
+  Options.v().set_rbclassload(true);
+  Options.v().set_prepend_classpath(true);
+  Options.v().set_process_dir(proc_dir);
+  if (m_enableClassRemapping) {
+    Options.v().set_rbclassload_buildcg(true);
+  }
+  if (rootbeer_jar.equals("") == false) {
+    Options.v().set_soot_classpath(rootbeer_jar);
+  }
+  Options.v().set_rbcl_remap_all(false);
+  Options.v().set_rbcl_remap_prefix("org.trifort.rootbeer.runtime.remap.");
+  RootbeerClassLoader.v().addEntryMethodTester(m_entryDetector);
+  ListClassTester ignore_packages=new ListClassTester();
+  ignore_packages.addPackage("org.trifort.rootbeer.compressor.");
+  ignore_packages.addPackage("org.trifort.rootbeer.deadmethods.");
+  ignore_packages.addPackage("org.trifort.rootbeer.compiler.");
+  ignore_packages.addPackage("org.trifort.rootbeer.configuration.");
+  ignore_packages.addPackage("org.trifort.rootbeer.entry.");
+  ignore_packages.addPackage("org.trifort.rootbeer.generate.");
+  ignore_packages.addPackage("org.trifort.rootbeer.test.");
+  if (!runtests) {
+    ignore_packages.addPackage("org.trifort.rootbeer.testcases.");
+  }
+  ignore_packages.addPackage("org.trifort.rootbeer.util.");
+  ignore_packages.addPackage("pack.");
+  ignore_packages.addPackage("jasmin.");
+  ignore_packages.addPackage("soot.");
+  ignore_packages.addPackage("beaver.");
+  ignore_packages.addPackage("polyglot.");
+  ignore_packages.addPackage("org.antlr.");
+  ignore_packages.addPackage("java_cup.");
+  ignore_packages.addPackage("ppg.");
+  ignore_packages.addPackage("antlr.");
+  ignore_packages.addPackage("jas.");
+  ignore_packages.addPackage("scm.");
+  ignore_packages.addPackage("org.xmlpull.v1.");
+  ignore_packages.addPackage("android.util.");
+  ignore_packages.addPackage("android.content.res.");
+  ignore_packages.addPackage("org.apache.commons.codec.");
+  RootbeerClassLoader.v().addDontFollowClassTester(ignore_packages);
+  ListClassTester keep_packages=new ListClassTester();
+  for (  String runtime_class : m_runtimePackages) {
+    keep_packages.addPackage(runtime_class);
+  }
+  RootbeerClassLoader.v().addToSignaturesClassTester(keep_packages);
+  RootbeerClassLoader.v().addNewInvoke("java.lang.StringBuilder");
+  ListMethodTester follow_tester=new ListMethodTester();
+  follow_tester.addSignature("<java.lang.String: void <init>()>");
+  follow_tester.addSignature("<java.lang.String: void <init>(char[])>");
+  follow_tester.addSignature("<java.lang.StringBuilder: void <init>()>");
+  follow_tester.addSignature("<java.lang.Boolean: java.lang.String toString(boolean)>");
+  follow_tester.addSignature("<java.lang.Character: java.lang.String toString(char)>");
+  follow_tester.addSignature("<java.lang.Double: java.lang.String toString(double)>");
+  follow_tester.addSignature("<java.lang.Float: java.lang.String toString(float)>");
+  follow_tester.addSignature("<java.lang.Integer: java.lang.String toString(int)>");
+  follow_tester.addSignature("<java.lang.Long: java.lang.String toString(long)>");
+  follow_tester.addSignature("<org.trifort.rootbeer.runtime.Sentinal: void <init>()>");
+  follow_tester.addSignature("<org.trifort.rootbeer.runtimegpu.GpuException: void <init>()>");
+  follow_tester.addSignature("<org.trifort.rootbeer.runtimegpu.GpuException: org.trifort.rootbeer.runtimegpu.GpuException arrayOutOfBounds(int,int,int)>");
+  follow_tester.addSignature("<org.trifort.rootbeer.runtime.Serializer: void <init>(org.trifort.runtime.memory.Memory,org.trifort.runtime.memory.Memory)>");
+  follow_tester.addSignature("<org.trifort.rootbeer.testcases.rootbeertest.serialization.CovarientTest: void <init>()>");
+  RootbeerClassLoader.v().addFollowMethodTester(follow_tester);
+  if (runtests) {
+    RootbeerClassLoader.v().addFollowClassTester(new TestCaseFollowTester());
+  }
+  if (Configuration.compilerInstance().getKeepMains()) {
+    MainTester main_tester=new MainTester();
+    RootbeerClassLoader.v().addFollowMethodTester(main_tester);
+  }
+  DontDfsMethods dont_dfs_methods=new DontDfsMethods();
+  ListMethodTester dont_dfs_tester=new ListMethodTester();
+  Set<String> dont_dfs_set=dont_dfs_methods.get();
+  for (  String dont_dfs : dont_dfs_set) {
+    dont_dfs_tester.addSignature(dont_dfs);
+  }
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void println()>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(java.lang.String)>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(boolean)>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(byte)>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(char)>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(short)>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(int)>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(long)>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(float)>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(double)>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void print(java.lang.String)>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void print(double)>");
+  dont_dfs_tester.addSignature("<java.io.PrintStream: void print(float)>");
+  dont_dfs_tester.addSignature("<java.lang.Double: java.lang.String toString(double)>");
+  dont_dfs_tester.addSignature("<java.lang.Float: java.lang.String toString(float)>");
+  RootbeerClassLoader.v().addDontFollowMethodTester(dont_dfs_tester);
+  ExtraFields extra_fields=new ExtraFields();
+  for (  String field_sig : extra_fields.get()) {
+    RootbeerClassLoader.v().loadField(field_sig);
+  }
+  ListMethodTester to_sig_methods=new ListMethodTester();
+  to_sig_methods.addSignature("<java.lang.Object: int hashCode()>");
+  to_sig_methods.addSignature("<java.io.PrintStream: void println(java.lang.String)>");
+  to_sig_methods.addSignature("<java.io.PrintStream: void println(int)>");
+  to_sig_methods.addSignature("<java.io.PrintStream: void println(long)>");
+  RootbeerClassLoader.v().addToSignaturesMethodTester(to_sig_methods);
+  RootbeerClassLoader.v().loadNecessaryClasses();
+}

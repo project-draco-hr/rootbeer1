@@ -1,0 +1,8 @@
+{
+  Chain<SootClass> interfaces=m_sootClass.getInterfaces();
+  SootClass kernel=Scene.v().getSootClass("org.trifort.rootbeer.runtime.Kernel");
+  if (interfaces.contains(kernel) && m_sootMethod.getName().equals("run")) {
+    return true;
+  }
+  return false;
+}

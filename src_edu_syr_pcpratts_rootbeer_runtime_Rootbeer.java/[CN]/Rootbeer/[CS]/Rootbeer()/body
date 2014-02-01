@@ -1,4 +1,0 @@
-{
-  RootbeerFactory factory=new RootbeerFactory();
-  m_Rootbeer=factory.create(this);
-}

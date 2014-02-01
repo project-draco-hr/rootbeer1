@@ -1,0 +1,48 @@
+{
+  if (kernel_methods.isEmpty()) {
+    System.out.println("There are no kernel classes. Please implement the following interface to use rootbeer:");
+    System.out.println("org.trifort.runtime.Kernel");
+    System.exit(0);
+  }
+  Transform2 transform2=new Transform2();
+  for (  SootMethod kernel_method : kernel_methods) {
+    System.out.println("running transform2 on: " + kernel_method.getSignature() + "...");
+    RootbeerClassLoader.v().loadDfsInfo(kernel_method);
+    DfsInfo dfs_info=RootbeerClassLoader.v().getDfsInfo();
+    RootbeerDfs rootbeer_dfs=new RootbeerDfs();
+    rootbeer_dfs.run(dfs_info);
+    dfs_info.expandArrayTypes();
+    dfs_info.finalizeTypes();
+    SootClass soot_class=kernel_method.getDeclaringClass();
+    transform2.run(soot_class.getName());
+  }
+  System.out.println("writing classes out...");
+  Iterator<SootClass> iter=Scene.v().getClasses().iterator();
+  while (iter.hasNext()) {
+    SootClass soot_class=iter.next();
+    if (soot_class.isLibraryClass()) {
+      continue;
+    }
+    String class_name=soot_class.getName();
+    boolean write=true;
+    for (    String runtime_class : m_runtimePackages) {
+      if (class_name.startsWith(runtime_class)) {
+        write=false;
+        break;
+      }
+    }
+    Iterator<SootClass> ifaces=soot_class.getInterfaces().iterator();
+    while (ifaces.hasNext()) {
+      SootClass iface=ifaces.next();
+      if (iface.getName().startsWith("org.trifort.rootbeer.test.")) {
+        write=false;
+      }
+    }
+    if (write) {
+      writeClassFile(class_name);
+      writeJimpleFile(class_name);
+    }
+  }
+  makeOutJar(jar_filename);
+  pack(outname);
+}
