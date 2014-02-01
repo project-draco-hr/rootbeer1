@@ -1,5 +1,0 @@
-{
-  byte ret=m_array[m_index];
-  ++m_index;
-  return ret;
-}

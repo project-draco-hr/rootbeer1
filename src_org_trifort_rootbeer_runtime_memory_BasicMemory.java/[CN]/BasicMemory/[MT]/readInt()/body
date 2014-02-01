@@ -1,9 +1,0 @@
-{
-  long ptr=getPointer();
-  int value=(int)(((int)mData.get(ptr + ioffset3) << 24) & 0xff000000);
-  value|=(int)(((int)mData.get(ptr + ioffset2) << 16) & 0x00ff0000);
-  value|=(int)(((int)mData.get(ptr + ioffset1) << 8) & 0x0000ff00);
-  value|=(int)((int)mData.get(ptr + ioffset0) & 0x000000ff);
-  incPointer(4);
-  return value;
-}

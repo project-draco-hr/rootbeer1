@@ -1,5 +1,0 @@
-{
-  m_CpuAddr=cpu_base_address;
-  m_GpuAddr=gpu_base_address;
-  setup(cpu_base_address,gpu_base_address);
-}

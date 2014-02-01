@@ -1,3 +1,0 @@
-byte[] buffer
-int length
-int[] ret_buffer

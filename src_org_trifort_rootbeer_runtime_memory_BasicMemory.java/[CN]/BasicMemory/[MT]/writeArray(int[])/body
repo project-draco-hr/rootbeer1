@@ -1,5 +1,0 @@
-{
-  for (  int value : array) {
-    writeInt(value);
-  }
-}

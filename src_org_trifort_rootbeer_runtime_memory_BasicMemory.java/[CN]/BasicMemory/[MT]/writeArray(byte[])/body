@@ -1,5 +1,0 @@
-{
-  for (  byte value : array) {
-    writeByte(value);
-  }
-}

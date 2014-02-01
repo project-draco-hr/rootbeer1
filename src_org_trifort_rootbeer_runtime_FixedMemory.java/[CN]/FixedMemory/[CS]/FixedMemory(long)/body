@@ -1,0 +1,5 @@
+{
+  m_size=size;
+  m_reserve=1024;
+  m_address=malloc(size);
+}

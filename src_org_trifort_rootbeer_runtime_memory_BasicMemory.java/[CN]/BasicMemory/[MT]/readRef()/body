@@ -1,5 +1,0 @@
-{
-  long ret=readInt();
-  ret<<=4;
-  return ret;
-}

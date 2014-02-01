@@ -1,4 +1,0 @@
-{
-  long mod=size % alignment;
-  return size - mod;
-}

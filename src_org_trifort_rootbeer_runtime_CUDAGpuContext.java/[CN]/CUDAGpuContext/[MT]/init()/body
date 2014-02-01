@@ -1,5 +1,0 @@
-{
-  m_objectMemory=new CUDAMemory(1000);
-  m_handlesMemory=new CUDAMemory(1000);
-  m_exceptionsMemory=new CUDAMemory(1000);
-}

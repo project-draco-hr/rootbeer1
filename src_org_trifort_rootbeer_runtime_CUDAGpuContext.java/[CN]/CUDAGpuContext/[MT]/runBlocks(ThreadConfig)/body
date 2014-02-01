@@ -1,3 +1,0 @@
-{
-  cudaRun(thread_config.getBlockShapeX(),thread_config.getGridShapeX(),thread_config.getNumThreads(),m_objectMemory,m_handlesMemory);
-}

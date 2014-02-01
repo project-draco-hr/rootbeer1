@@ -1,4 +1,0 @@
-{
-  if (value)   writeByte((byte)1);
- else   writeByte((byte)0);
-}

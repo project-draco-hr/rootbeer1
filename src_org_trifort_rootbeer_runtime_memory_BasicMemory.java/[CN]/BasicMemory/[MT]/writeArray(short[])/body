@@ -1,5 +1,0 @@
-{
-  for (  short value : array) {
-    writeShort(value);
-  }
-}

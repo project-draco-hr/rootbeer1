@@ -1,0 +1,6 @@
+{
+  m_objectMemory.close();
+  m_handlesMemory.close();
+  m_exceptionsMemory.close();
+  m_classMemory.close();
+}

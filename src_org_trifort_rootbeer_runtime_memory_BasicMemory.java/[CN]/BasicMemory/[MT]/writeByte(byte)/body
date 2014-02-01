@@ -1,5 +1,0 @@
-{
-  long ptr=getPointer();
-  mData.set(ptr,value);
-  incPointer(1);
-}

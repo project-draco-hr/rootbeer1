@@ -1,5 +1,0 @@
-{
-  for (  float value : array) {
-    writeFloat(value);
-  }
-}

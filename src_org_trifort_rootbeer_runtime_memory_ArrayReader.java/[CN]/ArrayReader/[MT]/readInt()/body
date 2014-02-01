@@ -1,8 +1,0 @@
-{
-  int value=(int)(((int)m_array[m_index + 3] << 24) & 0xff000000);
-  value|=(int)(((int)m_array[m_index + 2] << 16) & 0x00ff0000);
-  value|=(int)(((int)m_array[m_index + 1] << 8) & 0x0000ff00);
-  value|=(int)((int)m_array[m_index] & 0x000000ff);
-  m_index+=4;
-  return value;
-}

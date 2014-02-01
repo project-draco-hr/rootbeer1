@@ -1,5 +1,0 @@
-{
-  byte ret=mData.get(getPointer());
-  incPointer(1);
-  return ret;
-}

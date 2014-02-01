@@ -1,5 +1,0 @@
-{
-  for (  boolean value : array) {
-    writeBoolean(value);
-  }
-}

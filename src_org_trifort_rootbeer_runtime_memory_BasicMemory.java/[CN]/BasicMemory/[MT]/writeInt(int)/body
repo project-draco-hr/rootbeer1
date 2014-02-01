@@ -1,8 +1,0 @@
-{
-  long ptr=getPointer();
-  mData.set(ptr + ioffset0,(byte)((int)(value) & 0xff));
-  mData.set(ptr + ioffset1,(byte)((int)(value >> 8) & 0xff));
-  mData.set(ptr + ioffset2,(byte)((int)(value >> 16) & 0xff));
-  mData.set(ptr + ioffset3,(byte)((int)(value >> 24) & 0xff));
-  incPointer(4);
-}

@@ -1,4 +1,0 @@
-{
-  long longValue=readLong();
-  return Double.longBitsToDouble(longValue);
-}

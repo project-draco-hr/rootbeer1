@@ -1,4 +1,0 @@
-{
-  long longValue=Double.doubleToLongBits(value);
-  writeLong(longValue);
-}

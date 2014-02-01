@@ -1,3 +1,0 @@
-{
-  setPointer(mAddressStack.pop());
-}
