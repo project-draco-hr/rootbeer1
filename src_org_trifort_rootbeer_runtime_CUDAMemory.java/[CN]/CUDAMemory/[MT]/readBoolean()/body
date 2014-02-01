@@ -1,0 +1,5 @@
+{
+  boolean ret=doReadBoolean(currPointer(),m_address);
+  incrementAddress(1);
+  return ret;
+}

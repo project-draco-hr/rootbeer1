@@ -1,5 +1,0 @@
-{
-  m_BlockShaper.run(m_JobsWritten.size(),m_NumMultiProcessors);
-  m_GridShape=m_BlockShaper.gridShape();
-  m_BlockShape=m_BlockShaper.blockShape();
-}

@@ -1,4 +1,0 @@
-{
-  validate(testBytes(mem));
-  System.out.println("TEST PASSED");
-}

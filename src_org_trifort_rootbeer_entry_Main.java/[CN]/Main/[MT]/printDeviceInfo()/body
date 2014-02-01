@@ -1,0 +1,12 @@
+{
+  Rootbeer rootbeer=new Rootbeer();
+  List<GpuDevice> devices=rootbeer.getGpuDevices();
+  System.out.println("device count: " + devices.size());
+  for (  GpuDevice device : devices) {
+    System.out.println("device: " + device.getDeviceName());
+    System.out.println("  total_global_memory: " + device.getTotalGlobalMemoryBytes() + " bytes");
+    System.out.println("  num_multiprocessors: " + device.getMultiProcessorCount());
+    System.out.println("  max_threads_per_multiprocessor: " + device.getMaxThreadsPerMultiprocessor());
+    System.out.println("  clock_rate: " + device.getClockRateHz() + " Hz");
+  }
+}

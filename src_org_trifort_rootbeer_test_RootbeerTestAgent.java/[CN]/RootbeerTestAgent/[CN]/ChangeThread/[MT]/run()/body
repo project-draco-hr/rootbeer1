@@ -6,8 +6,10 @@
     List<Kernel> testing_items=m_creator.create();
     Stopwatch watch=new Stopwatch();
     watch.start();
-    m_rootbeer.runAll(testing_items);
-    if (m_rootbeer.getRanGpu() == false) {
+    try {
+      m_rootbeer.run(testing_items);
+    }
+ catch (    Exception ex) {
       m_message="Ran on CPU";
       m_passed=false;
       return;

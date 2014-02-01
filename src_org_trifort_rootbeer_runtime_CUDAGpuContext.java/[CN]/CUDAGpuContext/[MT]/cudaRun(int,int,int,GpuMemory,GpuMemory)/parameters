@@ -1,0 +1,5 @@
+int block_shape_x
+int grid_shape_x
+int num_threads
+GpuMemory object_mem
+GpuMemory handles_mem

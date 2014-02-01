@@ -1,6 +1,0 @@
-{
-  if (m_Instance == null) {
-    m_Instance=new CudaRuntime2();
-  }
-  return m_Instance;
-}

@@ -1,0 +1,5 @@
+{
+  short ret=doReadShort(currPointer(),m_address);
+  incrementAddress(2);
+  return ret;
+}

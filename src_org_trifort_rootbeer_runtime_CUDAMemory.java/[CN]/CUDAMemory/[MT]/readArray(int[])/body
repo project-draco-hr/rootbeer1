@@ -1,0 +1,3 @@
+{
+  doReadIntArray(array,m_address + currPointer(),0,array.length);
+}

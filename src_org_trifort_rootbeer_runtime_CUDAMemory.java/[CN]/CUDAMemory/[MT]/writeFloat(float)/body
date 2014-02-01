@@ -1,0 +1,4 @@
+{
+  doWriteFloat(currPointer(),value,m_address);
+  incrementAddress(4);
+}

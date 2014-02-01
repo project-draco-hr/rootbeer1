@@ -1,3 +1,0 @@
-int max_blocks_per_proc
-int max_threads_per_block
-long free_memory

@@ -1,0 +1,5 @@
+{
+  GpuDevice ret=new GpuDevice(DEVICE_TYPE_OPENCL);
+  ret.setDeviceName(device_name);
+  return ret;
+}

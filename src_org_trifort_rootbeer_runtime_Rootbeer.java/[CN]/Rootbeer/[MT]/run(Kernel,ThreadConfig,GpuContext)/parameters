@@ -1,0 +1,3 @@
+Kernel template
+ThreadConfig thread_config
+GpuContext context

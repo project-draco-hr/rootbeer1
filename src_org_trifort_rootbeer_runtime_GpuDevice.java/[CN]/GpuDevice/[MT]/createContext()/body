@@ -1,0 +1,8 @@
+{
+  if (m_deviceType == DEVICE_TYPE_CUDA) {
+    return new CUDAGpuContext(this);
+  }
+ else {
+    throw new UnsupportedOperationException();
+  }
+}

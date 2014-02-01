@@ -1,0 +1,4 @@
+{
+  doWriteShort(currPointer(),value,m_address);
+  incrementAddress(2);
+}

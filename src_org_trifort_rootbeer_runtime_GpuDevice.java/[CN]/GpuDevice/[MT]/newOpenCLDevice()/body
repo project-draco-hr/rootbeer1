@@ -1,4 +1,0 @@
-{
-  GpuDevice ret=new GpuDevice(DEVICE_TYPE_OPENCL);
-  return ret;
-}

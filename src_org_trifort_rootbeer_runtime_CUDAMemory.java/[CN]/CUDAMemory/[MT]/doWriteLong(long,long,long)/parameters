@@ -1,0 +1,3 @@
+long ptr
+long value
+long cpu_base

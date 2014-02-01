@@ -1,0 +1,12 @@
+{
+  m_objectMemory.reset();
+  m_handlesMemory.reset();
+  Serializer serializer=compiled_kernel.getSerializer(m_objectMemory);
+  serializer.writeStaticsToHeap();
+  long handle=serializer.writeToHeap(compiled_kernel);
+  m_handlesMemory.writeRef(handle);
+  if (Configuration.getPrintMem()) {
+    BufferPrinter printer=new BufferPrinter();
+    printer.print(m_objectMemory,0,896);
+  }
+}
