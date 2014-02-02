@@ -4,5 +4,5 @@
   free_mem_size-=m_handlesMemory.getSize();
   free_mem_size-=m_exceptionsMemory.getSize();
   free_mem_size-=m_classMemory.getSize();
-  m_objectMemory=new FixedMemory(free_mem_size);
+  m_objectMemory=new CheckedFixedMemory(free_mem_size);
 }

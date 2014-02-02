@@ -18,9 +18,9 @@
     cubin_file=readCubinFile(filename);
     m_cubinFiles.put(filename,cubin_file);
   }
-  m_handlesMemory=new FixedMemory(8 * work.size());
-  m_exceptionsMemory=new FixedMemory(8 * work.size());
-  m_classMemory=new FixedMemory(1024);
+  m_handlesMemory=new CheckedFixedMemory(8 * work.size());
+  m_exceptionsMemory=new CheckedFixedMemory(8 * work.size());
+  m_classMemory=new CheckedFixedMemory(1024);
   if (m_objectMemory == null) {
     init();
   }

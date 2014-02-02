@@ -1,9 +1,10 @@
 {
+  m_reserve=1024;
+  size+=m_reserve;
   m_address=malloc(size);
   m_size=size;
   m_instancePointer=new MemPointer();
   m_staticPointer=new MemPointer();
   m_currentPointer=m_instancePointer;
-  m_reserve=1024;
   m_integerList=new ArrayList<List<Long>>();
 }

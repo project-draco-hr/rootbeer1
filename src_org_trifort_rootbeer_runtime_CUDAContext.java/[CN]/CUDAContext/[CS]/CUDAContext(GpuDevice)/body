@@ -4,5 +4,10 @@
   m_32bit=arch.equals("x86") || arch.equals("i386");
   m_cubinFiles=new HashMap<String,byte[]>();
   m_handles=new HashMap<Kernel,Long>();
-  m_textureMemory=new FixedMemory(64);
+  m_textureMemory=new CheckedFixedMemory(64);
+  m_toThread=new BlockingQueue<KernelLaunch>();
+  m_fromThread=new BlockingQueue<KernelLaunch>();
+  m_thread=new Thread(this);
+  m_thread.setDaemon(true);
+  m_thread.start();
 }

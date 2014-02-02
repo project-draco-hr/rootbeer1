@@ -1,6 +1,6 @@
 {
   Rootbeer rootbeer=new Rootbeer();
-  List<GpuDevice> devices=rootbeer.getGpuDevices();
+  List<GpuDevice> devices=rootbeer.getDevices();
   System.out.println("count: " + devices.size());
   for (  GpuDevice device : devices) {
     System.out.println("device: " + device.getDeviceName());

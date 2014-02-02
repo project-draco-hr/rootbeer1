@@ -1,0 +1,13 @@
+{
+  m_deviceIndex=device_index;
+  m_cubinFile=cubin_file;
+  m_cubinFileLength=cubin_file_length;
+  m_blockShapeX=block_shape_x;
+  m_gridShapeX=grid_shape_x;
+  m_numThreads=num_threads;
+  m_objectMem=object_mem;
+  m_handlesMem=handles_mem;
+  m_exceptionsMem=exceptions_mem;
+  m_classMem=class_mem;
+  m_quit=false;
+}

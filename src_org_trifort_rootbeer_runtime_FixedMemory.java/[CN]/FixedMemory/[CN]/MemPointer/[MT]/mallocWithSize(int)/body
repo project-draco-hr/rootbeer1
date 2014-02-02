@@ -4,7 +4,7 @@
   if (mod != 0)   size+=(16 - mod);
   long ret=m_endPointer;
   m_endPointer+=size;
-  if (ret + size + m_reserve > m_size) {
+  if (ret + size > m_size) {
     throw new OutOfMemoryError();
   }
   m_pointer=ret;

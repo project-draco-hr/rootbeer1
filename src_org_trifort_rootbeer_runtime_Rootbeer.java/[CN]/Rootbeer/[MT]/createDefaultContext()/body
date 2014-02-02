@@ -1,5 +1,5 @@
 {
-  List<GpuDevice> devices=getGpuDevices();
+  List<GpuDevice> devices=getDevices();
   GpuDevice best=null;
   for (  GpuDevice device : devices) {
     if (best == null) {
