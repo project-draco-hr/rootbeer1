@@ -1,0 +1,6 @@
+{
+  if (address >= m_size) {
+    throw new RuntimeException("address out of range: " + address);
+  }
+  super.setAddress(address);
+}

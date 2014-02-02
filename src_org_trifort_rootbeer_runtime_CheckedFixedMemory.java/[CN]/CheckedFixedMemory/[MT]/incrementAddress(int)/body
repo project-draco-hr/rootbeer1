@@ -1,0 +1,6 @@
+{
+  super.incrementAddress(offset);
+  if (currPointer() >= m_size) {
+    throw new RuntimeException("address out of range: " + currPointer());
+  }
+}

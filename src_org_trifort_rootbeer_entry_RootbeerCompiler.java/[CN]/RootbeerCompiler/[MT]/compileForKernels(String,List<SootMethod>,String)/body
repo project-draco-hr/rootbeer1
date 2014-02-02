@@ -36,6 +36,7 @@
       SootClass iface=ifaces.next();
       if (iface.getName().startsWith("org.trifort.rootbeer.test.")) {
         write=false;
+        break;
       }
     }
     if (write) {
