@@ -1,3 +1,2 @@
 ThreadConfig thread_config
 byte[] cubin_file
-boolean new_used

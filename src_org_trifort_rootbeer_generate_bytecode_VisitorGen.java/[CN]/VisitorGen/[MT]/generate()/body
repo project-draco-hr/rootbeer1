@@ -3,5 +3,4 @@
   makeSentinalCtors();
   makeSerializer();
   addGetSerializerMethod();
-  addNewUsedMethod();
 }

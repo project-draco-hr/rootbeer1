@@ -25,6 +25,6 @@
     init();
   }
   writeBlocks(work);
-  runBlocks(thread_config,cubin_file,compiled_kernel.getNewUsed());
+  runBlocks(thread_config,cubin_file);
   readBlocks(work);
 }
