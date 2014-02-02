@@ -1,2 +1,3 @@
 {
+  m_CurrMemPointer.incrementAddress(offset);
 }

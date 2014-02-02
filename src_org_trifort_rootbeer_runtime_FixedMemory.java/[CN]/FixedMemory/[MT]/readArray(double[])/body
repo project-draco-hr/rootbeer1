@@ -1,3 +1,3 @@
 {
-  doReadDoubleArray(array,m_address + currPointer(),0,array.length);
+  doReadDoubleArray(array,m_CpuBase + currPointer(),0,array.length);
 }
