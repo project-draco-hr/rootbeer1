@@ -18,7 +18,13 @@
     cubin_file=readCubinFile(filename);
     m_cubinFiles.put(filename,cubin_file);
   }
+  m_handlesMemory=new FixedMemory(8);
+  m_exceptionsMemory=new FixedMemory(8);
+  m_classMemory=new FixedMemory(1024);
+  if (m_objectMemory == null) {
+    init();
+  }
   writeBlocksTemplate(compiled_kernel);
-  runBlocks(thread_config,cubin_file);
+  runBlocks(thread_config,cubin_file,compiled_kernel.getNewUsed());
   readBlocksTemplate(compiled_kernel,thread_config);
 }

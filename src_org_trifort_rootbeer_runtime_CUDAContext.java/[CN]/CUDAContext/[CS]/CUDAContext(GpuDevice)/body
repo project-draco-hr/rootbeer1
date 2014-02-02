@@ -4,5 +4,5 @@
   m_32bit=arch.equals("x86") || arch.equals("i386");
   m_cubinFiles=new HashMap<String,byte[]>();
   m_handles=new HashMap<Kernel,Long>();
-  init();
+  m_textureMemory=new FixedMemory(64);
 }

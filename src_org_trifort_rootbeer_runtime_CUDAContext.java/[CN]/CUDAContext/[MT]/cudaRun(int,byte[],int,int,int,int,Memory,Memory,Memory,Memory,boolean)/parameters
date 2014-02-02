@@ -8,3 +8,4 @@ Memory object_mem
 Memory handles_mem
 Memory exceptions_mem
 Memory class_mem
+boolean new_used

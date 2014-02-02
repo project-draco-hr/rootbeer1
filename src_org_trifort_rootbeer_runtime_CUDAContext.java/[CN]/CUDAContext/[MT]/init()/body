@@ -1,7 +1,8 @@
 {
-  m_objectMemory=new FixedMemory(1024 * 1024);
-  m_textureMemory=new FixedMemory(1024);
-  m_handlesMemory=new FixedMemory(1024 * 1024);
-  m_exceptionsMemory=new FixedMemory(1024 * 1024);
-  m_classMemory=new FixedMemory(1024 * 1024);
+  long free_mem_size=m_device.getFreeGlobalMemoryBytes();
+  free_mem_size-=64 * 1024 * 1024;
+  free_mem_size-=m_handlesMemory.getSize();
+  free_mem_size-=m_exceptionsMemory.getSize();
+  free_mem_size-=m_classMemory.getSize();
+  m_objectMemory=new FixedMemory(free_mem_size);
 }

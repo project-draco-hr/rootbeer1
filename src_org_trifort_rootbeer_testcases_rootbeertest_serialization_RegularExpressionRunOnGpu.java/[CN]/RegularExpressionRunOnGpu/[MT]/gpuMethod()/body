@@ -1,0 +1,4 @@
+{
+  m_matches1=m_inputString1.matches(m_exprString);
+  m_matches2=m_inputString2.matches(m_exprString);
+}

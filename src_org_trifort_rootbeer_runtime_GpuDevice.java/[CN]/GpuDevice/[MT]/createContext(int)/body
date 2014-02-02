@@ -1,0 +1,10 @@
+{
+  if (m_deviceType == DEVICE_TYPE_CUDA) {
+    CUDAContext ret=new CUDAContext(this);
+    ret.init(memory_size);
+    return ret;
+  }
+ else {
+    throw new UnsupportedOperationException();
+  }
+}

@@ -1,0 +1,5 @@
+{
+  RegularExpressionRunOnGpu lhs=(RegularExpressionRunOnGpu)original;
+  RegularExpressionRunOnGpu rhs=(RegularExpressionRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}
