@@ -20,6 +20,7 @@
     GpuDevice device1=devices.get(1);
     Context context0=device0.createContext(4096);
     Context context1=device1.createContext(4096);
+    rootbeer.run(work0,context0);
     rootbeer.run(work1,context1);
     watch.stop();
     System.out.println("time: " + watch.elapsedTimeMillis());

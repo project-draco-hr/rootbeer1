@@ -4,6 +4,7 @@
   System.out.println("device count: " + devices.size());
   for (  GpuDevice device : devices) {
     System.out.println("device: " + device.getDeviceName());
+    System.out.println("  compute_capability: " + device.getMajorVersion() + "."+ device.getMinorVersion());
     System.out.println("  total_global_memory: " + device.getTotalGlobalMemoryBytes() + " bytes");
     System.out.println("  num_multiprocessors: " + device.getMultiProcessorCount());
     System.out.println("  max_threads_per_multiprocessor: " + device.getMaxThreadsPerMultiprocessor());
