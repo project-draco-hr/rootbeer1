@@ -6,11 +6,11 @@
   ret.append("  int i;\n");
   ret.append("  int src_index;\n");
   ret.append("  int dest_index;\n");
-  ret.append("  " + address_qual + " char * src_deref = edu_syr_pcpratts_gc_deref(gc_info, src_handle);\n");
-  ret.append("  " + address_qual + " char * dest_deref = edu_syr_pcpratts_gc_deref(gc_info, dest_handle);\n");
+  ret.append("  " + address_qual + " char * src_deref = org_trifort_gc_deref(gc_info, src_handle);\n");
+  ret.append("  " + address_qual + " char * dest_deref = org_trifort_gc_deref(gc_info, dest_handle);\n");
   ret.append("  \n");
-  ret.append("  GC_OBJ_TYPE_TYPE src_type = edu_syr_pcpratts_gc_get_type(src_deref);\n");
-  ret.append("  GC_OBJ_TYPE_TYPE dest_type = edu_syr_pcpratts_gc_get_type(dest_deref);\n");
+  ret.append("  GC_OBJ_TYPE_TYPE src_type = org_trifort_gc_get_type(src_deref);\n");
+  ret.append("  GC_OBJ_TYPE_TYPE dest_type = org_trifort_gc_get_type(dest_deref);\n");
   ret.append("  \n");
   ret.append("  if(srcPos < destPos){\n");
   ret.append("      if(0){}\n");

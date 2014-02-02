@@ -1,7 +1,7 @@
 {
   m_objectMemory.clearHeapEndPtr();
   m_handlesMemory.clearHeapEndPtr();
-  Serializer serializer=compiled_kernel.getSerializer(m_objectMemory);
+  Serializer serializer=compiled_kernel.getSerializer(m_objectMemory,m_textureMemory);
   serializer.writeStaticsToHeap();
   long handle=serializer.writeToHeap(compiled_kernel);
   m_handlesMemory.writeRef(handle);

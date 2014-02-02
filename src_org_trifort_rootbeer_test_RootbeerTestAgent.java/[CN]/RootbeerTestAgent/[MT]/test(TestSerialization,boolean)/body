@@ -7,14 +7,7 @@
     List<Kernel> testing_items=creator.create();
     Stopwatch watch=new Stopwatch();
     watch.start();
-    try {
-      rootbeer.run(testing_items);
-    }
- catch (    Exception ex) {
-      m_message="Ran on CPU";
-      m_passed=false;
-      return;
-    }
+    rootbeer.run(testing_items);
     m_passed=true;
     watch.stop();
     m_gpuTime=watch.elapsedTimeMillis();

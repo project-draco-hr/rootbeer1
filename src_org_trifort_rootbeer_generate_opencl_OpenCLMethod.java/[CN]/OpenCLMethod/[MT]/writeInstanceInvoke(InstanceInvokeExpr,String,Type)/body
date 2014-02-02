@@ -9,7 +9,7 @@
   if (base instanceof Local == false)   throw new UnsupportedOperationException("How do we handle an invoke on a non loca?");
   Local local=(Local)base;
   if (isConstructor()) {
-    ret.append("edu_syr_pcpratts_gc_assign (gc_info, \n&" + local.getName() + ", ");
+    ret.append("org_trifort_gc_assign (gc_info, \n&" + local.getName() + ", ");
   }
   String function_name=method_prefix + corrected_this.getPolymorphicName();
   ret.append(function_name + "(");

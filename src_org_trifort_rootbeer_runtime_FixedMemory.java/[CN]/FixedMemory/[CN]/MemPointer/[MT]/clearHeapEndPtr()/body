@@ -1,5 +1,5 @@
 {
-  m_HeapEnd=0;
-  m_Pointer=0;
-  m_EndPointer=0;
+  m_heapEnd=0;
+  m_pointer=0;
+  m_endPointer=0;
 }

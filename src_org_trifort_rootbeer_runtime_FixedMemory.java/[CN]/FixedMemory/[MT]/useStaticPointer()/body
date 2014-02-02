@@ -1,3 +1,3 @@
 {
-  m_CurrMemPointer=m_StaticMemPointer;
+  m_currentPointer=m_staticPointer;
 }

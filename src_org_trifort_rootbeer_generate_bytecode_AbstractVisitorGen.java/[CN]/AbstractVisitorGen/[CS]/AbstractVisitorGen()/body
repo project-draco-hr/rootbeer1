@@ -6,7 +6,7 @@
   m_currThisRef=new Stack<Local>();
   m_objSerializing=new Stack<Local>();
   m_classesToIgnore=new ArrayList<String>();
-  m_classesToIgnore.add("edu.syr.pcpratts.rootbeer.runtime.RootbeerGpu");
-  m_classesToIgnore.add("edu.syr.pcpratts.rootbeer.runtime.Sentinal");
-  m_classesToIgnore.add("edu.syr.pcpratts.rootbeer.runtimegpu.GpuException");
+  m_classesToIgnore.add("org.trifort.rootbeer.runtime.RootbeerGpu");
+  m_classesToIgnore.add("org.trifort.rootbeer.runtime.Sentinal");
+  m_classesToIgnore.add("org.trifort.rootbeer.runtimegpu.GpuException");
 }

@@ -2,7 +2,7 @@
   SootClass soot_class=Scene.v().getSootClass(cls_name);
   int number=RootbeerClassLoader.v().getClassNumber(soot_class);
   BytecodeLanguage bcl=new BytecodeLanguage();
-  bcl.openClass(mSootClass);
+  bcl.openClass(m_sootClass);
   bcl.startMethod(method_name,IntType.v());
   bcl.refThis();
   bcl.returnValue(IntConstant.v(number));

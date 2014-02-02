@@ -1,12 +1,12 @@
 {
-  long mod=m_Pointer % 8;
+  long mod=m_pointer % 8;
   if (mod != 0) {
-    m_Pointer+=(8 - mod);
+    m_pointer+=(8 - mod);
   }
-  if (m_Pointer > m_HeapEnd) {
-    m_HeapEnd=m_Pointer;
+  if (m_pointer > m_heapEnd) {
+    m_heapEnd=m_pointer;
   }
-  if (m_Pointer > m_EndPointer) {
-    m_EndPointer=m_Pointer;
+  if (m_pointer > m_endPointer) {
+    m_endPointer=m_pointer;
   }
 }

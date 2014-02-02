@@ -1,5 +1,6 @@
 {
   m_objectMemory=new FixedMemory(1024 * 1024);
+  m_textureMemory=new FixedMemory(1024);
   m_handlesMemory=new FixedMemory(1024 * 1024);
   m_exceptionsMemory=new FixedMemory(1024 * 1024);
   m_classMemory=new FixedMemory(1024 * 1024);

@@ -1,8 +1,0 @@
-{
-  m_InputQueue=new BlockingQueue<InputItem>();
-  m_OutputQueue=new BlockingQueue<InputItem>();
-  ReadThreadProc proc=new ReadThreadProc(m_InputQueue,m_OutputQueue);
-  m_Thread=new Thread(proc);
-  m_Thread.setDaemon(true);
-  m_Thread.start();
-}

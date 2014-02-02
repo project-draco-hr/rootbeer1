@@ -1,5 +1,0 @@
-{
-  LongDouble ld=new LongDouble(1.0);
-  ld.print();
-  ld.exp(1020.0);
-}

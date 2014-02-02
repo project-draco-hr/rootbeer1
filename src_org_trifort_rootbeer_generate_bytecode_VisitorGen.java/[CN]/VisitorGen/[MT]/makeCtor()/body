@@ -1,10 +1,10 @@
 {
-  SootClass mem_cls=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  SootClass mem_cls=Scene.v().getSootClass("org.trifort.rootbeer.runtime.Memory");
   m_bcl.top().startMethod("<init>",VoidType.v(),mem_cls.getType(),mem_cls.getType());
   Local this_ref=m_bcl.top().refThis();
   Local param0=m_bcl.top().refParameter(0);
   Local param1=m_bcl.top().refParameter(1);
-  m_bcl.top().pushMethod("edu.syr.pcpratts.rootbeer.runtime.Serializer","<init>",VoidType.v(),mem_cls.getType(),mem_cls.getType());
+  m_bcl.top().pushMethod("org.trifort.rootbeer.runtime.Serializer","<init>",VoidType.v(),mem_cls.getType(),mem_cls.getType());
   m_bcl.top().invokeMethodNoRet(this_ref,param0,param1);
   m_bcl.top().returnVoid();
   m_bcl.top().endMethod();

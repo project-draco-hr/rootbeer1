@@ -1,5 +1,0 @@
-{
-  float ret=doReadFloat(currPointer(),m_CpuBase);
-  incrementAddress(4);
-  return ret;
-}

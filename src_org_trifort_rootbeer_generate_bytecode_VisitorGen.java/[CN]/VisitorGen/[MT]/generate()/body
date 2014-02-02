@@ -1,6 +1,6 @@
 {
   m_bcl.push(new BytecodeLanguage());
   makeSentinalCtors();
-  makeGcObjectVisitor();
+  makeSerializer();
   addGetVisitorMethodToRuntimeBasicBlock();
 }

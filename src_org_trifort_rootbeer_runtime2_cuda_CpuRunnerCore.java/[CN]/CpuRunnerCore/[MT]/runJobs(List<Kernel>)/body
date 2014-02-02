@@ -1,5 +1,0 @@
-{
-  for (  Kernel job : jobs) {
-    job.gpuMethod();
-  }
-}

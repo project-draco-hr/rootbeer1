@@ -1,12 +1,12 @@
 {
   String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
   ret.append("  else if(type == " + atype.getTypeInteger() + "){\n");
-  ret.append("    int size = edu_syr_pcpratts_array_length(gc_info, thisref);\n");
+  ret.append("    int size = org_trifort_array_length(gc_info, thisref);\n");
   ret.append("    int new_ref = " + atype.getDerefTypeString() + "_new(gc_info, size, exception);\n");
   ret.append("    int total_size = (size * " + atype.getElementSize() + ") + "+ Constants.ArrayOffsetSize+ ";\n");
-  ret.append("    " + address_qual + " char * dest_deref = edu_syr_pcpratts_gc_deref(gc_info, new_ref);\n");
-  ret.append("    edu_syr_pcpratts_gc_memcpy(dest_deref, src_deref, total_size);\n");
-  ret.append("    edu_syr_pcpratts_gc_set_ctor_used(dest_deref, 1);\n");
+  ret.append("    " + address_qual + " char * dest_deref = org_trifort_gc_deref(gc_info, new_ref);\n");
+  ret.append("    org_trifort_gc_memcpy(dest_deref, src_deref, total_size);\n");
+  ret.append("    org_trifort_gc_set_ctor_used(dest_deref, 1);\n");
   ret.append("    return new_ref;\n");
   ret.append("  }\n");
 }

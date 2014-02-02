@@ -1,3 +1,0 @@
-{
-  incrementAddress((int)value);
-}

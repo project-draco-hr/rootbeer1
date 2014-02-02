@@ -4,14 +4,14 @@
   m_sentinalCtorsCreated.add(soot_class.getName());
   soot_class=Scene.v().getSootClass(soot_class.getName());
   if (soot_class.isApplicationClass() == false)   return;
-  if (soot_class.declaresMethod("void <init>(edu.syr.pcpratts.rootbeer.runtime.Sentinal)")) {
+  if (soot_class.declaresMethod("void <init>(org.trifort.rootbeer.runtime.Sentinal)")) {
     return;
   }
   SootClass parent_class=soot_class.getSuperclass();
   parent_class=Scene.v().getSootClass(parent_class.getName());
   BytecodeLanguage bcl=new BytecodeLanguage();
   bcl.openClass(soot_class);
-  bcl.startMethod("<init>",VoidType.v(),RefType.v("edu.syr.pcpratts.rootbeer.runtime.Sentinal"));
+  bcl.startMethod("<init>",VoidType.v(),RefType.v("org.trifort.rootbeer.runtime.Sentinal"));
   Local thisref=bcl.refThis();
   String parent_name=parent_class.getName();
   if (parent_class.isApplicationClass() == false) {
@@ -25,7 +25,7 @@
     }
   }
  else {
-    bcl.pushMethod(parent_name,"<init>",VoidType.v(),RefType.v("edu.syr.pcpratts.rootbeer.runtime.Sentinal"));
+    bcl.pushMethod(parent_name,"<init>",VoidType.v(),RefType.v("org.trifort.rootbeer.runtime.Sentinal"));
     bcl.invokeMethodNoRet(thisref,NullConstant.v());
   }
   bcl.returnVoid();

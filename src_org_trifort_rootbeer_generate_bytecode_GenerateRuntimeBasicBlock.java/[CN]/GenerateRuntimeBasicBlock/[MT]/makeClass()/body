@@ -1,10 +1,10 @@
 {
-  gcObjectVisitorClassName=codeSegment.getSootClass().getName() + "GcObjectVisitor";
+  m_serializerClassName=m_codeSegment.getSootClass().getName() + "Serializer";
   makeCpuBody();
   makeGpuBody();
   makeIsUsingGarbageCollectorBody();
   makeIsReadOnly();
   makeExceptionNumbers();
-  GcHeapReadWriteAdder adder=new GcHeapReadWriteAdder();
-  adder.add(codeSegment);
+  SerializerAdder adder=new SerializerAdder();
+  adder.add(m_codeSegment);
 }

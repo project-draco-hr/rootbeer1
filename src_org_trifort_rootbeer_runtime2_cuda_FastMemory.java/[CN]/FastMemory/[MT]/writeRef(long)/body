@@ -1,4 +1,0 @@
-{
-  value=value >> 4;
-  writeInt((int)value);
-}

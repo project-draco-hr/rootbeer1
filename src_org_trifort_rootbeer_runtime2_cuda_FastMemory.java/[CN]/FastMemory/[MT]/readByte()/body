@@ -1,5 +1,0 @@
-{
-  byte ret=doReadByte(currPointer(),m_CpuBase);
-  incrementAddress(1);
-  return ret;
-}

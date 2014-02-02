@@ -1,5 +1,5 @@
 {
-  String folder_name="edu/syr/pcpratts/rootbeer/runtime/";
+  String folder_name="org/trifort/rootbeer/runtime/";
   String name=folder_name + "config.txt";
   ZipEntry entry=new ZipEntry(name);
   entry.setSize(1);

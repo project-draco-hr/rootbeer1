@@ -1,7 +1,0 @@
-{
-  long bits=Double.doubleToLongBits(value);
-  m_sign=(byte)(((byte)(bits >> 63)) & (byte)0x1);
-  m_exponent=(short)((short)(bits >> 52) & (short)0x7ff);
-  m_exponent-=(short)1023;
-  m_fraction=bits & 0x2ffffff;
-}

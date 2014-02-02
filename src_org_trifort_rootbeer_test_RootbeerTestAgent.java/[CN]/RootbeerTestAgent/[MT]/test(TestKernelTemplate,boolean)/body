@@ -8,14 +8,7 @@
     ThreadConfig thread_config=creator.getThreadConfig();
     Stopwatch watch=new Stopwatch();
     watch.start();
-    try {
-      rootbeer.run(testing_item,thread_config);
-    }
- catch (    Exception ex) {
-      m_message="Ran on CPU";
-      m_passed=false;
-      return;
-    }
+    rootbeer.run(testing_item,thread_config);
     m_passed=true;
     watch.stop();
     m_gpuTime=watch.elapsedTimeMillis();

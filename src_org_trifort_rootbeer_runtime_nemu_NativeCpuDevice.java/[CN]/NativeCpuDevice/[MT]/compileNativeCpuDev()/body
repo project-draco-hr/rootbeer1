@@ -1,0 +1,39 @@
+{
+  try {
+    String code="";
+    if ("Mac OS X".equals(System.getProperty("os.name"))) {
+      code=m_Blocks.get(0).getCodeUnix();
+    }
+ else     if (File.separator.equals("/")) {
+      code=m_Blocks.get(0).getCodeUnix();
+    }
+ else {
+      code=m_Blocks.get(0).getCodeWindows();
+    }
+    File nemu_file=new File(RootbeerPaths.v().getRootbeerHome() + "nemu");
+    if (nemu_file.exists() == false) {
+      nemu_file.mkdirs();
+    }
+    String nemu=nemu_file.getAbsolutePath() + File.separator;
+    extractFromNative("NativeCpuDevice.c",nemu);
+    extractFromNative("org_trifort_rootbeer_runtime_nativecpu_NativeCpuDevice.h",nemu);
+    PrintWriter writer=new PrintWriter(nemu + "generated.c");
+    writer.println(code);
+    writer.flush();
+    writer.close();
+    if ("Mac OS X".equals(System.getProperty("os.name"))) {
+      return compileMac(nemu_file);
+    }
+ else     if (File.separator.equals("/")) {
+      return compileLinux(nemu_file);
+    }
+ else {
+      return compileWindows(nemu_file);
+    }
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    System.exit(0);
+    return null;
+  }
+}

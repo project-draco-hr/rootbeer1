@@ -1,5 +1,5 @@
 {
-  SootClass mem=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  SootClass mem=Scene.v().getSootClass("org.trifort.rootbeer.runtime.Memory");
   String specialization;
   if (ref_fields) {
     specialization="RefFields";
@@ -9,6 +9,6 @@
   }
   specialization+=JavaNameToOpenCL.convert(class_name) + OpenCLScene.v().getIdent();
   BytecodeLanguage bcl=m_bcl.top();
-  bcl.pushMethod(class_name,"edu_syr_pcpratts_writeToHeap" + specialization,VoidType.v(),mem.getType(),m_gcObjVisitor.top().getType());
+  bcl.pushMethod(class_name,"org_trifort_writeToHeap" + specialization,VoidType.v(),mem.getType(),m_gcObjVisitor.top().getType());
   bcl.invokeMethodNoRet(m_CurrObj.top(),m_CurrentMem.top(),m_gcObjVisitor.top());
 }

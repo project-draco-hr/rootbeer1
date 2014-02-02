@@ -1,6 +1,0 @@
-{
-  System.out.println("print");
-  System.out.println("  m_sign: " + m_sign);
-  System.out.println("  m_exponenet: " + m_exponent);
-  System.out.println("  m_fraction: " + m_fraction);
-}

@@ -23,7 +23,7 @@
     if (m_sootMethod.getReturnType() instanceof VoidType == false)     ret.append("-1");
     ret.append(";\n");
     ret.append("}\n");
-    ret.append("thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n");
+    ret.append("thisref_deref = org_trifort_gc_deref(gc_info, thisref);\n");
     if (virtual_methods.size() == 1) {
       SootClass sclass=virtual_methods.get(0).getDeclaringClass();
       String invoke_string=getInvokeString(sclass);
@@ -33,7 +33,7 @@
       ret.append(invoke_string + "\n");
     }
  else {
-      ret.append("derived_type = edu_syr_pcpratts_gc_get_type(thisref_deref);\n");
+      ret.append("derived_type = org_trifort_gc_get_type(thisref_deref);\n");
       ret.append("if(0){}\n");
       int count=0;
       List<SootMethod> used_methods=new ArrayList<SootMethod>();

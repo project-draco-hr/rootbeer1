@@ -1,4 +1,0 @@
-{
-  m_Pointer=address;
-  if (address > m_HeapEnd)   m_HeapEnd=address;
-}

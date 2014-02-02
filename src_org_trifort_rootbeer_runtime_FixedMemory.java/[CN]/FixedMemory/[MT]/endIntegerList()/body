@@ -1,0 +1,8 @@
+{
+  popAddress();
+  List<Long> top=m_integerList.get(m_integerList.size() - 1);
+  for (  Long curr : top) {
+    writeRef(curr);
+  }
+  m_integerList.remove(m_integerList.size() - 1);
+}

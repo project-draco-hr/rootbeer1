@@ -1,6 +1,6 @@
 {
   BytecodeLanguage bcl=new BytecodeLanguage();
-  bcl.openClass(mSootClass);
+  bcl.openClass(m_sootClass);
   bcl.startMethod("isReadOnly",BooleanType.v());
   bcl.refThis();
   if (OpenCLScene.v().getReadOnlyTypes().isRootReadOnly())   bcl.returnValue(IntConstant.v(1));

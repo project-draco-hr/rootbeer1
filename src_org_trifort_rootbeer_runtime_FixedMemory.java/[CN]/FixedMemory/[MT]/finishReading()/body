@@ -1,0 +1,8 @@
+{
+  long ptr=m_currentPointer.m_pointer / 8;
+  ptr*=8;
+  if (ptr != m_currentPointer.m_pointer) {
+    ptr+=8;
+  }
+  setPointer(ptr);
+}

@@ -1,5 +1,7 @@
 {
-  File native_runtime=new File("csrc/rootbeer_cuda_runtime_x64.so.1");
-  System.load(native_runtime.getAbsolutePath());
+  File cude_runtime=new File("csrc/rootbeer_cuda_runtime_x64.so.1");
+  System.load(cude_runtime.getAbsolutePath());
+  File rootbeer_runtime=new File("csrc/rootbeer_runtime_x64.so.1");
+  System.load(rootbeer_runtime.getAbsolutePath());
   m_cards=loadGpuDevices();
 }

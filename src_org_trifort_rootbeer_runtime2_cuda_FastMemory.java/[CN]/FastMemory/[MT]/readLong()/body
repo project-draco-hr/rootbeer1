@@ -1,5 +1,0 @@
-{
-  long ret=doReadLong(currPointer(),m_CpuBase);
-  incrementAddress(8);
-  return ret;
-}

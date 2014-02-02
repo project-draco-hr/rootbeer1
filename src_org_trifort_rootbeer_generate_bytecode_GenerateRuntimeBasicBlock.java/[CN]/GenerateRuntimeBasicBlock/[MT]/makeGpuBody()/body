@@ -1,5 +1,5 @@
 {
-  OpenCLScene.v().addCodeSegment(codeSegment);
+  OpenCLScene.v().addCodeSegment(m_codeSegment);
   if (Configuration.compilerInstance().getMode() == Configuration.MODE_GPU) {
     CompileResult[] result=OpenCLScene.v().getCudaCode();
     for (    CompileResult res : result) {

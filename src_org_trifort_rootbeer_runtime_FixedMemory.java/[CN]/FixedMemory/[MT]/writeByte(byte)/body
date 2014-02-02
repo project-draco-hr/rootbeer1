@@ -1,4 +1,4 @@
 {
-  doWriteByte(currPointer(),value,m_CpuBase);
+  doWriteByte(currPointer(),value,m_address);
   incrementAddress(1);
 }

@@ -1,3 +1,3 @@
 {
-  return "edu_syr_pcpratts_writeStaticsToHeap" + JavaNameToOpenCL.convert(soot_class.getName()) + OpenCLScene.v().getIdent();
+  return "org_trifort_writeStaticsToHeap" + JavaNameToOpenCL.convert(soot_class.getName()) + OpenCLScene.v().getIdent();
 }

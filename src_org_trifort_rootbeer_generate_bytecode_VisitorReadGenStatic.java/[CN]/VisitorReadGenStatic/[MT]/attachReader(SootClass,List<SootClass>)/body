@@ -6,7 +6,7 @@
   BytecodeLanguage bcl=new BytecodeLanguage();
   m_bcl.push(bcl);
   bcl.openClass(soot_class);
-  SootClass mem=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  SootClass mem=Scene.v().getSootClass("org.trifort.rootbeer.runtime.Memory");
   bcl.startStaticMethod(method_name,VoidType.v(),mem.getType(),m_thisRef.getType());
   Local memory=bcl.refParameter(0);
   Local gc_visit=bcl.refParameter(1);

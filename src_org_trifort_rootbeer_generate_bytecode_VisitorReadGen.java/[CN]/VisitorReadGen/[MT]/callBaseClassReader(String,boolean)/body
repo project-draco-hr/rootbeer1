@@ -8,9 +8,9 @@
   }
   specialization+=JavaNameToOpenCL.convert(class_name);
   specialization+=OpenCLScene.v().getIdent();
-  SootClass mem=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  SootClass mem=Scene.v().getSootClass("org.trifort.rootbeer.runtime.Memory");
   BytecodeLanguage bcl=m_bcl.top();
   Local gc_obj_visit=m_gcObjVisitor.top();
-  bcl.pushMethod(class_name,"edu_syr_pcpratts_readFromHeap" + specialization,VoidType.v(),mem.getType(),gc_obj_visit.getType());
+  bcl.pushMethod(class_name,"org_trifort_readFromHeap" + specialization,VoidType.v(),mem.getType(),gc_obj_visit.getType());
   bcl.invokeMethodNoRet(m_objSerializing.top(),m_currMem.top(),gc_obj_visit);
 }

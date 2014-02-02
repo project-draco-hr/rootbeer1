@@ -19,7 +19,7 @@
       }
     }
  else {
-      Local sentinal=bcl.newInstance("edu.syr.pcpratts.rootbeer.runtime.Sentinal");
+      Local sentinal=bcl.newInstance("org.trifort.rootbeer.runtime.Sentinal");
       new_object=bcl.newInstance(name,sentinal);
     }
   }

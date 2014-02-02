@@ -1,0 +1,7 @@
+{
+  String str=ResourceReader.getResource("/org/trifort/rootbeer/runtime2/native/" + filename);
+  PrintWriter writer=new PrintWriter(nemu + filename);
+  writer.println(str);
+  writer.flush();
+  writer.close();
+}

@@ -1,2 +1,6 @@
 {
+  Context context=createDefaultContext();
+  ThreadConfig thread_config=getThreadConfig(work,context.getDevice());
+  context.run(work,thread_config);
+  context.close();
 }

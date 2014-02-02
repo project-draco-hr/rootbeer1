@@ -1,7 +1,0 @@
-{
-  while (true) {
-    List<Kernel> jobs=m_InputQueue.take();
-    runJobs(jobs);
-    m_OutputQueue.put(jobs);
-  }
-}

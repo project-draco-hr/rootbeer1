@@ -1,7 +1,7 @@
 {
   m_bcl.top().openClass(m_runtimeBasicBlock);
-  SootClass gc_object_visitor_soot_class=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.Serializer");
-  SootClass mem_cls=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  SootClass gc_object_visitor_soot_class=Scene.v().getSootClass("org.trifort.rootbeer.runtime.Serializer");
+  SootClass mem_cls=Scene.v().getSootClass("org.trifort.rootbeer.runtime.Memory");
   m_bcl.top().startMethod("getSerializer",gc_object_visitor_soot_class.getType(),mem_cls.getType(),mem_cls.getType());
   Local param0=m_bcl.top().refParameter(0);
   Local param1=m_bcl.top().refParameter(1);

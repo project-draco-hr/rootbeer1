@@ -1,6 +1,6 @@
 {
-  m_Pointer+=offset;
-  if (m_Pointer > m_HeapEnd) {
-    m_HeapEnd=m_Pointer;
+  m_pointer+=offset;
+  if (m_pointer > m_heapEnd) {
+    m_heapEnd=m_pointer;
   }
 }

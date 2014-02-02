@@ -1,8 +1,9 @@
 {
-  m_CpuBase=malloc(size);
-  m_SpaceSize=size;
-  m_InstanceMemPointer=new MemPointer();
-  m_StaticMemPointer=new MemPointer();
-  m_CurrMemPointer=m_InstanceMemPointer;
-  m_Reserve=1024;
+  m_address=malloc(size);
+  m_size=size;
+  m_instancePointer=new MemPointer();
+  m_staticPointer=new MemPointer();
+  m_currentPointer=m_instancePointer;
+  m_reserve=1024;
+  m_integerList=new ArrayList<List<Long>>();
 }

@@ -1,0 +1,17 @@
+{
+  m_objectMemory.clearHeapEndPtr();
+  m_handlesMemory.clearHeapEndPtr();
+  m_handles.clear();
+  CompiledKernel compiled_kernel=(CompiledKernel)work.get(0);
+  Serializer serializer=compiled_kernel.getSerializer(m_objectMemory,m_textureMemory);
+  serializer.writeStaticsToHeap();
+  for (  Kernel kernel : work) {
+    long handle=serializer.writeToHeap(compiled_kernel);
+    m_handlesMemory.writeRef(handle);
+    m_handles.put(kernel,handle);
+  }
+  if (Configuration.getPrintMem()) {
+    BufferPrinter printer=new BufferPrinter();
+    printer.print(m_objectMemory,0,896);
+  }
+}

@@ -1,7 +1,7 @@
 {
   BytecodeLanguage bcl=m_bcl.top();
   String method_name=getWriterName(soot_class);
-  SootClass mem=Scene.v().getSootClass("edu.syr.pcpratts.rootbeer.runtime.memory.Memory");
+  SootClass mem=Scene.v().getSootClass("org.trifort.rootbeer.runtime.Memory");
   bcl.pushMethod(soot_class,method_name,VoidType.v(),mem.getType(),m_gcObjVisitor.top().getType());
   bcl.invokeStaticMethodNoRet(m_currMem.top(),m_gcObjVisitor.top());
 }

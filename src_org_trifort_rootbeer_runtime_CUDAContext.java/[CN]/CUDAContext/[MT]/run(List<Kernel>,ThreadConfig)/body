@@ -1,2 +1,24 @@
 {
+  CompiledKernel compiled_kernel=(CompiledKernel)work.get(0);
+  String filename;
+  if (m_32bit) {
+    filename=compiled_kernel.getCubin32();
+  }
+ else {
+    filename=compiled_kernel.getCubin64();
+  }
+  if (filename.endsWith(".error")) {
+    throw new RuntimeException("CUDA code compiled with error");
+  }
+  byte[] cubin_file;
+  if (m_cubinFiles.containsKey(filename)) {
+    cubin_file=m_cubinFiles.get(filename);
+  }
+ else {
+    cubin_file=readCubinFile(filename);
+    m_cubinFiles.put(filename,cubin_file);
+  }
+  writeBlocks(work);
+  runBlocks(thread_config,cubin_file);
+  readBlocks(work);
 }

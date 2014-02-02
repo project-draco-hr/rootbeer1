@@ -1,5 +1,5 @@
 {
-  int ret=doReadInt(currPointer(),m_CpuBase);
+  int ret=doReadInt(currPointer(),m_address);
   incrementAddress(4);
   return ret;
 }

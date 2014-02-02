@@ -11,8 +11,8 @@
   ret+="  if(thisref == -1){\n";
   ret+="    return 0;\n";
   ret+="  }\n";
-  ret+="  thisref_deref = edu_syr_pcpratts_gc_deref(gc_info, thisref);\n";
-  ret+="  type = edu_syr_pcpratts_gc_get_type(thisref_deref);\n";
+  ret+="  thisref_deref = org_trifort_gc_deref(gc_info, thisref);\n";
+  ret+="  type = org_trifort_gc_get_type(thisref_deref);\n";
   ret+="  switch(type){\n";
   for (  NumberedType ntype : type_list) {
     ret+="    case " + ntype.getNumber() + ":\n";

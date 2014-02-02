@@ -1,7 +1,0 @@
-{
-  String str=ResourceReader.getResource("/edu/syr/pcpratts/rootbeer/runtime2/native/" + filename);
-  PrintWriter writer=new PrintWriter(nemu + filename);
-  writer.println(str);
-  writer.flush();
-  writer.close();
-}

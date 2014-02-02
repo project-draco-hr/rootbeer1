@@ -1,3 +1,3 @@
 {
-  doWriteShortArray(array,m_CpuBase + currPointer(),0,array.length);
+  doWriteShortArray(array,m_address + currPointer(),0,array.length);
 }

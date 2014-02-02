@@ -1,5 +1,5 @@
 {
   String base_name=m_runtimeBasicBlock.getName();
-  m_className=base_name + "GcObjectVisitor";
-  m_bcl.top().makeClass(m_className,"edu.syr.pcpratts.rootbeer.runtime.Serializer");
+  m_className=base_name + "Serializer";
+  m_bcl.top().makeClass(m_className,"org.trifort.rootbeer.runtime.Serializer");
 }
