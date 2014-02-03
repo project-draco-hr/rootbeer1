@@ -1,0 +1,5 @@
+{
+  IntegerToStringRunOnGpu lhs=(IntegerToStringRunOnGpu)original;
+  IntegerToStringRunOnGpu rhs=(IntegerToStringRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

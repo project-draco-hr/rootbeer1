@@ -1,0 +1,7 @@
+{
+  List<Kernel> ret=new ArrayList<Kernel>();
+  for (long l=0; l < 5; ++l) {
+    ret.add(new LongToStringRunOnGpu(l));
+  }
+  return ret;
+}

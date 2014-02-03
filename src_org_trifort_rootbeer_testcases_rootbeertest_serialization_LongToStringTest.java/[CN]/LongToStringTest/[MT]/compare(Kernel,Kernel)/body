@@ -1,0 +1,5 @@
+{
+  LongToStringRunOnGpu lhs=(LongToStringRunOnGpu)original;
+  LongToStringRunOnGpu rhs=(LongToStringRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}
