@@ -1,4 +1,0 @@
-{
-  doLoad(m_libCudas);
-  doLoad(m_rootbeers);
-}

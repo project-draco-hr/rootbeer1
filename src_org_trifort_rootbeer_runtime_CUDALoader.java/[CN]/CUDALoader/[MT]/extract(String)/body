@@ -1,7 +1,7 @@
 {
-  String path="/org/trifort/rootbeer/runtime2/native/" + filename;
+  String path="/org/trifort/rootbeer/runtime/binaries/" + filename;
   try {
-    InputStream is=CudaLoader.class.getResourceAsStream(path);
+    InputStream is=CUDALoader.class.getResourceAsStream(path);
     if (is == null) {
       path="src" + path;
       is=new FileInputStream(path);
