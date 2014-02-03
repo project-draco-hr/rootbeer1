@@ -40,8 +40,8 @@
       m_libCudas.add("C:\\Windows\\SysWow64\\nvcuda.dll");
       m_rootbeerRuntimes.add(RootbeerPaths.v().getRootbeerHome() + "rootbeer_x64.dll");
       m_rootbeerCudas.add(RootbeerPaths.v().getRootbeerHome() + "rootbeer_cuda_x64.dll");
-      extract("rootbeer_x86.dll");
-      extract("rootbeer_cuda_x86.dll");
+      extract("rootbeer_x64.dll");
+      extract("rootbeer_cuda_x64.dll");
     }
   }
 }
