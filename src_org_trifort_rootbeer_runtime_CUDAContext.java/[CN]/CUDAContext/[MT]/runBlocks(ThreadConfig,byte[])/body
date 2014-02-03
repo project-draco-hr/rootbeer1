@@ -1,5 +1,8 @@
 {
+  m_runOnGpuStopwatch.start();
   KernelLaunch item=new KernelLaunch(m_device.getDeviceId(),cubin_file,cubin_file.length,thread_config.getBlockShapeX(),thread_config.getGridShapeX(),thread_config.getNumThreads(),m_objectMemory,m_handlesMemory,m_exceptionsMemory,m_classMemory);
   m_toThread.put(item);
   m_fromThread.take();
+  m_runOnGpuStopwatch.stop();
+  m_executionTime=m_runOnGpuStopwatch.elapsedTimeMillis();
 }

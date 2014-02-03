@@ -3,6 +3,11 @@
   String arch=System.getProperty("os.arch");
   m_32bit=arch.equals("x86") || arch.equals("i386");
   m_cubinFiles=new HashMap<String,byte[]>();
+  m_stats=new ArrayList<StatsRow>();
+  m_writeBlocksStopwatch=new Stopwatch();
+  m_runStopwatch=new Stopwatch();
+  m_runOnGpuStopwatch=new Stopwatch();
+  m_readBlocksStopwatch=new Stopwatch();
   m_handles=new HashMap<Kernel,Long>();
   m_textureMemory=new CheckedFixedMemory(64);
   m_toThread=new BlockingQueue<KernelLaunch>();

@@ -1,4 +1,5 @@
 {
+  m_runStopwatch.start();
   CompiledKernel compiled_kernel=(CompiledKernel)work.get(0);
   String filename;
   if (m_32bit) {
@@ -27,4 +28,7 @@
   writeBlocks(work);
   runBlocks(thread_config,cubin_file);
   readBlocks(work);
+  m_runStopwatch.stop();
+  m_overallTime=m_runStopwatch.elapsedTimeMillis();
+  m_stats.add(new StatsRow(m_serializationTime,m_executionTime,m_deserializationTime,m_overallTime,thread_config.getGridShapeX(),thread_config.getBlockShapeX()));
 }
