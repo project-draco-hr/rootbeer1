@@ -1,0 +1,5 @@
+{
+  ArraysSortComparatorRunOnGpu lhs=(ArraysSortComparatorRunOnGpu)original;
+  ArraysSortComparatorRunOnGpu rhs=(ArraysSortComparatorRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

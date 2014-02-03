@@ -1,0 +1,6 @@
+{
+  m_array=new Integer[8];
+  for (int i=0; i < m_array.length; ++i) {
+    m_array[i]=i;
+  }
+}

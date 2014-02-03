@@ -1,0 +1,3 @@
+{
+  Arrays.sort(m_array,new DescendingComparator());
+}
