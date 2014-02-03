@@ -1,0 +1,5 @@
+{
+  SubstringRunOnGpu lhs=(SubstringRunOnGpu)original;
+  SubstringRunOnGpu rhs=(SubstringRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

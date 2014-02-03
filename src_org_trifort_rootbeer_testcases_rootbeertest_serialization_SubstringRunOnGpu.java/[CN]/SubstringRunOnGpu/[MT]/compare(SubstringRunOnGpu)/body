@@ -1,0 +1,15 @@
+{
+  if (m_end1.equals(rhs.m_end1) == false) {
+    System.out.println("m_end1");
+    System.out.println("lhs: " + m_end1);
+    System.out.println("rhs: " + rhs.m_end1);
+    return false;
+  }
+  if (m_end2.equals(rhs.m_end2) == false) {
+    System.out.println("m_end2");
+    System.out.println("lhs: " + m_end2);
+    System.out.println("rhs: " + rhs.m_end2);
+    return false;
+  }
+  return true;
+}

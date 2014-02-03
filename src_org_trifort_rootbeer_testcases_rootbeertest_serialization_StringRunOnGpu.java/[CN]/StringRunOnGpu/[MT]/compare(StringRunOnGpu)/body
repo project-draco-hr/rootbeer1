@@ -1,7 +1,7 @@
 {
   if (str.equals(brhs.str) == false) {
-    System.out.println("lhs str: [" + str.toCharArray() + "]");
-    System.out.println("rhs str: [" + brhs.str.toCharArray() + "]");
+    System.out.println("lhs str: [" + str + "]");
+    System.out.println("rhs str: [" + brhs.str + "]");
     System.out.println("lhs length: " + str.length());
     System.out.println("rhs length: " + brhs.str.length());
     return false;

@@ -1,0 +1,4 @@
+{
+  m_end1=m_start.substring(2);
+  m_end2=m_start.substring(2,4);
+}

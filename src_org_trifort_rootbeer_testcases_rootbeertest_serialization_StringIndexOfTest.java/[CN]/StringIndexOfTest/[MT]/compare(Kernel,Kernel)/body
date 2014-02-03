@@ -1,0 +1,5 @@
+{
+  StringIndexOfRunOnGpu lhs=(StringIndexOfRunOnGpu)original;
+  StringIndexOfRunOnGpu rhs=(StringIndexOfRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

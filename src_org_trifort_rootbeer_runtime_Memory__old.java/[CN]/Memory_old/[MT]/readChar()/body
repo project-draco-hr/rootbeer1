@@ -1,5 +1,0 @@
-{
-  int value=readInt();
-  char ret=(char)value;
-  return ret;
-}

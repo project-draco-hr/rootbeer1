@@ -1,8 +1,0 @@
-{
-  long ptr=m_CurrPointer.m_Pointer / 8;
-  ptr*=8;
-  if (ptr != m_CurrPointer.m_Pointer) {
-    ptr+=8;
-  }
-  setPointer(ptr);
-}

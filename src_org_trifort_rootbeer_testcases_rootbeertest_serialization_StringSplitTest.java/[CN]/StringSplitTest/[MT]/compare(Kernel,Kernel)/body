@@ -1,0 +1,5 @@
+{
+  StringSplitRunOnGpu lhs=(StringSplitRunOnGpu)original;
+  StringSplitRunOnGpu rhs=(StringSplitRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

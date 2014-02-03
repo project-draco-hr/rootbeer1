@@ -1,0 +1,4 @@
+{
+  m_index1=m_start.indexOf("index_of");
+  m_index2=m_start.indexOf("index_of",8);
+}

@@ -1,0 +1,4 @@
+{
+  m_end1=m_start.split(" ");
+  m_end2=m_start.split(" ",2);
+}

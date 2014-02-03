@@ -1,3 +1,0 @@
-{
-  return m_CurrPointer.m_EndPointer;
-}

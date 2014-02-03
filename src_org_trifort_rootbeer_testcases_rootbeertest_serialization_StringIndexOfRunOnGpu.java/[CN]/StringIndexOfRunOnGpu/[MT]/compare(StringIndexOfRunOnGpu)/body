@@ -1,0 +1,15 @@
+{
+  if (m_index1 != rhs.m_index1) {
+    System.out.println("m_index1: ");
+    System.out.println("lhs: " + m_index1);
+    System.out.println("rhs: " + rhs.m_index1);
+    return false;
+  }
+  if (m_index2 != rhs.m_index2) {
+    System.out.println("m_index2: ");
+    System.out.println("lhs: " + m_index2);
+    System.out.println("rhs: " + rhs.m_index2);
+    return false;
+  }
+  return true;
+}
