@@ -5,6 +5,7 @@
   Serializer serializer=compiled_kernel.getSerializer(m_objectMemory,m_textureMemory);
   serializer.writeStaticsToHeap();
   long handle=serializer.writeToHeap(compiled_kernel);
+  m_objectMemory.align16();
   m_handlesMemory.writeRef(handle);
   if (Configuration.getPrintMem()) {
     BufferPrinter printer=new BufferPrinter();

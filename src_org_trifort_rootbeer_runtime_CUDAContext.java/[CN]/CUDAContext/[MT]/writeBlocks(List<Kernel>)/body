@@ -11,6 +11,7 @@
     m_handlesMemory.writeRef(handle);
     m_handles.put(kernel,handle);
   }
+  m_objectMemory.align16();
   if (Configuration.getPrintMem()) {
     BufferPrinter printer=new BufferPrinter();
     printer.print(m_objectMemory,0,896);

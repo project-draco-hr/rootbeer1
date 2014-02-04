@@ -1,0 +1,4 @@
+{
+  m_instancePointer.align16();
+  m_staticPointer.align16();
+}
