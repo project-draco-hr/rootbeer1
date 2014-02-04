@@ -30,7 +30,6 @@
   ret.add(new ArraySumTest());
   ret.add(new RemapTest());
   ret.add(new InstanceofTest());
-  ret.add(new DotClassTest());
   ret.add(new PrintTest());
   ret.add(new SharedMemSimpleTest());
   ret.add(new StringConstantTest());
