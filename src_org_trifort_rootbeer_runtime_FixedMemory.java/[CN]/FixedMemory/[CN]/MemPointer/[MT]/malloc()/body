@@ -1,6 +1,0 @@
-{
-  long mod=m_heapEnd % 8;
-  if (mod != 0)   m_heapEnd+=(8 - mod);
-  m_pointer=m_heapEnd;
-  return m_heapEnd;
-}

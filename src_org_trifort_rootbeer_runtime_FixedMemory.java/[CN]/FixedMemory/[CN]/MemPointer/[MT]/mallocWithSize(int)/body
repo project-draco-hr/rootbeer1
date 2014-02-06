@@ -1,5 +1,4 @@
 {
-  malloc();
   int mod=size % 16;
   if (mod != 0)   size+=(16 - mod);
   long ret=m_endPointer;
