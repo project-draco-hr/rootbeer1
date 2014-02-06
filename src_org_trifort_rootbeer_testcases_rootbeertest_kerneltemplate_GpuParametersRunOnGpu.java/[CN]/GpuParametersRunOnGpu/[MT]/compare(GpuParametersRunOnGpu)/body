@@ -1,0 +1,53 @@
+{
+  if (m_threadIds.length != rhs.m_threadIds.length) {
+    return false;
+  }
+  if (m_threadIdxxs.length != rhs.m_threadIdxxs.length) {
+    return false;
+  }
+  if (m_blockIdxxs.length != rhs.m_blockIdxxs.length) {
+    return false;
+  }
+  if (m_blockDims.length != rhs.m_blockDims.length) {
+    return false;
+  }
+  if (m_gridDims.length != rhs.m_gridDims.length) {
+    return false;
+  }
+  for (int i=0; i < m_threadIds.length; ++i) {
+    int lhs_value=m_threadIds[i];
+    int rhs_value=rhs.m_threadIds[i];
+    if (lhs_value != rhs_value) {
+      return false;
+    }
+  }
+  for (int i=0; i < m_threadIdxxs.length; ++i) {
+    int lhs_value=m_threadIdxxs[i];
+    int rhs_value=rhs.m_threadIdxxs[i];
+    if (lhs_value != rhs_value) {
+      return false;
+    }
+  }
+  for (int i=0; i < m_blockIdxxs.length; ++i) {
+    int lhs_value=m_blockIdxxs[i];
+    int rhs_value=rhs.m_blockIdxxs[i];
+    if (lhs_value != rhs_value) {
+      return false;
+    }
+  }
+  for (int i=0; i < m_blockDims.length; ++i) {
+    int lhs_value=m_blockDims[i];
+    int rhs_value=rhs.m_blockDims[i];
+    if (lhs_value != rhs_value) {
+      return false;
+    }
+  }
+  for (int i=0; i < m_gridDims.length; ++i) {
+    int lhs_value=m_gridDims[i];
+    int rhs_value=rhs.m_gridDims[i];
+    if (lhs_value != rhs_value) {
+      return false;
+    }
+  }
+  return true;
+}

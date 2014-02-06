@@ -1,0 +1,7 @@
+{
+  m_threadIds=new int[thread_count];
+  m_threadIdxxs=new int[thread_count];
+  m_blockIdxxs=new int[thread_count];
+  m_blockDims=new int[thread_count];
+  m_gridDims=new int[thread_count];
+}

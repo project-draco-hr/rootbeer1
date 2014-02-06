@@ -2,5 +2,6 @@
   List<TestKernelTemplate> ret=new ArrayList<TestKernelTemplate>();
   ret.add(new DoubleToStringKernelTemplateTest());
   ret.add(new DoubleToStringKernelTemplateBuilderTest());
+  ret.add(new GpuParametersTest());
   return ret;
 }

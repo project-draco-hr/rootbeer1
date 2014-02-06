@@ -1,0 +1,5 @@
+{
+  GpuParametersRunOnGpu lhs=(GpuParametersRunOnGpu)original;
+  GpuParametersRunOnGpu rhs=(GpuParametersRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

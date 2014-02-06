@@ -1,0 +1,8 @@
+{
+  int thread_id=RootbeerGpu.getThreadId();
+  m_threadIds[thread_id]=thread_id;
+  m_threadIdxxs[thread_id]=RootbeerGpu.getThreadIdxx();
+  m_blockIdxxs[thread_id]=RootbeerGpu.getBlockIdxx();
+  m_blockDims[thread_id]=RootbeerGpu.getBlockDimx();
+  m_gridDims[thread_id]=RootbeerGpu.getGridDimx();
+}
