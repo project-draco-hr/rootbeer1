@@ -1,0 +1,10 @@
+{
+  m_toString=new String[kernel_count];
+  for (int i=0; i < m_toString.length; i++) {
+    m_toString[i]="";
+  }
+  m_value=new double[kernel_count];
+  for (int i=0; i < kernel_count; ++i) {
+    m_value[i]=value;
+  }
+}

@@ -1,0 +1,7 @@
+{
+  int thread_id=RootbeerGpu.getThreadId();
+  double value=m_value[thread_id];
+  StringBuilder builder=new StringBuilder();
+  builder.append(value * value);
+  m_toString[thread_id]=builder.toString();
+}

@@ -1,0 +1,5 @@
+{
+  DoubleToStringKernelTemplateBuilderRunOnGpu lhs=(DoubleToStringKernelTemplateBuilderRunOnGpu)original;
+  DoubleToStringKernelTemplateBuilderRunOnGpu rhs=(DoubleToStringKernelTemplateBuilderRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

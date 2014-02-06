@@ -17,7 +17,9 @@
       item_count++;
     }
   }
-  if (curr_line.equals("") == false)   lines.add(curr_line);
+  if (curr_line.equals("") == false) {
+    lines.add(curr_line);
+  }
   List<String> line_numbers=createLineNumbers(lines.size(),elements_per_line,start_ptr);
   for (int i=0; i < lines.size(); ++i) {
     System.out.print(line_numbers.get(i));

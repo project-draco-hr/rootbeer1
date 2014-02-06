@@ -1,0 +1,3 @@
+{
+  return new DoubleToStringKernelTemplateBuilderRunOnGpu(0.125,m_blockSize * m_gridSize);
+}
