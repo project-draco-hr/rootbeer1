@@ -5,7 +5,18 @@
   bcl_mem.incrementAddress(4);
   Local type_id=bcl_mem.readInt();
   bcl_mem.setAddress(start);
+  Set<Type> visisted=new HashSet<Type>();
+  SootClass string_class=Scene.v().getSootClass("java.lang.String");
+  makeReadForNullForType(string_class.getType(),type_id);
+  visisted.add(string_class.getType());
+  ArrayType char_array_type=ArrayType.v(CharType.v(),1);
+  makeReadForNullForType(char_array_type,type_id);
+  visisted.add(char_array_type);
   for (  Type type : m_OrderedHistory) {
+    if (visisted.contains(type)) {
+      continue;
+    }
+    visisted.add(type);
     makeReadForNullForType(type,type_id);
   }
 }
