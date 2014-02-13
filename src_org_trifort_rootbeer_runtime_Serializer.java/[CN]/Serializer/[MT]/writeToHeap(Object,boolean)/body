@@ -7,6 +7,14 @@
   if (result.m_NeedToWrite == false) {
     return result.m_Ref;
   }
+  if (o == null) {
+    System.out.println("writeToHeap: null at addr: " + result.m_Ref);
+  }
+ else {
+    System.out.println("writeToHeap: " + o.toString() + " at addr: "+ result.m_Ref);
+  }
   doWriteToHeap(o,write_data,result.m_Ref,read_only);
+  BufferPrinter printer=new BufferPrinter();
+  printer.print(mMem,result.m_Ref,128);
   return result.m_Ref;
 }

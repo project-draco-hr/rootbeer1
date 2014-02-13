@@ -27,6 +27,22 @@
   bcl_mem.setAddress(m_RefParam);
   String null_readers=getNextLabel();
   bcl.ifStmt(m_Param0,"==",NullConstant.v(),null_readers);
+  Local ret;
+  SootClass string_class=Scene.v().getSootClass("java.lang.String");
+  RefType string_type=string_class.getType();
+  String label=getNextLabel();
+  bcl.ifInstanceOfStmt(m_Param0,string_type,label);
+  ret=makeReadFromHeapBodyForString(string_type);
+  m_ReadFromHeapMethodsMade.put(string_type,ret);
+  bcl.returnValue(ret);
+  bcl.label(label);
+  ArrayType array_type=ArrayType.v(CharType.v(),1);
+  label=getNextLabel();
+  bcl.ifInstanceOfStmt(m_Param0,array_type,label);
+  ret=makeReadFromHeapBodyForArrayType(array_type);
+  m_ReadFromHeapMethodsMade.put(array_type,ret);
+  bcl.returnValue(ret);
+  bcl.label(label);
   for (  Type type : m_OrderedHistory) {
     makeReadFromHeapMethodForType(type,false);
   }

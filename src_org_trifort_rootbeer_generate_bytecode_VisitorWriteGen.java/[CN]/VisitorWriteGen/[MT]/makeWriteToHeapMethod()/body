@@ -20,6 +20,19 @@
   bcl.assign(mem,m_TextureMem);
   bcl.label(label2);
   m_CurrentMem.push(mem);
+  SootClass string_class=Scene.v().getSootClass("java.lang.String");
+  RefType string_type=string_class.getType();
+  String label=getNextLabel();
+  bcl.ifInstanceOfStmt(m_Param0,string_type,label);
+  makeWriteToHeapBodyForString(string_type);
+  mWriteToHeapMethodsMade.add(string_type);
+  bcl.label(label);
+  ArrayType char_array_type=ArrayType.v(CharType.v(),1);
+  label=getNextLabel();
+  bcl.ifInstanceOfStmt(m_Param0,char_array_type,label);
+  makeWriteToHeapBodyForArrayType(char_array_type);
+  mWriteToHeapMethodsMade.add(char_array_type);
+  bcl.label(label);
   for (  Type type : m_OrderedHistory) {
     makeWriteToHeapMethodForType(type);
   }

@@ -26,7 +26,8 @@
     makeWriteToHeapBodyForArrayType((ArrayType)type);
   }
  else {
-    makeWriteToHeapBodyForRefType((RefType)type);
+    RefType ref_type=(RefType)type;
+    makeWriteToHeapBodyForRefType(ref_type);
   }
   bcl.label(label);
 }
