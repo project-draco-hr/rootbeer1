@@ -22,7 +22,9 @@
     }
     for (int j=0; j < lhs_inner.length; ++j) {
       if (lhs_inner[j] != rhs_inner[j]) {
-        System.out.println("m_array4[i][j]");
+        System.out.println("m_array4[" + i + "]["+ j+ "]");
+        System.out.println("lhs: " + lhs_inner[j]);
+        System.out.println("rhs: " + rhs_inner[j]);
         return false;
       }
     }

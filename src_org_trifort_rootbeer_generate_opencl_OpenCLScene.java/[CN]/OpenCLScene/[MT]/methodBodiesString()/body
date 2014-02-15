@@ -6,8 +6,6 @@
   Set<OpenCLArrayType> new_types=reduction.run(m_arrayTypes,m_methodHierarchies);
   ArrayCopyGenerate arr_generate=new ArrayCopyGenerate();
   bodies.add(arr_generate.get(new_types));
-  ObjectCloneGenerate clone_generate=new ObjectCloneGenerate();
-  bodies.add(clone_generate.get(m_arrayTypes,m_classes));
   List<OpenCLMethod> methods=m_methodHierarchies.getMethods();
   for (  OpenCLMethod method : methods) {
     bodies.add(method.getMethodBody());
