@@ -1,23 +1,5 @@
 {
-  if (soot_method.isConcrete()) {
-    m_sootMethod=soot_method;
-    m_sootClass=soot_class;
-  }
- else {
-    MethodSignatureUtil util=new MethodSignatureUtil();
-    ClassHierarchy hierarchy=RootbeerClassLoader.v().getClassHierarchy();
-    List<String> virtual_signatures=hierarchy.getVirtualMethods(soot_method.getSignature());
-    for (    String virtual_signature : virtual_signatures) {
-      util.parse(virtual_signature);
-      SootMethod virtual_method=util.getSootMethod();
-      if (virtual_method.isConcrete()) {
-        m_sootMethod=virtual_method;
-        m_sootClass=virtual_method.getDeclaringClass();
-      }
-    }
-    if (m_sootMethod == null) {
-      throw new RuntimeException("error compiling CUDA code");
-    }
-  }
+  m_sootMethod=soot_method;
+  m_sootClass=soot_class;
   createDontMangleMethods();
 }
