@@ -1,5 +1,4 @@
 {
-  this.m_codeSegment=codeSegment;
   m_rootSootClass=codeSegment.getRootSootClass();
   m_readOnlyTypes=new ReadOnlyTypes(codeSegment.getRootMethod());
   getOpenCLClass(m_rootSootClass);

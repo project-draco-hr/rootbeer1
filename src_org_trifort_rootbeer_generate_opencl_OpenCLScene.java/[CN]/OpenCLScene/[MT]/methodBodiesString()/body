@@ -19,7 +19,7 @@
     for (    String body : poly_bodies) {
       System.out.println("body: " + body);
     }
-    bodies.addAll(bodies);
+    bodies.addAll(poly_bodies);
   }
   FieldTypeSwitch type_switch=new FieldTypeSwitch();
   FieldCodeGeneration gen=new FieldCodeGeneration();
