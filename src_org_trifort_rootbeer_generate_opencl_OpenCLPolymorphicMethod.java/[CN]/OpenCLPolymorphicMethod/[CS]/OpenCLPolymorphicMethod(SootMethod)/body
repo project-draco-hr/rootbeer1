@@ -1,4 +1,6 @@
 {
   m_sootMethod=soot_method;
   m_util=new MethodSignatureUtil();
+  m_extraMethods=new HashSet<String>();
+  m_extraMethods.add("<java.lang.Object: int hashCode()>");
 }

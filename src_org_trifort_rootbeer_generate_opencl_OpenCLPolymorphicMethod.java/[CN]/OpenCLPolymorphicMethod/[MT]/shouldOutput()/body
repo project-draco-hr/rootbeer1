@@ -1,0 +1,6 @@
+{
+  if (m_extraMethods.contains(m_sootMethod.getSignature())) {
+    return true;
+  }
+  return m_sootMethod.isConcrete();
+}

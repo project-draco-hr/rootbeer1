@@ -1,4 +1,7 @@
 {
+  if (shouldOutput() == false) {
+    return new HashSet<String>();
+  }
   if (m_sootMethod.getName().equals("<init>"))   return new HashSet<String>();
   List<String> decls=getMethodDecls();
   Set<String> ret=new HashSet<String>();

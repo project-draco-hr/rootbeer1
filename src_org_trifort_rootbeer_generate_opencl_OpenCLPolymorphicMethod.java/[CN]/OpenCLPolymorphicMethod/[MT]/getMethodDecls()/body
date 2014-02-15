@@ -1,4 +1,7 @@
 {
+  if (shouldOutput() == false) {
+    return new ArrayList<String>();
+  }
   List<SootMethod> virtual_methods=getVirtualMethods();
   List<String> ret=new ArrayList<String>();
   for (  SootMethod virtual_method : virtual_methods) {
