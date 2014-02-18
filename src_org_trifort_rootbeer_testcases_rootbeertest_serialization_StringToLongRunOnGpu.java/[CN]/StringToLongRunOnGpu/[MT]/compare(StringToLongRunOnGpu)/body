@@ -1,0 +1,9 @@
+{
+  if (rhs.m_toLong != m_toLong) {
+    System.out.println("m_toLong");
+    System.out.println("  lhs: " + m_toLong);
+    System.out.println("  rhs: " + rhs.m_toLong);
+    return false;
+  }
+  return true;
+}

@@ -1,0 +1,3 @@
+{
+  m_toLong=Long.parseLong(m_strValue);
+}

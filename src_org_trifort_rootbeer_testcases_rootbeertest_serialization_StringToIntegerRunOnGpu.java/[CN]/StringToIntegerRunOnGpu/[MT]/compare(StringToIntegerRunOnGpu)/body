@@ -1,0 +1,9 @@
+{
+  if (rhs.m_toInteger != m_toInteger) {
+    System.out.println("m_toInteger");
+    System.out.println("  lhs: " + m_toInteger);
+    System.out.println("  rhs: " + rhs.m_toInteger);
+    return false;
+  }
+  return true;
+}

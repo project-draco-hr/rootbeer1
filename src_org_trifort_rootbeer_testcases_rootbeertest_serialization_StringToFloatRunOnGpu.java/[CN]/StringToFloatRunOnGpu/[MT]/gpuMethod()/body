@@ -1,0 +1,3 @@
+{
+  m_toFloat=Float.parseFloat(m_strValue);
+}

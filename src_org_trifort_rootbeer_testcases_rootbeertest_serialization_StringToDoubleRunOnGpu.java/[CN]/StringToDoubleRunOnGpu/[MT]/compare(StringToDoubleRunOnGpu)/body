@@ -1,0 +1,9 @@
+{
+  if (rhs.m_toDouble != m_toDouble) {
+    System.out.println("m_toDouble");
+    System.out.println("  lhs: " + m_toDouble);
+    System.out.println("  rhs: " + rhs.m_toDouble);
+    return false;
+  }
+  return true;
+}

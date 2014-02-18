@@ -1,0 +1,9 @@
+{
+  if (rhs.m_toFloat != m_toFloat) {
+    System.out.println("m_toFloat");
+    System.out.println("  lhs: " + m_toFloat);
+    System.out.println("  rhs: " + rhs.m_toFloat);
+    return false;
+  }
+  return true;
+}
