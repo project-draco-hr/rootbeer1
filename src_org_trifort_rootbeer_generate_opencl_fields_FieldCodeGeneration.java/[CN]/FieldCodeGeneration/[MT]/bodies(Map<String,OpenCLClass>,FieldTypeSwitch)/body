@@ -5,5 +5,20 @@
   for (  CompositeField field : fields) {
     set.addAll(getFieldBodies(field));
   }
+  FieldSignatureUtil util=new FieldSignatureUtil();
+  for (  String field_sig : ForcedFields.getInstance().get()) {
+    util.parse(field_sig);
+    OpenCLClass field_class=classes.get(util.getDeclaringClass());
+    OpenCLField field=field_class.getField(util.getName());
+    CompositeField composite=new CompositeField();
+    SootField soot_field=util.getSootField();
+    if (soot_field.getType() instanceof RefType) {
+      composite.addRefField(field,soot_field.getDeclaringClass());
+    }
+ else {
+      composite.addNonRefField(field,soot_field.getDeclaringClass());
+    }
+    set.add(field.getGetterSetterBodies(composite,true,m_TypeSwitch));
+  }
   return setToString(set);
 }

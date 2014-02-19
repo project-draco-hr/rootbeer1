@@ -1,0 +1,9 @@
+{
+  m_str=" " + returnObject0();
+  m_str=" " + returnObject1();
+  m_str=" " + returnObject2();
+  m_str=" " + returnObject3();
+  m_str=" " + returnObject4();
+  m_str=" " + returnObject5();
+  m_str=" " + returnObject6();
+}
