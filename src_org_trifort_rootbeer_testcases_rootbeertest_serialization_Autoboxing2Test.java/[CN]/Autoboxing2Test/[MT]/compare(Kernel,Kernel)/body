@@ -1,0 +1,5 @@
+{
+  Autoboxing2RunOnGpu lhs=(Autoboxing2RunOnGpu)original;
+  Autoboxing2RunOnGpu rhs=(Autoboxing2RunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

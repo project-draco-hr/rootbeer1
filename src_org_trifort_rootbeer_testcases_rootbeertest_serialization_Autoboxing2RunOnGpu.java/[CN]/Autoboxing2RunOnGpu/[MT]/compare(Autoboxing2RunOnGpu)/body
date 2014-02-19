@@ -1,0 +1,9 @@
+{
+  if (getInteger0() != rhs.getInteger0()) {
+    System.out.println("m_int0");
+    System.out.println("lhs: " + getInteger0());
+    System.out.println("rhs: " + rhs.getInteger0());
+    return false;
+  }
+  return true;
+}

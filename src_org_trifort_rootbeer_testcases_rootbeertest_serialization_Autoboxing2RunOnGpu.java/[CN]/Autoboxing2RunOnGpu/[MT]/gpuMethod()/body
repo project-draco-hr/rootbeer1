@@ -1,0 +1,4 @@
+{
+  m_int0=returnInteger0();
+  m_int1=returnInteger1();
+}
