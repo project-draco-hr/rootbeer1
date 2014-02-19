@@ -5,17 +5,15 @@
     set.addAll(getFieldPrototypes(field));
   }
   FieldSignatureUtil util=new FieldSignatureUtil();
-  Iterator<String> it=ForcedFields.getInstance().get().iterator();
-  while (it.hasNext()) {
-    util.parse(it.next());
+  ForcedFields forced_fields=new ForcedFields();
+  for (  String field_sig : forced_fields.get()) {
+    util.parse(field_sig);
     OpenCLClass field_class=classes.get(util.getDeclaringClass());
     OpenCLField field=field_class.getField(util.getName());
     String prototype=field.getGetterSetterPrototypes();
     if (!set.contains(prototype)) {
       set.add(prototype);
-    }
- else {
-      it.remove();
+      m_fieldsToForce.add(field_sig);
     }
   }
   return setToString(set);

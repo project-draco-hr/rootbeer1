@@ -72,32 +72,14 @@
     MainTester main_tester=new MainTester();
     RootbeerClassLoader.v().addFollowMethodTester(main_tester);
   }
-  DontDfsMethods dont_dfs_methods=new DontDfsMethods();
   ListMethodTester dont_dfs_tester=new ListMethodTester();
-  Set<String> dont_dfs_set=dont_dfs_methods.get();
-  for (  String dont_dfs : dont_dfs_set) {
-    dont_dfs_tester.addSignature(dont_dfs);
+  MethodsSetup setup=new MethodsSetup();
+  for (  String no_dfs : setup.getDontDfs()) {
+    dont_dfs_tester.addSignature(no_dfs);
   }
-  dont_dfs_tester.addSignature("<java.io.PrintStream: void println()>");
-  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(java.lang.String)>");
-  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(boolean)>");
-  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(byte)>");
-  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(char)>");
-  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(short)>");
-  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(int)>");
-  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(long)>");
-  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(float)>");
-  dont_dfs_tester.addSignature("<java.io.PrintStream: void println(double)>");
-  dont_dfs_tester.addSignature("<java.io.PrintStream: void print(java.lang.String)>");
-  dont_dfs_tester.addSignature("<java.io.PrintStream: void print(double)>");
-  dont_dfs_tester.addSignature("<java.io.PrintStream: void print(float)>");
-  dont_dfs_tester.addSignature("<java.lang.Double: java.lang.String toString(double)>");
-  dont_dfs_tester.addSignature("<java.lang.Float: java.lang.String toString(float)>");
-  dont_dfs_tester.addSignature("<java.lang.Integer: java.lang.String toString(int)>");
-  dont_dfs_tester.addSignature("<java.lang.Long: java.lang.String toString(long)>");
   RootbeerClassLoader.v().addDontFollowMethodTester(dont_dfs_tester);
-  ExtraFields extra_fields=new ExtraFields();
-  for (  String field_sig : extra_fields.get()) {
+  ForcedFields forced_fields=new ForcedFields();
+  for (  String field_sig : forced_fields.get()) {
     RootbeerClassLoader.v().loadField(field_sig);
   }
   ListMethodTester to_sig_methods=new ListMethodTester();

@@ -1,10 +1,10 @@
 {
-  long mod=m_heapEnd % 16;
-  if (mod != 16) {
-    m_heapEnd+=(16 - mod);
+  long mod=m_heapEnd % Constants.MallocAlignBytes;
+  if (mod != 0) {
+    m_heapEnd+=(Constants.MallocAlignBytes - mod);
   }
-  mod=m_endPointer % 16;
-  if (mod != 16) {
-    m_endPointer+=(16 - mod);
+  mod=m_endPointer % Constants.MallocAlignBytes;
+  if (mod != 0) {
+    m_endPointer+=(Constants.MallocAlignBytes - mod);
   }
 }

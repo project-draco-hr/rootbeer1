@@ -15,8 +15,7 @@
     bodies.addAll(poly_method.getMethodBodies());
   }
   FieldTypeSwitch type_switch=new FieldTypeSwitch();
-  FieldCodeGeneration gen=new FieldCodeGeneration();
-  String field_bodies=gen.bodies(m_classes,type_switch);
+  String field_bodies=m_fieldCodeGeneration.bodies(m_classes,type_switch);
   bodies.add(field_bodies);
   for (  OpenCLArrayType array_type : m_arrayTypes) {
     bodies.add(array_type.getBodies());

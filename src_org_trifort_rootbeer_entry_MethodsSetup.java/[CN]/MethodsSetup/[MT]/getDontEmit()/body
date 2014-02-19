@@ -1,0 +1,20 @@
+{
+  Set<String> ret=new HashSet<String>();
+  ret.add("<java.lang.String: void <init>(java.lang.String)>");
+  ret.add("<java.lang.String: void <init>(char[])>");
+  ret.add("<java.lang.StringBuilder: void <init>()>");
+  ret.add("<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>");
+  ret.add("<java.lang.StringBuilder: java.lang.StringBuilder append(char)>");
+  ret.add("<java.lang.StringBuilder: java.lang.StringBuilder append(double)>");
+  ret.add("<java.lang.StringBuilder: java.lang.StringBuilder append(float)>");
+  ret.add("<java.lang.StringBuilder: java.lang.StringBuilder append(int)>");
+  ret.add("<java.lang.StringBuilder: java.lang.StringBuilder append(long)>");
+  ret.add("<java.lang.StringBuilder: java.lang.StringBuilder append(java.lang.String)>");
+  ret.add("<java.lang.StringBuilder: java.lang.String toString()>");
+  ret.add("<java.lang.Double: java.lang.String toString(double)>");
+  ret.add("<java.lang.Float: java.lang.String toString(float)>");
+  ret.add("<java.lang.Integer: java.lang.String toString(int)>");
+  ret.add("<java.lang.Long: java.lang.String toString(long)>");
+  ret.add("<java.lang.Object: java.lang.String toString()>");
+  return ret;
+}

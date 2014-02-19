@@ -11,8 +11,7 @@
   for (  OpenCLPolymorphicMethod poly_method : poly_methods) {
     protos.add(poly_method.getMethodPrototypes());
   }
-  FieldCodeGeneration gen=new FieldCodeGeneration();
-  protos.add(gen.prototypes(m_classes));
+  protos.add(m_fieldCodeGeneration.prototypes(m_classes));
   for (  OpenCLArrayType array_type : m_arrayTypes) {
     protos.add(array_type.getPrototypes());
   }

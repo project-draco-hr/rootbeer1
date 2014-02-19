@@ -6,7 +6,7 @@
     set.addAll(getFieldBodies(field));
   }
   FieldSignatureUtil util=new FieldSignatureUtil();
-  for (  String field_sig : ForcedFields.getInstance().get()) {
+  for (  String field_sig : m_fieldsToForce) {
     util.parse(field_sig);
     OpenCLClass field_class=classes.get(util.getDeclaringClass());
     OpenCLField field=field_class.getField(util.getName());

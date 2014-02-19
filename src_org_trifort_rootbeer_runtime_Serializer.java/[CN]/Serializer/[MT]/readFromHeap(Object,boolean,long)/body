@@ -9,5 +9,6 @@ synchronized (mReadFromGpuCache) {
   if (null_ptr_check == -1) {
     return null;
   }
-  return doReadFromHeap(o,read_data,address);
+  Object ret=doReadFromHeap(o,read_data,address);
+  return ret;
 }
