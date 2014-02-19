@@ -1,0 +1,3 @@
+{
+  return new Float(0.125678f);
+}

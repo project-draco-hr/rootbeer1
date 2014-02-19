@@ -1,0 +1,3 @@
+{
+  return new Double(0.125678);
+}
