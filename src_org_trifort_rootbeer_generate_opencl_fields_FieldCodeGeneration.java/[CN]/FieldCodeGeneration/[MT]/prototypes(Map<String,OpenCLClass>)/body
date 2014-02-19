@@ -4,5 +4,19 @@
   for (  CompositeField field : fields) {
     set.addAll(getFieldPrototypes(field));
   }
+  FieldSignatureUtil util=new FieldSignatureUtil();
+  Iterator<String> it=ForcedFields.getInstance().get().iterator();
+  while (it.hasNext()) {
+    util.parse(it.next());
+    OpenCLClass field_class=classes.get(util.getDeclaringClass());
+    OpenCLField field=field_class.getField(util.getName());
+    String prototype=field.getGetterSetterPrototypes();
+    if (!set.contains(prototype)) {
+      set.add(prototype);
+    }
+ else {
+      it.remove();
+    }
+  }
   return setToString(set);
 }
