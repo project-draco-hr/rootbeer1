@@ -1,10 +1,11 @@
 {
+  SootMethod body_method=findBodyMethod();
   StringBuilder ret=new StringBuilder();
   if (shouldEmitBody()) {
     ret.append(getMethodDecl(false) + "{\n");
     try {
       if (methodIsKernel() == false) {
-        OpenCLBody ocl_body=new OpenCLBody(m_sootMethod,isConstructor());
+        OpenCLBody ocl_body=new OpenCLBody(body_method,isConstructor());
         ret.append(ocl_body.getLocals());
         if (isSynchronized()) {
           ret.append(synchronizedEnter());
@@ -14,7 +15,7 @@
         }
  catch (        Exception ex) {
           ex.printStackTrace();
-          System.out.println("soot_method: " + m_sootMethod.getSignature());
+          System.out.println("soot_method: " + body_method.getSignature());
           System.exit(1);
         }
         if (isSynchronized()) {
@@ -35,8 +36,8 @@
       }
     }
  catch (    RuntimeException ex) {
-      System.out.println("error creating method body: " + m_sootMethod.getSignature());
-      OpenCLMethod ocl_method=new OpenCLMethod(m_sootMethod,m_sootClass);
+      System.out.println("error creating method body: " + body_method.getSignature());
+      OpenCLMethod ocl_method=new OpenCLMethod(body_method,body_method.getDeclaringClass());
       if (ocl_method.returnsAValue())       ret.append("return 0;\n");
  else       ret.append("\n");
     }
@@ -46,7 +47,7 @@
     ret.append("}\n");
     if (isConstructor()) {
       ret.append(getMethodDecl(true) + "{\n");
-      OpenCLBody ocl_body=new OpenCLBody(m_sootMethod.retrieveActiveBody());
+      OpenCLBody ocl_body=new OpenCLBody(body_method.retrieveActiveBody());
       ret.append(ocl_body.getBody());
       ret.append("}\n");
     }

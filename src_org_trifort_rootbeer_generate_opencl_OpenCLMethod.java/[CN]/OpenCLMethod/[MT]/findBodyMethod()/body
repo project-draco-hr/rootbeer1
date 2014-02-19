@@ -1,0 +1,22 @@
+{
+  if (m_sootMethod.isConcrete()) {
+    return m_sootMethod;
+  }
+  IsPolymorphic is_poly=new IsPolymorphic();
+  if (is_poly.test(m_sootMethod)) {
+    return m_sootMethod;
+  }
+ else {
+    ConcreteMethods concrete_method_finder=new ConcreteMethods();
+    List<String> concrete_methods=concrete_method_finder.get(m_sootMethod.getSignature());
+    if (concrete_methods.size() == 1) {
+      String method=concrete_methods.get(0);
+      MethodSignatureUtil util=new MethodSignatureUtil();
+      util.parse(method);
+      return util.getSootMethod();
+    }
+ else {
+      return m_sootMethod;
+    }
+  }
+}
