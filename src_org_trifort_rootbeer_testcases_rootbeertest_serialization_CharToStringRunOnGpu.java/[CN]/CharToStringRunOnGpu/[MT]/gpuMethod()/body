@@ -1,0 +1,3 @@
+{
+  m_string=Character.valueOf(m_char).toString();
+}

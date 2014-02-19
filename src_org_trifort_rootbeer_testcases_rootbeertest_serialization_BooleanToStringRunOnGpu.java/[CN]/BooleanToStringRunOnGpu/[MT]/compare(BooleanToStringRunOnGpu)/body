@@ -1,0 +1,11 @@
+{
+  if (m_string1.equals(rhs.m_string1) == false) {
+    System.out.println("m_string1");
+    return false;
+  }
+  if (m_string2.equals(rhs.m_string2) == false) {
+    System.out.println("m_string2");
+    return false;
+  }
+  return true;
+}

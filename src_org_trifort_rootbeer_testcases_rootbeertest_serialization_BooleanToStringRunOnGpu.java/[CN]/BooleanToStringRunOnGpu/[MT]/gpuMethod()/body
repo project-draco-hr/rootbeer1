@@ -1,0 +1,4 @@
+{
+  m_string1=Boolean.valueOf(m_bool1).toString();
+  m_string2=Boolean.valueOf(m_bool2).toString();
+}

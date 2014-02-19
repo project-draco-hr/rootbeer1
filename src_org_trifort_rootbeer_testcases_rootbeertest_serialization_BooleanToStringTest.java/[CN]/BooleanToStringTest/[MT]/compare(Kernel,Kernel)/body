@@ -1,0 +1,5 @@
+{
+  BooleanToStringRunOnGpu lhs=(BooleanToStringRunOnGpu)original;
+  BooleanToStringRunOnGpu rhs=(BooleanToStringRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

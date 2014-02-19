@@ -1,0 +1,7 @@
+{
+  if (m_string.equals(rhs.m_string) == false) {
+    System.out.println("m_string");
+    return false;
+  }
+  return true;
+}
