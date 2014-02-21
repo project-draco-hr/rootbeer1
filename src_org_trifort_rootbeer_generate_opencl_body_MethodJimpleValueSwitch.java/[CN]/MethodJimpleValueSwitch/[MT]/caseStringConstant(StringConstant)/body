@@ -1,3 +1,3 @@
 {
-  m_output.append(" org_trifort_char_constant(gc_info, (char *) " + arg0.toString() + ", exception) ");
+  m_output.append(" org_trifort_string_constant(gc_info, (char *) " + arg0.toString() + ", exception) ");
 }
