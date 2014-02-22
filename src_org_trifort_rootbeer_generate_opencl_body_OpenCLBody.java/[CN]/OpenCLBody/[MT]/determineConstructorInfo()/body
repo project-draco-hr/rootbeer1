@@ -1,9 +1,8 @@
 {
-  SootMethod soot_method=m_Body.getMethod();
+  SootMethod soot_method=m_body.getMethod();
   SootClass soot_class=soot_method.getDeclaringClass();
   OpenCLClass ocl_class=OpenCLScene.v().getOpenCLClass(soot_class);
-  m_ClassName=ocl_class.getName();
-  m_AllocSize=ocl_class.getSize();
-  m_RefFieldsSize=ocl_class.getRefFieldsSize();
-  m_DerivedType=OpenCLScene.v().getClassType(soot_class);
+  m_allocSize=ocl_class.getSize();
+  m_refFieldsSize=ocl_class.getRefFieldsSize();
+  m_derivedType=OpenCLScene.v().getClassType(soot_class);
 }

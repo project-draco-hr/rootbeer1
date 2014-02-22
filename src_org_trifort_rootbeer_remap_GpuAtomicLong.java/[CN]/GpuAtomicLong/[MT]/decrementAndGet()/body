@@ -1,4 +1,4 @@
 {
-  m_Value--;
-  return m_Value;
+  value--;
+  return value;
 }

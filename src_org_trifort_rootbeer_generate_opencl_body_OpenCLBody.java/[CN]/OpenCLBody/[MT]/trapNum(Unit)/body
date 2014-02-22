@@ -1,5 +1,5 @@
 {
-  for (  TrapItem trap : m_AllTraps) {
+  for (  TrapItem trap : m_allTraps) {
     if (trap.unitIsHandler(next)) {
       return trap.getTrapNum();
     }

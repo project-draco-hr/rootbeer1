@@ -1,4 +1,4 @@
 {
-  PatchingChain<Unit> chain_units=m_Body.getUnits();
+  PatchingChain<Unit> chain_units=m_body.getUnits();
   return chain_units.iterator();
 }

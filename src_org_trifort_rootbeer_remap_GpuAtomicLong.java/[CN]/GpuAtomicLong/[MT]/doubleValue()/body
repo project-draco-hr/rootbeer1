@@ -1,5 +1,5 @@
 {
 synchronized (this) {
-    return (double)m_Value;
+    return (double)value;
   }
 }

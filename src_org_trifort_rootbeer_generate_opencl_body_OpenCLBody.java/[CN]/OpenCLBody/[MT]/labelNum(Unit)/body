@@ -1,6 +1,6 @@
 {
-  for (int i=0; i < m_Labels.size(); ++i) {
-    if (m_Labels.get(i).equals(unit))     return i;
+  for (int i=0; i < m_labels.size(); ++i) {
+    if (m_labels.get(i).equals(unit))     return i;
   }
   return -1;
 }

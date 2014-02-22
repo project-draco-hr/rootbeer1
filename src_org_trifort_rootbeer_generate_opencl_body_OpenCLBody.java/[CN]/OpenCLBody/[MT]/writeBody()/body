@@ -1,14 +1,14 @@
 {
-  if (m_IsConstructorBodyWithoutHeader == false) {
-    if (m_IsConstructor)     return writeConstructorBody();
+  if (m_isConstructorBodyWithoutHeader == false) {
+    if (m_isConstructor)     return writeConstructorBody();
  else {
-      m_StmtSwitch=new MethodStmtSwitch(this,m_Body.getMethod());
+      m_stmtSwitch=new MethodStmtSwitch(this,m_body.getMethod());
       return writeMethodBody();
     }
   }
  else {
     StringBuilder ret=new StringBuilder();
-    m_StmtSwitch=new ConstructorStmtSwitch(this,m_Body.getMethod(),true);
+    m_stmtSwitch=new ConstructorStmtSwitch(this,m_body.getMethod(),true);
     ret.append(writeMethodBody());
     return ret.toString();
   }

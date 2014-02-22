@@ -12,8 +12,8 @@
     handleMonitorGroupItem(sub_item);
   }
   if (enter != null) {
-    m_StmtSwitch.append("  }\n");
-    m_StmtSwitch.append("}\n");
-    m_StmtSwitch.popMonitor();
+    m_stmtSwitch.append("  }\n");
+    m_stmtSwitch.append("}\n");
+    m_stmtSwitch.popMonitor();
   }
 }

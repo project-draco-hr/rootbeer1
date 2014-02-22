@@ -1,3 +1,0 @@
-{
-  return (((long)(next(26)) << 27) + next(27)) / (double)(1L << 53);
-}

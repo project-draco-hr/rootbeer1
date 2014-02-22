@@ -1,3 +1,0 @@
-{
-  this(seedUniquifier() ^ System.nanoTime());
-}

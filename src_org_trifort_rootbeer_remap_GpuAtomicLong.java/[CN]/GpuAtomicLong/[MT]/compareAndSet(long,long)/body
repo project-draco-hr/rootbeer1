@@ -1,6 +1,6 @@
 {
-  if (m_Value == expect) {
-    m_Value=update;
+  if (value == expect) {
+    value=update;
     return true;
   }
  else {

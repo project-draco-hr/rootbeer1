@@ -1,4 +1,0 @@
-{
-  this.seed.set(initialScramble(seed));
-  haveNextNextGaussian=false;
-}

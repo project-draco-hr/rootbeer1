@@ -1,6 +1,8 @@
 {
   StringBuilder ret=new StringBuilder();
-  if (m_usesGarbageCollector)   ret.append("#define USING_GARBAGE_COLLECTOR\n");
+  if (m_usesGarbageCollector) {
+    ret.append("#define USING_GARBAGE_COLLECTOR\n");
+  }
   Set<String> bodies=new HashSet<String>();
   ArrayCopyTypeReduction reduction=new ArrayCopyTypeReduction();
   Set<OpenCLArrayType> new_types=reduction.run(m_arrayTypes,m_methodHierarchies);

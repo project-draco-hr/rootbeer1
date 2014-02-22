@@ -1,8 +1,9 @@
 {
-  m_Labels=new ArrayList<Unit>();
-  m_TrapMap=new HashMap<Unit,List<TrapItem>>();
-  m_AllTraps=new ArrayList<TrapItem>();
-  m_IsConstructor=false;
-  m_IsConstructorBodyWithoutHeader=true;
-  m_Body=body;
+  m_labels=new ArrayList<Unit>();
+  m_trapMap=new HashMap<Unit,List<TrapItem>>();
+  m_allTraps=new ArrayList<TrapItem>();
+  m_isConstructor=false;
+  m_isConstructorBodyWithoutHeader=true;
+  m_body=body;
+  m_sootMethod=body.getMethod();
 }

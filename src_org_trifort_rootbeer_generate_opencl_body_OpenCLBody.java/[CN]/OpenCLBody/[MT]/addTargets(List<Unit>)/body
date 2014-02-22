@@ -1,5 +1,5 @@
 {
   for (  Unit unit : units) {
-    m_Labels.add(unit);
+    m_labels.add(unit);
   }
 }

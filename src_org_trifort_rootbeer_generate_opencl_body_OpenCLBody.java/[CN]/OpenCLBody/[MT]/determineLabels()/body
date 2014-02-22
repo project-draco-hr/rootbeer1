@@ -4,16 +4,16 @@
     Unit curr=iter.next();
     if (curr instanceof IfStmt) {
       IfStmt ifstmt=(IfStmt)curr;
-      m_Labels.add(ifstmt.getTarget());
+      m_labels.add(ifstmt.getTarget());
     }
  else     if (curr instanceof GotoStmt) {
       GotoStmt gotostmt=(GotoStmt)curr;
-      m_Labels.add(gotostmt.getTarget());
+      m_labels.add(gotostmt.getTarget());
     }
  else     if (curr instanceof LookupSwitchStmt) {
       LookupSwitchStmt lookup=(LookupSwitchStmt)curr;
       addTargets(lookup.getTargets());
-      m_Labels.add(lookup.getDefaultTarget());
+      m_labels.add(lookup.getDefaultTarget());
     }
  else     if (curr instanceof TableSwitchStmt) {
       TableSwitchStmt table=(TableSwitchStmt)curr;

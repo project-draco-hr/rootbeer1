@@ -1,3 +1,0 @@
-{
-  this.seed=new GpuAtomicLong(initialScramble(seed));
-}

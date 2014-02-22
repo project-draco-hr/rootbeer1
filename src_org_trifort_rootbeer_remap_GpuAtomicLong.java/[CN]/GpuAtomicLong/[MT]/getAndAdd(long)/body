@@ -1,5 +1,5 @@
 {
-  long ret=m_Value;
-  m_Value+=value;
+  long ret=value;
+  value+=add_value;
   return ret;
 }

@@ -1,21 +1,21 @@
 {
   int label_num=labelNum(next);
   if (label_num != -1) {
-    m_StmtSwitch.append("label" + Integer.toString(label_num) + ":\n");
+    m_stmtSwitch.append("label" + Integer.toString(label_num) + ":\n");
   }
   int trap_num2=trapNum(next);
   if (trap_num2 != -1) {
-    m_StmtSwitch.append("trap" + Integer.toString(trap_num2) + ":\n");
+    m_stmtSwitch.append("trap" + Integer.toString(trap_num2) + ":\n");
   }
-  m_StmtSwitch.append("//" + next.toString() + "\n");
+  m_stmtSwitch.append("//" + next.toString() + "\n");
   List<TrapItem> trap_items=null;
-  if (m_TrapMap.containsKey(next)) {
-    trap_items=m_TrapMap.get(next);
+  if (m_trapMap.containsKey(next)) {
+    trap_items=m_trapMap.get(next);
   }
-  m_StmtSwitch.reset();
-  m_StmtSwitch.setTrapItems(trap_items);
-  next.apply(m_StmtSwitch);
-  if (m_StmtSwitch.hasCaughtExceptionRef()) {
-    m_StmtSwitch.append("*exception = 0;\n");
+  m_stmtSwitch.reset();
+  m_stmtSwitch.setTrapItems(trap_items);
+  next.apply(m_stmtSwitch);
+  if (m_stmtSwitch.hasCaughtExceptionRef()) {
+    m_stmtSwitch.append("*exception = 0;\n");
   }
 }

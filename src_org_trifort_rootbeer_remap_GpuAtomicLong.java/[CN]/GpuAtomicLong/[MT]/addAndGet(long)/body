@@ -1,4 +1,4 @@
 {
-  m_Value+=value;
-  return m_Value;
+  value+=add_value;
+  return value;
 }

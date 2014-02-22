@@ -1,6 +1,6 @@
 {
   StringBuilder ret=new StringBuilder();
-  SootClass soot_class=m_SootClass;
+  SootClass soot_class=m_sootClass;
   while (true) {
     initFieldsForClass(soot_class,ret);
     if (soot_class.getName().equals("java.lang.Object"))     break;

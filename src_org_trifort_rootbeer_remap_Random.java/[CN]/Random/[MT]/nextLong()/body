@@ -1,3 +1,0 @@
-{
-  return ((long)(next(32)) << 32) + next(32);
-}
