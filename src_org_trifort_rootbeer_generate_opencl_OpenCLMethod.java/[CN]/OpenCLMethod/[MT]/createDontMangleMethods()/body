@@ -1,5 +1,5 @@
 {
-  MethodsSetup setup=new MethodsSetup();
+  CompilerSetup setup=new CompilerSetup();
   m_dontMangleMethods=setup.getDontMangle();
   m_dontEmitMethods=setup.getDontEmit();
   m_emitUnmangled=setup.getEmitUnmanged();

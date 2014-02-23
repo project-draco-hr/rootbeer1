@@ -1,0 +1,5 @@
+{
+  ForceArrayNewRunOnGpu lhs=(ForceArrayNewRunOnGpu)original;
+  ForceArrayNewRunOnGpu rhs=(ForceArrayNewRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

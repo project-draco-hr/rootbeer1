@@ -1,0 +1,6 @@
+{
+  Set<ArrayType> ret=new HashSet<ArrayType>();
+  ret.add(ArrayType.v(CharType.v(),1));
+  ret.add(ArrayType.v(RefType.v("java.lang.String"),1));
+  return ret;
+}
