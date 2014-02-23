@@ -1,0 +1,4 @@
+{
+  StaticInitClass object=new StaticInitClass();
+  m_value=object.getValue();
+}

@@ -1,0 +1,5 @@
+{
+  StaticInitRunOnGpu lhs=(StaticInitRunOnGpu)original;
+  StaticInitRunOnGpu rhs=(StaticInitRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}
