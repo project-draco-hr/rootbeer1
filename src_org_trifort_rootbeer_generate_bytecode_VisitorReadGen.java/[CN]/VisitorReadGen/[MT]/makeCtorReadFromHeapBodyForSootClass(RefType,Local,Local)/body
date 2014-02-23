@@ -1,0 +1,66 @@
+{
+  BytecodeLanguage bcl=m_bcl.top();
+  SootClass soot_class=type.getSootClass();
+  Local object_to_write_to=bcl.local(type);
+  BclMemory bcl_mem=new BclMemory(bcl,m_currMem.top());
+  String name=soot_class.getName();
+  if (soot_class.isApplicationClass() == false) {
+    if (soot_class.declaresMethod("void <init>()")) {
+      Local new_object=bcl.newInstance(name);
+      bcl.assign(object_to_write_to,new_object);
+    }
+ else {
+      JavaNumberTypes number_types=new JavaNumberTypes();
+      String type_string=type.toString();
+      if (number_types.get().contains(type_string)) {
+        int size_read=8;
+        bcl_mem.incrementAddress(Constants.SizeGcInfo - size_read);
+        Local value;
+        if (type_string.equals("java.lang.Byte")) {
+          value=bcl_mem.readByte();
+        }
+ else         if (type_string.equals("java.lang.Boolean")) {
+          value=bcl_mem.readBoolean();
+        }
+ else         if (type_string.equals("java.lang.Character")) {
+          value=bcl_mem.readChar();
+        }
+ else         if (type_string.equals("java.lang.Short")) {
+          value=bcl_mem.readShort();
+        }
+ else         if (type_string.equals("java.lang.Integer")) {
+          value=bcl_mem.readInt();
+        }
+ else         if (type_string.equals("java.lang.Long")) {
+          value=bcl_mem.readLong();
+        }
+ else         if (type_string.equals("java.lang.Float")) {
+          value=bcl_mem.readFloat();
+        }
+ else         if (type_string.equals("java.lang.Double")) {
+          value=bcl_mem.readDouble();
+        }
+ else {
+          throw new UnsupportedOperationException("cannot create type");
+        }
+        Local new_object=bcl.newInstance(name,value);
+        bcl.assign(object_to_write_to,new_object);
+        bcl_mem.finishReading();
+        bcl.returnValue(object_to_write_to);
+        return object_to_write_to;
+      }
+      if (type.toString().equals("java.lang.Integer")) {
+        Local int_value=bcl_mem.readInt();
+      }
+ else {
+        throw new UnsupportedOperationException("cannot create type");
+      }
+    }
+  }
+ else {
+    Local sentinal=bcl.newInstance("org.trifort.rootbeer.runtime.Sentinal");
+    Local new_object=bcl.newInstance(name,sentinal);
+    bcl.assign(object_to_write_to,new_object);
+  }
+  return object_to_write_to;
+}

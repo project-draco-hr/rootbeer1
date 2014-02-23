@@ -9,8 +9,8 @@
   specialization+=JavaNameToOpenCL.convert(class_name);
   specialization+=OpenCLScene.v().getIdent();
   String visited_name=class_name + specialization;
-  if (m_VisitedReader.contains(visited_name))   return;
-  m_VisitedReader.add(visited_name);
+  if (m_visitedReader.contains(visited_name))   return;
+  m_visitedReader.add(visited_name);
   SootClass curr_class=Scene.v().getSootClass(class_name);
   SootClass parent=curr_class.getSuperclass();
   parent=Scene.v().getSootClass(parent.getName());

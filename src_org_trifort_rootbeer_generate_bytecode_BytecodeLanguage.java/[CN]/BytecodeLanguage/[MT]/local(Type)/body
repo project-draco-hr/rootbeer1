@@ -1,4 +1,4 @@
 {
-  Local ret=jimple.newLocal(getLocalName(),type);
+  Local ret=m_jimple.newLocal(getLocalName(),type);
   return ret;
 }

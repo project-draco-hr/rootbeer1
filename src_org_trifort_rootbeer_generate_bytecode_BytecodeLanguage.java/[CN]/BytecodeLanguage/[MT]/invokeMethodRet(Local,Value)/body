@@ -1,21 +1,21 @@
 {
-  SootMethod method=mMethodStack.pop();
+  SootMethod method=m_methodStack.pop();
   List<Value> args_list=convertValueArrayToList(args);
   Value invoke_expr;
   if (method.getName().equals("<init>")) {
-    invoke_expr=jimple.newSpecialInvokeExpr(base,method.makeRef(),args_list);
+    invoke_expr=m_jimple.newSpecialInvokeExpr(base,method.makeRef(),args_list);
   }
  else {
     try {
-      invoke_expr=jimple.newVirtualInvokeExpr(base,method.makeRef(),args_list);
+      invoke_expr=m_jimple.newVirtualInvokeExpr(base,method.makeRef(),args_list);
     }
  catch (    RuntimeException ex) {
-      invoke_expr=jimple.newInterfaceInvokeExpr(base,method.makeRef(),args_list);
+      invoke_expr=m_jimple.newInterfaceInvokeExpr(base,method.makeRef(),args_list);
     }
   }
   String name=getLocalName();
-  Local ret=jimple.newLocal(name,method.getReturnType());
-  Unit u=jimple.newAssignStmt(ret,invoke_expr);
-  mAssembler.add(u);
+  Local ret=m_jimple.newLocal(name,method.getReturnType());
+  Unit u=m_jimple.newAssignStmt(ret,invoke_expr);
+  m_assembler.add(u);
   return ret;
 }

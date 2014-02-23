@@ -1,0 +1,5 @@
+Type type
+boolean doing_object
+Local class_number
+Local ctor_used
+String after_ctors_label

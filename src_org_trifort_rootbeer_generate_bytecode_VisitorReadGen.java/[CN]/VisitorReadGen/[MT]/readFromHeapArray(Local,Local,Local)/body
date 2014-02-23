@@ -21,7 +21,7 @@
   bcl_mem.pushAddress();
   SootClass obj_cls=Scene.v().getSootClass("java.lang.Object");
   bcl.pushMethod(m_thisRef,"readFromHeap",obj_cls.getType(),obj_cls.getType(),BooleanType.v(),LongType.v());
-  Local ret=bcl.invokeMethodRet(m_thisRef,curr_phi,m_Param1,object_addr);
+  Local ret=bcl.invokeMethodRet(m_thisRef,curr_phi,m_param1,object_addr);
   bcl_mem.popAddress();
   return ret;
 }

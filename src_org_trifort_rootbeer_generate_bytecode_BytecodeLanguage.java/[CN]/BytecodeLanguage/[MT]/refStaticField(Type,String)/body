@@ -1,9 +1,9 @@
 {
   SootClass base_class=Scene.v().getSootClass(base_type.toString());
   SootField field=getFieldByName(base_class,field_name);
-  Local ret=jimple.newLocal(getLocalName(),field.getType());
-  Value rhs=jimple.newStaticFieldRef(field.makeRef());
-  Unit u=jimple.newAssignStmt(ret,rhs);
-  mAssembler.add(u);
+  Local ret=m_jimple.newLocal(getLocalName(),field.getType());
+  Value rhs=m_jimple.newStaticFieldRef(field.makeRef());
+  Unit u=m_jimple.newAssignStmt(ret,rhs);
+  m_assembler.add(u);
   return ret;
 }

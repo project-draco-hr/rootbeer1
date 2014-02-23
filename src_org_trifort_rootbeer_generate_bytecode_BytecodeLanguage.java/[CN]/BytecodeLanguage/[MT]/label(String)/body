@@ -1,3 +1,3 @@
 {
-  mAssembler.addLabel(label_string);
+  m_assembler.addLabel(label_string);
 }

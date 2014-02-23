@@ -1,8 +1,8 @@
 {
   SootClass soot_class=Scene.v().getSootClass(mClassName);
-  Local l_res=jimple.newLocal(getLocalName(),soot_class.getType());
+  Local l_res=m_jimple.newLocal(getLocalName(),soot_class.getType());
   SootMethodRef classForNameRef=soot.Scene.v().makeMethodRef(soot_class,"valueOf",Arrays.asList(param.getType()),soot_class.getType(),true);
-  Unit u1=jimple.newAssignStmt(l_res,jimple.newStaticInvokeExpr(classForNameRef,Arrays.asList(new Value[]{param})));
-  mAssembler.add(u1);
+  Unit u1=m_jimple.newAssignStmt(l_res,m_jimple.newStaticInvokeExpr(classForNameRef,Arrays.asList(new Value[]{param})));
+  m_assembler.add(u1);
   return l_res;
 }

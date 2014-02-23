@@ -4,7 +4,8 @@
   ArrayType char_array_type=ArrayType.v(CharType.v(),1);
   BytecodeLanguage bcl=m_bcl.top();
   BclMemory bcl_mem=new BclMemory(bcl,m_currMem.top());
-  bcl_mem.incrementAddress(Constants.SizeGcInfo);
+  int size_read=8;
+  bcl_mem.incrementAddress(Constants.SizeGcInfo - size_read);
   Local ref=bcl_mem.readRef();
   bcl.pushMethod(m_gcObjVisitor.top(),"readFromHeap",object_class.getType(),object_class.getType(),BooleanType.v(),LongType.v());
   Local new_char_array_obj=bcl.invokeMethodRet(m_gcObjVisitor.top(),NullConstant.v(),IntConstant.v(1),ref);

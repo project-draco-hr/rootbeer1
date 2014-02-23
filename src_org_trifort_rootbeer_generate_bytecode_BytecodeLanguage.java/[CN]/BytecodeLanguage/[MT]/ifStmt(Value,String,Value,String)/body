@@ -1,16 +1,16 @@
 {
   Value condition;
   if (op.equals("==")) {
-    condition=jimple.newEqExpr(lhs,rhs);
+    condition=m_jimple.newEqExpr(lhs,rhs);
   }
  else   if (op.equals("!=")) {
-    condition=jimple.newNeExpr(lhs,rhs);
+    condition=m_jimple.newNeExpr(lhs,rhs);
   }
  else   if (op.equals(">=")) {
-    condition=jimple.newGeExpr(lhs,rhs);
+    condition=m_jimple.newGeExpr(lhs,rhs);
   }
  else {
     throw new UnsupportedOperationException();
   }
-  mAssembler.addIf(condition,target_label);
+  m_assembler.addIf(condition,target_label);
 }

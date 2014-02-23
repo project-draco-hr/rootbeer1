@@ -2,7 +2,7 @@
   if (type instanceof ArrayType == false && type instanceof RefType == false) {
     return;
   }
-  if (m_ReadFromHeapMethodsMade.containsKey(type))   return;
+  if (m_readFromHeapMethodsMade.containsKey(type))   return;
   if (type instanceof RefType) {
     RefType ref_type=(RefType)type;
     if (ref_type.getClassName().equals("java.lang.Object")) {
@@ -20,15 +20,15 @@
   }
   String label=getNextLabel();
   BytecodeLanguage bcl=m_bcl.top();
-  bcl.ifInstanceOfStmt(m_Param0,type,label);
+  bcl.ifInstanceOfStmt(m_param0,type,label);
   Local ret;
   if (type instanceof ArrayType) {
-    ret=makeReadFromHeapBodyForArrayType((ArrayType)type);
+    ret=makeReadFromHeapBodyForArrayType((ArrayType)type,ctor_used);
   }
  else {
     ret=makeReadFromHeapBodyForSootClass((RefType)type);
   }
-  m_ReadFromHeapMethodsMade.put(type,ret);
+  m_readFromHeapMethodsMade.put(type,ret);
   bcl.returnValue(ret);
   bcl.label(label);
 }

@@ -12,5 +12,5 @@
   }
   util.setParameterTypes(parameter_types);
   SootMethod soot_method=util.getSootMethod();
-  mMethodStack.push(soot_method);
+  m_methodStack.push(soot_method);
 }

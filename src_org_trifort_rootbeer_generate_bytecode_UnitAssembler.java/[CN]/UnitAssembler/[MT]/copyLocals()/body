@@ -1,15 +1,15 @@
 {
-  for (  Unit u : mOutputUnits) {
+  for (  Unit u : m_outputUnits) {
     List<ValueBox> boxes=u.getUseAndDefBoxes();
     for (    ValueBox box : boxes) {
       Value v=box.getValue();
       if (v instanceof Local == false)       continue;
       Local local=(Local)v.clone();
-      if (mLocalMap.containsKey(local.toString()) == false) {
-        mLocalMap.put(local.toString(),local);
-        mOutputLocals.add(local);
+      if (m_localMap.containsKey(local.toString()) == false) {
+        m_localMap.put(local.toString(),local);
+        m_outputLocals.add(local);
       }
-      local=mLocalMap.get(local.toString());
+      local=m_localMap.get(local.toString());
       box.setValue(local);
     }
   }

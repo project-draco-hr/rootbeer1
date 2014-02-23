@@ -1,4 +1,4 @@
 {
-  jimple=Jimple.v();
-  mMethodStack=new Stack<SootMethod>();
+  m_jimple=Jimple.v();
+  m_methodStack=new Stack<SootMethod>();
 }

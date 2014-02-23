@@ -4,6 +4,6 @@
   ret.setSuperclass(parent_class);
   Scene.v().addClass(ret);
   ret.setApplicationClass();
-  mCurrClass=ret;
+  m_currClass=ret;
   return ret;
 }

@@ -2,7 +2,7 @@
   Type base_type=base.getType();
   SootClass base_class=Scene.v().getSootClass(base_type.toString());
   SootField field=getFieldByName(base_class,field_name);
-  Value rhs=jimple.newInstanceFieldRef(base,field.makeRef());
-  Unit u=jimple.newAssignStmt(input,rhs);
-  mAssembler.add(u);
+  Value rhs=m_jimple.newInstanceFieldRef(base,field.makeRef());
+  Unit u=m_jimple.newAssignStmt(input,rhs);
+  m_assembler.add(u);
 }

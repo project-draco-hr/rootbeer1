@@ -1,5 +1,5 @@
 {
-  Value rhs=jimple.newMulExpr(lhs,mult_value);
-  Unit u=jimple.newAssignStmt(lhs,rhs);
-  mAssembler.add(u);
+  Value rhs=m_jimple.newMulExpr(lhs,mult_value);
+  Unit u=m_jimple.newAssignStmt(lhs,rhs);
+  m_assembler.add(u);
 }

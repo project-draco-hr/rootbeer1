@@ -1,5 +1,5 @@
 {
-  for (  Unit u : mOutputUnits) {
+  for (  Unit u : m_outputUnits) {
     System.out.println(u.toString());
   }
   System.out.println("End of debugPrintOutput");

@@ -1,5 +1,5 @@
 {
-  m_labelI=0;
+  m_labelIndex=0;
   m_bcl=new Stack<BytecodeLanguage>();
   m_gcObjVisitor=new Stack<Local>();
   m_currMem=new Stack<Local>();

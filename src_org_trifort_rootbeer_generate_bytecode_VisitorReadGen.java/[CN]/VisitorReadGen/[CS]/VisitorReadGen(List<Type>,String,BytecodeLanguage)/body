@@ -1,11 +1,12 @@
 {
-  m_ReadFromHeapMethodsMade=new HashMap<Type,Local>();
-  m_OrderedHistory=ordered_history;
-  m_VisitedReader=new HashSet<String>();
+  m_readFromHeapMethodsMade=new HashMap<Type,Local>();
+  m_ctorReadFromHeapMethodsMade=new HashMap<Type,Local>();
+  m_orderedHistory=ordered_history;
+  m_visitedReader=new HashSet<String>();
   m_bcl=new Stack<BytecodeLanguage>();
   m_bcl.push(bcl);
   m_gcObjVisitor=new Stack<Local>();
   m_objSerializing=new Stack<Local>();
   m_currMem=new Stack<Local>();
-  m_CurrObj=new Stack<Local>();
+  m_currObj=new Stack<Local>();
 }

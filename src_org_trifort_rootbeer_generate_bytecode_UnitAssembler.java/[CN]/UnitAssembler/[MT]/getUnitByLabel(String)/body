@@ -1,7 +1,7 @@
 {
-  for (int i=0; i < mLabels.size(); ++i) {
-    List<String> labelset=mLabels.get(i);
-    if (labelset.contains(label))     return mInputUnits.get(i);
+  for (int i=0; i < m_labels.size(); ++i) {
+    List<String> labelset=m_labels.get(i);
+    if (labelset.contains(label))     return m_inputUnits.get(i);
   }
   throw new RuntimeException("Cannot find unit");
 }

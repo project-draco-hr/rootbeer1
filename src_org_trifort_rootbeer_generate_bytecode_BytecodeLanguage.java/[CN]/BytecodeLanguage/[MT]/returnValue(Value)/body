@@ -1,4 +1,4 @@
 {
-  Unit u=jimple.newReturnStmt(value);
-  mAssembler.add(u);
+  Unit u=m_jimple.newReturnStmt(value);
+  m_assembler.add(u);
 }

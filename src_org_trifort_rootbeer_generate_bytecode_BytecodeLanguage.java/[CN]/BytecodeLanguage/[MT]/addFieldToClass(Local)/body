@@ -1,4 +1,4 @@
 {
   SootField field=new SootField(local.getName(),local.getType(),Modifier.PUBLIC);
-  mCurrClass.addField(field);
+  m_currClass.addField(field);
 }

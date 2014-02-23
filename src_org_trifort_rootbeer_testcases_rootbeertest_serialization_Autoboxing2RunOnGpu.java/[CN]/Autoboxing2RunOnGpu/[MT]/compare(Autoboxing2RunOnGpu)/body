@@ -5,5 +5,11 @@
     System.out.println("rhs: " + rhs.getInteger0());
     return false;
   }
+  if (getInteger1() != rhs.getInteger1()) {
+    System.out.println("m_int1");
+    System.out.println("lhs: " + getInteger1());
+    System.out.println("rhs: " + rhs.getInteger1());
+    return false;
+  }
   return true;
 }

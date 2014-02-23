@@ -7,7 +7,7 @@
     UnitBox output_box=output_boxes.get(i);
     try {
       int j=findTarget(input_box.getUnit());
-      output_box.setUnit(mInputUnits.get(j));
+      output_box.setUnit(m_inputUnits.get(j));
     }
  catch (    Exception ex) {
       ex.printStackTrace();

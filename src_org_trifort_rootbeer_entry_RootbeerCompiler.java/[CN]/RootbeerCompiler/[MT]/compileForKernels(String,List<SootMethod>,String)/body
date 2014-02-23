@@ -40,8 +40,8 @@
       }
     }
     if (write) {
-      writeClassFile(class_name);
       writeJimpleFile(class_name);
+      writeClassFile(class_name);
     }
   }
   makeOutJar(jar_filename);

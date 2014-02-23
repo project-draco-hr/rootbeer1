@@ -1,3 +1,8 @@
 {
-  m_object=new PolymorphicClassDerived();
+  PolymorphicClassDerived derived=new PolymorphicClassDerived();
+  derived.init();
+  m_object=derived;
+  m_array=new int[2];
+  m_array[0]=1;
+  m_array[1]=2;
 }

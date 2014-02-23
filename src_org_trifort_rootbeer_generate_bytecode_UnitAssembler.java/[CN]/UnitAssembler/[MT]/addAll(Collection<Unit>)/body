@@ -1,5 +1,5 @@
 {
   for (  Unit u : units) {
-    mInputUnits.add(u);
+    m_inputUnits.add(u);
   }
 }

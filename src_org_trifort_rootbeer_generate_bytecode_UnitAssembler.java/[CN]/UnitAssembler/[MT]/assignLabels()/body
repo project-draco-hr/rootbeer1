@@ -1,10 +1,10 @@
 {
-  for (int i=0; i < mLabels.size(); ++i) {
-    List<String> labelset=mLabels.get(i);
+  for (int i=0; i < m_labels.size(); ++i) {
+    List<String> labelset=m_labels.get(i);
     if (labelset.size() == 0)     continue;
-    Unit target=mInputUnits.get(i);
+    Unit target=m_inputUnits.get(i);
     for (    String label : labelset) {
-      List<UnitBox> boxes=mLabelToUnitBoxMap.get(label);
+      List<UnitBox> boxes=m_labelToUnitBoxMap.get(label);
       if (boxes == null) {
         System.out.println("Cannot find boxes for label.  This could be caused by classes other than the BytecodeLanguage using the assembler and is not a fatal error.");
         continue;

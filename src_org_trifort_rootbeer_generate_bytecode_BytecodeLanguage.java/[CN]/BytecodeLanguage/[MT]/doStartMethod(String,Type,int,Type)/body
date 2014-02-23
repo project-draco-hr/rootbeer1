@@ -1,10 +1,10 @@
 {
-  mAssembler=new UnitAssembler();
-  mParameterTypes=convertTypeArrayToList(arg_types);
-  mCurrMethod=new SootMethod(method_name,mParameterTypes,return_type,modifiers);
-  mCurrMethod.setDeclaringClass(mCurrClass);
-  mCurrBody=jimple.newBody(mCurrMethod);
-  mCurrMethod.setActiveBody(mCurrBody);
-  mCurrClass.addMethod(mCurrMethod);
-  RootbeerClassLoader.v().addGeneratedMethod(mCurrMethod.getSignature());
+  m_assembler=new UnitAssembler();
+  m_parameterTypes=convertTypeArrayToList(arg_types);
+  m_currMethod=new SootMethod(method_name,m_parameterTypes,return_type,modifiers);
+  m_currMethod.setDeclaringClass(m_currClass);
+  m_currBody=m_jimple.newBody(m_currMethod);
+  m_currMethod.setActiveBody(m_currBody);
+  m_currClass.addMethod(m_currMethod);
+  RootbeerClassLoader.v().addGeneratedMethod(m_currMethod.getSignature());
 }

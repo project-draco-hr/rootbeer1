@@ -3,10 +3,10 @@
   Chain<Local> locals=body.getLocals();
   units.clear();
   locals.clear();
-  for (  Unit u : mOutputUnits) {
+  for (  Unit u : m_outputUnits) {
     units.add(u);
   }
-  for (  Local l : mOutputLocals) {
+  for (  Local l : m_outputLocals) {
     locals.add(l);
   }
 }

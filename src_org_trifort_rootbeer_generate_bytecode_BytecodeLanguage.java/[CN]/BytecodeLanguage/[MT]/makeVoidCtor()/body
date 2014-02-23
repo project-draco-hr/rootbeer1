@@ -1,6 +1,6 @@
 {
   startMethod("<init>",VoidType.v());
-  SootClass super_soot_class=mCurrClass.getSuperclass();
+  SootClass super_soot_class=m_currClass.getSuperclass();
   Local thisref=refThis();
   pushMethod(super_soot_class.getName(),"<init>",VoidType.v());
   invokeMethodNoRet(thisref);

@@ -1,7 +1,7 @@
 {
   List<UnitBox> boxes;
-  if (mLabelToUnitBoxMap.containsKey(label))   boxes=mLabelToUnitBoxMap.get(label);
+  if (m_labelToUnitBoxMap.containsKey(label))   boxes=m_labelToUnitBoxMap.get(label);
  else   boxes=new ArrayList<UnitBox>();
   boxes.add(unit_box);
-  mLabelToUnitBoxMap.put(label,boxes);
+  m_labelToUnitBoxMap.put(label,boxes);
 }

@@ -1,4 +1,4 @@
 {
-  Unit u=jimple.newNopStmt();
-  mAssembler.add(u);
+  Unit u=m_jimple.newNopStmt();
+  m_assembler.add(u);
 }

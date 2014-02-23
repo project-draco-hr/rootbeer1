@@ -7,5 +7,35 @@
     System.out.println("rhs.m_object type");
     return false;
   }
+  PolymorphicClassDerived lhs_derived=(PolymorphicClassDerived)m_object;
+  PolymorphicClassDerived rhs_derived=(PolymorphicClassDerived)rhs.m_object;
+  if (lhs_derived.getValue2() != rhs_derived.getValue2()) {
+    System.out.println("m_value2");
+    System.out.println("lhs: " + lhs_derived.getValue2());
+    System.out.println("rhs: " + rhs_derived.getValue2());
+    return false;
+  }
+  if (m_array == null) {
+    System.out.println("m_array null");
+    return false;
+  }
+  if (rhs.m_array == null) {
+    System.out.println("rhs.m_array null");
+    return false;
+  }
+  if (m_array.length != rhs.m_array.length) {
+    System.out.println("m_array.length");
+    System.out.println("lhs: " + m_array.length);
+    System.out.println("rhs: " + rhs.m_array.length);
+    return false;
+  }
+  if (m_array[0] != rhs.m_array[0]) {
+    System.out.println("m_array[0]");
+    return false;
+  }
+  if (m_array[1] != rhs.m_array[1]) {
+    System.out.println("m_array[1]");
+    return false;
+  }
   return true;
 }

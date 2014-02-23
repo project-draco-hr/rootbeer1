@@ -1,7 +1,7 @@
 {
   Value lhs;
-  if (field.isStatic() == false)   lhs=jimple.newInstanceFieldRef(field_instance,field.makeRef());
- else   lhs=jimple.newStaticFieldRef(field.makeRef());
-  Unit u=jimple.newAssignStmt(lhs,value);
-  mAssembler.add(u);
+  if (field.isStatic() == false)   lhs=m_jimple.newInstanceFieldRef(field_instance,field.makeRef());
+ else   lhs=m_jimple.newStaticFieldRef(field.makeRef());
+  Unit u=m_jimple.newAssignStmt(lhs,value);
+  m_assembler.add(u);
 }

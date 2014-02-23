@@ -1,0 +1,39 @@
+{
+  if (type instanceof ArrayType == false && type instanceof RefType == false) {
+    return;
+  }
+  if (m_ctorReadFromHeapMethodsMade.containsKey(type))   return;
+  if (type instanceof RefType) {
+    RefType ref_type=(RefType)type;
+    if (ref_type.getClassName().equals("java.lang.Object")) {
+      if (!doing_object) {
+        return;
+      }
+    }
+    SootClass soot_class=ref_type.getSootClass();
+    if (soot_class.isInterface()) {
+      return;
+    }
+    if (differentPackageAndPrivate(ref_type)) {
+      return;
+    }
+  }
+  String label=getNextLabel();
+  BytecodeLanguage bcl=m_bcl.top();
+  ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
+  long number=class_hierarchy.getNumberForType(type.toString());
+  bcl.ifStmt(class_number,"!=",IntConstant.v((int)number),label);
+  Local ret;
+  if (type instanceof ArrayType) {
+    ret=makeReadFromHeapBodyForArrayType((ArrayType)type,ctor_used);
+    m_ctorReadFromHeapMethodsMade.put(type,ret);
+    bcl.returnValue(ret);
+  }
+ else {
+    ret=makeCtorReadFromHeapBodyForSootClass((RefType)type,ctor_used,class_number);
+    m_ctorReadFromHeapMethodsMade.put(type,ret);
+    bcl.assign(m_param0,ret);
+    bcl.gotoLabel(after_ctors_label);
+  }
+  bcl.label(label);
+}

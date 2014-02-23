@@ -1,6 +1,6 @@
 {
-  UnitBox target=mJimple.newStmtBox(null);
+  UnitBox target=m_jimple.newStmtBox(null);
   addLabelToUnitBox(target_label,target);
-  Unit u=mJimple.newGotoStmt(target);
+  Unit u=m_jimple.newGotoStmt(target);
   add(u);
 }

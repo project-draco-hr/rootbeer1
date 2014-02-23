@@ -1,8 +1,8 @@
 {
   ArrayType atype=(ArrayType)type;
-  if (atype.numDimensions == 1)   return jimple.newNewArrayExpr(atype.baseType,size);
+  if (atype.numDimensions == 1)   return m_jimple.newNewArrayExpr(atype.baseType,size);
  else {
     ArrayType to_create=ArrayType.v(atype.baseType,atype.numDimensions - 1);
-    return jimple.newNewArrayExpr(to_create,size);
+    return m_jimple.newNewArrayExpr(to_create,size);
   }
 }

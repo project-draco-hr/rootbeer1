@@ -1,9 +1,9 @@
 {
-  Set<String> key_set=mLabelToUnitBoxMap.keySet();
+  Set<String> key_set=m_labelToUnitBoxMap.keySet();
   for (  String key : key_set) {
-    List<UnitBox> boxes=mLabelToUnitBoxMap.get(key);
+    List<UnitBox> boxes=m_labelToUnitBoxMap.get(key);
     for (    UnitBox box : boxes) {
-      if (box.getUnit() == null)       throw new RuntimeException("box unit is null!");
+      if (box.getUnit() == null)       throw new RuntimeException("box unit is null: " + key);
     }
   }
 }

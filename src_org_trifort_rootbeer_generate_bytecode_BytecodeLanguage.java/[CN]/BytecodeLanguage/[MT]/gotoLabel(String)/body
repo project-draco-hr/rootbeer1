@@ -1,3 +1,3 @@
 {
-  mAssembler.addGoto(label2);
+  m_assembler.addGoto(label2);
 }

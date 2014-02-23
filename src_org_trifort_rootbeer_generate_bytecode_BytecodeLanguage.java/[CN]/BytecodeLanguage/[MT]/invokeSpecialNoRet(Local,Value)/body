@@ -1,8 +1,8 @@
 {
-  SootMethod method=mMethodStack.pop();
+  SootMethod method=m_methodStack.pop();
   List<Value> args_list=convertValueArrayToList(args);
   Value invoke_expr;
-  invoke_expr=jimple.newSpecialInvokeExpr(base,method.makeRef(),args_list);
-  Unit u=jimple.newInvokeStmt(invoke_expr);
-  mAssembler.add(u);
+  invoke_expr=m_jimple.newSpecialInvokeExpr(base,method.makeRef(),args_list);
+  Unit u=m_jimple.newInvokeStmt(invoke_expr);
+  m_assembler.add(u);
 }

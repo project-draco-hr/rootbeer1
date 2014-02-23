@@ -1,6 +1,6 @@
 {
-  for (int i=0; i < mInputUnits.size(); ++i) {
-    Unit curr=mInputUnits.get(i);
+  for (int i=0; i < m_inputUnits.size(); ++i) {
+    Unit curr=m_inputUnits.get(i);
     if (unitEquals(target,curr))     return i;
   }
   throw new RuntimeException("Cannot find target while assembling units: " + target.toString());
