@@ -83,14 +83,13 @@
   ret.add(new StringBuilderTest3());
   ret.add(new StaticInitTest());
   ret.add(new PolymorphicNewTest());
-  if (m_hardTests) {
-    ret.add(new SimpleSynchronizedTest());
-    ret.add(new SynchronizedMethodTest());
-    ret.add(new SynchronizedMethod2Test());
-    ret.add(new SynchronizedMethod3Test());
-    ret.add(new SynchronizedStaticMethodTest());
-    ret.add(new SynchronizedObjectTest());
-  }
+  ret.add(new NestedMonitorTest());
+  ret.add(new SimpleSynchronizedTest());
+  ret.add(new SynchronizedMethodTest());
+  ret.add(new SynchronizedMethod2Test());
+  ret.add(new SynchronizedMethod3Test());
+  ret.add(new SynchronizedStaticMethodTest());
+  ret.add(new SynchronizedObjectTest());
   if (org.trifort.rootbeer.entry.Main.largeMemTests()) {
     ret.add(new LargeMemTest());
   }

@@ -1,0 +1,5 @@
+{
+  NestedMonitorRunOnGpu lhs=(NestedMonitorRunOnGpu)original;
+  NestedMonitorRunOnGpu rhs=(NestedMonitorRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}
