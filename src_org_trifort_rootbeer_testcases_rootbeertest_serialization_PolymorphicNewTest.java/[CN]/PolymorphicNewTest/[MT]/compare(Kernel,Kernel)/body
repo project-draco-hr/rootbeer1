@@ -1,0 +1,5 @@
+{
+  PolymorphicRunOnGpu lhs=(PolymorphicRunOnGpu)original;
+  PolymorphicRunOnGpu rhs=(PolymorphicRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

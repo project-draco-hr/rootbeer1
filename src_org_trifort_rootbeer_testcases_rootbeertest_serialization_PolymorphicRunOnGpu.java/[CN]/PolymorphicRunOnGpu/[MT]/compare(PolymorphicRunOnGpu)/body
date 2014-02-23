@@ -1,0 +1,11 @@
+{
+  if (m_object instanceof PolymorphicClassDerived == false) {
+    System.out.println("m_object type");
+    return false;
+  }
+  if (rhs.m_object instanceof PolymorphicClassDerived == false) {
+    System.out.println("rhs.m_object type");
+    return false;
+  }
+  return true;
+}
