@@ -60,6 +60,7 @@
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: double getSharedDouble(int)>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: void setSharedDouble(int,double)>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: double sin(double)>");
+  ret.add("<org.trifort.rootbeer.testcases.rootbeertest.serialization.ForceArrayNewRunOnGpu: java.lang.String getStringArray()>");
   ret.add("<java.lang.System: long nanoTime()>");
   ret.add("<java.lang.Class: java.lang.String getName()>");
   ret.add("<java.lang.Object: java.lang.Class getClass()>");
