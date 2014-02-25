@@ -1,8 +1,8 @@
 {
-  long ptr=m_currentPointer.m_pointer / 8;
-  ptr*=8;
-  if (ptr != m_currentPointer.m_pointer) {
-    ptr+=8;
+  long ptr=m_currentPointer.m_pointer;
+  int mod=(int)(ptr % Constants.MallocAlignBytes);
+  if (mod != 0) {
+    ptr+=(Constants.MallocAlignBytes - mod);
   }
   setPointer(ptr);
 }

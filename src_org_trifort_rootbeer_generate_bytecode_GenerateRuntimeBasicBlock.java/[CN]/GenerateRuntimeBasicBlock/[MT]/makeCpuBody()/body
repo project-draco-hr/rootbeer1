@@ -1,3 +1,0 @@
-{
-  m_codeSegment.makeCpuBodyForRuntimeBasicBlock(m_sootClass);
-}

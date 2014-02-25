@@ -70,7 +70,6 @@
   ret.add("<java.util.Arrays: java.lang.Object[] copyOf(java.lang.Object[],int)>");
   ret.add("<java.lang.Integer: void <init>(int)>");
   ret.add("<java.lang.Integer: java.lang.Integer valueOf(int)>");
-  ret.add("<java.lang.String: void <init>(char[])>");
   ret.add("<java.lang.String: java.lang.String substring(int)>");
   ret.add("<java.lang.String: java.lang.String substring(int,int)>");
   ret.add("<java.lang.String: int indexOf(java.lang.String)>");

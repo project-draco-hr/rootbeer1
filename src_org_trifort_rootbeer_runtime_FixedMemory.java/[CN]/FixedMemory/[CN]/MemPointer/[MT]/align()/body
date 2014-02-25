@@ -6,7 +6,4 @@
   if (m_pointer > m_heapEnd) {
     m_heapEnd=m_pointer;
   }
-  if (m_pointer > m_endPointer) {
-    m_endPointer=m_pointer;
-  }
 }

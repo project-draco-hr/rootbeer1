@@ -3,8 +3,4 @@
   if (mod != 0) {
     m_heapEnd+=(Constants.MallocAlignBytes - mod);
   }
-  mod=m_endPointer % Constants.MallocAlignBytes;
-  if (mod != 0) {
-    m_endPointer+=(Constants.MallocAlignBytes - mod);
-  }
 }

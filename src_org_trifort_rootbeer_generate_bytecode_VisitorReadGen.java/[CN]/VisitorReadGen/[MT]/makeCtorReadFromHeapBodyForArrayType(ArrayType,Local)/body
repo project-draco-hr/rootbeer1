@@ -1,0 +1,9 @@
+{
+  BytecodeLanguage bcl=m_bcl.top();
+  BclMemory bcl_mem=new BclMemory(bcl,m_currMem.top());
+  bcl_mem.incrementAddress(4);
+  Local array_length=bcl_mem.readInt();
+  Local ret=bcl.local(type);
+  bcl.assign(ret,bcl.newArray(type,array_length));
+  return ret;
+}

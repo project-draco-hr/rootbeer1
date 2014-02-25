@@ -3,6 +3,7 @@
   SootClass gc_object_visitor_soot_class=Scene.v().getSootClass("org.trifort.rootbeer.runtime.Serializer");
   SootClass mem_cls=Scene.v().getSootClass("org.trifort.rootbeer.runtime.Memory");
   m_bcl.top().startMethod("getSerializer",gc_object_visitor_soot_class.getType(),mem_cls.getType(),mem_cls.getType());
+  Local thisref=m_bcl.top().refThis();
   Local param0=m_bcl.top().refParameter(0);
   Local param1=m_bcl.top().refParameter(1);
   Local ret=m_bcl.top().newInstance(m_className,param0,param1);

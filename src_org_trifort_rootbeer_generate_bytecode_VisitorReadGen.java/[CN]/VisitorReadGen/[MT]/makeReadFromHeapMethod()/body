@@ -23,32 +23,31 @@
   Local ctor_used=bcl_mem.readByte();
   Local class_number=bcl_mem.readInt();
   ClassHierarchy class_hierarchy=RootbeerClassLoader.v().getClassHierarchy();
+  long string_number=class_hierarchy.getNumberForType("java.lang.String");
   Local ret;
-  SootClass string_class=Scene.v().getSootClass("java.lang.String");
-  RefType string_type=string_class.getType();
-  String label=getNextLabel();
-  long string_number=class_hierarchy.getNumberForType(string_type.toString());
-  bcl.ifStmt(class_number,"!=",IntConstant.v((int)string_number),label);
+  String after_ctors_label=getNextLabel();
+  String ctors_label=getNextLabel();
+  String string_label=getNextLabel();
+  String increment_addr_label=getNextLabel();
+  bcl.ifStmt(class_number,"==",IntConstant.v((int)string_number),string_label);
+  bcl.ifStmt(ctor_used,"==",IntConstant.v(1),ctors_label);
+  bcl.ifStmt(m_param0,"==",NullConstant.v(),ctors_label);
+  bcl.gotoLabel(increment_addr_label);
+  bcl.label(string_label);
+  RefType string_type=RefType.v("java.lang.String");
   ret=makeReadFromHeapBodyForString(string_type);
   m_readFromHeapMethodsMade.put(string_type,ret);
   bcl.returnValue(ret);
-  bcl.label(label);
-  ArrayType array_type=ArrayType.v(CharType.v(),1);
-  label=getNextLabel();
-  long array_number=class_hierarchy.getNumberForType(array_type.toString());
-  bcl.ifStmt(class_number,"!=",IntConstant.v((int)array_number),label);
-  ret=makeReadFromHeapBodyForArrayType(array_type,ctor_used);
-  m_readFromHeapMethodsMade.put(array_type,ret);
-  bcl.returnValue(ret);
-  bcl.label(label);
-  String after_ctors_label=getNextLabel();
-  bcl.ifStmt(ctor_used,"==",IntConstant.v(0),after_ctors_label);
+  bcl.label(ctors_label);
   for (  Type type : m_orderedHistory) {
     makeCtorReadFromHeapMethodForType(type,false,class_number,ctor_used,after_ctors_label);
   }
   RefType obj=RefType.v("java.lang.Object");
   makeCtorReadFromHeapMethodForType(obj,true,class_number,ctor_used,after_ctors_label);
+  bcl.label(increment_addr_label);
+  bcl_mem.incrementAddress(8);
   bcl.label(after_ctors_label);
+  bcl_mem.incrementAddress(16);
   for (  Type type : m_orderedHistory) {
     makeReadFromHeapMethodForType(type,false,ctor_used);
   }

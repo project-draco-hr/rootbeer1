@@ -1,7 +1,8 @@
 {
   BytecodeLanguage bcl=m_bcl.top();
-  SootClass soot_class=type.getSootClass();
   BclMemory bcl_mem=new BclMemory(bcl,m_currMem.top());
+  bcl_mem.incrementAddress(8);
+  SootClass soot_class=type.getSootClass();
   String name=soot_class.getName();
   if (soot_class.isApplicationClass() == false) {
     if (soot_class.declaresMethod("void <init>()")) {
@@ -14,8 +15,7 @@
       JavaNumberTypes number_types=new JavaNumberTypes();
       String type_string=type.toString();
       if (number_types.get().contains(type_string)) {
-        int size_read=8;
-        bcl_mem.incrementAddress(Constants.SizeGcInfo - size_read);
+        bcl_mem.incrementAddress(Constants.MallocAlignBytes);
         Local value;
         if (type_string.equals("java.lang.Byte")) {
           value=bcl_mem.readByte();

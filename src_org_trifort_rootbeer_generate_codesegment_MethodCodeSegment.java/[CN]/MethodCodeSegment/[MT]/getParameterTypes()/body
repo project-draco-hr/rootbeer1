@@ -1,6 +1,0 @@
-{
-  List<Type> ret=new ArrayList<Type>();
-  Type t=existingMethod.getDeclaringClass().getType();
-  ret.add(t);
-  return ret;
-}

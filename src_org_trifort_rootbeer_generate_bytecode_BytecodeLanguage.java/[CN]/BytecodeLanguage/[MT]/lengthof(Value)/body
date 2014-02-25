@@ -1,0 +1,7 @@
+{
+  Value rhs=m_jimple.newLengthExpr(array);
+  Local lhs=m_jimple.newLocal(getLocalName(),IntType.v());
+  Unit u=m_jimple.newAssignStmt(lhs,rhs);
+  m_assembler.add(u);
+  return lhs;
+}

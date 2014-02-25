@@ -3,18 +3,15 @@
   if (mod != 0) {
     size+=(Constants.MallocAlignBytes - mod);
   }
-  long mod2=m_endPointer % Constants.MallocAlignBytes;
+  long mod2=m_heapEnd % Constants.MallocAlignBytes;
   if (mod2 != 0) {
-    m_endPointer+=(Constants.MallocAlignBytes - mod2);
+    m_heapEnd+=(Constants.MallocAlignBytes - mod2);
   }
-  long ret=m_endPointer;
-  m_endPointer+=size;
+  long ret=m_heapEnd;
+  m_heapEnd+=size;
   if (ret + size > m_size) {
     throw new OutOfMemoryError();
   }
   m_pointer=ret;
-  if (ret > m_heapEnd) {
-    m_heapEnd=ret;
-  }
   return ret;
 }

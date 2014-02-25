@@ -1,4 +1,7 @@
 {
+  if (start_ptr < 0) {
+    start_ptr=0;
+  }
   long previous=mem.getPointer();
   mem.setAddress(start_ptr);
   List<String> lines=new ArrayList<String>();

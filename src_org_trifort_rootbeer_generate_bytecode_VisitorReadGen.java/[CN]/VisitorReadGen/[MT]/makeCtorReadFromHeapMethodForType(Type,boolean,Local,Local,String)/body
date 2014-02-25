@@ -25,7 +25,7 @@
   bcl.ifStmt(class_number,"!=",IntConstant.v((int)number),label);
   Local ret;
   if (type instanceof ArrayType) {
-    ret=makeReadFromHeapBodyForArrayType((ArrayType)type,ctor_used);
+    ret=makeCtorReadFromHeapBodyForArrayType((ArrayType)type,ctor_used);
     m_ctorReadFromHeapMethodsMade.put(type,ret);
     bcl.returnValue(ret);
   }

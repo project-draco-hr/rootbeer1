@@ -4,9 +4,8 @@
   int class_id=RootbeerClassLoader.v().getClassNumber(type.toString());
   SootClass soot_class=type.getSootClass();
   Local object_to_write_from=bcl.cast(type,m_Param0);
-  OpenCLClass ocl_class=OpenCLScene.v().getOpenCLClass(soot_class);
-  int size=ocl_class.getSize();
-  int gc_count=ocl_class.getRefFieldsSize();
+  int size=Constants.SizeGcInfo + 16;
+  int gc_count=1;
   bcl_mem.writeByte((byte)gc_count);
   bcl_mem.writeByte((byte)0);
   bcl_mem.writeByte((byte)0);

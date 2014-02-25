@@ -7,8 +7,6 @@
   bcl.pushMethod(m_thisRef,"checkCache",obj_class.getType(),LongType.v(),obj_class.getType());
   object_to_write_to=bcl.invokeMethodRet(m_thisRef,m_refParam,object_to_write_to);
   object_to_write_to=bcl.cast(type,object_to_write_to);
-  int size_read=8;
-  bcl_mem.incrementAddress(Constants.SizeGcInfo - size_read);
   m_currObj.push(object_to_write_to);
   m_objSerializing.push(object_to_write_to);
   readFields(soot_class,true);

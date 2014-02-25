@@ -1,7 +1,0 @@
-{
-  List<Local> ret=new ArrayList<Local>();
-  Type t=existingMethod.getDeclaringClass().getType();
-  Local l=new JimpleLocal("r0",t);
-  ret.add(l);
-  return ret;
-}

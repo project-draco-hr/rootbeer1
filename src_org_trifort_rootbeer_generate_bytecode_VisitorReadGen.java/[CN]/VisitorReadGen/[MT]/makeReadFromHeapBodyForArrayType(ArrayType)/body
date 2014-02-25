@@ -1,0 +1,40 @@
+{
+  BytecodeLanguage bcl=m_bcl.top();
+  BclMemory bcl_mem=new BclMemory(bcl,m_currMem.top());
+  Local ret=bcl.local(type);
+  ret=bcl.cast(type,m_param0);
+  Local size=bcl.lengthof(ret);
+  if (type.baseType instanceof PrimType && type.numDimensions == 1 && type.baseType.equals(CharType.v()) == false) {
+    bcl.pushMethod(m_currMem.top(),"readArray",VoidType.v(),type);
+    bcl.invokeMethodNoRet(m_currMem.top(),ret);
+    OpenCLType ocl_type=new OpenCLType(type.baseType);
+    Local element_size=bcl.local(IntType.v());
+    bcl.assign(element_size,IntConstant.v(ocl_type.getSize()));
+    bcl.mult(element_size,size);
+    bcl_mem.incrementAddress(element_size);
+    return ret;
+  }
+  Local i=bcl.local(IntType.v());
+  bcl.assign(i,IntConstant.v(0));
+  String end_for_label=getNextLabel();
+  String before_if_label=getNextLabel();
+  bcl.label(before_if_label);
+  bcl.ifStmt(i,"==",size,end_for_label);
+  Local new_curr;
+  if (type.numDimensions != 1) {
+    new_curr=readFromHeapArray(ret,i,size);
+  }
+ else   if (type.baseType instanceof RefType) {
+    Local temp=readFromHeapArray(ret,i,size);
+    new_curr=bcl.cast(type.baseType,temp);
+  }
+ else {
+    new_curr=bcl_mem.readVar(type.baseType);
+  }
+  bcl.assignElementToArray(ret,new_curr,i);
+  bcl.plus(i,1);
+  bcl.gotoLabel(before_if_label);
+  bcl.label(end_for_label);
+  bcl_mem.finishReading();
+  return ret;
+}

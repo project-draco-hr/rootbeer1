@@ -23,7 +23,7 @@
   bcl.ifInstanceOfStmt(m_param0,type,label);
   Local ret;
   if (type instanceof ArrayType) {
-    ret=makeReadFromHeapBodyForArrayType((ArrayType)type,ctor_used);
+    ret=makeReadFromHeapBodyForArrayType((ArrayType)type);
   }
  else {
     ret=makeReadFromHeapBodyForSootClass((RefType)type);
