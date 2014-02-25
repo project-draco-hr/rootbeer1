@@ -27,7 +27,8 @@
   if (type instanceof ArrayType) {
     ret=makeCtorReadFromHeapBodyForArrayType((ArrayType)type,ctor_used);
     m_ctorReadFromHeapMethodsMade.put(type,ret);
-    bcl.returnValue(ret);
+    bcl.assign(m_param0,ret);
+    bcl.gotoLabel(after_ctors_label);
   }
  else {
     ret=makeCtorReadFromHeapBodyForSootClass((RefType)type,ctor_used,class_number);
