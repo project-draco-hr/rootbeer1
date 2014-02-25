@@ -1,0 +1,7 @@
+{
+  long ret=super.currPointer();
+  if (ret >= m_size) {
+    throw new RuntimeException("address out of range: " + ret);
+  }
+  return ret;
+}
