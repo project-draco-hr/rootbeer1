@@ -1,8 +1,0 @@
-{
-  List<Kernel> jobs=new ArrayList<Kernel>();
-  for (int i=0; i < array.length; ++i) {
-    jobs.add(new ArrayMult(array,i));
-  }
-  Rootbeer rootbeer=new Rootbeer();
-  rootbeer.run(jobs);
-}

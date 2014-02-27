@@ -1,6 +1,4 @@
 {
-  m_reserve=1024;
-  size+=m_reserve;
   m_address=malloc(size);
   m_size=size;
   m_instancePointer=new MemPointer();

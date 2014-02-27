@@ -1,0 +1,12 @@
+{
+  Kernel task=new ArrayMult(array);
+  Rootbeer rootbeer=new Rootbeer();
+  Context context=rootbeer.createDefaultContext();
+  context.init(256);
+  ThreadConfig thread_config=new ThreadConfig(array.length,1,array.length);
+  Stopwatch watch=new Stopwatch();
+  watch.start();
+  rootbeer.run(task,thread_config,context);
+  watch.stop();
+  System.out.println("time: " + watch.elapsedTimeMillis());
+}

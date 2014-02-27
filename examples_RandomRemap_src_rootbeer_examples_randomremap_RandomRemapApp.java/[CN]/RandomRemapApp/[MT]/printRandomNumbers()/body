@@ -5,7 +5,7 @@
     jobs.add(new RandomRemap(random));
   }
   Rootbeer rootbeer=new Rootbeer();
-  rootbeer.runAll(jobs);
+  rootbeer.run(jobs);
   for (int i=0; i < jobs.size(); ++i) {
     RandomRemap curr=(RandomRemap)jobs.get(i);
     System.out.println(curr.getRandomNumber());
