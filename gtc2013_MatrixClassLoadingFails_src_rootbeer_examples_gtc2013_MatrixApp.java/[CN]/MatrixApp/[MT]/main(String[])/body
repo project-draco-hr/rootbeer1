@@ -1,5 +1,0 @@
-{
-  Rootbeer.init();
-  MatrixApp app=new MatrixApp();
-  app.run();
-}
