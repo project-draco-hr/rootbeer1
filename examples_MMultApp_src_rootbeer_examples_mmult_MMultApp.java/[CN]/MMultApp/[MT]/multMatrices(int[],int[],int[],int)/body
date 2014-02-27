@@ -4,5 +4,5 @@
     jobs.add(new MMult(a,b,c,i,size));
   }
   Rootbeer rootbeer=new Rootbeer();
-  rootbeer.runAll(jobs);
+  rootbeer.run(jobs);
 }
