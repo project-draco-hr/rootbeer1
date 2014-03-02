@@ -1,3 +1,5 @@
 {
-  return arraySum;
+synchronized (this) {
+    return arraySum;
+  }
 }

@@ -4,5 +4,6 @@
     object.sumContents();
     sum+=object.getResult();
   }
+  arrays.sum();
   sum+=arrays.getResult();
 }
