@@ -1,0 +1,6 @@
+{
+  arrays=new CanonicalArrays();
+  if (recurse) {
+    object=new CanonicalObject(false);
+  }
+}

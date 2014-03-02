@@ -1,0 +1,6 @@
+{
+  instanceObject=new CanonicalObject(true);
+  instanceObject.sumContents();
+  staticObject.sumContents();
+  result=instanceObject.getResult() + staticObject.getResult();
+}

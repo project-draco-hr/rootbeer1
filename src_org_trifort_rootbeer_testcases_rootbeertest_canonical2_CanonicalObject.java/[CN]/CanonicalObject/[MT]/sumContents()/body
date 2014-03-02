@@ -1,0 +1,8 @@
+{
+  sum=0;
+  if (object != null) {
+    object.sumContents();
+    sum+=object.getResult();
+  }
+  sum+=arrays.getResult();
+}

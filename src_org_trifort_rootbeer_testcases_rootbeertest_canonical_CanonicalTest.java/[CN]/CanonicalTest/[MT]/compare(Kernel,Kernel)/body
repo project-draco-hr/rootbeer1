@@ -1,0 +1,5 @@
+{
+  CanonicalKernel lhs=(CanonicalKernel)original;
+  CanonicalKernel rhs=(CanonicalKernel)from_heap;
+  return lhs.compare(rhs);
+}

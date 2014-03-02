@@ -1,0 +1,9 @@
+{
+  if (result != rhs.result) {
+    System.out.println("result");
+    System.out.println("lhs: " + result);
+    System.out.println("rhs: " + rhs.result);
+    return false;
+  }
+  return true;
+}

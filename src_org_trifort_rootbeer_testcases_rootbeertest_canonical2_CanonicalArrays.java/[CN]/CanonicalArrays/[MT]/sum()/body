@@ -1,0 +1,8 @@
+{
+  arraySum=0;
+  for (int i=0; i < floatArray.length; ++i) {
+    for (int j=0; j < floatArray[i].length; ++j) {
+      arraySum+=floatArray[i][j];
+    }
+  }
+}
