@@ -1,0 +1,4 @@
+{
+  m_n=n;
+  m_map=new GpuVectorMap(n);
+}

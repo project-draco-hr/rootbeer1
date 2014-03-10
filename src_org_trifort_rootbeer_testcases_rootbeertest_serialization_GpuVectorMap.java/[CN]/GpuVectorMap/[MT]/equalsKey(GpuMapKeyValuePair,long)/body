@@ -1,0 +1,7 @@
+{
+  if (entry != null) {
+    long key=(Long)entry.getKey();
+    return (key == otherKey);
+  }
+  return false;
+}

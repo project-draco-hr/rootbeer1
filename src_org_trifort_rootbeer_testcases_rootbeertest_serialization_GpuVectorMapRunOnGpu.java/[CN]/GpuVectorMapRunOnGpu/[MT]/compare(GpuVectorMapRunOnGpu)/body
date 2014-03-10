@@ -1,0 +1,25 @@
+{
+  double[] lhs_array=m_map.get(0);
+  double[] rhs_array=rhs.m_map.get(0);
+  if (lhs_array == null || rhs_array == null) {
+    System.out.println("array == null");
+    return false;
+  }
+  if (lhs_array.length != rhs_array.length) {
+    System.out.println("length");
+    return false;
+  }
+  for (int i=0; i < lhs_array.length; ++i) {
+    double lhs_value=lhs_array[i];
+    double rhs_value=rhs_array[i];
+    if (lhs_value != rhs_value) {
+      System.out.println("value");
+      return false;
+    }
+  }
+  if (m_vectorLen != rhs.m_vectorLen) {
+    System.out.println("vectorLen");
+    return false;
+  }
+  return true;
+}

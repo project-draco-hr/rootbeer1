@@ -1,0 +1,24 @@
+{
+  m_used=true;
+  int bucketIndex=indexForKey(key);
+  GpuMapKeyValuePair entry=m_values[bucketIndex];
+  if (entry != null) {
+    System.out.println("put3");
+    boolean done=false;
+    while (!done) {
+      if (equalsKey(entry,key)) {
+        entry.setValue(value);
+        done=true;
+      }
+ else       if (entry.getNext() == null) {
+        entry.setNext(new GpuMapKeyValuePair(key,value));
+        done=true;
+      }
+      entry=entry.getNext();
+    }
+  }
+ else {
+    GpuMapKeyValuePair key_pair=new GpuMapKeyValuePair(key,value);
+    m_values[bucketIndex]=key_pair;
+  }
+}
