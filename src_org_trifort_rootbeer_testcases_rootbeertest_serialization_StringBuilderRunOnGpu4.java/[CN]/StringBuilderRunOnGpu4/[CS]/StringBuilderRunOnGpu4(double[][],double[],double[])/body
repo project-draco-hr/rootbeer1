@@ -1,0 +1,5 @@
+{
+  this.m_big_array1=big_array1;
+  this.m_array2=array2;
+  this.m_array3=array3;
+}
