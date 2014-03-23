@@ -1,0 +1,17 @@
+{
+  GpuVectorMap2 vectorMap=new GpuVectorMap2(gridSize);
+  if (isDebugging) {
+    System.out.println("input: ");
+  }
+  for (int i=0; i < gridSize; i++) {
+    double[] vector=new double[blockSize];
+    for (int j=0; j < blockSize; j++) {
+      vector[j]=(i * gridSize) + j;
+    }
+    vectorMap.put(i,vector);
+    if (isDebugging) {
+      System.out.println("(" + i + ","+ Arrays.toString(vector)+ ")");
+    }
+  }
+  return new GpuVectorMapRunOnGpu2(vectorMap);
+}

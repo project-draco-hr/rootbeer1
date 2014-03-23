@@ -1,0 +1,31 @@
+{
+  GpuVectorMapRunOnGpu2 lhs=(GpuVectorMapRunOnGpu2)original;
+  GpuVectorMapRunOnGpu2 rhs=(GpuVectorMapRunOnGpu2)from_heap;
+  System.out.println("verify lhs: ");
+  for (int i=0; i < gridSize; i++) {
+    double[] v=lhs.m_map.get(i);
+    System.out.println("(" + i + ","+ Arrays.toString(v)+ ")");
+    for (int j=0; j < blockSize; j++) {
+      double value=v[j];
+      double expectedValue=(i * gridSize) + j + 1;
+      if (value != expectedValue) {
+        System.out.println("Error at position: " + j + " expectedValue: "+ expectedValue+ " != "+ value);
+        return false;
+      }
+    }
+  }
+  System.out.println("verify rhs: ");
+  for (int i=0; i < gridSize; i++) {
+    double[] v=rhs.m_map.get(i);
+    System.out.println("(" + i + ","+ Arrays.toString(v)+ ")");
+    for (int j=0; j < blockSize; j++) {
+      double value=v[j];
+      double expectedValue=(i * gridSize) + j + 1;
+      if (value != expectedValue) {
+        System.out.println("Error at position: " + j + " expectedValue: "+ expectedValue+ " != "+ value);
+        return false;
+      }
+    }
+  }
+  return true;
+}
