@@ -1,0 +1,13 @@
+{
+  if (RootbeerGpu.getThreadId() == 0) {
+    System.out.println("I will NOT throw java.lang.RuntimeException");
+    int x=0;
+    StringBuilder sb=new StringBuilder("BUT I will throw it. ");
+  }
+  int block_idxx=RootbeerGpu.getBlockIdxx();
+  int thread_idxx=RootbeerGpu.getThreadIdxx();
+  double value=m_big_array1[block_idxx][thread_idxx];
+  if (value != 0) {
+    m_array2[thread_idxx]+=m_array3[thread_idxx] * value;
+  }
+}
