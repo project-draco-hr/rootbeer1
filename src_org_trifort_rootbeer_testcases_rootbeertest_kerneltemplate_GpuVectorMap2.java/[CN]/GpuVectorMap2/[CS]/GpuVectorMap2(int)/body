@@ -1,0 +1,3 @@
+{
+  this.m_values=new GpuLongVectorPair[size];
+}

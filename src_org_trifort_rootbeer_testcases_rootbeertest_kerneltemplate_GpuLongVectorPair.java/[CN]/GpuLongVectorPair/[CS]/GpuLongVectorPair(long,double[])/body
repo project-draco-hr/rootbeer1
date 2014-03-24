@@ -1,0 +1,5 @@
+{
+  this.m_key=key;
+  this.m_value=value;
+  this.m_next=null;
+}

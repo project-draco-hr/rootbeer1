@@ -1,0 +1,6 @@
+{
+  if (entry != null) {
+    return (entry.getKey() == otherKey);
+  }
+  return false;
+}
