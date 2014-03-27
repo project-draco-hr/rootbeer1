@@ -1,5 +1,0 @@
-{
-  int xpixel=RootbeerGpu.getBlockIdxx();
-  int ypixel=RootbeerGpu.getThreadIdxx();
-  compute(xpixel,ypixel);
-}

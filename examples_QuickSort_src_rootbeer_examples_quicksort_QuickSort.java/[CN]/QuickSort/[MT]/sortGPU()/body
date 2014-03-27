@@ -9,7 +9,7 @@
     jobs.add(kernel);
   }
   Rootbeer rootbeer=new Rootbeer();
-  rootbeer.runAll(jobs);
+  rootbeer.run(jobs);
   QuickSortKernel job0=(QuickSortKernel)jobs.get(0);
   int[] result=job0.getValues();
   printArray("gpu_result",result);

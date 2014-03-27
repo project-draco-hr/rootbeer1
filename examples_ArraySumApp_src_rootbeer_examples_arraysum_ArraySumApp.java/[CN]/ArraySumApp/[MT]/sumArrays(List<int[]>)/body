@@ -5,6 +5,6 @@
     jobs.add(new ArraySum(arrays.get(i),ret,i));
   }
   Rootbeer rootbeer=new Rootbeer();
-  rootbeer.runAll(jobs);
+  rootbeer.run(jobs);
   return ret;
 }

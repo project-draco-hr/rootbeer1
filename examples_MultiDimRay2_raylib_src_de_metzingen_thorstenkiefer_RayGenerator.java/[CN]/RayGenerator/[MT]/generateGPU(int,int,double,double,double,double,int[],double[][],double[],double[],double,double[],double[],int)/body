@@ -1,9 +1,0 @@
-{
-  st.start();
-  rb.setThreadConfig(w,h);
-  MyKernel myKernel=new MyKernel(pixels,minx,maxx,miny,maxy,w,h,spheres,light,observer,vx,vy,radius,numDimensions);
-  rb.runAll(myKernel);
-  st.stop();
-  System.out.println(st.elapsedTimeMillis());
-  System.out.println(rb.getStats().size());
-}
