@@ -5,6 +5,8 @@
     jobs.add(new ArraySum(arrays.get(i),ret,i));
   }
   Rootbeer rootbeer=new Rootbeer();
-  rootbeer.run(jobs);
+  Context context=rootbeer.createDefaultContext();
+  context.init(1024 * 1024 * 4);
+  rootbeer.run(jobs,context);
   return ret;
 }
