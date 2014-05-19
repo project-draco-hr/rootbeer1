@@ -1,7 +1,7 @@
 {
   while (true) {
+    KernelLaunch item=m_toThread.take();
     try {
-      KernelLaunch item=m_toThread.take();
       if (item.quit()) {
         m_fromThread.put(item);
         return;
@@ -10,6 +10,8 @@
       m_fromThread.put(item);
     }
  catch (    Exception ex) {
+      item.setException(ex);
+      m_fromThread.put(item);
     }
   }
 }
