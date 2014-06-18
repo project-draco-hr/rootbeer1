@@ -1,6 +1,6 @@
 {
   Random rand=new Random();
-  System.out.println("big_array: double[" + N + "]["+ M+ "]");
+  System.out.println("init big_array: double[" + N + "]["+ M+ "]");
   double[][] big_array=new double[N][M];
   for (int i=0; i < N; i++) {
     for (int j=0; j < M; j++) {
@@ -10,17 +10,7 @@
       }
     }
   }
-  System.out.println("array2: double[" + N + "]");
-  double[] array2=new double[N];
-  for (int i=0; i < N; i++) {
-    array2[i]=rand.nextDouble();
-  }
-  System.out.println("array2: double[" + M + "]");
-  double[] array3=new double[M];
-  for (int i=0; i < M; i++) {
-    array3[i]=rand.nextDouble();
-  }
   List<Kernel> ret=new ArrayList<Kernel>();
-  ret.add(new StringBuilderRunOnGpu4(big_array,array2,array3));
+  ret.add(new StringBuilderRunOnGpu4(big_array));
   return ret;
 }
