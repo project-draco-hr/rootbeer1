@@ -1,0 +1,7 @@
+{
+  GpuLongVectorPair entry=m_values[indexForKey(key)];
+  while (entry != null && !equalsKey(entry,key)) {
+    entry=entry.getNext();
+  }
+  return (entry != null) ? entry.getValue() : null;
+}

@@ -1,0 +1,22 @@
+{
+  int thread_idxx=RootbeerGpu.getThreadIdxx();
+  int block_idxx=RootbeerGpu.getBlockIdxx();
+  if (thread_idxx == 0) {
+    double[] vector=m_map.get(block_idxx);
+    debug(block_idxx,vector);
+    for (int i=0; i < vector.length; i++) {
+      RootbeerGpu.setSharedDouble(i * 8,vector[i]);
+    }
+  }
+  RootbeerGpu.syncthreads();
+  double val=RootbeerGpu.getSharedDouble(thread_idxx * 8);
+  RootbeerGpu.setSharedDouble(thread_idxx * 8,val + 1);
+  RootbeerGpu.syncthreads();
+  if (thread_idxx == 0) {
+    double[] vector=new double[RootbeerGpu.getBlockDimx()];
+    for (int i=0; i < vector.length; i++) {
+      vector[i]=RootbeerGpu.getSharedDouble(i * 8);
+    }
+    m_map.put(block_idxx,vector);
+  }
+}

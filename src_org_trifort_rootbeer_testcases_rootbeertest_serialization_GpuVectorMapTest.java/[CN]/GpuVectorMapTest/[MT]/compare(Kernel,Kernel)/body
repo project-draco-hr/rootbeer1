@@ -1,0 +1,5 @@
+{
+  GpuVectorMapRunOnGpu lhs=(GpuVectorMapRunOnGpu)original;
+  GpuVectorMapRunOnGpu rhs=(GpuVectorMapRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

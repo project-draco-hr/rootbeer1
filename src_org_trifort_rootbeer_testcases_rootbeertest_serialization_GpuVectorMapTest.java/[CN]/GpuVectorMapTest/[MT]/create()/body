@@ -1,0 +1,5 @@
+{
+  List<Kernel> ret=new ArrayList<Kernel>();
+  ret.add(new GpuVectorMapRunOnGpu(1));
+  return ret;
+}

@@ -1,0 +1,14 @@
+{
+  Set<String> ret=new HashSet<String>();
+  ret.add("<org.trifort.rootbeer.runtimegpu.GpuException: org.trifort.rootbeer.runtimegpu.GpuException arrayOutOfBounds(int,int,int)>");
+  ret.add("<org.trifort.rootbeer.runtimegpu.GpuException: void <init>()>");
+  ret.add("<java.lang.String: void <init>(char[])>");
+  ret.add("<java.lang.Object: int hashCode()>");
+  ret.add("<java.lang.Boolean: java.lang.String toString(boolean)>");
+  ret.add("<java.lang.Character: java.lang.String toString(char)>");
+  ret.add("<java.lang.Double: java.lang.String toString(double)>");
+  ret.add("<java.lang.Float: java.lang.String toString(float)>");
+  ret.add("<java.lang.Integer: java.lang.String toString(int)>");
+  ret.add("<java.lang.Long: java.lang.String toString(long)>");
+  return ret;
+}

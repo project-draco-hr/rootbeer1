@@ -1,0 +1,9 @@
+{
+  double[] vector1=new double[m_n];
+  for (int i=0; i < m_n; i++) {
+    vector1[i]=i;
+  }
+  m_map.put(0,vector1);
+  double[] vector2=m_map.get(0);
+  m_vectorLen=vector2.length;
+}

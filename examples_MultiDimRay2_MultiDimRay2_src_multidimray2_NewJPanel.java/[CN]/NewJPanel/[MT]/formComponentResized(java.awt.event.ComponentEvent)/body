@@ -1,3 +1,0 @@
-{
-  img=new BufferedImage(getWidth(),getHeight(),BufferedImage.TYPE_3BYTE_BGR);
-}

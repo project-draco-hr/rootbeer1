@@ -6,11 +6,11 @@
   int h2=numThreads / w;
   int y;
   for (y=0; y < h - h2; y+=h2) {
-    rb.setThreadConfig(100,100,h2 * w);
+    ThreadConfig config=new ThreadConfig(100,100,h2 * w);
     double miny2=(maxy - miny) * y / h + miny;
     double maxy2=(maxy - miny) * (y + h2) / h + miny;
     MyKernel myKernel=new MyKernel(pixels,maxdepth,w,h2,maxx,minx,maxy2,miny2,w * y);
-    rb.runAll(myKernel);
+    rootbeer.run(myKernel,config,context);
   }
   m_gpuWatch.stop();
   System.out.println("avg gpu: " + m_gpuWatch.elapsedTimeMillis());

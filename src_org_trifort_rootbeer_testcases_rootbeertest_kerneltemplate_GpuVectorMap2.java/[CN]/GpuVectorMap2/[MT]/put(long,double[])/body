@@ -1,0 +1,22 @@
+{
+  m_used=true;
+  int bucketIndex=indexForKey(key);
+  GpuLongVectorPair entry=m_values[bucketIndex];
+  if (entry != null) {
+    boolean done=false;
+    while (!done) {
+      if (equalsKey(entry,key)) {
+        entry.setValue(value);
+        done=true;
+      }
+ else       if (entry.getNext() == null) {
+        entry.setNext(new GpuLongVectorPair(key,value));
+        done=true;
+      }
+      entry=entry.getNext();
+    }
+  }
+ else {
+    m_values[bucketIndex]=new GpuLongVectorPair(key,value);
+  }
+}

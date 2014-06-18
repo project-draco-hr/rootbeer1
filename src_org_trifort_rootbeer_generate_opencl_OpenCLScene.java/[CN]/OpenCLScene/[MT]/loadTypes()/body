@@ -6,18 +6,8 @@
     SootMethod method=util.getSootMethod();
     addMethod(method);
   }
-  List<String> extra_methods=new ArrayList<String>();
-  extra_methods.add("<org.trifort.rootbeer.runtimegpu.GpuException: org.trifort.rootbeer.runtimegpu.GpuException arrayOutOfBounds(int,int,int)>");
-  extra_methods.add("<org.trifort.rootbeer.runtimegpu.GpuException: void <init>()>");
-  extra_methods.add("<java.lang.String: void <init>(char[])>");
-  extra_methods.add("<java.lang.Object: int hashCode()>");
-  extra_methods.add("<java.lang.Boolean: java.lang.String toString(boolean)>");
-  extra_methods.add("<java.lang.Character: java.lang.String toString(char)>");
-  extra_methods.add("<java.lang.Double: java.lang.String toString(double)>");
-  extra_methods.add("<java.lang.Float: java.lang.String toString(float)>");
-  extra_methods.add("<java.lang.Integer: java.lang.String toString(int)>");
-  extra_methods.add("<java.lang.Long: java.lang.String toString(long)>");
-  for (  String extra_method : extra_methods) {
+  CompilerSetup compiler_setup=new CompilerSetup();
+  for (  String extra_method : compiler_setup.getExtraMethods()) {
     util.parse(extra_method);
     addMethod(util.getSootMethod());
   }
@@ -36,7 +26,6 @@
     OpenCLArrayType ocl_array_type=new OpenCLArrayType(array_type);
     addArrayType(ocl_array_type);
   }
-  CompilerSetup compiler_setup=new CompilerSetup();
   for (  ArrayType array_type : compiler_setup.getExtraArrayTypes()) {
     OpenCLArrayType ocl_array_type=new OpenCLArrayType(array_type);
     addArrayType(ocl_array_type);
