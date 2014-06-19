@@ -1,5 +1,10 @@
 {
-  if (m_sootType instanceof RefLikeType)   return "int";
+  if (m_sootType instanceof RefType) {
+    return "int";
+  }
+ else   if (m_sootType instanceof ArrayType) {
+    return "int";
+  }
   String ret=getDerefString();
   if (ret.equals("long"))   return "long long";
   return ret;

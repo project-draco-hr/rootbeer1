@@ -3,6 +3,7 @@
   ret.add("<java.lang.String: void <init>(java.lang.String)>");
   ret.add("<java.lang.String: void <init>(char[])>");
   ret.add("<java.lang.StringBuilder: void <init>()>");
+  ret.add("<java.lang.StringBuilder: void <init>(java.lang.String)>");
   ret.add("<java.lang.StringBuilder: java.lang.StringBuilder append(boolean)>");
   ret.add("<java.lang.StringBuilder: java.lang.StringBuilder append(char)>");
   ret.add("<java.lang.StringBuilder: java.lang.StringBuilder append(double)>");

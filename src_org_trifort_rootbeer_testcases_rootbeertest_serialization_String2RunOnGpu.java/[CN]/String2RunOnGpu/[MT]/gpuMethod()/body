@@ -1,0 +1,10 @@
+{
+  StringBuilder builder=new StringBuilder(str);
+  builder.append(" world");
+  builder.append("!");
+  builder.append("!");
+  builder.append("!");
+  builder.append("!");
+  builder.append("!");
+  str=builder.toString();
+}

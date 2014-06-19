@@ -1,4 +1,9 @@
 {
-  if (m_sootType instanceof RefLikeType)   return true;
+  if (m_sootType instanceof RefType) {
+    return true;
+  }
+ else   if (m_sootType instanceof ArrayType) {
+    return true;
+  }
   return false;
 }

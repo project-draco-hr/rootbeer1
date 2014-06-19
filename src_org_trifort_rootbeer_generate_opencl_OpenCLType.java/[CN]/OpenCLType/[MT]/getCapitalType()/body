@@ -1,5 +1,10 @@
 {
-  if (m_sootType instanceof RefLikeType)   return m_sootType;
+  if (m_sootType instanceof RefType) {
+    return m_sootType;
+  }
+ else   if (m_sootType instanceof ArrayType) {
+    return m_sootType;
+  }
   String type=m_sootType.toString();
   if (type.equals("byte"))   return RefType.v("java.lang.Byte");
   if (type.equals("boolean"))   return RefType.v("java.lang.Boolean");
