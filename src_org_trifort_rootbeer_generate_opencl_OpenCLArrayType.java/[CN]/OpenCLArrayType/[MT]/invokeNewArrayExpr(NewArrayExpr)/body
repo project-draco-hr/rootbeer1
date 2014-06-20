@@ -3,6 +3,7 @@
   ret.append(getDerefTypeString() + "_new(");
   MethodJimpleValueSwitch quick_value_switch=new MethodJimpleValueSwitch(ret);
   arg0.getSize().apply(quick_value_switch);
-  ret.append(", exception)");
+  ret.append(", ");
+  ret.append("exception)");
   return ret.toString();
 }

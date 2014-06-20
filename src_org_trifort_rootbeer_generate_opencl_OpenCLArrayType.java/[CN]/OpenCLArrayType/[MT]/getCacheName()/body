@@ -1,7 +1,0 @@
-{
-  String ret=getAssignType();
-  if (ret.equals("long long")) {
-    return "long";
-  }
-  return ret;
-}
