@@ -2,13 +2,11 @@
   if (m_sootMethod.getName().equals("<init>"))   return "";
   OpenCLMethod ocl_method=new OpenCLMethod(m_sootMethod,soot_class);
   String ret=ocl_method.getPolymorphicName() + "(";
-  ret+="gc_info";
   List args=m_sootMethod.getParameterTypes();
-  if (args.size() != 0)   ret+=", ";
   for (int i=0; i < args.size(); ++i) {
     ret+="parameter" + Integer.toString(i);
-    if (i < args.size() - 1)     ret+=", ";
+    ret+=", ";
   }
-  ret+=", exception);";
+  ret+="exception);";
   return ret;
 }

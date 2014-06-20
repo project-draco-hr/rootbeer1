@@ -1,7 +1,6 @@
 {
   if (ctor_body) {
-    String address_space_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
-    String ret="(" + address_space_qual + " char * gc_info, int thisref";
+    String ret="(int thisref, ";
     ret+=getRestOfArgumentListStringInternal();
     return ret;
   }

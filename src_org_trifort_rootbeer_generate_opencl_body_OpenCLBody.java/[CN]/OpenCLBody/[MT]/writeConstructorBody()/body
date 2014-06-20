@@ -8,14 +8,14 @@
   int alloc_size=m_allocSize;
   int mod=m_allocSize % 8;
   if (mod != 0)   alloc_size+=(8 - mod);
-  ret.append("org_trifort_gc_assign(gc_info, &thisref, org_trifort_gc_malloc(gc_info, " + Integer.toString(alloc_size) + "));\n");
+  ret.append("org_trifort_gc_assign(&thisref, org_trifort_gc_malloc(" + Integer.toString(alloc_size) + "));\n");
   if (Configuration.compilerInstance().getExceptions()) {
     ret.append("if(thisref == -1){\n");
     ret.append("  *exception = " + OpenCLScene.v().getOutOfMemoryNumber() + ";\n");
     ret.append("  return -1;\n");
     ret.append("}\n");
   }
-  ret.append("thisref_deref = org_trifort_gc_deref(gc_info, thisref);\n");
+  ret.append("thisref_deref = org_trifort_gc_deref(thisref);\n");
   ret.append("\n//class info\n");
   ret.append("org_trifort_gc_set_count(thisref_deref, " + Integer.toString(m_refFieldsSize) + ");\n");
   ret.append("org_trifort_gc_set_color(thisref_deref, COLOR_GREY);\n");

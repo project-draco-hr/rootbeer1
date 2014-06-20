@@ -23,7 +23,7 @@
     ret.append("  return 0;\n");
     ret.append("}\n");
   }
-  ret.append("thisref_deref = org_trifort_gc_deref(gc_info, thisref);\n");
+  ret.append("thisref_deref = org_trifort_gc_deref(thisref);\n");
   if (composite.getClasses().size() == 1) {
     SootClass sclass=composite.getClasses().get(0);
     ret.append("return *((" + address_qual + " "+ cast_string+ " *) &thisref_deref["+ Integer.toString(field_offset)+ "]);\n");
@@ -46,7 +46,7 @@
     ret.append("  return;\n");
     ret.append("}\n");
   }
-  ret.append("thisref_deref = org_trifort_gc_deref(gc_info, thisref);\n");
+  ret.append("thisref_deref = org_trifort_gc_deref(thisref);\n");
   if (composite.getClasses().size() == 1) {
     ret.append("*((" + address_qual + " "+ cast_string+ " *) &thisref_deref["+ Integer.toString(field_offset)+ "]) = parameter0;\n");
   }

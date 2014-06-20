@@ -1,15 +1,14 @@
 {
   StringBuilder ret=new StringBuilder();
   List args=m_sootMethod.getParameterTypes();
-  if (args.size() != 0)   ret.append(", ");
   for (int i=0; i < args.size(); ++i) {
     Type curr_arg=(Type)args.get(i);
     OpenCLType parameter_type=new OpenCLType(curr_arg);
     ret.append(parameter_type.getCudaTypeString());
     ret.append(" parameter" + Integer.toString(i));
-    if (i < args.size() - 1)     ret.append(", ");
+    ret.append(", ");
   }
-  ret.append(", int * exception");
+  ret.append("int * exception");
   ret.append(")");
   return ret.toString();
 }

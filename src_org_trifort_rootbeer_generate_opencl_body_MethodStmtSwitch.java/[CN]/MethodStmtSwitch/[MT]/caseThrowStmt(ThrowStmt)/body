@@ -4,7 +4,7 @@
   op.apply(m_valueSwitch);
   m_output.append(";\n");
   if (m_sootMethod.isSynchronized()) {
-    m_output.append("org_trifort_exitMonitorMem(gc_info, mem, old);\n");
+    m_output.append("org_trifort_exitMonitorMem(mem, old);\n");
   }
   m_output.append("return");
   if (methodReturnsAValue())   m_output.append(" 0;\n");

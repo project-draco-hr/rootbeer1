@@ -1,15 +1,10 @@
 {
   StringBuilder ret=new StringBuilder();
   ret.append("(");
-  String address_space_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
   if (isConstructor() == true) {
-    ret.append(address_space_qual + " char * gc_info");
   }
  else   if ((isConstructor() == false || override_ctor == true) && m_sootMethod.isStatic() == false) {
-    ret.append(address_space_qual + " char * gc_info, int thisref");
-  }
- else {
-    ret.append(address_space_qual + " char * gc_info");
+    ret.append("int thisref, ");
   }
   ret.append(getRestOfArgumentListStringInternal());
   return ret.toString();

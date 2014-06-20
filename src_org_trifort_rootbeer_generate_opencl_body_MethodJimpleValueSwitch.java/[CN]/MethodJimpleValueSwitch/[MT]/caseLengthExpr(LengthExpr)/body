@@ -1,6 +1,6 @@
 {
   Value op=arg0.getOp();
-  m_output.append("org_trifort_array_length(gc_info, ");
+  m_output.append("org_trifort_array_length(");
   op.apply(this);
   m_output.append(", exception)");
   setCheckException();

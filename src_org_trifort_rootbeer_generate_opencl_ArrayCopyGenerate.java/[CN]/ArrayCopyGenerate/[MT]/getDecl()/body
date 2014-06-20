@@ -1,9 +1,8 @@
 {
   String device_function_qual=Tweaks.v().getDeviceFunctionQualifier();
-  String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
   StringBuilder ret=new StringBuilder();
   ret.append(device_function_qual + " void \n");
-  ret.append("java_lang_System_arraycopy(" + address_qual + " char * gc_info, ");
+  ret.append("java_lang_System_arraycopy(");
   ret.append("int src_handle, int srcPos, int dest_handle, int destPos, int length, int * exception)");
   return ret.toString();
 }

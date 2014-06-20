@@ -16,7 +16,7 @@
     m_output.append("  if(*exception == " + oom_num + " || *exception == "+ null_num+ "){\n");
     m_output.append("    ex_type = *exception;\n");
     m_output.append("  } else {\n");
-    m_output.append("    char * ex_deref = org_trifort_gc_deref(gc_info, *exception);\n");
+    m_output.append("    char * ex_deref = org_trifort_gc_deref(*exception);\n");
     m_output.append("    ex_type = org_trifort_gc_get_type(ex_deref);\n");
     m_output.append("  }\n");
     m_output.append("if(0){}\n");
@@ -35,7 +35,7 @@
     }
   }
   if (m_sootMethod.isSynchronized()) {
-    m_output.append("org_trifort_exitMonitorMem(gc_info, mem, old);\n");
+    m_output.append("org_trifort_exitMonitorMem(mem, old);\n");
   }
   m_output.append("return ");
   if (methodReturnsAValue())   m_output.append("0");

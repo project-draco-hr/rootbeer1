@@ -3,5 +3,5 @@
   Value base=arg0.getBase();
   if (base instanceof Local == false)   throw new UnsupportedOperationException("what do I do if base is not a local?");
   Local local=(Local)base;
-  return getDerefTypeString() + "_get(gc_info, " + local.getName()+ ", "+ index.toString()+ ", exception)";
+  return getDerefTypeString() + "_get(" + local.getName()+ ", "+ index.toString()+ ", exception)";
 }

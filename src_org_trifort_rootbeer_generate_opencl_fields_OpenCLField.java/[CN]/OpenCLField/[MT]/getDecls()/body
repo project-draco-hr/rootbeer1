@@ -4,12 +4,12 @@
   String device_function_qual=Tweaks.v().getDeviceFunctionQualifier();
   String address_qual=Tweaks.v().getGlobalAddressSpaceQualifier();
   if (m_sootField.isStatic() == false) {
-    ret.add(device_function_qual + " " + type_string+ " instance_getter_"+ getFullName()+ "("+ address_qual+ " char * gc_info, int thisref, int * exception)");
-    ret.add(device_function_qual + " void instance_setter_" + getFullName()+ "("+ address_qual+ " char * gc_info, int thisref, "+ type_string+ " parameter0, int * exception)");
+    ret.add(device_function_qual + " " + type_string+ " instance_getter_"+ getFullName()+ "(int thisref, int * exception)");
+    ret.add(device_function_qual + " void instance_setter_" + getFullName()+ "(int thisref, "+ type_string+ " parameter0, int * exception)");
   }
  else {
-    ret.add(device_function_qual + " " + type_string+ " static_getter_"+ getFullName()+ "("+ address_qual+ " char * gc_info, int * exception)");
-    ret.add(device_function_qual + " void static_setter_" + getFullName()+ "("+ address_qual+ " char * gc_info, "+ type_string+ " parameter0, int * expcetion)");
+    ret.add(device_function_qual + " " + type_string+ " static_getter_"+ getFullName()+ "(int * exception)");
+    ret.add(device_function_qual + " void static_setter_" + getFullName()+ "("+ type_string+ " parameter0, int * expcetion)");
   }
   return ret;
 }

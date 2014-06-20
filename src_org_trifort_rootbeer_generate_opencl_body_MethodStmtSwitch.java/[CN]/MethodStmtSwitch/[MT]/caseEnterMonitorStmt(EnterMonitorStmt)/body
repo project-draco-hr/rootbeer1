@@ -8,10 +8,10 @@
   OpenCLClass ocl_class=OpenCLScene.v().getOpenCLClass(m_sootMethod.getDeclaringClass());
   OpenCLMethod ocl_method=ocl_class.getMethod(m_sootMethod.getSignature());
   m_output.append("int " + id + " = getThreadId();\n");
-  m_output.append("char * " + mem + " = org_trifort_gc_deref(gc_info, ");
+  m_output.append("char * " + mem + " = org_trifort_gc_deref(");
   arg0.getOp().apply(m_valueSwitch);
   m_output.append(");\n");
-  m_output.append("char * " + synch + " = org_trifort_gc_deref(gc_info, ");
+  m_output.append("char * " + synch + " = org_trifort_gc_deref(");
   arg0.getOp().apply(m_valueSwitch);
   m_output.append(");\n");
   m_output.append(mem + " += 16;\n");
