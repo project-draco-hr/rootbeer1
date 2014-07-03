@@ -6,5 +6,19 @@
   free_mem_size-=m_handlesMemory.getSize();
   free_mem_size-=m_exceptionsMemory.getSize();
   free_mem_size-=m_classMemory.getSize();
+  if (free_mem_size <= 0) {
+    StringBuilder error=new StringBuilder();
+    error.append("OutOfMemory while allocating Java CPU and GPU memory.\n");
+    error.append("  Try increasing the the max Java Heap Size using -Xmx.\n");
+    error.append("  Try reducing the number of threads you are using.\n");
+    error.append("  Try using kernel templates.\n");
+    error.append("  Debugging Output:\n");
+    error.append("    GPU_SIZE: " + free_mem_size_gpu + "\n");
+    error.append("    CPU_SIZE: " + free_mem_size_cpu + "\n");
+    error.append("    HANDLES_SIZE: " + m_handlesMemory.getSize() + "\n");
+    error.append("    EXCEPTIONS_SIZE: " + m_exceptionsMemory.getSize() + "\n");
+    error.append("    CLASS_MEMORY_SIZE: " + m_classMemory.getSize());
+    throw new RuntimeException(error.toString());
+  }
   m_objectMemory=new CheckedFixedMemory(free_mem_size);
 }
