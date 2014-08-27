@@ -1,4 +1,5 @@
 {
+  m_usingKernelTemplates=true;
   m_runStopwatch.start();
   CompiledKernel compiled_kernel=(CompiledKernel)template;
   String filename;
@@ -19,9 +20,16 @@
     cubin_file=readCubinFile(filename);
     m_cubinFiles.put(filename,cubin_file);
   }
-  m_handlesMemory=new CheckedFixedMemory(4 * thread_config.getNumThreads());
-  m_exceptionsMemory=new CheckedFixedMemory(4 * thread_config.getNumThreads());
-  m_classMemory=new CheckedFixedMemory(1024);
+  if (m_usingUncheckedMemory) {
+    m_handlesMemory=new FixedMemory(4);
+    m_classMemory=new FixedMemory(1024);
+    m_exceptionsMemory=new FixedMemory(getExceptionsMemSize(thread_config));
+  }
+ else {
+    m_handlesMemory=new CheckedFixedMemory(4);
+    m_exceptionsMemory=new CheckedFixedMemory(getExceptionsMemSize(thread_config));
+    m_classMemory=new CheckedFixedMemory(1024);
+  }
   if (m_objectMemory == null) {
     init();
   }

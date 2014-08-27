@@ -43,8 +43,8 @@
     }
   }
   for (int i=0; i < m_gridDims.length; ++i) {
-    int lhs_value=m_gridDims[i];
-    int rhs_value=rhs.m_gridDims[i];
+    long lhs_value=m_gridDims[i];
+    long rhs_value=rhs.m_gridDims[i];
     if (lhs_value != rhs_value) {
       return false;
     }

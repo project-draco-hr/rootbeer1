@@ -9,7 +9,7 @@
   if (free_mem_size <= 0) {
     StringBuilder error=new StringBuilder();
     error.append("OutOfMemory while allocating Java CPU and GPU memory.\n");
-    error.append("  Try increasing the the max Java Heap Size using -Xmx.\n");
+    error.append("  Try increasing the the initial Java Heap Size using -Xms.\n");
     error.append("  Try reducing the number of threads you are using.\n");
     error.append("  Try using kernel templates.\n");
     error.append("  Debugging Output:\n");

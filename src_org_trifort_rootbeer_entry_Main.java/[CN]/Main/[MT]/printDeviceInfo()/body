@@ -7,7 +7,9 @@
     System.out.println("  compute_capability: " + device.getMajorVersion() + "."+ device.getMinorVersion());
     System.out.println("  total_global_memory: " + device.getTotalGlobalMemoryBytes() + " bytes");
     System.out.println("  num_multiprocessors: " + device.getMultiProcessorCount());
-    System.out.println("  max_threads_per_multiprocessor: " + device.getMaxThreadsPerMultiprocessor());
     System.out.println("  clock_rate: " + device.getClockRateHz() + " Hz");
+    System.out.println("  max_block_dim_x: " + device.getMaxBlockDimX());
+    System.out.println("  max_grid_dim_x: " + device.getMaxGridDimX());
+    System.out.println("  max_threads_per_multiprocessor: " + device.getMaxThreadsPerMultiprocessor());
   }
 }

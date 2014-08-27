@@ -1,10 +1,11 @@
 int device_index
 byte[] cubin_file
-int cubin_length
+int cubin_file_length
 int block_shape_x
 int grid_shape_x
-int num_threads
+long num_threads
 Memory object_mem
 Memory handles_mem
 Memory exceptions_mem
 Memory class_mem
+boolean usingKernelTemplates

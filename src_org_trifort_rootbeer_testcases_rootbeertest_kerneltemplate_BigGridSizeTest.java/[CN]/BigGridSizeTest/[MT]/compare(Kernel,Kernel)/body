@@ -1,5 +1,5 @@
 {
-  MatrixKernel lhs=(MatrixKernel)original;
-  MatrixKernel rhs=(MatrixKernel)from_heap;
+  EmptyKernel lhs=(EmptyKernel)original;
+  EmptyKernel rhs=(EmptyKernel)from_heap;
   return lhs.compare(rhs);
 }

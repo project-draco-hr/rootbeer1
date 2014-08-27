@@ -9,5 +9,6 @@
   m_handlesMem=handles_mem;
   m_exceptionsMem=exceptions_mem;
   m_classMem=class_mem;
+  m_usingKernelTemplates=usingKernelTemplates;
   m_quit=false;
 }

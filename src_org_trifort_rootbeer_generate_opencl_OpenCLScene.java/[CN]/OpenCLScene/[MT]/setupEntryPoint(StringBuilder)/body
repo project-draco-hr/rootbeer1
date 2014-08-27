@@ -16,6 +16,15 @@
   int size=Configuration.compilerInstance().getSharedMemSize();
   String size_str="" + size;
   cuda_code=cuda_code.replaceAll("%%shared_mem_size%%",size_str);
+  boolean exceptions=Configuration.compilerInstance().getExceptions();
+  String exceptions_str;
+  if (exceptions) {
+    exceptions_str="" + 1;
+  }
+ else {
+    exceptions_str="" + 0;
+  }
+  cuda_code=cuda_code.replaceAll("%%using_exceptions%%",exceptions_str);
   int string_number=RootbeerClassLoader.v().getClassNumber("java.lang.String");
   String string_str="" + string_number;
   cuda_code=cuda_code.replaceAll("%%java_lang_String_TypeNumber%%",string_str);
