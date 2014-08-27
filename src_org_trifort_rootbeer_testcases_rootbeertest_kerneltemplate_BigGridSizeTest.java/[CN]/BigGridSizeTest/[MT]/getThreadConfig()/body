@@ -1,0 +1,4 @@
+{
+  ThreadConfig ret=new ThreadConfig(m_blockSize,m_gridSize,m_blockSize * m_gridSize);
+  return ret;
+}
