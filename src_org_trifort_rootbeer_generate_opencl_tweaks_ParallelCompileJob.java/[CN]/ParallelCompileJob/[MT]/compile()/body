@@ -6,7 +6,7 @@
     File code_file=new File(RootbeerPaths.v().getRootbeerHome() + "code_file" + file_string+ ".ptx");
     String command;
     if (File.separator.equals("/")) {
-      command=m_cudaPath.get() + "/nvcc " + model_string+ " "+ m_gencodeOptions+ " -fatbin "+ m_generated.getAbsolutePath()+ " -o "+ code_file.getAbsolutePath();
+      command=m_cudaPath.get() + "/nvcc " + model_string+ " "+ m_gencodeOptions+ "-I/usr/local/cuda/include -fatbin "+ m_generated.getAbsolutePath()+ " -o "+ code_file.getAbsolutePath();
       CompilerRunner runner=new CompilerRunner();
       List<String> errors=runner.run(command);
       if (errors.isEmpty() == false) {

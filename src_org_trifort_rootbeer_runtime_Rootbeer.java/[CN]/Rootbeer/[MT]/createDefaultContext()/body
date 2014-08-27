@@ -6,7 +6,7 @@
       best=device;
     }
  else {
-      if (device.getMultiProcessorCount() > best.getMultiProcessorCount()) {
+      if (device.getMultiProcessorCount() < best.getMultiProcessorCount()) {
         best=device;
       }
     }
