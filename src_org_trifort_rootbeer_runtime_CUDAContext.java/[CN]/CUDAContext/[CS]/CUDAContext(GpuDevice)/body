@@ -1,5 +1,5 @@
 {
-  m_usingUncheckedMemory=true;
+  m_usingUncheckedMemory=false;
   m_device=device;
   String arch=System.getProperty("os.arch");
   m_32bit=arch.equals("x86") || arch.equals("i386");
