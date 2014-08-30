@@ -6,6 +6,8 @@
     System.out.println("device: " + device.getDeviceName());
     System.out.println("  compute_capability: " + device.getMajorVersion() + "."+ device.getMinorVersion());
     System.out.println("  total_global_memory: " + device.getTotalGlobalMemoryBytes() + " bytes");
+    System.out.println("  max_shared_memory_per_block: " + device.getMaxSharedMemoryPerBlock() + " bytes");
+    System.out.println("  rootbeer_reserved_shared_memory_per_block: 12/24 bytes on 32/64 bit builds");
     System.out.println("  num_multiprocessors: " + device.getMultiProcessorCount());
     System.out.println("  clock_rate: " + device.getClockRateHz() + " Hz");
     System.out.println("  max_block_dim_x: " + device.getMaxBlockDimX());
