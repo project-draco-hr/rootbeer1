@@ -10,3 +10,4 @@ Memory exceptions_mem
 Memory class_mem
 int usingKernelTemplates
 int usingExceptions
+int cache_config

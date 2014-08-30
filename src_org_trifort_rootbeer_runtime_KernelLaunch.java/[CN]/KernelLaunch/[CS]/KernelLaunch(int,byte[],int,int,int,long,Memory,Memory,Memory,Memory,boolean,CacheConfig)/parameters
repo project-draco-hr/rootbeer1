@@ -9,3 +9,4 @@ Memory handles_mem
 Memory exceptions_mem
 Memory class_mem
 boolean usingKernelTemplates
+CacheConfig cache_config

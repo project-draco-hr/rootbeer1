@@ -10,5 +10,6 @@
   m_exceptionsMem=exceptions_mem;
   m_classMem=class_mem;
   m_usingKernelTemplates=usingKernelTemplates;
+  m_cacheConfig=cache_config;
   m_quit=false;
 }
