@@ -1,0 +1,8 @@
+{
+  BytecodeLanguage bcl=new BytecodeLanguage();
+  bcl.openClass(m_sootClass);
+  bcl.startMethod("getCubin" + (m32 ? "32" : "64") + "Size",IntType.v());
+  Local thisref=bcl.refThis();
+  bcl.returnValue(IntConstant.v(length));
+  bcl.endMethod();
+}

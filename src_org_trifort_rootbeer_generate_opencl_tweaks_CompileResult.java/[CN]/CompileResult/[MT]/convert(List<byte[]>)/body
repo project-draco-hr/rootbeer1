@@ -1,0 +1,13 @@
+{
+  int size=0;
+  for (  byte[] array : binary) {
+    size+=array.length;
+  }
+  byte[] ret=new byte[size];
+  int offset=0;
+  for (  byte[] array : binary) {
+    System.arraycopy(array,0,ret,offset,array.length);
+    offset+=array.length;
+  }
+  return ret;
+}

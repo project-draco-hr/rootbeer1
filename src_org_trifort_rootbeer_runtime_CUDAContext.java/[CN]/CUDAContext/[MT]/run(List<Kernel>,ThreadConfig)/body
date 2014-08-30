@@ -3,13 +3,19 @@
   m_runStopwatch.start();
   CompiledKernel compiled_kernel=(CompiledKernel)work.get(0);
   String filename;
+  int size=0;
+  boolean error;
   if (m_32bit) {
     filename=compiled_kernel.getCubin32();
+    size=compiled_kernel.getCubin32Size();
+    error=compiled_kernel.getCubin32Error();
   }
  else {
     filename=compiled_kernel.getCubin64();
+    size=compiled_kernel.getCubin64Size();
+    error=compiled_kernel.getCubin32Error();
   }
-  if (filename.endsWith(".error")) {
+  if (error) {
     throw new RuntimeException("CUDA code compiled with error");
   }
   byte[] cubin_file;
@@ -17,7 +23,7 @@
     cubin_file=m_cubinFiles.get(filename);
   }
  else {
-    cubin_file=readCubinFile(filename);
+    cubin_file=readCubinFile(filename,size);
     m_cubinFiles.put(filename,cubin_file);
   }
   if (m_usingUncheckedMemory) {
