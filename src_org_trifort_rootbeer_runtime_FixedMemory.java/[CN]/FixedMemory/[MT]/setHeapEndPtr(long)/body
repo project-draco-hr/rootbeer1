@@ -1,0 +1,3 @@
+{
+  m_currentPointer.m_heapEnd=value;
+}

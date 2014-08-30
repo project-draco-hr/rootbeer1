@@ -22,6 +22,7 @@ cache_config=3;
 break;
 }
 cudaRun(item.getDeviceIndex(),item.getCubinFile(),item.getCubinLength(),item.getBlockShapeX(),item.getGridShapeX(),item.getNumThreads(),item.getObjectMem(),item.getHandlesMem(),item.getExceptionsMem(),item.getClassMem(),b2i(item.getUsingKernelTemplates()),b2i(Configuration.runtimeInstance().getExceptions()),cache_config);
+m_requiredMemorySize=item.getObjectMem().getHeapEndPtr();
 m_fromThread.put(item);
 }
  catch (Exception ex) {
