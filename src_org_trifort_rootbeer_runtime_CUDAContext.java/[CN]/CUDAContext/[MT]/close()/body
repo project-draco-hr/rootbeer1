@@ -2,4 +2,8 @@
   disruptor.shutdown();
   exec.shutdown();
   freeNativeContext(nativeContext);
+  objectMemory.close();
+  exceptionsMemory.close();
+  classMemory.close();
+  textureMemory.close();
 }

@@ -19,10 +19,12 @@
   if (usingUncheckedMemory) {
     classMemory=new FixedMemory(1024);
     exceptionsMemory=new FixedMemory(getExceptionsMemSize(threadConfig));
+    textureMemory=new FixedMemory(8);
   }
  else {
     exceptionsMemory=new CheckedFixedMemory(getExceptionsMemSize(threadConfig));
     classMemory=new CheckedFixedMemory(1024);
+    textureMemory=new CheckedFixedMemory(8);
   }
   if (memorySize == -1) {
     findMemorySize(cubinFile.length);

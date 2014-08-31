@@ -1,7 +1,6 @@
 {
   runOnGpuStopwatch.start();
-  long shiftedHandle=handle >> 4;
-  cudaRun(nativeContext,(int)shiftedHandle);
+  cudaRun(nativeContext,(int)(handle >> 4),objectMemory);
   runOnGpuStopwatch.stop();
   stats.setExecutionTime(runOnGpuStopwatch.elapsedTimeMillis());
 }
