@@ -1,0 +1,42 @@
+{
+  String filename;
+  int size=0;
+  boolean error;
+  if (is32bit) {
+    filename=compiledKernel.getCubin32();
+    size=compiledKernel.getCubin32Size();
+    error=compiledKernel.getCubin32Error();
+  }
+ else {
+    filename=compiledKernel.getCubin64();
+    size=compiledKernel.getCubin64Size();
+    error=compiledKernel.getCubin32Error();
+  }
+  if (error) {
+    throw new RuntimeException("CUDA code compiled with error");
+  }
+  cubinFile=readCubinFile(filename,size);
+  if (usingUncheckedMemory) {
+    classMemory=new FixedMemory(1024);
+    exceptionsMemory=new FixedMemory(getExceptionsMemSize(threadConfig));
+  }
+ else {
+    exceptionsMemory=new CheckedFixedMemory(getExceptionsMemSize(threadConfig));
+    classMemory=new CheckedFixedMemory(1024);
+  }
+  if (memorySize == -1) {
+    findMemorySize(cubinFile.length);
+  }
+  if (usingUncheckedMemory) {
+    objectMemory=new FixedMemory(memorySize);
+  }
+ else {
+    objectMemory=new CheckedFixedMemory(memorySize);
+  }
+  long seq=ringBuffer.next();
+  GpuEvent gpuEvent=ringBuffer.get(seq);
+  gpuEvent.setValue(GpuEventCommand.NATIVE_BUILD_STATE);
+  gpuEvent.getFuture().reset();
+  ringBuffer.publish(seq);
+  gpuEvent.getFuture().take();
+}

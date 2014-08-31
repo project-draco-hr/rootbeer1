@@ -1,0 +1,4 @@
+{
+  this.kernelTemplate=kernelTemplate;
+  this.compiledKernel=(CompiledKernel)kernelTemplate;
+}

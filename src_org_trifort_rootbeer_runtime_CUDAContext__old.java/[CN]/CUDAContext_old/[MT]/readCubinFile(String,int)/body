@@ -1,0 +1,9 @@
+{
+  try {
+    byte[] buffer=ResourceReader.getResourceArray(filename,length);
+    return buffer;
+  }
+ catch (  Exception ex) {
+    throw new RuntimeException(ex);
+  }
+}

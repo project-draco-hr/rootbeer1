@@ -1,0 +1,12 @@
+long nativeContext
+int deviceIndex
+byte[] cubinFile
+int cubinLength
+int blockShapeX
+int gridShapeX
+int numThreads
+Memory objectMem
+Memory exceptionsMem
+Memory classMem
+int usingExceptions
+int cacheConfig

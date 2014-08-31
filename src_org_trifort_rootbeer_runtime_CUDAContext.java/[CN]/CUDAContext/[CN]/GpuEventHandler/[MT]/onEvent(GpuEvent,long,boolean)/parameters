@@ -1,0 +1,3 @@
+GpuEvent gpuEvent
+long sequence
+boolean endOfBatch

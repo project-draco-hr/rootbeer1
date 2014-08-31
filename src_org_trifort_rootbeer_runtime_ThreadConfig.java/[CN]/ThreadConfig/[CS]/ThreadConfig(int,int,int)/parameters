@@ -1,0 +1,3 @@
+int block_shape_x
+int grid_shape_x
+int numThreads

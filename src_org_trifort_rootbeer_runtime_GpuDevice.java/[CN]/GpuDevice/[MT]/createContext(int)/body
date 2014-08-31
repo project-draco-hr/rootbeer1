@@ -1,6 +1,6 @@
 {
   if (m_deviceType == DEVICE_TYPE_CUDA) {
-    CUDAContext ret=new CUDAContext(this);
+    CUDAContext_old ret=new CUDAContext_old(this);
     ret.init(memory_size);
     return ret;
   }

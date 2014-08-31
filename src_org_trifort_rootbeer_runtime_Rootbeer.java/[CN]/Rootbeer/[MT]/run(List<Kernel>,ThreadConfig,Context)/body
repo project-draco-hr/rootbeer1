@@ -1,3 +1,0 @@
-{
-  context.run(work,thread_config);
-}

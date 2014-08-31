@@ -1,3 +1,3 @@
 {
-  return m_requiredMemorySize;
+  return 0;
 }

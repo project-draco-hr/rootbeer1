@@ -1,5 +1,0 @@
-{
-  Context context=createDefaultContext();
-  run(template,thread_config,context);
-  context.close();
-}

@@ -1,33 +1,4 @@
 {
-  while (true) {
-    KernelLaunch item=m_toThread.take();
-    try {
-      if (item.quit()) {
-        m_fromThread.put(item);
-        return;
-      }
-      int cache_config=0;
-switch (item.getCacheConfig()) {
-case PREFER_NONE:
-        cache_config=0;
-      break;
-case PREFER_SHARED:
-    cache_config=1;
-  break;
-case PREFER_L1:
-cache_config=2;
-break;
-case PREFER_EQUAL:
-cache_config=3;
-break;
-}
-cudaRun(item.getDeviceIndex(),item.getCubinFile(),item.getCubinLength(),item.getBlockShapeX(),item.getGridShapeX(),item.getNumThreads(),item.getObjectMem(),item.getHandlesMem(),item.getExceptionsMem(),item.getClassMem(),b2i(item.getUsingKernelTemplates()),b2i(Configuration.runtimeInstance().getExceptions()),cache_config);
-m_requiredMemorySize=item.getObjectMem().getHeapEndPtr();
-m_fromThread.put(item);
-}
- catch (Exception ex) {
-item.setException(ex);
-m_fromThread.put(item);
-}
-}
+  GpuFuture future=runAsync();
+  future.take();
 }

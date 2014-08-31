@@ -1,5 +1,0 @@
-{
-  BlockShaper block_shaper=new BlockShaper();
-  block_shaper.run(kernels.size(),device.getMultiProcessorCount());
-  return new ThreadConfig(block_shaper.getMaxThreadsPerBlock(),block_shaper.getMaxBlocksPerProc(),(long)kernels.size());
-}

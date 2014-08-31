@@ -1,0 +1,13 @@
+{
+switch (gpuEvent.getValue()) {
+case NATIVE_BUILD_STATE:
+    boolean usingExceptions=Configuration.runtimeInstance().getExceptions();
+  nativeBuildState(nativeContext,gpuDevice.getDeviceId(),cubinFile,cubinFile.length,threadConfig.getBlockShapeX(),threadConfig.getGridShapeX(),threadConfig.getNumThreads(),objectMemory,exceptionsMemory,classMemory,b2i(usingExceptions),cacheConfig.ordinal());
+gpuEvent.getFuture().signal();
+break;
+case NATIVE_RUN:
+cudaRun(nativeContext,0);
+gpuEvent.getFuture().signal();
+break;
+}
+}
