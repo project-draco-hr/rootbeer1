@@ -1,8 +1,0 @@
-{
-  m_serializationTime=serialization_time;
-  m_executionTime=execution_time;
-  m_deserializationTime=deserialization_time;
-  m_overallTime=overall_time;
-  m_gridShape=grid_shape;
-  m_blockShape=block_shape;
-}

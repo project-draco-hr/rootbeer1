@@ -1,5 +1,3 @@
 {
-  m_stop=System.currentTimeMillis();
-  m_totalTime+=elapsedTimeMillis();
-  m_totalStops++;
+  stop=System.currentTimeMillis();
 }

@@ -1,9 +1,0 @@
-{
-  m_toThread.put(new KernelLaunch(true));
-  m_fromThread.take();
-  m_objectMemory.close();
-  m_objectMemory=null;
-  m_handlesMemory.close();
-  m_exceptionsMemory.close();
-  m_classMemory.close();
-}

@@ -1,4 +1,4 @@
 {
   m_blockSize=1024;
-  m_gridSize=2096128;
+  m_gridSize=1024;
 }

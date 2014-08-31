@@ -1,6 +1,0 @@
-long serialization_time
-long execution_time
-long deserialization_time
-long overall_time
-long grid_shape
-int block_shape

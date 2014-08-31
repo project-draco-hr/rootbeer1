@@ -1,6 +1,6 @@
 {
   if (m_deviceType == DEVICE_TYPE_CUDA) {
-    return new CUDAContext_old(this);
+    return new CUDAContext(this);
   }
  else {
     throw new UnsupportedOperationException();

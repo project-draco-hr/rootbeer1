@@ -1,8 +1,0 @@
-{
-  if (m_totalStops > 0) {
-    return m_totalTime / m_totalStops;
-  }
- else {
-    return 0;
-  }
-}

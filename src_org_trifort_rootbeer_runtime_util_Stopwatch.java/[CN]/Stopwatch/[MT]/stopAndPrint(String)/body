@@ -1,4 +1,0 @@
-{
-  stop();
-  System.out.println(str + toString());
-}

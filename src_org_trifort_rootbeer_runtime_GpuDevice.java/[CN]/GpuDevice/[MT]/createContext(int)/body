@@ -1,7 +1,7 @@
 {
   if (m_deviceType == DEVICE_TYPE_CUDA) {
-    CUDAContext_old ret=new CUDAContext_old(this);
-    ret.init(memory_size);
+    CUDAContext ret=new CUDAContext(this);
+    ret.setMemorySize(memorySize);
     return ret;
   }
  else {

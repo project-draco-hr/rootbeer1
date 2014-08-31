@@ -1,0 +1,14 @@
+{
+  writeBlocksStopwatch.start();
+  objectMemory.clearHeapEndPtr();
+  Serializer serializer=compiledKernel.getSerializer(objectMemory,textureMemory);
+  serializer.writeStaticsToHeap();
+  handle=serializer.writeToHeap(compiledKernel);
+  objectMemory.align16();
+  if (Configuration.getPrintMem()) {
+    BufferPrinter printer=new BufferPrinter();
+    printer.print(objectMemory,0,256);
+  }
+  writeBlocksStopwatch.stop();
+  stats.setSerializationTime(writeBlocksStopwatch.elapsedTimeMillis());
+}

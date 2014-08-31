@@ -1,3 +1,3 @@
 {
-  return new ThreadConfig(blockSize,gridSize,(long)blockSize * (long)gridSize);
+  return new ThreadConfig(blockSize,gridSize,blockSize * gridSize);
 }

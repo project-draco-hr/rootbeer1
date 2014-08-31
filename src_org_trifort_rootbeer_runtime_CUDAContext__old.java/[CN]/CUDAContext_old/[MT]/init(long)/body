@@ -1,8 +1,0 @@
-{
-  if (m_usingUncheckedMemory) {
-    m_objectMemory=new FixedMemory(memory_size);
-  }
- else {
-    m_objectMemory=new CheckedFixedMemory(memory_size);
-  }
-}

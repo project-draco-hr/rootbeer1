@@ -10,4 +10,9 @@
   is32bit=arch.equals("x86") || arch.equals("i386");
   usingUncheckedMemory=true;
   nativeContext=allocateNativeContext();
+  stats=new StatsRow();
+  writeBlocksStopwatch=new Stopwatch();
+  runStopwatch=new Stopwatch();
+  runOnGpuStopwatch=new Stopwatch();
+  readBlocksStopwatch=new Stopwatch();
 }

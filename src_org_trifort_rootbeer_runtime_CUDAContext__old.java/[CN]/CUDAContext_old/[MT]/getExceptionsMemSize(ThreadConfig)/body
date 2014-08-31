@@ -1,8 +1,0 @@
-{
-  if (Configuration.runtimeInstance().getExceptions()) {
-    return 4L * thread_config.getNumThreads();
-  }
- else {
-    return 4;
-  }
-}

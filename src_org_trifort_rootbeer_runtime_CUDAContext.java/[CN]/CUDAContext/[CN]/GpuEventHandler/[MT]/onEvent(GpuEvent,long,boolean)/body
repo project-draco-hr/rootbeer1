@@ -6,7 +6,9 @@ case NATIVE_BUILD_STATE:
 gpuEvent.getFuture().signal();
 break;
 case NATIVE_RUN:
-cudaRun(nativeContext,0);
+writeBlocksTemplate();
+runGpu();
+readBlocksTemplate();
 gpuEvent.getFuture().signal();
 break;
 }
