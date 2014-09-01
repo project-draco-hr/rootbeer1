@@ -1,4 +1,7 @@
 {
   while (!ready) {
   }
+  if (ex != null) {
+    throw new RuntimeException(ex);
+  }
 }

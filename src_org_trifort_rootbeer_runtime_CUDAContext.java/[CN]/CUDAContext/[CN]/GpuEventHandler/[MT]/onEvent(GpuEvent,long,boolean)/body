@@ -1,9 +1,10 @@
 {
+  try {
 switch (gpuEvent.getValue()) {
 case NATIVE_BUILD_STATE:
-    boolean usingExceptions=Configuration.runtimeInstance().getExceptions();
-  nativeBuildState(nativeContext,gpuDevice.getDeviceId(),cubinFile,cubinFile.length,threadConfig.getBlockShapeX(),threadConfig.getGridShapeX(),threadConfig.getNumThreads(),objectMemory,handlesMemory,exceptionsMemory,classMemory,b2i(usingExceptions),cacheConfig.ordinal());
-gpuEvent.getFuture().signal();
+      boolean usingExceptions=Configuration.runtimeInstance().getExceptions();
+    nativeBuildState(nativeContext,gpuDevice.getDeviceId(),cubinFile,cubinFile.length,threadConfig.getBlockShapeX(),threadConfig.getGridShapeX(),threadConfig.getNumThreads(),objectMemory,handlesMemory,exceptionsMemory,classMemory,b2i(usingExceptions),cacheConfig.ordinal());
+  gpuEvent.getFuture().signal();
 break;
 case NATIVE_RUN:
 writeBlocksTemplate();
@@ -17,5 +18,10 @@ runGpu();
 readBlocksList(gpuEvent.getKernelList());
 gpuEvent.getFuture().signal();
 break;
+}
+}
+ catch (Exception ex) {
+gpuEvent.getFuture().setException(ex);
+gpuEvent.getFuture().signal();
 }
 }
