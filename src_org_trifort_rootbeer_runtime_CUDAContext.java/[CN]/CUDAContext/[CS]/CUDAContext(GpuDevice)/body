@@ -1,5 +1,12 @@
 {
-  exec=Executors.newCachedThreadPool();
+  exec=Executors.newCachedThreadPool(new ThreadFactory(){
+    public Thread newThread(    Runnable r){
+      Thread t=new Thread(r);
+      t.setDaemon(true);
+      return t;
+    }
+  }
+);
   disruptor=new Disruptor<GpuEvent>(GpuEvent.EVENT_FACTORY,64,exec);
   handler=new GpuEventHandler();
   disruptor.handleEventsWith(handler);
