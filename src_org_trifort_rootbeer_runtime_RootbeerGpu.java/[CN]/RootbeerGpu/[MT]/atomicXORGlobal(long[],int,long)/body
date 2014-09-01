@@ -1,0 +1,7 @@
+{
+synchronized (array) {
+    long old=array[index];
+    array[index]=old ^ value;
+    return old;
+  }
+}

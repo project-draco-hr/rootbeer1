@@ -1,0 +1,7 @@
+{
+synchronized (array) {
+    float ret=array[index];
+    array[index]=value;
+    return ret;
+  }
+}

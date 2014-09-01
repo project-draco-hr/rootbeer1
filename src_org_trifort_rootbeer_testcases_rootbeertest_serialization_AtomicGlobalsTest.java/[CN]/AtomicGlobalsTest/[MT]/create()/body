@@ -1,0 +1,10 @@
+{
+  int[] intArray=new int[3];
+  long[] longArray=new long[3];
+  float[] floatArray=new float[3];
+  List<Kernel> ret=new ArrayList<Kernel>();
+  for (int i=0; i < 10; ++i) {
+    ret.add(new AtomicGlobalsRunOnGpu(intArray,longArray,floatArray));
+  }
+  return ret;
+}

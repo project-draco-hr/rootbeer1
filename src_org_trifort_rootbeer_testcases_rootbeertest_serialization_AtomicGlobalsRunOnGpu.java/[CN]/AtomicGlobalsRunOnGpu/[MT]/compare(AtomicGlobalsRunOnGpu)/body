@@ -1,0 +1,24 @@
+{
+  for (int i=0; i < intArray.length; ++i) {
+    int value1=intArray[i];
+    int value2=rhs.intArray[i];
+    if (value1 != value2) {
+      return false;
+    }
+  }
+  for (int i=0; i < longArray.length; ++i) {
+    long value1=longArray[i];
+    long value2=rhs.longArray[i];
+    if (value1 != value2) {
+      return false;
+    }
+  }
+  for (int i=0; i < floatArray.length; ++i) {
+    float value1=floatArray[i];
+    float value2=rhs.floatArray[i];
+    if (value1 != value2) {
+      return false;
+    }
+  }
+  return true;
+}

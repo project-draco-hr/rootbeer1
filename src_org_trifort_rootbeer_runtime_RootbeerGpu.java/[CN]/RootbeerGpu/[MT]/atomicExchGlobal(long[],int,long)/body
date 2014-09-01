@@ -1,0 +1,7 @@
+{
+synchronized (array) {
+    long ret=array[index];
+    array[index]=value;
+    return ret;
+  }
+}

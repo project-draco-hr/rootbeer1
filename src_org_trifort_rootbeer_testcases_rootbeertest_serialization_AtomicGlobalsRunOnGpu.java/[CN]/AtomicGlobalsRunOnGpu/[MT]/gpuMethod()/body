@@ -1,0 +1,3 @@
+{
+  RootbeerGpu.atomicAddGlobal(intArray,0,2);
+}

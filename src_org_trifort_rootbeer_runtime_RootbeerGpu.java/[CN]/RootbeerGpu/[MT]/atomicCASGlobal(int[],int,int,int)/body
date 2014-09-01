@@ -1,0 +1,9 @@
+{
+synchronized (array) {
+    int old=array[index];
+    if (old == compare) {
+      array[index]=value;
+    }
+    return old;
+  }
+}

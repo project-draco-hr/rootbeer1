@@ -1,0 +1,9 @@
+{
+synchronized (array) {
+    long old=array[index];
+    if (old == compare) {
+      array[index]=value;
+    }
+    return old;
+  }
+}

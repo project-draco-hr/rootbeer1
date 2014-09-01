@@ -1,0 +1,5 @@
+{
+  AtomicGlobalsRunOnGpu lhs=(AtomicGlobalsRunOnGpu)original;
+  AtomicGlobalsRunOnGpu rhs=(AtomicGlobalsRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

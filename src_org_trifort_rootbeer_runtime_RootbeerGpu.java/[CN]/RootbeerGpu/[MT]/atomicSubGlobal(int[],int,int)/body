@@ -1,0 +1,5 @@
+{
+synchronized (array) {
+    array[index]-=subValue;
+  }
+}

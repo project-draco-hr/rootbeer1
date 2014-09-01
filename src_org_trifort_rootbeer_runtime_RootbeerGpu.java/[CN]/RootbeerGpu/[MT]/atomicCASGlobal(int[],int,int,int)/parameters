@@ -1,0 +1,4 @@
+int[] array
+int index
+int compare
+int value
