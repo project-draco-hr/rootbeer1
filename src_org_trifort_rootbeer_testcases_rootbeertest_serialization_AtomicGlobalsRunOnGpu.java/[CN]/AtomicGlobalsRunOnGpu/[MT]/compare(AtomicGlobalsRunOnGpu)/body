@@ -3,6 +3,10 @@
     int value1=intArray[i];
     int value2=rhs.intArray[i];
     if (value1 != value2) {
+      System.out.println("intArray");
+      System.out.println("index: " + i);
+      System.out.println("value1: " + value1);
+      System.out.println("value2: " + value2);
       return false;
     }
   }
@@ -10,6 +14,10 @@
     long value1=longArray[i];
     long value2=rhs.longArray[i];
     if (value1 != value2) {
+      System.out.println("longArray");
+      System.out.println("index: " + i);
+      System.out.println("value1: " + value1);
+      System.out.println("value2: " + value2);
       return false;
     }
   }
@@ -17,6 +25,10 @@
     float value1=floatArray[i];
     float value2=rhs.floatArray[i];
     if (value1 != value2) {
+      System.out.println("floatArray");
+      System.out.println("index: " + i);
+      System.out.println("value1: " + value1);
+      System.out.println("value2: " + value2);
       return false;
     }
   }

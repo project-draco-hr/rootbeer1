@@ -1,3 +1,11 @@
 {
   RootbeerGpu.atomicAddGlobal(intArray,0,2);
+  RootbeerGpu.atomicAddGlobal(longArray,0,2);
+  RootbeerGpu.atomicAddGlobal(floatArray,0,2);
+  RootbeerGpu.atomicAddGlobal(intArray,1,2);
+  RootbeerGpu.atomicAddGlobal(longArray,1,2);
+  RootbeerGpu.atomicAddGlobal(floatArray,1,2);
+  RootbeerGpu.atomicAddGlobal(intArray,2,2);
+  RootbeerGpu.atomicAddGlobal(longArray,2,2);
+  RootbeerGpu.atomicAddGlobal(floatArray,2,2);
 }
