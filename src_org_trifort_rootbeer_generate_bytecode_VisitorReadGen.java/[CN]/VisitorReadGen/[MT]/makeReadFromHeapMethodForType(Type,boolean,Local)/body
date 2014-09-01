@@ -21,7 +21,6 @@
   String label=getNextLabel();
   BytecodeLanguage bcl=m_bcl.top();
   bcl.ifInstanceOfStmt(m_param0,type,label);
-  bcl.println("reading: " + type.toString());
   Local ret;
   if (type instanceof ArrayType) {
     ret=makeReadFromHeapBodyForArrayType((ArrayType)type);

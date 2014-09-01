@@ -16,12 +16,12 @@ case NATIVE_RUN_LIST:
 writeBlocksList(gpuEvent.getKernelList());
 runGpu();
 readBlocksList(gpuEvent.getKernelList());
+System.out.println("signalling");
 gpuEvent.getFuture().signal();
 break;
 }
 }
  catch (Exception ex) {
-close();
 gpuEvent.getFuture().setException(ex);
 gpuEvent.getFuture().signal();
 }
