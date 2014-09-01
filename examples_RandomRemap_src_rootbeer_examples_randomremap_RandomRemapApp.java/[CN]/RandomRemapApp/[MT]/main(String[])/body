@@ -1,4 +1,0 @@
-{
-  RandomRemapApp app=new RandomRemapApp();
-  app.printRandomNumbers();
-}

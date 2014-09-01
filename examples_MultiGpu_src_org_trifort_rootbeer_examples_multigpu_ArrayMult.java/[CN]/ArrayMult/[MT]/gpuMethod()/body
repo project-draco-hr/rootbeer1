@@ -1,4 +1,0 @@
-{
-  int index=RootbeerGpu.getThreadId();
-  source[index]*=11;
-}

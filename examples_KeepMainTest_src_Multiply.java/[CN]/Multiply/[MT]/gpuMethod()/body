@@ -1,3 +1,0 @@
-{
-  m_array[m_index]*=m_width;
-}

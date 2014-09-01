@@ -1,0 +1,7 @@
+{
+  int[] ret=new int[size];
+  for (int i=0; i < size; ++i) {
+    ret[i]=i;
+  }
+  return ret;
+}

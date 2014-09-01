@@ -1,0 +1,6 @@
+{
+  GPUSort sorter=new GPUSort();
+  while (true) {
+    sorter.sort();
+  }
+}

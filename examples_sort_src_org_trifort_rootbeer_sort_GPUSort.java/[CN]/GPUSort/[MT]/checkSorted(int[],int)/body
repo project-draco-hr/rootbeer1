@@ -1,0 +1,10 @@
+{
+  for (int index=0; index < array.length; ++index) {
+    if (array[index] != index) {
+      for (int index2=0; index2 < array.length; ++index2) {
+        System.out.println("array[" + index2 + "]: "+ array[index2]);
+      }
+      throw new RuntimeException("not sorted: " + outerIndex);
+    }
+  }
+}

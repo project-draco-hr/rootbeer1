@@ -1,7 +1,0 @@
-{
-  System.out.print(title + ": [ ");
-  for (int i=0; i < 64; ++i) {
-    System.out.print(array[i] + " ");
-  }
-  System.out.println("]");
-}

@@ -1,4 +1,0 @@
-{
-  int index=RootbeerGpu.getBlockIdxx();
-  m_source[index]*=11;
-}

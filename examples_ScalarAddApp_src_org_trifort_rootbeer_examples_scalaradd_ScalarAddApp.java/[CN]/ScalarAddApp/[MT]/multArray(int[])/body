@@ -1,0 +1,8 @@
+{
+  List<Kernel> tasks=new ArrayList<Kernel>();
+  for (int index=0; index < array.length; ++index) {
+    tasks.add(new ScalarAddKernel(array,index));
+  }
+  Rootbeer rootbeer=new Rootbeer();
+  rootbeer.run(tasks);
+}

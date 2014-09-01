@@ -1,0 +1,4 @@
+{
+  this.array=array;
+  this.index=index;
+}

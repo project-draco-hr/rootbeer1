@@ -1,0 +1,11 @@
+{
+  ScalarAddApp app=new ScalarAddApp();
+  int length=10;
+  int[] array=new int[length];
+  for (int index=0; index < array.length; ++index) {
+    array[index]=index;
+  }
+  app.printArray("start",array);
+  app.multArray(array);
+  app.printArray("end",array);
+}
