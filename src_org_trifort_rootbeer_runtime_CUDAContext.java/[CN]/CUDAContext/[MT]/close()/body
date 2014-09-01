@@ -2,8 +2,19 @@
   disruptor.shutdown();
   exec.shutdown();
   freeNativeContext(nativeContext);
-  objectMemory.close();
-  exceptionsMemory.close();
-  classMemory.close();
-  textureMemory.close();
+  if (objectMemory != null) {
+    objectMemory.close();
+  }
+  if (handlesMemory != null) {
+    handlesMemory.close();
+  }
+  if (exceptionsMemory != null) {
+    exceptionsMemory.close();
+  }
+  if (classMemory != null) {
+    classMemory.close();
+  }
+  if (textureMemory != null) {
+    textureMemory.close();
+  }
 }
