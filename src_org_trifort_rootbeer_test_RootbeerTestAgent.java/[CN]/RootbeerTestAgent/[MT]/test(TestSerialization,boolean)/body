@@ -1,6 +1,7 @@
 {
   int i=0;
   try {
+    System.out.println("test agent #1");
     Rootbeer rootbeer=new Rootbeer();
     Configuration.setPrintMem(print_mem);
     List<Kernel> known_good_items=creator.create();

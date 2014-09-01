@@ -1,0 +1,9 @@
+{
+  try {
+    runTestCases(null,false);
+  }
+ catch (  Exception ex) {
+    ex.printStackTrace();
+    System.exit(-1);
+  }
+}

@@ -12,6 +12,7 @@
   m_textureMem=bcl.refInstanceField(m_thisRef,"mTextureMem");
   String dont_return_null_label=getNextLabel();
   bcl.ifStmt(m_refParam,"!=",LongConstant.v(-1),dont_return_null_label);
+  bcl.println("returning null");
   bcl.returnValue(NullConstant.v());
   bcl.label(dont_return_null_label);
   Local mem=bcl.local(m_mem.getType());

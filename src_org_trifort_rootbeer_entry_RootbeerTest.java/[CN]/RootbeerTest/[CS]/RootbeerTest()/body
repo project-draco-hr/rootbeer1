@@ -1,2 +1,3 @@
 {
+  destJAR="output.jar";
 }

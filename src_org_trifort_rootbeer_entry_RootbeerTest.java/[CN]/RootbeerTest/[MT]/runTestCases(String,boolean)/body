@@ -1,0 +1,16 @@
+{
+  JarClassLoader loader_factory=new JarClassLoader(destJAR);
+  ClassLoader cls_loader=loader_factory.getLoader();
+  Thread.currentThread().setContextClassLoader(cls_loader);
+  Class agent_class=cls_loader.loadClass("org.trifort.rootbeer.test.RootbeerTestAgent");
+  Object agent_obj=agent_class.newInstance();
+  Method[] methods=agent_class.getMethods();
+  if (test_case == null) {
+    Method test_method=findMethodByName("test",methods);
+    test_method.invoke(agent_obj,cls_loader,run_hard_tests);
+  }
+ else {
+    Method test_method=findMethodByName("testOne",methods);
+    test_method.invoke(agent_obj,cls_loader,test_case);
+  }
+}

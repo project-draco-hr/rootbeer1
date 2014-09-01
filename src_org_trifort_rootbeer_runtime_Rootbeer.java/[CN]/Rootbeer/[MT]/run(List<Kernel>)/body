@@ -1,14 +1,23 @@
 {
+  System.out.println("run #1");
   Context context=createDefaultContext();
+  System.out.println("run #2");
   ThreadConfig thread_config=getThreadConfig(work,context.getDevice());
   try {
+    System.out.println("run #3");
     context.setThreadConfig(thread_config);
+    System.out.println("run #4");
     context.setKernel(work.get(0));
+    System.out.println("run #5");
     context.setUsingHandles(true);
+    System.out.println("run #6");
     context.buildState();
+    System.out.println("run #7");
     context.run(work);
+    System.out.println("run #8");
   }
   finally {
     context.close();
+    System.out.println("run #9");
   }
 }
