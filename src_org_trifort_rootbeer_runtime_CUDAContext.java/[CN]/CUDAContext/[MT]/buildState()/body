@@ -1,7 +1,7 @@
 {
   String filename;
   int size=0;
-  boolean error;
+  boolean error=false;
   if (is32bit) {
     filename=compiledKernel.getCubin32();
     size=compiledKernel.getCubin32Size();
@@ -10,7 +10,7 @@
  else {
     filename=compiledKernel.getCubin64();
     size=compiledKernel.getCubin64Size();
-    error=compiledKernel.getCubin32Error();
+    error=compiledKernel.getCubin64Error();
   }
   if (error) {
     throw new RuntimeException("CUDA code compiled with error");

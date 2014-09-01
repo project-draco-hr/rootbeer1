@@ -2,6 +2,23 @@
   while (!ready) {
   }
   if (ex != null) {
-    throw new RuntimeException(ex);
+    if (ex instanceof NullPointerException) {
+      throw (NullPointerException)ex;
+    }
+ else     if (ex instanceof OutOfMemoryError) {
+      throw (OutOfMemoryError)ex;
+    }
+ else     if (ex instanceof Error) {
+      throw (Error)ex;
+    }
+ else     if (ex instanceof ArrayIndexOutOfBoundsException) {
+      throw (ArrayIndexOutOfBoundsException)ex;
+    }
+ else     if (ex instanceof RuntimeException) {
+      throw (RuntimeException)ex;
+    }
+ else {
+      throw new RuntimeException(ex);
+    }
   }
 }
