@@ -16,6 +16,7 @@
   Options.v().set_rbcl_remap_prefix("org.trifort.rootbeer.runtime.remap.");
   RootbeerClassLoader.v().addEntryMethodTester(m_entryDetector);
   ListClassTester ignore_packages=new ListClassTester();
+  ignore_packages.addPackage("com.lmax.disruptor.");
   ignore_packages.addPackage("org.trifort.rootbeer.compressor.");
   ignore_packages.addPackage("org.trifort.rootbeer.deadmethods.");
   ignore_packages.addPackage("org.trifort.rootbeer.compiler.");

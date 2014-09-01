@@ -1,0 +1,33 @@
+{
+  readBlocksStopwatch.start();
+  objectMemory.setAddress(0);
+  exceptionsMemory.setAddress(0);
+  if (Configuration.runtimeInstance().getExceptions()) {
+    for (long i=0; i < threadConfig.getNumThreads(); ++i) {
+      long ref=exceptionsMemory.readRef();
+      if (ref != 0) {
+        long ref_num=ref >> 4;
+        if (ref_num == compiledKernel.getNullPointerNumber()) {
+          throw new NullPointerException();
+        }
+ else         if (ref_num == compiledKernel.getOutOfMemoryNumber()) {
+          throw new OutOfMemoryError();
+        }
+        objectMemory.setAddress(ref);
+        Object except=serializer.readFromHeap(null,true,ref);
+        if (except instanceof Error) {
+          Error except_th=(Error)except;
+          throw except_th;
+        }
+ else         if (except instanceof GpuException) {
+          GpuException gpu_except=(GpuException)except;
+          throw new ArrayIndexOutOfBoundsException("array_index: " + gpu_except.m_arrayIndex + " array_length: "+ gpu_except.m_arrayLength+ " array: "+ gpu_except.m_array);
+        }
+ else {
+          throw new RuntimeException((Throwable)except);
+        }
+      }
+    }
+  }
+  serializer.readStaticsFromHeap();
+}

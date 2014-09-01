@@ -8,7 +8,12 @@
     ThreadConfig thread_config=creator.getThreadConfig();
     Stopwatch watch=new Stopwatch();
     watch.start();
-    if (true)     throw new RuntimeException("todo fix this");
+    Context context=rootbeer.createDefaultContext();
+    context.setKernel(testing_item);
+    context.setThreadConfig(thread_config);
+    context.buildState();
+    context.run();
+    context.close();
     m_passed=true;
     watch.stop();
     m_gpuTime=watch.elapsedTimeMillis();

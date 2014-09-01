@@ -9,7 +9,9 @@
   String arch=System.getProperty("os.arch");
   is32bit=arch.equals("x86") || arch.equals("i386");
   usingUncheckedMemory=true;
+  usingHandles=false;
   nativeContext=allocateNativeContext();
+  cacheConfig=CacheConfig.PREFER_NONE;
   stats=new StatsRow();
   writeBlocksStopwatch=new Stopwatch();
   runStopwatch=new Stopwatch();

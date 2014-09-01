@@ -1,4 +1,5 @@
 {
+  m_runtimePackages.add("com.lmax.disruptor.");
   m_runtimePackages.add("org.trifort.rootbeer.compiler.");
   m_runtimePackages.add("org.trifort.rootbeer.configuration.");
   m_runtimePackages.add("org.trifort.rootbeer.entry.");

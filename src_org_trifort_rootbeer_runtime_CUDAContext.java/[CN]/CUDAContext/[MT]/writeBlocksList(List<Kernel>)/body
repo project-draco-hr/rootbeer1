@@ -1,11 +1,12 @@
 {
   writeBlocksStopwatch.start();
   objectMemory.clearHeapEndPtr();
-  handlesMemory.setAddress(0);
   Serializer serializer=compiledKernel.getSerializer(objectMemory,textureMemory);
   serializer.writeStaticsToHeap();
-  long handle=serializer.writeToHeap(compiledKernel);
-  handlesMemory.writeRef(handle);
+  for (  Kernel kernel : work) {
+    long handle=serializer.writeToHeap(kernel);
+    handlesMemory.writeRef(handle);
+  }
   objectMemory.align16();
   if (Configuration.getPrintMem()) {
     BufferPrinter printer=new BufferPrinter();

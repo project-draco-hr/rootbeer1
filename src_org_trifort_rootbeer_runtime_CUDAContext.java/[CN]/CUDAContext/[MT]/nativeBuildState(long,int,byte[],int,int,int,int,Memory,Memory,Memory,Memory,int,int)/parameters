@@ -6,6 +6,7 @@ int blockShapeX
 int gridShapeX
 int numThreads
 Memory objectMem
+Memory handlesMem
 Memory exceptionsMem
 Memory classMem
 int usingExceptions

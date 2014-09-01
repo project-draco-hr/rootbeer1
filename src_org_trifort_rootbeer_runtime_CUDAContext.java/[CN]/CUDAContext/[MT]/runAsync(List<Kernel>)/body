@@ -1,0 +1,9 @@
+{
+  long seq=ringBuffer.next();
+  GpuEvent gpuEvent=ringBuffer.get(seq);
+  gpuEvent.setKernelList(work);
+  gpuEvent.setValue(GpuEventCommand.NATIVE_RUN_LIST);
+  gpuEvent.getFuture().reset();
+  ringBuffer.publish(seq);
+  return gpuEvent.getFuture();
+}

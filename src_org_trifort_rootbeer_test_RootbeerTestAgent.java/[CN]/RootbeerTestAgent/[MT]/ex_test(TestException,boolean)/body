@@ -3,7 +3,7 @@
   Configuration.setPrintMem(print_mem);
   List<Kernel> testing_items=creator.create();
   try {
-    if (true)     throw new RuntimeException("todo fix this");
+    rootbeer.run(testing_items);
     m_passed=false;
     m_message="No exception thrown when expecting one.";
   }

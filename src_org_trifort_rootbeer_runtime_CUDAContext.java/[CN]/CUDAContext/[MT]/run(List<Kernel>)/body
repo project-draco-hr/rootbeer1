@@ -1,0 +1,4 @@
+{
+  GpuFuture future=runAsync(work);
+  future.take();
+}

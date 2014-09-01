@@ -7,7 +7,7 @@
     List<Kernel> testing_items=creator.create();
     Stopwatch watch=new Stopwatch();
     watch.start();
-    if (true)     throw new RuntimeException("todo fix this");
+    rootbeer.run(testing_items);
     m_passed=true;
     watch.stop();
     m_gpuTime=watch.elapsedTimeMillis();

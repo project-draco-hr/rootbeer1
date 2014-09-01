@@ -2,8 +2,10 @@
   Serializer serializer=compiledKernel.getSerializer(objectMemory,textureMemory);
   readBlocksSetup(serializer);
   handlesMemory.setAddress(0);
-  long handle=handlesMemory.readRef();
-  serializer.readFromHeap(compiledKernel,true,handle);
+  for (  Kernel kernel : kernelList) {
+    long ref=handlesMemory.readRef();
+    serializer.readFromHeap(kernel,true,ref);
+  }
   if (Configuration.getPrintMem()) {
     BufferPrinter printer=new BufferPrinter();
     printer.print(objectMemory,0,256);
