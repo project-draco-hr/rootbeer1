@@ -1,0 +1,8 @@
+{
+  this.intArray=intArray;
+  this.longArray=longArray;
+  this.floatArray=floatArray;
+  this.intArray2=intArray2;
+  this.longArray2=longArray2;
+  this.floatArray2=floatArray2;
+}

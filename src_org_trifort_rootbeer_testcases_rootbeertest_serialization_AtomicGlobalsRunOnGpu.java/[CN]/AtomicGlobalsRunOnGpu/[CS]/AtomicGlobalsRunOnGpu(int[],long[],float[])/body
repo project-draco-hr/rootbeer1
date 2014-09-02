@@ -1,5 +1,0 @@
-{
-  this.intArray=intArray;
-  this.longArray=longArray;
-  this.floatArray=floatArray;
-}
