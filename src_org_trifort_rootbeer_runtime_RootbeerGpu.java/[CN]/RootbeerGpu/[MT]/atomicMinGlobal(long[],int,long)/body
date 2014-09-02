@@ -1,9 +1,0 @@
-{
-synchronized (array) {
-    long old=array[index];
-    if (value < old) {
-      array[index]=value;
-    }
-    return old;
-  }
-}

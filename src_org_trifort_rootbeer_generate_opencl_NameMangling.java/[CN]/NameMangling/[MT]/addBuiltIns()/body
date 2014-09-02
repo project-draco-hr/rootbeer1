@@ -10,4 +10,12 @@
   addBuiltIn("double");
   addBuiltIn("java.lang.String");
   addBuiltIn("java.lang.StringBuilder");
+  addBuiltIn("boolean[]");
+  addBuiltIn("byte[]");
+  addBuiltIn("char[]");
+  addBuiltIn("short[]");
+  addBuiltIn("int[]");
+  addBuiltIn("long[]");
+  addBuiltIn("float[]");
+  addBuiltIn("double[]");
 }
