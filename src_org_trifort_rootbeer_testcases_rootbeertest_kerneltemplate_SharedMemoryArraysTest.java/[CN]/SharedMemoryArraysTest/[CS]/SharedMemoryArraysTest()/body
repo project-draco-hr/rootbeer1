@@ -1,0 +1,4 @@
+{
+  threadSize=32;
+  blockSize=2;
+}

@@ -1,0 +1,3 @@
+{
+  return new ThreadConfig(threadSize,blockSize,threadSize * blockSize);
+}

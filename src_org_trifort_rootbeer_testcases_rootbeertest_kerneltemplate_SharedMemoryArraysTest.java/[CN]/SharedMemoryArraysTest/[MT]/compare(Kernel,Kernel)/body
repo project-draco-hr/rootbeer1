@@ -1,0 +1,5 @@
+{
+  SharedMemoryArraysRunOnGpu lhs=(SharedMemoryArraysRunOnGpu)original;
+  SharedMemoryArraysRunOnGpu rhs=(SharedMemoryArraysRunOnGpu)from_heap;
+  return lhs.compare(rhs);
+}

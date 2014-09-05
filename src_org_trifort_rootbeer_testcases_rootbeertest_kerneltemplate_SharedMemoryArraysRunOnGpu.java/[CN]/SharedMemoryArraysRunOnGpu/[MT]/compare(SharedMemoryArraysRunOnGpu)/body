@@ -1,0 +1,21 @@
+{
+  for (int i=0; i < outputArray.length; ++i) {
+    int[][] innerArray1a=outputArray[i];
+    int[][] innerArray1b=rhs.outputArray[i];
+    for (int j=0; j < innerArray1a.length; ++j) {
+      int[] innerArray2a=innerArray1a[j];
+      int[] innerArray2b=innerArray1b[j];
+      for (int k=0; k < innerArray2a.length; ++k) {
+        int value1=innerArray2a[k];
+        int value2=innerArray2b[k];
+        if (value1 != value2) {
+          System.out.println("i: " + i + " j: "+ j+ " k: "+ k);
+          System.out.println("value1: " + value1);
+          System.out.println("value2: " + value2);
+          return false;
+        }
+      }
+    }
+  }
+  return true;
+}

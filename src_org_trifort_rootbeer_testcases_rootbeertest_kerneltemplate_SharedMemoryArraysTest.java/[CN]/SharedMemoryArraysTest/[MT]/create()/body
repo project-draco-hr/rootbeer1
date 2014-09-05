@@ -1,0 +1,13 @@
+{
+  int subArraySize=255;
+  int[][][] inputArray=new int[blockSize][threadSize][subArraySize];
+  for (int i=0; i < blockSize; ++i) {
+    for (int j=0; j < threadSize; ++j) {
+      for (int k=0; k < subArraySize; ++k) {
+        inputArray[i][j][k]=k;
+      }
+    }
+  }
+  int[][][] outputArray=new int[blockSize][threadSize][subArraySize];
+  return new SharedMemoryArraysRunOnGpu(inputArray,outputArray,subArraySize);
+}

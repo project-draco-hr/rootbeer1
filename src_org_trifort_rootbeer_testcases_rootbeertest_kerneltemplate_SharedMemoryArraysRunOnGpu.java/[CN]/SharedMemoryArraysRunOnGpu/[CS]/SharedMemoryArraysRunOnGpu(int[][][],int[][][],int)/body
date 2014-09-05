@@ -1,0 +1,5 @@
+{
+  this.inputArray=inputArray;
+  this.outputArray=outputArray;
+  this.subArrayLength=subArrayLength;
+}
