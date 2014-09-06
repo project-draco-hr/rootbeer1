@@ -10,7 +10,7 @@
   long ret=m_heapEnd;
   m_heapEnd+=size;
   if (ret + size > m_size) {
-    throw new OutOfMemoryError();
+    throw new OutOfMemoryError("currentHeapEnd: " + ret + " allocationSize: "+ size+ " memorySize: "+ m_size);
   }
   m_pointer=ret;
   return ret;

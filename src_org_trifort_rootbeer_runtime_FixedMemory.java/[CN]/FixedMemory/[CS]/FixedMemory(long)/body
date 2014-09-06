@@ -4,8 +4,8 @@
     throw new RuntimeException("cannot allocate memory of size: " + size);
   }
   m_size=size;
-  m_instancePointer=new MemPointer();
-  m_staticPointer=new MemPointer();
+  m_instancePointer=new MemPointer("instance_mem");
+  m_staticPointer=new MemPointer("static_mem");
   m_currentPointer=m_instancePointer;
   m_integerList=new ArrayList<List<Long>>();
 }
