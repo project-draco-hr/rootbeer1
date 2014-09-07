@@ -1,8 +1,0 @@
-{
-  if (m_sharedArrayMap.containsKey(index)) {
-    return (int[])m_sharedArrayMap.get(index);
-  }
- else {
-    throw new IllegalArgumentException();
-  }
-}

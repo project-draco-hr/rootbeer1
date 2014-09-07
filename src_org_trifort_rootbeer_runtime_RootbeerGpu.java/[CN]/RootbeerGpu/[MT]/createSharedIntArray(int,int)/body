@@ -1,5 +1,0 @@
-{
-  int[] ret=new int[length];
-  m_sharedArrayMap.put(index,ret);
-  return ret;
-}
