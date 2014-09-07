@@ -3,6 +3,4 @@
   int threadIdxx=RootbeerGpu.getThreadIdxx();
   int[] localInputArray=inputArray[blockIdxx][threadIdxx];
   int[] localOutputArray=outputArray[blockIdxx][threadIdxx];
-  RootbeerGpu.createSharedIntArray(threadIdxx,subArrayLength);
-  RootbeerGpu.syncthreads();
 }
