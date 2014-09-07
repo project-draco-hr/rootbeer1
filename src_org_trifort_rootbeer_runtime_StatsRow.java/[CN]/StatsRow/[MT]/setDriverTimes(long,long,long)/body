@@ -1,0 +1,5 @@
+{
+  driverMemcopyToDeviceTime=memcopyToDevice;
+  driverExecTime=execTime;
+  driverMemcopyFromDeviceTime=memcopyFromDevice;
+}

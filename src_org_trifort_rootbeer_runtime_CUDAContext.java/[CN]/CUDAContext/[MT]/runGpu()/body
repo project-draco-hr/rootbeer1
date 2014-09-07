@@ -1,6 +1,6 @@
 {
   runOnGpuStopwatch.start();
-  cudaRun(nativeContext,objectMemory,b2i(!usingHandles));
+  cudaRun(nativeContext,objectMemory,b2i(!usingHandles),stats);
   runOnGpuStopwatch.stop();
   requiredMemorySize=objectMemory.getHeapEndPtr();
   stats.setExecutionTime(runOnGpuStopwatch.elapsedTimeMillis());
