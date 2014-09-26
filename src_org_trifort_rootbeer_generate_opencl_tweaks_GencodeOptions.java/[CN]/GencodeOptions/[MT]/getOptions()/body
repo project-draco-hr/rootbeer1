@@ -30,37 +30,59 @@
     sm_12="";
     sm_11="";
   }
-  if (version.equals("Cuda compilation tools, release 6.5, V6.5.12")) {
-    return sm_35 + sm_30 + sm_21+ sm_20+ sm_12+ sm_11;
-  }
- else   if (version.equals("Cuda compilation tools, release 6.0, V6.0.1")) {
-    return sm_35 + sm_30 + sm_21+ sm_20+ sm_12+ sm_11;
-  }
- else   if (version.equals("Cuda compilation tools, release 5.5, V5.5.0")) {
-    return sm_35 + sm_30 + sm_21+ sm_20+ sm_12+ sm_11;
-  }
- else   if (version.equals("Cuda compilation tools, release 5.0, V0.2.1221")) {
-    return sm_35 + sm_30 + sm_21+ sm_20+ sm_12+ sm_11;
-  }
- else   if (version.equals("Cuda compilation tools, release 4.2, V0.2.1221")) {
-    return sm_30 + sm_21 + sm_20+ sm_12+ sm_11;
-  }
- else   if (version.equals("Cuda compilation tools, release 4.1, V0.2.1221")) {
-    return sm_30 + sm_21 + sm_20+ sm_12+ sm_11;
-  }
- else   if (version.equals("Cuda compilation tools, release 4.0, V0.2.1221")) {
-    return sm_30 + sm_21 + sm_20+ sm_12+ sm_11;
-  }
- else   if (version.equals("Cuda compilation tools, release 3.2, V0.2.1221")) {
-    return sm_30 + sm_21 + sm_20+ sm_12+ sm_11;
-  }
- else   if (version.equals("Cuda compilation tools, release 3.1, V0.2.1221")) {
-    return sm_20 + sm_12 + sm_11;
-  }
- else   if (version.equals("Cuda compilation tools, release 3.0, V0.2.1221")) {
-    return sm_20 + sm_12 + sm_11;
-  }
+  if ((version.equals("Cuda compilation tools, release 6.5, V6.5.12")) || (version.equals("Cuda compilation tools, release 6.0, V6.0.1")) || (version.equals("Cuda compilation tools, release 5.5, V5.5.0"))|| (version.equals("Cuda compilation tools, release 5.0, V0.2.1221"))) {
+switch (Configuration.compilerInstance().getComputeCapability()) {
+case ALL:
+      return sm_35 + sm_30 + sm_21+ sm_20+ sm_12+ sm_11;
+case SM_11:
+    return sm_11;
+case SM_12:
+  return sm_12;
+case SM_20:
+return sm_20;
+case SM_21:
+return sm_21;
+case SM_30:
+return sm_30;
+case SM_35:
+return sm_35;
+default :
+return sm_35 + sm_30 + sm_21+ sm_20+ sm_12+ sm_11;
+}
+}
+ else if ((version.equals("Cuda compilation tools, release 4.2, V0.2.1221")) || (version.equals("Cuda compilation tools, release 4.1, V0.2.1221")) || (version.equals("Cuda compilation tools, release 4.0, V0.2.1221"))|| (version.equals("Cuda compilation tools, release 3.2, V0.2.1221"))) {
+switch (Configuration.compilerInstance().getComputeCapability()) {
+case ALL:
+return sm_30 + sm_21 + sm_20+ sm_12+ sm_11;
+case SM_11:
+return sm_11;
+case SM_12:
+return sm_12;
+case SM_20:
+return sm_20;
+case SM_21:
+return sm_21;
+case SM_30:
+return sm_30;
+default :
+return sm_30 + sm_21 + sm_20+ sm_12+ sm_11;
+}
+}
+ else if ((version.equals("Cuda compilation tools, release 3.1, V0.2.1221")) || (version.equals("Cuda compilation tools, release 3.0, V0.2.1221"))) {
+switch (Configuration.compilerInstance().getComputeCapability()) {
+case ALL:
+return sm_20 + sm_12 + sm_11;
+case SM_11:
+return sm_11;
+case SM_12:
+return sm_12;
+case SM_20:
+return sm_20;
+default :
+return sm_20 + sm_12 + sm_11;
+}
+}
  else {
-    throw new RuntimeException("unsupported nvcc version. version 3.0 or higher needed. arch sm_11 or higher needed.");
-  }
+throw new RuntimeException("unsupported nvcc version. version 3.0 or higher needed. arch sm_11 or higher needed.");
+}
 }
