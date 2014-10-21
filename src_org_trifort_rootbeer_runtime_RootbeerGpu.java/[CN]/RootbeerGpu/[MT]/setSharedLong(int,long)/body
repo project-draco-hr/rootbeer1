@@ -1,10 +1,10 @@
 {
-  m_sharedMem[index]=(byte)(value & 0xff);
-  m_sharedMem[index + 1]=(byte)((value >> 8) & 0xff);
-  m_sharedMem[index + 2]=(byte)((value >> 16) & 0xff);
-  m_sharedMem[index + 3]=(byte)((value >> 24) & 0xff);
-  m_sharedMem[index + 4]=(byte)((value >> 32) & 0xff);
-  m_sharedMem[index + 5]=(byte)((value >> 40) & 0xff);
-  m_sharedMem[index + 6]=(byte)((value >> 48) & 0xff);
-  m_sharedMem[index + 7]=(byte)((value >> 56) & 0xff);
+  sharedMem[index]=(byte)(value & 0xff);
+  sharedMem[index + 1]=(byte)((value >> 8) & 0xff);
+  sharedMem[index + 2]=(byte)((value >> 16) & 0xff);
+  sharedMem[index + 3]=(byte)((value >> 24) & 0xff);
+  sharedMem[index + 4]=(byte)((value >> 32) & 0xff);
+  sharedMem[index + 5]=(byte)((value >> 40) & 0xff);
+  sharedMem[index + 6]=(byte)((value >> 48) & 0xff);
+  sharedMem[index + 7]=(byte)((value >> 56) & 0xff);
 }

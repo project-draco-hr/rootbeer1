@@ -37,9 +37,17 @@
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: boolean isOnGpu()>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: int getThreadId()>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: int getThreadIdxx()>");
+  ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: int getThreadIdxy()>");
+  ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: int getThreadIdxz()>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: int getBlockIdxx()>");
+  ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: int getBlockIdxy()>");
+  ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: int getBlockIdxz()>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: int getBlockDimx()>");
+  ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: int getBlockDimy()>");
+  ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: int getBlockDimz()>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: long getGridDimx()>");
+  ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: long getGridDimy()>");
+  ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: long getGridDimz()>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: long getRef(java.lang.Object)>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: void syncthreads()>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: void threadfence()>");

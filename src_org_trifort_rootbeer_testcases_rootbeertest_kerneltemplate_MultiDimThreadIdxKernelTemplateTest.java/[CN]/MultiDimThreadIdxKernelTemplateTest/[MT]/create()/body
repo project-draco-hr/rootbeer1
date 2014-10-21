@@ -1,0 +1,4 @@
+{
+  int[] results=new int[getThreadCount()];
+  return new MultiDimThreadIdxKernelTemplateRunOnGpu(results);
+}

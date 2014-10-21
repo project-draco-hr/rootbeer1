@@ -6,5 +6,5 @@
  else {
     value_byte=0;
   }
-  m_sharedMem[index]=value_byte;
+  sharedMem[index]=value_byte;
 }

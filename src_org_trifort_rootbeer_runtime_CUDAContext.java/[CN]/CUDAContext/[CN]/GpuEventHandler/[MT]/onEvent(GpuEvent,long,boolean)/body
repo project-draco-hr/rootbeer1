@@ -3,7 +3,7 @@
 switch (gpuEvent.getValue()) {
 case NATIVE_BUILD_STATE:
       boolean usingExceptions=Configuration.runtimeInstance().getExceptions();
-    nativeBuildState(nativeContext,gpuDevice.getDeviceId(),cubinFile,cubinFile.length,threadConfig.getBlockShapeX(),threadConfig.getGridShapeX(),threadConfig.getNumThreads(),objectMemory,handlesMemory,exceptionsMemory,classMemory,b2i(usingExceptions),cacheConfig.ordinal());
+    nativeBuildState(nativeContext,gpuDevice.getDeviceId(),cubinFile,cubinFile.length,threadConfig.getThreadCountX(),threadConfig.getThreadCountY(),threadConfig.getThreadCountZ(),threadConfig.getBlockCountX(),threadConfig.getBlockCountY(),threadConfig.getNumThreads(),objectMemory,handlesMemory,exceptionsMemory,classMemory,b2i(usingExceptions),cacheConfig.ordinal());
   gpuEvent.getFuture().signal();
 break;
 case NATIVE_RUN:

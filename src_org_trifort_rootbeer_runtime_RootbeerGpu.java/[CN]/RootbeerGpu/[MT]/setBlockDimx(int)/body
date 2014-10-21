@@ -1,3 +1,3 @@
 {
-  m_blockDimx=block_dimx;
+  blockDimx=block_dimx;
 }

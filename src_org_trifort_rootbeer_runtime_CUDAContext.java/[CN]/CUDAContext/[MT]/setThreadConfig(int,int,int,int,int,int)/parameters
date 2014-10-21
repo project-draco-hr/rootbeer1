@@ -1,0 +1,6 @@
+int threadCountX
+int threadCountY
+int threadCountZ
+int blockCountX
+int blockCountY
+int numThreads

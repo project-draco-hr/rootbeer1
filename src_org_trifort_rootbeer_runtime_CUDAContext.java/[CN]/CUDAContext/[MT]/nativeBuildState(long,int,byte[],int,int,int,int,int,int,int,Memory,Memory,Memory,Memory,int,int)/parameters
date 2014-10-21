@@ -1,0 +1,16 @@
+long nativeContext
+int deviceIndex
+byte[] cubinFile
+int cubinLength
+int threadCountX
+int threadCountY
+int threadCountZ
+int blockCountX
+int blockCountY
+int numThreads
+Memory objectMem
+Memory handlesMem
+Memory exceptionsMem
+Memory classMem
+int usingExceptions
+int cacheConfig

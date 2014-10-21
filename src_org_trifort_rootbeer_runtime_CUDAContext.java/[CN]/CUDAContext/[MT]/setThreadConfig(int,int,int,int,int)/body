@@ -1,0 +1,3 @@
+{
+  setThreadConfig(threadCountX,threadCountY,1,blockCountX,blockCountY,numThreads);
+}

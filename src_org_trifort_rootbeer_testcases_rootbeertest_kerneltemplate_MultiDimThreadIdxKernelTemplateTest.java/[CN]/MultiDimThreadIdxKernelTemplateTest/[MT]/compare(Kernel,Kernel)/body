@@ -1,0 +1,4 @@
+{
+  MultiDimThreadIdxKernelTemplateRunOnGpu onGpu=(MultiDimThreadIdxKernelTemplateRunOnGpu)from_heap;
+  return onGpu.compare();
+}

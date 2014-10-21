@@ -1,3 +1,3 @@
 {
-  m_sharedMem[index]=value;
+  sharedMem[index]=value;
 }

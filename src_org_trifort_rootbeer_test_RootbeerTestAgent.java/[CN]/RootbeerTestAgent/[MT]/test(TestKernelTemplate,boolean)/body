@@ -18,16 +18,24 @@
     watch.stop();
     m_gpuTime=watch.elapsedTimeMillis();
     watch.start();
-    RootbeerGpu.setBlockDimx(thread_config.getBlockShapeX());
-    RootbeerGpu.setGridDimx(thread_config.getGridShapeX());
-    for (int block=0; block < thread_config.getGridShapeX(); ++block) {
-      for (int thread=0; thread < thread_config.getBlockShapeX(); ++thread) {
-        int thread_id=block * thread_config.getBlockShapeX() + thread;
-        if (thread_id < thread_config.getNumThreads()) {
-          RootbeerGpu.setBlockIdxx(block);
-          RootbeerGpu.setThreadIdxx(thread);
-          RootbeerGpu.setThreadId(thread_id);
-          known_good_item.gpuMethod();
+    RootbeerGpu.setBlockDimx(thread_config.getThreadCountX());
+    RootbeerGpu.setBlockDimy(thread_config.getThreadCountY());
+    RootbeerGpu.setBlockDimz(thread_config.getThreadCountZ());
+    RootbeerGpu.setGridDimx(thread_config.getBlockCountX());
+    RootbeerGpu.setGridDimy(thread_config.getBlockCountY());
+    for (int blockx=0; blockx < thread_config.getBlockCountX(); ++blockx) {
+      RootbeerGpu.setBlockIdxx(blockx);
+      for (int blocky=0; blocky < thread_config.getBlockCountY(); ++blocky) {
+        RootbeerGpu.setBlockIdxy(blocky);
+        for (int threadx=0; threadx < thread_config.getThreadCountX(); ++threadx) {
+          RootbeerGpu.setThreadIdxx(threadx);
+          for (int thready=0; thready < thread_config.getThreadCountY(); ++thready) {
+            RootbeerGpu.setThreadIdxy(thready);
+            for (int threadz=0; threadz < thread_config.getThreadCountZ(); ++threadz) {
+              RootbeerGpu.setThreadIdxz(threadz);
+              known_good_item.gpuMethod();
+            }
+          }
         }
       }
     }

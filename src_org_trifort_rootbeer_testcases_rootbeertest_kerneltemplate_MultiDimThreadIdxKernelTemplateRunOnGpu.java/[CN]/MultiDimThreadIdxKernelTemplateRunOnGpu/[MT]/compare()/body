@@ -1,0 +1,10 @@
+{
+  boolean pass=true;
+  for (int i=0; i < results.length; ++i) {
+    if (results[i] != i) {
+      System.out.println("fail index: " + i);
+      pass=false;
+    }
+  }
+  return pass;
+}

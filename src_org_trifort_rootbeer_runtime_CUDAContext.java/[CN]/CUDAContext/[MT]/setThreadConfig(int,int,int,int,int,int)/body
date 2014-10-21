@@ -1,0 +1,3 @@
+{
+  this.threadConfig=new ThreadConfig(threadCountX,threadCountY,threadCountZ,blockCountX,blockCountY,numThreads);
+}

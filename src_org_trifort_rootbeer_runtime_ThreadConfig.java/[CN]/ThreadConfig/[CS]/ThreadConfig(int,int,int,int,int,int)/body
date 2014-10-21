@@ -1,0 +1,8 @@
+{
+  this.threadCountX=threadCountX;
+  this.threadCountY=threadCountY;
+  this.threadCountZ=threadCountZ;
+  this.blockCountX=blockCountX;
+  this.blockCountY=blockCountY;
+  this.numThreads=numThreads;
+}

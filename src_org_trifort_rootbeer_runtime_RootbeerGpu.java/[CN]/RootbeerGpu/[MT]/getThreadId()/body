@@ -1,3 +1,5 @@
 {
-  return m_threadId;
+  int blockSize=blockDimx * blockDimy * blockDimz;
+  int ret=(blockIdxx * (int)gridDimy * blockSize) + (blockIdxy * blockSize) + (threadIdxx * blockDimy * blockDimz)+ (threadIdxy * blockDimz)+ (threadIdxz);
+  return ret;
 }
