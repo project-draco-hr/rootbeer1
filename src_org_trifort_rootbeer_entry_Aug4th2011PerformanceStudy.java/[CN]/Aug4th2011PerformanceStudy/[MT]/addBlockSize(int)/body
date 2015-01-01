@@ -1,7 +1,0 @@
-{
-  m_NumBlocks.add(size);
-  int total=1000000;
-  int count=total / size;
-  if (total % size != 0)   count++;
-  m_Count.add(count);
-}

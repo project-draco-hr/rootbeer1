@@ -1,6 +1,0 @@
-{
-  System.out.println("NumBlocks,Count,GpuTime,WriteTime");
-  for (int i=0; i < m_NumBlocks.size(); ++i) {
-    System.out.println(m_NumBlocks.get(i) + "," + m_Count.get(i)+ ","+ m_GpuRunTime.get(i)+ ","+ m_WriteTime.get(i));
-  }
-}

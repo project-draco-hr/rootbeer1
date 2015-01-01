@@ -1,6 +1,0 @@
-{
-  if (m_CurrentIndex == m_BufferList.size()) {
-    printResultsBufferSize();
-    System.exit(0);
-  }
-}

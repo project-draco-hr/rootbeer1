@@ -1,6 +1,0 @@
-{
-  System.out.println("BufferSize,ReadTime,WriteTime");
-  for (int i=0; i < m_BufferList.size(); ++i) {
-    System.out.println(m_BufferList.get(i) + "," + m_ReadTime.get(i)+ ","+ m_WriteTime.get(i));
-  }
-}

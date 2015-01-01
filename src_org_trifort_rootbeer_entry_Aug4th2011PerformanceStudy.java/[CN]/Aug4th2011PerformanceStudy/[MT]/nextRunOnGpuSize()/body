@@ -1,6 +1,0 @@
-{
-  if (m_CurrentIndex == m_NumBlocks.size()) {
-    printResultsNumBlocks();
-    System.exit(0);
-  }
-}

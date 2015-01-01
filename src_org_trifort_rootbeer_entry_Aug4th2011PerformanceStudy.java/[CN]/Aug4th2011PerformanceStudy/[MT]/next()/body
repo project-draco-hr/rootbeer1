@@ -1,5 +1,0 @@
-{
-  System.out.println("Just covered: " + m_NumBlocks.get(m_CurrentIndex));
-  m_CurrentIndex++;
-  nextRunOnGpuSize();
-}
