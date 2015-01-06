@@ -71,6 +71,7 @@
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: void atomicAddGlobal(int[],int,int)>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: void atomicAddGlobal(long[],int,long)>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: void atomicAddGlobal(float[],int,float)>");
+  ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: void atomicAddGlobal(double[],int,double)>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: void atomicSubGlobal(int[],int,int)>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: int atomicExchGlobal(int[],int,int)>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: long atomicExchGlobal(long[],int,long)>");
