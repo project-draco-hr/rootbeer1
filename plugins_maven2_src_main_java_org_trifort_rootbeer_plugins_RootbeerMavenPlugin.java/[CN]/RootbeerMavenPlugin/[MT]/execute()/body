@@ -1,0 +1,6 @@
+{
+  MavenProject project=(MavenProject)getPluginContext().get("project");
+  Build build=project.getBuild();
+  String outputDirectory=build.getOutputDirectory();
+  getLog().info("Hello World: " + outputDirectory);
+}
