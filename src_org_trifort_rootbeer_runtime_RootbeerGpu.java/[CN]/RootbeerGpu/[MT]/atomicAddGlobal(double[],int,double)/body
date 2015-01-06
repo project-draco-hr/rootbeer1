@@ -1,5 +1,7 @@
 {
 synchronized (array) {
+    double ret=array[index];
     array[index]+=addValue;
+    return ret;
   }
 }

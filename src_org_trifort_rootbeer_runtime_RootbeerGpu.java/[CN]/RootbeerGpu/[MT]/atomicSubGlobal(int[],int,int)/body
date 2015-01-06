@@ -1,5 +1,7 @@
 {
 synchronized (array) {
+    int ret=array[index];
     array[index]-=subValue;
+    return ret;
   }
 }
