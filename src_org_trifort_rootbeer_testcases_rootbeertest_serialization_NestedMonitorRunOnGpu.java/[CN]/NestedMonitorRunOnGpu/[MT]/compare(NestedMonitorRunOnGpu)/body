@@ -1,3 +1,9 @@
 {
-  return false;
+  if (m_value != rhs.m_value) {
+    System.out.println("m_value");
+    System.out.println("lhs: " + m_value);
+    System.out.println("rhs: " + rhs.m_value);
+    return false;
+  }
+  return true;
 }
