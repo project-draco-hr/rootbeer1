@@ -30,7 +30,7 @@
     sm_12="";
     sm_11="";
   }
-  if (versionMatches(version,"6.5") || versionMatches(version,"6.0") || versionMatches(version,"5.5")|| versionMatches(version,"5.0")) {
+  if (versionMatches(version,"7.0") || versionMatches(version,"6.5") || versionMatches(version,"6.0")|| versionMatches(version,"5.5")|| versionMatches(version,"5.0")) {
 switch (Configuration.compilerInstance().getComputeCapability()) {
 case ALL:
       return sm_35 + sm_30 + sm_21+ sm_20+ sm_12+ sm_11;
