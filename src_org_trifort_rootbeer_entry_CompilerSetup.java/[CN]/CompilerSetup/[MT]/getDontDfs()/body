@@ -46,6 +46,7 @@
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: long getGridDimz()>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: long getRef(java.lang.Object)>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: void syncthreads()>");
+  ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: int syncthreadsCount(int)>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: void threadfence()>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: void threadfenceBlock()>");
   ret.add("<org.trifort.rootbeer.runtime.RootbeerGpu: void threadfenceSystem()>");
